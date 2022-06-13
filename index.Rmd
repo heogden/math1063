@@ -1,0 +1,12 @@
+---
+title: "MATH1024: Introduction to Probability and Statistics"
+author: "Helen Ogden, based on original notes by Sujit Sahu"
+site: "bookdown::bookdown_site"
+output:
+  bookdown::gitbook: default
+---
+
+# Preface {-}
+
+These notes are based on original lecture notes
+by Professor Sujit Sahu.

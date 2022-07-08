@@ -3398,13 +3398,13 @@ of the data. If a is that representative value then how much error is associated
 - The total error could be the sum of squares of the deviations
 from a, SSE =
 P
-or the sum of the absolute deviations from a, SSA = ni=1 |xi − a|.
+or the sum of the absolute deviations from a, SSA = ni=1 |xi - a|.
 
 Pn
 
 i=1 (xi
 
-− a)2
+- a)2
 
 - What value of a will minimise the SSE or the SSA? For SSE the answer is the sample mean
 and for SSA the answer is the sample median.
@@ -3414,7 +3414,7 @@ n
 
 1
 1X
-x̄ = (x1 + x2 + · · · + xn ) =
+\bar x = (x1 + x2 + · · · + xn ) =
 xi .
 n
 n
@@ -3443,30 +3443,30 @@ i=1 (xi
 
 P
 2 {Add and subtract x}
-− a)2 = Pni=1 (x
-i − x̄ + x̄ − a)
+- a)2 = Pni=1 (x
+i - \bar x + \bar x - a)
 
 a)2
-= Pni=1 (xi − x̄)2 + 2(xi − x̄)(x̄
-Pn − a) + (x̄ −P
+= Pni=1 (xi - \bar x)2 + 2(xi - \bar x)(\bar x
+Pn - a) + (\bar x -P
 n
 2
-= Pi=1 (xi − x̄) + 2(x̄ − a) i=1 (xi − x̄) + ni=1 (x̄ − a)2
+= Pi=1 (xi - \bar x) + 2(\bar x - a) i=1 (xi - \bar x) + ni=1 (\bar x - a)2
 n
 2
 2
 =
-i=1 (xi − x̄) + n(x̄ − a) ,
+i=1 (xi - \bar x) + n(\bar x - a) ,
 
-− x̄) = nx − nx = 0.
+- \bar x) = nx - nx = 0.
 
 – Now note that: the first term is free of a; the second term is non-negative for any value
-of a. Hence the minimum occurs when the second term is zero, i.e. when a = x̄.
+of a. Hence the minimum occurs when the second term is zero, i.e. when a = \bar x.
 – This establishes the fact that
 the sum of (or mean) squares of the deviations from any number a is
 minimised when a is the mean.
 P
-– In the proof we also noted that ni=1 (xi − x̄) = 0. This is stated as:
+– In the proof we also noted that ni=1 (xi - \bar x) = 0. This is stated as:
 the sum of the deviations of a set of numbers from
 their mean is zero.
 – In statistics and in this module, you will come across these two facts again and again!
@@ -3476,7 +3476,7 @@ The sample median minimises the SSA
 - Here the derivative approach does not work since the derivative does not exist for the absolute
 function.
 - Instead we use the following argument. First, order the observations:
-x(1) ≤ x(2) ≤ · · · ≤ x(n) .
+x(1) \leq x(2) \leq · · · \leq x(n) .
 For the AM service time data: 38 < 43 < 52 < 59 < 63 < 64 < 77 < 86 < 100 < 107.
 - Now note that:
 SSA =
@@ -3485,18 +3485,18 @@ n
 X
 i=1
 
-|xi − a| =
+|xi - a| =
 
 n
 X
 
-|x(i) − a| = |x(1) − a| + |x(n) − a| + |x(2) − a| + |x(n−1) − a| + · · ·
+|x(i) - a| = |x(1) - a| + |x(n) - a| + |x(2) - a| + |x(n-1) - a| + · · ·
 
 i=1
 
-- Easy to argue that |x(1) − a| + |x(n) − a| is minimised when a is such that x(1) ≤ a ≤ x(n) .
-- Easy to argue that |x(2) − a| + |x(n−1) − a| is minimised when a is such that x(2) ≤ a ≤ x(n−1) .
-- Finally, when n is odd, the last term |x( n+1 ) − a| is minimised when a = x( n+1 ) or the middle
+- Easy to argue that |x(1) - a| + |x(n) - a| is minimised when a is such that x(1) \leq a \leq x(n) .
+- Easy to argue that |x(2) - a| + |x(n-1) - a| is minimised when a is such that x(2) \leq a \leq x(n-1) .
+- Finally, when n is odd, the last term |x( n+1 ) - a| is minimised when a = x( n+1 ) or the middle
 2
 2
 value in the ordered list.
@@ -3505,7 +3505,7 @@ value in the ordered list.
 
 15
 
-- If however, n is even, the last pair of terms will be |x( n2 ) − a| + |x( n2 +1) − a|. This will be
+- If however, n is even, the last pair of terms will be |x( n2 ) - a| + |x( n2 +1) - a|. This will be
 minimised when a is any value between x( n2 ) and x( n2 +1) . For convenience, we often take the
 mean of these as the middle value.
 - Hence the middle value, popularly known as the median, minimises the SSA. Hence the
@@ -3529,12 +3529,12 @@ the AM service times, suppose the next observation is 190. The median will be 64
 but the mean will shoot up to 79.9.
 Measures of spread
 - A quick measure of the spread is the range, which is defined as the difference between the
-maximum and minimum observations. For the AM service times the range is 69 (107 − 38)
+maximum and minimum observations. For the AM service times the range is 69 (107 - 38)
 seconds.
 1 Pn
 2
-- Standard deviation: square root of variance = n−1
-i=1 (xi − x̄) .
+- Standard deviation: square root of variance = n-1
+i=1 (xi - \bar x) .
 n
 n
 n
@@ -3548,10 +3548,10 @@ X
 2
 2
 2
-(xi − x̄) =
-xi − 2xi x̄ + x̄ =
-xi − 2x̄(nx̄) + nx̄ =
-x2i − nx̄2 .
+(xi - \bar x) =
+xi - 2xi \bar x + \bar x =
+xi - 2\bar x(n\bar x) + n\bar x =
+x2i - n\bar x2 .
 i=1
 
 i=1
@@ -3563,7 +3563,7 @@ i=1
 Hence we calculate variance by the formula:
 1
 Var(x) = s =
-n−1
+n-1
 2
 
 n
@@ -3572,7 +3572,7 @@ X
 !
 x2i
 
-− nx̄
+- n\bar x
 
 2
 
@@ -3580,7 +3580,7 @@ x2i
 
 i=1
 
-- Sometimes the variance is defined with the divisor n instead of n − 1. We have chosen n − 1
+- Sometimes the variance is defined with the divisor n instead of n - 1. We have chosen n - 1
 since this is the default in R. We will return to this in Chapter 4.
 
 1 Introduction to Statistics
@@ -3592,7 +3592,7 @@ same unit as the observations.
 - The interquartile range (IQR) is the difference between the third, Q3 and first, Q1 quartiles,
 which are respectively the observations ranked 41 (3n + 1) and 14 (n + 3) in the ordered list.
 Note that the median is the second quartile, Q2 . When n is even, definitions of Q3 and Q1
-are similar to that of the median, Q2 . The IQR for the AM service times is 83.75 − 53.75 = 30
+are similar to that of the median, Q2 . The IQR for the AM service times is 83.75 - 53.75 = 30
 seconds.
 
 1.2.4
@@ -3883,7 +3883,7 @@ summaries.
 - To calculate variance, try var(ffood$AM). What does the command var(c(ffood$AM, ffoood$PM)
 give?
 - Obtain a frequency distribution of region in bill by issuing: table(bill$region).
-- Variance and standard deviation (both with divisor n − 1) are obtained by using commands
+- Variance and standard deviation (both with divisor n - 1) are obtained by using commands
 like var(cfail) and sd(cfail).
 
 1.3.8
@@ -4090,14 +4090,14 @@ Axioms of probability
 
 Here are the three axioms of probability:
 A1 P {S} = 1,
-A2 0 ≤ P {A} ≤ 1 for any event A,
+A2 0 \leq P {A} \leq 1 for any event A,
 A3 P {A ∪ B} = P {A} + P {B} provided that A and B are mutually exclusive events.
 Here are some of the consequences of the axioms of probability:
-(1) For any event A, P {A} = 1 − P {A0 }.
-(2) From (1) and Axiom A1, P {∅} = 1 − P {S} = 0. Hence if A and B are mutually exclusive
+(1) For any event A, P {A} = 1 - P {A0 }.
+(2) From (1) and Axiom A1, P {∅} = 1 - P {S} = 0. Hence if A and B are mutually exclusive
 events, then P {A ∩ B} = 0.
-(3) If D is a subset of E, D ⊂ E, then P {E ∩ D0 } = P {E} − P {D} which implies for arbitrary
-events A and B, P {A ∩ B 0 } = P {A} − P {A ∩ B}.
+(3) If D is a subset of E, D ⊂ E, then P {E ∩ D0 } = P {E} - P {D} which implies for arbitrary
+events A and B, P {A ∩ B 0 } = P {A} - P {A ∩ B}.
 (4) It can be shown by mathematical induction that Axiom A3 holds for more than two mutually
 exclusive events:
 P {A1 ∪ A2 ∪ · · · ∪ Ak } = P {A1 } + P {A2 } + . . . + P {Ak }
@@ -4106,12 +4106,12 @@ Hence, the probability of an event A is the sum of the probabilities of the indi
 that make up the event.
 (5) For the union of two arbitrary events, we have the General addition rule: For any two events
 A and B,
-P {A ∪ B} = P {A} + P {B} − P {A ∩ B}.
+P {A ∪ B} = P {A} + P {B} - P {A ∩ B}.
 Proof: We can write A ∪ B = (A ∩ B 0 ) ∪ (A ∩ B) ∪ (A0 ∩ B). All three of these are mutually
 exclusive events. Hence,
 P {A ∪ B} = P {A ∩ B 0 } + P {A ∩ B} + P {A0 ∩ B}
-= P {A} − P {A ∩ B} + P {A ∩ B} + P {B} − P {A ∩ B}
-= P {A} + P {B} − P {A ∩ B}.
+= P {A} - P {A ∩ B} + P {A ∩ B} + P {B} - P {A ∩ B}
+= P {A} + P {B} - P {A ∩ B}.
 (6) The sum of the probabilities of all the outcomes in the sample space S is 1.
 
 2 Introduction to Probability
@@ -4188,23 +4188,23 @@ k
 
 The task is to select k(≥ 1) from the n (n ≥ k) available people and sit the k selected people in k
 (different) chairs. By considering the i-th sub-task as selecting a person to sit in the i-th chair (i =
-1, . . . , k), it follows directly from the multiplication rule above that there are n(n−1) · · · (n−[k −1])
-ways to complete the task. The number n(n−1) · · · (n−[k−1]) is called the number of permutations
+1, . . . , k), it follows directly from the multiplication rule above that there are n(n-1) · · · (n-[k -1])
+ways to complete the task. The number n(n-1) · · · (n-[k-1]) is called the number of permutations
 of k from n and denoted by
 n
-Pk = n(n − 1) · · · (n − [k − 1]).
-In particular, when k = n we have n Pn = n(n − 1) · · · 1, which is called 'n factorial' and denoted
+Pk = n(n - 1) · · · (n - [k - 1]).
+In particular, when k = n we have n Pn = n(n - 1) · · · 1, which is called 'n factorial' and denoted
 as n!. Note that 0! is defined to be 1. It is clear that
 n
 
-Pk = n(n − 1) · · · (n − [k − 1]) =
+Pk = n(n - 1) · · · (n - [k - 1]) =
 
-n(n − 1) · · · (n − [k − 1]) × (n − k)!
+n(n - 1) · · · (n - [k - 1]) × (n - k)!
 n!
 =
 .
-(n − k)!
-(n − k)!
+(n - k)!
+(n - k)!
 
 ♥ Example 8 Football How many possible rankings are there for the 20 football teams in
 the premier league at the end of a season? This number is given by 20 P20 = 20!, which is a huge
@@ -4252,7 +4252,7 @@ k!
 =
 
 n!
-(n − k)!k!
+(n - k)!k!
 
 2 Introduction to Probability
 
@@ -4298,7 +4298,7 @@ Example 10 is one particular case of the following general urn problem which can
 same technique.
 A sample of size n is drawn at random without replacement from a box of N items containing
 a proportion p of defective items.
-- How many defective items are in the box? N p. How many good items are there? N (1 − p).
+- How many defective items are in the box? N p. How many good items are there? N (1 - p).
 Assume these to be integers.
 
 2 Introduction to Probability
@@ -4310,10 +4310,10 @@ N pC
 
 x
 
-N (1−p) C
+N (1-p) C
 NC
 
-n−x
+n-x
 
 n
 
@@ -4364,7 +4364,7 @@ selection process. What is the probability of winning the jackpot?
 Total number of possible selections of six balls/numbers is given by 49 C6 .
 There is only 1 selection for winning the jackpot. Hence
 1
-= 7.15 × 10−8 .
+= 7.15 × 10-8 .
 P {jackpot} = 49
 C6
 which is roughly 1 in 13.98 million.
@@ -4391,7 +4391,7 @@ P {3 matches} =
 49 C
 6
 
-= 1.84 × 10−5 .
+= 1.84 × 10-5 .
 = 0.0009686197
 = 0.0176504
 
@@ -4406,7 +4406,7 @@ P {5 matches + bonus} =
 6
 49 C
 
-= 4.29 × 10−7 .
+= 4.29 × 10-7 .
 6
 
 Adding all these probabilities of winning some kind of prize together gives
@@ -4512,7 +4512,7 @@ Hence the multiplication rule of conditional probability for two events is:
 
 P {A ∩ B} = P {B}P {A|B} = P {A}P {B|A}.
 It is straightforward to show by mathematical induction the following multiplication rule of conditional probability for k(≥ 2) events A1 , A2 , . . . , Ak :
-P {A1 ∩ A2 ∩ . . . ∩ Ak } = P {A1 }P {A2 |A1 }P {A3 |A1 ∩ A2 } . . . P {Ak |A1 ∩ A2 ∩ . . . ∩ Ak−1 }.
+P {A1 ∩ A2 ∩ . . . ∩ Ak } = P {A1 }P {A2 |A1 }P {A3 |A1 ∩ A2 } . . . P {Ak |A1 ∩ A2 ∩ . . . ∩ Ak-1 }.
 ♥ Example 16 Selecting a committee continued Return to the committee selection example
 (Example 12), where there are 4 boys (B) and 6 girls (G). We want to select a 2-person committee.
 Find:
@@ -4571,7 +4571,7 @@ formula.
 34
 
 Let B1 , B2 , . . . , Bk be a set of mutually exclusive, i.e.
-Bi ∩ Bj = ∅ for all 1 ≤ i 6= j ≤ k,
+Bi ∩ Bj = ∅ for all 1 \leq i 6= j \leq k,
 
 and exhaustive events, i.e.:
 B1 ∪ B2 ∪ . . . ∪ Bk = S.
@@ -4703,11 +4703,11 @@ use of independence – Sally Clark Case” on Blackboard.
 Independence of complementary events: If A and B are independent, so are A0 and B 0 .
 Proof: Given that P {A ∩ B} = P {A}P {B}, we need to show that P {A0 ∩ B 0 } = P {A0 }P {B 0 }.
 This follows from
-P {A0 ∩ B 0 } = 1 − P {A ∪ B}
-= 1 − [P {A} + P {B} − P {A ∩ B}]
-= 1 − [P {A} + P {B} − P {A}P {B}]
-= [1 − P {A}] − P {B}[1 − P {A}]
-= [1 − P {A}][1 − P {B}] = P {A0 }P {B 0 }
+P {A0 ∩ B 0 } = 1 - P {A ∪ B}
+= 1 - [P {A} + P {B} - P {A ∩ B}]
+= 1 - [P {A} + P {B} - P {A}P {B}]
+= [1 - P {A}] - P {B}[1 - P {A}]
+= [1 - P {A}][1 - P {B}] = P {A0 }P {B 0 }
 
 The ideas of conditional probability and independence can be extended to more than two events.
 Definition Three events A, B and C are defined to be independent if
@@ -4749,7 +4749,7 @@ Let Ci denote the event that a car comes in the ith second and let Ni denote the
 car arrives in the ith second.
 1. Consider k = 0. The pedestrian does not have to wait if and only if there are no cars in the
 next three seconds, i.e. the event N1 N2 N3 . Now the arrival of the cars in successive seconds
-are independent and the probability of no car coming in any second is q = 1 − p. Hence the
+are independent and the probability of no car coming in any second is q = 1 - p. Hence the
 answer is P {N1 N2 N3 } = q · q · q = q 3 .
 2. Consider k = 1. The person has to wait for one second if there is a car in the first second
 and none in the next three, i.e. the event C1 N2 N3 N4 . Hence the probability of that is pq 3 .
@@ -4759,7 +4759,7 @@ second. Hence:
 P {wait 2 seconds} = P {C1 C2 N3 N4 N5 } + P {N1 C2 N3 N4 N5 } = p · p · q 3 + q · p · q 3 = pq 3 .
 4. Consider k = 3. The person has to wait for three seconds if and only if a car passes in the
 3rd second but none in the next three, C3 N4 N5 N6 . Anything can happen in the first two
-seconds, i.e. C1 C2 , C1 N2 , N1 C2 , N1 N2 − all these four cases are mutually exclusive. Hence,
+seconds, i.e. C1 C2 , C1 N2 , N1 C2 , N1 N2 - all these four cases are mutually exclusive. Hence,
 P {wait 3 seconds} = P {C1 C2 C3 N4 N5 N6 } + P {N1 C2 C3 N4 N5 N6 }
 +P {C1 N2 C3 N4 N5 N6 } + P {N1 N2 C3 N4 N5 N6 }
 = p · p · p · q3 + p · q · p · q3 + q · p · p · q3 + q · q · p · q3
@@ -4767,8 +4767,8 @@ P {wait 3 seconds} = P {C1 C2 C3 N4 N5 N6 } + P {N1 C2 C3 N4 N5 N6 }
 5. Consider k = 4. This is more complicated because the person has to wait exactly 4 seconds
 if and only if a car passes in at least one of the first 3 seconds, one passes at the 4th but none
 pass in the next 3 seconds. The probability that at least one passes in the first three seconds
-is 1 minus the probability that there is none in the first 3 seconds. This probability is 1 − q 3 .
-Hence the answer is (1 − q 3 )pq 3 .
+is 1 minus the probability that there is none in the first 3 seconds. This probability is 1 - q 3 .
+Hence the answer is (1 - q 3 )pq 3 .
 
 2.4.3
 
@@ -4812,18 +4812,18 @@ P {system works} = pn .
 Two components in parallel
 For the system of A1 and A2 in parallel, the event “the system works when required” is now given
 by the event {A1 ∪ A2 }. Hence
-P {system works} = P {A1 ∪ A2 } = P {A1 } + P {A2 } − P {A1 ∩ A2 } = p1 + p2 − p1 p2 .
+P {system works} = P {A1 ∪ A2 } = P {A1 } + P {A2 } - P {A1 ∩ A2 } = p1 + p2 - p1 p2 .
 This is greater than either p1 or p2 so that the inclusion of a (redundant) component in parallel
 increases the reliability of the system. Another way of arriving at this result uses complementary
 events:
-P {system works} = 1 − P {system fails}
-= 1 − P {A01 ∩ A02 }
-= 1 − P {A01 }P {A02 }
-= 1 − (1 − p1 )(1 − p2 )
-= p1 + p2 − p1 p2 .
+P {system works} = 1 - P {system fails}
+= 1 - P {A01 ∩ A02 }
+= 1 - P {A01 }P {A02 }
+= 1 - (1 - p1 )(1 - p2 )
+= p1 + p2 - p1 p2 .
 In general, with n components in parallel, the reliability of the system is
-P {system works} = 1 − (1 − p1 )(1 − p2 ) · · · (1 − pn ).
-If pi = p for all i, we have P {system works} = 1 − (1 − p)n .
+P {system works} = 1 - (1 - p1 )(1 - p2 ) · · · (1 - pn ).
+If pi = p for all i, we have P {system works} = 1 - (1 - p)n .
 
 2 Introduction to Probability
 
@@ -4835,7 +4835,7 @@ The ideas above can be combined to evaluate the reliability of more complex syst
 
 Each has the probability pi = P {Di } of closing correctly; the mechanisms are independent; all
 are operated by the same impulse. Then
-P {current flows when required} = p1 × [1 − (1 − p2 )(1 − p2 )] × [1 − (1 − p3 )(1 − p3 )(1 − p3 )].
+P {current flows when required} = p1 × [1 - (1 - p2 )(1 - p2 )] × [1 - (1 - p3 )(1 - p3 )(1 - p3 )].
 There are some additional examples of reliability applications given in the “Reliability Examples” document available on Blackboard. You are advised to read through and understand these
 additional examples/applications.
 
@@ -4903,7 +4903,7 @@ P {Y |Q2 } ≈ 2 ·
 
 r
 1
-− .
+- .
 n 12
 
 Take home points
@@ -4930,7 +4930,7 @@ of random experiments will be represented as values of a variable which will be 
 outcomes are random (or un-predictable with certainty). In so doing, we will make our life a lot
 easier in calculating probabilities in many stylised situations which represent reality. For example,
 we shall learn to calculate what is the probability that a computer will make fewer than 10 errors
-while making 1015 computations when it has a very tiny chance, 10−14 , of making an erroneous
+while making 1015 computations when it has a very tiny chance, 10-14 , of making an erroneous
 computation.
 
 3.1
@@ -4998,10 +4998,10 @@ probability of all possible values of the random variable must be equal to 1.
 A probability distribution distributes the total probability 1 among the
 possible values of the random variable.
 For example, returning to the coin-tossing experiment, if the probability of getting a head with
-a coin is p (and therefore the probability of getting a tail is 1 − p), then the probability that Y = 0
-is 1 − p and the probability that Y = 1 is p. This gives us the probability distribution of Y , and we
+a coin is p (and therefore the probability of getting a tail is 1 - p), then the probability that Y = 0
+is 1 - p and the probability that Y = 1 is p. This gives us the probability distribution of Y , and we
 say that Y has the probability function given by:
-P (Y = 0) = 1 − p
+P (Y = 0) = 1 - p
 P (Y = 1) = p
 Total
 = 1.
@@ -5014,7 +5014,7 @@ This is an example of the Bernoulli distribution with parameter p, perhaps the s
 distribution.
 ♥ Example 26 Suppose we consider tossing the coin twice and again defining the random variable
 X to be the number of heads obtained. The values that X can take are 0, 1 and 2 with probabilities
-(1 − p)2 , 2p(1 − p) and p2 , respectively. Here the distribution is:
+(1 - p)2 , 2p(1 - p) and p2 , respectively. Here the distribution is:
 Value(x)
 0
 1
@@ -5022,8 +5022,8 @@ Value(x)
 Total prob
 
 P (X = x)
-(1 − p)2
-2p(1 − p)
+(1 - p)2
+2p(1 - p)
 p2
 1.
 
@@ -5048,11 +5048,11 @@ Total
 
 f (x)
 general form
-2 C px (1 − p)2−x
-(1 − p)2
+2 C px (1 - p)2-x
+(1 - p)2
 x
-2p(1 − p) 2 Cx px (1 − p)2−x
-2 C px (1 − p)2−x
+2p(1 - p) 2 Cx px (1 - p)2-x
+2 C px (1 - p)2-x
 p2
 x
 1
@@ -5089,9 +5089,9 @@ Figure 3.1: The shaded area is P (a < X < b) if the pdf of X is the drawn curve.
 Since we are dealing with probabilities which are always between 0 and 1, just any arbitrary
 function f (x) cannot be a pdf of some random variable. For f (x) to be a pdf, as in the discrete
 case, we must have:
-1. f (x) ≥ 0 for all possible values of x, i.e. −∞ < x < ∞.
+1. f (x) ≥ 0 for all possible values of x, i.e. -∞ < x < ∞.
 R∞
-2. −∞ f (u)du = 1.
+2. -∞ f (u)du = 1.
 It is very simple to describe the above two requirements:
 (i) the probabilities are non-negative,
 
@@ -5110,9 +5110,9 @@ distribution function, abbreviated as the cdf. The cdf simply calculates the pro
 random variable up to its argument. For a discrete random variable, the cdf is the cumulative sum
 of the pmf f (u) up to (and including) u = x. That is,
 X
-P (X ≤ x) ≡ F (x) =
+P (X \leq x) ≡ F (x) =
 f (u)
-u≤x
+u\leqx
 
 3 Random Variables and Their Probability Distributions
 
@@ -5142,9 +5142,9 @@ if
 if
 
 x<0
-0≤x<1
+0\leqx<1
 .
-1≤x<2
+1\leqx<2
 x≥2
 
 Note that the cdf for a discrete random variable is a step function. The jump-points are the
@@ -5153,9 +5153,9 @@ the random variable taking that value. It is clear that the probability mass fun
 determined by the cdf.
 For a continuous random variable X, the cdf if defined as:
 Z x
-P (X ≤ x) ≡ F (x) =
+P (X \leq x) ≡ F (x) =
 f (u)du.
-−∞
+-∞
 
 The fundamental theorem of calculus then tells us:
 
@@ -5165,19 +5165,19 @@ dF (x)
 dx
 
 that is, for a continuous random variable the pdf is the derivative of the cdf. Also for any random
-variable X, P (c < X < d) = F (d) − F (c). Let us consider an example.
+variable X, P (c < X < d) = F (d) - F (c). Let us consider an example.
 ♥ Example 28 Uniform distribution Suppose,
  1
-b−a if a < x < b .
+b-a if a < x < b .
 f (x) =
 0
 otherwise
 R x du
 0
-We now have the cdf F (x) = a b−a
-= x−a
-b−a , a < x < b. A quick check confirms that F (x) = f (x).
-If a = 0, b = 1 and then P (0.5 < X < 0.75) = F (0.75) − F (0.5) = 0.25. We shall see many more
+We now have the cdf F (x) = a b-a
+= x-a
+b-a , a < x < b. A quick check confirms that F (x) = f (x).
+If a = 0, b = 1 and then P (0.5 < X < 0.75) = F (0.75) - F (0.5) = 0.25. We shall see many more
 examples later.
 
 3.1.6
@@ -5223,7 +5223,7 @@ if
 X
 is
 continuous
-−∞
+-∞
 Thus, roughly speaking:
 the expected value is either sum or integral of value times probability.
 We use the E(·) notation to denote expectation. The argument is in upper case since it is the
@@ -5246,16 +5246,16 @@ x=1
 ♥ Example 30 Continuous Consider the uniform distribution which has the pdf f (x) =
 x < b.
 R∞
-E(X) = −∞ x f (x)dx
+E(X) = -∞ x f (x)dx
 Rb x
 dx
-= a b−a
-b2 −a2
-= 2(b−a) = b+a
+= a b-a
+b2 -a2
+= 2(b-a) = b+a
 2 ,
 
 1
-b−a , a
+b-a , a
 
 <
 
@@ -5272,47 +5272,47 @@ E(Y ) = E(g(X)) =
 all x
 R
  ∞
-−∞ g(x)f (x)dx if X is continuous
+-∞ g(x)f (x)dx if X is continuous
 
 3 Random Variables and Their Probability Distributions
 
 49
 
 R∞
-For example, if X is continuous, then E(X 2 ) = −∞ x2 f (x)dx. We prove one important property
+For example, if X is continuous, then E(X 2 ) = -∞ x2 f (x)dx. We prove one important property
 of expectation, namely expectation is a linear operator.
 Suppose Y = g(X) = aX +b; then E(Y ) = aE(X)+b.
 The proofR of this is simple and
 P given below for the continuous case. In the discrete case replace
 integral ( ) by summation ( ).
 R∞
-E(Y ) = −∞
+E(Y ) = -∞
 R ∞(ax + b)f (x)dxR ∞
-= a −∞ xf (x)dx + b −∞ f (x)dx
+= a -∞ xf (x)dx + b -∞ f (x)dx
 = aE(X) + b,
 using
 R ∞ the value times probability definition of the expectation and the total probability is 1 property
-( −∞ f (x)dx = 1) in the last integral. This is very convenient, e.g. suppose E(X) = 5 and
-Y = −2X + 549; then E(Y ) = 539.
+( -∞ f (x)dx = 1) in the last integral. This is very convenient, e.g. suppose E(X) = 5 and
+Y = -2X + 549; then E(Y ) = 539.
 Variance of a random variable
 The variance measures the variability of a random variable and is defined by:
  X
 
-(x − µ)2 f (x)
+(x - µ)2 f (x)
 if X is discrete
 2
-Var(X) = E(X − µ) =
+Var(X) = E(X - µ) =
 ,
  Rall∞x
 2 f (x)dx if X is continuous
 (x
-−
+-
 µ)
-−∞
+-∞
 where µ = E(X), and when the sum or integral exists. They can't always be assumed to exist!
-When the variance exists, it is the expectation of (X − µ)2 where µ is the mean of X. We now
+When the variance exists, it is the expectation of (X - µ)2 where µ is the mean of X. We now
 derive an easy formula to calculate the variance:
-Var(X) = E(X − µ)2 = E(X 2 ) − µ2 .
+Var(X) = E(X - µ)2 = E(X 2 ) - µ2 .
 The proof is given below:
 Var(X) =
 =
@@ -5320,11 +5320,11 @@ Var(X) =
 =
 =
 
-E(X − µ)2
-E(X 2 − 2Xµ + µ2 )
-E(X 2 ) − 2µE(X) + µ2
-E(X 2 ) − 2µµ + µ2
-E(X 2 ) − µ2 .
+E(X - µ)2
+E(X 2 - 2Xµ + µ2 )
+E(X 2 ) - 2µE(X) + µ2
+E(X 2 ) - 2µµ + µ2
+E(X 2 ) - µ2 .
 
 Thus:
 the variance of a random variable is the expected value of its square
@@ -5340,19 +5340,19 @@ random variable.
 ♥ Example 31 Uniform Consider the uniform distribution which has the pdf f (x) =
 x < b.
 R b x2
-E(X 2 ) = a b−a
+E(X 2 ) = a b-a
 dx
 2
 2
-b3 −a3
-= 3(b−a) = b +ab+a
+b3 -a3
+= 3(b-a) = b +ab+a
 ,
 3
 Hence
 Var(X) =
 
 b2 + ab + a2
-−
+-
 3
 
 
@@ -5365,11 +5365,11 @@ b+a
 
 50
 1
-b−a , a
+b-a , a
 
 <
 
-(b − a)2
+(b - a)2
 ,
 12
 
@@ -5381,15 +5381,15 @@ is given below for the continuous case. In the discrete case
 replace integral ( ) by summation ( ).
 2
 Var(Y ) = E(Y
-R ∞ − E(Y ))
-= −∞
-(ax + b − aµ − b)2 f (x)dx
+R ∞ - E(Y ))
+= -∞
+(ax + b - aµ - b)2 f (x)dx
 R
 ∞
-= a2 −∞ (x − µ)2 f (x)dx
+= a2 -∞ (x - µ)2 f (x)dx
 = a2 Var(X).
 
-This is a very useful result, e.g. suppose Var(X) = 25 and Y = −X + 5, 000, 000; then Var(Y ) =
+This is a very useful result, e.g. suppose Var(X) = 25 and Y = -X + 5, 000, 000; then Var(Y ) =
 Var(X) = 25 and the standard deviation, σ = 5. In words a location shift, b, does not change
 variance but a multiplicative constant, a say, gets squared in variance, a2 .
 
@@ -5413,8 +5413,8 @@ In this lecture we will learn about the Bernoulli, Binomial, Hypergeometric and 
 
 Bernoulli distribution
 
-The Bernoulli distribution has pmf f (x) = px (1−p)1−x , x = 0, 1. Hence E(X) = 0·(1−p)+1·p = p,
-E(X 2 ) = 02 · (1 − p) + 12 · p = p and Var(X) = E(X 2 ) − (E(X))2 = p − p2 = p(1 − p). Hence
+The Bernoulli distribution has pmf f (x) = px (1-p)1-x , x = 0, 1. Hence E(X) = 0·(1-p)+1·p = p,
+E(X 2 ) = 02 · (1 - p) + 12 · p = p and Var(X) = E(X 2 ) - (E(X))2 = p - p2 = p(1 - p). Hence
 Var(X) < E(X).
 
 3 Random Variables and Their Probability Distributions
@@ -5426,13 +5426,13 @@ Var(X) < E(X).
 Binomial distribution
 
 Suppose that we have a sequence of n Bernoulli trials (defined in Lecture 7, e.g. coin tosses) such
-that we get a success (S) or failure (F ) with probabilities P {S} = p and P {F } = 1 − p respectively.
+that we get a success (S) or failure (F ) with probabilities P {S} = p and P {F } = 1 - p respectively.
 Let X be the number of successs in the n trials. Then X is called a binomial random variable with
 parameters n and p.
 An outcome of the experiment (of carrying out n such independent trials) is represented by a
-sequence of S's and F 's (such as SS...F S...SF ) that comprises x S's, and (n − x) F 's.
+sequence of S's and F 's (such as SS...F S...SF ) that comprises x S's, and (n - x) F 's.
 The probability associated with this outcome is
-P {SS...F S...SF } = pp · · · (1 − p)p · · · p(1 − p) = px (1 − p)n−x .
+P {SS...F S...SF } = pp · · · (1 - p)p · · · p(1 - p) = px (1 - p)n-x .
 For this sequence,
 X = x, but there are many other sequences which will also give X = x. In
 
@@ -5440,7 +5440,7 @@ fact there are nx such sequences. Hence
  
 n x
 P (X = x) =
-p (1 − p)n−x , x = 0, 1, . . . , n.
+p (1 - p)n-x , x = 0, 1, . . . , n.
 x
 This is the pmf of the Binomial Distribution with parameters n and p, often written as Bin(n, p).
 P
@@ -5449,10 +5449,10 @@ theorem:
  
  
 n
-n x n−x
+n x n-x
 n
 n
-n−1
+n-1
 (a + b) = b +
 ab
 + ··· +
@@ -5463,7 +5463,7 @@ x
 
 P
 P
-To prove, nx=0 P (X = x) = 1, i.e. to prove, nx=0 nx px (1 − p)n−x = 1, choose a = p and b = 1 − p
+To prove, nx=0 P (X = x) = 1, i.e. to prove, nx=0 nx px (1 - p)n-x = 1, choose a = p and b = 1 - p
 in the binomial theorem.
 ♥ Example 32 Suppose that widgets are manufactured in a mass production process with 1%
 defective. The widgets are packaged in bags of 10 with a money-back guarantee if more than 1
@@ -5473,7 +5473,7 @@ Firstly, we want to find the probability that a randomly selected bag has at mos
 widget. Note that the number of defective widgets in a bag X, X ∼ Bin(n = 10, p = 0.01). So, this
 probability is equal to
 P (X = 0) + P (X = 1) = (0.99)10 + 10(0.01)1 (0.99)9 = 0.9957.
-Hence the probability that a refund is required is 1 − 0.9957 = 0.0043, i.e. only just over 4 in 1000
+Hence the probability that a refund is required is 1 - 0.9957 = 0.0043, i.e. only just over 4 in 1000
 bags will incur the refund on average.
 Using R to calculate probabilities
 Probabilities under all the standard distributions have been calculated in R and will be used
@@ -5485,13 +5485,13 @@ the command dbinom(x=3, size=5, prob=0.34) calculates the pmf of Bin(n = 5, p = 
 52
 
 x = 3. That is, the command dbinom(x=3, size=5, prob=0.34) will return the value P (X =
-3) = 53 (0.34)3 (1 − 0.34)5−3 . The command pbinom returns the cdf or the probability up to
+3) = 53 (0.34)3 (1 - 0.34)5-3 . The command pbinom returns the cdf or the probability up to
 and including the argument. Thus pbinom(q=3, size=5, prob=0.34) will return the value of
-P (X ≤ 3) when X ∼ Bin(n = 5, p = 0.34). As a check, in the above example the command is
+P (X \leq 3) when X ∼ Bin(n = 5, p = 0.34). As a check, in the above example the command is
 pbinom(q=1, size=10, prob=0.01), which returns 0.9957338.
 ♥ Example 33 A binomial random variable can also be described using the urn model. Suppose
 we have an urn (population) containing N individuals, a proportion p of which are of type S and a
-proportion 1 − p of type F . If we select a sample of n individuals at random with replacement,
+proportion 1 - p of type F . If we select a sample of n individuals at random with replacement,
 then the number, X, of type S individuals in the sample follows the binomial distribution with
 parameters n and p.
 Mean of the Binomial distribution
@@ -5509,67 +5509,67 @@ n
 X
 n x
 x
-p (1 − p)n−x .
+p (1 - p)n-x .
 x
 x=0
 
-Below we prove that E(X) = np. Recall that k! = k(k − 1)! for any k > 0.
+Below we prove that E(X) = np. Recall that k! = k(k - 1)! for any k > 0.
 
 Pn
 E(X) =
-x n px (1 − p)n−x
+x n px (1 - p)n-x
 Pnx=0 x n!
-x x!(n−x)! px (1 − p)n−x
+x x!(n-x)! px (1 - p)n-x
 =
 Px=1
 n
 n!
 x
-n−x
+n-x
 =
-x=1 (x−1)!(n−x)! p (1 − p)
+x=1 (x-1)!(n-x)! p (1 - p)
 Pn
-(n−1)!
-= np x=1 (x−1)!(n−1−x+1)!
-px−1 (1 − p)n−1−x+1
-Pn−1 (n−1)!
-= np y=0 (y)!(n−1−y)! py (1 − p)n−1−y
-= np(p + 1 − p)n−1 = np,
-where we used the substitution y = x − 1 and then the binomial theorem to conclude that the last
+(n-1)!
+= np x=1 (x-1)!(n-1-x+1)!
+px-1 (1 - p)n-1-x+1
+Pn-1 (n-1)!
+= np y=0 (y)!(n-1-y)! py (1 - p)n-1-y
+= np(p + 1 - p)n-1 = np,
+where we used the substitution y = x - 1 and then the binomial theorem to conclude that the last
 sum is equal to 1.
 Variance of the Binomial distribution
-Let X ∼ Bin(n, p). Then Var(X) = np(1 − p). It is difficult to find E(X 2 ) directly, but the factorial
-structure allows us to find E[X(X − 1)]. Recall that k! = k(k − 1)(k − 2)! for any k > 1.
+Let X ∼ Bin(n, p). Then Var(X) = np(1 - p). It is difficult to find E(X 2 ) directly, but the factorial
+structure allows us to find E[X(X - 1)]. Recall that k! = k(k - 1)(k - 2)! for any k > 1.
 
 Pn
-E[(X(X − 1)] =
-x(x − 1) nx px (1 − p)n−x
+E[(X(X - 1)] =
+x(x - 1) nx px (1 - p)n-x
 x=0
 Pn
 n!
 =
-px (1 − p)n−x
-x(x − 1) x!(n−x)!
+px (1 - p)n-x
+x(x - 1) x!(n-x)!
 Px=2
 n
 n!
 x
-n−x
+n-x
 =
-x=2 (x−2)!(n−x)! p (1 − p)
+x=2 (x-2)!(n-x)! p (1 - p)
 P
-(n−2)!
-= n(n − 1)p2 nx=2 (x−2)!(n−2−x+2)!
-px−2 (1 − p)n−2−x+2
+(n-2)!
+= n(n - 1)p2 nx=2 (x-2)!(n-2-x+2)!
+px-2 (1 - p)n-2-x+2
 P
-(n−2)!
+(n-2)!
 y
-n−2−y
-= n(n − 1)p2 n−2
-y=0 (y)!(n−2−y)! p (1 − p)
-= n(n − 1)p2 (p + 1 − p)n−2 .
-Now, E(X 2 ) = E[X(X − 1)] + E(X) = n(n − 1)p2 + np. Hence,
-Var(X) = E(X 2 ) − (E(X))2 = n(n − 1)p2 + np − (np)2 = np(1 − p).
+n-2-y
+= n(n - 1)p2 n-2
+y=0 (y)!(n-2-y)! p (1 - p)
+= n(n - 1)p2 (p + 1 - p)n-2 .
+Now, E(X 2 ) = E[X(X - 1)] + E(X) = n(n - 1)p2 + np. Hence,
+Var(X) = E(X 2 ) - (E(X))2 = n(n - 1)p2 + np - (np)2 = np(1 - p).
 It is illuminating to see these direct proofs. Later on we shall apply statistical theory to directly
 prove these! Notice that the binomial theorem is used repeatedly to prove the results.
 
@@ -5587,23 +5587,23 @@ this experiment are:
 S
 
 X = 1, P (X = 1) = p
-X = 2, P (X = 2) = (1 − p)p
+X = 2, P (X = 2) = (1 - p)p
 
 FS
 FFS
 
-X = 3, P (X = 3) = (1 − p)2 p
+X = 3, P (X = 3) = (1 - p)2 p
 
 FFFS
 ..
 .
 
-X = 4, P (X = 4) = (1 − p)3 p
+X = 4, P (X = 4) = (1 - p)3 p
 ..
 .
 
 In general we have
-P (X = x) = (1 − p)x−1 p, x = 1, 2, . . .
+P (X = x) = (1 - p)x-1 p, x = 1, 2, . . .
 This is called the geometric distribution, and it has a (countably) infinite domain starting at 1 not
 0. We write X ∼Geo(p).
 Let us check that the probability function has the required property:
@@ -5617,7 +5617,7 @@ P (X = x) =
 
 x=1
 
-(1 − p)x−1 p
+(1 - p)x-1 p
 
 x=1
 ∞
@@ -5625,7 +5625,7 @@ X
 
 = p
 
-(1 − p)y [substitute y = x − 1]
+(1 - p)y [substitute y = x - 1]
 
 y=0
 
@@ -5633,7 +5633,7 @@ y=0
 
 1
 [see Section A.5]
-1 − (1 − p)
+1 - (1 - p)
 
 = 1.
 We can also find the probability that X > k for some given natural number k:
@@ -5646,19 +5646,19 @@ P (X = x) =
 ∞
 X
 
-(1 − p)x−1 p
+(1 - p)x-1 p
 
 x=k+1
 
-= p[(1 − p)k+1−1 + (1 − p)k+2−1 + (1 − p)k+3−1 + . . .
+= p[(1 - p)k+1-1 + (1 - p)k+2-1 + (1 - p)k+3-1 + . . .
 ∞
 X
-= p(1 − p)k
-(1 − p)y
+= p(1 - p)k
+(1 - p)y
 y=0
 k
 
-= (1 − p) .
+= (1 - p) .
 Memoryless property of the geometric distribution.
 Let X follow the geometric distribution and suppose that s and k are positive integers. We then
 have
@@ -5687,9 +5687,9 @@ P (X>s+k,X>k)
 P (X>k)
 P (X>s+k)
 P (X>k)
-(1−p)s+k
-(1−p)k
-(1 − p)s ,
+(1-p)s+k
+(1-p)k
+(1 - p)s ,
 
 which does not depend on k. Note that the event X > s + k and X > k implies and is implied by
 X > s + k since s > 0.
@@ -5700,28 +5700,28 @@ P
 E(X) = P∞
 x=1 xP (X = x)
 ∞
-x−1
+x-1
 =
-x=1 xp(1 − p)
+x=1 xp(1 - p)
 
-= p 1 + 2(1 − p) + 3(1 − p)2 + 4(1 − p)3 + . . .
+= p 1 + 2(1 - p) + 3(1 - p)2 + 4(1 - p)3 + . . .
 For n > 0 and |x| < 1, the negative binomial series is given by:
 1
 1
-n(n + 1)(n + 2) · · · (n + k − 1) k
-(1−x)−n = 1+nx+ n(n+1)x2 + n(n+1)(n+2)x3 +· · ·+
+n(n + 1)(n + 2) · · · (n + k - 1) k
+(1-x)-n = 1+nx+ n(n+1)x2 + n(n+1)(n+2)x3 +· · ·+
 x +· · ·
 2
 6
 k!
-With n = 2 and x = 1 − p the general term is given by:
-n(n + 1)(n + 2)(n + k − 1)
-2 × 3 × 4 × · · · × (2 + k − 1)
+With n = 2 and x = 1 - p the general term is given by:
+n(n + 1)(n + 2)(n + k - 1)
+2 × 3 × 4 × · · · × (2 + k - 1)
 =
 = k + 1.
 k!
 k!
-Thus E(X) = p(1 − 1 + p)−2 = 1/p. It can be shown that Var(X) = (1 − p)/p2 using negative binomial series. But this is more complicated and is not required. The second-year module MATH2011
+Thus E(X) = p(1 - 1 + p)-2 = 1/p. It can be shown that Var(X) = (1 - p)/p2 using negative binomial series. But this is more complicated and is not required. The second-year module MATH2011
 will provide an alternative proof.
 
 3.3.5
@@ -5729,7 +5729,7 @@ will provide an alternative proof.
 Hypergeometric distribution
 
 Suppose we have an urn (population) containing N individuals, a proportion p of which are of type
-S and a proportion 1 − p of type F . If we select a sample of n individuals at random without
+S and a proportion 1 - p of type F . If we select a sample of n individuals at random without
 replacement, then the number, X, of type S individuals in the sample has the hypergeometric
 distribution:
 
@@ -5739,21 +5739,21 @@ P (X = x) =
 Np
 x
 
-N (1−p)
-n−x
+N (1-p)
+n-x
 
 N
 n
 
 , x = 0, 1, . . . , n,
 
-assuming that x ≤ N p and n − x ≤ N (1 − p) so that the above combinations are well defined. The
+assuming that x \leq N p and n - x \leq N (1 - p) so that the above combinations are well defined. The
 mean and variance of the hypergeometric distribution are given by
 E(X) = np, Var(X) = npq
 
-N −n
+N -n
 .
-N −1
+N -1
 
 3 Random Variables and Their Probability Distributions
 
@@ -5790,16 +5790,16 @@ Firstly we need to identify the possible values of X. Possible values for X are 
 2, . . .. Secondly, the probability mass function is given by
 
 
-x − 1 r−1
+x - 1 r-1
 P (X = x) =
-p (1 − p)(x−1)−(r−1) × p
-r−1
+p (1 - p)(x-1)-(r-1) × p
+r-1
 
 
-x−1 r
+x-1 r
 =
-p (1 − p)x−r , x = r, r + 1, . . .
-r−1
+p (1 - p)x-r , x = r, r + 1, . . .
+r-1
 ♥ Example 34 In a board game that uses a single fair die, a player cannot start until they have
 rolled a six. Let X be the number of rolls needed until they get a six. Then X is a Geometric
 random variable with success probability p = 1/6.
@@ -5817,7 +5817,7 @@ p
 
 Var(X) = r
 
-1−p
+1-p
 .
 p2
 
@@ -5842,7 +5842,7 @@ a randomly selected first-year student; the number of credit cards a randomly se
 in their wallet.
 Let us find the pmf of the Poisson distribution as
  the limit of the pmf of the binomial distribution.
-Recall that if X ∼ Bin(n, p) then P (X = x) = nx px (1 − p)n−x . Now:
+Recall that if X ∼ Bin(n, p) then P (X = x) = nx px (1 - p)n-x . Now:
 P (X = x) =
 =
 =
@@ -5850,44 +5850,44 @@ P (X = x) =
 =
 
 n x
-n−x
-xp (1 − p)
+n-x
+xp (1 - p)
 n nn x
-n−x
-x nn p (1 − p)
-n(n−1)···(n−x+1)
+n-x
+x nn p (1 - p)
+n(n-1)···(n-x+1)
 1
-(np)x (n(1 − p))n−x nn−x
+(np)x (n(1 - p))n-x nn-x
 nx x!
 
 x
-n−x
-(n−x+1) λ
-n (n−1)
+n-x
+(n-x+1) λ
+n (n-1)
 λ
 .
 n
 n ···
 n
-x! 1 − n 
-−x
+x! 1 - n 
+-x
 x
-(n−1)
-(n−x+1)
+(n-1)
+(n-x+1)
 λ
 λ n
 n
-1 − nλ
+1 - nλ
 .
 n
 n ···
 n
-x! 1 − n
+x! 1 - n
 
 
 
 Now it is easy to see that the above tends to
-e−λ
+e-λ
 
 λx
 x!
@@ -5897,8 +5897,8 @@ limit:
 
 
 λ n
-−λ
-e = lim 1 −
+-λ
+e = lim 1 -
 ,
 n→∞
 n
@@ -5906,15 +5906,15 @@ and
 
 
 
-λ −x
-lim 1 −
+λ -x
+lim 1 -
 =1
 n→∞
 n
 
 and
-n (n − 1)
-(n − x + 1)
+n (n - 1)
+(n - x + 1)
 ···
 = 1.
 n→∞ n
@@ -5927,13 +5927,13 @@ A random variable X has the Poisson distribution with parameter λ if it has the
 , x = 0, 1, 2, . . .
 x!
 P
-P∞ −λ λx
+P∞ -λ λx
 We write X ∼ Poisson(λ). It is trivial to show ∞
 x=0 P (X = x) = 1, i.e.
 x=0 e
 x! = 1. The
 identity you need is simply the expansion of eλ .
-P (X = x) = e−λ
+P (X = x) = e-λ
 
 3 Random Variables and Their Probability Distributions
 
@@ -5948,53 +5948,53 @@ Px=0
 x
 ∞
 =
-xe−λ λx!
+xe-λ λx!
 x=0
 P
 λx
-= e−λ ∞
+= e-λ ∞
 x=1 x x!
 P
-λ·λ(x−1)
-= e−λ ∞
-x=1 (x−1)!
+λ·λ(x-1)
+= e-λ ∞
+x=1 (x-1)!
 P
-λ(x−1)
-= λe−λ ∞
-x=1 (x−1)!
+λ(x-1)
+= λe-λ ∞
+x=1 (x-1)!
 P
 λy
-= λe−λ ∞
-y=0 y! [y = x − 1]
-= λe−λ eλ [using the expansion of eλ ]
+= λe-λ ∞
+y=0 y! [y = x - 1]
+= λe-λ eλ [using the expansion of eλ ]
 = λ.
 Variance of the Poisson distribution
 Let X ∼ Poisson(λ). Then
 P∞
-x(x − 1)P (X = x)
-E[X(X − 1)] =
+x(x - 1)P (X = x)
+E[X(X - 1)] =
 Px=0
 x
 ∞
 =
-x(x − 1)e−λ λx!
+x(x - 1)e-λ λx!
 x=0
 P
 x
-x(x − 1) λx!
-= e−λ ∞
+x(x - 1) λx!
+= e-λ ∞
 x=2
 P
-2 λx−2
-= e−λ ∞
-x=2 λ (x−2)!
+2 λx-2
+= e-λ ∞
+x=2 λ (x-2)!
 P
 λy
-= λ2 e−λ ∞
-y=0 y! [y = x − 2]
-= λ2 e−λ eλ = λ2 [using the expansion of eλ ]
-Now, E(X 2 ) = E[X(X − 1)] + E(X) = λ2 + λ. Hence,
-Var(X) = E(X 2 ) − (E(X))2 = λ2 + λ − λ2 = λ.
+= λ2 e-λ ∞
+y=0 y! [y = x - 2]
+= λ2 e-λ eλ = λ2 [using the expansion of eλ ]
+Now, E(X 2 ) = E[X(X - 1)] + E(X) = λ2 + λ. Hence,
+Var(X) = E(X 2 ) - (E(X))2 = λ2 + λ - λ2 = λ.
 Hence, the mean and variance are the same for the Poisson distribution.
 The Poisson distribution can be derived from another consideration when we are waiting for
 events to occur, e.g. waiting for a bus to arrive or to be served at a supermarket till. The number
@@ -6006,9 +6006,9 @@ which is discussed in the next lecture.
 Using R to calculate probabilities
 For the Poisson distribution the command dpois(x=3, lambda=5) calculates the pmf of Poisson(λ =
 3
-5) at x = 3. That is, the command will return the value P (X = 3) = e−5 53! . The command ppois
+5) at x = 3. That is, the command will return the value P (X = 3) = e-5 53! . The command ppois
 returns the cdf or the probability up to and including the argument. Thus ppois(q=3, lambda=5)
-will return the value of P (X ≤ 3) when X ∼ Poisson(λ = 5).
+will return the value of P (X \leq 3) when X ∼ Poisson(λ = 5).
 
 3.4.4
 
@@ -6034,12 +6034,12 @@ Exponential distribution
 
 A continuous random variable X is said to follow the exponential distribution if its pdf is of the
 form:
- −θx
+ -θx
 θe
 if x > 0
 f (x) =
 0
-if x ≤ 0
+if x \leq 0
 where θ > 0 is a parameter. We write X ∼ Exponential(θ). The distribution only resides in the
 positive half of the real line, and the tail goes down to zero exponentially as x → ∞. The rate at
 which that happens is the parameter θ. Hence θ is known as the rate parameter.
@@ -6053,7 +6053,7 @@ Z
 
 Γ(a) =
 
-xa−1 e−x dx
+xa-1 e-x dx
 
 0
 
@@ -6063,34 +6063,34 @@ facts:
 √
 1
 Γ
-= π; Γ(1) = 1; Γ(a) = (a − 1)Γ(a − 1) if a > 1.
+= π; Γ(1) = 1; Γ(a) = (a - 1)Γ(a - 1) if a > 1.
 2
 
-These last two facts imply that Γ(k) = (k − 1)! when k is a positive integer. Find Γ 32 .
+These last two facts imply that Γ(k) = (k - 1)! when k is a positive integer. Find Γ 32 .
 Mean and variance of the exponential distribution
 By definition,
 
 Now,
 
 R∞
-E(X) = R−∞ xf (x)dx
+E(X) = R-∞ xf (x)dx
 ∞
-= 0 xθe−θx dx
-R ∞ −y dy
+= 0 xθe-θx dx
+R ∞ -y dy
 = 0R ye θ {substitute y = θx}
 ∞
-= 1θ 0 y 2−1 e−y dy
+= 1θ 0 y 2-1 e-y dy
 1
 = θ Γ(2)
 = 1θ {since Γ(2) = 1! = 1}.
 R∞
-E(X 2 ) = R−∞ x2 f (x)dx
+E(X 2 ) = R-∞ x2 f (x)dx
 ∞
-= 0 x2 θe−θx dx
-R ∞ y 2 −y dy
+= 0 x2 θe-θx dx
+R ∞ y 2 -y dy
 = θ 0R θ e θ {substitute y = θx}
 ∞
-= θ12 0 y 3−1 e−y dy
+= θ12 0 y 3-1 e-y dy
 1
 = θ2 Γ(3)
 = θ22 {since Γ(3) = 2! = 2},
@@ -6099,12 +6099,12 @@ R ∞ y 2 −y dy
 
 59
 
-and so Var(X) = E(X 2 ) − [E(X)]2 = 2/θ2 − 1/θ2 = 1/θ2 . Note that for this random variable the
+and so Var(X) = E(X 2 ) - [E(X)]2 = 2/θ2 - 1/θ2 = 1/θ2 . Note that for this random variable the
 mean is equal to the standard deviation.
 It is easy to find the cdf of the exponential distribution. For x > 0,
 Z x
-F (x) = P (X ≤ x) =
-θe−θu du = 1 − e−θx .
+F (x) = P (X \leq x) =
+θe-θu du = 1 - e-θx .
 0
 
 We have F (0) = 0 and F (x) → 1 when x → ∞ and F (x) is non-decreasing in x. The cdf can be
@@ -6113,7 +6113,7 @@ Using R to calculate probabilities
 For the exponential distribution the command dexp(x=3, rate=1/2) calculates the pdf at
 x = 3. The rate parameter to be supplied is the θ parameter here. The command pexp returns the
 cdf or the probability up to and including the argument. Thus pexp(q=3, rate=1/2) will return
-the value of P (X ≤ 3) when X ∼ Exponential(θ = 0.5).
+the value of P (X \leq 3) when X ∼ Exponential(θ = 0.5).
 ♥ Example 36 Mobile phone Suppose that the lifetime of a phone (e.g. the time until the
 phone does not function even after repairs), denoted by X, manufactured by the company A Pale,
 is exponentially distributed with mean 550 days.
@@ -6123,7 +6123,7 @@ X > 730? [Assume there is no leap year in the two years].
 failed?
 Here the mean 1/θ = 550. Hence θ = 1/550 is the rate parameter. The solution to the first
 problem is
-P (X > 730) = 1 − P (X ≤ 730) = 1 − (1 − e−730/550 ) = e−730/550 = 0.2652.
+P (X > 730) = 1 - P (X \leq 730) = 1 - (1 - e-730/550 ) = e-730/550 = 0.2652.
 The R command to find this is 1-pexp(q=730, rate=1/550).
 For the second problem we are given the probabilities of failure (0.25, 0.50 etc.). We will have
 to invert the probabilities to find the value of the random variable. In other words, we will have
@@ -6134,8 +6134,8 @@ X with cdf F (x) is defined to be the value q for which F (q) = p.
 The 50th percentile is called the median. The 25th and 75th percentiles are called
 the quartiles.
 ♥ Example 37 Uniform distribution Consider the uniform distribution U (a, b) in the interval
-(a, b). Here F (x) = x−a
-b−a . So for a given p, F (q) = p implies q = a + p(b − a).
+(a, b). Here F (x) = x-a
+b-a . So for a given p, F (q) = p implies q = a + p(b - a).
 
 3 Random Variables and Their Probability Distributions
 For the uniform U (a, b) distribution the median is
@@ -6143,10 +6143,10 @@ Returning to the exponential distribution
 p is given.
 p
 =
-−θq
+-θq
 ⇒ e
 =
-⇒ −θq =
+⇒ -θq =
 ⇒ q
 =
 ⇒ q
@@ -6160,18 +6160,18 @@ b+3a
 and 3b+a
 4
 4 .
-1 − e−θq . Find q when
+1 - e-θq . Find q when
 
 and the quartiles are:
 
 example, we have p = F (q) =
-1 − e−θq
-1−p
-log(1 − p)
-− log(1−p)
+1 - e-θq
+1-p
+log(1 - p)
+- log(1-p)
 θ
 
-−550 × log(1 − p).
+-550 × log(1 - p).
 
 Review the rules of log in Section A.6. Now we have the following table:
 p
@@ -6180,7 +6180,7 @@ p
 0.75
 0.90
 
-q = −550 × log(1 − p)
+q = -550 × log(1 - p)
 158.22
 381.23
 762.46
@@ -6192,7 +6192,7 @@ rate) calculates the 100p percentile of the exponential distribution with parame
 ♥ Example 38 Survival function The exponential distribution is sometimes used to model
 the survival times in different experiments. For example, an exponential random variable T may
 be assumed to model the number of days a cancer patient survives after chemotherapy. In such a
-situation, the function S(t) = 1 − F (t) = e−θt is called the survival function. See Figure 3.2 for an
+situation, the function S(t) = 1 - F (t) = e-θt is called the survival function. See Figure 3.2 for an
 example plot.
 
 Figure 3.2: S(t) for θ = 1, 0.5, 0.2.
@@ -6225,9 +6225,9 @@ P (X>s+t,X>t)
 P (X>t)
 P (X>s+t)
 P (X>t)
-e−θ(s+t)
-e−θt
-e−θs
+e-θ(s+t)
+e-θt
+e-θs
 
 =
 =
@@ -6237,7 +6237,7 @@ Note that the event X > s + t and X > t implies and is implied by X > s + t sinc
 
 ♥ Example 40 The time T between any two successive arrivals in a hospital emergency department has probability density function:
 
-λe−λt if t ≥ 0
+λe-λt if t ≥ 0
 f (t) =
 0
 otherwise.
@@ -6245,18 +6245,18 @@ Historically, on average the mean of these inter-arrival times is 5 minutes. Cal
 5), (ii) P (T < 10|T > 5).
 An estimate of E(T ) is 5. As E(T ) = λ1 we take 51 as the estimate of λ.
 R5
-(i) P (0 < T < 5) = 0 15 e−t/5 dt = [−e−t/5 ]50 = 1 − e−1 = 0.63212.
+(i) P (0 < T < 5) = 0 15 e-t/5 dt = [-e-t/5 ]50 = 1 - e-1 = 0.63212.
 (ii)
 P (5 < T < 10)
 P (T > 5)
-R 10 1 −t/5
+R 10 1 -t/5
 e
 dt
-[−e−t/5 ]10
+[-e-t/5 ]10
 5
-= R5∞ 51 −t/5 =
-−t/5 ]∞
-[−e
+= R5∞ 51 -t/5 =
+-t/5 ]∞
+[-e
 e
 dt
 5
@@ -6264,7 +6264,7 @@ dt
 
 P (T < 10|T > 5) =
 
-= 1 − e−1 = 0.63212.
+= 1 - e-1 = 0.63212.
 
 3.5.3
 
@@ -6295,17 +6295,17 @@ the following pdf:
 
 
 1
-(x − µ)2
+(x - µ)2
 f (x) = √
-exp −
-, −∞ < x < ∞
+exp -
+, -∞ < x < ∞
 (3.1)
 2σ 2
 2πσ 2
-where −∞ < µ < ∞ and σ > 0 are two given constants. It is easy to see that f (x) > 0 for all x.
+where -∞ < µ < ∞ and σ > 0 are two given constants. It is easy to see that f (x) > 0 for all x.
 We will now prove that
 R∞
-R1 −∞ f (x)dx = 1 or total probability equals 1, so that f (x) defines a valid pdf.
+R1 -∞ f (x)dx = 1 or total probability equals 1, so that f (x) defines a valid pdf.
 R2 E(X) = µ, i.e. the mean is µ.
 R3 Var(X) = σ 2 , i.e. the variance is σ 2 .
 We denote the normal distribution by the notation N (µ, σ 2 ).
@@ -6314,9 +6314,9 @@ of the normal distribution:
 
 
 1
-(variable − mean)2
+(variable - mean)2
 f (variable) = √
-exp −
+exp -
 2 variance
 2π variance
 where variable denotes the random variable. The density (pdf) is much easier to remember and
@@ -6328,9 +6328,9 @@ work with when the mean µ = 0 and variance σ 2 = 1. In this case, we simply wr
 x
 1
 variable2
-or f (variable) = √ exp −
+or f (variable) = √ exp -
 .
-f (x) = √ exp −
+f (x) = √ exp -
 2
 2
 2π
@@ -6340,36 +6340,36 @@ n
 o
 R∞
 R∞
-(x−µ)2
+(x-µ)2
 √ 1
 f
 (x)dx
 =
 exp
-−
+-
 dx
 2
 2
-−∞
-−∞ 2πσ
+-∞
+-∞ 2πσ
 n 2 o2σ
 R∞
 1
 z
-= √2π −∞ exp − 2 dz [substitute z = x−µ
+= √2π -∞ exp - 2 dz [substitute z = x-µ
 σ so that dx = σdz]
 n 2o
 R
 ∞
-= √12π 2 0 exp − z2 dz [since the integrand is an even function]
+= √12π 2 0 exp - z2 dz [since the integrand is an even function]
 √
 R∞
 2
-= √12π 2 0 exp {−u} √du
+= √12π 2 0 exp {-u} √du
 [substitute u = z2 so that z = 2u and dz =
 2u
 R∞ 1
-= 2√1 π 2 0 u 2 −1 exp {−u} du [rearrange the terms]
+= 2√1 π 2 0 u 2 -1 exp {-u} du [rearrange the terms]
 
 = √1π Γ 12 [recall the definition of the Gamma function]
  √
@@ -6387,7 +6387,7 @@ To prove R2, i.e. E(X) = µ, we prove the following two results:
 
 (i)X ∼ N (µ, σ 2 ) ←→ Z ≡
 
-X −µ
+X -µ
 ∼ N (0, 1)
 σ
 
@@ -6399,43 +6399,43 @@ X −µ
 
 Then by the linearity of expectations, i.e. if X = µ + σZ for constants µ and σ then E(X) =
 µ + σE(Z) = µ, the result follows. To prove (3.2), we first calculate the cdf, given by:
-Φ(z) = P (Z ≤ z)
+Φ(z) = P (Z \leq z)
 
 
-X −µ
+X -µ
 = P
-≤z
+\leqz
 σ
-= P (X ≤ µ + zσ)
+= P (X \leq µ + zσ)
 
 
 Z µ+zσ
 1
-(x − µ)2
+(x - µ)2
 √
 dx
 =
-exp −
+exp -
 2σ 2
 2πσ 2
-−∞
+-∞
  2
 Z z
 1
 u
-√ exp −
+√ exp -
 =
-du, [u = (x − µ)/σ]
+du, [u = (x - µ)/σ]
 2
 2π
-−∞
+-∞
 and so the pdf of Z is
  2
 dΦ(z)
 1
 z
-= √ exp −
-for − ∞ < z < ∞,
+= √ exp -
+for - ∞ < z < ∞,
 dz
 2
 2π
@@ -6451,14 +6451,14 @@ R∞
 zf (z)dz n
 o
 2
-√1 exp − z
+√1 exp - z
 z
 dz
 2
-−∞
+-∞
 2π
 
-R−∞
+R-∞
 ∞
 √1
 2π
@@ -6466,10 +6466,10 @@ R−∞
 × 0 = 0,
 
 n 2o
-since the integrand g(z) = z exp − z2 is an odd function, i.e. g(z) = −g(−z); for an odd function
+since the integrand g(z) = z exp - z2 is an odd function, i.e. g(z) = -g(-z); for an odd function
 Ra
-g(z), −a g(z)dz = 0 for any a. Therefore we have also proved (3.3) and hence R2.
-To prove R3, i.e. Var(X) = σ 2 , we show that Var(Z) = 1 where Z = X−µ
+g(z), -a g(z)dz = 0 for any a. Therefore we have also proved (3.3) and hence R2.
+To prove R3, i.e. Var(X) = σ 2 , we show that Var(Z) = 1 where Z = X-µ
 and then claim
 σ
 that Var(X) = σ 2 Var(Z) = σ 2 from our earlier result. Since E(Z) = 0, Var(Z) = E(Z 2 ), which is
@@ -6477,24 +6477,24 @@ that Var(X) = σ 2 Var(Z) = σ 2 from our earlier result. Since E(Z) = 0, Var(Z)
 3 Random Variables and Their Probability Distributions
 calculated below:
 R∞
-E(Z 2 ) = −∞ z 2 f (z)dz n
+E(Z 2 ) = -∞ z 2 f (z)dz n
 o
 R∞
 2
-= −∞ z 2 √12π exp − z2 dz
+= -∞ z 2 √12π exp - z2 dz
 n 2o
 R∞
-= √22π 0 z 2 exp − z2 dz [since the integrand is an even function]
+= √22π 0 z 2 exp - z2 dz [since the integrand is an even function]
 √
 R∞
 2
 [substituted u = z2 so that z = 2u and dz =
-= √22π 0 2u exp {−u} √du
+= √22π 0 2u exp {-u} √du
 2u
 R∞ 1
-= 2√4 π 0 u 2 exp {−u} du
+= 2√4 π 0 u 2 exp {-u} du
 R∞ 3
-= √2π 0 u 2 −1 exp {−u} du
+= √2π 0 u 2 -1 exp {-u} du
 
 = √2π Γ 32
 [definition of the gamma function]
@@ -6505,7 +6505,7 @@ R∞ 3
 2
 √
 =
-2 − 1 Γ 2 − 1  [reduction property of the gamma function]
+2 - 1 Γ 2 - 1  [reduction property of the gamma function]
 π √
 √
 = √2π 12 π [since Γ 21 = π]
@@ -6556,8 +6556,8 @@ normal distribution, often denoted by Z, is used to calculate probabilities of i
 65
 
 distribution because of the following reasons. Suppose X ∼ N (µ, σ 2 ) and we are interested in finding
-P (a ≤ X ≤ b) for two constants a and b.
-P (a ≤ X ≤ b) =
+P (a \leq X \leq b) for two constants a and b.
+P (a \leq X \leq b) =
 =
 
 Rb
@@ -6568,28 +6568,28 @@ n
 
 o
 
-(x−µ)2
+(x-µ)2
 √ 1
-a 2πσ 2 exp − 2σ 2
+a 2πσ 2 exp - 2σ 2
 n 2o
-R b−µ
+R b-µ
 σ
 √1
 exp
-− z2 dz
-2π a−µ
+- z2 dz
+2π a-µ
 σ
 
 dx
 
-[substituted z = x−µ
+[substituted z = x-µ
 σ so that dx = σdz]
 n
 n
 o
 o
-b−µ
-a−µ
+b-µ
+a-µ
 R σ 1
 R σ 1
 z2
@@ -6597,14 +6597,14 @@ z2
 √
 √
 exp
-−
+-
 exp
-−
-= −∞
+-
+= -∞
 dz
-−
+-
 dz
-−∞
+-∞
 2
 2
 2π
@@ -6612,20 +6612,20 @@ dz
 
 
 
-− P Z ≤ a−µ
-= P Z ≤ b−µ
+- P Z \leq a-µ
+= P Z \leq b-µ
 σ
 σ
 =
 
-= cdf of Z at b−µ
-σ − cdf of Z at
+= cdf of Z at b-µ
+σ - cdf of Z at
 
-b−µ
-= Φ σ − Φ a−µ
+b-µ
+= Φ σ - Φ a-µ
 σ
 
-a−µ
+a-µ
 σ
 
 where we use the notation Φ(·) to denote the cdf of Z, i.e.
@@ -6633,41 +6633,41 @@ where we use the notation Φ(·) to denote the cdf of Z, i.e.
 Z z
 1
 u
-√ exp −
-P (Z ≤ z) = Φ(z) =
+√ exp -
+P (Z \leq z) = Φ(z) =
 du.
 2
 2π
-−∞
+-∞
 This result allows us to find the probabilities about a normal random variable X of any mean µ and
 variance σ 2 through the probabilities of the standard normal random variable Z. For this reason,
 only Φ(z) is tabulated. Further more, due to the symmetry of the pdf of Z, Φ(z) is tabulated only
 for positive z values. Suppose a > 0, then
-Φ(−a) = P (Z ≤ −a) = P (Z > a)
-= 1 − P (Z ≤ a)
-= 1 − Φ(a).
+Φ(-a) = P (Z \leq -a) = P (Z > a)
+= 1 - P (Z \leq a)
+= 1 - Φ(a).
 In R, we use the function pnorm to calculate the probabilities. The general function is: pnorm(q,
 mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE). So, we use the command pnorm(1)
-to calculate Φ(1) = P (Z ≤ 1). We can also use the command pnorm(15, mean=10, sd=2) to
-calculate P (X ≤ 15) when X ∼ N (µ = 10, σ 2 = 4) directly.
-1. P (−1 < Z < 1) = Φ(1) − Φ(−1) = 0.6827. This means that 68.27% of the probability lies
+to calculate Φ(1) = P (Z \leq 1). We can also use the command pnorm(15, mean=10, sd=2) to
+calculate P (X \leq 15) when X ∼ N (µ = 10, σ 2 = 4) directly.
+1. P (-1 < Z < 1) = Φ(1) - Φ(-1) = 0.6827. This means that 68.27% of the probability lies
 within 1 standard deviation of the mean.
-2. P (−2 < Z < 2) = Φ(2) − Φ(−2) = 0.9545. This means that 95.45% of the probability lies
+2. P (-2 < Z < 2) = Φ(2) - Φ(-2) = 0.9545. This means that 95.45% of the probability lies
 within 2 standard deviations of the mean.
-3. P (−3 < Z < 3) = Φ(3) − Φ(−3) = 0.9973. This means that 99.73% of the probability lies
+3. P (-3 < Z < 3) = Φ(3) - Φ(-3) = 0.9973. This means that 99.73% of the probability lies
 within 3 standard deviations of the mean.
-We are often interested in the quantiles (inverse-cdf of probability, Φ−1 (·) of the normal distribution
+We are often interested in the quantiles (inverse-cdf of probability, Φ-1 (·) of the normal distribution
 for various reasons. We find the pth quantile by issuing the R command qnorm(p).
-1. qnorm(0.95) = Φ−1 (0.95) = 1.645. This means that the 95th percentile of the standard
-normal distribution is 1.645. This also means that P (−1.645 < Z < 1.645) = Φ(1.645) −
-Φ(−1.645) = 0.90.
+1. qnorm(0.95) = Φ-1 (0.95) = 1.645. This means that the 95th percentile of the standard
+normal distribution is 1.645. This also means that P (-1.645 < Z < 1.645) = Φ(1.645) -
+Φ(-1.645) = 0.90.
 
 3 Random Variables and Their Probability Distributions
 
 66
 
-2. qnorm(0.975) = Φ−1 (0.975) = 1.96. This means that the 97.5th percentile of the standard normal distribution is 1.96. This also means that P (−1.96 < Z < 1.96) = Φ(1.96) −
-Φ(−1.96) = 0.95.
+2. qnorm(0.975) = Φ-1 (0.975) = 1.96. This means that the 97.5th percentile of the standard normal distribution is 1.96. This also means that P (-1.96 < Z < 1.96) = Φ(1.96) -
+Φ(-1.96) = 0.95.
 ♥ Example 41 Historically, the marks in MATH1024 follow the normal distribution with mean
 58 and standard deviation 32.25.
 1. What percentage of students will fail (i.e. score less than 40) in MATH1024? Answer:
@@ -6686,8 +6686,8 @@ this and what would the raw mark of 40 be transformed to?
 Suppose X ∼ N (µx = 42, σx2 = 142 ) and Y ∼ N (µy = 50, σy2 = 152 ). Hence, we should have
 Z=
 
-Y − µy
-X − µx
+Y - µy
+X - µx
 =
 ,
 σx
@@ -6698,7 +6698,7 @@ Y = µy +
 
 σy
 15
-(X − µx ) = 50 + (X − 42).
+(X - µx ) = 50 + (X - 42).
 σx
 14
 
@@ -6706,7 +6706,7 @@ Now at raw mark X = 40, the transformed mark would be:
 Y = 50 +
 
 15
-(40 − 42) = 47.86.
+(40 - 42) = 47.86.
 14
 
 ♥ Example 43 Log-normal distribution
@@ -6723,30 +6723,30 @@ E(Y ) = E[exp(X)]
 
 Z ∞
 1
-(x − µ)2
-exp(x) √ exp −
+(x - µ)2
+exp(x) √ exp -
 =
 dx
 2σ 2
 σ 2π
-−∞
+-∞
  2
 Z ∞
  2
 
-µ − (µ + σ 2 )2
+µ - (µ + σ 2 )2
 1
-x − 2(µ + σ 2 )x + (µ + σ 2 )2
-√ exp −
-= exp −
+x - 2(µ + σ 2 )x + (µ + σ 2 )2
+√ exp -
+= exp -
 dx
 2σ 2
 2σ 2
-−∞ σ 2π
+-∞ σ 2π
  2
 
-µ − (µ + σ 2 )2
-= exp −
+µ - (µ + σ 2 )2
+= exp -
 [integrating a N (µ + σ 2 , σ 2 ) r.v. over its domain]
 2σ 2
 
@@ -6758,15 +6758,15 @@ E(Y 2 ) = E[exp(2X)]
 
 Z ∞
 1
-(x − µ)2
+(x - µ)2
 √
 =
 exp(2x)
-exp −
+exp -
 dx
 2σ 2
 σ 2π
-−∞
+-∞
 = ···
 
 = exp 2µ + 2σ 2 .
@@ -6774,7 +6774,7 @@ dx
 Hence, the variance is given by
 
 
-Var(Y ) = E(Y 2 ) − (E(Y ))2 = exp 2µ + 2σ 2 − exp 2µ + σ 2 .
+Var(Y ) = E(Y 2 ) - (E(Y ))2 = exp 2µ + 2σ 2 - exp 2µ + σ 2 .
 
 3.7.3
 
@@ -6842,7 +6842,7 @@ f (x, y) = 1 to prove that fX (x) and fY (y) are really pmf's.
 
 ♥ Example 44 Suppose that two
 
- −1
+ -1
 0
 X=
 
@@ -7038,7 +7038,7 @@ y
 5 Total
 x
 
-−1
+-1
 0
 1
 
@@ -7133,22 +7133,22 @@ Bivariate continuous distributions
 If X and Y are continuous, a non-negative real-valued function f (x, y) is called the joint probability density function (joint pdf) of X and Y if
 Z ∞Z ∞
 f (x, y)dxdy = 1.
-−∞
+-∞
 
-−∞
+-∞
 
 The marginal pdf's of X and Y are respectively
 Z ∞
 Z
 fX (x) =
 f (x, y)dy, fY (y) =
-−∞
+-∞
 
 ∞
 
 f (x, y)dx.
 
-−∞
+-∞
 
 ♥ Example 45 Define a joint pdf by
 
@@ -7223,7 +7223,7 @@ y)f
 (x,
 y)dxdy
 if X and Y are continuous.
-−∞ −∞
+-∞ -∞
 ♥ Example 47 Example 44 continued Let g(x, y) = xy.
 1
 5
@@ -7232,7 +7232,7 @@ if X and Y are continuous.
 36
 P
 Exercises: Try g(x, y) = x. It will be the same thing as E(X) = x xfX (x).
-E(XY ) = (−1)(0)0 + (−1)(1)
+E(XY ) = (-1)(0)0 + (-1)(1)
 
 We will not consider any continuous examples as the second-year module MATH2011 will study
 them in detail.
@@ -7243,8 +7243,8 @@ and E(Y ) = µy . The covariance between X and Y is defined by
 
 71
 
-Cov(X, Y ) = E [(X − µx )(Y − µy )] = E(XY ) − µx µy .
-Let σx2 = Var(X) = E(X 2 ) − µ2x and σy2 = Var(Y ) = E(Y 2 ) − µ2y . The correlation coefficient
+Cov(X, Y ) = E [(X - µx )(Y - µy )] = E(XY ) - µx µy .
+Let σx2 = Var(X) = E(X 2 ) - µ2x and σy2 = Var(Y ) = E(Y 2 ) - µ2y . The correlation coefficient
 between X and Y is defined by:
 
 Corr(X, Y ) = p
@@ -7254,11 +7254,11 @@ Var(X) Var(Y )
 
 =
 
-E(XY ) − µx µy
+E(XY ) - µx µy
 .
 σx σy
 
-It can be proved that for any two random variables, −1 ≤ Corr(X, Y ) ≤ 1. The correlation
+It can be proved that for any two random variables, -1 \leq Corr(X, Y ) \leq 1. The correlation
 Corr(X, Y ) is a measure of linear dependency between two random variables X and Y , and it is
 free of the measuring units of X and Y as the units cancel in the ratio.
 
@@ -7317,7 +7317,7 @@ Total
 4
 ♥ Example 49 Let f (x, y) = 6xy 2 , 0 < x < 1, 0 < y < 1. Check that X and Y are independent.
 
-♥ Example 50 Let f (x, y) = 2x, 0 ≤ x ≤ 1, 0 ≤ y ≤ 1. Check that X and Y are independent.
+♥ Example 50 Let f (x, y) = 2x, 0 \leq x \leq 1, 0 \leq y \leq 1. Check that X and Y are independent.
 
 ♥ Example 51 Deceptive
 The joint pdf may look like something you can factorise. But X and Y may not be independent
@@ -7331,9 +7331,9 @@ because they may be related in the domain.
 
 72
 
-x2 ≤ y ≤ 1. Not independent!
+x2 \leq y \leq 1. Not independent!
 
-2. f (x, y) = e−y , 0 < x < y < ∞. Not independent!
+2. f (x, y) = e-y , 0 < x < y < ∞. Not independent!
 
 Consequences of Independence
 - Suppose that X and Y are independent random variables. Then
@@ -7411,29 +7411,29 @@ should happen since X comes from m Bernoulli trials and Y comes from n Bernoulli
 the result mathematically as well, by finding the probability mass function of Z = X + Y directly
 and observing that it is of the appropriate form. First, note that
 P (Z = z) = P (X = x, Y = y)
-subject to the constraint that x + y = z, 0 ≤ x ≤ m, 0 ≤ y ≤ n. Thus,
+subject to the constraint that x + y = z, 0 \leq x \leq m, 0 \leq y \leq n. Thus,
 P
 P (Z = z) =
 P (X = x, Y = y) 
 Px+y=z m x
 =
-(1 − p)m−x ny py (1 − p)n−y
+(1 - p)m-x ny py (1 - p)n-y
 x p 
 Px+y=z m
 n z
-m+n−z
+m+n-z
 =
-x+y=z x y pP(1 − p)
+x+y=z x y pP(1 - p)
  n
-= pz (1 − p)m+n−z x+y=z m
+= pz (1 - p)m+n-z x+y=z m
 x
 y
  z
-m+n−z ,
+m+n-z ,
 = m+n
 p
 (1
-−
+-
 p)
 z
 
@@ -7464,7 +7464,7 @@ will consider many examples.
 Suppose Y ∼ Bin(n, p). Then we can write:
 Y = X1 + X2 + . . . + Xn
 where each Xi is an independent Bernoulli trial with success probability p. We have shown before
-that, E(Xi ) = p and Var(Xi ) = p(1 − p) by direct calculation. Now the above two results imply
+that, E(Xi ) = p and Var(Xi ) = p(1 - p) by direct calculation. Now the above two results imply
 that:
 !
 n
@@ -7473,7 +7473,7 @@ E(Y ) = E
 Xi = p + p + . . . + p = np.
 i=1
 
-Var(Y ) = Var(X1 ) + · · · + Var(Xn ) = p(1 − p) + . . . + p(1 − p) = np(1 − p).
+Var(Y ) = Var(X1 ) + · · · + Var(Xn ) = p(1 - p) + . . . + p(1 - p) = np(1 - p).
 Thus we avoided the complicated sums used to derive E(X) and Var(X) in Section 3.3.3.
 
 ♥ Example 54 Mean and variance of negative binomial distribution
@@ -7484,11 +7484,11 @@ Recall that the negative binomial random variable Y is the number of trials need
 75
 
 r-th success in a sequence of independent Bernoulli trials, each with success probability p. Let Xi
-be the number of trials needed after the (i − 1)-th success to obtain the i-th success. It is easy to
+be the number of trials needed after the (i - 1)-th success to obtain the i-th success. It is easy to
 see that each Xi is a geometric random variable and Y = X1 + · · · + Xr . Hence,
 E(Y ) = E(X1 ) + · · · + E(Xr ) = 1/p + · · · + 1/p = r/p
 and
-Var(Y ) = Var(X1 ) + · · · + Var(Xr ) = (1 − p)/p2 + · · · + (1 − p)/p2 = r(1 − p)/p2 .
+Var(Y ) = Var(X1 ) + · · · + Var(Xr ) = (1 - p)/p2 + · · · + (1 - p)/p2 = r(1 - p)/p2 .
 
 ♥ Example 55 Sum of independent Normal random variables
 Suppose that Xi ∼ N (µi , σi2 ), i = 1, 2, . . . , k are independent random variables. Let a1 , a2 , . . . , ak
@@ -7523,12 +7523,12 @@ distribution cannot yet be proved with the theory we know. This proof will be pr
 second-year distribution theory module MATH2011.
 As a consequence of the stated result we can easily see the following. Suppose X1 and X2 are
 independent N (µ, σ 2 ) random variables. Then 2X1 ∼ N (2µ, 4σ 2 ), X1 + X2 ∼ N (2µ, 2σ 2 ), and
-X1 − X2 ∼ N (0, 2σ 2 ). Note that 2X1 and X1 + X2 have different distributions.
+X1 - X2 ∼ N (0, 2σ 2 ). Note that 2X1 and X1 + X2 have different distributions.
 Suppose that Xi ∼ N (µ, σ 2 ), i = 1, . . . , n are independent. Then
 X1 + · · · + Xn ∼ N (nµ, nσ 2 ),
 and consequently,
 1
-X̄ = (X1 + · · · + Xn ) ∼ N
+\BAR X = (X1 + · · · + Xn ) ∼ N
 n
 
 3.9.3
@@ -7595,11 +7595,11 @@ X
 
 i=1
 
-This also implies that X̄ = n1 Y also follows the normal distribution approximately, as the sample
+This also implies that \BAR X = n1 Y also follows the normal distribution approximately, as the sample
 size n → ∞. In particular, if µi = µ and σi2 = σ 2 , i.e. all means are equal and all variances are
 equal, then the CLT states that, as n → ∞,
 
-X̄ ∼ N
+\BAR X ∼ N
 Equivalently,
 
 √
@@ -7611,27 +7611,27 @@ n
 
 .
 
-n(X̄ − µ)
+n(\BAR X - µ)
 ∼ N (0, 1)
 σ
 
-as n → ∞. The notion of convergence is explained by the convergence of distribution of X̄ to that
+as n → ∞. The notion of convergence is explained by the convergence of distribution of \BAR X to that
 of the normal distribution with the appropriate mean and variance. It means that the cdf of the
 √
-left hand side, n (X̄−µ)
+left hand side, n (\BAR X-µ)
 σ , converges to the cdf of the standard normal random variable, Φ(·). In
 other words,
 
 
-√ (X̄ − µ)
+√ (\BAR X - µ)
 lim P
 n
-≤ z = Φ(z), −∞ < z < ∞.
+\leq z = Φ(z), -∞ < z < ∞.
 n→∞
 σ
 So for “large samples”, we can use N (0, 1) as an approximation to the sampling distribution of
 √
-n(X̄ − µ)/σ. This result is 'exact', i.e. no approximation is required, if the distribution of the
+n(\BAR X - µ)/σ. This result is 'exact', i.e. no approximation is required, if the distribution of the
 Xi 's are normal in the first place – this was discussed in the previous lecture.
 How large does n have to be before this approximation becomes usable? There is no definitive
 answer to this, as it depends on how “close to normal” the distribution of X is. However, it is
@@ -7656,34 +7656,34 @@ We know that a binomial random variable Y with parameters n and p is the number 
 in a set of n independent Bernoulli trials, each with success probability p. We have also learnt that
 Y = X1 + X2 + · · · + Xn ,
 where X1 , . . . , Xn are independent Bernoulli random variables with success probability p. It follows from the CLT that, for a sufficiently large n, Y is approximately normally distributed with
-expectation E(Y ) = np and variance Var(Y ) = np(1 − p).
+expectation E(Y ) = np and variance Var(Y ) = np(1 - p).
 Hence, for given integers y1 and y2 between 0 and n and a suitably large n, we have
 (
 
-y1 − np
-Y − np
-y2 − np
-P (y1 ≤ Y ≤ y2 ) = P p
-≤p
-≤p
-np(1 − p)
-np(1 − p)
-np(1 − p)
+y1 - np
+Y - np
+y2 - np
+P (y1 \leq Y \leq y2 ) = P p
+\leqp
+\leqp
+np(1 - p)
+np(1 - p)
+np(1 - p)
 (
 )
-y1 − np
-y2 − np
+y1 - np
+y2 - np
 ≈ P p
-≤Z≤ p
+\leqZ\leq p
 ,
-np(1 − p)
-np(1 − p)
+np(1 - p)
+np(1 - p)
 
 )
 
 where Z ∼ N (0, 1).
 We should take account of the fact that the binomial random variable Y is integer-valued, and
-so P (y1 ≤ Y ≤ y2 ) = P (y1 − f1 ≤ Y ≤ y2 + f2 ) for any two fractions 0 < f1 , f2 < 1. This is called
+so P (y1 \leq Y \leq y2 ) = P (y1 - f1 \leq Y \leq y2 + f2 ) for any two fractions 0 < f1 , f2 < 1. This is called
 
 3 Random Variables and Their Probability Distributions
 
@@ -7693,32 +7693,32 @@ Figure 3.4: Histograms of normalised sample means for Bernoulli (p = 0.8) sample
 sizes. – converging to standard normal.
 
 continuity correction and we take f1 = f2 = 0.5 in practice.
-P (y1 ≤ Y ≤ y2 ) = P (y1 − 0.5 ≤ Y ≤ y2 + 0.5)
+P (y1 \leq Y \leq y2 ) = P (y1 - 0.5 \leq Y \leq y2 + 0.5)
 (
 )
-y1 − 0.5 − np
-Y − np
-y2 + 0.5 − np
+y1 - 0.5 - np
+Y - np
+y2 + 0.5 - np
 p
 = P
-≤p
-≤ p
-np(1 − p)
-np(1 − p)
-np(1 − p)
+\leqp
+\leq p
+np(1 - p)
+np(1 - p)
+np(1 - p)
 (
 )
-y1 − 0.5 − np
-y2 + 0.5 − np
+y1 - 0.5 - np
+y2 + 0.5 - np
 p
 ≈ P
 .
-≤Z≤ p
-np(1 − p)
-np(1 − p)
+\leqZ\leq p
+np(1 - p)
+np(1 - p)
 
 What do we mean by a suitably large n? A commonly-used guideline is that the approximation
-is adequate if np ≥ 5 and n(1 − p) ≥ 5.
+is adequate if np ≥ 5 and n(1 - p) ≥ 5.
 
 ♥ Example 56 A producer of natural yoghurt believed that the market share of their brand
 was 10%. To investigate this, a survey of 2500 yoghurt consumers was carried out. It was observed
@@ -7726,34 +7726,34 @@ that only 205 of the people surveyed expressed a preference for their brand. Sho
 be concerned that they might be losing market share?
 Assume that the conjecture about market share is true. Then the number of people Y who
 prefer this product follows a binomial distribution with p = 0.1 and n = 2500. So the mean is
-np = 250, the variance is np(1 − p) = 225, and the standard deviation is 15. The exact probability
-of observing (Y ≤ 205) is given by the sum of the binomial probabilities up to and including 205,
+np = 250, the variance is np(1 - p) = 225, and the standard deviation is 15. The exact probability
+of observing (Y \leq 205) is given by the sum of the binomial probabilities up to and including 205,
 
 3 Random Variables and Their Probability Distributions
 
 79
 
 which is difficult to compute. However, this can be approximated by using the CLT:
-P (Y ≤ 205) = P (Y ≤ 205.5)
+P (Y \leq 205) = P (Y \leq 205.5)
 (
 )
-Y − np
-205.5 − np
+Y - np
+205.5 - np
 = P p
-≤p
-np(1 − p)
-np(1 − p)
+\leqp
+np(1 - p)
+np(1 - p)
 (
 )
-205.5 − np
-≈ P Z≤p
-np(1 − p)
+205.5 - np
+≈ P Z\leqp
+np(1 - p)
 
 
-205.5 − 250
-= P Z≤
+205.5 - 250
+= P Z\leq
 15
-= Φ(−2.967) = 0.0015.
+= Φ(-2.967) = 0.0015.
 This probability is so small that it casts doubt on the validity of the assumption that the market
 share is 10%.
 
@@ -7890,12 +7890,12 @@ down, having a probability function which only depends on a finite number of par
 analysis approaches are also called distribution-free methods.
 ♥ Example 57 Return to the computer failure example
 Let X denote the count of computer failures per week. We want to estimate how often will the
-computer system fail at least once per week in the next year? The answer is 52 × (1 − P (X = 0)).
+computer system fail at least once per week in the next year? The answer is 52 × (1 - P (X = 0)).
 But how would you estimate P (X = 0)? Consider two approaches.
 1. Nonparametric. Estimate P (X = 0) by the relative frequency of number of zeros in the
 above sample, which is 12 out of 104. Thus our estimate of P (X = 0) is 12/104. Hence,
 our estimate of the number of weeks when there will be at least one computer failure is
-52 × (1 − 12/104) = 46.
+52 × (1 - 12/104) = 46.
 2. Parametric. Suppose we assume that X follows the Poisson distribution with parameter λ.
 
 4 Statistical Inference
@@ -7906,13 +7906,13 @@ Then the answer to the above question is
 
 
 0
-52 × (1 − P (X = 0)) = 52 × 1 − e−λ λ0!
+52 × (1 - P (X = 0)) = 52 × 1 - e-λ λ0!
 
-= 52 × 1 − e−λ
+= 52 × 1 - e-λ
 which involves the unknown parameter λ. For the Poisson distribution we know that E(X) =
-λ. Hence we could use the sample mean X̄ to estimate E(X) = λ. Thus our estimate
-λ̂ = x̄ = 3.75. This type of estimator is called a moment estimator. Now our answer is
-52 × 1 − e−3.75 =52 * (1- exp(-3.75)) = 50.78 ≈ 51, which is very different compared
+λ. Hence we could use the sample mean \BAR X to estimate E(X) = λ. Thus our estimate
+λ̂ = \bar x = 3.75. This type of estimator is called a moment estimator. Now our answer is
+52 × 1 - e-3.75 =52 * (1- exp(-3.75)) = 50.78 ≈ 51, which is very different compared
 to our answer of 46 from the nonparametric approach.
 
 4.1.5
@@ -7922,7 +7922,7 @@ Should we prefer parametric or nonparametric and why?
 The parametric approach should be preferred if the assumption of the Poisson distribution can
 be justified for the data. For example, we can look at the data histogram or compare the fitted
 x
-probabilities of different values of X, i.e. P̂ (X = x) = e−λ̂ λ̂x! , with the relative frequencies from the
+probabilities of different values of X, i.e. P̂ (X = x) = e-λ̂ λ̂x! , with the relative frequencies from the
 sample. In general, often model-based analysis is preferred because it is more precise and accurate,
 and we can find estimates of uncertainty in such analysis based on the structure of the model. We
 shall see this later.
@@ -7970,7 +7970,7 @@ sample are sample quantities. For example, as in Chapter 1, we call
 n
 
 1X
-x̄ =
+\bar x =
 xi
 n
 i=1
@@ -7993,16 +7993,16 @@ We will use θ̃(x) (sometimes shortened to θ̃) to denote an estimate of θ.
 An estimate θ̃(x) is an observation of a corresponding random variable θ̃(X) which is called an
 estimator. Thus an estimate is a particular observed value, e.g. 1.2, but an estimator is a random
 variable which can take values which are called estimates.
-An estimate is a particular numerical value, e.g. x̄; an estimator is a
-random variable, e.g. X̄.
+An estimate is a particular numerical value, e.g. \bar x; an estimator is a
+random variable, e.g. \BAR X.
 The probability distribution of any estimator θ̃(X) is called its sampling distribution. The
 estimate θ̃(x) is an observed value (a number), and is a single observation from the sampling distribution of θ̃(X).
 ♥ Example 58 Suppose that we have a random sample X1 , . . . , Xn from the uniform distribution on the interval [0, θ] where θ > 0 is unknown. Suppose that n = 5 and we have the sample
 observations x1 = 2.3, x2 = 3.6, x3 = 20.2, x4 = 0.9, x5 = 17.2. Our objective is to estimate θ. How
 can we proceed?
 Rθ
-Here the pdf f (x) = 1θ for 0 ≤ x ≤ θ and 0 otherwise. Hence E(X) = 0 1θ xdx = 2θ . There are
-many possible estimators for θ, e.g. θ̂1 (X) = 2 X̄, which is motivated by the method of moments
+Here the pdf f (x) = 1θ for 0 \leq x \leq θ and 0 otherwise. Hence E(X) = 0 1θ xdx = 2θ . There are
+many possible estimators for θ, e.g. θ̂1 (X) = 2 \BAR X, which is motivated by the method of moments
 because θ = 2E(X). A second estimator is θ̂2 (X) = max{X1 , X2 , . . . , Xn }, which is intuitive since
 
 4 Statistical Inference
@@ -8019,9 +8019,9 @@ first let us derive the sampling distribution, i.e. the pdf, of θ̂2 . Note tha
 since the sample X1 , . . . , Xn is random. We will first find its cdf and then differentiate the cdf to
 get the pdf. For ease of notation, suppose Y = θ̂2 (X) = max{X1 , X2 , . . . , Xn }. For any 0 < y < θ,
 the cdf of Y , F (y) is given by:
-P (Y ≤ y) = P (max{X1 , X2 , . . . , Xn } ≤ y)
-= P (X1 ≤ y, X2 ≤ y, . . . , Xn ≤ y)) [max ≤ y if and only if each ≤ y]
-= P (X1 ≤ y)P (X2 ≤ y) · · · P (Xn ≤ y) [since the X's are independent]
+P (Y \leq y) = P (max{X1 , X2 , . . . , Xn } \leq y)
+= P (X1 \leq y, X2 \leq y, . . . , Xn \leq y)) [max \leq y if and only if each \leq y]
+= P (X1 \leq y)P (X2 \leq y) · · · P (Xn \leq y) [since the X's are independent]
 = yθ yθ · · · yθ
 n
 = yθ .
@@ -8035,9 +8035,9 @@ integration.
 
 4.2.4
 
-n−1
+n-1
 
-= n y θn for 0 ≤ y ≤ θ. We can plot this as a function of y to
+= n y θn for 0 \leq y \leq θ. We can plot this as a function of y to
 n
 n+1 θ
 
@@ -8052,13 +8052,13 @@ You can prove this by easy
 Bias and mean square error
 
 In the uniform distribution example we saw that the estimator θ̂2 = Y = max{X1 , X2 , . . . , Xn } is
-n−1
-a random variable and its pdf is given by f (y) = n y θn for 0 ≤ y ≤ θ. This probability distribution
+n-1
+a random variable and its pdf is given by f (y) = n y θn for 0 \leq y \leq θ. This probability distribution
 n
 θ.
 is called the sampling distribution of θ̂2 . For this we have seen that E(θ̂2 ) = n+1
 In general, we define the bias of an estimator θ̃(X) of θ to be
-bias(θ̃) = E(θ̃) − θ.
+bias(θ̃) = E(θ̃) - θ.
 An estimator θ̃(X) is said to be unbiased if
 bias(θ̃) = 0, i.e. if
 
@@ -8067,16 +8067,16 @@ E(θ̃) = θ.
 So an estimator is unbiased if the expectation of its sampling distribution is equal to the quantity
 we are trying to estimate. Unbiased means “getting it right on average”, i.e. under repeated sampling (relative frequency interpretation of probability).
 Thus for the uniform distribution example, θ̂2 is a biased estimator of θ and
-bias(θ̂2 ) = E(θ̂2 ) − θ =
+bias(θ̂2 ) = E(θ̂2 ) - θ =
 
 n
 1
-θ−θ =−
+θ-θ =-
 θ,
 n+1
 n+1
 
-which goes to zero as n → ∞. However, θ̂1 = 2X̄ is unbiased since E(θ̂1 ) = 2E(X̄) = 2 2θ = θ.
+which goes to zero as n → ∞. However, θ̂1 = 2\BAR X is unbiased since E(θ̂1 ) = 2E(\BAR X) = 2 2θ = θ.
 
 4 Statistical Inference
 
@@ -8087,28 +8087,28 @@ to provide estimates which are close to the estimand θ. A better measure of the
 estimator than bias is the mean squared error (or m.s.e.), defined as
 h
 i
-m.s.e.(θ̃) = E (θ̃ − θ)2 .
+m.s.e.(θ̃) = E (θ̃ - θ)2 .
 Therefore, if θ̃ is unbiased for θ, i.e. if E(θ̃) = θ, then m.s.e.(θ̃) = Var(θ̃). In general, we have the
 following result:
 m.s.e.(θ̃) = Var(θ̃) + bias(θ̃)2 .
 The proof is similar to the one we did in Lecture 2.
 h
 i
-m.s.e.(θ̃) = E (θ̃ − θ)2
+m.s.e.(θ̃) = E (θ̃ - θ)2
 
  
  
 2 
-= E θ̃ − E θ̃ + E θ̃ − θ
+= E θ̃ - E θ̃ + E θ̃ - θ
 
  2   
 2
 
     
 
-= E θ̃ − E θ̃
-+ E θ̃ − θ + 2 θ̃ − E θ̃
-E θ̃ − θ
+= E θ̃ - E θ̃
++ E θ̃ - θ + 2 θ̃ - E θ̃
+E θ̃ - θ
 h
  i2
 h  
@@ -8116,20 +8116,20 @@ i2
 h
     
 i
-= E θ̃ − E θ̃
-+ E E θ̃ − θ + 2E θ̃ − E θ̃
-E θ̃ − θ
+= E θ̃ - E θ̃
++ E E θ̃ - θ + 2E θ̃ - E θ̃
+E θ̃ - θ
   h  
 i2
   
  h
  i
-= Var θ̃ + E θ̃ − θ + 2 E θ̃ − θ E θ̃ − E θ̃
+= Var θ̃ + E θ̃ - θ + 2 E θ̃ - θ E θ̃ - E θ̃
  
   
 h  
  i
-= Var θ̃ + bias(θ̃)2 + 2 E θ̃ − θ E θ̃ − E θ̃
+= Var θ̃ + bias(θ̃)2 + 2 E θ̃ - θ E θ̃ - E θ̃
  
 = Var θ̃ + bias(θ̃)2 .
 Hence, the mean squared error incorporates both the bias and the variability (sampling variance)
@@ -8139,10 +8139,10 @@ estimator will be much smaller than that of any unbiased estimator.
 ♥ Example 59 Uniform distribution Continuing with the uniform distribution U [0, θ] example,
 1
 θ. How do these estimators
-we have seen that θ̂1 = 2X̄ is unbiased for θ but bias(θ̂2 ) = − n+1
+we have seen that θ̂1 = 2\BAR X is unbiased for θ but bias(θ̂2 ) = - n+1
 compare with respect to the m.s.e? Since θ̂1 is unbiased, its m.s.e is its variance. In the next
 lecture, we will prove that for random sampling from any population
-Var(X̄) =
+Var(\BAR X) =
 
 Var(X)
 ,
@@ -8157,7 +8157,7 @@ that if X ∼ U [0, θ] then Var(X) = 12
 
 θ2
 θ2
-m.s.e.(θ̂1 ) = Var θ̂1 = Var 2X̄ = 4Var X̄ = 4
+m.s.e.(θ̂1 ) = Var θ̂1 = Var 2\BAR X = 4Var \BAR X = 4
 =
 .
 12n
@@ -8174,7 +8174,7 @@ nθ2
 88
 
 1
-2. bias(θ̂2 ) = − n+1
+2. bias(θ̂2 ) = - n+1
 θ.
 
 Now
@@ -8252,28 +8252,28 @@ R1 the sample mean
 
 n
 
-X̄ =
+\BAR X =
 
 1X
 Xi
 n
 i=1
 
-is an unbiased estimator of µ = E(X), i.e. E(X̄) = µ,
-R2 Var(X̄) = σ 2 /n,
-R3 the sample variance with divisor n − 1
+is an unbiased estimator of µ = E(X), i.e. E(\BAR X) = µ,
+R2 Var(\BAR X) = σ 2 /n,
+R3 the sample variance with divisor n - 1
 n
 
 S2 =
 
 1 X
-(Xi − X̄)2
-n−1
+(Xi - \BAR X)2
+n-1
 i=1
 
 is an unbiased estimator of σ 2 , i.e. E(S 2 ) = σ 2 .
 We prove R1 as follows.
-E[X̄] =
+E[\BAR X] =
 
 n
 
@@ -8290,7 +8290,7 @@ E(X) = E(X),
 n
 n
 
-so X̄ is an unbiased estimator of E(X).
+so \BAR X is an unbiased estimator of E(X).
 We prove R2 using the result that for independent random variables the variance of the sum is
 the sum of the variances from Lecture 17. Thus,
 n
@@ -8300,7 +8300,7 @@ n
 1 X
 n
 ,
-Var[X̄] = 2
+Var[\BAR X] = 2
 Var(Xi ) = 2
 Var(X) = 2 Var(X) =
 n
@@ -8311,9 +8311,9 @@ i=1
 
 i=1
 
-so the m.s.e. of X̄ is Var(X)/n. This proves the following assertion we made earlier:
+so the m.s.e. of \BAR X is Var(X)/n. This proves the following assertion we made earlier:
 Variance of the sample mean = Population Variance divided by the sample size.
-We now want to prove R3, i.e. show that the sample variance with divisor n − 1 is an unbiased
+We now want to prove R3, i.e. show that the sample variance with divisor n - 1 is an unbiased
 estimator of the population variance σ 2 , i.e. E(S 2 ) = σ 2 . We have
 " n
 #
@@ -8326,21 +8326,21 @@ X
 2
 2
 S =
-Xi − X̄ =
-Xi − nX̄ .
-n−1
-n−1
+Xi - \BAR X =
+Xi - n\BAR X .
+n-1
+n-1
 i=1
 
 i=1
 
-To evaluate the expectation of the above, we need E(Xi2 ) and E(X̄ 2 ). In general, we know for any
+To evaluate the expectation of the above, we need E(Xi2 ) and E(\BAR X 2 ). In general, we know for any
 random variable,
-Var(Y ) = E(Y 2 ) − (E(Y ))2 ⇒ E(Y 2 ) = Var(Y ) + (E(Y ))2 .
+Var(Y ) = E(Y 2 ) - (E(Y ))2 ⇒ E(Y 2 ) = Var(Y ) + (E(Y ))2 .
 Thus, we have
 E(Xi2 ) = Var(Xi ) + (E(Xi ))2 = σ 2 + µ2 ,
 and
-E(X̄ 2 ) = Var(X̄) + (E(X̄))2 = σ 2 /n + µ2 ,
+E(\BAR X 2 ) = Var(\BAR X) + (E(\BAR X))2 = σ 2 /n + µ2 ,
 
 4 Statistical Inference
 
@@ -8352,22 +8352,22 @@ E(S 2 ) = E
 n
 
 1
-n−1
+n-1
 
 
 Pn
 
 2
 2
-i=1 Xi − nX̄
+i=1 Xi - n\BAR X
 
 o
 
 
 Pn
 1
-2 ) − nE(X̄ 2 )
-= n−1
+2 ) - nE(\BAR X 2 )
+= n-1
 E(X
 i
 i=1
@@ -8378,13 +8378,13 @@ i=1
 2
 2
 + µ2 )
-= n−1
-i=1 (σ + µ ) − n(σ /n
+= n-1
+i=1 (σ + µ ) - n(σ /n
 
 
 1
-= n−1
-nσ 2 + nµ2 − σ 2 − nµ2 )
+= n-1
+nσ 2 + nµ2 - σ 2 - nµ2 )
 = σ 2 ≡ Var(X).
 In words, this proves that
 The sample variance is an unbiased estimator of the population variance.
@@ -8406,49 +8406,49 @@ deviation of its sampling distribution, s.d.(θ̃).
 Standard error of an estimator is an estimate of the standard deviation
 of its sampling distribution
 We proved that
-Var[X̄] =
+Var[\BAR X] =
 
 σ2
 n
 
 σ
-⇒ s.d.(X̄) = √ .
+⇒ s.d.(\BAR X) = √ .
 n
 
 As σ is unknown, we cannot calculate this standard deviation. However, we know that E(S 2 ) = σ 2 ,
 i.e. that the sample variance is an unbiased estimator of the population variance. Hence S 2 /n is
-an unbiased estimator for Var(X̄). Therefore we obtain the standard error of the mean, s.e.(X̄),
+an unbiased estimator for Var(\BAR X). Therefore we obtain the standard error of the mean, s.e.(\BAR X),
 by plugging in the estimate
 !1/2
 n
 1 X
-(xi − x̄)2
+(xi - \bar x)2
 s=
-n−1
+n-1
 i=1
 
-of σ into s.d.(X̄) to obtain
+of σ into s.d.(\BAR X) to obtain
 
 s
-s.e.(X̄) = √ .
+s.e.(\BAR X) = √ .
 n
 
 4 Statistical Inference
 
 91
 
-Therefore, for the computer failure data, our estimate, x̄ = 3.75, for the population mean is
+Therefore, for the computer failure data, our estimate, \bar x = 3.75, for the population mean is
 associated with a standard error
 3.381
-s.e.(X̄) = √
+s.e.(\BAR X) = √
 = 0.332.
 104
 Note that this is 'a' standard error, so other standard errors may be available. Indeed, for parametric
 inference, where we make assumptions about f (x), alternative standard errors are available. For
 example, X1 , . . . , Xn are i.i.d. Poisson(λ) random q
-variables. E(X) = λ, so X̄ is an unbiased
+variables. E(X) = λ, so \BAR X is an unbiased
 p
-estimator of λ. Var(X) = λ, so another s.e.(X̄) = λ̂/n = x̄/n. In the computer failure data
+estimator of λ. Var(X) = λ, so another s.e.(\BAR X) = λ̂/n = \bar x/n. In the computer failure data
 q
 example, this is 3.75
 104 = 0.19.
@@ -8462,7 +8462,7 @@ as the standard error tells us how precise our estimate is through how concentra
 distribution of the estimator is. For example, in the age guessing example in R lab session 3, a
 standard error of 15 years indicates hugely inaccurate guesses. We have learned three key results:
 the sample mean is an unbiased estimate of the population mean; the variance of the sample mean
-is the population variance divided by the sample size; and the sample variance with divisor n − 1
+is the population variance divided by the sample size; and the sample variance with divisor n - 1
 is an unbiased estimator of the population variance.
 
 4.4
@@ -8498,21 +8498,21 @@ specified apart from a single parameter θ. To construct a confidence interval f
 
 a random variable T (X, θ) whose distribution does not depend on θ and is therefore known. This
 random variable T (X, θ) is called a pivot for θ. Hence we can find numbers h1 and h2 such that
-P (h1 ≤ T (X, θ) ≤ h2 ) = 1 − α
+P (h1 \leq T (X, θ) \leq h2 ) = 1 - α
 
 (1),
 
-where 1 − α is any specified probability. If (1) can be 'inverted' (or manipulated), we can write it
+where 1 - α is any specified probability. If (1) can be 'inverted' (or manipulated), we can write it
 as
-P [g1 (X) ≤ θ ≤ g2 (X)] = 1 − α.
+P [g1 (X) \leq θ \leq g2 (X)] = 1 - α.
 (2)
-Hence with probability 1 − α, the parameter θ will lie between the random variables g1 (X) and
-g2 (X). Alternatively, the random interval [g1 (X), g2 (X)] includes θ with probability 1 − α. Now,
+Hence with probability 1 - α, the parameter θ will lie between the random variables g1 (X) and
+g2 (X). Alternatively, the random interval [g1 (X), g2 (X)] includes θ with probability 1 - α. Now,
 when we observe x1 , . . . , xn , we observe a single observation of the random interval [g1 (X), g2 (X)],
 which can be evaluated as [g1 (x), g2 (x)]. We do not know if θ lies inside or outside this interval,
-but we do know that if we observed repeated samples, then 100(1 − α)% of the resulting intervals
-would contain θ. Hence, if 1 − α is high, we can be reasonably confident that our observed interval
-contains θ. We call the observed interval [g1 (x), g2 (x)] a 100(1 − α)% confidence interval for θ.
+but we do know that if we observed repeated samples, then 100(1 - α)% of the resulting intervals
+would contain θ. Hence, if 1 - α is high, we can be reasonably confident that our observed interval
+contains θ. We call the observed interval [g1 (x), g2 (x)] a 100(1 - α)% confidence interval for θ.
 It is common to present intervals with high confidence levels, usually 90%, 95% or 99%, so that
 α = 0.1, 0.05 or 0.01 respectively.
 
@@ -8521,35 +8521,35 @@ It is common to present intervals with high confidence levels, usually 90%, 95% 
 Confidence interval for a normal mean
 
 Let X1 , . . . , Xn be i.i.d. N (µ, σ 2 ) random variables. We know that from CLT Lecture 14
-X̄ ∼ N (µ, σ 2 /n)
+\BAR X ∼ N (µ, σ 2 /n)
 
 ⇒
 
-√ (X̄ − µ)
+√ (\BAR X - µ)
 ∼ N (0, 1).
 n
 σ
 
 √
-Suppose we know that σ = 10, so n(X̄ − µ)/σ is a pivot for µ. Then we can use the distribution
+Suppose we know that σ = 10, so n(\BAR X - µ)/σ is a pivot for µ. Then we can use the distribution
 function of the standard normal distribution to find values h1 and h2 such that
 
 
-√ (X̄ − µ)
-≤ h2 = 1 − α
-P h1 ≤ n
+√ (\BAR X - µ)
+\leq h2 = 1 - α
+P h1 \leq n
 σ
-for a chosen value of 1 − α which is called the confidence level. So h1 and h2 are chosen so that the
-shaded area in the figure is equal to the confidence level 1 − α.
+for a chosen value of 1 - α which is called the confidence level. So h1 and h2 are chosen so that the
+shaded area in the figure is equal to the confidence level 1 - α.
 
 It is common practice to make the interval symmetric, so that the two unshaded areas are equal
 (to α/2), in which case
 α
-−h1 = h2 ≡ h
+-h1 = h2 ≡ h
 and
-Φ(h) = 1 − .
+Φ(h) = 1 - .
 2
-The most common choice of confidence level is 1 − α = 0.95, in which case h = 1.96 =
+The most common choice of confidence level is 1 - α = 0.95, in which case h = 1.96 =
 qnorm(0.975). You may also occasionally see 90% (h = 1.645 = qnorm(0.95)) or 99% (h =
 
 4 Statistical Inference
@@ -8560,53 +8560,53 @@ qnorm(0.975). You may also occasionally see 90% (h = 1.645 = qnorm(0.95)) or 99%
 intervals for a reasonably high level of confidence without making the interval unnecessarily wide.
 Therefore we have
 
-√ (X̄ − µ)
-P −1.96 ≤ n
-≤ 1.96 = 0.95
+√ (\BAR X - µ)
+P -1.96 \leq n
+\leq 1.96 = 0.95
 σ
 
 
 σ
 σ
 = 0.95.
-⇒ P X̄ − 1.96 √ ≤ µ ≤ X̄ + 1.96 √
+⇒ P \BAR X - 1.96 √ \leq µ \leq \BAR X + 1.96 √
 n
 n
 
 
-Hence, X̄ − 1.96 √σn and X̄ + 1.96 √σn are the endpoints of a random interval which includes µ with
+Hence, \BAR X - 1.96 √σn and \BAR X + 1.96 √σn are the endpoints of a random interval which includes µ with
 
 
-probability 0.95. The observed value of this interval, x̄ ± 1.96 √σn , is called a 95% confidence
+probability 0.95. The observed value of this interval, \bar x ± 1.96 √σn , is called a 95% confidence
 interval for µ.
 ♥ Example 60 For the fast food waiting time data, we have n = 20 data points combined from
-the morning and afternoon data sets. We have x̄ = 67.85 and n = 20. Hence, under the normal
+the morning and afternoon data sets. We have \bar x = 67.85 and n = 20. Hence, under the normal
 model assuming (just for the sake of illustration) σ = 18, a 95% confidence interval for µ is
 √
 √
-67.85 − 1.96(18/ 20) ≤ µ ≤ 67.85 + 1.96(18/ 20)
+67.85 - 1.96(18/ 20) \leq µ \leq 67.85 + 1.96(18/ 20)
 ⇒
 
-59.96 ≤ µ ≤ 75.74
+59.96 \leq µ \leq 75.74
 
 The R command is mean(a) + c(-1, 1) * qnorm(0.975) * 18/sqrt(20), assuming a is the
 vector containing 20 waiting times. If σ is unknown, we need to seek alternative methods for finding
 the confidence intervals.
 Some important remarks about confidence intervals.
 √
-1. Notice that x̄ is an unbiased estimate of µ, σ/ n is the standard error of the estimate and 1.96
+1. Notice that \bar x is an unbiased estimate of µ, σ/ n is the standard error of the estimate and 1.96
 (in general h in the above discussion) is a critical value from the associated known sampling
 √
-distribution. The formula (x̄ ± 1.96 σ/ n) for the confidence interval is then generalised as:
+distribution. The formula (\bar x ± 1.96 σ/ n) for the confidence interval is then generalised as:
 
 Estimate ± Critical value × Standard error
 √
-where the estimate is x̄, the critical value is 1.96 and the standard error is σ/ n. This is
+where the estimate is \bar x, the critical value is 1.96 and the standard error is σ/ n. This is
 so much easier to remember. We will see that this formula holds in many of the following
 examples, but not all.
-2. Confidence intervals are frequently used, but also frequently misinterpreted. A 100(1 − α)%
+2. Confidence intervals are frequently used, but also frequently misinterpreted. A 100(1 - α)%
 confidence interval for θ is a single observation of a random interval which, under repeated
-sampling, would include θ 100(1 − α)% of the time.
+sampling, would include θ 100(1 - α)% of the time.
 The following example from the National Lottery in the UK clarifies the interpretation. We
 collected 6 chosen lottery numbers (sampled at random from 1 to 49) for 20 weeks and then
 constructed 95% confidence intervals for the population mean µ = 25 and plotted the intervals
@@ -8618,14 +8618,14 @@ along with the observed sample means in the following figure. It can be seen tha
 
 one out of 20 (5%) of the intervals do not contain the true population mean 25. Although
 this is a coincidence, it explains the main point that if we construct the random intervals
-with 100(1 − α)% confidence levels again and again for hypothetical repetition of the data,
-on average 100(1 − α)% of them will contain the true parameter.
+with 100(1 - α)% confidence levels again and again for hypothetical repetition of the data,
+on average 100(1 - α)% of them will contain the true parameter.
 
 3. A confidence interval is not a probability interval. You should avoid making statements like
 P (1.3 < θ < 2.2) = 0.95. In the classical approach to statistics you can only make probability
 statements about random variables, and θ is assumed to be a constant.
 4. If a confidence interval is interpreted as a probability interval, this may lead to problems.
-For example, suppose that X1 and X2 are i.i.d. U [θ − 12 , θ + 12 ] random variables. Then
+For example, suppose that X1 and X2 are i.i.d. U [θ - 12 , θ + 12 ] random variables. Then
 P [min(X1 , X2 ) < θ < max(X1 , X2 )] = 21 so [min(x1 , x2 ), max(x1 , x2 )] is a 50% confidence
 interval for θ, where x1 and x2 are the observed values of X1 and X2 . Now suppose that
 x1 = 0.3 and x2 = 0.9. What is P (0.3 < θ < 0.9)?
@@ -8653,7 +8653,7 @@ Lecture mission
 
 Confidence intervals are generally difficult to find. The difficulty lies in finding a pivot, i.e. a
 statistic T (X, θ) such that
-P (h1 ≤ T (X, θ) ≤ h2 ) = 1 − α
+P (h1 \leq T (X, θ) \leq h2 ) = 1 - α
 for two suitable numbers h1 and h2 , and also that the above can be inverted to put the unknown θ
 in the middle of the inequality inside the probability statement. One solution to this problem is to
 use the powerful Central Limit Theorem (CLT) to claim normality, and then basically follow the
@@ -8664,7 +8664,7 @@ above normal example for known variance.
 Confidence intervals for µ using the CLT
 
 The CLT allows us to assume the large sample approximation
-√ (X̄ − µ)
+√ (\BAR X - µ)
 n
 σ
 
@@ -8675,19 +8675,19 @@ approx
 N (0, 1) as n → ∞.
 
 So a general confidence interval for µ can be constructed, just as before in Section 4.4.3. Thus a
-95% confidence interval (CI) for µ is given by x̄ ± 1.96 √σn . But note that σ is unknown so this
-CI cannot be used unless we can estimate σ, i.e. replace the unknown s.d. of X̄ by its estimated
+95% confidence interval (CI) for µ is given by \bar x ± 1.96 √σn . But note that σ is unknown so this
+CI cannot be used unless we can estimate σ, i.e. replace the unknown s.d. of \BAR X by its estimated
 standard error. In this case, we get the CI in the familiar form:
 Estimate ± Critical value × Standard error
 Suppose that we do not assume any distribution for the sampled random variable X but assume
 only that X1 , . . . , Xn are i.i.d, following the distribution of X where E(X) = µ and Var(X) = σ 2 .
 √
-We know that the standard error of X̄ is s/ n where s is the sample standard deviation with
-divisor n − 1. Then the following provides a 95% CI for µ:
+We know that the standard error of \BAR X is s/ n where s is the sample standard deviation with
+divisor n - 1. Then the following provides a 95% CI for µ:
 s
-x̄ ± 1.96 √ .
+\bar x ± 1.96 √ .
 n
-♥ Example 61 For the computer failure data, x̄ = 3.75, s = 3.381 and n = 104. Under the
+♥ Example 61 For the computer failure data, \bar x = 3.75, s = 3.381 and n = 104. Under the
 model that the data are observations of i.i.d. random variables with population mean µ (but no
 other assumptions about the underlying distribution), we compute a 95% confidence interval for µ
 to be
@@ -8695,58 +8695,58 @@ to be
 
 3.381
 3.381
-3.75 − 1.96 √
+3.75 - 1.96 √
 , 3.75 + 1.96 √
 = (3.10, 4.40).
 104
 104
 If we can assume a distribution for X, i.e. a parametric model for X, then we can do slightly
-better in estimating the standard error of X̄ and as a result we can improve upon the previously
+better in estimating the standard error of \BAR X and as a result we can improve upon the previously
 obtained 95% CI. Two examples follow.
 ♥ Example 62 Poisson If X1 , . . . , Xn are modelled as i.i.d. Poisson(λ) randomq
 variables, then
 p
 2
 2
-µ = λ and σ = λ. We know Var(X̄) = σ /n = λ/n. Hence a standard error is λ̂/n = x̄/n
+µ = λ and σ = λ. We know Var(\BAR X) = σ /n = λ/n. Hence a standard error is λ̂/n = \bar x/n
 
 4 Statistical Inference
 
 96
 
-since λ̂ = X̄ is an unbiased estimator of λ. Thus a 95% CI for µ = λ is given by
+since λ̂ = \BAR X is an unbiased estimator of λ. Thus a 95% CI for µ = λ is given by
 r
-x̄
-x̄ ± 1.96
+\bar x
+\bar x ± 1.96
 .
 n
-For the computer failure data, x̄ = 3.75, s = 3.381 and n = 104. Under the model that the data
+For the computer failure data, \bar x = 3.75, s = 3.381 and n = 104. Under the model that the data
 are observations of i.i.d. random variables following a Poisson distribution with population mean
 λ, we compute a 95% confidence interval for λ as
 r
 p
-x̄
-x̄ ± 1.96
+\bar x
+\bar x ± 1.96
 = 3.75 ± 1.96 3.75/104 = (3.38, 4.12).
 n
-We see that this interval is narrower (0.74 = 4.12 − 3.38) than the earlier interval (3.10,4.40),
+We see that this interval is narrower (0.74 = 4.12 - 3.38) than the earlier interval (3.10,4.40),
 which has a length of 1.3. We prefer narrower confidence intervals as they facilitate more accurate
 inference regarding the unknown parameter.
 
 ♥ Example 63 Bernoulli If X1 , . . . , Xn are modelled as i.i.d. Bernoulli(p) random variables,
 then
-σ 2 = p(1 − p). We know Var(X̄) = σ 2 /n = p(1 − p)/n. Hence a standard error is
+σ 2 = p(1 - p). We know Var(\BAR X) = σ 2 /n = p(1 - p)/n. Hence a standard error is
 p µ = p and p
-p̂(1 − p̂)/n = x̄(1 − x̄)/n, since p̂ = X̄ is an unbiased estimator of p. Thus a 95% CI for µ = p
+p̂(1 - p̂)/n = \bar x(1 - \bar x)/n, since p̂ = \BAR X is an unbiased estimator of p. Thus a 95% CI for µ = p
 is given by
 r
-x̄(1 − x̄)
-x̄ ± 1.96
+\bar x(1 - \bar x)
+\bar x ± 1.96
 .
 n
-For the example, suppose x̄ = 0.2 and n = 10. Then we obtain the 95% CI as
+For the example, suppose \bar x = 0.2 and n = 10. Then we obtain the 95% CI as
 p
-0.2 ± 1.96 (0.2 × 0.8)/10 = (−0.048, 0.448).
+0.2 ± 1.96 (0.2 × 0.8)/10 = (-0.048, 0.448).
 This is wrong as n is too small for the large sample approximation to be accurate. Hence we need
 to look for other alternatives which may work better.
 
@@ -8761,29 +8761,29 @@ separately.
 We start with the CLT and obtain the following statement:
 
 
-√ (X̄−p)
-≤ 1.96 = 0.95
-P −1.96 ≤ n √
-p(1−p)
+√ (\BAR X-p)
+\leq 1.96 = 0.95
+P -1.96 \leq n √
+p(1-p)
 
 
 p
 p
 √
-⇔ P −1.96 p(1 − p) ≤ n(X̄ − p) ≤ 1.96 p(1 − p) = 0.95
+⇔ P -1.96 p(1 - p) \leq n(\BAR X - p) \leq 1.96 p(1 - p) = 0.95
 
 
 p
 p
-⇔ P −1.96 p(1 − p)/n ≤ (X̄ − p) ≤ 1.96 p(1 − p)/n = 0.95
+⇔ P -1.96 p(1 - p)/n \leq (\BAR X - p) \leq 1.96 p(1 - p)/n = 0.95
 
 
 p
 p
-⇔ P p − 1.96 p(1 − p)/n ≤ X̄ ≤ p + 1.96 p(1 − p)/n = 0.95
+⇔ P p - 1.96 p(1 - p)/n \leq \BAR X \leq p + 1.96 p(1 - p)/n = 0.95
 
 ⇔
-P L(p) ≤ X̄ ≤ R(p) = 0.95,
+P L(p) \leq \BAR X \leq R(p) = 0.95,
 
 4 Statistical Inference
 
@@ -8791,22 +8791,22 @@ P L(p) ≤ X̄ ≤ R(p) = 0.95,
 
 p
 p
-where L(p) = p − h p(1 − p)/n, R(p) = p + h p(1 − p)/n, h = 1.96. Now, consider the inverse
-mappings L−1 (x) and R−1 (x) so that:
+where L(p) = p - h p(1 - p)/n, R(p) = p + h p(1 - p)/n, h = 1.96. Now, consider the inverse
+mappings L-1 (x) and R-1 (x) so that:
 
 
-P L(p) ≤ X̄ ≤ R(p) = 0.95
+P L(p) \leq \BAR X \leq R(p) = 0.95
 
 
-⇔ P R−1 (X̄) ≤ p ≤ L−1 (X̄) = 0.95
-which now defines our confidence interval (R−1 (X̄), L−1 (X̄)) for p. We can obtain R−1 (x̄) and
-L−1 (x̄) by solving the equations R(p) = x̄ and L(p) = x̄ for p, treating n and x̄ as known quantities.
+⇔ P R-1 (\BAR X) \leq p \leq L-1 (\BAR X) = 0.95
+which now defines our confidence interval (R-1 (\BAR X), L-1 (\BAR X)) for p. We can obtain R-1 (\bar x) and
+L-1 (\bar x) by solving the equations R(p) = \bar x and L(p) = \bar x for p, treating n and \bar x as known quantities.
 Thus we have,
-R(p) = x̄, L(p) = x̄
+R(p) = \bar x, L(p) = \bar x
 ⇔
 ⇔
 
-(x̄ − p)2 = h2 p(1 − p)/n,
+(\bar x - p)2 = h2 p(1 - p)/n,
 2
 
 2
@@ -8815,7 +8815,7 @@ where h = 1.96
 
 2
 
-p (1 + h /n) − p(2x̄ + h /n) + x̄2 = 0
+p (1 + h /n) - p(2\bar x + h /n) + \bar x2 = 0
 
 The endpoints of the confidence interval are the roots of the quadratic. Hence, the endpoints
 of the 95% confidence interval for p are:
@@ -8828,8 +8828,8 @@ h2
 h2
 h2
 2
-2x̄ + n ± 2x̄ + n
-− 4x̄ 1 + n
+2\bar x + n ± 2\bar x + n
+- 4\bar x 1 + n
 
 
 2
@@ -8843,7 +8843,7 @@ h2
 h2
 h2
 2
-x̄ + 2n ± x̄ + 2n − x̄ 1 + n
+\bar x + 2n ± \bar x + 2n - \bar x 1 + n
 
 
 =
@@ -8853,9 +8853,9 @@ h 2
 i1/2
 h2
 h
-x̄ + 2n
+\bar x + 2n
 ± √hn 4n
-+ x̄(1 − x̄)
++ \bar x(1 - \bar x)
 
 
 =
@@ -8863,14 +8863,14 @@ x̄ + 2n
 2
 1 + hn
 This is sometimes called the Wilson Score Interval. The following R code calculates this for
-given n, x̄ and confidence level α which determines the value of h. Returning to the previous
-example, n = 10 and x̄ = 0.2, the 95% CI obtained from this method is (0.057, 0.510) compared
-to the previous illegitimate one (−0.048, 0.448). In fact you can see that the intervals obtained by
+given n, \bar x and confidence level α which determines the value of h. Returning to the previous
+example, n = 10 and \bar x = 0.2, the 95% CI obtained from this method is (0.057, 0.510) compared
+to the previous illegitimate one (-0.048, 0.448). In fact you can see that the intervals obtained by
 quadratic inversion are more symmetric and narrower as n increases, and are also more symmetric
-for x̄ closer to 0.5. See the table below:
+for \bar x closer to 0.5. See the table below:
 n
 
-x̄
+\bar x
 
 10
 10
@@ -8932,7 +8932,7 @@ Lower end Upper end
 
 98
 
-For smaller n and x̄ closer to 0 (or 1), the approximation required for the plug-in estimate of the
+For smaller n and \bar x closer to 0 (or 1), the approximation required for the plug-in estimate of the
 standard error is insufficiently reliable. However, for larger n it is adequate.
 
 4.5.4
@@ -8944,34 +8944,34 @@ P
 
 
 
-√ (X̄ − λ)
-≤ 1.96 = 0.95
-−1.96 ≤ n √
+√ (\BAR X - λ)
+\leq 1.96 = 0.95
+-1.96 \leq n √
 λ
 
 ⇒P
 
 
 
-(X̄ − λ)2
+(\BAR X - λ)2
 n
-≤ 1.962 = 0.95.
+\leq 1.962 = 0.95.
 λ
 
-Now the confidence interval for λ is found by solving the (quadratic) equality for λ by treating n, x̄
+Now the confidence interval for λ is found by solving the (quadratic) equality for λ by treating n, \bar x
 and h to be known:
-(x̄ − λ)2
+(\bar x - λ)2
 = h2 ,
 where h = 1.96
 λ
-⇒ x̄2 − 2λx̄ + λ2 = h2 λ/n
+⇒ \bar x2 - 2λ\bar x + λ2 = h2 λ/n
 n
 
-⇒ λ2 − λ(2x̄ + h2 /n) + x̄2 = 0.
+⇒ λ2 - λ(2\bar x + h2 /n) + \bar x2 = 0.
 Hence, the endpoints of the 95% confidence interval for λ are:
 
 
-2x̄ +
+2\bar x +
 
 h2
 n
@@ -8982,7 +8982,7 @@ n
 
 
 
-2x̄ +
+2\bar x +
 2
 
 h2
@@ -8990,12 +8990,12 @@ n
 
 2
 
-−
+-
 
-4x̄2
+4\bar x2
 
 1/2
-= x̄ +
+= \bar x +
 
  2
 1/2
@@ -9003,12 +9003,12 @@ h2
 h
 h
 ± 1/2
-+ x̄
++ \bar x
 .
 2n n
 4n
 
-♥ Example 64 For the computer failure data, x̄ = 3.75 and n = 104. For a 95% confidence
+♥ Example 64 For the computer failure data, \bar x = 3.75 and n = 104. For a 95% confidence
 interval (CI), h = 1.96. Hence, we calculate the above CI using the R commands:
 x <- scan("compfail.txt")
 n <- length(x)
@@ -9054,52 +9054,52 @@ Obtaining an exact confidence interval for the normal mean
 For normal models we do not have to rely on large sample approximations, because it turns out
 that the distribution of
 √
-n(X̄ − µ)
+n(\BAR X - µ)
 T =
 ,
 S
-where S 2 is the sample variance with divisor n − 1, is standard (easily calculated) and thus the
+where S 2 is the sample variance with divisor n - 1, is standard (easily calculated) and thus the
 statistic T = T (X, µ) can be an exact pivot for any sample size n > 1. The point about easy
-calculation is that for any given 1 − α, e.g. 1 − α = 0.95, we can calculate the critical value h such
-that P (−h < T < h) = 1 − α. Note also that the pivot T does not involve the other unknown
+calculation is that for any given 1 - α, e.g. 1 - α = 0.95, we can calculate the critical value h such
+that P (-h < T < h) = 1 - α. Note also that the pivot T does not involve the other unknown
 parameter of the normal model, namely the variance σ 2 . If indeed, we can find h for any given
-1 − α, we can proceed as follows to find the exact CI for µ:
-P (−h ≤ T ≤ h) = 1 − α
+1 - α, we can proceed as follows to find the exact CI for µ:
+P (-h \leq T \leq h) = 1 - α
 
 
-√ (X̄ − µ)
-i.e. P −h ≤ n
-≤ h = 0.95
+√ (\BAR X - µ)
+i.e. P -h \leq n
+\leq h = 0.95
 S
 
 
 S
 S
-⇒ P X̄ − h √ ≤ µ ≤ X̄ + h √
+⇒ P \BAR X - h √ \leq µ \leq \BAR X + h √
 = 0.95
 n
 n
-The observed value of this interval, (x̄ ± h √sn ), is the 95% confidence interval for µ. Remarkably,
+The observed value of this interval, (\bar x ± h √sn ), is the 95% confidence interval for µ. Remarkably,
 this also of the general form, Estimate ± Critical value × Standard error, where the Critical value
 is h and the standard error of the sample mean is √sn . Now, how do we find the critical value h for
-a given 1 − α? We need to introduce the t-distribution.
-Let X1 , . . . , Xn be i.i.d N (µ, σ 2 ) random variables. Define X̄ =
+a given 1 - α? We need to introduce the t-distribution.
+Let X1 , . . . , Xn be i.i.d N (µ, σ 2 ) random variables. Define \BAR X =
 1
 S2 =
-n−1
+n-1
 
 n
 X
 
 !
-Xi2 − nX̄ 2
+Xi2 - n\BAR X 2
 
 i=1
 
 Then, it can be shown (and will be in MATH2011) that
-√ (X̄ − µ)
+√ (\BAR X - µ)
 n
-∼ tn−1 ,
+∼ tn-1 ,
 S
 
 .
@@ -9117,20 +9117,20 @@ and
 
 100
 
-where tn−1 denotes the standard t distribution with n − 1 degrees of freedom. The standard t distribution is a family of distributions which depend on one parameter called the degrees-of-freedom
-(df) which is n − 1 here. The concept of degrees of freedom is that it is usually the number of
+where tn-1 denotes the standard t distribution with n - 1 degrees of freedom. The standard t distribution is a family of distributions which depend on one parameter called the degrees-of-freedom
+(df) which is n - 1 here. The concept of degrees of freedom is that it is usually the number of
 independent random samples, n here, minus the number of linear parameters estimated, 1 here for
-µ. Hence the df is n − 1.
+µ. Hence the df is n - 1.
 The probability density function of the tk distribution is similar to a standard normal, in that
 it is symmetric around zero and 'bell-shaped', but the t-distribution is more heavy-tailed, giving
 greater probability to observations further away from zero. The figure below illustrates the tk
 density function for k = 1, 2, 5, 20 together with the standard normal pdf (solid line).
 
-The values of h for a given 1 − α have been tabulated using the standard t-distribution and can
+The values of h for a given 1 - α have been tabulated using the standard t-distribution and can
 be obtained using the R command qt (abbreviation for quantile of t). For example, if we want to
-find h for 1 − α = 0.95 and n = 20 then we issue the command: qt(0.975, df=19) = 2.093. Note
+find h for 1 - α = 0.95 and n = 20 then we issue the command: qt(0.975, df=19) = 2.093. Note
 that it should be 0.975 so that we are splitting 0.05 probability between the two tails equally and
-the df should be n − 1 = 19. Indeed, using the above command repeatedly, we obtain the following
+the df should be n - 1 = 19. Indeed, using the above command repeatedly, we obtain the following
 critical values for the 95% interval for different values of the sample size n.
 n
 h
@@ -9168,16 +9168,16 @@ df parameter.
 If you can justify that the underlying distribution is normal then you
 can use the t-distribution-based confidence interval.
 ♥ Example 65 Fast food waiting time revisited We would like to find a confidence interval for
-the true mean waiting time. If X denotes the waiting time in seconds, we have n = 20, x̄ = 67.85,
+the true mean waiting time. If X denotes the waiting time in seconds, we have n = 20, \bar x = 67.85,
 s = 18.36. Hence, recalling that the critical value h = 2.093, from the command qt(0.975,
 df=19), a 95% confidence interval for µ is
 √
 √
-67.85 − 2.093 × 18.36/ 20 ≤ µ ≤ 67.85 + 2.093 × 18.36/ 20
+67.85 - 2.093 × 18.36/ 20 \leq µ \leq 67.85 + 2.093 × 18.36/ 20
 ⇒
 In R we issue the commands:
 
-59.26 ≤ µ ≤ 76.44.
+59.26 \leq µ \leq 76.44.
 
 4 Statistical Inference
 
@@ -9196,14 +9196,14 @@ which gives (56.10, 79.60). We can see clearly that the interval is getting wide
 confidence is getting higher.
 
 ♥ Example 66 Weight gain revisited We would like to find a confidence interval for the true
-average weight gain (final weight – initial weight). Here n = 68, x̄ = 0.8672 and s = 0.9653. Hence,
+average weight gain (final weight – initial weight). Here n = 68, \bar x = 0.8672 and s = 0.9653. Hence,
 a 95% confidence interval for µ is
 √
 √
-0.8672 − 1.996 × 0.9653/ 68 ≤ µ ≤ 0.8672 + 1.996 × 0.9653/ 68
+0.8672 - 1.996 × 0.9653/ 68 \leq µ \leq 0.8672 + 1.996 × 0.9653/ 68
 ⇒
 
-0.6335 ≤ µ ≤ 1.1008
+0.6335 \leq µ \leq 1.1008
 
 [In R, we obtain the critical value 1.996 by qt(0.975, df=67) or -qt(0.025, df=67)]
 In R the command is: mean(x) + c(-1, 1) * qt(0.975, df=67) * sqrt(var(x)/68) if the
@@ -9319,14 +9319,14 @@ if H0 is true
 if H1 is true
 
 ♥ Example 67 Uniform Suppose that we have one observation from the uniform distribution
-on the range (0, θ). In this case, f (x) = 1/θ if 0 < x < θ and P (X ≤ x) = xθ for 0 < x < θ. We
+on the range (0, θ). In this case, f (x) = 1/θ if 0 < x < θ and P (X \leq x) = xθ for 0 < x < θ. We
 want to test H0 : θ = 1 against the alternative H1 : θ = 2. Suppose we decide arbitrarily that we
 will reject H0 if X > 0.75. Then
 α = P (Type I error) = P (X > 0.75) if H0 is true
 β = P (Type II error) = P (X < 0.75) if H1 is true
 which will imply:
 1
-α = P (X > 0.75|θ = 1) = 1 − 0.75 = ,
+α = P (X > 0.75|θ = 1) = 1 - 0.75 = ,
 4
 3
 β = P (X < 0.75|θ = 2) = 0.75/2 = .
@@ -9343,29 +9343,29 @@ H0 : λ = 0.7, H1 : λ = 0.3. The null hypothesis is to be accepted if in 20 day
 with no demand is less than 15. Calculate the Type I and Type II error probabilities.
 Let p denote the probability that the demand on a given day is zero.
 Then
- −0.7
+ -0.7
 e
 under H0
-p = e−λ =
-e−0.3 under H1 .
+p = e-λ =
+e-0.3 under H1 .
 If X denotes the number of days out of 20 with zero demand, it follows that
-X ∼ B(20, e−0.7 ) under H0 ,
-X ∼ B(20, e−0.3 ) under H1 .
+X ∼ B(20, e-0.7 ) under H0 ,
+X ∼ B(20, e-0.3 ) under H1 .
 Thus
 α = P (Reject H0 |H0 true)
-= P (X ≥ 15|X ∼ B(20, e−0.7 ))
-= 1 − P (X ≤ 14|X ∼ B(20, 0.4966))
-= 1 − 0.98028
+= P (X ≥ 15|X ∼ B(20, e-0.7 ))
+= 1 - P (X \leq 14|X ∼ B(20, 0.4966))
+= 1 - 0.98028
 = 0.01923 (1-pbinom(14,size=20,prob=0.4966) in R).
 Furthermore
 β = P (Accept H0 |H1 true)
-= P (X ≤ 14|X ∼ B(20, e−0.3 ))
-= P (X ≤ 14|X ∼ B(20, 0.7408))
+= P (X \leq 14|X ∼ B(20, e-0.3 ))
+= P (X \leq 14|X ∼ B(20, 0.7408))
 = P (Y ≥ 6|Y ∼ B(20, 0.2592))
-= 1 − P (Y ≤ 5|Y ∼ B(20, 0.2592))
-= 1 − 0.58022
+= 1 - P (Y \leq 5|Y ∼ B(20, 0.2592))
+= 1 - 0.58022
 = 0.42023 (1-pbinom(5,size=20,prob=0.2592) in R).
-Sometimes α is called the size (or significance level) of the test and ω ≡ 1 − β is called the
+Sometimes α is called the size (or significance level) of the test and ω ≡ 1 - β is called the
 power of the test. Ideally, we would like to avoid error so we would like to make both α and β as
 small as possible. In other words, a good test will have small size, but large power. However, it is
 not possible to make α and β both arbitrarily small. For example if C = ∅ then α = 0, but β = 1.
@@ -9412,26 +9412,26 @@ against the alternative hypothesis
 H1 : µ 6= µ0 .
 We recall that
 
-√ (X̄ − µ)
-∼ tn−1
+√ (\BAR X - µ)
+∼ tn-1
 n
 S
 and therefore, when H0 is true, often written as under H0 ,
-√ (X̄ − µ0 )
-∼ tn−1
+√ (\BAR X - µ0 )
+∼ tn-1
 n
 S
 
 √
-so n(X̄ − µ0 )/s is a test statistic for this test. The sampling distribution of the test statistic when
+so n(\BAR X - µ0 )/s is a test statistic for this test. The sampling distribution of the test statistic when
 the null hypothesis is true is called the null distribution of the test statistic. In this example, the
-null distribution is the t-distribution with n − 1 degrees of freedom.
+null distribution is the t-distribution with n - 1 degrees of freedom.
 This test is called a t-test. We reject the null hypothesis H0 in favour of the alternative H1 if
 the observed test statistic seems unlikely to have been generated by the null distribution.
 ♥ Example 69 Weight gain data
-For the weight gain data, if x denotes the differences in weight gain, we have x̄ = 0.8672,
+For the weight gain data, if x denotes the differences in weight gain, we have \bar x = 0.8672,
 s = 0.9653 and n = 68. Hence our test statistic for the null hypothesis H0 : µ = µ0 = 0 is
-√ (x̄ − µ0 )
+√ (\bar x - µ0 )
 n
 = 7.41.
 s
@@ -9446,8 +9446,8 @@ the observed value of 7.41. So there may be evidence here to reject H0 : µ = 0.
 
 ♥ Example 70 Fast food waiting time revisited Suppose the manager of the fast food outlet
 claims that the average waiting time is only 60 seconds. So, we want to test H0 : µ = 60. We have
-n = 20, x̄ = 67.85, s = 18.36. Hence our test statistic for the null hypothesis H0 : µ = µ0 = 60 is
-√ (x̄ − µ0 ) √ (67.85 − 60)
+n = 20, \bar x = 67.85, s = 18.36. Hence our test statistic for the null hypothesis H0 : µ = µ0 = 60 is
+√ (\bar x - µ0 ) √ (67.85 - 60)
 n
 = 20
 = 1.91.
@@ -9498,7 +9498,7 @@ test statistic lies in a rejection region which has probability α = 0.05 under 
 
 Rejection region for the t-test
 
-For the t-test, the null distribution is tn−1 where n is the sample size, so the rejection region
+For the t-test, the null distribution is tn-1 where n is the sample size, so the rejection region
 for the test corresponds to a region of total probability α = 0.05 comprising the 'most extreme'
 values in the direction of the alternative hypothesis. If the alternative hypothesis is two-sided,
 e.g. H1 : µ 6= µ0 , then this is obtained as below, where the two shaded regions both have area
@@ -9536,7 +9536,7 @@ h
 ∞
 1.96
 
-Note that we need to put n − 1 in the df argument of qt and the last value for n = ∞ is obtained
+Note that we need to put n - 1 in the df argument of qt and the last value for n = ∞ is obtained
 from the normal distribution.
 However, if the alternative hypothesis is one-sided, e.g. H1 : µ > µ0 , then the critical region
 will only be in the right tail. Consequently, we need to leave an area α on the right and as a result
@@ -9587,13 +9587,13 @@ alternative hypothesis H1 : µ 6= µ0 :
 1. Compute the test statistic
 t=
 
-√ (x̄ − µ0 )
+√ (\bar x - µ0 )
 n
 .
 s
 
 2. For chosen significance level α (usually 0.05) calculate the rejection region for t, which is of
-the form |t| > h where −h is the α/2 percentile of the null distribution, tn−1 .
+the form |t| > h where -h is the α/2 percentile of the null distribution, tn-1 .
 3. If your computed t lies in the rejection region, i.e. |t| > h, you report that H0 is rejected in
 favour of H1 at the chosen level of significance. If t does not lie in the rejection region, you
 report that H0 is not rejected. [Never refer to 'accepting' a hypothesis.]
@@ -9604,13 +9604,13 @@ and for a 5% level of significance, the critical value h will come from qt(0.95,
 the observed value is higher than the critical value so we will reject the null hypothesis, disputing
 the manager's claim regarding a minute wait.
 ♥ Example 72 Weight gain
-For the weight gain example x̄ = 0.8671, s = 0.9653, n = 68. Then, we would be interested in
+For the weight gain example \bar x = 0.8671, s = 0.9653, n = 68. Then, we would be interested in
 testing H0 : µ = 0 against the alternative hypothesis H1 : µ 6= 0 in the model that the data are
 observations of i.i.d. N (µ, σ 2 ) random variables.
 - We obtain the test statistic
 t=
 
-√ (x̄ − µ0 ) √ (0.8671 − 0)
+√ (\bar x - µ0 ) √ (0.8671 - 0)
 n
 = 68
 = 7.41.
@@ -9644,10 +9644,10 @@ by the reference distribution. In many examples a threshold of 0.05 is used, bel
 hypothesis is rejected as being insufficiently well-supported by the observed data. Hence for the
 t-test with a two-sided alternative, the p-value is given by:
 p = P (|T | > |tobs |) = 2P (T > |tobs |),
-where T has a tn−1 distribution and tobs is the observed sample value.
+where T has a tn-1 distribution and tobs is the observed sample value.
 However, if the alternative is one-sided and to the right then the p-value is given by:
 p = P (T > tobs ),
-where T has a tn−1 distribution and tobs is the observed sample value.
+where T has a tn-1 distribution and tobs is the observed sample value.
 A small p-value corresponds to an observation of T that is improbable (since it is far out in the
 low probability tail area) under H0 and hence provides evidence against H0 . The p-value should not
 be misinterpreted as the probability that H0 is true. H0 is not a random event (under our models)
@@ -9672,9 +9672,9 @@ right of of the red line?
 110
 
 When the alternative hypothesis is two-sided the p-value has to be calculated from P (|T | > tobs ),
-where tobs is the observed value and T follows the t-distribution with n − 1 df. For the weight gain
+where tobs is the observed value and T follows the t-distribution with n - 1 df. For the weight gain
 example, because the alternative is two-sided, the p-value is given by:
-p = P (|T | > 7.41) = 2.78 × 10−10 ≈ 0.0, when T ∼ t67 .
+p = P (|T | > 7.41) = 2.78 × 10-10 ≈ 0.0, when T ∼ t67 .
 This very small p-value for the second example indicates very strong evidence against the null
 hypothesis of no weight gain in the first year of university.
 
@@ -9686,12 +9686,12 @@ Note that the 95% confidence interval for µ in the weight gain example has prev
 0 of µ. Hence we can conclude that the hypothesis test at
 √ the 5% level of significance will reject
 0)
-the null hypothesis H0 : µ = 0. This is because |Tobs = n(x̄−µ
+the null hypothesis H0 : µ = 0. This is because |Tobs = n(\bar x-µ
 | > h implies and is implied by
 s
 √
 √
-µ0 being outside the interval (x̄ − hs/ n, x̄ + hs/ n). Notice that h is the same in both. For
+µ0 being outside the interval (\bar x - hs/ n, \bar x + hs/ n). Notice that h is the same in both. For
 this reason we often just calculate the confidence interval and take the reject/do not reject decision
 merely by inspection.
 
@@ -9737,17 +9737,17 @@ Two sample t-test statistic
 
 In the probability lectures we proved that
 2
-X̄ ∼ N (µX , σX
+\BAR X ∼ N (µX , σX
 /n)
 
 and therefore
 
-X̄ − Ȳ ∼ N
+\BAR X - Ȳ ∼ N
 
 and Ȳ ∼ N (µY , σY2 /m)
 σ2
 σ2
-µX − µ Y , X + Y
+µX - µ Y , X + Y
 n
 m
 
@@ -9755,7 +9755,7 @@ m
 .
 
 Hence, under H0 ,
-X̄ − Ȳ ∼ N
+\BAR X - Ȳ ∼ N
 
 
 
@@ -9769,7 +9769,7 @@ n m
 r
 ⇒
 
-nm (X̄ − Ȳ )
+nm (\BAR X - Ȳ )
 ∼ N (0, 1).
 n+m
 σ
@@ -9782,17 +9782,17 @@ Pn
 2
 2
 2
-i=1 (Yi − Ȳ )
-i=1 (Xi − X̄) +
+i=1 (Yi - Ȳ )
+i=1 (Xi - \BAR X) +
 S =
 ,
-n+m−2
+n+m-2
 then
 
 r
 
-nm (X̄ − Ȳ )
-∼ tn+m−2 .
+nm (\BAR X - Ȳ )
+∼ tn+m-2 .
 n+m
 S
 
@@ -9801,30 +9801,30 @@ Hence
 r
 t=
 
-nm (x̄ − ȳ)
+nm (\bar x - ȳ)
 n+m
 s
 
-is a test statistic for this test. The rejection region is |t| > h where −h is the α/2 (usually 0.025)
-percentile of tn+m−2 .
-Confidence interval for µX − µY .
-From the hypothesis testing, a 100(1 − α)% confidence interval is given by
+is a test statistic for this test. The rejection region is |t| > h where -h is the α/2 (usually 0.025)
+percentile of tn+m-2 .
+Confidence interval for µX - µY .
+From the hypothesis testing, a 100(1 - α)% confidence interval is given by
 r
 n+m
 s,
-x̄ − ȳ ± h
+\bar x - ȳ ± h
 nm
-where −h is the α/2 (usually 0.025) percentile of tn+m−2 .
+where -h is the α/2 (usually 0.025) percentile of tn+m-2 .
 ♥ Example 73 Fast food waiting time as a two sample t-test
 In this example, we would like to know if there are significant differences between the AM and PM
 waiting times. Here the 10 morning waiting times (x) are: 38, 100, 64, 43, 63, 59, 107, 52, 86, 77
 and the 10 afternoon waiting times (y) are: 45, 62, 52, 72, 81, 88, 64, 75, 59, 70. Here n = m = 10,
-x̄ = 68.9, ȳ = 66.8, s2x = 538.22 and s2y = 171.29. From this we calculate,
+\bar x = 68.9, ȳ = 66.8, s2x = 538.22 and s2y = 171.29. From this we calculate,
 s2 =
 
-(n − 1)s2x + (m − 1)s2y
+(n - 1)s2x + (m - 1)s2y
 = 354.8,
-n+m−2
+n+m-2
 
 4 Statistical Inference
 
@@ -9832,7 +9832,7 @@ n+m−2
 
 r
 
-nm (x̄ − ȳ)
+nm (\bar x - ȳ)
 = 0.25.
 n+m
 s
@@ -9853,7 +9853,7 @@ to be valid, due to the design of the study. The most common example of this is 
 and data are paired. For example, a measurement has been made on patients before treatment (X)
 and then again on the same set of patients after treatment (Y ). Recall the weight gain example is
 exactly of this type. In such examples, we proceed by computing data on the differences
-zi = xi − yi ,
+zi = xi - yi ,
 
 i = 1, . . . , n
 
@@ -9900,16 +9900,16 @@ To test the null-hypothesis
 H0 : µZ = 0 against H1 : µZ 6= 0
 1 Pn
 2
-we use the test statistic t = n sz̄z , where s2z = n−1
-i=1 (zi − z̄) .
+we use the test statistic t = n sz̄z , where s2z = n-1
+i=1 (zi - z̄) .
 Confidence interval for µZ .
-From the hypothesis testing, a 100(1 − α)% confidence interval is given by z̄ ± h √szn , where h is
-the critical value of the t distribution with n − 1 degrees of freedom. In R we perform the test as
+From the hypothesis testing, a 100(1 - α)% confidence interval is given by z̄ ± h √szn , where h is
+the critical value of the t distribution with n - 1 degrees of freedom. In R we perform the test as
 follows:
 x <- c(45.9, 57.6, 54.9, 38.7, 35.7, 39.2, 45.9, 43.2, 45.4, 54.8)
 y <- c(48.2, 64.2, 56.8, 47.2, 43.7, 45.7, 53.0, 52.0, 45.1, 57.5)
 t.test(x, y, paired=T)
-This gives the test statistic tobs = −5.0778 with a df of 9 and a p-value = 0.0006649. Thus we
+This gives the test statistic tobs = -5.0778 with a df of 9 and a p-value = 0.0006649. Thus we
 reject the null hypothesis. The associated 95% CI is (–7.53, –2.89), printed by R.
 √
 
@@ -9967,28 +9967,28 @@ Suppose there are N individuals in the population and we are drawing a sample of
 In SRSWR, the same unit of the population may occur more than once in the sample; there are
 N n possible samples (using multiplication rules of counting), and each of these samples has equal
 chance of 1/N n to materialise. In the case of SRSWOR, at the rth drawing (r = 1, . . . , n) there
-are N − r + 1 individuals in the population to sample from. All of these individuals are given equal
+are N - r + 1 individuals in the population to sample from. All of these individuals are given equal
 probability of inclusion in the sample. Here no member of the population can occur more than
 once in the sample. There are N Cn possible samples and each has equal probability of inclusion
-1/N Cn . This is also justified as at the rth stage one is to choose from N − r + 1 individuals one
+1/N Cn . This is also justified as at the rth stage one is to choose from N - r + 1 individuals one
 
 4 Statistical Inference
 
 114
 
-of the n − r + 1 individuals to be included in the sample which have not yet been chosen in earlier
+of the n - r + 1 individuals to be included in the sample which have not yet been chosen in earlier
 drawings. In this case too, the probability that any specified individual, say the ith, is selected at
 any drawing, say the kth drawing, is:
-N −1 N −2
+N -1 N -2
 1
-N −k+1
+N -k+1
 1
 ×
 × ··· ×
 =
 N
-N −1
-N −k+2 N −k+1
+N -1
+N -k+2 N -k+1
 N
 as in the case of the SRSWR. It is obvious that if one takes n individuals all at a time from the
 population, giving equal probability to each of the N Cn combinations of n members out of the N
@@ -10041,7 +10041,7 @@ can plan the experiment so that no particular diet is favoured in the experiment
 diet is applied approximately equally among all types of children (boys, girls, their ethnicity
 etc.).
 The most effective way to increase the precision of an experiment is to increase the number of
-replications. Remember, Var(X̄) = σ 2 /n, which says that the standard deviation decreases
+replications. Remember, Var(\BAR X) = σ 2 /n, which says that the standard deviation decreases
 proportional to the square root of the number of replications. However, replication beyond a
 limit may be impractical due to cost and other considerations.
 3. Local control. In the simplest case of local control, the experimental units are divided into
@@ -10176,11 +10176,11 @@ A =
 
 1
 1
-(yield11 + yield10 ) − (yield01 + yield00 )
+(yield11 + yield10 ) - (yield01 + yield00 )
 2
 2
 1
-(yield11 + yield10 − yield01 − yield00 ),
+(yield11 + yield10 - yield01 - yield00 ),
 2
 
 4 Statistical Inference
@@ -10237,11 +10237,11 @@ Yield =
 
 1
 1
-(yield11 + yield01 ) − (yield10 + yield00 )
+(yield11 + yield01 ) - (yield10 + yield00 )
 2
 2
 1
-(yield11 − yield10 + yield01 − yield00 ),
+(yield11 - yield10 + yield01 - yield00 ),
 2 Effect of Factor
 B at a given A
 
@@ -10298,7 +10298,7 @@ Computation of Interaction Effect
 1
 
 We define the interaction between factors A and B as one half of the differences between
-- the effect of changing B at the high level of A, (yield11 − yield10 ), and
+- the effect of changing B at the high level of A, (yield11 - yield10 ), and
 
 Factor A
 
@@ -10379,9 +10379,9 @@ showing
 interaction effects.
 with interaction.
 
-- the effect of changing B at the low level of A, (yield01 − yield00 ), that is
+- the effect of changing B at the low level of A, (yield01 - yield00 ), that is
 1
-AB = (yield11 − yield10 − yield01 + yield00 ).
+AB = (yield11 - yield10 - yield01 + yield00 ).
 2
 - If the lines are parallel then this interaction, AB, will be small.
 - If we interchange the roles of A and B in this expression we obtain the same formula.
@@ -10444,13 +10444,13 @@ Pn
 
 Pn
 
-− x) = 0.
+- x) = 0.
 Pn
 2
 2
 2
-i=1 (xi − x) =
-i=1 xi − nx .
+i=1 (xi - x) =
+i=1 xi - nx .
 
 i=1 (xi
 
@@ -10465,16 +10465,16 @@ Pn
 
 i=1 (xi
 
-(xi − a)2 =
+(xi - a)2 =
 
 n
 X
 
-(xi − x)2 + n(x − a)2 .
+(xi - x)2 + n(x - a)2 .
 
 i=1
 
-− a)2 is minimised at a = x.
+- a)2 is minimised at a = x.
 119
 
 A Mathematical Concepts Needed in MATH1024
@@ -10496,7 +10496,7 @@ A.3
 
 Counting and combinatorics
 
-For non-negative integers n and k such that k ≤ n, the number of combinations
+For non-negative integers n and k such that k \leq n, the number of combinations
 n
 
 Ck ≡
@@ -10507,12 +10507,12 @@ n!
 =
 .
 k
-k! (n − k)!
+k! (n - k)!
 
 Prove that
  
 n
-n × (n − 1) × · · · × (n − k + 1)
+n × (n - 1) × · · · × (n - k + 1)
 =
 1 × 2 × 3 × · · · × k.
 k
@@ -10527,17 +10527,17 @@ k
 =
 
 n!
-k! (n−k)!
-1 1×2×3×···×(n−k)×(n−k+1)×···×(n−1)×n
+k! (n-k)!
+1 1×2×3×···×(n-k)×(n-k+1)×···×(n-1)×n
 k!
-1×2×3×···×(n−k)
+1×2×3×···×(n-k)
 1
 [(n
-−
+-
 k
 +
 1)
-× · · · × (n − 1) × n] .
+× · · · × (n - 1) × n] .
 k!
 
 Hence the proof is complete. This enables us to calculate
@@ -10560,8 +10560,8 @@ k :
 the numerator is the multiplication of k terms starting with n and counting down,
 and the denominator is the multiplication of the first k positive integers.
 With 0! = 1 and k! = 1 × 2 × 3 × · · · × k, and the above formula, prove the following:
-= n C n−k . [This means number of ways of choosing k items out of n items is same as the
-number of ways of choosing n − k items out of n items. Why is this meaningful?]
+= n C n-k . [This means number of ways of choosing k items out of n items is same as the
+number of ways of choosing n - k items out of n items. Why is this meaningful?]
 
 
 
@@ -10572,7 +10572,7 @@ n
 +
 k
 k
-k−1 .
+k-1 .
 
 1.
 
@@ -10595,8 +10595,8 @@ By mathematical induction it can be proved that:
  
  
 n
-n x n−x
-n−1
+n x n-x
+n-1
 (a + b) = b +
 ab
 + ··· +
@@ -10614,11 +10614,11 @@ be used to prove the following:
  
 n
 n x
-n−1
-p(1 − p)
+n-1
+p(1 - p)
 + ··· +
-p (1 − p)n−x + · · · + pn = (p + 1 − p)n = 1.
-(1 − p) +
+p (1 - p)n-x + · · · + pn = (p + 1 - p)n = 1.
+(1 - p) +
 1
 x
 n
@@ -10631,16 +10631,16 @@ x=0
 
 x
 
-px (1 − p)n−x = 1,
+px (1 - p)n-x = 1,
 
 which also implies:
-n−1
+n-1
 X
 x=0
 
 
-n−1 x
-p (1 − p)n−1−x = 1,
+n-1 x
+p (1 - p)n-1-x = 1,
 x
 
 for n > 1.
@@ -10652,8 +10652,8 @@ x
 y
 z
 x+y=z
-where the above sum is also over all possible integer values of x and y such that 0 ≤ x ≤ m and
-0 ≤ y ≤ n.
+where the above sum is also over all possible integer values of x and y such that 0 \leq x \leq m and
+0 \leq y \leq n.
 Hint Consider the identity
 (1 + t)m (1 + t)n = (1 + t)m+n
 and compare the coefficients of tm+n on both sides. If this is hard, please try small values of m and
@@ -10684,10 +10684,10 @@ x=0
 z
 X
 
-P {Y = z − x}P {X = x}
+P {Y = z - x}P {X = x}
 
 
-e−µ µz−x /(z − x)! e−λ λx /x!
+e-µ µz-x /(z - x)! e-λ λx /x!
 
 x=0
 
@@ -10696,34 +10696,34 @@ x=0
 =
 =
 
-−µ−λ
+-µ-λ
 
 z
 X
 
 1
-λx µz−x
-x! (z − x)!
+λx µz-x
+x! (z - x)!
 
 x=0
 z
-−(λ+µ)
+-(λ+µ)
 X
 e
 
 z!
-e−(λ+µ)
+e-(λ+µ)
 z!
-e−(λ+µ)
+e-(λ+µ)
 z!
 
 z!
-λx µz−x
-x! (z − x)!
+λx µz-x
+x! (z - x)!
 x=0
 z  
 X
-z x z−x
+z x z-x
 λ µ
 x
 x=0
@@ -10745,9 +10745,9 @@ rx = 1 + r + r2 + · · · + rk =
 
 x=0
 
-1 − rk+1
+1 - rk+1
 .
-1−r
+1-r
 
 The power of r, k + 1, in the formula for the sum is the number of terms.
 2. When k → ∞ we can evaluate the sum only when |r| < 1. In that case
@@ -10759,13 +10759,13 @@ rx =
 
 1
 [rk+1 → 0 as k → ∞ for |r| < 1].
-1−r
+1-r
 
 3. For a positive n and |x| < 1, the negative binomial series is given by:
 1
 1
-n(n + 1)(n + 2) · · · (n + k − 1) k
-(1−x)−n = 1+nx+ n(n+1)x2 + n(n+1)(n+2)x3 +· · ·+
+n(n + 1)(n + 2) · · · (n + k - 1) k
+(1-x)-n = 1+nx+ n(n+1)x2 + n(n+1)(n+2)x3 +· · ·+
 x +· · ·
 2
 6
@@ -10776,14 +10776,14 @@ k!
 123
 
 With n = 2 the general term is given by:
-n(n + 1)(n + 2)(n + k − 1)
-2 × 3 × 4 × · · · × (2 + k − 1)
+n(n + 1)(n + 2)(n + k - 1)
+2 × 3 × 4 × · · · × (2 + k - 1)
 =
 = k + 1.
 k!
 k!
 Using this and by taking x = q we prove that:
-1 + 2q + 3q 2 + 4q 3 + · · · = (1 − q)−2 .
+1 + 2q + 3q 2 + 4q 3 + · · · = (1 - q)-2 .
 
 A.6
 
@@ -10804,14 +10804,14 @@ b
 
 
 
-= log(a) − log(b)
+= log(a) - log(b)
 
 [Log of the product is the sum of the logs]
 [Log of the ratio is the difference of the logs]
 
 
 3. log ab = b log(a) or equivalently ab = eb log(a) .
-There is no simple formula for log(a + b) or log(a − b). Now try the following exercises:
+There is no simple formula for log(a + b) or log(a - b). Now try the following exercises:
 
 
 3
@@ -10848,14 +10848,14 @@ n
 where for a positive integer k, k! = 1 × 2 × 3 × · · · × k. Hence, 2! = 2, 3! = 6 and so on. By
 convention we use 0! = 1. Now try the following exercises:
 
-1. Satisfy yourself that limn→∞ 1 −
+1. Satisfy yourself that limn→∞ 1 -
 2. Satisfy yourself that
 
 P∞
 
 x=0 e
 
-−λ λx
+-λ λx
 x!
 
 x2
@@ -10867,7 +10867,7 @@ n
 
 2
 
-= e−x .
+= e-x .
 
 A Mathematical Concepts Needed in MATH1024
 
@@ -10890,13 +10890,13 @@ F (x) =
 
 f (x) =
 
-−∞
+-∞
 
 dF (x)
 dx
 
 For example, consider the pair
-f (x) = λe−λx , F (x) = 1 − e−λx .
+f (x) = λe-λx , F (x) = 1 - e-λx .
 Satisfy yourself that the fundamental theorem of calculus holds.
 
 A.7.2
@@ -10904,8 +10904,8 @@ A.7.2
 Even and odd functions
 
 A function f (x) is said to be an even function if
-f (x) = f (−x)
-for all possible values of x. For example, f (x) = e−
+f (x) = f (-x)
+for all possible values of x. For example, f (x) = e-
 
 x2
 2
@@ -10913,8 +10913,8 @@ x2
 is an even function for real x.
 
 A function f (x) is said to be an odd function if
-f (x) = −f (−x)
-for all possible values of x. For example, f (x) = xe−
+f (x) = -f (-x)
+for all possible values of x. For example, f (x) = xe-
 proved that:
 for any real positive value of a,
  Ra
@@ -10922,7 +10922,7 @@ Z a
 2 0 f (x)dx
 f (x)dx =
 0
-−a
+-a
 
 x2
 2
@@ -10935,8 +10935,8 @@ if f (x) is an odd function of x.
 The proof of this is not required. Here is an example of each.
 Ra
 Ra 2
-−a f (x)dx =
-−a x dx
+-a f (x)dx =
+-a x dx
 =
 =
 =
@@ -10944,7 +10944,7 @@ Ra 2
 
 a
 x3
-3 −a
+3 -a
 1 3
 3
 3 (a + a )
@@ -10957,7 +10957,7 @@ Similarly, f (x) = x is an odd function of x and consequently,
 
 Ra
 
-−a f (x)dx
+-a f (x)dx
 
 = 0 for any a.
 
@@ -10985,13 +10985,13 @@ a→∞ 0
 
 if the limit exists. For example, it is easy to see that
 Z ∞
-e−x dx = 1.
+e-x dx = 1.
 0
 
 The gamma function is an improper integral defined by
 Z ∞
 Γ(α) =
-xα−1 e−x dx, α > 0.
+xα-1 e-x dx, α > 0.
 0
 
 It can be shown that Γ(α) exists and is finite for all real values of α > 0. Obviously it is non-negative
@@ -10999,25 +10999,25 @@ since it is the integral of a non-negative function. It is easy to see that
 Γ(1) = 1
 R∞
 
-since 0 e−x dx = 1. The argument α enters only through the power of the dummy (x). Remember
+since 0 e-x dx = 1. The argument α enters only through the power of the dummy (x). Remember
 this, as we will have to recognise many gamma integrals. Important points are:
 1. It is an integral from 0 to ∞.
 2. The integrand must be of the form dummy (x) to the power of the parameter (α) minus one
-(xα−1 ) multiplied by e to the power of the negative dummy (e−x ).
+(xα-1 ) multiplied by e to the power of the negative dummy (e-x ).
 3. The parameter (α) must be greater than zero.
 Using integration by parts, we can prove the reduction formula:
 
-Γ(α) = (α − 1)Γ(α − 1),
+Γ(α) = (α - 1)Γ(α - 1),
 
 for α > 1.
 
 This formula reads:
 Gamma(parameter) = (parameter – 1) Gamma(parameter – 1)
-provided parameter > 1. The condition α > 1 is required to ensure that Γ(α − 1) exists. The
+provided parameter > 1. The condition α > 1 is required to ensure that Γ(α - 1) exists. The
 proof of this is not required, but can be proved easily by integration by parts by integrating the
-function e−x and differentiating the function xα−1 . For an integer n, by repeatedly applying the
+function e-x and differentiating the function xα-1 . For an integer n, by repeatedly applying the
 reduction formula and Γ(1) = 1, show that
-Γ(n) = (n − 1)!.
+Γ(n) = (n - 1)!.
 Thus Γ(5) = 4! = 24. You can guess how rapidly the gamma function increases! The last formula
 we need to remember for our purposes is:
 
@@ -11048,35 +11048,35 @@ Proof of this is complicated and not required for this module. Using this we can
 π
 Γ
 =
-− 1 Γ 12 =
+- 1 Γ 12 =
 .
 2
 2
 2
 Now we can easily tackle integrals such as the following:
 R∞
-1. For fun try to evaluate 0 xα−1 e−βx dx for α > 0 and β > 0.
+1. For fun try to evaluate 0 xα-1 e-βx dx for α > 0 and β > 0.
 R∞
-2. Prove that 0 xe−λx dx = λ12 .
+2. Prove that 0 xe-λx dx = λ12 .
 R∞
-3. Prove that 0 x2 e−λx dx = λ23 .
+3. Prove that 0 x2 e-λx dx = λ23 .
 Solution to the combinatorics problems.
 1.
 
 n
-n−k
+n-k
 
 
 
 =
 
 n!
-(n−k)!(n−[n−k])!
+(n-k)!(n-[n-k])!
 
 =
 
 n!
-(n−k)!k!
+(n-k)!k!
 
 =
 
@@ -11095,24 +11095,24 @@ RHS =
 n!
 n!
 +
-k!(n − k)! (k − 1)!(n − [k − 1])!
+k!(n - k)! (k - 1)!(n - [k - 1])!
 n!
-[n − (k − 1) + k]
-k!(n − [k − 1])!
+[n - (k - 1) + k]
+k!(n - [k - 1])!
 n![n + 1]
-k!(n − [k − 1])!
+k!(n - [k - 1])!
 (n + 1)!
-k!(n + 1 − k)!
+k!(n + 1 - k)!
 LHS
 
 3. (a) Number of selections (without replacement) of k objects from n is exactly the same as
-the number of selections of (n − k) objects from n.
+the number of selections of (n - k) objects from n.
 (b) The number of selections of k items from (n + 1) consists of:
 - The number of selections that include the (n + 1)th item. There are
 - The number of selections that exclude the (n + 1)th item. There are
 
 n
-k−1 of these.
+k-1 of these.
 
 n
 k of these.
@@ -11201,7 +11201,7 @@ statistically independent. Find the probability that in 10 non-overlapping one h
 at least two of the periods have at least 15 calls.
 88. [Continuous distribution] The random variable X has probability density function
 
-kx2 (1 − x) if 0 ≤ x ≤ 1
+kx2 (1 - x) if 0 \leq x \leq 1
 f (x) =
 0
 otherwise.
@@ -11215,7 +11215,7 @@ otherwise.
 (c) In 100 independent observations of X, how many on average will fall in the range (0, 12 )?
 89. [Exponential distribution] The random variable X has probability density function
 
-λe−λx if x ≥ 0
+λe-λx if x ≥ 0
 f (x) =
 0
 otherwise.
@@ -11239,15 +11239,15 @@ Show that the interquartile range equals σ log(3).
 90. [Cauchy distribution] A random variable X is said to have a Cauchy distribution if its
 probability density function is given by
 1
-, −∞ < x < +∞.
+, -∞ < x < +∞.
 f (x) =
 π(1 + x2 )
 (a) Verify that it is a valid probability density function and sketch its graph.
 (b) Find the cumulative distribution function F (x).
-(c) Find P (−1 ≤ X ≤ 1).
+(c) Find P (-1 \leq X \leq 1).
 91. [Continuous distribution] The probability density function of X has the form
 
-a + bx + cx2 if 0 ≤ x ≤ 4
+a + bx + cx2 if 0 \leq x \leq 4
 f (x) =
 0
 otherwise.
@@ -11315,8 +11315,8 @@ P {both boys}
 =
 = .
 =
-1 − P {both girls}
-1 − 1/4
+1 - P {both girls}
+1 - 1/4
 3
 
 P {both boys|at least one boy} =
@@ -11361,7 +11361,7 @@ P {A}
 80.
 P {problem not solved} = P {Jane fails and Alice fails}
 = P {Jane fails}P {Alice fails} (by independence)
-= (1 − 0.4)(1 − 0.3)
+= (1 - 0.4)(1 - 0.3)
 = 0.42.
 Hence P {problem solved} = 0.58.
 
@@ -11478,7 +11478,7 @@ More concisely,
 (
 px =
 
-6−|x−7|
+6-|x-7|
 36
 
 0
@@ -11502,8 +11502,8 @@ F (x) =
 36
 
 if x < 2
-if 2 ≤ x < 3
-if 3 ≤ x < 4, etc.
+if 2 \leq x < 3
+if 3 \leq x < 4, etc.
 
 P
 Using the formula ni=1 i = 12 n(n + 1) we find that the cumulative distribution function
@@ -11517,7 +11517,7 @@ F (x) =
 
 
 
- (6+[x−7])(7+[x−7])
+ (6+[x-7])(7+[x-7])
 21
 
 
@@ -11532,12 +11532,12 @@ if
 if
 
 72
-[x−7](11−[x−7])
+[x-7](11-[x-7])
 72
 
 where [x] denotes the integral part of x.
 3
-For example, F (3.5) = (6−4)(7−4)
+For example, F (3.5) = (6-4)(7-4)
 = 36
 , F (10.5) =
 72
@@ -11548,11 +11548,11 @@ For example, F (3.5) = (6−4)(7−4)
 +
 
 x<2
-2≤x<7
-7 ≤ x < 12
+2\leqx<7
+7 \leq x < 12
 x ≥ 12,
 
-3(11−3)
+3(11-3)
 72
 
 =
@@ -11694,10 +11694,10 @@ if
 if
 if
 
-x < −3
-− 3 ≤ x < −1
-−1≤x<1
-1≤x<3
+x < -3
+- 3 \leq x < -1
+-1\leqx<1
+1\leqx<3
 x ≥ 3.
 
 (b)
@@ -11735,10 +11735,10 @@ if
 if
 if
 
-x < −3
-− 3 ≤ x < −1
-−1≤x<1
-1≤x<3
+x < -3
+- 3 \leq x < -1
+-1\leqx<1
+1\leqx<3
 x ≥ 3.
 
 B Worked Examples
@@ -11786,11 +11786,11 @@ E(X 2 ) = 1 ×
 +9×
 14
 14
-Therefore Var(X) = E(X 2 ) − [E(X)]2
+Therefore Var(X) = E(X 2 ) - [E(X)]2
 65 400
 55
 =
-−
+-
 = .
 7
 49
@@ -11874,7 +11874,7 @@ x
 7
 = .
 2
-Var(X) = E(X 2 ) − [E(X)]2
+Var(X) = E(X 2 ) - [E(X)]2
 =
 
 1
@@ -11883,7 +11883,7 @@ Var(X) = E(X 2 ) − [E(X)]2
 1
 1
 1
-= × 1 + × 4 + × 9 + × 16 + × 25 + × 36 −
+= × 1 + × 4 + × 9 + × 16 + × 25 + × 36 -
 6
 6
 6
@@ -11981,13 +11981,13 @@ X
 1
 xpx =
 x = 0.
-2n + 1 x=−n
+2n + 1 x=-n
 n
 X
 1
 x px =
 x2
-2n + 1 x=−n
+2n + 1 x=-n
 2
 
 n(n + 1)
@@ -11999,7 +11999,7 @@ n(n + 1)(2n + 1)
 6
 3
 n(n + 1)
-Therefore Var(X) = E(X 2 ) − [E(X)]2 =
+Therefore Var(X) = E(X 2 ) - [E(X)]2 =
 .
 3
 If Var(X) = 10,
@@ -12007,22 +12007,22 @@ n(n + 1)
 then
 = 10
 3
-n2 + n − 30 = 0.
+n2 + n - 30 = 0.
 =
 
-Therefore n = 5 (rejecting − 6).
+Therefore n = 5 (rejecting - 6).
 87. Let X be the number of calls arriving in an hour and let P (X ≥ 15) = p.
 Then Y , the number of times out of 10 that X ≥ 15, is B(n, p) with n = 10 and p =
-1 − 0.98274 = 0.01726.
-Therefore P (Y ≥ 2) = 1 − P (Y ≤ 1)
-= 1 − ((0.98274)10 + 10(0.01726)(0.98274)9 )
+1 - 0.98274 = 0.01726.
+Therefore P (Y ≥ 2) = 1 - P (Y \leq 1)
+= 1 - ((0.98274)10 + 10(0.01726)(0.98274)9 )
 = 0.01223.
 R1
 
-x2 (1 − x) dx = 1, which implies that k = 12.
+x2 (1 - x) dx = 1, which implies that k = 12.
 R 1/2
 5
-(b) P (0 < X < 12 ) = 12 0 x2 (1 − x) dx = 16
+(b) P (0 < X < 12 ) = 12 0 x2 (1 - x) dx = 16
 .
 
 88. (a) k
@@ -12044,24 +12044,24 @@ Z
 
 ∞
 
-xe−λx dx
+xe-λx dx
 0
 Z
-−λx ∞
-= [−xe
+-λx ∞
+= [-xe
 ]0 +
 
 E(X) = λ
 
 ∞
 
-e−λx dx (integrating by parts)
+e-λx dx (integrating by parts)
 
 0
 
-=0−
+=0-
 
-1 −λx ∞
+1 -λx ∞
 1
 [e
 ]0 = .
@@ -12079,13 +12079,13 @@ Z
 
 ∞
 
-x2 e−λx dx
+x2 e-λx dx
 
 0
 
 =
 
-[−x2 e−λx ]∞
+[-x2 e-λx ]∞
 0
 
 Z
@@ -12093,7 +12093,7 @@ Z
 
 ∞
 
-xe−λx dx
+xe-λx dx
 
 0
 
@@ -12102,7 +12102,7 @@ Therefore Var(X) =
 2
 λ2
 
-−
+-
 
 1
 λ2
@@ -12121,7 +12121,7 @@ p
 Z m
 1
 1
-λe−λx dx = , which implies that m = log(2).
+λe-λx dx = , which implies that m = log(2).
 2
 λ
 0
@@ -12130,10 +12130,10 @@ Z u
 Z l
 3
 1
-−λx
+-λx
 λe
 dx = and
-λe−λx dx = ,
+λe-λx dx = ,
 4
 4
 0
@@ -12146,21 +12146,21 @@ The interquartile range equals
 1
 4
 1
-log(4) − log
+log(4) - log
 = log(3) = σ log(3).
 λ
 λ
 3
 λ
 R∞
-90. (a) We must show that −∞ f (x) dx = 1 and f (x) ≥ 0 for all x.
+90. (a) We must show that -∞ f (x) dx = 1 and f (x) ≥ 0 for all x.
 R∞
 dx
 1
-−1 (x)]∞ = 1 ( π − ( −π )) = 1.
-Now −∞ π(1+x
+-1 (x)]∞ = 1 ( π - ( -π )) = 1.
+Now -∞ π(1+x
 2 ) = π [tan
-−∞
+-∞
 π 2
 2
 Also
@@ -12178,11 +12178,11 @@ Rx
 ≥ 0 for all x.
 
 dy
-−∞ 1+y 2
+-∞ 1+y 2
 
-= π1 [tan−1 (y)]x−∞ = π1 (tan−1 (x) + π2 ).
+= π1 [tan-1 (y)]x-∞ = π1 (tan-1 (x) + π2 ).
 
-(c) P (−1 ≤ X ≤ 1) = F (1) − F (−1) = π1 (tan−1 (1) + π2 ) − π1 (tan−1 (−1) + π2 ) = 12 .
+(c) P (-1 \leq X \leq 1) = F (1) - F (-1) = π1 (tan-1 (1) + π2 ) - π1 (tan-1 (-1) + π2 ) = 12 .
 
 B Worked Examples
 
@@ -12200,7 +12200,7 @@ Z
 xf (x) dx =
 Z
 
-−∞
+-∞
 ∞
 
 and
@@ -12211,7 +12211,7 @@ x2 f (x) dx =
 
 Z
 
-−∞
+-∞
 
 4
 
@@ -12241,11 +12241,11 @@ Also
 = 1.
 3
 0
-−∞
-Solving these equations gives a = 43 , b = − 43 and c =
+-∞
+Solving these equations gives a = 43 , b = - 43 and c =
 3
 Therefore f (x) = 16
-(x − 2)2 , 0 ≤ x ≤ 4.
+(x - 2)2 , 0 \leq x \leq 4.
 
 B.3
 
@@ -12292,7 +12292,7 @@ Girl's weight (kg)
 Find
 (a) unbiased estimates of µb and σb2 , the mean and variance of the weights of the boys;
 (b) unbiased estimates of µg and σg2 , the mean and variance of the weights of the girls;
-(c) an unbiased estimate of µb − µg .
+(c) an unbiased estimate of µb - µg .
 Assuming that σb2 = σg2 = σ 2 , calculate an unbiased estimate of σ 2 using both sets of weights.
 93. [Estimation] The time that a customer has to wait for service in a restaurant has the probability density function
 (
@@ -12395,7 +12395,7 @@ Level after
 Let µ1 and µ2 denote respectively the mean blood glucose levels of a randomly selected rat
 before and after treatment with insulin. By considering the differences of the measurements
 on each rat and assuming that they are normally distributed, find a 95% confidence interval
-for µ1 − µ2 .
+for µ1 - µ2 .
 
 B Worked Examples
 
@@ -12420,17 +12420,17 @@ Solutions: Statistics examples
 10
 
 An unbiased estimate of σb2 is the sample variance of the weights of the boys,
-σ̂b2 = ((772 + 672 + . . . + 812 ) − 10µ̂2b )/9 = 52.67̇.
+σ̂b2 = ((772 + 672 + . . . + 812 ) - 10µ̂2b )/9 = 52.67̇.
 (b) Similarly, unbiased estimates of µg and σg2 are
 1
 (42 + 57 + . . . + 59) = 52.4,
 10
-σ̂g2 = ((422 + 572 + . . . + 592 ) − 10µ̂2g )/9 = 56.71̇.
+σ̂g2 = ((422 + 572 + . . . + 592 ) - 10µ̂2g )/9 = 56.71̇.
 
 µ̂g =
 
-(c) An unbiased estimate of µb − µg is
-µ̂b − µ̂g = 67.3 − 52.4 = 14.9.
+(c) An unbiased estimate of µb - µg is
+µ̂b - µ̂g = 67.3 - 52.4 = 14.9.
 
 E(σ̂b2 ) = E(σ̂g2 ) = σ 2 and so
 E
@@ -12461,7 +12461,7 @@ dx
 (x + θ)4
 0
 Z ∞
-y−θ
+y-θ
 3
 dy (where y = x + θ)
 = 3θ
@@ -12471,7 +12471,7 @@ y4
 1
 θ ∞
 3
-= 3θ − 2 + 3
+= 3θ - 2 + 3
 2y
 3y θ
 
@@ -12481,7 +12481,7 @@ y4
 3
 = 3θ
 = θ/2
-−
+-
 2θ2 3θ2
 Z
 
@@ -12492,7 +12492,7 @@ Thus θ̂ is an unbiased estimator for θ.
 Z ∞
 Z ∞
 3θ3 x2
-(y − θ)2
+(y - θ)2
 3
 E(X 2 ) =
 dx
@@ -12509,24 +12509,24 @@ y4
 θ2 ∞
 1
 3
-= 3θ − + 2 − 3
+= 3θ - + 2 - 3
 y y
 3y θ
 = θ2 .
-So Var(X) = θ2 − (θ/2)2 = 3θ2 /4.
+So Var(X) = θ2 - (θ/2)2 = 3θ2 /4.
 p
-Hence Var(θ̂) = 4Var(X̄) = 3θ2 /n and SE(θ̂) = θ 3/n.
+Hence Var(θ̂) = 4Var(\BAR X) = 3θ2 /n and SE(θ̂) = θ 3/n.
 
-94. The 100(1 − α)% symmetric confidence interval is
+94. The 100(1 - α)% symmetric confidence interval is
 
-x̄ − zγ ×
+\bar x - zγ ×
 
 
 4
 α
 4
-, x̄ + zγ ×
-(γ = 1 − )
+, \bar x + zγ ×
+(γ = 1 - )
 10
 10
 2
@@ -12535,7 +12535,7 @@ where zγ is the 100γ percentile of the standard normal distribution. The width
 0.8zγ . The width of the quoted confidence interval is 1.316. Therefore, assuming that the
 quoted interval is symmetric,
 0.8zγ = 1.316 ⇒ zγ = 1.645 ⇒ γ = 0.95 (pnorm(1.645) in R).
-This implies that α = 0.1 and hence 100(1 − α) = 90, i.e. the confidence level is 90%.
+This implies that α = 0.1 and hence 100(1 - α) = 90, i.e. the confidence level is 90%.
 95. Assuming that although the 972 homeowners are all insured within the same company they
 constitute a random sample from the population of all homeowners in the city, the 95%
 interval is given approximately by
@@ -12543,9 +12543,9 @@ interval is given approximately by
 #
 r
 r
-p̂(1 − p̂)
-p̂(1 − p̂)
-p̂ − 1.96
+p̂(1 - p̂)
+p̂(1 - p̂)
+p̂ - 1.96
 , p̂ + 1.96
 ,
 n
@@ -12556,16 +12556,16 @@ where n = 972 and p̂ = 357/972. The interval is therefore [0.337, 0.398].
 
 140
 
-96. The 100(1 − α)% confidence interval is, in the usual notation,
+96. The 100(1 - α)% confidence interval is, in the usual notation,
 
 
 s
-x̄ ± critical value √ ,
+\bar x ± critical value √ ,
 n
-where the critical value is the 100(1−α/2)th percentile of the t-distribution with n−1 degrees
-of freedom. Here x̄ = 121 and s = 5.
+where the critical value is the 100(1-α/2)th percentile of the t-distribution with n-1 degrees
+of freedom. Here \bar x = 121 and s = 5.
 (a) For the 95% CI, critical value = 1.753 (qt(0.95,df=15) in R) and the interval is
-[121 − 1.753 × 5/4, 121 + 1.753 × 5/4],
+[121 - 1.753 × 5/4, 121 + 1.753 × 5/4],
 i.e. [118.81, 123.19].
 (b) For the 99% CI, critical value = 2.947 (qt(0.995,df=15) in R) and the interval is
 [117.32, 124.68].
@@ -12584,7 +12584,7 @@ qt(0.975,df=99)
 qt(0.975,df=224)
 qt(0.975,df=399)
 
-t0.975 (n − 1)
+t0.975 (n - 1)
 2.131
 2.064
 1.984
@@ -12608,11 +12608,11 @@ Confidence Limits
 
 s
 s
-x̄ − 2.306 × , x̄ + 2.306 × .
+\bar x - 2.306 × , \bar x + 2.306 × .
 3
 3
-The midpoint is x̄ and therefore
-x̄ =
+The midpoint is \bar x and therefore
+\bar x =
 
 22.4 + 25.6
 = 24.0.
@@ -12620,7 +12620,7 @@ x̄ =
 
 This is an unbiased estimate of µ.
 Also
-25.6 − 22.4
+25.6 - 22.4
 2.306s
 =
 = 1.6.
@@ -12637,14 +12637,14 @@ X
 x2i = 18.703628.
 
 These lead to
-x̄ = 1.3676, s = 0.00606.
+\bar x = 1.3676, s = 0.00606.
 Also, for the 95% CI, critical value = 2.262 (qt(0.975,df=9) in R).
 Thus a 95% confidence interval for the mean is
 
 
 0.00606
 0.00606
-1.3676 − 2.262 × √
+1.3676 - 2.262 × √
 , 1.3676 + 2.262 × √
 ,
 10
@@ -12656,7 +12656,7 @@ Thus a 95% confidence interval for the mean is
 
 i.e. [1.3633, 1.3719].
 A 95% confidence interval for the mean error is obtained by subtracting the true wavelength
-of 1.372 from each endpoint. This gives [−0.0087, −0.0001]. As this contains negative values
+of 1.372 from each endpoint. This gives [-0.0087, -0.0001]. As this contains negative values
 only, we conclude that the device tends to underestimate the true value.
 99. Using x to refer to the early attempts and y to refer to the later ones, we find from the data
 that
@@ -12669,7 +12669,7 @@ X
 yi = 672.6,
 yi2 = 90684.38.
 This gives
-x̄ = 144.74, s2x = 37.093,
+\bar x = 144.74, s2x = 37.093,
 ȳ = 134.52, s2y = 51.557.
 Confidence limits for the change in mean time are
 s
@@ -12678,23 +12678,23 @@ s
 4s2x + 4s2y 1 1
 +
 ,
-ȳ − x̄ ± critical value
+ȳ - \bar x ± critical value
 8
 5 5
-leading to the interval [−18.05, −2.39], as critical value = 1.860 (qt(0.95,df=8) in R).
+leading to the interval [-18.05, -2.39], as critical value = 1.860 (qt(0.95,df=8) in R).
 As it contains only negative values, this suggests that there is a real decrease in the mean
 time taken to complete the cube. We have assumed that the two samples are independent
 random samples from normal distributions of equal variance.
 100. Let d1 , d2 , . . . , d10 denote the differences in levels before and after treatment. Their values
 are
-0.32, 0.16, −0.18, 0.11, 0.22, 0.00, 0.47, 0.31, 0.49, −0.12.
+0.32, 0.16, -0.18, 0.11, 0.22, 0.00, 0.47, 0.31, 0.49, -0.12.
 P10
 P
 2
 ¯
 Then i=1 di = 1.78 and 10
 i=1 di = 0.7924 so that d = 0.178, sd = 0.2299.
-A 95% confidence interval for the mean difference µ1 − µ2 is
+A 95% confidence interval for the mean difference µ1 - µ2 is
 
 
 sd
@@ -12707,7 +12707,7 @@ d ± critical value √
 0.2299
 √
 √
-i.e. 0.178 − 2.262 × 0.2299
+i.e. 0.178 - 2.262 × 0.2299
 ,
 0.178
 +
@@ -12718,14 +12718,14 @@ or [0.014, 0.342], as critical value = 2.262
 10
 (qt(0.975,df=9) in R).
 Note that the two samples are not independent. Thus the standard method of finding a
-confidence interval for µ1 − µ2 , as used in Question 9 for example, would be inappropriate.
+confidence interval for µ1 - µ2 , as used in Question 9 for example, would be inappropriate.
 101. The mean of the heights is 1.624 and the standard deviation is 0.04326. A 99% confidence
 interval for the mean height is therefore
 
 
 0.04326
 0.04326
-1.624 − 3.250 × √
+1.624 - 3.250 × √
 , 1.624 + 3.250 × √
 ,
 10
@@ -12936,7 +12936,7 @@ summaries.
 - To calculate variance, try var(ffood$AM). What does the command var(c(ffood$AM, ffoood$PM)
 give? In R, c is the command to combine elements. For example, x <- c(1, 5).
 - Obtain a frequency distribution of region in bill by issuing: table(bill$region).
-- Variance and standard deviation (both with divisor n − 1) are obtained by using commands
+- Variance and standard deviation (both with divisor n - 1) are obtained by using commands
 like var(cfail) and sd(cfail).
 
 C.1.7

@@ -1,0 +1,311 @@
+# Introduction to Statistics
+
+## What is statistics? {#what-is-statistics}
+
+### Early and modern definitions
+
+- The word *statistics* has its roots in the Latin word *status* which means the state, and in the
+middle of the 18th century was intended to mean
+*collection, processing and use of data by the state*.
+- With the rapid industrialisation of Europe in the first half of the 19th century, statistics
+became established as a discipline. This led to the formation of the Royal Statistical Society,
+the premier professional association of statisticians in the UK and also world-wide, in 1834.
+- During this 19th century growth period, statistics acquired a new meaning as the *interpretation of data or methods of extracting information from data for decision making*. Thus
+statistics has its modern meaning as the methods for
+*collection, analysis and interpretation of data*.
+- Indeed, the Oxford English Dictionary defines *statistics* as
+
+> The practice or science of collecting and analysing numerical data in large quantities, especially for the purpose of inferring
+proportions in a whole from those in a representative sample.
+
+- Note that the word ‘state’ has gone from its definition. Instead, statistical methods are now
+essential for **everyone** wanting to answer questions using data.
+
+For example, will it rain tomorrow? Does eating red meat make us live longer? Is smoking
+harmful during pregnancy? Is the new shampoo better than the old? Will the UK economy get
+better after Brexit? At a more personal level: What degree classification will I get at graduation?
+How long will I live for? What prospects do I have in the career I have chosen? How do I invest
+my money to maximise the return? Will the stock market crash tomorrow?
+
+
+### Uncertainty: the main obstacle to decision making
+
+The main obstacle to answering the types of questions above is *uncertainty*, which means **lack of
+one-to-one correspondence between cause and effect**. For example, having a diet of (well-cooked) red meat for a period of time is not going to kill me immediately. The effect of smoking
+during pregnancy is difficult to judge because of the presence of other factors, e.g. diet and lifestyle;
+such effects will not be known for a long time, e.g. at least until the birth. Thus it seems:
+
+> **Uncertainty is the only certainty!**
+
+
+
+### Statistics tames uncertainty
+
+- It is clear that we may never be able to get to the bottom of every case to learn the full truth
+and so will have to make a decision under uncertainty; thus mistakes cannot be avoided!
+- If mistakes cannot be avoided, it is better to know how often we make mistakes (which
+provides knowledge of the amount of uncertainty) by following a particular rule of decision
+making.
+- Such knowledge could be put to use in finding a rule of decision making which does not betray
+us too often, or which minimises the frequency of wrong decisions, or which minimises the
+loss due to wrong decisions.
+
+Thus we have the equation 
+\[\text{Uncertain knowledge} +
+  \text{Knowledge of the extent of uncertainty in it} =
+  \text{Usable knowledge.}\]
+<!-- TODO: fix formatting -->
+
+
+Researchers often make guesses about scientific quantities. For example, try to guess my age: 65
+or 45? 
+These predictions are meaningless without the associated uncertainties. Instead, appropriate
+data collection and correct application of statistical methods may enable us to make statements
+like: I am 97% certain that the correct age is between 47 and 54 years. Remember, 
+
+> to guess is cheap, to guess incorrectly is expensive  
+-- <cite>old Chinese proverb.</cite>
+<!-- TODO: update ages -->
+
+
+### Why should I study statistics as part of my degree?
+
+- Studying statistics will equip you with the basic skills in data analysis and doing science with
+data.
+- A decent level of statistical knowledge is required no matter what branch of mathematics,
+engineering, science and social science you will be studying.
+- Learning statistical theories gives you the opportunity to practice your deductive mathematical skills on real life problems. In this way, you will improve at mathematical methods while
+studying statistical methods.
+
+>All knowledge is, in final analysis, history.  
+>All sciences are, in the abstract, mathematics.  
+>All judgements are, in their rationale, statistics.  
+>-- <cite>Prof. C. R. Rao </cite>
+
+### Lies, Damn Lies and Statistics?
+
+Sometimes people say, "you can prove anything in statistics!" and many such jokes. Such remarks
+bear testimony to the fact that often statistics and statistical methods are mis-quoted without
+proper verification and robust justification. This is even more important in recent years of the global
+pandemic when every day we have been showered with a deluge of numbers. The front and the back cover
+of this booklet plot two pandemic related diagrams that we plan to discuss as we learn different
+topics in this module.
+Returning to the criticisms of statistics, admittedly and regretfully, statistics can be very much
+mis-used and mis-interpreted. However, we statisticians argue:
+
+- Every number is guilty unless proved innocent.
+- Figures won't lie, but liars can figure!
+
+Hence, although people may miss-use the tools of statistics, it is our duty to learn and sharpen the
+those to develop scientifically robust and strong arguments.
+As discussed before statistical methods are only viable tool whenever there is uncertainty in
+decision making. In scientific investigations, statistics is an inevitable instrument in search of truth
+when uncertainty cannot be totally removed from decision making. Of course, a statistical method
+may not yield the best predictions in a very particular situation, but a systematic and robust
+application of statistical methods will eventually win over pure guesses. For example, statistical
+methods prove that cigarette smoking is bad for human health.
+
+
+### What's in this module?
+
+- **Chapter 1**: We will start with the basic statistics used in everyday life, e.g. mean, median,
+mode, standard deviation, etc. Statistical analysis and report writing will be discussed. We
+will also learn how to explore data using graphical methods.
+  * For this we will use the R statistical package. R is freely available to download. Search
+"download R" or go to: https://cran.r-project.org/. We will use it as a calculator
+and also as a graphics package to explore data, perform statistical analysis, illustrate
+theorems and calculate probabilities. You do not need to learn any programming language. You will be instructed to learn basic commands like: `2+2`; `mean(x)`; `plot(x,y)`.
+  * In this module we will demonstrate using the R package. A nicer experience is provided
+by the commercial, but still freely available, R Studio software. It is recommended that
+you use that.
+- **Chapter 2: Introduction to Probability**. We will define and interpret probability as a
+measure of uncertainty. We will learn the rules of probability and then explore fun examples
+of probability, e.g. the probability of winning the National Lottery.
+- **Chapter 3: Random variables**. We will learn that the results of different random experiments lead to different random variables following distributions such as the binomial, and
+normal. etc. We will learn their basic properties, e.g. mean and variance.
+- **Chapter 4: Statistical Inference**. We will discuss basic ideas of statistical inference,
+including techniques of point and interval estimation and hypothesis testing.
+
+### Take home points:
+
+- We apply statistical methods whenever there is uncertainty and complete enumeration is not
+possible.
+- This module will provide a very gentle introduction to statistics and probability together with
+the software package R for data analysis.
+- Statistical knowledge is essential for any scientific career in academia, industry and government.
+- Read the New York Times article "For Today's Graduate, Just One Word: Statistics"
+(search on Google).
+- Watch the YouTube video "Joy of Statistics" before attending the next lecture.
+
+## Basic statistics
+
+### Lecture mission
+
+In Lecture \@ref(what-is-statistics) we got a glimpse of the nature of uncertainty and statistics. In this lecture we get our
+hands dirty with data and learn a bit more about it.
+
+How do I obtain data? How do I summarise it? Which is the best measure among mean, median
+and mode? What do I make of the spread of the data?
+
+### How do I obtain data?
+
+How should we collect data in the first place? Unless we can ask everyone in the population we
+should select individuals randomly (haphazardly) in order to get a representative sample. Otherwise we may introduce bias. For example, in order to gauge student opinion in this class I should
+not only survey the international students. But there are cases when systematic sampling may
+be preferable. For example, selecting every third caller in a radio phone-in show for a prize, or
+sampling air pollution hourly or daily. There is a whole branch of statistics called *survey methods*
+or *sample surveys*, where these issues are studied.
+As well as randomness, we need to pay attention to the **design** of the study. In a *designed
+experiment* the investigator controls the values of certain experimental variables and then measures
+a corresponding output or response variable. In *designed surveys* an investigator collects data on a
+randomly selected sample of a well-defined population. Designed studies can often be more effective
+at providing reliable conclusions, but are frequently not possible because of difficulties in the study.
+
+We will return to the topics of survey methods and designed surveys later in Lecture 28.
+<!-- TODO: add correct reference -->
+ Until
+then we assume that we have data from $n$ randomly selected sampling units, which we will conveniently denote by  $x_1, x_2, \dots, x_n$. We will assume that these values are numeric, either discrete like
+counts, e.g. number of road accidents, or continuous, e.g. heights of 4-year-olds, marks obtained
+in an examination. We will consider the following example:
+
+#### Example 1 Fast food service time 
+<!-- TODO: make example block format -->
+
+The service times (in seconds) of customers at a fast-food
+restaurant. The first row is for customers who were served from 9–10AM and the second row is for
+customers who who were served from 2–3pm on the same day.
+<!-- TODO: add data -->
+
+How can we explore the data?
+
+
+### Summarising data
+
+- We summarise categorical (not numeric) data by tables. For example: 5 reds, 6 blacks etc.
+- For numeric data $x_1, x_2, \dots, x_n$, we would like to know the centre (measures of location or
+central tendency) and the spread or variability.
+
+**Measures of location**
+
+- We are seeking a representative value for the data 
+$x_1, x_2, \dots, x_n$ which should be a function
+of the data. If $a$ is that representative value then how much error is associated with it?
+- The total error could be the sum of squares of the deviations
+from $a$, $\text{SSE} = \sum_{i=1}^n (x_i - x)^2$ or
+or the sum of the absolute deviations from $a$, 
+$\text{SSA} = \sum_{i=1}^n |x_i - x|$.
+- What value of a will minimise the SSE or the SSA? For SSE the answer is the sample mean
+and for SSA the answer is the sample median.
+
+**The sample mean minimises the SSE**
+
+- Let us define the sample mean by
+\[\bar x = \frac{1}{n} (x_1 + x_2 + \dots + x_n)
+  = \frac{1}{n} \sum_{i=1}^n x_i.\]
+- How can we prove the above assertion? Use the derivative method. 
+Set $\frac{\partial}{\partial a} \text{SSE} = 0$ and solve
+for $a$. Check the second derivative condition that it is positive at the solution for $a$. Try this
+at home.
+- Following is an alternative proof that establishes a very important result in statistics.
+$$
+\begin{aligned}
+\sum_{i=1}^{n}\left(x_{i}-a\right)^{2} &=\sum_{i=1}^{n}\left(x_{i}-\bar{x}+\bar{x}-a\right)^{2} \quad\{\text { Add and subtract } \bar{x}\} \\
+&=\sum_{i=1}^{n}\left\{\left(x_{i}-\bar{x}\right)^{2}+2\left(x_{i}-\bar{x}\right)(\bar{x}-a)+(\bar{x}-a)^{2}\right\} \\
+&=\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}+2(\bar{x}-a) \sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)+\sum_{i=1}^{n}(\bar{x}-a)^{2} \\
+&=\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}+n(\bar{x}-a)^{2},
+\end{aligned}
+$$
+since $\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)=n \bar{x}-n \bar{x}=0$.
+
+
+  * Now note that: the first term is free of $a$; the second term is non-negative for any value
+of $a$. Hence the minimum occurs when the second term is zero, i.e. when $a = \bar x$.
+  * This establishes the fact that
+**the sum of (or mean) squares of the deviations from any number $a$ is minimised when $a$ is the mean.**
+  * In the proof we also noted that $\sum_{i=1}^n (x_i − \bar x) = 0$. This is stated as
+**the sum of the deviations of a set of numbers from
+their mean is zero.**
+  *   In statistics and in this module, you will come across these two facts again and again!
+
+- The above justifies why we often use the mean as a representative value. For the service time
+data, the mean time in AM is 68.9 seconds and for PM the mean is 66.8 seconds.
+
+**The sample median minimises the SSA**
+
+- Here the derivative approach does not work since the derivative does not exist for the absolute
+function.
+- Instead we use the following argument. First, order the observations:
+$x_{(1)} \leq x_{(2)} \leq \dots \leq x_{(n)}$.
+For the AM service time data: $38 < 43 < 52 < 59 < 63 < 64 < 77 < 86 < 100 < 107$.
+- Now note that:
+\[\text{SSA} =
+ \sum_{i=1}^n |x_i − a| =
+\sum_{i=1}^n |x_{(i)} − a| = |x_{(1)} − a| + |x+{(n)} − a| + |x_{(2)} − a| + |x_{(n−1)} − a| + \dots.\]
+
+- Easy to argue that $|x_{(1)} − a| + |x_{(n)} − a|$ is minimised when $a$ is such that $x_{(1)} \leq a \leq x_{(n)}$.
+- Easy to argue that $|x_{(2)} − a| + |x_{(n−1)} − a|$ is minimised when $a$ is such that $x_{(2)} \leq a \leq x_{(n−1)}$.
+- When $n$ is odd, the last term $|x_{(n+1)} − a|$ is minimised when $a = x_{\left(\frac{n+1}{2}\right)}$ or the middle value in the ordered list.
+- If however, $n$ is even, the last pair of terms will be $|x_\left(\frac{n}{2}\right) − a| + |x\left(\frac{n}{2} +1\right) − a|$. This will be
+minimised when a is any value between $x_\left(\frac{n}{2}\right)$ and $x\left(\frac{n}{2} +1\right)$.
+For convenience, we often take the
+mean of these as the middle value.
+- Hence the middle value, popularly known as the median, minimises the SSA. Hence the
+median is also often used as a representative value or a measure of central tendency. This
+establishes the fact that:
+the sum of (or mean) of the absolute deviations from any number a is
+minimised when a is the median.
+- To recap: the median is defined as the observation ranked $\frac{1}{2}(n+1)$
+in the ordered list if $n$ is odd.
+If $n$ is even, the median is any value between $\frac{n}{2}$th and $(\frac{n}{2} +1)$th
+in the ordered list. For example,
+for the AM service times, $n = 10$ and $38 < 43 < 52 < 59 < 63 < 64 < 77 < 86 < 100 < 107$.
+So the median is any value between 63 and 64. For convenience, we often take the mean of
+these. So the median is 63.5 seconds. Note that we use the unit of the observations when
+reporting any measure of location.
+
+**The sample mode minimises the average of a 0-1 error function.**
+
+The mode or the most frequent (or the most likely) value in the data is taken as the most representative value if we consider a 0-1 error function instead of the SSA or SSE above. Here, one assumes
+that the error is 0 if our guess a is the correct answer and 1 if it is not. It can then be proved that
+(proof not required) the best guess a will be the mode of the data.
+
+**Which of the three (mean, median and mode) would you prefer?**
+
+The mean gets more affected by extreme observations while the median does not. For example for
+the AM service times, suppose the next observation is 190. The median will be 64 instead of 63.5
+but the mean will shoot up to 79.9.
+
+**Measures of spread**
+
+- A quick measure of the spread is the *range*, which is defined as the difference between the
+maximum and minimum observations. For the AM service times the range is $69$ ($107 - 38$)
+seconds.
+
+- Standard deviation: square root of variance $=\frac{1}{n-1} \sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}$.
+$$
+\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}=\sum_{i=1}^{n}\left(x_{i}^{2}-2 x_{i} \bar{x}+\bar{x}^{2}\right)=\sum_{i=1}^{n} x_{i}^{2}-2 \bar{x}(n \bar{x})+n \bar{x}^{2}=\sum_{i=1}^{n} x_{i}^{2}-n \bar{x}^{2}
+$$
+Hence we calculate variance by the formula:
+$$
+\operatorname{Var}(x)=s^{2}=\frac{1}{n-1}\left(\sum_{i=1}^{n} x_{i}^{2}-n \bar{x}^{2}\right)
+$$
+- Sometimes the variance is defined with the divisor $n$ instead of $n - 1$. We have chosen $n - 1$
+since this is the default in R. We will return to this in Chapter ??. 
+<!-- TODO: fix reference here. -->
+- The standard deviation (sd) for the AM service times is 23.2 seconds. Note that it has the
+same unit as the observations.
+- The interquartile range (IQR) is the difference between the third, $Q_3$ and first, $Q_1$ quartiles,
+which are respectively the observations ranked $\frac{1}{4}(3n + 1)$ and $\frac{1}{4}(n + 3)$
+in the ordered list.
+Note that the median is the second quartile, $Q_2$. When $n$ is even, definitions of $Q_3$ and $Q_1$
+are similar to that of the median, $Q_2$. The IQR for the AM service times is $83.75 - 53.75 = 30$
+seconds.
+
+### Take home points
+
+- As a measure of location we have three choices: mean, median and mode, each of which is
+optimal under a different consideration.
+- We have discussed three measures of spread: range, sd and the IQR.
+- Additional examples and mathematical details are provided in Section ??
+<!-- TODO: fix reference here. -->
+

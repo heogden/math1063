@@ -1,0 +1,215 @@
+# Introduction to Probability
+
+## Chapter mission
+
+Why should we study probability? What are probabilities? How do you find them? What are the
+main laws of probabilities? How about some fun examples where probabilities are used to solve
+real-life problems?
+
+## Definitions of probability
+
+### Why should we study probability?
+
+Probabilities are often used to express the uncertainty of events of interest happening. For example,
+we may say that: (i) it is highly likely that Liverpool will retain the premiership title this season
+or to be more specific, I think there is more than an 80% chance that Liverpool will keep the title;
+(ii) the probability of a tossed fair coin landing heads is 0.5. So it is clear that probabilities mean
+different things to different people. As we have seen in the previous chapter, there is uncertainty
+everywhere. Hence, probabilities are used as tools to quantify the associated uncertainty. The
+theory of statistics has its basis in the mathematical theory of probability. A statistician must
+be fully aware of what probability means to him/her and what it means to other people. In this
+lecture we will learn the basic definitions of probability and how to find them.
+
+### Two types of probabilities: subjective and objective
+
+The two examples above, Liverpool and tossing a coin, convey two different interpretations of
+probability. The Liverpool probability is the commentator's own subjective belief, isn't it? The
+commentator certainly has not performed a large experiment involving all the 20 teams over the
+whole (future) season under all playing conditions, players, managers and transfers. This notion
+is known as subjective probability. Subjective probability gives a measure of the plausibility of
+the proposition, to the person making it, in the light of past experience (e.g. Liverpool are the
+current champions) and other evidence (e.g. they spent the maximum amount of money buying
+players). There are plenty of other examples, e.g. I think there is a 70% chance that the FTSE
+100 will rise tomorrow, or according to the Met Office there is a 40% chance that we will have a
+white Christmas this year in Southampton. Subjective probabilities are nowadays used cleverly
+in a statistical framework called Bayesian inference. Such methods allow one to combine expert
+opinion and evidence from data to make the best possible inferences and prediction. Unfortunately
+discussion of Bayesian inference methods is beyond the scope of this module, although we will talk
+about it when possible.
+
+The second definition of probability comes from the long-term relative frequency of a result of
+a random experiment (e.g. coin tossing) which can be repeated an infinite number of times under
+essentially similar conditions. First we give some essential definitions.
+
+**Random experiments**. The experiment is random because in advance we do not know exactly
+what outcome the experiment will give, even though we can write down all the possible outcomes
+which together are called the **sample space** ($S$). For example, in a coin tossing experiment, $S
+= \{\text{head}, \text{tail}\}$. If we toss two coins together, 
+$S = \{\text{HH}, \text{HT}, \text{TH}, \text{TT}\}$ where $\text{H}$ and $\text{T}$ denote
+respectively the outcome head and tail from the toss of a single coin.
+
+<!-- TODO: check consistency of bold or italics for definitions -->
+
+**Event**. An event is defined as a particular result of the random experiment. For example, 
+$\text{HH}$
+(two heads) is an event when we toss two coins together. Similarly, at least one head e.g. 
+$\{\text{HH}, \text{HT}, \text{TH}\}$ is an event as well. 
+Events are denoted by capital letters $A, B, C, \ldots$ or $A_1, B_1, A_2$ etc., and
+a single outcome is called an **elementary event**, e.g. $\text{HH}$. 
+An event which is a group of elementary
+events is called a **composite event**, e.g. at least one head. How to determine the probability of a
+given event $A$, $P\{A\}$, is the focus of probability theory.
+
+**Probability as relative frequency**. Imagine we are able to repeat a random experiment
+under identical conditions and count how many of those repetitions result in the event $A$. The
+relative frequency of $A$, i.e. the ratio
+\[\frac{\text{the number of repetitions resulting in $A$}}{\text{total number of repetitions}},\]
+approaches a fixed limit value as the number of repetitions increases. This limit value is defined as
+$P\{A\}$.
+
+As a simple example, in the experiment of tossing a particular coin, suppose we are interested
+in the event $A$ of getting a 'head'. We can toss the coin 1000 times (i.e. do 1000 replications of
+the experiment) and record the number of heads out of the 1000 replications. Then the relative
+frequency of $A$ out of the 1000 replications is the proportion of heads observed.
+Sometimes, however, it is much easier to find $P\{A\}$ by using some 'common knowledge' about
+probability. For example, if the coin in the example above is fair 
+(i.e. $P\{\text{head}\} = P\{\text{tail}\})$, then
+this information and the common knowledge that $P\{\text{head}\}+P\{\text{tail}\} = 1$
+immediately imply that
+$P\{\text{head}\} = 0.5$ and $P\{\text{tail}\} = 0.5$. Next, the essential 
+'common knowledge' about probability
+will be formalized as the axioms of probability, which form the foundation of probability theory.
+But before that, we need to learn a bit more about the event space (collection of all events).
+
+### Union, intersection, mutually exclusive and complementary events
+
+
+For us to proceed we need to establish parallels between probability theory and set theory, which
+is taught in calculus. The sample space S is called the whole set and it is composed of all possible
+elementary events (outcomes from a single replicate).
+
+##### Example Die throw {#ex:die-throw}
+<!-- TODO: put in example block format -->
+
+Roll a six-faced die and observe the score on the uppermost face.
+Here $S = \{1, 2, 3, 4, 5, 6\}$, which is composed of six elementary events.
+
+The **union** of two given events $A$ and B, denoted as ($A$ or $B$) or $A \cup B$, 
+consists of the outcomes
+that are either in A or B or both. 'Event $A \cup B$ occurs' means 
+'either $A$ or $B$ occurs or both occur'.
+
+For example, in Example \@ref(ex:die-throw), 
+suppose $A$ is the event that *an even number is observed*. This
+event consists of the set of outcomes 2, 4 and 6, i.e. $A = \{\text{an even number}\} = \{2, 4, 6\}$.
+Suppose $B$ is the event that *a number larger than 3 is observed*. This event consists of the 
+outcomes 4, 5 and 6, i.e. $B = \{\text{a number larger than 3}\} = \{4, 5, 6\}$. 
+Hence the event $A \cup B =
+\{\text{an even number or a number larger than 3}\} = \{2, 4, 5, 6\}$. 
+Clearly, when a $6$ is observed, both $A$
+and $B$ have occurred.
+
+The **intersection** of two given events $A$ and $B$, denoted as ($A$ and $B$) or $A \cap B$, 
+consists of the
+outcomes that are common to both $A$ and $B$. 'Event $A \cap B$ occurs' means 'both $A$ and $B$ occur'. For
+example, in Example \@ref(ex:die-throw), 
+$A \cap B = \{4, 6\}$. Additionally, if $C = \{\text{a number less than 6}\} = \{1, 2, 3, 4, 5\}$,
+the intersection of events $A$ and $C$ is the event $A \cap C = \{\text{an even number less than 6}\} = \{2, 4\}$.
+
+The union and intersection of two events can be generalized in an obvious way to the union and
+intersection of more than two events.
+
+Two events $A$ and $D$ are said to be mutually exclusive if $A \cap D = \emptyset$, where $\emptyset$ denotes the empty
+set, i.e. $A$ and $D$ have no outcomes in common. Intuitively, '$A$ and $D$ are mutually exclusive'
+means '$A$ and $D$ cannot occur simultaneously in the experiment'.
+
+In Example \@ref(ex:die-throw), 
+if $D = \{\text{an odd number}\} = \{1, 3, 5\}$, then $A \cap D = \emptyset$ and so $A$ and $D$ are
+mutually exclusive. As expected, $A$ and $D$ cannot occur simultaneously in the experiment.
+
+For a given event $A$, the complement of $A$ is the event that consists of all the outcomes not in
+$A$ and is denoted by $A^\prime$ . Note that $A \cup A^\prime = S$ and $A \cap A^\prime = \emptyset$.
+
+<!-- TODO: add mutually exclusive, union and intersection Venn diagrams -->
+
+Thus, we can see the parallels between Set theory and Probability theory:
+
+
+| Set theory       | Probability theory |
+|------------------|--------------------|
+| Space            | Sample space       |
+| Element or point | Elementary event   |
+| Set              | Event              |
+
+### Axioms of probability
+
+Here are the three axioms of probability:
+
+**A1** $P\{S\}=1$.  
+**A2** $0 \leq P\{A\} \leq 1$ for any event $A$.  
+**A3** $P\{A \cup B\}=P\{A\}+P\{B\}$ provided that $A$ and $B$ are mutually exclusive events.
+
+Here are some of the consequences of the axioms of probability:
+
+(1) For any event $A, P\{A\}=1-P\left\{A^{\prime}\right\}$.
+(2) From (1) and Axiom A 1, $P\{0\}=1-P\{S\}=0$. Hence if $A$ and $B$ are mutually exclusive events, then $P\{A \cap B\}=0$.
+(3) If $D$ is a subset of $E, D \subset E$, then $P\left\{E \cap D^{\prime}\right\}=P\{E\}-P\{D\}$ which implies for arbitrary events $A$ and $B, P\left\{A \cap B^{\prime}\right\}=P\{A\}-P\{A \cap B\}$.
+(4) It can be shown by mathematical induction that Axiom A3 holds for more than two mutually exclusive events:
+$$
+P\left\{A_{1} \cup A_{2} \cup \cdots \cup A_{k}\right\}=P\left\{A_{1}\right\}+P\left\{A_{2}\right\}+\ldots+P\left\{A_{k}\right\}
+$$
+provided that $A_{1}, \ldots, A_{k}$ are mutually exclusive events.
+Hence, the probability of an event A is the sum of the probabilities of the individual outcomes that make up the event.
+(5) For the union of two arbitrary events, we have the General addition rule: For any two events $A$ and $B$
+$$
+P\{A \cup B\}=P\{A\}+P\{B\}-P\{A \cap B\} .
+$$
+**Proof**: We can write $A \cup B=\left(A \cap B^{\prime}\right) \cup(A \cap B) \cup\left(A^{\prime} \cap B\right)$. All three of these are mutually exclusive events. Hence,
+$$
+\begin{aligned}
+P\{A \cup B\} &=P\left\{A \cap B^{\prime}\right\}+P\{A \cap B\}+P\left\{A^{\prime} \cap B\right\} \\
+&=P\{A\}-P\{A \cap B\}+P\{A \cap B\}+P\{B\}-P\{A \cap B\} \\
+&=P\{A\}+P\{B\}-P\{A \cap B\} .
+\end{aligned}
+$$
+(6) The sum of the probabilities of all the outcomes in the sample space $S$ is 1 .
+
+### Application to an experiment with equally likely outcomes
+
+For an experiment with $N$ equally likely possible outcomes, the axioms (and the consequences
+above) can be used to find $P\{A\}$ of any event $A$ in the following way.
+
+From consequence (4), we assign probability $1/N$ to each outcome.
+
+For any event $A$, we find $P\{A\}$ by adding up $1/N$ for each of the outcomes in event $A$:
+\[P {A} = \frac{\text{number of outcomes in $A$}}
+{\text{total number of possible outcomes of the experiment}}.\]
+
+Return to Example \@ref(ex:die-throw)
+where a six-faced die is rolled. Suppose that one wins a bet if a 6 is
+rolled. Then the probability of winning the bet is $1/6$ as there are six possible outcomes in the
+sample space and exactly one of those, 6, wins the bet. Suppose $A$ denotes the event that an
+even-numbered face is rolled. Then $P\{A\} = 3/6 = 1/2$ as we can expect.
+
+#### Dice throw 
+
+Roll 2 distinguishable dice and observe the scores. Here 
+$S =
+\{(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), . . . , (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6\)}$ which consists of 36
+possible outcomes or elementary events, $A_1, \ldots , A_{36}$.
+What is the probability of the outcome $6$ in
+both the dice? The required probability is $1/36$. What is the probability that the sum of the two
+dice is greater than 6? How about the probability that the sum is less than any number, e.g. 8?
+Hint: Write down the sum for each of the 36 outcomes and then find the probabilities asked just
+by inspection. Remember, each of the 36 outcomes has equal probability $1/36$.
+
+
+#### Take home points
+
+This lecture has laid the foundation for studying probability. We discussed two types of probabilities, subjective and objective by relative frequencies. Using three axioms of probability we have
+derived the elementary rules for probability. We then discussed how we can use elementary laws of
+probability to find the probabilities of some events from the dice throw example.
+
+The next lecture will continue to find probabilities using specialist counting techniques called
+permutation and combination. This will allow us to find probabilities in a number of practical
+situations.

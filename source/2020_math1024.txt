@@ -4039,19 +4039,19 @@ is taught in calculus. The sample space S is called the whole set and it is comp
 elementary events (outcomes from a single replicate).
 ♥ Example 5 Die throw Roll a six-faced die and observe the score on the uppermost face.
 Here S = {1, 2, 3, 4, 5, 6}, which is composed of six elementary events.
-The union of two given events A and B, denoted as (A or B) or A ∪ B, consists of the outcomes
-that are either in A or B or both. 'Event A ∪ B occurs' means 'either A or B occurs or both occur'.
+The union of two given events A and B, denoted as (A or B) or A \cup B, consists of the outcomes
+that are either in A or B or both. 'Event A \cup B occurs' means 'either A or B occurs or both occur'.
 For example, in Example 5, suppose A is the event that an even number is observed. This
-event consists of the set of outcomes 2, 4 and 6, i.e. A = {an even number} = {2, 4, 6}. Suppose B is the event that a number larger than 3 is observed. This event consists of the outcomes 4, 5 and 6, i.e. B = {a number larger than 3} = {4, 5, 6}. Hence the event A ∪ B =
+event consists of the set of outcomes 2, 4 and 6, i.e. A = {an even number} = {2, 4, 6}. Suppose B is the event that a number larger than 3 is observed. This event consists of the outcomes 4, 5 and 6, i.e. B = {a number larger than 3} = {4, 5, 6}. Hence the event A \cup B =
 {an even number or a number larger than 3} = {2, 4, 5, 6}. Clearly, when a 6 is observed, both A
 and B have occurred.
-The intersection of two given events A and B, denoted as (A and B) or A ∩ B, consists of the
-outcomes that are common to both A and B. 'Event A∩B occurs' means 'both A and B occur'. For
-example, in Example 5, A∩B = {4, 6}. Additionally, if C = {a number less than 6} = {1, 2, 3, 4, 5},
-the intersection of events A and C is the event A ∩ C = {an even number less than 6} = {2, 4}.
+The intersection of two given events A and B, denoted as (A and B) or A \cap B, consists of the
+outcomes that are common to both A and B. 'Event A\capB occurs' means 'both A and B occur'. For
+example, in Example 5, A\capB = {4, 6}. Additionally, if C = {a number less than 6} = {1, 2, 3, 4, 5},
+the intersection of events A and C is the event A \cap C = {an even number less than 6} = {2, 4}.
 The union and intersection of two events can be generalized in an obvious way to the union and
 intersection of more than two events.
-Two events A and D are said to be mutually exclusive if A ∩ D = ∅, where ∅ denotes the empty
+Two events A and D are said to be mutually exclusive if A \cap D = \emptyset, where \emptyset denotes the empty
 set, i.e. A and D have no outcomes in common. Intuitively, 'A and D are mutually exclusive'
 means 'A and D cannot occur simultaneously in the experiment'.
 
@@ -4059,11 +4059,11 @@ A
 
 B
 
-Figure 2.1: In the left plot A and B are mutually exclusive; the right plot shows A ∪ B and A ∩ B.
-In Example 5, if D = {an odd number} = {1, 3, 5}, then A ∩ D = ∅ and so A and D are
+Figure 2.1: In the left plot A and B are mutually exclusive; the right plot shows A \cup B and A \cap B.
+In Example 5, if D = {an odd number} = {1, 3, 5}, then A \cap D = \emptyset and so A and D are
 mutually exclusive. As expected, A and D cannot occur simultaneously in the experiment.
 For a given event A, the complement of A is the event that consists of all the outcomes not in
-A and is denoted by A0 . Note that A ∪ A0 = S and A ∩ A0 = ∅.
+A and is denoted by A0 . Note that A \cup A0 = S and A \cap A0 = \emptyset.
 
 2 Introduction to Probability
 
@@ -4091,27 +4091,27 @@ Axioms of probability
 Here are the three axioms of probability:
 A1 P {S} = 1,
 A2 0 \leq P {A} \leq 1 for any event A,
-A3 P {A ∪ B} = P {A} + P {B} provided that A and B are mutually exclusive events.
+A3 P {A \cup B} = P {A} + P {B} provided that A and B are mutually exclusive events.
 Here are some of the consequences of the axioms of probability:
 (1) For any event A, P {A} = 1 - P {A0 }.
-(2) From (1) and Axiom A1, P {∅} = 1 - P {S} = 0. Hence if A and B are mutually exclusive
-events, then P {A ∩ B} = 0.
-(3) If D is a subset of E, D ⊂ E, then P {E ∩ D0 } = P {E} - P {D} which implies for arbitrary
-events A and B, P {A ∩ B 0 } = P {A} - P {A ∩ B}.
+(2) From (1) and Axiom A1, P {\emptyset} = 1 - P {S} = 0. Hence if A and B are mutually exclusive
+events, then P {A \cap B} = 0.
+(3) If D is a subset of E, D ⊂ E, then P {E \cap D0 } = P {E} - P {D} which implies for arbitrary
+events A and B, P {A \cap B 0 } = P {A} - P {A \cap B}.
 (4) It can be shown by mathematical induction that Axiom A3 holds for more than two mutually
 exclusive events:
-P {A1 ∪ A2 ∪ · · · ∪ Ak } = P {A1 } + P {A2 } + . . . + P {Ak }
+P {A1 \cup A2 \cup · · · \cup Ak } = P {A1 } + P {A2 } + . . . + P {Ak }
 provided that A1 , . . . , Ak are mutually exclusive events.
 Hence, the probability of an event A is the sum of the probabilities of the individual outcomes
 that make up the event.
 (5) For the union of two arbitrary events, we have the General addition rule: For any two events
 A and B,
-P {A ∪ B} = P {A} + P {B} - P {A ∩ B}.
-Proof: We can write A ∪ B = (A ∩ B 0 ) ∪ (A ∩ B) ∪ (A0 ∩ B). All three of these are mutually
+P {A \cup B} = P {A} + P {B} - P {A \cap B}.
+Proof: We can write A \cup B = (A \cap B 0 ) \cup (A \cap B) \cup (A0 \cap B). All three of these are mutually
 exclusive events. Hence,
-P {A ∪ B} = P {A ∩ B 0 } + P {A ∩ B} + P {A0 ∩ B}
-= P {A} - P {A ∩ B} + P {A ∩ B} + P {B} - P {A ∩ B}
-= P {A} + P {B} - P {A ∩ B}.
+P {A \cup B} = P {A \cap B 0 } + P {A \cap B} + P {A0 \cap B}
+= P {A} - P {A \cap B} + P {A \cap B} + P {B} - P {A \cap B}
+= P {A} + P {B} - P {A \cap B}.
 (6) The sum of the probabilities of all the outcomes in the sample space S is 1.
 
 2 Introduction to Probability
@@ -4176,7 +4176,7 @@ is the probability that I will win the jackpot?
 Multiplication rule of counting
 
 To complete a specific task, one has to complete k(≥ 1) sub-tasks sequentially. If there are ni
-different ways to complete the i-th sub-task (i = 1, . . . , k) then there are n1 × n2 × . . . × nk different
+different ways to complete the i-th sub-task (i = 1, . . . , k) then there are n1 \times n2 \times . . . \times nk different
 ways to complete the task.
 ♥ Example 7 Counting Suppose there are 7 routes to London from Southampton and then
 there are 5 routes to Cambridge out of London. How many ways can I travel to Cambridge from
@@ -4199,7 +4199,7 @@ n
 
 Pk = n(n - 1) · · · (n - [k - 1]) =
 
-n(n - 1) · · · (n - [k - 1]) × (n - k)!
+n(n - 1) · · · (n - [k - 1]) \times (n - k)!
 n!
 =
 .
@@ -4209,7 +4209,7 @@ n!
 ♥ Example 8 Football How many possible rankings are there for the 20 football teams in
 the premier league at the end of a season? This number is given by 20 P20 = 20!, which is a huge
 number! How many possible permutations are there for the top 4 positions who will qualify to play
-in Europe in the next season? This number is given by 20 P4 = 20 × 19 × 18 × 17.
+in Europe in the next season? This number is given by 20 P4 = 20 \times 19 \times 18 \times 17.
 The number of combinations of k from n:
 
 nC
@@ -4232,10 +4232,10 @@ above has n Pk ways to complete.
 Alternatively, to complete this task, one has to complete two sub-tasks sequentially. The first
 sub-task is to select k(≥ 1) from the n (n ≥ k) available people, which has n Ck ways. The second
 sub-task is to sit the k selected people in k (different) chairs, which has k! ways. It follows directly
-from the multiplication rule that there are n Ck × k! to complete the task. Hence we have
+from the multiplication rule that there are n Ck \times k! to complete the task. Hence we have
 n
 
-Pk = n C k × k!,
+Pk = n C k \times k!,
 
 i.e.,
 
@@ -4260,7 +4260,7 @@ n!
 
 ♥ Example 9 Football How many possible ways are there to choose 3 teams for the bottom
 positions of the premier league table at the end of a season? This number is given by 20 C3 =
-20 × 19 × 18/3!, which does not take into consideration the rankings of the three bottom teams!
+20 \times 19 \times 18/3!, which does not take into consideration the rankings of the three bottom teams!
 ♥ Example 10 Microchip A box contains 12 microchips of which 4 are faulty. A sample of size
 3 is drawn from the box without replacement.
 - How many selections of 3 can be made?
@@ -4332,7 +4332,7 @@ number of ways of selecting one boy and two girls
 P {exactly one boy} =
 number of ways of selecting 3 students
 4C 6C
-4 × 15
+4 \times 15
 1
 1
 2
@@ -4345,7 +4345,7 @@ number of ways of selecting 3 students
 3
 Similarly,
 4C 6C
-6×6
+6\times6
 3
 2
 1
@@ -4364,7 +4364,7 @@ selection process. What is the probability of winning the jackpot?
 Total number of possible selections of six balls/numbers is given by 49 C6 .
 There is only 1 selection for winning the jackpot. Hence
 1
-= 7.15 × 10-8 .
+= 7.15 \times 10-8 .
 P {jackpot} = 49
 C6
 which is roughly 1 in 13.98 million.
@@ -4391,7 +4391,7 @@ P {3 matches} =
 49 C
 6
 
-= 1.84 × 10-5 .
+= 1.84 \times 10-5 .
 = 0.0009686197
 = 0.0176504
 
@@ -4406,7 +4406,7 @@ P {5 matches + bonus} =
 6
 49 C
 
-= 4.29 × 10-7 .
+= 4.29 \times 10-7 .
 6
 
 Adding all these probabilities of winning some kind of prize together gives
@@ -4454,12 +4454,12 @@ outcomes.
 Given the partial knowledge that event A has occurred, only the nA = 3 outcomes in A =
 {4, 5, 6} could have occurred. However, only some of the outcomes in B among these nA outcomes
 in A will make event B occur; the number of such outcomes is given by the number of outcomes
-nA∩B in both A and B, i.e., A ∩ B, and equal to 2. Hence the probability of B, given the partial
+nA\capB in both A and B, i.e., A \cap B, and equal to 2. Hence the probability of B, given the partial
 knowledge that event A has occurred, is equal to
 2
-nA∩B
-nA∩B /n
-P {A ∩ B}
+nA\capB
+nA\capB /n
+P {A \cap B}
 =
 =
 =
@@ -4478,7 +4478,7 @@ Definition of conditional probability
 
 For events A and B with P {A} > 0, the conditional probability of event B, given that event A has
 occurred, is
-P {A ∩ B}
+P {A \cap B}
 P {B|A} =
 .
 P {A}
@@ -4490,7 +4490,7 @@ P {64GB|16 MP} =
 
 2.3.3
 
-P {64GB ∩ 16 MP}
+P {64GB \cap 16 MP}
 0.3
 =
 = 0.75.
@@ -4500,9 +4500,9 @@ P {16 MP}
 Multiplication rule of conditional probability
 
 By rearranging the conditional probability definition, we obtain the multiplication rule of conditional probability as follows:
-P {A ∩ B} = P {A}P {B|A}.
+P {A \cap B} = P {A}P {B|A}.
 Clearly the roles of A and B could be interchanged leading to:
-P {A ∩ B} = P {B}P {A|B}.
+P {A \cap B} = P {B}P {A|B}.
 
 2 Introduction to Probability
 
@@ -4510,9 +4510,9 @@ P {A ∩ B} = P {B}P {A|B}.
 
 Hence the multiplication rule of conditional probability for two events is:
 
-P {A ∩ B} = P {B}P {A|B} = P {A}P {B|A}.
+P {A \cap B} = P {B}P {A|B} = P {A}P {B|A}.
 It is straightforward to show by mathematical induction the following multiplication rule of conditional probability for k(≥ 2) events A1 , A2 , . . . , Ak :
-P {A1 ∩ A2 ∩ . . . ∩ Ak } = P {A1 }P {A2 |A1 }P {A3 |A1 ∩ A2 } . . . P {Ak |A1 ∩ A2 ∩ . . . ∩ Ak-1 }.
+P {A1 \cap A2 \cap . . . \cap Ak } = P {A1 }P {A2 |A1 }P {A3 |A1 \cap A2 } . . . P {Ak |A1 \cap A2 \cap . . . \cap Ak-1 }.
 ♥ Example 16 Selecting a committee continued Return to the committee selection example
 (Example 12), where there are 4 boys (B) and 6 girls (G). We want to select a 2-person committee.
 Find:
@@ -4522,17 +4522,17 @@ We have already dealt with this type of urn problem by using the combinatorial m
 the multiplication rule is used instead.
 Let Bi be the event that the i-th person is a boy, and Gi be the event that the i-th person is a
 girl, i = 1, 2. Then
-Prob in (i) = P {B1 ∩ B2 } = P {B1 }P {B2 |B1 } =
+Prob in (i) = P {B1 \cap B2 } = P {B1 }P {B2 |B1 } =
 
 4
 3
-× .
+\times .
 10 9
 
-Prob in (ii) = P {B1 ∩G2 }+P {G1 ∩B2 } = P {B1 }P {G2 |B1 }+P {G1 }P {B2 |G1 } =
+Prob in (ii) = P {B1 \capG2 }+P {G1 \capB2 } = P {B1 }P {G2 |B1 }+P {G1 }P {B2 |G1 } =
 
 4 6 6 4
-× + × .
+\times + \times .
 10 9 10 9
 
 You can find the probability that 'both are girls' in a similar way.
@@ -4571,16 +4571,16 @@ formula.
 34
 
 Let B1 , B2 , . . . , Bk be a set of mutually exclusive, i.e.
-Bi ∩ Bj = ∅ for all 1 \leq i 6= j \leq k,
+Bi \cap Bj = \emptyset for all 1 \leq i 6= j \leq k,
 
 and exhaustive events, i.e.:
-B1 ∪ B2 ∪ . . . ∪ Bk = S.
+B1 \cup B2 \cup . . . \cup Bk = S.
 Now any event A can be represented by
-A = A ∩ S = (A ∩ B1 ) ∪ (A ∩ B2 ) ∪ . . . ∪ (A ∩ Bk )
-where (A ∩ B1 ), (A ∩ B2 ), . . . , (A ∩ Bk ) are mutually exclusive events. Hence the Axiom A3 of
+A = A \cap S = (A \cap B1 ) \cup (A \cap B2 ) \cup . . . \cup (A \cap Bk )
+where (A \cap B1 ), (A \cap B2 ), . . . , (A \cap Bk ) are mutually exclusive events. Hence the Axiom A3 of
 probability gives
 
-P {A} = P {A ∩ B1 } + P {A ∩ B2 } + . . . + P {A ∩ Bk }
+P {A} = P {A \cap B1 } + P {A \cap B2 } + . . . + P {A \cap Bk }
 = P {B1 }P {A|B1 } + P {B2 }P {A|B2 } + . . . + P {Bk }P {A|Bk };
 this last expression is called the total probability formula for P {A}.
 
@@ -4590,7 +4590,7 @@ form a partition of the sample space); the right figure shows a possible event A
 a randomly selected phone develops a fault within one year. Let B1 , B2 , B3 be the events that the
 phone is manufactured respectively by companies A Pale, B Sung and C Windows. Then we have:
 P {A} = P {B1 }P {A|B1 } + P {B2 }P {A|B2 } + P {B3 }P {A|B3 }
-= 0.30 × 0.05 + 0.40 × 0.08 + 0.30 × 0.10
+= 0.30 \times 0.05 + 0.40 \times 0.08 + 0.30 \times 0.10
 = 0.077.
 
 Now suppose that my phone has developed a fault within one year. What is the probability that
@@ -4612,7 +4612,7 @@ j=1 P {Bj }P {A|Bj }
 Proof: Use the multiplication rule of conditional probability twice to give
 P {Bi |A} =
 
-P {Bi ∩ A}
+P {Bi \cap A}
 P {Bi }P {A|Bi }
 =
 .
@@ -4626,7 +4626,7 @@ occurred.
 ♥ Example 19 Phones continued The probability that my faulty phone was manufactured
 by A Pale is
 P {B1 }P {A|B1 }
-0.30 × 0.05
+0.30 \times 0.05
 P {B1 |A} =
 =
 = 0.1948.
@@ -4676,15 +4676,15 @@ This is equivalent to saying that
 P {B|A} = P {B}, where P {A} > 0, and P {A|B} = P {A}, where P {B} > 0.
 These give the following formal definition.
 
-A and B are independent events if P {A ∩ B} = P {A}P {B}.
+A and B are independent events if P {A \cap B} = P {A}P {B}.
 ♥ Example 20 Die throw
 Throw a fair die. Let A be the event that “the result is even” and B be the event that “the
 result is greater than 3”. We want to show that A and B are not independent.
-For this, we have P {A ∩ B} = P {either a 4 or 6 thrown} = 1/3, but P {A} = 1/2 and P {B} =
-1/2, so that P {A}P {B} = 1/4 6= 1/3 = P {A ∩ B}. Therefore A and B are not independent events.
+For this, we have P {A \cap B} = P {either a 4 or 6 thrown} = 1/3, but P {A} = 1/2 and P {B} =
+1/2, so that P {A}P {B} = 1/4 6= 1/3 = P {A \cap B}. Therefore A and B are not independent events.
 Note that independence is not the same as the mutually exclusive property. When two events, A
-and B, are mutually exclusive, the probability of their intersection, A∩B, is zero, i.e. P {A∩B} = 0.
-But if the two events are independent then P {A ∩ B} = P {A} × P {B}.
+and B, are mutually exclusive, the probability of their intersection, A\capB, is zero, i.e. P {A\capB} = 0.
+But if the two events are independent then P {A \cap B} = P {A} \times P {B}.
 Independence is often assumed on physical grounds, although sometimes incorrectly. There are
 serious consequences for wrongly assuming independence, e.g. the financial crisis in 2008. However,
 when the events are independent then the simpler product formula for joint probability is then used
@@ -4695,27 +4695,27 @@ when the events are independent then the simpler product formula for joint proba
 
 instead of the formula involving more complicated conditional probabilities.
 ♥ Example 21 Two fair dice when shaken together are assumed to behave independently. Hence
-the probability of two sixes is 1/6 × 1/6 = 1/36.
+the probability of two sixes is 1/6 \times 1/6 = 1/36.
 
 ♥ Example 22 Assessing risk in legal cases In recent years there have been some disastrous
 miscarriages of justice as a result of incorrect assumption of independence. Please read “Incorrect
 use of independence – Sally Clark Case” on Blackboard.
 Independence of complementary events: If A and B are independent, so are A0 and B 0 .
-Proof: Given that P {A ∩ B} = P {A}P {B}, we need to show that P {A0 ∩ B 0 } = P {A0 }P {B 0 }.
+Proof: Given that P {A \cap B} = P {A}P {B}, we need to show that P {A0 \cap B 0 } = P {A0 }P {B 0 }.
 This follows from
-P {A0 ∩ B 0 } = 1 - P {A ∪ B}
-= 1 - [P {A} + P {B} - P {A ∩ B}]
+P {A0 \cap B 0 } = 1 - P {A \cup B}
+= 1 - [P {A} + P {B} - P {A \cap B}]
 = 1 - [P {A} + P {B} - P {A}P {B}]
 = [1 - P {A}] - P {B}[1 - P {A}]
 = [1 - P {A}][1 - P {B}] = P {A0 }P {B 0 }
 
 The ideas of conditional probability and independence can be extended to more than two events.
 Definition Three events A, B and C are defined to be independent if
-P {A ∩ B} = P {A}P {B}, P {A ∩ C} = P {A}P {C}, P {B ∩ C} = P {B}P {C},
+P {A \cap B} = P {A}P {B}, P {A \cap C} = P {A}P {C}, P {B \cap C} = P {B}P {C},
 
 (2.1)
 
-P {A ∩ B ∩ C} = P {A}P {B}P {C}
+P {A \cap B \cap C} = P {A}P {B}P {C}
 
 (2.2)
 
@@ -4725,9 +4725,9 @@ independence of A, B and C, it is necessary to show that both (2.1) and (2.2) ho
 labelled with the binary number 111, two are labelled with 100, two with 010 and two with 001.
 An experiment consists of drawing one ticket at random from the box.
 Let A be the event “the first digit is 1”, B the event “the second digit is 1” and C be the event
-“the third digit is 1”. It is clear that P {A} = P {B} = P {C} = 4/8 = 1/2 and P {A ∩ B} =
-P {A ∩ C} = P {B ∩ C} = 1/4, so the events are pairwise independent, i.e. (2.1) holds. However
-P {A ∩ B ∩ C} = 2/8 6= P {A}P {B}P {C} = 1/8. So (2.2) does not hold and A, B and C are not
+“the third digit is 1”. It is clear that P {A} = P {B} = P {C} = 4/8 = 1/2 and P {A \cap B} =
+P {A \cap C} = P {B \cap C} = 1/4, so the events are pairwise independent, i.e. (2.1) holds. However
+P {A \cap B \cap C} = 2/8 6= P {A}P {B}P {C} = 1/8. So (2.2) does not hold and A, B and C are not
 independent.
 Bernoulli trials The notion of independent events naturally leads to a set of independent trials
 (or random experiments, e.g. repeated coin tossing). A set of independent trials, where each trial
@@ -4804,20 +4804,20 @@ Two components in series
 Suppose each component has a separate operating mechanism. This means that they operate
 independently.
 Let Ai be the event “component i works when required” and let P {Ai } = pi for i = 1, 2. For
-the system of A1 and A2 in series, the event “the system works” is the event {A1 ∩ A2 }. Hence
-P {system works} = P {A1 ∩ A2 } = P {A1 }P {A2 } = p1 p2 .
+the system of A1 and A2 in series, the event “the system works” is the event {A1 \cap A2 }. Hence
+P {system works} = P {A1 \cap A2 } = P {A1 }P {A2 } = p1 p2 .
 The reliability gets lower when components are included in series. For n components in series,
 P {system works} = p1 p2 · · · pn . When pi = p for all i, the reliability of a series of n components is
 P {system works} = pn .
 Two components in parallel
 For the system of A1 and A2 in parallel, the event “the system works when required” is now given
-by the event {A1 ∪ A2 }. Hence
-P {system works} = P {A1 ∪ A2 } = P {A1 } + P {A2 } - P {A1 ∩ A2 } = p1 + p2 - p1 p2 .
+by the event {A1 \cup A2 }. Hence
+P {system works} = P {A1 \cup A2 } = P {A1 } + P {A2 } - P {A1 \cap A2 } = p1 + p2 - p1 p2 .
 This is greater than either p1 or p2 so that the inclusion of a (redundant) component in parallel
 increases the reliability of the system. Another way of arriving at this result uses complementary
 events:
 P {system works} = 1 - P {system fails}
-= 1 - P {A01 ∩ A02 }
+= 1 - P {A01 \cap A02 }
 = 1 - P {A01 }P {A02 }
 = 1 - (1 - p1 )(1 - p2 )
 = p1 + p2 - p1 p2 .
@@ -4835,7 +4835,7 @@ The ideas above can be combined to evaluate the reliability of more complex syst
 
 Each has the probability pi = P {Di } of closing correctly; the mechanisms are independent; all
 are operated by the same impulse. Then
-P {current flows when required} = p1 × [1 - (1 - p2 )(1 - p2 )] × [1 - (1 - p3 )(1 - p3 )(1 - p3 )].
+P {current flows when required} = p1 \times [1 - (1 - p2 )(1 - p2 )] \times [1 - (1 - p3 )(1 - p3 )(1 - p3 )].
 There are some additional examples of reliability applications given in the “Reliability Examples” document available on Blackboard. You are advised to read through and understand these
 additional examples/applications.
 
@@ -4891,8 +4891,8 @@ r
 1
 1
 1
-≈ ×
-+ × P {Y |Q2 }.
+≈ \times
++ \times P {Y |Q2 }.
 n
 2 12 2
 
@@ -5673,7 +5673,7 @@ age (denoted by k) to determine how long more (denoted by s) it will survive! Th
 uses the definition of conditional probability
 P {A|B} =
 
-P {A ∩ B}
+P {A \cap B}
 .
 P {B}
 
@@ -5716,7 +5716,7 @@ x +· · ·
 k!
 With n = 2 and x = 1 - p the general term is given by:
 n(n + 1)(n + 2)(n + k - 1)
-2 × 3 × 4 × · · · × (2 + k - 1)
+2 \times 3 \times 4 \times · · · \times (2 + k - 1)
 =
 = k + 1.
 k!
@@ -5792,7 +5792,7 @@ Firstly we need to identify the possible values of X. Possible values for X are 
 
 x - 1 r-1
 P (X = x) =
-p (1 - p)(x-1)-(r-1) × p
+p (1 - p)(x-1)-(r-1) \times p
 r-1
 
 
@@ -6171,7 +6171,7 @@ log(1 - p)
 - log(1-p)
 θ
 
--550 × log(1 - p).
+-550 \times log(1 - p).
 
 Review the rules of log in Section A.6. Now we have the following table:
 p
@@ -6180,7 +6180,7 @@ p
 0.75
 0.90
 
-q = -550 × log(1 - p)
+q = -550 \times log(1 - p)
 158.22
 381.23
 762.46
@@ -6213,7 +6213,7 @@ The proof is exactly as in the case of the geometric distribution, reproduced be
 definition of conditional probability:
 P {A|B} =
 
-P {A ∩ B}
+P {A \cap B}
 .
 P {B}
 
@@ -6463,7 +6463,7 @@ R-∞
 √1
 2π
 
-× 0 = 0,
+\times 0 = 0,
 
 n 2o
 since the integrand g(z) = z exp - z2 is an odd function, i.e. g(z) = -g(-z); for an odd function
@@ -6805,7 +6805,7 @@ we will study covariance and correlation and then discuss when random variables 
 
 Joint distribution of discrete random variables
 
-If X and Y are discrete, the quantity f (x, y) = P (X = x ∩ Y = y) is called the joint probability
+If X and Y are discrete, the quantity f (x, y) = P (X = x \cap Y = y) is called the joint probability
 mass function (joint pmf) of X and Y . To be a joint pmf, f (x, y) needs to satisfy two conditions:
 (i)
 
@@ -7267,9 +7267,9 @@ free of the measuring units of X and Y as the units cancel in the ratio.
 Independence
 
 Independence is an important concept. Recall that we say two events A and B are independent if
-P (A ∩ B) = P (A) × P (B). We use the same idea here. Two random variables X and Y having the
+P (A \cap B) = P (A) \times P (B). We use the same idea here. Two random variables X and Y having the
 joint pdf or pmf f (x, y) are said to be independent if and only if
-f (x, y) = fX (x) × fY (y) for ALL x and y.
+f (x, y) = fX (x) \times fY (y) for ALL x and y.
 
 ♥ Example 48 Discrete Case X and Y are independent if each cell probability, f (x, y), is the
 product of the corresponding row and column totals. In our very first dice example (Example 44)
@@ -7337,19 +7337,19 @@ x2 \leq y \leq 1. Not independent!
 
 Consequences of Independence
 - Suppose that X and Y are independent random variables. Then
-P (X ∈ A, Y ∈ B) = P (X ∈ A) × P (Y ∈ B)
+P (X ∈ A, Y ∈ B) = P (X ∈ A) \times P (Y ∈ B)
 for any events A and B. That is, the joint probability can be obtained as the product of the
 marginal probabilities. We will use this result in the next lecture. For example, suppose Jack
 and Jess are two randomly selected students. Let X denote the height of Jack and Y denote
 the height of Jess. Then we have,
-P (X < 182 and Y > 165) = P (X < 182) × P (Y > 165).
+P (X < 182 and Y > 165) = P (X < 182) \times P (Y > 165).
 Obviously this has to be true for any numbers other than the example numbers 182 and 165,
 and for any inequalities.
 - Further, let g(x) be a function of x only and h(y) be a function of y only. Then, if X and Y
 are independent, it is easy to prove that
-E[g(X)h(Y )] = E[g(X)] × E[h(Y )].
+E[g(X)h(Y )] = E[g(X)] \times E[h(Y )].
 As a special case, let g(x) = x and h(y) = y. Then we have
-E(XY ) = E(X) × E(Y ).
+E(XY ) = E(X) \times E(Y ).
 Consequently, for independent random variables X and Y , Cov(X, Y ) = 0 and Corr(X, Y ) =
 0. But the converse is not true in general. That is, merely having Corr(X, Y ) = 0 does not
 imply that X and Y are independent random variables.
@@ -7400,7 +7400,7 @@ standard deviation 8 centimetres. I can randomly select a number of first-year s
 each student's height.
 Suppose X1 , . . . , Xn is a random sample from a population with distribution f (x). Then it can
 be shown that the random variables X1 , . . . , Xn are mutually independent, i.e.
-P (X1 ∈ A1 , X2 ∈ A2 , . . . , Xn ∈ An ) = P (X1 ∈ A1 ) × P (X2 ∈ A2 ) × · · · P (Xn ∈ An )
+P (X1 ∈ A1 , X2 ∈ A2 , . . . , Xn ∈ An ) = P (X1 ∈ A1 ) \times P (X2 ∈ A2 ) \times · · · P (Xn ∈ An )
 for any set of events, A1 , A2 , . . . An . That is, the joint probability can be obtained as the product
 of individual probabilities. An example of this for n = 2 was given in the previous lecture; see the
 discussion just below the paragraph Consequences of independence.
@@ -7890,12 +7890,12 @@ down, having a probability function which only depends on a finite number of par
 analysis approaches are also called distribution-free methods.
 ♥ Example 57 Return to the computer failure example
 Let X denote the count of computer failures per week. We want to estimate how often will the
-computer system fail at least once per week in the next year? The answer is 52 × (1 - P (X = 0)).
+computer system fail at least once per week in the next year? The answer is 52 \times (1 - P (X = 0)).
 But how would you estimate P (X = 0)? Consider two approaches.
 1. Nonparametric. Estimate P (X = 0) by the relative frequency of number of zeros in the
 above sample, which is 12 out of 104. Thus our estimate of P (X = 0) is 12/104. Hence,
 our estimate of the number of weeks when there will be at least one computer failure is
-52 × (1 - 12/104) = 46.
+52 \times (1 - 12/104) = 46.
 2. Parametric. Suppose we assume that X follows the Poisson distribution with parameter λ.
 
 4 Statistical Inference
@@ -7906,13 +7906,13 @@ Then the answer to the above question is
 
 
 0
-52 × (1 - P (X = 0)) = 52 × 1 - e-λ λ0!
+52 \times (1 - P (X = 0)) = 52 \times 1 - e-λ λ0!
 
-= 52 × 1 - e-λ
+= 52 \times 1 - e-λ
 which involves the unknown parameter λ. For the Poisson distribution we know that E(X) =
 λ. Hence we could use the sample mean \BAR X to estimate E(X) = λ. Thus our estimate
 λ̂ = \bar x = 3.75. This type of estimator is called a moment estimator. Now our answer is
-52 × 1 - e-3.75 =52 * (1- exp(-3.75)) = 50.78 ≈ 51, which is very different compared
+52 \times 1 - e-3.75 =52 * (1- exp(-3.75)) = 50.78 ≈ 51, which is very different compared
 to our answer of 46 from the nonparametric approach.
 
 4.1.5
@@ -8599,7 +8599,7 @@ Some important remarks about confidence intervals.
 √
 distribution. The formula (\bar x ± 1.96 σ/ n) for the confidence interval is then generalised as:
 
-Estimate ± Critical value × Standard error
+Estimate ± Critical value \times Standard error
 √
 where the estimate is \bar x, the critical value is 1.96 and the standard error is σ/ n. This is
 so much easier to remember. We will see that this formula holds in many of the following
@@ -8678,7 +8678,7 @@ So a general confidence interval for µ can be constructed, just as before in Se
 95% confidence interval (CI) for µ is given by \bar x ± 1.96 √σn . But note that σ is unknown so this
 CI cannot be used unless we can estimate σ, i.e. replace the unknown s.d. of \BAR X by its estimated
 standard error. In this case, we get the CI in the familiar form:
-Estimate ± Critical value × Standard error
+Estimate ± Critical value \times Standard error
 Suppose that we do not assume any distribution for the sampled random variable X but assume
 only that X1 , . . . , Xn are i.i.d, following the distribution of X where E(X) = µ and Var(X) = σ 2 .
 √
@@ -8746,7 +8746,7 @@ r
 n
 For the example, suppose \bar x = 0.2 and n = 10. Then we obtain the 95% CI as
 p
-0.2 ± 1.96 (0.2 × 0.8)/10 = (-0.048, 0.448).
+0.2 ± 1.96 (0.2 \times 0.8)/10 = (-0.048, 0.448).
 This is wrong as n is too small for the large sample approximation to be accurate. Hence we need
 to look for other alternatives which may work better.
 
@@ -9080,7 +9080,7 @@ S
 n
 n
 The observed value of this interval, (\bar x ± h √sn ), is the 95% confidence interval for µ. Remarkably,
-this also of the general form, Estimate ± Critical value × Standard error, where the Critical value
+this also of the general form, Estimate ± Critical value \times Standard error, where the Critical value
 is h and the standard error of the sample mean is √sn . Now, how do we find the critical value h for
 a given 1 - α? We need to introduce the t-distribution.
 Let X1 , . . . , Xn be i.i.d N (µ, σ 2 ) random variables. Define \BAR X =
@@ -9173,7 +9173,7 @@ s = 18.36. Hence, recalling that the critical value h = 2.093, from the command 
 df=19), a 95% confidence interval for µ is
 √
 √
-67.85 - 2.093 × 18.36/ 20 \leq µ \leq 67.85 + 2.093 × 18.36/ 20
+67.85 - 2.093 \times 18.36/ 20 \leq µ \leq 67.85 + 2.093 \times 18.36/ 20
 ⇒
 In R we issue the commands:
 
@@ -9200,7 +9200,7 @@ average weight gain (final weight – initial weight). Here n = 68, \bar x = 0.8
 a 95% confidence interval for µ is
 √
 √
-0.8672 - 1.996 × 0.9653/ 68 \leq µ \leq 0.8672 + 1.996 × 0.9653/ 68
+0.8672 - 1.996 \times 0.9653/ 68 \leq µ \leq 0.8672 + 1.996 \times 0.9653/ 68
 ⇒
 
 0.6335 \leq µ \leq 1.1008
@@ -9368,7 +9368,7 @@ Furthermore
 Sometimes α is called the size (or significance level) of the test and ω ≡ 1 - β is called the
 power of the test. Ideally, we would like to avoid error so we would like to make both α and β as
 small as possible. In other words, a good test will have small size, but large power. However, it is
-not possible to make α and β both arbitrarily small. For example if C = ∅ then α = 0, but β = 1.
+not possible to make α and β both arbitrarily small. For example if C = \emptyset then α = 0, but β = 1.
 On the other hand if C = S = Rn then β = 0, but α = 1.
 The general hypothesis testing procedure is to fix α to be some small value (often 0.05), so that
 the probability of a Type I error is limited. In doing this, we are giving H0 precedence over H1 ,
@@ -9674,7 +9674,7 @@ right of of the red line?
 When the alternative hypothesis is two-sided the p-value has to be calculated from P (|T | > tobs ),
 where tobs is the observed value and T follows the t-distribution with n - 1 df. For the weight gain
 example, because the alternative is two-sided, the p-value is given by:
-p = P (|T | > 7.41) = 2.78 × 10-10 ≈ 0.0, when T ∼ t67 .
+p = P (|T | > 7.41) = 2.78 \times 10-10 ≈ 0.0, when T ∼ t67 .
 This very small p-value for the second example indicates very strong evidence against the null
 hypothesis of no weight gain in the first year of university.
 
@@ -9983,8 +9983,8 @@ N -1 N -2
 1
 N -k+1
 1
-×
-× ··· ×
+\times
+\times ··· \times
 =
 N
 N -1
@@ -10512,9 +10512,9 @@ k! (n - k)!
 Prove that
  
 n
-n × (n - 1) × · · · × (n - k + 1)
+n \times (n - 1) \times · · · \times (n - k + 1)
 =
-1 × 2 × 3 × · · · × k.
+1 \times 2 \times 3 \times · · · \times k.
 k
 Proof We have:
 n
@@ -10528,16 +10528,16 @@ k
 
 n!
 k! (n-k)!
-1 1×2×3×···×(n-k)×(n-k+1)×···×(n-1)×n
+1 1\times2\times3\times···\times(n-k)\times(n-k+1)\times···\times(n-1)\timesn
 k!
-1×2×3×···×(n-k)
+1\times2\times3\times···\times(n-k)
 1
 [(n
 -
 k
 +
 1)
-× · · · × (n - 1) × n] .
+\times · · · \times (n - 1) \times n] .
 k!
 
 Hence the proof is complete. This enables us to calculate
@@ -10552,14 +10552,14 @@ k :
 
 =
 
-6×5
-1×2
+6\times5
+1\times2
 
 = 15. In general for calculating
 
 the numerator is the multiplication of k terms starting with n and counting down,
 and the denominator is the multiplication of the first k positive integers.
-With 0! = 1 and k! = 1 × 2 × 3 × · · · × k, and the above formula, prove the following:
+With 0! = 1 and k! = 1 \times 2 \times 3 \times · · · \times k, and the above formula, prove the following:
 = n C n-k . [This means number of ways of choosing k items out of n items is same as the
 number of ways of choosing n - k items out of n items. Why is this meaningful?]
 
@@ -10777,7 +10777,7 @@ k!
 
 With n = 2 the general term is given by:
 n(n + 1)(n + 2)(n + k - 1)
-2 × 3 × 4 × · · · × (2 + k - 1)
+2 \times 3 \times 4 \times · · · \times (2 + k - 1)
 =
 = k + 1.
 k!
@@ -10845,7 +10845,7 @@ n
 2!
 3!
 
-where for a positive integer k, k! = 1 × 2 × 3 × · · · × k. Hence, 2! = 2, 3! = 6 and so on. By
+where for a positive integer k, k! = 1 \times 2 \times 3 \times · · · \times k. Hence, 2! = 2, 3! = 6 and so on. By
 convention we use 0! = 1. Now try the following exercises:
 
 1. Satisfy yourself that limn→∞ 1 -
@@ -11273,13 +11273,13 @@ P {S|GG}P {GG} + P {S|GS}P {GS} + P {S|SS}P {SS}
 1
 1
 1
-2 × 3
+2 \times 3
 =
 1
 1
 1
 1 = 3.
-0× 3 + 2 × 3 +1× 3
+0\times 3 + 2 \times 3 +1\times 3
 
 P {GS|S} =
 
@@ -11324,11 +11324,11 @@ P {both boys|at least one boy} =
 78. In the obvious notation
 P {LF |LH}P (LH)
 P {LF |LH}P (LH) + P {LF |RH}P {RH}
-0.8 × 0.1
+0.8 \times 0.1
 16
 =
 = .
-0.8 × 0.1 + 0.15 × 0.9
+0.8 \times 0.1 + 0.15 \times 0.9
 43
 
 P {LH|LF } =
@@ -11344,7 +11344,7 @@ P {A|B3 } = 0.5
 
 Hence
 P {A} = P {B1 }P {A|B1 } + P {B2 }P {A|B2 } + P {B3 }P {A|B3 }
-= 0.3 × 0.1 + 0.5 × 0.3 + 0.2 × 0.5
+= 0.3 \times 0.1 + 0.5 \times 0.3 + 0.2 \times 0.5
 = 0.28
 Now by the Bayes theorem,
 P {B1 |A} =
@@ -11353,7 +11353,7 @@ P {B1 |A} =
 
 P {B1 }P {A|B1 }
 P {A}
-0.3×0.1
+0.3\times0.1
 0.28
 3
 28 .
@@ -11775,15 +11775,15 @@ x
 
 2
 3
-+2×
-+3×
++2\times
++3\times
 14
 14
 2
 3
-E(X 2 ) = 1 ×
-+4×
-+9×
+E(X 2 ) = 1 \times
++4\times
++9\times
 14
 14
 Therefore Var(X) = E(X 2 ) - [E(X)]2
@@ -11795,12 +11795,12 @@ Therefore Var(X) = E(X 2 ) - [E(X)]2
 7
 49
 49
-=1×
+=1\times
 
 4
 5
 20
-+4×
++4\times
 = .
 14
 14
@@ -11808,7 +11808,7 @@ Therefore Var(X) = E(X 2 ) - [E(X)]2
 4
 5
 65
-+ 16 ×
++ 16 \times
 = .
 14
 14
@@ -11864,7 +11864,7 @@ x
 1
 1
 1
-×1+ ×2+ ×3+ ×4+ ×5+ ×6
+\times1+ \times2+ \times3+ \times4+ \times5+ \times6
 6
 6
 6
@@ -11883,7 +11883,7 @@ Var(X) = E(X 2 ) - [E(X)]2
 1
 1
 1
-= × 1 + × 4 + × 9 + × 16 + × 25 + × 36 -
+= \times 1 + \times 4 + \times 9 + \times 16 + \times 25 + \times 36 -
 6
 6
 6
@@ -11942,12 +11942,12 @@ px
 7
 9
 11
-×1+
-×2+
-×3+
-×4+
-×5+
-×6
+\times1+
+\times2+
+\times3+
+\times4+
+\times5+
+\times6
 36
 36
 36
@@ -12519,13 +12519,13 @@ Hence Var(θ̂) = 4Var(\BAR X) = 3θ2 /n and SE(θ̂) = θ 3/n.
 
 94. The 100(1 - α)% symmetric confidence interval is
 
-\bar x - zγ ×
+\bar x - zγ \times
 
 
 4
 α
 4
-, \bar x + zγ ×
+, \bar x + zγ \times
 (γ = 1 - )
 10
 10
@@ -12565,7 +12565,7 @@ n
 where the critical value is the 100(1-α/2)th percentile of the t-distribution with n-1 degrees
 of freedom. Here \bar x = 121 and s = 5.
 (a) For the 95% CI, critical value = 1.753 (qt(0.95,df=15) in R) and the interval is
-[121 - 1.753 × 5/4, 121 + 1.753 × 5/4],
+[121 - 1.753 \times 5/4, 121 + 1.753 \times 5/4],
 i.e. [118.81, 123.19].
 (b) For the 99% CI, critical value = 2.947 (qt(0.995,df=15) in R) and the interval is
 [117.32, 124.68].
@@ -12608,7 +12608,7 @@ Confidence Limits
 
 s
 s
-\bar x - 2.306 × , \bar x + 2.306 × .
+\bar x - 2.306 \times , \bar x + 2.306 \times .
 3
 3
 The midpoint is \bar x and therefore
@@ -12644,8 +12644,8 @@ Thus a 95% confidence interval for the mean is
 
 0.00606
 0.00606
-1.3676 - 2.262 × √
-, 1.3676 + 2.262 × √
+1.3676 - 2.262 \times √
+, 1.3676 + 2.262 \times √
 ,
 10
 10
@@ -12707,12 +12707,12 @@ d ± critical value √
 0.2299
 √
 √
-i.e. 0.178 - 2.262 × 0.2299
+i.e. 0.178 - 2.262 \times 0.2299
 ,
 0.178
 +
 2.262
-×
+\times
 or [0.014, 0.342], as critical value = 2.262
 10
 10
@@ -12725,8 +12725,8 @@ interval for the mean height is therefore
 
 0.04326
 0.04326
-1.624 - 3.250 × √
-, 1.624 + 3.250 × √
+1.624 - 3.250 \times √
+, 1.624 + 3.250 \times √
 ,
 10
 10
@@ -13058,7 +13058,7 @@ cbind(a7, a8, a9) # Can you see the differences between a7, a8 and a9?
 You can add, subtract and multiply vectors. For example, examine the output of 2*a6,
 a7+a8 etc. R performs these operations element-wise.
 - Matrices are rectangular arrays consisting of rows and columns. All data must be of the
-same mode. For example, y <- matrix(1:6, nrow=3,ncol=2) creates a 3 × 2 matrix, called
+same mode. For example, y <- matrix(1:6, nrow=3,ncol=2) creates a 3 \times 2 matrix, called
 y. You can access parts of y by calling things like:
 y[1,2] # gives the first row second column entry of y
 y[1,] # gives the first row of y

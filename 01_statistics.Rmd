@@ -168,16 +168,14 @@ then we assume that we have data from $n$ randomly selected sampling units, whic
 counts, e.g. number of road accidents, or continuous, e.g. heights of 4-year-olds, marks obtained
 in an examination. We will consider the following example:
 
-#### Example 1 Fast food service time 
-<!-- TODO: make example block format -->
-
+::: {.example name="Fast food service time" #fastfood}
 The service times (in seconds) of customers at a fast-food
 restaurant. The first row is for customers who were served from 9–10AM and the second row is for
 customers who who were served from 2–3pm on the same day.
 <!-- TODO: add data -->
 
 How can we explore the data?
-
+:::
 
 ### Summarising data
 

@@ -88,9 +88,7 @@ For us to proceed we need to establish parallels between probability theory and 
 is taught in calculus. The sample space S is called the whole set and it is composed of all possible
 elementary events (outcomes from a single replicate).
 
-##### Example Die throw {#ex:die-throw}
-<!-- TODO: put in example block format -->
-
+::: {.example name="Fast food service time" #die-throw}
 Roll a six-faced die and observe the score on the uppermost face.
 Here $S = \{1, 2, 3, 4, 5, 6\}$, which is composed of six elementary events.
 
@@ -98,8 +96,9 @@ The **union** of two given events $A$ and B, denoted as ($A$ or $B$) or $A \cup 
 consists of the outcomes
 that are either in A or B or both. 'Event $A \cup B$ occurs' means 
 'either $A$ or $B$ occurs or both occur'.
+:::
 
-For example, in Example \@ref(ex:die-throw), 
+For example, in Example \@ref(exm:die-throw), 
 suppose $A$ is the event that *an even number is observed*. This
 event consists of the set of outcomes 2, 4 and 6, i.e. $A = \{\text{an even number}\} = \{2, 4, 6\}$.
 Suppose $B$ is the event that *a number larger than 3 is observed*. This event consists of the 
@@ -112,7 +111,7 @@ and $B$ have occurred.
 The **intersection** of two given events $A$ and $B$, denoted as ($A$ and $B$) or $A \cap B$, 
 consists of the
 outcomes that are common to both $A$ and $B$. 'Event $A \cap B$ occurs' means 'both $A$ and $B$ occur'. For
-example, in Example \@ref(ex:die-throw), 
+example, in Example \@ref(exm:die-throw), 
 $A \cap B = \{4, 6\}$. Additionally, if $C = \{\text{a number less than 6}\} = \{1, 2, 3, 4, 5\}$,
 the intersection of events $A$ and $C$ is the event $A \cap C = \{\text{an even number less than 6}\} = \{2, 4\}$.
 
@@ -123,7 +122,7 @@ Two events $A$ and $D$ are said to be mutually exclusive if $A \cap D = \emptyse
 set, i.e. $A$ and $D$ have no outcomes in common. Intuitively, '$A$ and $D$ are mutually exclusive'
 means '$A$ and $D$ cannot occur simultaneously in the experiment'.
 
-In Example \@ref(ex:die-throw), 
+In Example \@ref(exm:die-throw), 
 if $D = \{\text{an odd number}\} = \{1, 3, 5\}$, then $A \cap D = \emptyset$ and so $A$ and $D$ are
 mutually exclusive. As expected, $A$ and $D$ cannot occur simultaneously in the experiment.
 
@@ -182,27 +181,27 @@ above) can be used to find $P\{A\}$ of any event $A$ in the following way.
 From consequence (4), we assign probability $1/N$ to each outcome.
 
 For any event $A$, we find $P\{A\}$ by adding up $1/N$ for each of the outcomes in event $A$:
-\[P {A} = \frac{\text{number of outcomes in $A$}}
+\[P \{A\} = \frac{\text{number of outcomes in $A$}}
 {\text{total number of possible outcomes of the experiment}}.\]
 
-Return to Example \@ref(ex:die-throw)
+Return to Example \@ref(exm:die-throw)
 where a six-faced die is rolled. Suppose that one wins a bet if a 6 is
 rolled. Then the probability of winning the bet is $1/6$ as there are six possible outcomes in the
 sample space and exactly one of those, 6, wins the bet. Suppose $A$ denotes the event that an
 even-numbered face is rolled. Then $P\{A\} = 3/6 = 1/2$ as we can expect.
 
-#### Dice throw 
-
+::: {.example name="Dice throw"}
 Roll 2 distinguishable dice and observe the scores. Here 
-$S =
-\{(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), . . . , (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6\)}$ which consists of 36
+\[S =
+\{(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), . . . , (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)\}\]
+which consists of 36
 possible outcomes or elementary events, $A_1, \ldots , A_{36}$.
 What is the probability of the outcome $6$ in
 both the dice? The required probability is $1/36$. What is the probability that the sum of the two
-dice is greater than 6? How about the probability that the sum is less than any number, e.g. 8?
-Hint: Write down the sum for each of the 36 outcomes and then find the probabilities asked just
+dice is greater than 6? How about the probability that the sum is less than any number, e.g. 8?  
+**Hint**: Write down the sum for each of the 36 outcomes and then find the probabilities asked just
 by inspection. Remember, each of the 36 outcomes has equal probability $1/36$.
-
+:::
 
 #### Take home points
 

@@ -309,3 +309,4 @@ optimal under a different consideration.
 - Additional examples and mathematical details are provided in Section ??
 <!-- TODO: fix reference here. -->
 
+<!-- TODO: redo lecture 3 on R. -->

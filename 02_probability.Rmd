@@ -212,3 +212,182 @@ probability to find the probabilities of some events from the dice throw example
 The next lecture will continue to find probabilities using specialist counting techniques called
 permutation and combination. This will allow us to find probabilities in a number of practical
 situations.
+
+
+## Using combinatorics to find probability
+
+We will learn common counting techniques. Suppose there are 4 boys and 6 girls available for a
+committee membership, but there are only 3 posts. How many possible committees can be formed?
+How many of those will be girls only?
+The UK National Lottery selects 6 numbers at random from 1 to 49. I bought one ticket -- what
+is the probability that I will win the jackpot?
+
+
+### Multiplication rule of counting
+
+To complete a specific task, one has to complete $k(\geq 1)$ sub-tasks sequentially. If there are 
+$n_i$
+different ways to complete the $i$th sub-task ($i = 1, \ldots, k$) then there are 
+$n_1 \times n_2 \times \dots \times n_k$ different
+ways to complete the task.
+
+::: {.example name="Counting"}
+Suppose there are 7 routes to London from Southampton and
+then there are 5 routes to Cambridge out of London. How many ways can
+I travel to Cambridge from Southampton via London? The answer is
+obviously 35. 
+:::
+
+
+#### The number of permutations of $k$ from $n$: $P(n, k)$
+
+<!-- TODO: this seems to refer to an example not yet introduced?! -->
+
+The task is to select $k(\geq 1)$ from the $n (n \geq k)$ available people and sit the 
+$k$ selected people in $k$
+(different) chairs. By considering the $i$th sub-task as selecting a person to sit in
+the $i$th chair ($i = 1, \ldots, k$), it follows directly from the multiplication rule above that there are $n(n-1) \ldots (n-[k -1])$
+ways to complete the task. The number $n(n-1) \ldots (n-[k-1])$
+is called the number of permutations
+of $k$ from $n$ and denoted by
+\[P(n, k) = n(n - 1) \ldots (n - [k - 1]).\]
+In particular, when $k = n$ we have $P(n, n) = n(n - 1) \ldots 1$, which 
+is called '$n$ factorial' and denoted
+as $n!$. Note that $0!$ is defined to be $1$. It is clear that
+\[P(n, k)=n(n-1) \ldots(n-[k-1])=\frac{n(n-1) \ldots(n-[k-1]) \times(n-k) !}{(n-k) !}=\frac{n !}{(n-k) !}.\]
+
+::: {.example name="Football"}
+How many possible rankings are there for the 20 football teams in
+the premier league at the end of a season? This number is given by $P(20, 20) = 20!$, which is a huge
+number! How many possible permutations are there for the top 4 positions who will qualify to play
+in Europe in the next season? This number is given by $P(20, 4) = 20 \times 19 \times 18 \times 17$.
+:::
+
+#### The number of combinations of $k$ from $n$: $\binom{n}{k}$
+
+
+The task is to select $k(\geq 1)$ from the $n$ ($n \geq k$) available people. 
+Note that this task does NOT
+involve sitting the $k$ selected people in $k$ (different) chairs. We want to find the number of possible
+ways to complete this task, which is denoted as $\binom{n}{k}$.
+
+For this, let us reconsider the task of "selecting $k(\geq 1)$ from the $n$ ($n \geq k$) available people and
+sitting the $k$ selected people in $k$ (different) chairs", which we already know from the discussion
+above has $P(n, k)$ ways to complete.
+Alternatively, to complete this task, one has to complete two sub-tasks sequentially. The first
+sub-task is to select $k(\geq 1)$ from the $n$ ($n \geq k$) available people, which has $\binom{n}{k}$
+ways. The second
+sub-task is to sit the $k$ selected people in $k$ (different) chairs, which has $k!$ ways. 
+It follows directly
+from the multiplication rule that there are $\binom{n}{k} \times k!$ ways
+to complete the task. Hence we have
+\[ P(n, k)= \binom{n}{k} \times k!\]
+so
+\[\binom{n}{k} =\frac{P(n, k)}{k!}=\frac{n!}{(n-k)! k!}.\]
+
+::: {.example name="Football"}
+How many possible ways are there to choose 3 teams for the bottom
+positions of the premier league table at the end of a season? This number is given by 
+$\binom{20, 3} = 20 \times 19 \times 18/3!$, which does not take into consideration the rankings of the three bottom teams.
+:::
+
+:::{.example name="Microchip" #microchip}
+A box contains 12 microchips of which 4 are faulty. A sample of size
+3 is drawn from the box without replacement.
+
+- How many selections of 3 can be made? $\binom{12}{3}$
+- How many samples have all 3 chips faulty? $\binom{4}{3}$.
+- How many selections have exactly 2 faulty chips? $\binom{8}{1} \binom{4}{2}$
+- How many samples of 3 have 2 or more faulty chips? $\binom{8}{1} \binom{4}{2} + \binom{4}{3}$
+
+:::
+
+More examples and details regarding the combinations are provided in Section ??. It is
+strongly recommended to read that section now.
+<!-- TODO: add reference -->
+
+
+
+### Calculation of probabilities of events under sampling 'at random'
+
+For the experiment of 'selecting a sample of size $n$ from a box of $N$ items without replacement',
+a sample is said to be selected at random if all the possible samples of size n are equally likely to
+be selected. All the possible samples are then equally likely outcomes of the experiment and so
+assigned equal probabilities.
+
+:::{.example name="Microchip continued"}
+In Example \@ref(exm:microchip) assume that 3 microchips are selected at
+random without replacement. Then
+
+- each outcome (sample of size $3$) has probability $1/\binom{12}{3}$.
+- $P\{\text{all 3 selected microchips are faulty}\} = \binom{4}{3}/ \binom{12}{3}$.
+- $P\{\text{2 chips are faulty}\} = \binom{8}{1} \binom{4}{2}/ \binom{12}{3}$.
+- $P\{\text{2 or more chips are faulty}\} = \big(\binom{8}{1} \binom{4}{2} + \binom{4}{3}\big)/\binom{12}{3}.$
+
+:::
+
+### A general 'urn problem'
+
+Example \@ref(exm:microchip) is one particular case of the following general 
+urn problem which can be solved by the
+same technique.
+A sample of size $n$ is drawn at random without replacement from a box of $N$ items containing
+a proportion $p$ of defective items.
+
+- How many defective items are in the box? $N p$. How many good items are there? $N (1 - p)$.
+Assume these to be integers.
+- The probability of exactly $x$ defective items in the sample of $n$ items is
+\[\frac{\binom{Np}{x} \binom{N(1-p)}{n-x}}{\binom{N}{n}}.\]
+- Which values of $x$ (in terms of $N$, $n$ and $p$) make this expression well defined?
+We'll see later that these values of $x$ and the corresponding probabilities make up what is called
+the *hyper-geometric* distribution.
+
+:::{.example name="Selecting a committee"}
+There are 10 students available for a committee of
+which 4 are men and 6 are women. A random sample of 3 students are chosen to form the committee
+--- what is the probability that exactly one is a man?
+The total number of possible outcomes of the experiment is equal to the number of ways of
+selecting 3 students from 10 and is given by $\binom{10}{3}$. 
+The number of outcomes in the event 'exactly one
+is a man' is equal to the number of ways of selecting 3 students from 10 with exactly one man, and
+given by $\binom{4}{1} \binom{6}{2}$
+Hence
+\begin{align*}
+P {\text{exactly one man}} &= \frac{\text{number of ways of selecting one man and two women}}
+ {\text{number of ways of selecting 3 students}} \\
+&= \frac{\binom{4}{1} \binom{6}{2}}{\binom{10}{3}} = \frac{4 \times 15}{120} = \frac{1}{2}
+\end{align*}
+
+:::
+
+<!-- TODO: check if lottery process has change? -->
+
+:::{.example name="The National Lottery"}
+In Lotto, a winning ticket has six numbers from 1 to 49
+matching those on the balls drawn on a Wednesday or Saturday evening. The 'experiment' consists
+of drawing the balls from a box containing 49 balls. The 'randomness', the equal chance of any set
+of six numbers being drawn, is ensured by the spinning machine, which rotates the balls during the
+selection process. What is the probability of winning the jackpot?
+The total number of possible selections of six balls/numbers is $\binom{49}{6}$
+There is only 1 selection for winning the jackpot. Hence
+\[P\{\text{jackpot}\} = \frac{1}{\binom{49}{6}} = 7.15 \times 10^{-8},\]
+which is roughly 1 in 13.98 million.
+
+Other prizes are given for fewer matches. The corresponding probabilities are:
+\begin{align*}
+P \{\text{$5$ matches}\} &= \frac{\binom{6}{5} \binom{43}{1}}{\binom{49}{6}} = 1.84 \times 10^{-5}. \\
+P \{\text{$4$ matches}\} &= \frac{\binom{6}{4} \binom{43}{2}}{\binom{49}{6}} = 0.0009686197.\\
+P \{\text{$3$ matches}\} &=\frac{\binom{6}{3} \binom{43}{3}}{\binom{49}{6}} = 0.0176504.
+\end{align*}
+
+There is one other way of winning by using the bonus ball --- matching 5 of the selected 6 balls
+plus matching the bonus ball. The probability of this is given by
+\[P \{\text{$5$ matches + bonus}\} = \frac{6}{\binom{49}{6}} = 4.29 \times 10-7 .\]
+
+Adding all these probabilities of winning some kind of prize together gives
+\[P \{\text{winning}\} ≈ 0.0186 ≈ 1/53.7.\]
+So a player buying one ticket each week would expect to win a prize, (most likely a £10 prize for
+matching three numbers) about once a year.
+
+:::
+

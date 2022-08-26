@@ -155,3 +155,53 @@ plot_data %>%
     theme(panel.grid.minor = element_blank(),
           panel.grid = element_blank())
 ```
+
+Since we are dealing with probabilities which are always between $0$ and $1$, just any arbitrary
+function f (x) cannot be a pdf of some random variable. For $f (x)$ to be a pdf, as in the discrete
+case, we must have
+
+1. $f (x) \geq 0$ for all possible values of $x$, i.e. $-\infty < x < \infty$,
+2. $\int_{-\infty}^{\infty} f (u)du = 1$.
+
+### Cumulative distribution function (cdf)
+
+Along with the pdf we also frequently make use of another function which is called the cumulative
+distribution function, abbreviated as the cdf. The cdf simply calculates the probability of the
+random variable up to its argument.
+
+For a discrete random variable $X$, the cdf is the cumulative sum
+of the pmf $f(u)$ up to (and including) $u = x$. That is,
+\[P (X \leq x) ≡ F (x) = \sum_{u \leq x} f (u).\]
+
+:::{.example}
+Let $X$ be the number of heads in the experiment of tossing two fair coins. Then
+the probability function is
+\[P (X = 0) = 1/4, \; P (X = 1) = 1/2, \; P (X = 2) = 1/4.\]
+
+From the definition, the CDF is given by
+\[F(x)= \begin{cases}0 & \text { if } x<0 \\ 1 / 4 & \text { if } 0 \leq x<1 \\ 3 / 4 & \text { if } 1 \leq x<2 \\ 1 & \text { if } x \geq 2\end{cases}\]
+:::
+
+<!-- TODO: check use of r.v. as abbreviation -->
+The cdf for a discrete random variable is a step function. The jump-points are the
+possible values of the random variable, and the height of a jump gives the probability of
+the random variable taking that value. It is clear that the probability mass function is uniquely
+determined by the cdf.
+
+For a continuous random variable $X$, the cdf is defined as
+\[P (X \leq x) ≡ F (x) = \int_{-\infty}^x f (u)du.\]
+
+The fundamental theorem of calculus then tells us that
+\[f (x) = \frac{dF (x)}{dx},\]
+so for a continuous random variable the pdf is the derivative of the cdf. Also for any random
+variable $X$, $P (c < X < d) = F (d) - F (c)$. Let us consider an example.
+
+:::{.example name="Uniform distribution"}
+Suppose
+\[f(x)= \begin{cases}\frac{1}{b-a} & \text { if } a<x<b \\ 0 & \text { otherwise.}\end{cases}\]
+We now have the cdf 
+\[F(x)=\int_{a}^{x} \frac{1}{b-a} du =\frac{x-a}{b-a}, \; \; a<x<b.\]
+A quick check confirms that $F^{\prime}(x)=f(x)$. If $a=0, b=1$ 
+then 
+\[P(0.5<X<0.75)=F(0.75)-F(0.5)=0.25.\] We shall see many more examples later.
+:::

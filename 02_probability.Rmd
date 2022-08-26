@@ -190,7 +190,7 @@ rolled. Then the probability of winning the bet is $1/6$ as there are six possib
 sample space and exactly one of those, 6, wins the bet. Suppose $A$ denotes the event that an
 even-numbered face is rolled. Then $P\{A\} = 3/6 = 1/2$ as we can expect.
 
-::: {.example name="Dice throw"}
+::: {.example name="Dice throw" #dice}
 Roll 2 distinguishable dice and observe the scores. Here 
 \[S =
 \{(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), . . . , (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)\}\]
@@ -342,7 +342,7 @@ Assume these to be integers.
 We'll see later that these values of $x$ and the corresponding probabilities make up what is called
 the *hyper-geometric* distribution.
 
-:::{.example name="Selecting a committee"}
+:::{.example name="Selecting a committee" #committee}
 There are 10 students available for a committee of
 which 4 are men and 6 are women. A random sample of 3 students are chosen to form the committee
 --- what is the probability that exactly one is a man?
@@ -390,4 +390,207 @@ So a player buying one ticket each week would expect to win a prize, (most likel
 matching three numbers) about once a year.
 
 :::
+
+## Conditional probability and Bayes' Theorem
+
+
+How can we use additional information, i.e. things that have already happened, in
+the calculation of probabilities? For example, a person may have a certain disease, e.g. diabetes or
+HIV/AIDS, whether or not they show any symptoms of it. Suppose a randomly selected person is
+found to have the symptom. Given this additional information, what is the probability that they
+have the disease? Note that having the symptom does not fully guarantee that the person has the
+disease.
+
+Applications of conditional probability occur naturally in actuarial science and medical studies, where conditional probabilities such as "what is the probability that a person will survive for
+another 20 years given that they are still alive at the age of 40?" are calculated.
+In many real problems, one has to determine the probability of an event A when one already
+has some partial knowledge of the outcome of an experiment, i.e. another event B has already
+occurred. For this, one needs to find the conditional probability.
+
+:::{.example name="Dice throw continued"}
+Return to the rolling of a fair die (Example \@ref(exm:dice)). Let
+\begin{align*}
+A = \{\text{a number greater than $3$}\} = \{4, 5, 6\},
+B = \{\text{an even number}\} = \{2, 4, 6\}.
+\end{align*}
+It is clear that $P \{B\} = 3/6 = 1/2$. This is the unconditional probability of the event $B$. It is
+sometimes called the *prior* probability of $B$.
+
+However, suppose that we are told that the event $A$ has already occurred. What is the 
+probability of $B$ now given that $A$ has already happened?
+
+The sample space of the experiment is $S = \{1, 2, 3, 4, 5, 6\}$, which contains $n = 6$ 
+equally likely outcomes.
+
+Given the partial knowledge that event $A$ has occurred, only the $n_A = 3$ outcomes in 
+$A = \{4, 5, 6\}$ could have occurred. However, only some of the outcomes in $B$ among these 
+$nA$ outcomes in $A$ will make event $B$ occur; the number of such outcomes is given by the 
+number of outcomes
+$n_{A\cap B}$ in both $A$ and $B$, i.e., $A \cap B$, and equal to $2$. 
+Hence the probability of $B$, given the partial
+knowledge that event $A$ has occurred, is equal to
+\[\frac{2}{3} = \frac{n_{A \cap B}}{n_A} = \frac{n_{A\cap B} / n}{n_A / n}
+= \frac{P\{A \cap B\}}{P\{A\}}\]
+Hence we say that $P \{B|A\} = 2/3$, which is often interpreted as 
+the *posterior* probability of $B$ given
+$A$. The additional knowledge that $A$ has already occurred has helped us to 
+revise the prior probability of $1/2$ to $2/3$.
+
+:::
+
+This simple example leads to the following general definition of conditional probability.
+
+### Definition of conditional probability
+
+For events $A$ and $B$ with $P \{A\} > 0$, the conditional probability of event 
+$B$, given that event $A$ has
+occurred, is
+$
+\[P {B|A} = \frac{P \{A \cap B\}}{P \{A\}}.\]
+
+
+:::{.example}
+Of all individuals buying a mobile phone, 60\% include a 64 GB hard disk in their
+purchase, 40\% include a 16 MP camera and 30\% include both. If a randomly selected purchase
+includes a 16 MP camera, what is the probability that a 64GB hard disk is also included?
+The conditional probability is given by
+\[P \{\text{$64$ GB}|\text{$16$ MP}\} =
+  P \{\text{$64$ GB} \cap \text{$16$ MP}\}
+  = \frac{0.3}{0.4} = 0.75.\]
+
+:::
+
+### Multiplication rule of conditional probability
+
+By rearranging the conditional probability definition, we obtain the multiplication rule of conditional probability:
+\[P\{A \cap B\} = P\{A\} P\{B|A\}.\]
+Clearly the roles of A and B could be interchanged:
+\[P\{A \cap B\} = P\{B\} P\{A|B\}.\]
+ Hence the multiplication rule of conditional probability for two events is
+\[P\{A \cap B\} = P\{B\}P\{A|B\} = P\{A\}P\{B|A\}.\]
+
+It is straightforward to show by mathematical induction the following multiplication rule of conditional probability for $k(\geq 2)$ events $A_1 , A_2 , \ldots , A_k$:
+\[P \{A_1 \cap A_2 \cap \ldots \cap A_k\} = P \{A_1\}P \{A_2 |A_1\} P\{A_3 |A_1 \cap A_2\} \ldots P\{A_k |A_1 \cap A_2 \cap \ldots \cap A_{k-1}\}.\]
+
+:::{.example name="Selecting a committee continued"}
+Return to the committee selection example
+(Example \@ref(exm:committee)), 
+where there are 4 men (M) and 6 women (W). We want to select a 2-person committee.
+Find:
+
+(i) the probability that both are men,
+(ii) the probability that one is a man and the other is a woman.
+
+We have already dealt with this type of urn problem by using the combinatorial method. Here,
+the multiplication rule is used instead.
+Let $M_i$ be the event that the $i$th person is a man, and $W_i$ be the event that the $i$th
+ person is a woman, $i = 1, 2$. Then
+\[\text{Prob in (i)} = P \{M_1 \cap M_2 \} = P \{M_1\}P \{M_2 |M_1\} = \frac{4}{10} \times \frac{3}{9},\]
+\begin{align*}
+\text{Prob in (ii)} &= P \{M_1 \cap W_2 \}+P \{W_1 \cap M_2 \} \\
+&= P \{M_1\}P \{W_2 |M_1 \}+P \{W_1\}P \{M_2 |W_1\} \\
+&= \frac{4}{10} \times \frac{6}{9} + \frac{6}{10} \times \frac{4}{9}
+\end{align*}
+
+You can find the probability that 'both are women' in a similar way.
+
+:::
+
+### Total probability formula
+
+:::{.example name="Phones"}
+Suppose that in our world there are only three phone manufacturing
+companies: A Pale, B Sung and C Windows, and their market shares are respectively 30, 40 and 30
+percent. Suppose also that respectively 5, 8, and 10 percent of their phones become faulty within
+one year. If I buy a phone randomly (ignoring the manufacturer), what is the probability that my
+phone will develop a fault within one year? After finding the probability, suppose that my phone
+developed a fault in the first year --- what is the probability that it was made by A Pale?
+
+```{r, echo = FALSE}
+library(tidyverse)
+phones_data <- tibble(Company = c("A Pale", "B Sung", "C Windows"),
+                      "Market share" = c("30\\%", "40\\%", "50\\%"),
+                      "Percent defective" = c("5\\%", "8\\%", "10\\%"))
+library(knitr)
+kable(phones_data)
+```
+
+:::
+
+To answer this type of question, we derive two of the most useful results in probability theory:
+the total probability formula and Bayes' theorem. First, let us derive the total probability
+formula.
+
+Let $B_1, B_2, \ldots , B_k$ be a set of mutually exclusive, i.e.
+\[B_i \cap B_j = \emptyset, \text{for all $1 \leq i \not = j \leq k$.}\]
+and exhaustive events, i.e.:
+\[B_1 \cup B_2 \cup \ldots \cup B_k = S.\]
+Now any event $A$ can be represented by
+\[A = A \cap S = (A \cap B_1) \cup (A \cap B_2) \cup \ldots \cup (A \cap B_k)\]
+where $(A \cap B_1), (A \cap B_2), \ldots , (A \cap B_k)$
+are mutually exclusive events. Hence the Axiom A3 of probability gives
+<!-- TODO: link to axioms -->
+\begin{align*}
+P \{A\} &= P \{A \cap B_1 \} + P \{A \cap B_2 \} + . . . + P \{A \cap B_k \} \\
+&= P \{B_1 \}P \{A|B_1 \} + P \{B_2 \}P \{A|B_2 \} + . . . + P \{B_k \}P \{A|B_k \}.
+\end{align*}
+This last expression is called the **total probability formula** for $P \{A\}$.
+
+<!-- TODO: consider replacing Figure 2.2. (or could just draw a "jigsaw puzzle" in lectures?) -->
+
+:::{.example name="Phones continued"}
+ We can now find the probability of the event, say $A$, that
+a randomly selected phone develops a fault within one year. Let $B_1, B_2, B_3$ be the events that the
+phone is manufactured respectively by companies A Pale, B Sung and C Windows. Then we have:
+\begin{align*}
+P \{A\} &= P \{B1 \}P \{A|B1 \} + P \{B2 \}P \{A|B2 \} + P \{B3 \}P \{A|B3 \} \\
+&= 0.30 \times 0.05 + 0.40 \times 0.08 + 0.30 \times 0.10 \\
+&= 0.077.
+\end{align*}
+
+Now suppose that my phone has developed a fault within one year. What is the probability that
+it was manufactured by A Pale? To answer this we need to introduce Bayes' Theorem.
+
+:::
+
+### Bayes' theorem
+
+<!-- TODO: put into Theorem environment? -->
+
+Let $A$ be an event, and let $B_1 , B_2 , \ldots , B_k$ be a set of mutually exclusive and exhaustive events.
+Then, for $i = 1, \ldots , k$,
+\[P \{B_i |A\} = \frac{P \{B_i \}P \{A|B_i \}}{\sum_{j=1}^k P \{B_j \}P \{A|B_j \}}.\]
+
+**Proof**: 
+Use the multiplication rule of conditional probability twice to give
+\[P \{B_i |A\} =
+  \frac{P \{B_i \cap A\}}{P \{A\}} =
+  \frac{P \{B_i \}P \{A|B_i \}}{P \{A\}}.\]
+Bayes' theorem follows directly by substituting $P \{A\}$ by the total probability formula.
+
+The probability $P \{B_i |A\}$ is called the posterior probability of 
+$B_i$ given $A$ and $P \{B_i \}$ is called the prior
+probability.
+Bayes' theorem is the rule that converts the prior probability into the 
+posterior probability by using the additional information that some other event,
+$A$ above, has already
+occurred.
+
+:::{.example name="Phones continued"}
+The probability that my faulty phone was manufactured
+by A Pale is
+\[P \{B_1 |A\} = 
+= \frac{P \{B_1 \}P \{A|B_1 \}}{P \{A\}} =
+\frac{0.30 \times 0.05}{0.077}
+= 0.1948.\]
+Similarly, the probability that the faulty phone was manufactured by B Sung is $0.4156$, and the
+probability that it was manufactured by C Windows is $1-0.1948-0.4156 = 0.3896$.
+:::
+
+The worked examples section contains further illustrations of Bayes' theorem.
+<!-- TODO: will I include worked examples section? Delete reference if not -->
+Note that
+$\sum_{i=1}^k P \{B_i |A\} = 1$. Why? Nowadays Bayes' theorem is used to make statistical inference as
+well. 
+<!-- TODO: rephrase/delete this sentence? -->
 

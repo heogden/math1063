@@ -3442,7 +3442,7 @@ Pn
 i=1 (xi
 
 P
-2 {Add and subtract x}
+2 {Add and subtract x\}
 - a)2 = Pni=1 (x
 i - \bar x + \bar x - a)
 
@@ -3998,14 +3998,14 @@ essentially similar conditions. First we give some essential definitions.
 Random experiments. The experiment is random because in advance we do not know exactly
 what outcome the experiment will give, even though we can write down all the possible outcomes
 which together are called the sample space (S). For example, in a coin tossing experiment, S
-= {head, tail}. If we toss two coins together, S = {HH, HT, TH, TT} where H and T denote
+= {head, tail\}. If we toss two coins together, S = {HH, HT, TH, TT\} where H and T denote
 respectively the outcome head and tail from the toss of a single coin.
 Event. An event is defined as a particular result of the random experiment. For example, HH
 (two heads) is an event when we toss two coins together. Similarly, at least one head e.g. {HH, HT,
-TH} is an event as well. Events are denoted by capital letters A, B, C, . . . or A1 , B1 , A2 etc., and
+TH\} is an event as well. Events are denoted by capital letters A, B, C, . . . or A1 , B1 , A2 etc., and
 a single outcome is called an elementary event, e.g. HH. An event which is a group of elementary
 events is called a composite event, e.g. at least one head. How to determine the probability of a
-given event A, P {A}, is the focus of probability theory.
+given event A, P {A\}, is the focus of probability theory.
 Probability as relative frequency. Imagine we are able to repeat a random experiment
 under identical conditions and count how many of those repetitions result in the event A. The
 relative frequency of A, i.e. the ratio
@@ -4013,15 +4013,15 @@ the number of repetitions resulting in A
 ,
 total number of repetitions
 approaches a fixed limit value as the number of repetitions increases. This limit value is defined as
-P {A}.
+P {A\}.
 As a simple example, in the experiment of tossing a particular coin, suppose we are interested
 in the event A of getting a 'head'. We can toss the coin 1000 times (i.e. do 1000 replications of
 the experiment) and record the number of heads out of the 1000 replications. Then the relative
 frequency of A out of the 1000 replications is the proportion of heads observed.
-Sometimes, however, it is much easier to find P {A} by using some 'common knowledge' about
-probability. For example, if the coin in the example above is fair (i.e. P {'head0 } = P {'tail0 }), then
-this information and the common knowledge that P {'head0 }+P {'tail0 } = 1 immediately imply that
-P {'head0 } = 0.5 and P {'tail0 } = 0.5. Next, the essential 'common knowledge' about probability
+Sometimes, however, it is much easier to find P {A\} by using some 'common knowledge' about
+probability. For example, if the coin in the example above is fair (i.e. P {'head0 \} = P {'tail0 \}), then
+this information and the common knowledge that P {'head0 \}+P {'tail0 \} = 1 immediately imply that
+P {'head0 \} = 0.5 and P {'tail0 \} = 0.5. Next, the essential 'common knowledge' about probability
 will be formalized as the axioms of probability, which form the foundation of probability theory.
 But before that, we need to learn a bit more about the event space (collection of all events).
 
@@ -4038,17 +4038,17 @@ is taught in calculus. The sample space S is called the whole set and it is comp
 
 elementary events (outcomes from a single replicate).
 ♥ Example 5 Die throw Roll a six-faced die and observe the score on the uppermost face.
-Here S = {1, 2, 3, 4, 5, 6}, which is composed of six elementary events.
+Here S = {1, 2, 3, 4, 5, 6\}, which is composed of six elementary events.
 The union of two given events A and B, denoted as (A or B) or A \cup B, consists of the outcomes
 that are either in A or B or both. 'Event A \cup B occurs' means 'either A or B occurs or both occur'.
 For example, in Example 5, suppose A is the event that an even number is observed. This
-event consists of the set of outcomes 2, 4 and 6, i.e. A = {an even number} = {2, 4, 6}. Suppose B is the event that a number larger than 3 is observed. This event consists of the outcomes 4, 5 and 6, i.e. B = {a number larger than 3} = {4, 5, 6}. Hence the event A \cup B =
-{an even number or a number larger than 3} = {2, 4, 5, 6}. Clearly, when a 6 is observed, both A
+event consists of the set of outcomes 2, 4 and 6, i.e. A = {an even number\} = {2, 4, 6\}. Suppose B is the event that a number larger than 3 is observed. This event consists of the outcomes 4, 5 and 6, i.e. B = {a number larger than 3\} = {4, 5, 6\}. Hence the event A \cup B =
+{an even number or a number larger than 3\} = {2, 4, 5, 6\}. Clearly, when a 6 is observed, both A
 and B have occurred.
 The intersection of two given events A and B, denoted as (A and B) or A \cap B, consists of the
 outcomes that are common to both A and B. 'Event A\capB occurs' means 'both A and B occur'. For
-example, in Example 5, A\capB = {4, 6}. Additionally, if C = {a number less than 6} = {1, 2, 3, 4, 5},
-the intersection of events A and C is the event A \cap C = {an even number less than 6} = {2, 4}.
+example, in Example 5, A\capB = {4, 6\}. Additionally, if C = {a number less than 6\} = {1, 2, 3, 4, 5\},
+the intersection of events A and C is the event A \cap C = {an even number less than 6\} = {2, 4\}.
 The union and intersection of two events can be generalized in an obvious way to the union and
 intersection of more than two events.
 Two events A and D are said to be mutually exclusive if A \cap D = \emptyset, where \emptyset denotes the empty
@@ -4060,7 +4060,7 @@ A
 B
 
 Figure 2.1: In the left plot A and B are mutually exclusive; the right plot shows A \cup B and A \cap B.
-In Example 5, if D = {an odd number} = {1, 3, 5}, then A \cap D = \emptyset and so A and D are
+In Example 5, if D = {an odd number\} = {1, 3, 5\}, then A \cap D = \emptyset and so A and D are
 mutually exclusive. As expected, A and D cannot occur simultaneously in the experiment.
 For a given event A, the complement of A is the event that consists of all the outcomes not in
 A and is denoted by A0 . Note that A \cup A0 = S and A \cap A0 = \emptyset.
@@ -4089,29 +4089,29 @@ Event
 Axioms of probability
 
 Here are the three axioms of probability:
-A1 P {S} = 1,
-A2 0 \leq P {A} \leq 1 for any event A,
-A3 P {A \cup B} = P {A} + P {B} provided that A and B are mutually exclusive events.
+A1 P {S\} = 1,
+A2 0 \leq P {A\} \leq 1 for any event A,
+A3 P {A \cup B\} = P {A\} + P {B\} provided that A and B are mutually exclusive events.
 Here are some of the consequences of the axioms of probability:
-(1) For any event A, P {A} = 1 - P {A0 }.
-(2) From (1) and Axiom A1, P {\emptyset} = 1 - P {S} = 0. Hence if A and B are mutually exclusive
-events, then P {A \cap B} = 0.
-(3) If D is a subset of E, D ⊂ E, then P {E \cap D0 } = P {E} - P {D} which implies for arbitrary
-events A and B, P {A \cap B 0 } = P {A} - P {A \cap B}.
+(1) For any event A, P {A\} = 1 - P {A0 \}.
+(2) From (1) and Axiom A1, P {\emptyset\} = 1 - P {S\} = 0. Hence if A and B are mutually exclusive
+events, then P {A \cap B\} = 0.
+(3) If D is a subset of E, D ⊂ E, then P {E \cap D0 \} = P {E\} - P {D\} which implies for arbitrary
+events A and B, P {A \cap B 0 \} = P {A\} - P {A \cap B\}.
 (4) It can be shown by mathematical induction that Axiom A3 holds for more than two mutually
 exclusive events:
-P {A1 \cup A2 \cup · · · \cup Ak } = P {A1 } + P {A2 } + . . . + P {Ak }
+P {A1 \cup A2 \cup · · · \cup Ak \} = P {A1 \} + P {A2 \} + . . . + P {Ak \}
 provided that A1 , . . . , Ak are mutually exclusive events.
 Hence, the probability of an event A is the sum of the probabilities of the individual outcomes
 that make up the event.
 (5) For the union of two arbitrary events, we have the General addition rule: For any two events
 A and B,
-P {A \cup B} = P {A} + P {B} - P {A \cap B}.
+P {A \cup B\} = P {A\} + P {B\} - P {A \cap B\}.
 Proof: We can write A \cup B = (A \cap B 0 ) \cup (A \cap B) \cup (A0 \cap B). All three of these are mutually
 exclusive events. Hence,
-P {A \cup B} = P {A \cap B 0 } + P {A \cap B} + P {A0 \cap B}
-= P {A} - P {A \cap B} + P {A \cap B} + P {B} - P {A \cap B}
-= P {A} + P {B} - P {A \cap B}.
+P {A \cup B\} = P {A \cap B 0 \} + P {A \cap B\} + P {A0 \cap B\}
+= P {A\} - P {A \cap B\} + P {A \cap B\} + P {B\} - P {A \cap B\}
+= P {A\} + P {B\} - P {A \cap B\}.
 (6) The sum of the probabilities of all the outcomes in the sample space S is 1.
 
 2 Introduction to Probability
@@ -4123,10 +4123,10 @@ P {A \cup B} = P {A \cap B 0 } + P {A \cap B} + P {A0 \cap B}
 Application to an experiment with equally likely outcomes
 
 For an experiment with N equally likely possible outcomes, the axioms (and the consequences
-above) can be used to find P {A} of any event A in the following way.
+above) can be used to find P {A\} of any event A in the following way.
 From consequence (4), we assign probability 1/N to each outcome.
-For any event A, we find P {A} by adding up 1/N for each of the outcomes in event A:
-P {A} =
+For any event A, we find P {A\} by adding up 1/N for each of the outcomes in event A:
+P {A\} =
 
 number of outcomes in A
 .
@@ -4135,9 +4135,9 @@ total number of possible outcomes of the experiment
 Return to Example 5 where a six-faced die is rolled. Suppose that one wins a bet if a 6 is
 rolled. Then the probability of winning the bet is 1/6 as there are six possible outcomes in the
 sample space and exactly one of those, 6, wins the bet. Suppose A denotes the event that an
-even-numbered face is rolled. Then P {A} = 3/6 = 1/2 as we can expect.
+even-numbered face is rolled. Then P {A\} = 3/6 = 1/2 as we can expect.
 ♥ Example 6 Dice throw Roll 2 distinguishable dice and observe the scores. Here S =
-{(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), . . . , (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)} which consists of 36
+{(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), . . . , (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)\} which consists of 36
 possible outcomes or elementary events, A1 , . . . , A36 . What is the probability of the outcome 6 in
 both the dice? The required probability is 1/36. What is the probability that the sum of the two
 dice is greater than 6? How about the probability that the sum is less than any number, e.g. 8?
@@ -4287,9 +4287,9 @@ assigned equal probabilities.
 ♥ Example 11 Microchip continued In Example 10 assume that 3 microchips are selected at
 random without replacement. Then
 - each outcome (sample of size 3) has probability 1/12 C3 .
-- P {all 3 selected microchips are faulty} = 4 C 3 /12 C3 .
-- P {2 chips are faulty} = 8 C 1 4 C2 /12 C3 .
-- P {2 or more chips are faulty} = (8 C1 4 C2 + 4 C 3 )/12 C3 .
+- P {all 3 selected microchips are faulty\} = 4 C 3 /12 C3 .
+- P {2 chips are faulty\} = 8 C 1 4 C2 /12 C3 .
+- P {2 or more chips are faulty\} = (8 C1 4 C2 + 4 C 3 )/12 C3 .
 
 2.2.4
 
@@ -4330,7 +4330,7 @@ is a boy' is equal to the number of ways of selecting 3 students from 10 with ex
 given by 4 C1 6 C2 .
 Hence
 number of ways of selecting one boy and two girls
-P {exactly one boy} =
+P {exactly one boy\} =
 number of ways of selecting 3 students
 4C 6C
 4 \times 15
@@ -4351,7 +4351,7 @@ Similarly,
 2
 1
 =
-P {two boys} = 10
+P {two boys\} = 10
 = .
 C3
 120
@@ -4366,13 +4366,13 @@ Total number of possible selections of six balls/numbers is given by 49 C6 .
 There is only 1 selection for winning the jackpot. Hence
 1
 = 7.15 \times 10-8 .
-P {jackpot} = 49
+P {jackpot\} = 49
 C6
 which is roughly 1 in 13.98 million.
 Other prizes are given for fewer matches. The corresponding probabilities are:
-P {5 matches} =
-P {4 matches} =
-P {3 matches} =
+P {5 matches\} =
+P {4 matches\} =
+P {3 matches\} =
 
 6C
 
@@ -4402,7 +4402,7 @@ P {3 matches} =
 
 There is one other way of winning by using the bonus ball – matching 5 of the selected 6 balls
 plus matching the bonus ball. The probability of this is given by
-P {5 matches + bonus} =
+P {5 matches + bonus\} =
 
 6
 49 C
@@ -4411,7 +4411,7 @@ P {5 matches + bonus} =
 6
 
 Adding all these probabilities of winning some kind of prize together gives
-P {winning} ≈ 0.0186 ≈ 1/53.7.
+P {winning\} ≈ 0.0186 ≈ 1/53.7.
 So a player buying one ticket each week would expect to win a prize, (most likely a £10 prize for
 matching three numbers) about once a year
 
@@ -4440,9 +4440,9 @@ In many real problems, one has to determine the probability of an event A when o
 has some partial knowledge of the outcome of an experiment, i.e. another event B has already
 occurred. For this, one needs to find the conditional probability.
 ♥ Example 14 Dice throw continued Return to the rolling of a fair die (Example 5). Let
-A = {a number greater than 3} = {4, 5, 6},
-B = {an even number} = {2, 4, 6}.
-It is clear that P {B} = 3/6 = 1/2. This is the unconditional probability of the event B. It is
+A = {a number greater than 3\} = {4, 5, 6\},
+B = {an even number\} = {2, 4, 6\}.
+It is clear that P {B\} = 3/6 = 1/2. This is the unconditional probability of the event B. It is
 sometimes called the prior probability of B.
 
 2 Introduction to Probability
@@ -4450,17 +4450,17 @@ sometimes called the prior probability of B.
 32
 
 However, suppose that we are told that the event A has already occurred. What is the probability of B now given that A has already happened?
-The sample space of the experiment is S = {1, 2, 3, 4, 5, 6}, which contains n = 6 equally likely
+The sample space of the experiment is S = {1, 2, 3, 4, 5, 6\}, which contains n = 6 equally likely
 outcomes.
 Given the partial knowledge that event A has occurred, only the nA = 3 outcomes in A =
-{4, 5, 6} could have occurred. However, only some of the outcomes in B among these nA outcomes
+{4, 5, 6\} could have occurred. However, only some of the outcomes in B among these nA outcomes
 in A will make event B occur; the number of such outcomes is given by the number of outcomes
 nA\capB in both A and B, i.e., A \cap B, and equal to 2. Hence the probability of B, given the partial
 knowledge that event A has occurred, is equal to
 2
 nA\capB
 nA\capB /n
-P {A \cap B}
+P {A \cap B\}
 =
 =
 =
@@ -4468,8 +4468,8 @@ P {A \cap B}
 3
 nA
 nA /n
-P {A}
-Hence we say that P {B|A} = 32 , which is often interpreted as the posterior probability of B given
+P {A\}
+Hence we say that P {B|A\} = 32 , which is often interpreted as the posterior probability of B given
 A. The additional knowledge that A has already occurred has helped us to revise the prior probability of 1/2 to 2/3.
 This simple example leads to the following general definition of conditional probability.
 
@@ -4477,33 +4477,33 @@ This simple example leads to the following general definition of conditional pro
 
 Definition of conditional probability
 
-For events A and B with P {A} > 0, the conditional probability of event B, given that event A has
+For events A and B with P {A\} > 0, the conditional probability of event B, given that event A has
 occurred, is
-P {A \cap B}
-P {B|A} =
+P {A \cap B\}
+P {B|A\} =
 .
-P {A}
+P {A\}
 ♥ Example 15 Of all individuals buying a mobile phone, 60% include a 64GB hard disk in their
 purchase, 40% include a 16 MP camera and 30% include both. If a randomly selected purchase
 includes a 16 MP camera, what is the probability that a 64GB hard disk is also included?
 The conditional probability is given by:
-P {64GB|16 MP} =
+P {64GB|16 MP\} =
 
 2.3.3
 
-P {64GB \cap 16 MP}
+P {64GB \cap 16 MP\}
 0.3
 =
 = 0.75.
-P {16 MP}
-0.4
+P {16 MP\}
+B0.4p
 
 Multiplication rule of conditional probability
 
 By rearranging the conditional probability definition, we obtain the multiplication rule of conditional probability as follows:
-P {A \cap B} = P {A}P {B|A}.
+P {A \cap B\} = P {A\}P {B|A\}.
 Clearly the roles of A and B could be interchanged leading to:
-P {A \cap B} = P {B}P {A|B}.
+P {A \cap B\} = P {B\}P {A|B\}.
 
 2 Introduction to Probability
 
@@ -4511,9 +4511,9 @@ P {A \cap B} = P {B}P {A|B}.
 
 Hence the multiplication rule of conditional probability for two events is:
 
-P {A \cap B} = P {B}P {A|B} = P {A}P {B|A}.
+P {A \cap B\} = P {B\}P {A|B\} = P {A\}P {B|A\}.
 It is straightforward to show by mathematical induction the following multiplication rule of conditional probability for k(\geq 2) events A1 , A2 , . . . , Ak :
-P {A1 \cap A2 \cap . . . \cap Ak } = P {A1 }P {A2 |A1 }P {A3 |A1 \cap A2 } . . . P {Ak |A1 \cap A2 \cap . . . \cap Ak-1 }.
+P {A1 \cap A2 \cap . . . \cap Ak \} = P {A1 \}P {A2 |A1 \}P {A3 |A1 \cap A2 \} . . . P {Ak |A1 \cap A2 \cap . . . \cap Ak-1 \}.
 ♥ Example 16 Selecting a committee continued Return to the committee selection example
 (Example 12), where there are 4 boys (B) and 6 girls (G). We want to select a 2-person committee.
 Find:
@@ -4523,14 +4523,14 @@ We have already dealt with this type of urn problem by using the combinatorial m
 the multiplication rule is used instead.
 Let Bi be the event that the i-th person is a boy, and Gi be the event that the i-th person is a
 girl, i = 1, 2. Then
-Prob in (i) = P {B1 \cap B2 } = P {B1 }P {B2 |B1 } =
+Prob in (i) = P {B1 \cap B2 \} = P {B1 \}P {B2 |B1 \} =
 
 4
 3
 \times .
 10 9
 
-Prob in (ii) = P {B1 \capG2 }+P {G1 \capB2 } = P {B1 }P {G2 |B1 }+P {G1 }P {B2 |G1 } =
+Prob in (ii) = P {B1 \capG2 \}+P {G1 \capB2 \} = P {B1 \}P {G2 |B1 \}+P {G1 \}P {B2 |G1 \} =
 
 4 6 6 4
 \times + \times .
@@ -4564,7 +4564,7 @@ Percent defective
 10%
 
 To answer this type of question, we derive two of the most useful results in probability theory:
-the total probability formula and the Bayes theorem. First, let us derive the total probability
+the total probability formula and Bayes' theorem. First, let us derive the total probability
 formula.
 
 2 Introduction to Probability
@@ -4581,21 +4581,21 @@ A = A \cap S = (A \cap B1 ) \cup (A \cap B2 ) \cup . . . \cup (A \cap Bk )
 where (A \cap B1 ), (A \cap B2 ), . . . , (A \cap Bk ) are mutually exclusive events. Hence the Axiom A3 of
 probability gives
 
-P {A} = P {A \cap B1 } + P {A \cap B2 } + . . . + P {A \cap Bk }
-= P {B1 }P {A|B1 } + P {B2 }P {A|B2 } + . . . + P {Bk }P {A|Bk };
-this last expression is called the total probability formula for P {A}.
+P {A\} = P {A \cap B1 \} + P {A \cap B2 \} + . . . + P {A \cap Bk \}
+= P {B1 \}P {A|B1 \} + P {B2 \}P {A|B2 \} + . . . + P {Bk \}P {A|Bk \};
+this last expression is called the total probability formula for P {A\}.
 
 Figure 2.2: The left figure shows the mutually exclusive and exhaustive events B1 , . . . , B6 (they
 form a partition of the sample space); the right figure shows a possible event A.
 ♥ Example 18 Phones continued We can now find the probability of the event, say A, that
 a randomly selected phone develops a fault within one year. Let B1 , B2 , B3 be the events that the
 phone is manufactured respectively by companies A Pale, B Sung and C Windows. Then we have:
-P {A} = P {B1 }P {A|B1 } + P {B2 }P {A|B2 } + P {B3 }P {A|B3 }
+P {A\} = P {B1 \}P {A|B1 \} + P {B2 \}P {A|B2 \} + P {B3 \}P {A|B3 \}
 = 0.30 \times 0.05 + 0.40 \times 0.08 + 0.30 \times 0.10
 = 0.077.
 
 Now suppose that my phone has developed a fault within one year. What is the probability that
-it was manufactured by A Pale? To answer this we need to introduce the Bayes Theorem.
+it was manufactured by A Pale? To answer this we need to introduce Bayes' Theorem.
 
 2 Introduction to Probability
 
@@ -4603,40 +4603,40 @@ it was manufactured by A Pale? To answer this we need to introduce the Bayes The
 
 35
 
-The Bayes theorem
+Bayes' theorem
 
-Let A be an event, and let B1 , B2 , . . . , Bk be a set of mutually exclusive and exhaustive events.
-Then, for i = 1, . . . , k,
-P {Bi }P {A|Bi }
-P {Bi |A} = Pk
-j=1 P {Bj }P {A|Bj }
+Let A be an event, and let B_1 , B_2 , \ldots , B_k be a set of mutually exclusive and exhaustive events.
+Then, for i = 1, \ldots , k,
+P \{B_i \}P \{A|B_i \}
+P \{B_i |A\} = Pk
+j=1 P \{B_j \}P \{A|B_j \}
 Proof: Use the multiplication rule of conditional probability twice to give
-P {Bi |A} =
+P \{B_i |A\} =
 
-P {Bi \cap A}
-P {Bi }P {A|Bi }
+P \{B_i \cap A\}
+P \{B_i \}P \{A|B_i \}
 =
 .
-P {A}
-P {A}
+P \{A\}
+P \{A\}
 
-The Bayes theorem follows directly by substituting P {A} by the total probability formula.
-The probability, P {Bi |A} is called the posterior probability of Bi and P {Bi } is called the prior
-probability. The Bayes theorem is the rule that converts the prior probability into the posterior probability by using the additional information that some other event, A above, has already
+Bayes' theorem follows directly by substituting P \{A\} by the total probability formula.
+The probability, P \{B_i |A\} is called the posterior probability of B_i and P \{B_i \} is called the prior
+probability. Bayes' theorem is the rule that converts the prior probability into the posterior probability by using the additional information that some other event, A above, has already
 occurred.
 ♥ Example 19 Phones continued The probability that my faulty phone was manufactured
 by A Pale is
-P {B1 }P {A|B1 }
+P \{B_1 \}P \{A|B_1 \}
 0.30 \times 0.05
-P {B1 |A} =
+P \{B_1 |A\} =
 =
 = 0.1948.
-P {A}
+P \{A\}
 0.077
 Similarly, the probability that the faulty phone was manufactured by B Sung is 0.4156, and the
 probability that it was manufactured by C Windows is 1-0.1948-0.4156 = 0.3896.
-Pk The worked examples section contains further illustrations of the Bayes theorem. Note that
-i=1 P {Bi |A} = 1. Why? Nowadays the Bayes theorem is used to make statistical inference as
+Pk The worked examples section contains further illustrations of Bayes' theorem. Note that
+i=1 P \{B_i |A\} = 1. Why? Nowadays Bayes' theorem is used to make statistical inference as
 well.
 
 2.3.6
@@ -4674,18 +4674,18 @@ are then said to be independent.
 Intuitively, events A and B are independent if the occurrence of one event does not affect the
 probability that the other event occurs.
 This is equivalent to saying that
-P {B|A} = P {B}, where P {A} > 0, and P {A|B} = P {A}, where P {B} > 0.
+P \{B|A\} = P \{B\}, where P \{A\} > 0, and P \{A|B\} = P \{A\}, where P \{B\} > 0.
 These give the following formal definition.
 
-A and B are independent events if P {A \cap B} = P {A}P {B}.
+A and B are independent events if P \{A \cap B\} = P \{A\}P \{B\}.
 ♥ Example 20 Die throw
 Throw a fair die. Let A be the event that “the result is even” and B be the event that “the
 result is greater than 3”. We want to show that A and B are not independent.
-For this, we have P {A \cap B} = P {either a 4 or 6 thrown} = 1/3, but P {A} = 1/2 and P {B} =
-1/2, so that P {A}P {B} = 1/4 6= 1/3 = P {A \cap B}. Therefore A and B are not independent events.
+For this, we have P \{A \cap B\} = P \{either a 4 or 6 thrown\} = 1/3, but P \{A\} = 1/2 and P \{B\} =
+1/2, so that P \{A\}P \{B\} = 1/4 6= 1/3 = P \{A \cap B\}. Therefore A and B are not independent events.
 Note that independence is not the same as the mutually exclusive property. When two events, A
-and B, are mutually exclusive, the probability of their intersection, A\capB, is zero, i.e. P {A\capB} = 0.
-But if the two events are independent then P {A \cap B} = P {A} \times P {B}.
+and B, are mutually exclusive, the probability of their intersection, A\capB, is zero, i.e. P \{A\capB\} = 0.
+But if the two events are independent then P \{A \cap B\} = P \{A\} \times P \{B\}.
 Independence is often assumed on physical grounds, although sometimes incorrectly. There are
 serious consequences for wrongly assuming independence, e.g. the financial crisis in 2008. However,
 when the events are independent then the simpler product formula for joint probability is then used
@@ -4702,21 +4702,21 @@ the probability of two sixes is 1/6 \times 1/6 = 1/36.
 miscarriages of justice as a result of incorrect assumption of independence. Please read “Incorrect
 use of independence – Sally Clark Case” on Blackboard.
 Independence of complementary events: If A and B are independent, so are A0 and B 0 .
-Proof: Given that P {A \cap B} = P {A}P {B}, we need to show that P {A0 \cap B 0 } = P {A0 }P {B 0 }.
+Proof: Given that P \{A \cap B\} = P \{A\}P \{B\}, we need to show that P \{A0 \cap B 0 \} = P \{A0 \}P \{B 0 \}.
 This follows from
-P {A0 \cap B 0 } = 1 - P {A \cup B}
-= 1 - [P {A} + P {B} - P {A \cap B}]
-= 1 - [P {A} + P {B} - P {A}P {B}]
-= [1 - P {A}] - P {B}[1 - P {A}]
-= [1 - P {A}][1 - P {B}] = P {A0 }P {B 0 }
+P \{A0 \cap B 0 \} = 1 - P \{A \cup B\}
+= 1 - [P \{A\} + P \{B\} - P \{A \cap B\}]
+= 1 - [P \{A\} + P \{B\} - P \{A\}P \{B\}]
+= [1 - P \{A\}] - P \{B\}[1 - P \{A\}]
+= [1 - P \{A\}][1 - P \{B\}] = P \{A0 \}P \{B 0 \}
 
 The ideas of conditional probability and independence can be extended to more than two events.
 Definition Three events A, B and C are defined to be independent if
-P {A \cap B} = P {A}P {B}, P {A \cap C} = P {A}P {C}, P {B \cap C} = P {B}P {C},
+P \{A \cap B\} = P \{A\}P \{B\}, P \{A \cap C\} = P \{A\}P \{C\}, P \{B \cap C\} = P \{B\}P \{C\},
 
 (2.1)
 
-P {A \cap B \cap C} = P {A}P {B}P {C}
+P \{A \cap B \cap C\} = P \{A\}P \{B\}P \{C\}
 
 (2.2)
 
@@ -4726,9 +4726,9 @@ independence of A, B and C, it is necessary to show that both (2.1) and (2.2) ho
 labelled with the binary number 111, two are labelled with 100, two with 010 and two with 001.
 An experiment consists of drawing one ticket at random from the box.
 Let A be the event “the first digit is 1”, B the event “the second digit is 1” and C be the event
-“the third digit is 1”. It is clear that P {A} = P {B} = P {C} = 4/8 = 1/2 and P {A \cap B} =
-P {A \cap C} = P {B \cap C} = 1/4, so the events are pairwise independent, i.e. (2.1) holds. However
-P {A \cap B \cap C} = 2/8 6= P {A}P {B}P {C} = 1/8. So (2.2) does not hold and A, B and C are not
+“the third digit is 1”. It is clear that P \{A\} = P \{B\} = P \{C\} = 4/8 = 1/2 and P \{A \cap B\} =
+P \{A \cap C\} = P \{B \cap C\} = 1/4, so the events are pairwise independent, i.e. (2.1) holds. However
+P \{A \cap B \cap C\} = 2/8 6= P \{A\}P \{B\}P \{C\} = 1/8. So (2.2) does not hold and A, B and C are not
 independent.
 Bernoulli trials The notion of independent events naturally leads to a set of independent trials
 (or random experiments, e.g. repeated coin tossing). A set of independent trials, where each trial
@@ -4751,18 +4751,18 @@ car arrives in the ith second.
 1. Consider k = 0. The pedestrian does not have to wait if and only if there are no cars in the
 next three seconds, i.e. the event N1 N2 N3 . Now the arrival of the cars in successive seconds
 are independent and the probability of no car coming in any second is q = 1 - p. Hence the
-answer is P {N1 N2 N3 } = q · q · q = q 3 .
+answer is P \{N1 N2 N3 \} = q · q · q = q 3 .
 2. Consider k = 1. The person has to wait for one second if there is a car in the first second
 and none in the next three, i.e. the event C1 N2 N3 N4 . Hence the probability of that is pq 3 .
 3. Consider k = 2. The person has to wait two seconds if and only if there is a car in the 2nd
 second but none in the next three. It does not matter if there is a car or none in the first
 second. Hence:
-P {wait 2 seconds} = P {C1 C2 N3 N4 N5 } + P {N1 C2 N3 N4 N5 } = p · p · q 3 + q · p · q 3 = pq 3 .
+P \{wait 2 seconds\} = P \{C1 C2 N3 N4 N5 \} + P \{N1 C2 N3 N4 N5 \} = p · p · q 3 + q · p · q 3 = pq 3 .
 4. Consider k = 3. The person has to wait for three seconds if and only if a car passes in the
 3rd second but none in the next three, C3 N4 N5 N6 . Anything can happen in the first two
 seconds, i.e. C1 C2 , C1 N2 , N1 C2 , N1 N2 - all these four cases are mutually exclusive. Hence,
-P {wait 3 seconds} = P {C1 C2 C3 N4 N5 N6 } + P {N1 C2 C3 N4 N5 N6 }
-+P {C1 N2 C3 N4 N5 N6 } + P {N1 N2 C3 N4 N5 N6 }
+P \{wait 3 seconds\} = P \{C1 C2 C3 N4 N5 N6 \} + P \{N1 C2 C3 N4 N5 N6 \}
++P \{C1 N2 C3 N4 N5 N6 \} + P \{N1 N2 C3 N4 N5 N6 \}
 = p · p · p · q3 + p · q · p · q3 + q · p · p · q3 + q · q · p · q3
 = pq 3 .
 5. Consider k = 4. This is more complicated because the person has to wait exactly 4 seconds
@@ -4804,27 +4804,27 @@ System reliability
 Two components in series
 Suppose each component has a separate operating mechanism. This means that they operate
 independently.
-Let Ai be the event “component i works when required” and let P {Ai } = pi for i = 1, 2. For
-the system of A1 and A2 in series, the event “the system works” is the event {A1 \cap A2 }. Hence
-P {system works} = P {A1 \cap A2 } = P {A1 }P {A2 } = p1 p2 .
+Let Ai be the event “component i works when required” and let P \{Ai \} = pi for i = 1, 2. For
+the system of A1 and A2 in series, the event “the system works” is the event \{A1 \cap A2 \}. Hence
+P \{system works\} = P \{A1 \cap A2 \} = P \{A1 \}P \{A2 \} = p1 p2 .
 The reliability gets lower when components are included in series. For n components in series,
-P {system works} = p1 p2 · · · pn . When pi = p for all i, the reliability of a series of n components is
-P {system works} = pn .
+P \{system works\} = p1 p2 · · · pn . When pi = p for all i, the reliability of a series of n components is
+P \{system works\} = pn .
 Two components in parallel
 For the system of A1 and A2 in parallel, the event “the system works when required” is now given
-by the event {A1 \cup A2 }. Hence
-P {system works} = P {A1 \cup A2 } = P {A1 } + P {A2 } - P {A1 \cap A2 } = p1 + p2 - p1 p2 .
+by the event \{A1 \cup A2 \}. Hence
+P \{system works\} = P \{A1 \cup A2 \} = P \{A1 \} + P \{A2 \} - P \{A1 \cap A2 \} = p1 + p2 - p1 p2 .
 This is greater than either p1 or p2 so that the inclusion of a (redundant) component in parallel
 increases the reliability of the system. Another way of arriving at this result uses complementary
 events:
-P {system works} = 1 - P {system fails}
-= 1 - P {A01 \cap A02 }
-= 1 - P {A01 }P {A02 }
+P \{system works\} = 1 - P \{system fails\}
+= 1 - P \{A01 \cap A02 \}
+= 1 - P \{A01 \}P \{A02 \}
 = 1 - (1 - p1 )(1 - p2 )
 = p1 + p2 - p1 p2 .
 In general, with n components in parallel, the reliability of the system is
-P {system works} = 1 - (1 - p1 )(1 - p2 ) · · · (1 - pn ).
-If pi = p for all i, we have P {system works} = 1 - (1 - p)n .
+P \{system works\} = 1 - (1 - p1 )(1 - p2 ) · · · (1 - pn ).
+If pi = p for all i, we have P \{system works\} = 1 - (1 - p)n .
 
 2 Introduction to Probability
 
@@ -4834,9 +4834,9 @@ A general system
 The ideas above can be combined to evaluate the reliability of more complex systems.
 ♥ Example 25 Switches Six switches make up the circuit shown in the graph.
 
-Each has the probability pi = P {Di } of closing correctly; the mechanisms are independent; all
+Each has the probability pi = P \{Di \} of closing correctly; the mechanisms are independent; all
 are operated by the same impulse. Then
-P {current flows when required} = p1 \times [1 - (1 - p2 )(1 - p2 )] \times [1 - (1 - p3 )(1 - p3 )(1 - p3 )].
+P \{current flows when required\} = p1 \times [1 - (1 - p2 )(1 - p2 )] \times [1 - (1 - p3 )(1 - p3 )(1 - p3 )].
 There are some additional examples of reliability applications given in the “Reliability Examples” document available on Blackboard. You are advised to read through and understand these
 additional examples/applications.
 
@@ -4875,17 +4875,17 @@ If heads - answer Question 1: Was your mother born in January?
 If tails - answer Question 2: Have you ever taken illegal substances in the last 12 months?
 We need to record the following information for the outcome of the experiment:
 Total number in sample = n;
-Total answering Yes = r, so that an estimate of P {Yes} is r/n.
+Total answering Yes = r, so that an estimate of P \{Yes\} is r/n.
 This information can be used to estimate the proportion of Yes answers to the main question
 of interest, Question 2.
 Suppose that
 - Q1 is the event that 'Q1 was answered'
 - Q2 is the event that 'Q2 was answered'
-Then, assuming that the coin was unbiased, P {Q1 } = 0.5 and P {Q2 } = 0.5. Also, assuming that
+Then, assuming that the coin was unbiased, P \{Q1 \} = 0.5 and P \{Q2 \} = 0.5. Also, assuming that
 birthdays of mothers are evenly distributed over the months, we have that the probability that the
 interviewee will answer Yes to Q1 is 1/12. Let Y be the event that a 'Yes' answer is given. Then
 the total probability formula gives
-P {Y } = P {Q1 }P {Y |Q1 } + P {Q2 }P {Y |Q2 },
+P \{Y \} = P \{Q1 \}P \{Y |Q1 \} + P \{Q2 \}P \{Y |Q2 \},
 which leads to
 
 r
@@ -4893,12 +4893,12 @@ r
 1
 1
 ≈ \times
-+ \times P {Y |Q2 }.
++ \times P \{Y |Q2 \}.
 n
 2 12 2
 
 Hence
-P {Y |Q2 } ≈ 2 ·
+P \{Y |Q2 \} ≈ 2 ·
 
 2.5.4
 
@@ -4975,7 +4975,7 @@ We now introduce two notations: X (or in general the capital letters Y , Z etc.)
 random variable, e.g. height of a randomly selected student, and the corresponding lower case letter
 x (y, z) to denote a particular value, e.g. 1.432 metres. We will follow this convention throughout.
 For a random variable, say X, we will also adopt the notation P (X ∈ A), read probability that X
-belongs to A, instead of the previous P {A} for any event A.
+belongs to A, instead of the previous P \{A\} for any event A.
 
 3.1.3
 
@@ -4993,7 +4993,7 @@ days it could be zero, on other days it could be a continuous measurement, e.g. 
 
 Probability distribution of a random variable
 
-Recall the first axiom of probability (P {S} = 1), which means total probability equals 1. Since
+Recall the first axiom of probability (P \{S\} = 1), which means total probability equals 1. Since
 a random variable is merely a mapping from the outcome space to the real line, the combined
 probability of all possible values of the random variable must be equal to 1.
 A probability distribution distributes the total probability 1 among the
@@ -5100,7 +5100,7 @@ and
 
 (ii) the total probability must be 1,
 
-(recall P {S} = 1), where S is the sample space.
+(recall P \{S\} = 1), where S is the sample space.
 
 3.1.5
 
@@ -5206,7 +5206,7 @@ mean and the variance.
 
 Mean or expectation
 
-In Chapter 1, we defined the mean and variance of sample data x1 , . . . , xn . The random variables
+In Chapter 1, we defined the mean and variance of sample data x1 , \ldots , xn . The random variables
 with either a pmf f (x) or a pdf f (x) also have their own mean, which can be called expectation
 (central tendency), and variance as well. The mean is called an expectation since it is a value we
 can 'expect' ! The expectation is defined as:
@@ -5427,13 +5427,13 @@ Var(X) < E(X).
 Binomial distribution
 
 Suppose that we have a sequence of n Bernoulli trials (defined in Lecture 7, e.g. coin tosses) such
-that we get a success (S) or failure (F ) with probabilities P {S} = p and P {F } = 1 - p respectively.
+that we get a success (S) or failure (F ) with probabilities P \{S\} = p and P \{F \} = 1 - p respectively.
 Let X be the number of successs in the n trials. Then X is called a binomial random variable with
 parameters n and p.
 An outcome of the experiment (of carrying out n such independent trials) is represented by a
 sequence of S's and F 's (such as SS...F S...SF ) that comprises x S's, and (n - x) F 's.
 The probability associated with this outcome is
-P {SS...F S...SF } = pp · · · (1 - p)p · · · p(1 - p) = px (1 - p)n-x .
+P \{SS...F S...SF \} = pp · · · (1 - p)p · · · p(1 - p) = px (1 - p)n-x .
 For this sequence,
 X = x, but there are many other sequences which will also give X = x. In
 
@@ -5441,7 +5441,7 @@ fact there are nx such sequences. Hence
  
 n x
 P (X = x) =
-p (1 - p)n-x , x = 0, 1, . . . , n.
+p (1 - p)n-x , x = 0, 1, \ldots , n.
 x
 This is the pmf of the Binomial Distribution with parameters n and p, often written as Bin(n, p).
 P
@@ -5604,7 +5604,7 @@ X = 4, P (X = 4) = (1 - p)3 p
 .
 
 In general we have
-P (X = x) = (1 - p)x-1 p, x = 1, 2, . . .
+P (X = x) = (1 - p)x-1 p, x = 1, 2, \ldots
 This is called the geometric distribution, and it has a (countably) infinite domain starting at 1 not
 0. We write X ∼Geo(p).
 Let us check that the probability function has the required property:
@@ -5651,7 +5651,7 @@ X
 
 x=k+1
 
-= p[(1 - p)k+1-1 + (1 - p)k+2-1 + (1 - p)k+3-1 + . . .
+= p[(1 - p)k+1-1 + (1 - p)k+2-1 + (1 - p)k+3-1 + \ldots
 ∞
 X
 = p(1 - p)k
@@ -5672,11 +5672,11 @@ P (X > s + k|X > k) = P (X > s).
 The proof is given below. In practice this means that the random variable does not remember its
 age (denoted by k) to determine how long more (denoted by s) it will survive! The proof below
 uses the definition of conditional probability
-P {A|B} =
+P \{A|B\} =
 
-P {A \cap B}
+P \{A \cap B\}
 .
-P {B}
+P \{B\}
 
 Now the proof,
 P (X > s + k|X > k) =
@@ -5705,7 +5705,7 @@ x-1
 =
 x=1 xp(1 - p)
 
-= p 1 + 2(1 - p) + 3(1 - p)2 + 4(1 - p)3 + . . .
+= p 1 + 2(1 - p) + 3(1 - p)2 + 4(1 - p)3 + \ldots
 For n > 0 and |x| < 1, the negative binomial series is given by:
 1
 1
@@ -5746,7 +5746,7 @@ n-x
 N
 n
 
-, x = 0, 1, . . . , n,
+, x = 0, 1, \ldots , n,
 
 assuming that x \leq N p and n - x \leq N (1 - p) so that the above combinations are well defined. The
 mean and variance of the hypergeometric distribution are given by
@@ -5788,7 +5788,7 @@ until the r-th success occurs, where r is a given natural number. This is known 
 binomial distribution with parameters p and r.
 [Note: if r = 1, the negative binomial distribution is just the geometric distribution.]
 Firstly we need to identify the possible values of X. Possible values for X are x = r, r + 1, r +
-2, . . .. Secondly, the probability mass function is given by
+2, \ldots. Secondly, the probability mass function is given by
 
 
 x - 1 r-1
@@ -5799,7 +5799,7 @@ r-1
 
 x-1 r
 =
-p (1 - p)x-r , x = r, r + 1, . . .
+p (1 - p)x-r , x = r, r + 1, \ldots
 r-1
 ♥ Example 34 In a board game that uses a single fair die, a player cannot start until they have
 rolled a six. Let X be the number of rolls needed until they get a six. Then X is a Geometric
@@ -5893,7 +5893,7 @@ e-λ
 λx
 x!
 
-as n → ∞ for any fixed value of x in the range 0, 1, 2, . . .. Note that we have used the exponential
+as n → ∞ for any fixed value of x in the range 0, 1, 2, \ldots. Note that we have used the exponential
 limit:
 
 
@@ -5925,7 +5925,7 @@ lim
 
 A random variable X has the Poisson distribution with parameter λ if it has the pmf:
 λx
-, x = 0, 1, 2, . . .
+, x = 0, 1, 2, \ldots
 x!
 P
 P∞ -λ λx
@@ -6078,23 +6078,23 @@ E(X) = R-∞ xf (x)dx
 ∞
 = 0 xθe-θx dx
 R ∞ -y dy
-= 0R ye θ {substitute y = θx}
+= 0R ye θ \{substitute y = θx\}
 ∞
 = 1θ 0 y 2-1 e-y dy
 1
 = θ Γ(2)
-= 1θ {since Γ(2) = 1! = 1}.
+= 1θ \{since Γ(2) = 1! = 1\}.
 R∞
 E(X 2 ) = R-∞ x2 f (x)dx
 ∞
 = 0 x2 θe-θx dx
 R ∞ y 2 -y dy
-= θ 0R θ e θ {substitute y = θx}
+= θ 0R θ e θ \{substitute y = θx\}
 ∞
 = θ12 0 y 3-1 e-y dy
 1
 = θ2 Γ(3)
-= θ22 {since Γ(3) = 2! = 2},
+= θ22 \{since Γ(3) = 2! = 2\},
 
 3 Random Variables and Their Probability Distributions
 
@@ -6212,11 +6212,11 @@ as the probability that the system survives the period s to begin with. That is,
 has survived up to a particular time when it is thinking of its future remaining life time.
 The proof is exactly as in the case of the geometric distribution, reproduced below. Recall the
 definition of conditional probability:
-P {A|B} =
+P \{A|B\} =
 
-P {A \cap B}
+P \{A \cap B\}
 .
-P {B}
+P \{B\}
 
 Now the proof,
 P (X > s + t|X > t) =
@@ -6366,11 +6366,11 @@ R
 √
 R∞
 2
-= √12π 2 0 exp {-u} √du
+= √12π 2 0 exp \{-u\} √du
 [substitute u = z2 so that z = 2u and dz =
 2u
 R∞ 1
-= 2√1 π 2 0 u 2 -1 exp {-u} du [rearrange the terms]
+= 2√1 π 2 0 u 2 -1 exp \{-u\} du [rearrange the terms]
 
 = √1π Γ 12 [recall the definition of the Gamma function]
  √
@@ -6490,12 +6490,12 @@ R∞
 R∞
 2
 [substituted u = z2 so that z = 2u and dz =
-= √22π 0 2u exp {-u} √du
+= √22π 0 2u exp \{-u\} √du
 2u
 R∞ 1
-= 2√4 π 0 u 2 exp {-u} du
+= 2√4 π 0 u 2 exp \{-u\} du
 R∞ 3
-= √2π 0 u 2 -1 exp {-u} du
+= √2π 0 u 2 -1 exp \{-u\} du
 
 = √2π Γ 32
 [definition of the gamma function]
@@ -7390,19 +7390,19 @@ Introduction
 
 Suppose we have obtained a random sample from a distribution with pmf or pdf f (x), so that
 X can either be a discrete or a continuous random variable. We will learn more about random
-sampling in the next chapter. Let X1 , . . . , Xn denote the random sample of size n where n is a
+sampling in the next chapter. Let X1 , \ldots , Xn denote the random sample of size n where n is a
 positive integer. We use upper case letters since each member of the random sample is a random
 variable. For example, I toss a fair coin n times and let Xi take the value 1 if a head appears in the
-ith trial and 0 otherwise. Now I have a random sample X1 , . . . , Xn from the Bernoulli distribution
+ith trial and 0 otherwise. Now I have a random sample X1 , \ldots , Xn from the Bernoulli distribution
 with probability of success equal to 0.5 since the coin is assumed to be fair.
 We can get a random sample from a continuous random variable as well. Suppose it is known
 that the distribution of the heights of first-year students is normal with mean 175 centimetres and
 standard deviation 8 centimetres. I can randomly select a number of first-year students and record
 each student's height.
-Suppose X1 , . . . , Xn is a random sample from a population with distribution f (x). Then it can
-be shown that the random variables X1 , . . . , Xn are mutually independent, i.e.
-P (X1 ∈ A1 , X2 ∈ A2 , . . . , Xn ∈ An ) = P (X1 ∈ A1 ) \times P (X2 ∈ A2 ) \times · · · P (Xn ∈ An )
-for any set of events, A1 , A2 , . . . An . That is, the joint probability can be obtained as the product
+Suppose X1 , \ldots , Xn is a random sample from a population with distribution f (x). Then it can
+be shown that the random variables X1 , \ldots , Xn are mutually independent, i.e.
+P (X1 ∈ A1 , X2 ∈ A2 , \ldots , Xn ∈ An ) = P (X1 ∈ A1 ) \times P (X2 ∈ A2 ) \times · · · P (Xn ∈ An )
+for any set of events, A1 , A2 , \ldots An . That is, the joint probability can be obtained as the product
 of individual probabilities. An example of this for n = 2 was given in the previous lecture; see the
 discussion just below the paragraph Consequences of independence.
 ♥ Example 52 Distribution of the sum of independent binomial random variables
@@ -7446,14 +7446,14 @@ using a result stated in Section A.4. Thus, we have proved that the sum of indep
 random variables with common probability is binomial as well. This is called the reproductive
 property of random variables. You are asked to prove this for the Poisson distribution in an
 exercise sheet.
-Now we will state two main results without proof. The proofs will presented in the secondyear distribution theory module MATH2011. Suppose that X1 , . . . , Xn is a random sample from
+Now we will state two main results without proof. The proofs will presented in the secondyear distribution theory module MATH2011. Suppose that X1 , \ldots , Xn is a random sample from
 a population distribution with finite variance, and suppose that E(Xi ) = µi and Var(Xi ) = σi2 .
 Define a new random variable
 Y = a1 X1 + a2 X2 + · · · + an Xn
-where a1 , a2 , . . . , an are constants. Then:
+where a1 , a2 , \ldots , an are constants. Then:
 1. E(Y ) = a1 µ1 + a2 µ2 + · · · + an µn .
 2. Var(Y ) = a21 σ12 + a22 σ22 + · · · + a2n σn2 .
-For example, if ai = 1 for all i = 1, . . . , n, the two results above imply that:
+For example, if ai = 1 for all i = 1, \ldots , n, the two results above imply that:
 The expectation of the sum of independent random variables is the sum of the expectations
 of the individual random variables
 and
@@ -7463,7 +7463,7 @@ The second result is only true for independent random variables, e.g. random sam
 will consider many examples.
 ♥ Example 53 Mean and variance of binomial distribution
 Suppose Y ∼ Bin(n, p). Then we can write:
-Y = X1 + X2 + . . . + Xn
+Y = X1 + X2 + \ldots + Xn
 where each Xi is an independent Bernoulli trial with success probability p. We have shown before
 that, E(Xi ) = p and Var(Xi ) = p(1 - p) by direct calculation. Now the above two results imply
 that:
@@ -7471,10 +7471,10 @@ that:
 n
 X
 E(Y ) = E
-Xi = p + p + . . . + p = np.
+Xi = p + p + \ldots + p = np.
 i=1
 
-Var(Y ) = Var(X1 ) + · · · + Var(Xn ) = p(1 - p) + . . . + p(1 - p) = np(1 - p).
+Var(Y ) = Var(X1 ) + · · · + Var(Xn ) = p(1 - p) + \ldots + p(1 - p) = np(1 - p).
 Thus we avoided the complicated sums used to derive E(X) and Var(X) in Section 3.3.3.
 
 ♥ Example 54 Mean and variance of negative binomial distribution
@@ -7492,7 +7492,7 @@ and
 Var(Y ) = Var(X1 ) + · · · + Var(Xr ) = (1 - p)/p2 + · · · + (1 - p)/p2 = r(1 - p)/p2 .
 
 ♥ Example 55 Sum of independent Normal random variables
-Suppose that Xi ∼ N (µi , σi2 ), i = 1, 2, . . . , k are independent random variables. Let a1 , a2 , . . . , ak
+Suppose that Xi ∼ N (µi , σi2 ), i = 1, 2, \ldots , k are independent random variables. Let a1 , a2 , \ldots , ak
 be constants and suppose that
 Y = a1 X1 + · · · + ak Xk .
 Then we can prove that:
@@ -7525,7 +7525,7 @@ second-year distribution theory module MATH2011.
 As a consequence of the stated result we can easily see the following. Suppose X1 and X2 are
 independent N (µ, σ 2 ) random variables. Then 2X1 ∼ N (2µ, 4σ 2 ), X1 + X2 ∼ N (2µ, 2σ 2 ), and
 X1 - X2 ∼ N (0, 2σ 2 ). Note that 2X1 and X1 + X2 have different distributions.
-Suppose that Xi ∼ N (µ, σ 2 ), i = 1, . . . , n are independent. Then
+Suppose that Xi ∼ N (µ, σ 2 ), i = 1, \ldots , n are independent. Then
 X1 + · · · + Xn ∼ N (nµ, nσ 2 ),
 and consequently,
 1
@@ -7573,7 +7573,7 @@ and a finite variance. A version of the CLT follows.
 Statement of the Central Limit Theorem (CLT)
 
 2
-Let X1 , . . . , X
+Let X1 , \ldots , X
 n be independent random variables with finite E(Xi ) = µi and finite Var(Xi ) = σi .
 P
 n
@@ -7656,7 +7656,7 @@ Application of CLT to binomial distribution
 We know that a binomial random variable Y with parameters n and p is the number of successes
 in a set of n independent Bernoulli trials, each with success probability p. We have also learnt that
 Y = X1 + X2 + · · · + Xn ,
-where X1 , . . . , Xn are independent Bernoulli random variables with success probability p. It follows from the CLT that, for a sufficiently large n, Y is approximately normally distributed with
+where X1 , \ldots , Xn are independent Bernoulli random variables with success probability p. It follows from the CLT that, for a sufficiently large n, Y is approximately normally distributed with
 expectation E(Y ) = np and variance Var(Y ) = np(1 - p).
 Hence, for given integers y1 and y2 between 0 and n and a suitably large n, we have
 (
@@ -7816,23 +7816,23 @@ data were generated.
 unobserved data).
 - The use of statistical models, together with a carefully constructed methodology for their
 analysis, also allows us to quantify the uncertainty associated with any conclusions, predictions or decisions we make.
-As we have noted in Lecture 2, we will use the notation x1 , x2 , . . . , xn to denote n observations
-of the random variables X1 , X2 , . . . , Xn (corresponding capital letters). For the fast food waiting
-time example, we have n = 20, x1 = 38, x2 = 100, . . . , x20 = 70, and Xi is the waiting time for the
+As we have noted in Lecture 2, we will use the notation x1 , x2 , \ldots , xn to denote n observations
+of the random variables X1 , X2 , \ldots , Xn (corresponding capital letters). For the fast food waiting
+time example, we have n = 20, x1 = 38, x2 = 100, \ldots , x20 = 70, and Xi is the waiting time for the
 ith person in the sample.
 
 4.1.1
 
 Statistical models
 
-Suppose we denote the complete data by the vector x = (x1 , x2 , . . . , xn ) and use X = (X1 , X2 , . . . , Xn )
+Suppose we denote the complete data by the vector x = (x1 , x2 , \ldots , xn ) and use X = (X1 , X2 , \ldots , Xn )
 for the corresponding random variables. A statistical model specifies a probability distribution for
 the random variables X corresponding to the data observations x. Providing a specification for
 the distribution of n jointly varying random variables can be a daunting task, particularly if n is
 large. However, this task is made much easier if we can make some simplifying assumptions, such
 as
-1. X1 , X2 , . . . , Xn are independent random variables,
-2. X1 , X2 , . . . , Xn have the same probability distribution (so x1 , x2 , . . . , xn are observations of a
+1. X1 , X2 , \ldots , Xn are independent random variables,
+2. X1 , X2 , \ldots , Xn have the same probability distribution (so x1 , x2 , \ldots , xn are observations of a
 single random variable X).
 Assumption 1 depends on the sampling mechanism and is very common in practice. If we are
 to make this assumption for the Southampton student sampling experiment, we need to select
@@ -7842,14 +7842,14 @@ Southampton for the last year or the air pollution levels in two nearby location
 In this module we will only consider data sets where Assumption 1 is valid. Assumption 2 is not
 always appropriate, but is often reasonable when we are modelling a single variable. In the fast
 food waiting time example, if we assume that there are no differences between the AM and PM
-waiting times, then we can say that X1 , . . . , X20 are independent and identically distributed (or
+waiting times, then we can say that X1 , \ldots , X20 are independent and identically distributed (or
 i.i.d. for short).
 
 4.1.2
 
 A fully specified model
 
-Sometimes a model completely specifies the probability distribution of X1 , X2 , . . . , Xn . For example, if we assume that the waiting time X ∼ N (µ, σ 2 ) where µ = 100, and σ 2 = 100, then this
+Sometimes a model completely specifies the probability distribution of X1 , X2 , \ldots , Xn . For example, if we assume that the waiting time X ∼ N (µ, σ 2 ) where µ = 100, and σ 2 = 100, then this
 is a fully specified model. In this case, there is no need to collect any data as there is no need
 
 4 Statistical Inference
@@ -7882,10 +7882,10 @@ discussed in more detail in the following lectures.
 
 A nonparametric statistical model
 
-Sometimes it is not appropriate, or we want to avoid, making a precise specification for the distribution which generated X1 , X2 , . . . , Xn . For example, when the data histogram does not show
+Sometimes it is not appropriate, or we want to avoid, making a precise specification for the distribution which generated X1 , X2 , \ldots , Xn . For example, when the data histogram does not show
 a bell-shaped distribution, it would be wrong to assume a normal distribution for the data. In
 such a case, although we can attempt to use some other non-bell-shaped parametric model, we can
-decide altogether to abandon parametric models. We may then still assume that X1 , X2 , . . . , Xn
+decide altogether to abandon parametric models. We may then still assume that X1 , X2 , \ldots , Xn
 are i.i.d. random variables, but from a nonparametric statistical model which cannot be written
 down, having a probability function which only depends on a finite number of parameters. Such
 analysis approaches are also called distribution-free methods.
@@ -7966,7 +7966,7 @@ Population and sample
 
 Recall that a statistical model specifies a probability distribution for the random variables X
 corresponding to the data observations x.
-- The observations x = (x1 , . . . , xn ) are called the sample, and quantities derived from the
+- The observations x = (x1 , \ldots , xn ) are called the sample, and quantities derived from the
 sample are sample quantities. For example, as in Chapter 1, we call
 n
 
@@ -7980,14 +7980,14 @@ the sample mean.
 - The probability distribution for X specified in our model represents all possible observations
 which might have been observed in our sample, and is therefore sometimes referred to as the
 population. Quantities derived from this distribution are population quantities.
-For example, if our model is that X1 , . . . , Xn are i.i.d., following the common distribution of
+For example, if our model is that X1 , \ldots , Xn are i.i.d., following the common distribution of
 a random variable X, then we call E(X) the population mean.
 
 4.2.3
 
 Statistic and estimator
 
-A statistic T (x) is any function of the observed data x1 , . . . , xn alone (and therefore does not depend
+A statistic T (x) is any function of the observed data x1 , \ldots , xn alone (and therefore does not depend
 on any parameters or other unknowns).
 An estimate of θ is any statistic which is used to estimate θ under a particular statistical model.
 We will use θ̃(x) (sometimes shortened to θ̃) to denote an estimate of θ.
@@ -7998,13 +7998,13 @@ An estimate is a particular numerical value, e.g. \bar x; an estimator is a
 random variable, e.g. \BAR X.
 The probability distribution of any estimator θ̃(X) is called its sampling distribution. The
 estimate θ̃(x) is an observed value (a number), and is a single observation from the sampling distribution of θ̃(X).
-♥ Example 58 Suppose that we have a random sample X1 , . . . , Xn from the uniform distribution on the interval [0, θ] where θ > 0 is unknown. Suppose that n = 5 and we have the sample
+♥ Example 58 Suppose that we have a random sample X1 , \ldots , Xn from the uniform distribution on the interval [0, θ] where θ > 0 is unknown. Suppose that n = 5 and we have the sample
 observations x1 = 2.3, x2 = 3.6, x3 = 20.2, x4 = 0.9, x5 = 17.2. Our objective is to estimate θ. How
 can we proceed?
 Rθ
 Here the pdf f (x) = 1θ for 0 \leq x \leq θ and 0 otherwise. Hence E(X) = 0 1θ xdx = 2θ . There are
 many possible estimators for θ, e.g. θ̂1 (X) = 2 \BAR X, which is motivated by the method of moments
-because θ = 2E(X). A second estimator is θ̂2 (X) = max{X1 , X2 , . . . , Xn }, which is intuitive since
+because θ = 2E(X). A second estimator is θ̂2 (X) = max\{X1 , X2 , \ldots , Xn \}, which is intuitive since
 
 4 Statistical Inference
 
@@ -8017,11 +8017,11 @@ How could we choose between the two estimators θ̂1 and θ̂2 ? This is where w
 sampling distribution of an estimator to determine which estimator will be unbiased, i.e. correct on
 average, and which will have minimum variability. We will formally define these in a minute, but
 first let us derive the sampling distribution, i.e. the pdf, of θ̂2 . Note that θ̂2 is a random variable
-since the sample X1 , . . . , Xn is random. We will first find its cdf and then differentiate the cdf to
-get the pdf. For ease of notation, suppose Y = θ̂2 (X) = max{X1 , X2 , . . . , Xn }. For any 0 < y < θ,
+since the sample X1 , \ldots , Xn is random. We will first find its cdf and then differentiate the cdf to
+get the pdf. For ease of notation, suppose Y = θ̂2 (X) = max\{X1 , X2 , \ldots , Xn \}. For any 0 < y < θ,
 the cdf of Y , F (y) is given by:
-P (Y \leq y) = P (max{X1 , X2 , . . . , Xn } \leq y)
-= P (X1 \leq y, X2 \leq y, . . . , Xn \leq y)) [max \leq y if and only if each \leq y]
+P (Y \leq y) = P (max\{X1 , X2 , \ldots , Xn \} \leq y)
+= P (X1 \leq y, X2 \leq y, \ldots , Xn \leq y)) [max \leq y if and only if each \leq y]
 = P (X1 \leq y)P (X2 \leq y) · · · P (Xn \leq y) [since the X's are independent]
 = yθ yθ · · · yθ
 n
@@ -8052,7 +8052,7 @@ You can prove this by easy
 
 Bias and mean square error
 
-In the uniform distribution example we saw that the estimator θ̂2 = Y = max{X1 , X2 , . . . , Xn } is
+In the uniform distribution example we saw that the estimator θ̂2 = Y = max\{X1 , X2 , \ldots , Xn \} is
 n-1
 a random variable and its pdf is given by f (y) = n y θn for 0 \leq y \leq θ. This probability distribution
 n
@@ -8203,7 +8203,7 @@ n
 (n+1)2 n+2
 
 Clearly, the m.s.e of θ̂2 is an order of magnitude (of order n2 rather than n) smaller than the m.s.e
-of θ̂1 , providing justification for the preference of θ̂2 = max{X1 , X2 , . . . , Xn } as an estimator of θ.
+of θ̂1 , providing justification for the preference of θ̂2 = max\{X1 , X2 , \ldots , Xn \} as an estimator of θ.
 
 4.2.5
 
@@ -8239,7 +8239,7 @@ standard error of an estimator.
 
 Estimation of a population mean
 
-Suppose that x1 , . . . , xn is a random sample from any probability distribution f (x), which may be
+Suppose that x1 , \ldots , xn is a random sample from any probability distribution f (x), which may be
 discrete or continuous. Suppose that we want to estimate the unknown population mean E(X) = µ
 and variance, Var(X) = σ 2 . In order to do this, it is not necessary to make any assumptions about
 f (x), so this may be thought of as nonparametric inference.
@@ -8401,8 +8401,8 @@ We usually prefer to focus on the standard deviation of the sampling distributio
 q
 s.d.(θ̃) = Var(θ̃).
 In practice we will not know s.d.(θ̃), as it will typically depend on unknown features of the
-distribution of X1 , . . . , Xn . However, we may be able to estimate s.d.(θ̃) using the observed sample
-x1 , . . . , xn . We define the standard error, s.e.(θ̃), of an estimator θ̃ to be an estimate of the standard
+distribution of X1 , \ldots , Xn . However, we may be able to estimate s.d.(θ̃) using the observed sample
+x1 , \ldots , xn . We define the standard error, s.e.(θ̃), of an estimator θ̃ to be an estimate of the standard
 deviation of its sampling distribution, s.d.(θ̃).
 Standard error of an estimator is an estimate of the standard deviation
 of its sampling distribution
@@ -8446,7 +8446,7 @@ s.e.(\BAR X) = √
 104
 Note that this is 'a' standard error, so other standard errors may be available. Indeed, for parametric
 inference, where we make assumptions about f (x), alternative standard errors are available. For
-example, X1 , . . . , Xn are i.i.d. Poisson(λ) random q
+example, X1 , \ldots , Xn are i.i.d. Poisson(λ) random q
 variables. E(X) = λ, so \BAR X is an unbiased
 p
 estimator of λ. Var(X) = λ, so another s.e.(\BAR X) = λ̂/n = \bar x/n. In the computer failure data
@@ -8490,7 +8490,7 @@ for an unbiased estimator, this will be a standard error, an estimate of the sta
 associated estimator, as we have discussed previously. An alternative summary of the information
 provided by the observed data about the location of a parameter θ and the associated precision is
 an interval estimate or confidence interval.
-Suppose that x1 , . . . , xn are observations of random variables X1 , . . . , Xn whose joint pdf is
+Suppose that x1 , \ldots , xn are observations of random variables X1 , \ldots , Xn whose joint pdf is
 specified apart from a single parameter θ. To construct a confidence interval for θ, we need to find
 
 4 Statistical Inference
@@ -8509,7 +8509,7 @@ P [g1 (X) \leq θ \leq g2 (X)] = 1 - α.
 (2)
 Hence with probability 1 - α, the parameter θ will lie between the random variables g1 (X) and
 g2 (X). Alternatively, the random interval [g1 (X), g2 (X)] includes θ with probability 1 - α. Now,
-when we observe x1 , . . . , xn , we observe a single observation of the random interval [g1 (X), g2 (X)],
+when we observe x1 , \ldots , xn , we observe a single observation of the random interval [g1 (X), g2 (X)],
 which can be evaluated as [g1 (x), g2 (x)]. We do not know if θ lies inside or outside this interval,
 but we do know that if we observed repeated samples, then 100(1 - α)% of the resulting intervals
 would contain θ. Hence, if 1 - α is high, we can be reasonably confident that our observed interval
@@ -8521,7 +8521,7 @@ It is common to present intervals with high confidence levels, usually 90%, 95% 
 
 Confidence interval for a normal mean
 
-Let X1 , . . . , Xn be i.i.d. N (µ, σ 2 ) random variables. We know that from CLT Lecture 14
+Let X1 , \ldots , Xn be i.i.d. N (µ, σ 2 ) random variables. We know that from CLT Lecture 14
 \BAR X ∼ N (µ, σ 2 /n)
 
 ⇒
@@ -8681,7 +8681,7 @@ CI cannot be used unless we can estimate σ, i.e. replace the unknown s.d. of \B
 standard error. In this case, we get the CI in the familiar form:
 Estimate ± Critical value \times Standard error
 Suppose that we do not assume any distribution for the sampled random variable X but assume
-only that X1 , . . . , Xn are i.i.d, following the distribution of X where E(X) = µ and Var(X) = σ 2 .
+only that X1 , \ldots , Xn are i.i.d, following the distribution of X where E(X) = µ and Var(X) = σ 2 .
 √
 We know that the standard error of \BAR X is s/ n where s is the sample standard deviation with
 divisor n - 1. Then the following provides a 95% CI for µ:
@@ -8704,7 +8704,7 @@ to be
 If we can assume a distribution for X, i.e. a parametric model for X, then we can do slightly
 better in estimating the standard error of \BAR X and as a result we can improve upon the previously
 obtained 95% CI. Two examples follow.
-♥ Example 62 Poisson If X1 , . . . , Xn are modelled as i.i.d. Poisson(λ) randomq
+♥ Example 62 Poisson If X1 , \ldots , Xn are modelled as i.i.d. Poisson(λ) randomq
 variables, then
 p
 2
@@ -8734,7 +8734,7 @@ We see that this interval is narrower (0.74 = 4.12 - 3.38) than the earlier inte
 which has a length of 1.3. We prefer narrower confidence intervals as they facilitate more accurate
 inference regarding the unknown parameter.
 
-♥ Example 63 Bernoulli If X1 , . . . , Xn are modelled as i.i.d. Bernoulli(p) random variables,
+♥ Example 63 Bernoulli If X1 , \ldots , Xn are modelled as i.i.d. Bernoulli(p) random variables,
 then
 σ 2 = p(1 - p). We know Var(\BAR X) = σ 2 /n = p(1 - p)/n. Hence a standard error is
 p µ = p and p
@@ -9084,7 +9084,7 @@ The observed value of this interval, (\bar x ± h √sn ), is the 95% confidence
 this also of the general form, Estimate ± Critical value \times Standard error, where the Critical value
 is h and the standard error of the sample mean is √sn . Now, how do we find the critical value h for
 a given 1 - α? We need to introduce the t-distribution.
-Let X1 , . . . , Xn be i.i.d N (µ, σ 2 ) random variables. Define \BAR X =
+Let X1 , \ldots , Xn be i.i.d N (µ, σ 2 ) random variables. Define \BAR X =
 1
 S2 =
 n-1
@@ -9248,31 +9248,31 @@ problems.
 
 Introduction
 
-In statistical inference, we use observations x1 , . . . , xn of univariate random variables X1 , . . . , Xn in
+In statistical inference, we use observations x1 , \ldots , xn of univariate random variables X1 , \ldots , Xn in
 order to draw inferences about the probability distribution f (x) of the underlying random variable
 X. So far, we have mainly been concerned with estimating features (usually unknown parameters)
 of f (x). It is often of interest to compare alternative specifications for f (x). If we have a set of
-competing probability models which might have generated the observed data, we may want to determine which of the models is most appropriate. A proposed (hypothesised) model for X1 , . . . , Xn
+competing probability models which might have generated the observed data, we may want to determine which of the models is most appropriate. A proposed (hypothesised) model for X1 , \ldots , Xn
 is then referred to as a hypothesis, and pairs of models are compared using hypothesis tests.
 For example, we may have two competing alternatives, f (0) (x) (model H0 ) and f (1) (x) (model
-H1 ) for f (x), both of which completely specify the joint distribution of the sample X1 , . . . , Xn .
+H1 ) for f (x), both of which completely specify the joint distribution of the sample X1 , \ldots , Xn .
 Completely specified statistical models are called simple hypotheses. Usually, H0 and H1 both take
 the same parametric form f (x, θ), but with different values θ(0) and θ(1) of θ. Thus the joint distribution of the sample given by f (X) is completely specified apart from the values of the unknown
 parameter θ and θ(0) 6= θ(1) are specified alternative values.
 More generally, competing hypotheses often do not completely specify the joint distribution of
-X1 , . . . , Xn . For example, a hypothesis may state that X1 , . . . , Xn is a random sample from the
+X1 , \ldots , Xn . For example, a hypothesis may state that X1 , \ldots , Xn is a random sample from the
 probability distribution f (x; θ) where θ < 0. This is not a completely specified hypothesis, since it
 is not possible to calculate probabilities such as P (X1 < 2) when the hypothesis is true, as we do
 not know the exact value of θ. Such an hypothesis is called a composite hypothesis.
 Examples of hypotheses:
-X1 , . . . , Xn ∼ N (µ, σ 2 ) with µ = 0, σ 2 = 2.
-X1 , . . . , Xn ∼ N (µ, σ 2 ) with µ = 0, σ 2 ∈ R+ .
-X1 , . . . , Xn ∼ N (µ, σ 2 ) with µ 6= 0, σ 2 ∈ R+ .
-X1 , . . . , Xn ∼ Bernoulli(p) with p = 12 .
-X1 , . . . , Xn ∼ Bernoulli(p) with p 6= 12 .
-X1 , . . . , Xn ∼ Bernoulli(p) with p > 12 .
-X1 , . . . , Xn ∼ Poisson(λ) with λ = 1.
-X1 , . . . , Xn ∼ Poisson(θ) with θ > 1.
+X1 , \ldots , Xn ∼ N (µ, σ 2 ) with µ = 0, σ 2 = 2.
+X1 , \ldots , Xn ∼ N (µ, σ 2 ) with µ = 0, σ 2 ∈ R+ .
+X1 , \ldots , Xn ∼ N (µ, σ 2 ) with µ 6= 0, σ 2 ∈ R+ .
+X1 , \ldots , Xn ∼ Bernoulli(p) with p = 12 .
+X1 , \ldots , Xn ∼ Bernoulli(p) with p 6= 12 .
+X1 , \ldots , Xn ∼ Bernoulli(p) with p > 12 .
+X1 , \ldots , Xn ∼ Poisson(λ) with λ = 1.
+X1 , \ldots , Xn ∼ Poisson(θ) with θ > 1.
 
 4.7.3
 
@@ -9406,8 +9406,8 @@ does it work in a concrete example?
 
 Testing a normal mean µ
 
-Suppose that we observe data x1 , . . . , xn which are modelled as observations of i.i.d. N (µ, σ 2 )
-random variables X1 , . . . , Xn , and we want to test the null hypothesis
+Suppose that we observe data x1 , \ldots , xn which are modelled as observations of i.i.d. N (µ, σ 2 )
+random variables X1 , \ldots , Xn , and we want to test the null hypothesis
 H0 : µ = µ 0
 against the alternative hypothesis
 H1 : µ 6= µ0 .
@@ -9582,8 +9582,8 @@ h
 
 t-test summary
 
-Suppose that we observe data x1 , . . . , xn which are modelled as observations of i.i.d. N (µ, σ 2 )
-random variables X1 , . . . , Xn and we want to test the null hypothesis H0 : µ = µ0 against the
+Suppose that we observe data x1 , \ldots , xn which are modelled as observations of i.i.d. N (µ, σ 2 )
+random variables X1 , \ldots , Xn and we want to test the null hypothesis H0 : µ = µ0 against the
 alternative hypothesis H1 : µ 6= µ0 :
 1. Compute the test statistic
 t=
@@ -9711,16 +9711,16 @@ equivalent concepts.
 Lecture 27: Two sample t-tests
 Lecture mission
 
-Suppose that we observe two samples of data, x1 , . . . , xn and y1 , . . . , ym , and that we propose to
+Suppose that we observe two samples of data, x1 , \ldots , xn and y1 , \ldots , ym , and that we propose to
 model them as observations of
 i.i.d.
 2
-X1 , . . . , Xn ∼ N (µX , σX
+X1 , \ldots , Xn ∼ N (µX , σX
 )
 and
 i.i.d.
 
-Y1 , . . . , Ym ∼ N (µY , σY2 )
+Y1 , \ldots , Ym ∼ N (µY , σY2 )
 respectively, where it is also assumed that the X and Y variables are independent of each other.
 Suppose that we want to test the hypothesis that the distributions of X and Y are identical, that
 is
@@ -9856,9 +9856,9 @@ and then again on the same set of patients after treatment (Y ). Recall the weig
 exactly of this type. In such examples, we proceed by computing data on the differences
 zi = xi - yi ,
 
-i = 1, . . . , n
+i = 1, \ldots , n
 
-and modelling these differences as observations of i.i.d. N (µz , σZ2 ) variables Z1 , . . . , Zn . Then, a
+and modelling these differences as observations of i.i.d. N (µz , σZ2 ) variables Z1 , \ldots , Zn . Then, a
 test of the hypothesis µX = µY is achieved by testing µZ = 0, which is just a standard (one sample)
 t-test, as described previously.
 ♥ Example 74 Paired t-test Water-quality researchers wish to measure the biomass to chlorophyll ratio for phytoplankton (in milligrams per litre of water). There are two possible tests, one
@@ -9967,7 +9967,7 @@ each week is an example of SRSWOR.
 Suppose there are N individuals in the population and we are drawing a sample of n individuals.
 In SRSWR, the same unit of the population may occur more than once in the sample; there are
 N n possible samples (using multiplication rules of counting), and each of these samples has equal
-chance of 1/N n to materialise. In the case of SRSWOR, at the rth drawing (r = 1, . . . , n) there
+chance of 1/N n to materialise. In the case of SRSWOR, at the rth drawing (r = 1, \ldots , n) there
 are N - r + 1 individuals in the population to sample from. All of these individuals are given equal
 probability of inclusion in the sample. Here no member of the population can occur more than
 once in the sample. There are N Cn possible samples and each has equal probability of inclusion
@@ -9998,7 +9998,7 @@ How can we draw random samples?
 A quick method is drawing numbers out of hat. But this is cumbersome and manual. In practice,
 we use random number series to draw samples at random. A random sampling number series is an
 arrangement, which may be looked upon either as linear or rectangular, in which each place has
-been filled in with one of the digits 0, 1, . . . , 9. The digit occupying any place is selected at random
+been filled in with one of the digits 0, 1, \ldots , 9. The digit occupying any place is selected at random
 from these 10 digits and independently of the digits occurring in other positions. Different random
 number series are available in books and computers. In R we can easily use the sample command
 to draw random samples either using SRSWR or SRSWOR. For example, suppose the problem is
@@ -10428,7 +10428,7 @@ for a positive natural number n. You do not need to prove these, but you should 
 remember the formulae.
 12 + 22 + · · · + n2 =
 
-2. Consider a set of numbers x1 , . . . , xn and
+2. Consider a set of numbers x1 , \ldots , xn and
 n
 
 1X
@@ -10669,11 +10669,11 @@ Suppose X ∼ Poisson(λ), Y ∼ Poisson(µ), and let Z = X + Y . To determine t
 122
 
 of Z, we need to find P (Z = z) for all z \geq 0.
-P {Z = z} = P {X + Y = z}
+P \{Z = z\} = P \{X + Y = z\}
 ∞
 X
 =
-P {X + Y = z | X = x}P {X = x}
+P \{X + Y = z | X = x\}P \{X = x\}
 x=0
 
 =
@@ -10685,7 +10685,7 @@ x=0
 z
 X
 
-P {Y = z - x}P {X = x}
+P \{Y = z - x\}P \{X = x\}
 
 
 e-µ µz-x /(z - x)! e-λ λx /x!
@@ -11147,17 +11147,17 @@ that a randomly selected driver insured by this company has at least one acciden
 next year? What is the probability that a driver who had an accident (already occurred) was
 previously classified as a low risk?
 Let
-B1 = {a randomly selected driver is a low risk},
-B2 = {a randomly selected driver is a medium risk},
-B3 = {a randomly selected driver is a high risk},
-A = {a randomly selected driver has at least one accident during the year}.
+B1 = \{a randomly selected driver is a low risk\},
+B2 = \{a randomly selected driver is a medium risk\},
+B3 = \{a randomly selected driver is a high risk\},
+A = \{a randomly selected driver has at least one accident during the year\}.
 127
 
 B Worked Examples
 
 128
 
-Note that B1 , B2 , B3 are mutually exclusive and exhaustive. Find P {A} and P {B1 |A}.
+Note that B1 , B2 , B3 are mutually exclusive and exhaustive. Find P \{A\} and P \{B1 |A\}.
 80. [Independent events] The probability that Jane can solve a certain problem is 0.4 and that
 Alice can solve it is 0.3. If they both try independently, what is the probability that it is
 solved?
@@ -11169,12 +11169,12 @@ score. Determine
 the number of tails, find the probability function of X and draw a graph of its cumulative
 distribution function when
 (a) the coin is fair,
-(b) the coin is biased so that P {H} =
+(b) the coin is biased so that P \{H\} =
 
 3
 5
 
-and P {T } = 52 .
+and P \{T \} = 52 .
 
 83. [Expectation and variance] The random variable X has probability function
  1
@@ -11188,9 +11188,9 @@ probability function of X and find its mean and variance.
 85. [Expectation and variance] Two fair dice are tossed and X equals the larger of the two scores
 obtained. Find the probability function of X and determine E(X).
 86. [Expectation and variance] The random variable X is uniformly distributed on the integers
-0, ±1, ±2, . . . , ±n, i.e.
+0, ±1, ±2, \ldots , ±n, i.e.
  1
-2n+1 if x = 0, ±1, ±2, . . . , ±n
+2n+1 if x = 0, ±1, ±2, \ldots , ±n
 px =
 0
 otherwise.
@@ -11268,9 +11268,9 @@ GG : the chosen drawer has two gold coins,
 GS : the chosen drawer has one gold and one silver coin,
 SS : the chosen drawer has two silver coins,
 S : the coin chosen is silver.
-We require P {GS|S}. By the Bayes Theorem
-P {S|GS}P {GS}
-P {S|GG}P {GG} + P {S|GS}P {GS} + P {S|SS}P {SS}
+We require P \{GS|S\}. By Bayes' Theorem
+P \{S|GS\}P \{GS\}
+P \{S|GG\}P \{GG\} + P \{S|GS\}P \{GS\} + P \{S|SS\}P \{SS\}
 1
 1
 1
@@ -11282,7 +11282,7 @@ P {S|GG}P {GG} + P {S|GS}P {GS} + P {S|SS}P {SS}
 1 = 3.
 0\times 3 + 2 \times 3 +1\times 3
 
-P {GS|S} =
+P \{GS|S\} =
 
 B Worked Examples
 
@@ -11290,41 +11290,41 @@ P {GS|S} =
 
 77. We assume that the sexes of the children are independent.
 (a)
-P {both boys and older is a
-P {older is a boy}
+P \{both boys and older is a
+P \{older is a boy\}
 1/4
-P {both boys}
+P \{both boys\}
 =
 =
 =
-P {older is a boy}
+P \{older is a boy\}
 1/2
 
-P {both boys|older is a boy} =
+P \{both boys|older is a boy\} =
 
-boy}
+boy\}
 1
 .
 2
 
 (b)
-P {both boys and at least one boy}
-P {at least one boy}
+P \{both boys and at least one boy\}
+P \{at least one boy\}
 1/4
 1
-P {both boys}
+P \{both boys\}
 =
 = .
 =
-1 - P {both girls}
+1 - P \{both girls\}
 1 - 1/4
 3
 
-P {both boys|at least one boy} =
+P \{both boys|at least one boy\} =
 
 78. In the obvious notation
-P {LF |LH}P (LH)
-P {LF |LH}P (LH) + P {LF |RH}P {RH}
+P \{LF |LH\}P (LH)
+P \{LF |LH\}P (LH) + P \{LF |RH\}P \{RH\}
 0.8 \times 0.1
 16
 =
@@ -11332,39 +11332,39 @@ P {LF |LH}P (LH) + P {LF |RH}P {RH}
 0.8 \times 0.1 + 0.15 \times 0.9
 43
 
-P {LH|LF } =
+P \{LH|LF \} =
 
 79. Here we have
-P {B1 } = 0.3
-P {B2 } = 0.5
-P {B3 } = 0.2
+P \{B1 \} = 0.3
+P \{B2 \} = 0.5
+P \{B3 \} = 0.2
 
-P {A|B1 } = 0.1
-P {A|B2 } = 0.3
-P {A|B3 } = 0.5
+P \{A|B1 \} = 0.1
+P \{A|B2 \} = 0.3
+P \{A|B3 \} = 0.5
 
 Hence
-P {A} = P {B1 }P {A|B1 } + P {B2 }P {A|B2 } + P {B3 }P {A|B3 }
+P \{A\} = P \{B1 \}P \{A|B1 \} + P \{B2 \}P \{A|B2 \} + P \{B3 \}P \{A|B3 \}
 = 0.3 \times 0.1 + 0.5 \times 0.3 + 0.2 \times 0.5
 = 0.28
-Now by the Bayes theorem,
-P {B1 |A} =
+Now by Bayes' theorem,
+P \{B1 |A\} =
 =
 =
 
-P {B1 }P {A|B1 }
-P {A}
+P \{B1 \}P \{A|B1 \}
+P \{A\}
 0.3\times0.1
 0.28
 3
 28 .
 
 80.
-P {problem not solved} = P {Jane fails and Alice fails}
-= P {Jane fails}P {Alice fails} (by independence)
+P \{problem not solved\} = P \{Jane fails and Alice fails\}
+= P \{Jane fails\}P \{Alice fails\} (by independence)
 = (1 - 0.4)(1 - 0.3)
 = 0.42.
-Hence P {problem solved} = 0.58.
+Hence P \{problem solved\} = 0.58.
 
 B Worked Examples
 
@@ -11484,7 +11484,7 @@ px =
 
 0
 
-if x = 2, . . . , 12
+if x = 2, \ldots , 12
 otherwise.
 
 (b)
@@ -12303,7 +12303,7 @@ if x \geq 0
 f (x) =
 0
 otherwise,
-where θ is an unknown positive constant. Let X1 , X2 , . . . , Xn denote a random sample from
+where θ is an unknown positive constant. Let X1 , X2 , \ldots , Xn denote a random sample from
 this distribution. Show that
 n
 
@@ -12417,16 +12417,16 @@ Solutions: Statistics examples
 µ̂b =
 
 1
-(77 + 67 + . . . + 81) = 67.3.
+(77 + 67 + \ldots + 81) = 67.3.
 10
 
 An unbiased estimate of σb2 is the sample variance of the weights of the boys,
-σ̂b2 = ((772 + 672 + . . . + 812 ) - 10µ̂2b )/9 = 52.67̇.
+σ̂b2 = ((772 + 672 + \ldots + 812 ) - 10µ̂2b )/9 = 52.67̇.
 (b) Similarly, unbiased estimates of µg and σg2 are
 1
-(42 + 57 + . . . + 59) = 52.4,
+(42 + 57 + \ldots + 59) = 52.4,
 10
-σ̂g2 = ((422 + 572 + . . . + 592 ) - 10µ̂2g )/9 = 56.71̇.
+σ̂g2 = ((422 + 572 + \ldots + 592 ) - 10µ̂2g )/9 = 56.71̇.
 
 µ̂g =
 
@@ -12488,7 +12488,7 @@ Z
 
 E(X) =
 
-Hence E(Xi ) = θ/2, i = 1, 2, . . . , n, and E(θ̂) = θ.
+Hence E(Xi ) = θ/2, i = 1, 2, \ldots , n, and E(θ̂) = θ.
 Thus θ̂ is an unbiased estimator for θ.
 Z ∞
 Z ∞
@@ -12686,7 +12686,7 @@ leading to the interval [-18.05, -2.39], as critical value = 1.860 (qt(0.95,df=8
 As it contains only negative values, this suggests that there is a real decrease in the mean
 time taken to complete the cube. We have assumed that the two samples are independent
 random samples from normal distributions of equal variance.
-100. Let d1 , d2 , . . . , d10 denote the differences in levels before and after treatment. Their values
+100. Let d1 , d2 , \ldots , d10 denote the differences in levels before and after treatment. Their values
 are
 0.32, 0.16, -0.18, 0.11, 0.22, 0.00, 0.47, 0.31, 0.49, -0.12.
 P10
@@ -12985,14 +12985,14 @@ statements inside your R script file or use the chunk of code already in the fil
 you may have downloaded from Blackboard. Copy-pasting from the pdf file may not work due to
 formatting issues.
 ## Highlight from below
-butterfly <- function(color = 2, p1=2, p2=4) {
+butterfly <- function(color = 2, p1=2, p2=4) \{
 theta <- seq(from=0.0, to=24 * pi, len = 2000)
 radius <- exp(cos(theta)) - p1 * cos(p2 * theta)
 radius <- radius + sin(theta/12)
 x <- radius * sin(theta)
 y <- - radius * cos(theta)
 plot(x, y, type = "l", axes = F, xlab = "", ylab = "", col = color)
-} # # Upto the end curly brace.
+\} # # Upto the end curly brace.
 # Then press the Run button
 # # If there are no error messages run the following
 butterfly(p1=20, p2=4)
@@ -13035,7 +13035,7 @@ x[1] # gives the first element of x.
 x[2:4] # gives the elements x[2], x[3], x[4].
 x[-(2:4)] # gives all but x[2], x[3], x[4].
 There are various commands for creating vectors. For example, y <- 5:15 puts the numbers
-5, 6, . . . , 15 in the vector y. Hence the : operator generates a simple sequence of successive
+5, 6, \ldots , 15 in the vector y. Hence the : operator generates a simple sequence of successive
 numbers (with increment 1) between the two endpoints.
 Investigate the vectors produced by the following commands, i.e. issue the commands one by
 one and then print them by just typing their names and hitting Run:
@@ -13378,23 +13378,23 @@ sequence
 
 While Loop
 
-for (variable in sequence){
+for (variable in sequence)\{
 
-while (condition){
-
-Do something
+while (condition)\{
 
 Do something
 
-}
+Do something
 
-}
+\}
+
+\}
 
 Example
 
 Example
 
-for (i in 1:4){
+for (i in 1:4)\{
 rep(1:2, times=3)
 
 rep(1:2, each=3)
@@ -13408,7 +13408,7 @@ Repeat a vector
 Repeat elements
 of a vector
 
-while (i < 5){
+while (i < 5)\{
 
 j <- i + 10
 
@@ -13418,9 +13418,9 @@ print(j)
 
 i <- i + 1
 
-}
+\}
 
-}
+\}
 
 Vector Functions
 sort(x)
@@ -13439,16 +13439,16 @@ Functions
 
 If Statements
 
-function_name <- function(var){
+function_name <- function(var)\{
 
-if (condition){
+if (condition)\{
 Do something
-} else {
+\} else \{
 Do something different
-}
+\}
 
 Do something
-}
+\}
 
 return(new_variable)
 
@@ -13458,16 +13458,16 @@ Example
 By Position
 x[4]
 
-square <- function(x){
+square <- function(x)\{
 
-if (i > 3){
+if (i > 3)\{
 print('Yes')
 
 The fourth element.
 
 squared <- x*x
 
-} else {
+\} else \{
 
 x[-4]
 
@@ -13490,9 +13490,9 @@ five.
 print('No')
 
 return(squared)
-}
+\}
 
-}
+\}
 
 Reading and Writing Data
 Input

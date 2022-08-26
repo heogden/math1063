@@ -3344,7 +3344,7 @@ at providing reliable conclusions, but are frequently not possible because of di
 13
 
 We will return to the topics of survey methods and designed surveys later in Lecture 28. Until
-then we assume that we have data from n randomly selected sampling units, which we will conveniently denote by x1 , x2 , . . . , xn . We will assume that these values are numeric, either discrete like
+then we assume that we have data from n randomly selected sampling units, which we will conveniently denote by x1 , x2 , . . . , x_n . We will assume that these values are numeric, either discrete like
 counts, e.g. number of road accidents, or continuous, e.g. heights of 4-year-olds, marks obtained
 in an examination. We will consider the following example:
 ♥ Example 1 Fast food service time The service times (in seconds) of customers at a fast-food
@@ -3390,10 +3390,10 @@ How can we explore the data?
 Summarising data
 
 - We summarise categorical (not numeric) data by tables. For example: 5 reds, 6 blacks etc.
-- For numeric data x1 , x2 , . . . , xn , we would like to know the centre (measures of location or
+- For numeric data x1 , x2 , . . . , x_n , we would like to know the centre (measures of location or
 central tendency) and the spread or variability.
 Measures of location
-- We are seeking a representative value for the data x1 , x2 , . . . , xn which should be a function
+- We are seeking a representative value for the data x1 , x2 , . . . , x_n which should be a function
 of the data. If a is that representative value then how much error is associated with it?
 - The total error could be the sum of squares of the deviations
 from a, SSE =
@@ -3414,7 +3414,7 @@ n
 
 1
 1X
-\bar x = (x1 + x2 + · · · + xn ) =
+\bar x = (x1 + x2 + · · · + x_n ) =
 xi .
 n
 n
@@ -5199,14 +5199,14 @@ Lecture 10: Expectation and variance of a random variable
 Lecture mission
 
 We will discover many more different variables which simply have different probability functions.
-In this lecture we will learn about the two most important properties of random variables, i.e. the
+In thixs lecture we will learn about the two most important properties of random variables, i.e. the
 mean and the variance.
 
 3.2.2
 
 Mean or expectation
 
-In Chapter 1, we defined the mean and variance of sample data x1 , \ldots , xn . The random variables
+In Chapter 1, we defined the mean and variance of sample data x_1 , \ldots , x_n . The random variables
 with either a pmf f (x) or a pdf f (x) also have their own mean, which can be called expectation
 (central tendency), and variance as well. The mean is called an expectation since it is a value we
 can 'expect' ! The expectation is defined as:
@@ -5330,7 +5330,7 @@ E(X 2 ) - µ2 .
 Thus:
 the variance of a random variable is the expected value of its square
 minus the square of its expected value.
-We usually denote the variance by σ 2 . The square is there to emphasise that the variance of any
+We usually denote the variance by \sigma^2 . The square is there to emphasise that the variance of any
 random variable is always non-negative. When can the variance be zero? When there is no variation
 at all in the random variable, i.e. it takes only a single value µ with probability 1. Hence, there is
 nothing random about the random variable – we can predict its outcome with certainty.
@@ -5391,7 +5391,7 @@ R
 = a2 Var(X).
 
 This is a very useful result, e.g. suppose Var(X) = 25 and Y = -X + 5, 000, 000; then Var(Y ) =
-Var(X) = 25 and the standard deviation, σ = 5. In words a location shift, b, does not change
+Var(X) = 25 and the standard deviation, \sigma = 5. In words a location shift, b, does not change
 variance but a multiplicative constant, a say, gets squared in variance, a2 .
 
 3.2.3
@@ -6291,7 +6291,7 @@ distribution.
 
 The pdf, mean and variance of the normal distribution
 
-A random variable X is said to have the normal distribution with parameters µ and σ 2 if it has
+A random variable X is said to have the normal distribution with parameters µ and \sigma^2 if it has
 the following pdf:
 
 
@@ -6301,15 +6301,15 @@ f (x) = √
 exp -
 , -\infty < x < \infty
 (3.1)
-2σ 2
-2πσ 2
-where -\infty < µ < \infty and σ > 0 are two given constants. It is easy to see that f (x) > 0 for all x.
+2\sigma^2
+2π\sigma^2
+where -\infty < µ < \infty and \sigma > 0 are two given constants. It is easy to see that f (x) > 0 for all x.
 We will now prove that
 R\infty
 R1 -\infty f (x)dx = 1 or total probability equals 1, so that f (x) defines a valid pdf.
 R2 E(X) = µ, i.e. the mean is µ.
-R3 Var(X) = σ 2 , i.e. the variance is σ 2 .
-We denote the normal distribution by the notation N (µ, σ 2 ).
+R3 Var(X) = \sigma^2 , i.e. the variance is \sigma^2 .
+We denote the normal distribution by the notation N (µ, \sigma^2 ).
 Suppose all of these hold (since they are proved below). Then it is easy to remember the pdf
 of the normal distribution:
 
@@ -6321,7 +6321,7 @@ exp -
 2 variance
 2π variance
 where variable denotes the random variable. The density (pdf) is much easier to remember and
-work with when the mean µ = 0 and variance σ 2 = 1. In this case, we simply write:
+work with when the mean µ = 0 and variance \sigma^2 = 1. In this case, we simply write:
  2
 
 
@@ -6352,13 +6352,13 @@ dx
 2
 2
 -\infty
--\infty 2πσ
-n 2 o2σ
+-\infty 2π\sigma
+n 2 o2\sigma
 R\infty
 1
 z
 = √2π -\infty exp - 2 dz [substitute z = x-µ
-σ so that dx = σdz]
+\sigma so that dx = \sigmadz]
 n 2o
 R
 \infty
@@ -6386,11 +6386,11 @@ R\infty 1
 
 To prove R2, i.e. E(X) = µ, we prove the following two results:
 
-(i)X ∼ N (µ, σ 2 ) ←\rightarrow Z ≡
+(i)X ∼ N (µ, \sigma^2 ) ←\rightarrow Z ≡
 
 X -µ
 ∼ N (0, 1)
-σ
+\sigma
 
 (ii) E(Z) = 0.
 
@@ -6398,27 +6398,27 @@ X -µ
 
 (3.3)
 
-Then by the linearity of expectations, i.e. if X = µ + σZ for constants µ and σ then E(X) =
-µ + σE(Z) = µ, the result follows. To prove (3.2), we first calculate the cdf, given by:
+Then by the linearity of expectations, i.e. if X = µ + \sigmaZ for constants µ and \sigma then E(X) =
+µ + \sigmaE(Z) = µ, the result follows. To prove (3.2), we first calculate the cdf, given by:
 Φ(z) = P (Z \leq z)
 
 
 X -µ
 = P
 \leqz
-σ
-= P (X \leq µ + zσ)
+\sigma
+= P (X \leq µ + z\sigma)
 
 
-Z µ+zσ
+Z µ+z\sigma
 1
 (x - µ)2
 √
 dx
 =
 exp -
-2σ 2
-2πσ 2
+2\sigma^2
+2π\sigma^2
 -\infty
  2
 Z z
@@ -6426,7 +6426,7 @@ Z z
 u
 √ exp -
 =
-du, [u = (x - µ)/σ]
+du, [u = (x - µ)/\sigma]
 2
 2π
 -\infty
@@ -6470,10 +6470,10 @@ n 2o
 since the integrand g(z) = z exp - z2 is an odd function, i.e. g(z) = -g(-z); for an odd function
 Ra
 g(z), -a g(z)dz = 0 for any a. Therefore we have also proved (3.3) and hence R2.
-To prove R3, i.e. Var(X) = σ 2 , we show that Var(Z) = 1 where Z = X-µ
+To prove R3, i.e. Var(X) = \sigma^2 , we show that Var(Z) = 1 where Z = X-µ
 and then claim
-σ
-that Var(X) = σ 2 Var(Z) = σ 2 from our earlier result. Since E(Z) = 0, Var(Z) = E(Z 2 ), which is
+\sigma
+that Var(X) = \sigma^2 Var(Z) = \sigma^2 from our earlier result. Since E(Z) = 0, Var(Z) = E(Z 2 ), which is
 
 3 Random Variables and Their Probability Distributions
 calculated below:
@@ -6519,14 +6519,14 @@ R\infty 3
 
 as we hoped for! This proves R3.
 Linear transformation of a Normal random variable
-Suppose X ∼ N (µ, σ 2 ) and a and b are constants. Then the distribution of Y = aX + b is
-N (aµ + b, a2 σ 2 ).
-Proof: The result that Y has mean aµ + b and variance a2 σ 2 can already be claimed from
+Suppose X ∼ N (µ, \sigma^2 ) and a and b are constants. Then the distribution of Y = aX + b is
+N (aµ + b, a2 \sigma^2 ).
+Proof: The result that Y has mean aµ + b and variance a2 \sigma^2 can already be claimed from
 the linearity of the expectations and the variance result for linear functions. What remains to be
 proved is that the normality of Y , i.e. how can we claim that Y will follow the normal distribution
 too? For this, we note that
-Y = aX + b = a(µ + σZ) + b = (aµ + b) + aσZ
-since X = µ + σZ. Now we use (3.2) to claim the normality of Y .
+Y = aX + b = a(µ + \sigmaZ) + b = (aµ + b) + a\sigmaZ
+since X = µ + \sigmaZ. Now we use (3.2) to claim the normality of Y .
 
 3.6.3
 
@@ -6548,7 +6548,7 @@ how to calculate these probabilities using R.
 Standard normal distribution
 
 Now we can claim that the normal pdf (3.1) is symmetric about the mean µ. The spread of the
-pdf is determined by σ, the standard deviation of the distribution. When µ = 0 and σ = 1,
+pdf is determined by \sigma, the standard deviation of the distribution. When µ = 0 and \sigma = 1,
 the normal distribution N (0, 1) is called is called the standard normal distribution. The standard
 normal distribution, often denoted by Z, is used to calculate probabilities of interest for any normal
 
@@ -6556,7 +6556,7 @@ normal distribution, often denoted by Z, is used to calculate probabilities of i
 
 65
 
-distribution because of the following reasons. Suppose X ∼ N (µ, σ 2 ) and we are interested in finding
+distribution because of the following reasons. Suppose X ∼ N (µ, \sigma^2 ) and we are interested in finding
 P (a \leq X \leq b) for two constants a and b.
 P (a \leq X \leq b) =
 =
@@ -6571,28 +6571,28 @@ o
 
 (x-µ)2
 √ 1
-a 2πσ 2 exp - 2σ 2
+a 2π\sigma^2 exp - 2\sigma^2
 n 2o
 R b-µ
-σ
+\sigma
 √1
 exp
 - z2 dz
 2π a-µ
-σ
+\sigma
 
 dx
 
 [substituted z = x-µ
-σ so that dx = σdz]
+\sigma so that dx = \sigmadz]
 n
 n
 o
 o
 b-µ
 a-µ
-R σ 1
-R σ 1
+R \sigma 1
+R \sigma 1
 z2
 z2
 √
@@ -6615,19 +6615,19 @@ dz
 
 - P Z \leq a-µ
 = P Z \leq b-µ
-σ
-σ
+\sigma
+\sigma
 =
 
 = cdf of Z at b-µ
-σ - cdf of Z at
+\sigma - cdf of Z at
 
 b-µ
-= Φ σ - Φ a-µ
-σ
+= Φ \sigma - Φ a-µ
+\sigma
 
 a-µ
-σ
+\sigma
 
 where we use the notation Φ(·) to denote the cdf of Z, i.e.
  2
@@ -6641,7 +6641,7 @@ du.
 2π
 -\infty
 This result allows us to find the probabilities about a normal random variable X of any mean µ and
-variance σ 2 through the probabilities of the standard normal random variable Z. For this reason,
+variance \sigma^2 through the probabilities of the standard normal random variable Z. For this reason,
 only Φ(z) is tabulated. Further more, due to the symmetry of the pdf of Z, Φ(z) is tabulated only
 for positive z values. Suppose a > 0, then
 Φ(-a) = P (Z \leq -a) = P (Z > a)
@@ -6650,7 +6650,7 @@ for positive z values. Suppose a > 0, then
 In R, we use the function pnorm to calculate the probabilities. The general function is: pnorm(q,
 mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE). So, we use the command pnorm(1)
 to calculate Φ(1) = P (Z \leq 1). We can also use the command pnorm(15, mean=10, sd=2) to
-calculate P (X \leq 15) when X ∼ N (µ = 10, σ 2 = 4) directly.
+calculate P (X \leq 15) when X ∼ N (µ = 10, \sigma^2 = 4) directly.
 1. P (-1 < Z < 1) = Φ(1) - Φ(-1) = 0.6827. This means that 68.27% of the probability lies
 within 1 standard deviation of the mean.
 2. P (-2 < Z < 2) = Φ(2) - Φ(-2) = 0.9545. This means that 95.45% of the probability lies
@@ -6684,23 +6684,23 @@ pnorm(25, mean=58, sd=32.25) = 0.1531. Ouch!
 of marks was N (42, 142 ). The school's policy is to present scaled marks whose distribution is
 N (50, 152 ). What linear transformation should the lecturer apply to the raw marks to accomplish
 this and what would the raw mark of 40 be transformed to?
-Suppose X ∼ N (µx = 42, σx2 = 142 ) and Y ∼ N (µy = 50, σy2 = 152 ). Hence, we should have
+Suppose X ∼ N (µx = 42, \sigmax2 = 142 ) and Y ∼ N (µy = 50, \sigmay2 = 152 ). Hence, we should have
 Z=
 
 Y - µy
 X - µx
 =
 ,
-σx
-σy
+\sigmax
+\sigmay
 
 giving us:
 Y = µy +
 
-σy
+\sigmay
 15
 (X - µx ) = 50 + (X - 42).
-σx
+\sigmax
 14
 
 Now at raw mark X = 40, the transformed mark would be:
@@ -6711,8 +6711,8 @@ Y = 50 +
 14
 
 ♥ Example 43 Log-normal distribution
-If X ∼ N (µ, σ 2 ) then the random variable Y = exp(X) is called a log-normal random variable
-and its distribution is called a log-normal distribution with parameters µ and σ 2 .
+If X ∼ N (µ, \sigma^2 ) then the random variable Y = exp(X) is called a log-normal random variable
+and its distribution is called a log-normal distribution with parameters µ and \sigma^2 .
 
 3 Random Variables and Their Probability Distributions
 
@@ -6728,30 +6728,30 @@ Z \infty
 exp(x) √ exp -
 =
 dx
-2σ 2
-σ 2π
+2\sigma^2
+\sigma^2π
 -\infty
  2
 Z \infty
  2
 
-µ - (µ + σ 2 )2
+µ - (µ + \sigma^2 )2
 1
-x - 2(µ + σ 2 )x + (µ + σ 2 )2
+x - 2(µ + \sigma^2 )x + (µ + \sigma^2 )2
 √ exp -
 = exp -
 dx
-2σ 2
-2σ 2
--\infty σ 2π
+2\sigma^2
+2\sigma^2
+-\infty \sigma^2π
  2
 
-µ - (µ + σ 2 )2
+µ - (µ + \sigma^2 )2
 = exp -
-[integrating a N (µ + σ 2 , σ 2 ) r.v. over its domain]
-2σ 2
+[integrating a N (µ + \sigma^2 , \sigma^2 ) r.v. over its domain]
+2\sigma^2
 
-= exp µ + σ 2 /2
+= exp µ + \sigma^2 /2
 
 Similarly, one can show that
 E(Y 2 ) = E[exp(2X)]
@@ -6765,17 +6765,17 @@ Z \infty
 exp(2x)
 exp -
 dx
-2σ 2
-σ 2π
+2\sigma^2
+\sigma^2π
 -\infty
 = ···
 
-= exp 2µ + 2σ 2 .
+= exp 2µ + 2\sigma^2 .
 
 Hence, the variance is given by
 
 
-Var(Y ) = E(Y 2 ) - (E(Y ))2 = exp 2µ + 2σ 2 - exp 2µ + σ 2 .
+Var(Y ) = E(Y 2 ) - (E(Y ))2 = exp 2µ + 2\sigma^2 - exp 2µ + \sigma^2 .
 
 3.7.3
 
@@ -7245,7 +7245,7 @@ and E(Y ) = µy . The covariance between X and Y is defined by
 71
 
 Cov(X, Y ) = E [(X - µx )(Y - µy )] = E(XY ) - µx µy .
-Let σx2 = Var(X) = E(X 2 ) - µ2x and σy2 = Var(Y ) = E(Y 2 ) - µ2y . The correlation coefficient
+Let \sigmax2 = Var(X) = E(X 2 ) - µ2x and \sigmay2 = Var(Y ) = E(Y 2 ) - µ2y . The correlation coefficient
 between X and Y is defined by:
 
 Corr(X, Y ) = p
@@ -7257,7 +7257,7 @@ Var(X) Var(Y )
 
 E(XY ) - µx µy
 .
-σx σy
+\sigmax \sigmay
 
 It can be proved that for any two random variables, -1 \leq Corr(X, Y ) \leq 1. The correlation
 Corr(X, Y ) is a measure of linear dependency between two random variables X and Y , and it is
@@ -7390,18 +7390,18 @@ Introduction
 
 Suppose we have obtained a random sample from a distribution with pmf or pdf f (x), so that
 X can either be a discrete or a continuous random variable. We will learn more about random
-sampling in the next chapter. Let X1 , \ldots , Xn denote the random sample of size n where n is a
+sampling in the next chapter. Let X_1 , \ldots , X_n denote the random sample of size n where n is a
 positive integer. We use upper case letters since each member of the random sample is a random
 variable. For example, I toss a fair coin n times and let Xi take the value 1 if a head appears in the
-ith trial and 0 otherwise. Now I have a random sample X1 , \ldots , Xn from the Bernoulli distribution
+ith trial and 0 otherwise. Now I have a random sample X_1 , \ldots , X_n from the Bernoulli distribution
 with probability of success equal to 0.5 since the coin is assumed to be fair.
 We can get a random sample from a continuous random variable as well. Suppose it is known
 that the distribution of the heights of first-year students is normal with mean 175 centimetres and
 standard deviation 8 centimetres. I can randomly select a number of first-year students and record
 each student's height.
-Suppose X1 , \ldots , Xn is a random sample from a population with distribution f (x). Then it can
-be shown that the random variables X1 , \ldots , Xn are mutually independent, i.e.
-P (X1 \in A1 , X2 \in A2 , \ldots , Xn \in An ) = P (X1 \in A1 ) \times P (X2 \in A2 ) \times · · · P (Xn \in An )
+Suppose X_1 , \ldots , X_n is a random sample from a population with distribution f (x). Then it can
+be shown that the random variables X_1 , \ldots , X_n are mutually independent, i.e.
+P (X_1 \in A1 , X2 \in A2 , \ldots , X_n \in An ) = P (X_1 \in A1 ) \times P (X2 \in A2 ) \times · · · P (X_n \in An )
 for any set of events, A1 , A2 , \ldots An . That is, the joint probability can be obtained as the product
 of individual probabilities. An example of this for n = 2 was given in the previous lecture; see the
 discussion just below the paragraph Consequences of independence.
@@ -7446,13 +7446,13 @@ using a result stated in Section A.4. Thus, we have proved that the sum of indep
 random variables with common probability is binomial as well. This is called the reproductive
 property of random variables. You are asked to prove this for the Poisson distribution in an
 exercise sheet.
-Now we will state two main results without proof. The proofs will presented in the secondyear distribution theory module MATH2011. Suppose that X1 , \ldots , Xn is a random sample from
-a population distribution with finite variance, and suppose that E(Xi ) = µi and Var(Xi ) = σi2 .
+Now we will state two main results without proof. The proofs will presented in the secondyear distribution theory module MATH2011. Suppose that X_1 , \ldots , X_n is a random sample from
+a population distribution with finite variance, and suppose that E(Xi ) = µi and Var(Xi ) = \sigmai2 .
 Define a new random variable
-Y = a1 X1 + a2 X2 + · · · + an Xn
+Y = a1 X_1 + a2 X2 + · · · + an X_n
 where a1 , a2 , \ldots , an are constants. Then:
 1. E(Y ) = a1 µ1 + a2 µ2 + · · · + an µn .
-2. Var(Y ) = a21 σ12 + a22 σ22 + · · · + a2n σn2 .
+2. Var(Y ) = a21 \sigma12 + a22 \sigma22 + · · · + a2n \sigman2 .
 For example, if ai = 1 for all i = 1, \ldots , n, the two results above imply that:
 The expectation of the sum of independent random variables is the sum of the expectations
 of the individual random variables
@@ -7463,7 +7463,7 @@ The second result is only true for independent random variables, e.g. random sam
 will consider many examples.
 ♥ Example 53 Mean and variance of binomial distribution
 Suppose Y ∼ Bin(n, p). Then we can write:
-Y = X1 + X2 + \ldots + Xn
+Y = X_1 + X2 + \ldots + X_n
 where each Xi is an independent Bernoulli trial with success probability p. We have shown before
 that, E(Xi ) = p and Var(Xi ) = p(1 - p) by direct calculation. Now the above two results imply
 that:
@@ -7474,7 +7474,7 @@ E(Y ) = E
 Xi = p + p + \ldots + p = np.
 i=1
 
-Var(Y ) = Var(X1 ) + · · · + Var(Xn ) = p(1 - p) + \ldots + p(1 - p) = np(1 - p).
+Var(Y ) = Var(X_1 ) + · · · + Var(X_n ) = p(1 - p) + \ldots + p(1 - p) = np(1 - p).
 Thus we avoided the complicated sums used to derive E(X) and Var(X) in Section 3.3.3.
 
 ♥ Example 54 Mean and variance of negative binomial distribution
@@ -7486,15 +7486,15 @@ Recall that the negative binomial random variable Y is the number of trials need
 
 r-th success in a sequence of independent Bernoulli trials, each with success probability p. Let Xi
 be the number of trials needed after the (i - 1)-th success to obtain the i-th success. It is easy to
-see that each Xi is a geometric random variable and Y = X1 + · · · + Xr . Hence,
-E(Y ) = E(X1 ) + · · · + E(Xr ) = 1/p + · · · + 1/p = r/p
+see that each Xi is a geometric random variable and Y = X_1 + · · · + Xr . Hence,
+E(Y ) = E(X_1 ) + · · · + E(Xr ) = 1/p + · · · + 1/p = r/p
 and
-Var(Y ) = Var(X1 ) + · · · + Var(Xr ) = (1 - p)/p2 + · · · + (1 - p)/p2 = r(1 - p)/p2 .
+Var(Y ) = Var(X_1 ) + · · · + Var(Xr ) = (1 - p)/p2 + · · · + (1 - p)/p2 = r(1 - p)/p2 .
 
 ♥ Example 55 Sum of independent Normal random variables
-Suppose that Xi ∼ N (µi , σi2 ), i = 1, 2, \ldots , k are independent random variables. Let a1 , a2 , \ldots , ak
+Suppose that Xi ∼ N (µi , \sigmai2 ), i = 1, 2, \ldots , k are independent random variables. Let a1 , a2 , \ldots , ak
 be constants and suppose that
-Y = a1 X1 + · · · + ak Xk .
+Y = a1 X_1 + · · · + ak Xk .
 Then we can prove that:
 Y ∼N
 
@@ -7508,7 +7508,7 @@ k
 X
 
 !
-a2i σi2
+a2i \sigmai2
 
 .
 
@@ -7518,25 +7518,25 @@ Pk
 Pk
 2 2
 It is clear that E(Y ) =
-i=1 ai σi . But that Y has the normal
+i=1 ai \sigmai . But that Y has the normal
 i=1 ai µi and Var(Y ) =
 distribution cannot yet be proved with the theory we know. This proof will be provided in the
 second-year distribution theory module MATH2011.
-As a consequence of the stated result we can easily see the following. Suppose X1 and X2 are
-independent N (µ, σ 2 ) random variables. Then 2X1 ∼ N (2µ, 4σ 2 ), X1 + X2 ∼ N (2µ, 2σ 2 ), and
-X1 - X2 ∼ N (0, 2σ 2 ). Note that 2X1 and X1 + X2 have different distributions.
-Suppose that Xi ∼ N (µ, σ 2 ), i = 1, \ldots , n are independent. Then
-X1 + · · · + Xn ∼ N (nµ, nσ 2 ),
+As a consequence of the stated result we can easily see the following. Suppose X_1 and X2 are
+independent N (µ, \sigma^2 ) random variables. Then 2X_1 ∼ N (2µ, 4\sigma^2 ), X_1 + X2 ∼ N (2µ, 2\sigma^2 ), and
+X_1 - X2 ∼ N (0, 2\sigma^2 ). Note that 2X_1 and X_1 + X2 have different distributions.
+Suppose that Xi ∼ N (µ, \sigma^2 ), i = 1, \ldots , n are independent. Then
+X_1 + · · · + X_n ∼ N (nµ, n\sigma^2 ),
 and consequently,
 1
-\BAR X = (X1 + · · · + Xn ) ∼ N
+\BAR X = (X_1 + · · · + X_n ) ∼ N
 n
 
 3.9.3
 
 
 
-σ2
+\sigma2
 µ,
 .
 n
@@ -7573,8 +7573,8 @@ and a finite variance. A version of the CLT follows.
 Statement of the Central Limit Theorem (CLT)
 
 2
-Let X1 , \ldots , X
-n be independent random variables with finite E(Xi ) = µi and finite Var(Xi ) = σi .
+Let X_1 , \ldots , X
+n be independent random variables with finite E(Xi ) = µi and finite Var(Xi ) = \sigmai .
 P
 n
 Define Y = i=1 Xi . Then, for a sufficiently large n, the central limit theorem states that Y is
@@ -7592,12 +7592,12 @@ i=1
 n
 X
 
-σi2 .
+\sigmai2 .
 
 i=1
 
 This also implies that \BAR X = n1 Y also follows the normal distribution approximately, as the sample
-size n \rightarrow \infty. In particular, if µi = µ and σi2 = σ 2 , i.e. all means are equal and all variances are
+size n \rightarrow \infty. In particular, if µi = µ and \sigmai2 = \sigma^2 , i.e. all means are equal and all variances are
 equal, then the CLT states that, as n \rightarrow \infty,
 
 \BAR X ∼ N
@@ -7605,7 +7605,7 @@ Equivalently,
 
 √
 
-σ2
+\sigma2
 µ,
 n
 
@@ -7614,13 +7614,13 @@ n
 
 n(\BAR X - µ)
 ∼ N (0, 1)
-σ
+\sigma
 
 as n \rightarrow \infty. The notion of convergence is explained by the convergence of distribution of \BAR X to that
 of the normal distribution with the appropriate mean and variance. It means that the cdf of the
 √
 left hand side, n (\BAR X-µ)
-σ , converges to the cdf of the standard normal random variable, Φ(·). In
+\sigma , converges to the cdf of the standard normal random variable, Φ(·). In
 other words,
 
 
@@ -7629,10 +7629,10 @@ lim P
 n
 \leq z = Φ(z), -\infty < z < \infty.
 n\rightarrow\infty
-σ
+\sigma
 So for "large samples", we can use N (0, 1) as an approximation to the sampling distribution of
 √
-n(\BAR X - µ)/σ. This result is 'exact', i.e. no approximation is required, if the distribution of the
+n(\BAR X - µ)/\sigma. This result is 'exact', i.e. no approximation is required, if the distribution of the
 Xi 's are normal in the first place – this was discussed in the previous lecture.
 How large does n have to be before this approximation becomes usable? There is no definitive
 answer to this, as it depends on how "close to normal" the distribution of X is. However, it is
@@ -7655,8 +7655,8 @@ Application of CLT to binomial distribution
 
 We know that a binomial random variable Y with parameters n and p is the number of successes
 in a set of n independent Bernoulli trials, each with success probability p. We have also learnt that
-Y = X1 + X2 + · · · + Xn ,
-where X1 , \ldots , Xn are independent Bernoulli random variables with success probability p. It follows from the CLT that, for a sufficiently large n, Y is approximately normally distributed with
+Y = X_1 + X2 + · · · + X_n ,
+where X_1 , \ldots , X_n are independent Bernoulli random variables with success probability p. It follows from the CLT that, for a sufficiently large n, Y is approximately normally distributed with
 expectation E(Y ) = np and variance Var(Y ) = np(1 - p).
 Hence, for given integers y1 and y2 between 0 and n and a suitably large n, we have
 (
@@ -7816,23 +7816,23 @@ data were generated.
 unobserved data).
 - The use of statistical models, together with a carefully constructed methodology for their
 analysis, also allows us to quantify the uncertainty associated with any conclusions, predictions or decisions we make.
-As we have noted in Lecture 2, we will use the notation x1 , x2 , \ldots , xn to denote n observations
-of the random variables X1 , X2 , \ldots , Xn (corresponding capital letters). For the fast food waiting
-time example, we have n = 20, x1 = 38, x2 = 100, \ldots , x20 = 70, and Xi is the waiting time for the
+As we have noted in Lecture 2, we will use the notation x_1 , x2 , \ldots , x_n to denote n observations
+of the random variables X_1 , X2 , \ldots , X_n (corresponding capital letters). For the fast food waiting
+time example, we have n = 20, x_1 = 38, x2 = 100, \ldots , x20 = 70, and Xi is the waiting time for the
 ith person in the sample.
 
 4.1.1
 
 Statistical models
 
-Suppose we denote the complete data by the vector x = (x1 , x2 , \ldots , xn ) and use X = (X1 , X2 , \ldots , Xn )
+Suppose we denote the complete data by the vector x = (x_1 , x2 , \ldots , x_n ) and use X = (X_1 , X2 , \ldots , X_n )
 for the corresponding random variables. A statistical model specifies a probability distribution for
 the random variables X corresponding to the data observations x. Providing a specification for
 the distribution of n jointly varying random variables can be a daunting task, particularly if n is
 large. However, this task is made much easier if we can make some simplifying assumptions, such
 as
-1. X1 , X2 , \ldots , Xn are independent random variables,
-2. X1 , X2 , \ldots , Xn have the same probability distribution (so x1 , x2 , \ldots , xn are observations of a
+1. X_1 , X2 , \ldots , X_n are independent random variables,
+2. X_1 , X2 , \ldots , X_n have the same probability distribution (so x_1 , x2 , \ldots , x_n are observations of a
 single random variable X).
 Assumption 1 depends on the sampling mechanism and is very common in practice. If we are
 to make this assumption for the Southampton student sampling experiment, we need to select
@@ -7842,14 +7842,14 @@ Southampton for the last year or the air pollution levels in two nearby location
 In this module we will only consider data sets where Assumption 1 is valid. Assumption 2 is not
 always appropriate, but is often reasonable when we are modelling a single variable. In the fast
 food waiting time example, if we assume that there are no differences between the AM and PM
-waiting times, then we can say that X1 , \ldots , X20 are independent and identically distributed (or
+waiting times, then we can say that X_1 , \ldots , X20 are independent and identically distributed (or
 i.i.d. for short).
 
 4.1.2
 
 A fully specified model
 
-Sometimes a model completely specifies the probability distribution of X1 , X2 , \ldots , Xn . For example, if we assume that the waiting time X ∼ N (µ, σ 2 ) where µ = 100, and σ 2 = 100, then this
+Sometimes a model completely specifies the probability distribution of X_1 , X2 , \ldots , X_n . For example, if we assume that the waiting time X ∼ N (µ, \sigma^2 ) where µ = 100, and \sigma^2 = 100, then this
 is a fully specified model. In this case, there is no need to collect any data as there is no need
 
 4 Statistical Inference
@@ -7859,7 +7859,7 @@ is a fully specified model. In this case, there is no need to collect any data a
 to make any inference about any unknown quantities, although we may use the data to judge the
 plausibility of the model.
 However, a fully specified model would be appropriate when for example, there is some external
-(to the data) theory as to why the model (in particular the values of µ and σ 2 ) was appropriate.
+(to the data) theory as to why the model (in particular the values of µ and \sigma^2 ) was appropriate.
 Fully specified models such as this are uncommon as we rarely have external theory which allows
 us to specify a model so precisely.
 
@@ -7873,19 +7873,19 @@ instance - a parametric model does not specify parameters! Here the word paramet
 fact that the probability distribution is completely specified by a few parameters in the first place.
 For example, the Poisson distribution is parameterised by the parameter λ which happens to be the
 mean of the distribution; the normal distribution is parameterised by two parameters, the mean µ
-and the variance σ 2 .
+and the variance \sigma^2 .
 When a parametric statistical model is assumed with some unknown parameters, statistical
-inference methods use data to estimate the unknown parameters, e.g. λ, µ, σ 2 . Estimation will be
+inference methods use data to estimate the unknown parameters, e.g. λ, µ, \sigma^2 . Estimation will be
 discussed in more detail in the following lectures.
 
 4.1.4
 
 A nonparametric statistical model
 
-Sometimes it is not appropriate, or we want to avoid, making a precise specification for the distribution which generated X1 , X2 , \ldots , Xn . For example, when the data histogram does not show
+Sometimes it is not appropriate, or we want to avoid, making a precise specification for the distribution which generated X_1 , X2 , \ldots , X_n . For example, when the data histogram does not show
 a bell-shaped distribution, it would be wrong to assume a normal distribution for the data. In
 such a case, although we can attempt to use some other non-bell-shaped parametric model, we can
-decide altogether to abandon parametric models. We may then still assume that X1 , X2 , \ldots , Xn
+decide altogether to abandon parametric models. We may then still assume that X_1 , X2 , \ldots , X_n
 are i.i.d. random variables, but from a nonparametric statistical model which cannot be written
 down, having a probability function which only depends on a finite number of parameters. Such
 analysis approaches are also called distribution-free methods.
@@ -7951,10 +7951,10 @@ estimate the mean (λ) of the Poisson distribution.
 - For a nonparametric model, we may want to estimate the properties of the data-generating
 distribution. For example, if our model for the computer failure data is that they are i.i.d.,
 following the distribution of an unspecified common random variable X, then we may want
-to estimate µ = E(X) or σ 2 = Var(X).
+to estimate µ = E(X) or \sigma^2 = Var(X).
 In the following, we use the generic notation θ to denote the estimand (what we want to estimate
 or the parameter). For example, θ is the parameter λ in the first example, and θ may be either µ
-or σ 2 or both in the second example.
+or \sigma^2 or both in the second example.
 
 4 Statistical Inference
 
@@ -7966,7 +7966,7 @@ Population and sample
 
 Recall that a statistical model specifies a probability distribution for the random variables X
 corresponding to the data observations x.
-- The observations x = (x1 , \ldots , xn ) are called the sample, and quantities derived from the
+- The observations x = (x_1 , \ldots , x_n ) are called the sample, and quantities derived from the
 sample are sample quantities. For example, as in Chapter 1, we call
 n
 
@@ -7980,14 +7980,14 @@ the sample mean.
 - The probability distribution for X specified in our model represents all possible observations
 which might have been observed in our sample, and is therefore sometimes referred to as the
 population. Quantities derived from this distribution are population quantities.
-For example, if our model is that X1 , \ldots , Xn are i.i.d., following the common distribution of
+For example, if our model is that X_1 , \ldots , X_n are i.i.d., following the common distribution of
 a random variable X, then we call E(X) the population mean.
 
 4.2.3
 
 Statistic and estimator
 
-A statistic T (x) is any function of the observed data x1 , \ldots , xn alone (and therefore does not depend
+A statistic T (x) is any function of the observed data x_1 , \ldots , x_n alone (and therefore does not depend
 on any parameters or other unknowns).
 An estimate of θ is any statistic which is used to estimate θ under a particular statistical model.
 We will use θ̃(x) (sometimes shortened to θ̃) to denote an estimate of θ.
@@ -7998,13 +7998,13 @@ An estimate is a particular numerical value, e.g. \bar x; an estimator is a
 random variable, e.g. \BAR X.
 The probability distribution of any estimator θ̃(X) is called its sampling distribution. The
 estimate θ̃(x) is an observed value (a number), and is a single observation from the sampling distribution of θ̃(X).
-♥ Example 58 Suppose that we have a random sample X1 , \ldots , Xn from the uniform distribution on the interval [0, θ] where θ > 0 is unknown. Suppose that n = 5 and we have the sample
-observations x1 = 2.3, x2 = 3.6, x3 = 20.2, x4 = 0.9, x5 = 17.2. Our objective is to estimate θ. How
+♥ Example 58 Suppose that we have a random sample X_1 , \ldots , X_n from the uniform distribution on the interval [0, θ] where θ > 0 is unknown. Suppose that n = 5 and we have the sample
+observations x_1 = 2.3, x2 = 3.6, x3 = 20.2, x4 = 0.9, x5 = 17.2. Our objective is to estimate θ. How
 can we proceed?
 Rθ
 Here the pdf f (x) = 1θ for 0 \leq x \leq θ and 0 otherwise. Hence E(X) = 0 1θ xdx = 2θ . There are
 many possible estimators for θ, e.g. θ̂1 (X) = 2 \BAR X, which is motivated by the method of moments
-because θ = 2E(X). A second estimator is θ̂2 (X) = max\{X1 , X2 , \ldots , Xn \}, which is intuitive since
+because θ = 2E(X). A second estimator is θ̂2 (X) = max\{X_1 , X2 , \ldots , X_n \}, which is intuitive since
 
 4 Statistical Inference
 
@@ -8017,12 +8017,12 @@ How could we choose between the two estimators θ̂1 and θ̂2 ? This is where w
 sampling distribution of an estimator to determine which estimator will be unbiased, i.e. correct on
 average, and which will have minimum variability. We will formally define these in a minute, but
 first let us derive the sampling distribution, i.e. the pdf, of θ̂2 . Note that θ̂2 is a random variable
-since the sample X1 , \ldots , Xn is random. We will first find its cdf and then differentiate the cdf to
-get the pdf. For ease of notation, suppose Y = θ̂2 (X) = max\{X1 , X2 , \ldots , Xn \}. For any 0 < y < θ,
+since the sample X_1 , \ldots , X_n is random. We will first find its cdf and then differentiate the cdf to
+get the pdf. For ease of notation, suppose Y = θ̂2 (X) = max\{X_1 , X2 , \ldots , X_n \}. For any 0 < y < θ,
 the cdf of Y , F (y) is given by:
-P (Y \leq y) = P (max\{X1 , X2 , \ldots , Xn \} \leq y)
-= P (X1 \leq y, X2 \leq y, \ldots , Xn \leq y)) [max \leq y if and only if each \leq y]
-= P (X1 \leq y)P (X2 \leq y) · · · P (Xn \leq y) [since the X's are independent]
+P (Y \leq y) = P (max\{X_1 , X2 , \ldots , X_n \} \leq y)
+= P (X_1 \leq y, X2 \leq y, \ldots , X_n \leq y)) [max \leq y if and only if each \leq y]
+= P (X_1 \leq y)P (X2 \leq y) · · · P (X_n \leq y) [since the X's are independent]
 = yθ yθ · · · yθ
 n
 = yθ .
@@ -8052,7 +8052,7 @@ You can prove this by easy
 
 Bias and mean square error
 
-In the uniform distribution example we saw that the estimator θ̂2 = Y = max\{X1 , X2 , \ldots , Xn \} is
+In the uniform distribution example we saw that the estimator θ̂2 = Y = max\{X_1 , X2 , \ldots , X_n \} is
 n-1
 a random variable and its pdf is given by f (y) = n y θn for 0 \leq y \leq θ. This probability distribution
 n
@@ -8203,7 +8203,7 @@ n
 (n+1)2 n+2
 
 Clearly, the m.s.e of θ̂2 is an order of magnitude (of order n2 rather than n) smaller than the m.s.e
-of θ̂1 , providing justification for the preference of θ̂2 = max\{X1 , X2 , \ldots , Xn \} as an estimator of θ.
+of θ̂1 , providing justification for the preference of θ̂2 = max\{X_1 , X2 , \ldots , X_n \} as an estimator of θ.
 
 4.2.5
 
@@ -8239,9 +8239,9 @@ standard error of an estimator.
 
 Estimation of a population mean
 
-Suppose that x1 , \ldots , xn is a random sample from any probability distribution f (x), which may be
+Suppose that x_1 , \ldots , x_n is a random sample from any probability distribution f (x), which may be
 discrete or continuous. Suppose that we want to estimate the unknown population mean E(X) = µ
-and variance, Var(X) = σ 2 . In order to do this, it is not necessary to make any assumptions about
+and variance, Var(X) = \sigma^2 . In order to do this, it is not necessary to make any assumptions about
 f (x), so this may be thought of as nonparametric inference.
 We have the following results:
 
@@ -8261,7 +8261,7 @@ n
 i=1
 
 is an unbiased estimator of µ = E(X), i.e. E(\BAR X) = µ,
-R2 Var(\BAR X) = σ 2 /n,
+R2 Var(\BAR X) = \sigma^2 /n,
 R3 the sample variance with divisor n - 1
 n
 
@@ -8272,7 +8272,7 @@ S2 =
 n-1
 i=1
 
-is an unbiased estimator of σ 2 , i.e. E(S 2 ) = σ 2 .
+is an unbiased estimator of \sigma^2 , i.e. E(S 2 ) = \sigma^2 .
 We prove R1 as follows.
 E[\BAR X] =
 
@@ -8296,7 +8296,7 @@ We prove R2 using the result that for independent random variables the variance 
 the sum of the variances from Lecture 17. Thus,
 n
 n
-σ2
+\sigma2
 1 X
 1 X
 n
@@ -8315,7 +8315,7 @@ i=1
 so the m.s.e. of \BAR X is Var(X)/n. This proves the following assertion we made earlier:
 Variance of the sample mean = Population Variance divided by the sample size.
 We now want to prove R3, i.e. show that the sample variance with divisor n - 1 is an unbiased
-estimator of the population variance σ 2 , i.e. E(S 2 ) = σ 2 . We have
+estimator of the population variance \sigma^2 , i.e. E(S 2 ) = \sigma^2 . We have
 " n
 #
 n
@@ -8339,9 +8339,9 @@ To evaluate the expectation of the above, we need E(Xi2 ) and E(\BAR X 2 ). In g
 random variable,
 Var(Y ) = E(Y 2 ) - (E(Y ))2 ⇒ E(Y 2 ) = Var(Y ) + (E(Y ))2 .
 Thus, we have
-E(Xi2 ) = Var(Xi ) + (E(Xi ))2 = σ 2 + µ2 ,
+E(Xi2 ) = Var(Xi ) + (E(Xi ))2 = \sigma^2 + µ2 ,
 and
-E(\BAR X 2 ) = Var(\BAR X) + (E(\BAR X))2 = σ 2 /n + µ2 ,
+E(\BAR X 2 ) = Var(\BAR X) + (E(\BAR X))2 = \sigma^2 /n + µ2 ,
 
 4 Statistical Inference
 
@@ -8380,13 +8380,13 @@ i=1
 2
 + µ2 )
 = n-1
-i=1 (σ + µ ) - n(σ /n
+i=1 (\sigma + µ ) - n(\sigma /n
 
 
 1
 = n-1
-nσ 2 + nµ2 - σ 2 - nµ2 )
-= σ 2 ≡ Var(X).
+n\sigma^2 + nµ2 - \sigma^2 - nµ2 )
+= \sigma^2 ≡ Var(X).
 In words, this proves that
 The sample variance is an unbiased estimator of the population variance.
 
@@ -8401,22 +8401,22 @@ We usually prefer to focus on the standard deviation of the sampling distributio
 q
 s.d.(θ̃) = Var(θ̃).
 In practice we will not know s.d.(θ̃), as it will typically depend on unknown features of the
-distribution of X1 , \ldots , Xn . However, we may be able to estimate s.d.(θ̃) using the observed sample
-x1 , \ldots , xn . We define the standard error, s.e.(θ̃), of an estimator θ̃ to be an estimate of the standard
+distribution of X_1 , \ldots , X_n . However, we may be able to estimate s.d.(θ̃) using the observed sample
+x_1 , \ldots , x_n . We define the standard error, s.e.(θ̃), of an estimator θ̃ to be an estimate of the standard
 deviation of its sampling distribution, s.d.(θ̃).
 Standard error of an estimator is an estimate of the standard deviation
 of its sampling distribution
 We proved that
 Var[\BAR X] =
 
-σ2
+\sigma2
 n
 
-σ
+\sigma
 ⇒ s.d.(\BAR X) = √ .
 n
 
-As σ is unknown, we cannot calculate this standard deviation. However, we know that E(S 2 ) = σ 2 ,
+As \sigma is unknown, we cannot calculate this standard deviation. However, we know that E(S 2 ) = \sigma^2 ,
 i.e. that the sample variance is an unbiased estimator of the population variance. Hence S 2 /n is
 an unbiased estimator for Var(\BAR X). Therefore we obtain the standard error of the mean, s.e.(\BAR X),
 by plugging in the estimate
@@ -8428,7 +8428,7 @@ s=
 n-1
 i=1
 
-of σ into s.d.(\BAR X) to obtain
+of \sigma into s.d.(\BAR X) to obtain
 
 s
 s.e.(\BAR X) = √ .
@@ -8446,7 +8446,7 @@ s.e.(\BAR X) = √
 104
 Note that this is 'a' standard error, so other standard errors may be available. Indeed, for parametric
 inference, where we make assumptions about f (x), alternative standard errors are available. For
-example, X1 , \ldots , Xn are i.i.d. Poisson(λ) random q
+example, X_1 , \ldots , X_n are i.i.d. Poisson(λ) random q
 variables. E(X) = λ, so \BAR X is an unbiased
 p
 estimator of λ. Var(X) = λ, so another s.e.(\BAR X) = λ̂/n = \bar x/n. In the computer failure data
@@ -8490,7 +8490,7 @@ for an unbiased estimator, this will be a standard error, an estimate of the sta
 associated estimator, as we have discussed previously. An alternative summary of the information
 provided by the observed data about the location of a parameter θ and the associated precision is
 an interval estimate or confidence interval.
-Suppose that x1 , \ldots , xn are observations of random variables X1 , \ldots , Xn whose joint pdf is
+Suppose that x_1 , \ldots , x_n are observations of random variables X_1 , \ldots , X_n whose joint pdf is
 specified apart from a single parameter θ. To construct a confidence interval for θ, we need to find
 
 4 Statistical Inference
@@ -8509,7 +8509,7 @@ P [g1 (X) \leq θ \leq g2 (X)] = 1 - α.
 (2)
 Hence with probability 1 - α, the parameter θ will lie between the random variables g1 (X) and
 g2 (X). Alternatively, the random interval [g1 (X), g2 (X)] includes θ with probability 1 - α. Now,
-when we observe x1 , \ldots , xn , we observe a single observation of the random interval [g1 (X), g2 (X)],
+when we observe x_1 , \ldots , x_n , we observe a single observation of the random interval [g1 (X), g2 (X)],
 which can be evaluated as [g1 (x), g2 (x)]. We do not know if θ lies inside or outside this interval,
 but we do know that if we observed repeated samples, then 100(1 - α)% of the resulting intervals
 would contain θ. Hence, if 1 - α is high, we can be reasonably confident that our observed interval
@@ -8521,25 +8521,25 @@ It is common to present intervals with high confidence levels, usually 90%, 95% 
 
 Confidence interval for a normal mean
 
-Let X1 , \ldots , Xn be i.i.d. N (µ, σ 2 ) random variables. We know that from CLT Lecture 14
-\BAR X ∼ N (µ, σ 2 /n)
+Let X_1 , \ldots , X_n be i.i.d. N (µ, \sigma^2 ) random variables. We know that from CLT Lecture 14
+\BAR X ∼ N (µ, \sigma^2 /n)
 
 ⇒
 
 √ (\BAR X - µ)
 ∼ N (0, 1).
 n
-σ
+\sigma
 
 √
-Suppose we know that σ = 10, so n(\BAR X - µ)/σ is a pivot for µ. Then we can use the distribution
+Suppose we know that \sigma = 10, so n(\BAR X - µ)/\sigma is a pivot for µ. Then we can use the distribution
 function of the standard normal distribution to find values h1 and h2 such that
 
 
 √ (\BAR X - µ)
 \leq h2 = 1 - α
 P h1 \leq n
-σ
+\sigma
 for a chosen value of 1 - α which is called the confidence level. So h1 and h2 are chosen so that the
 shaded area in the figure is equal to the confidence level 1 - α.
 
@@ -8564,25 +8564,25 @@ Therefore we have
 √ (\BAR X - µ)
 P -1.96 \leq n
 \leq 1.96 = 0.95
-σ
+\sigma
 
 
-σ
-σ
+\sigma
+\sigma
 = 0.95.
 ⇒ P \BAR X - 1.96 √ \leq µ \leq \BAR X + 1.96 √
 n
 n
 
 
-Hence, \BAR X - 1.96 √σn and \BAR X + 1.96 √σn are the endpoints of a random interval which includes µ with
+Hence, \BAR X - 1.96 √\sigman and \BAR X + 1.96 √\sigman are the endpoints of a random interval which includes µ with
 
 
-probability 0.95. The observed value of this interval, \bar x ± 1.96 √σn , is called a 95% confidence
+probability 0.95. The observed value of this interval, \bar x ± 1.96 √\sigman , is called a 95% confidence
 interval for µ.
 ♥ Example 60 For the fast food waiting time data, we have n = 20 data points combined from
 the morning and afternoon data sets. We have \bar x = 67.85 and n = 20. Hence, under the normal
-model assuming (just for the sake of illustration) σ = 18, a 95% confidence interval for µ is
+model assuming (just for the sake of illustration) \sigma = 18, a 95% confidence interval for µ is
 √
 √
 67.85 - 1.96(18/ 20) \leq µ \leq 67.85 + 1.96(18/ 20)
@@ -8591,18 +8591,18 @@ model assuming (just for the sake of illustration) σ = 18, a 95% confidence int
 59.96 \leq µ \leq 75.74
 
 The R command is mean(a) + c(-1, 1) * qnorm(0.975) * 18/sqrt(20), assuming a is the
-vector containing 20 waiting times. If σ is unknown, we need to seek alternative methods for finding
+vector containing 20 waiting times. If \sigma is unknown, we need to seek alternative methods for finding
 the confidence intervals.
 Some important remarks about confidence intervals.
 √
-1. Notice that \bar x is an unbiased estimate of µ, σ/ n is the standard error of the estimate and 1.96
+1. Notice that \bar x is an unbiased estimate of µ, \sigma/ n is the standard error of the estimate and 1.96
 (in general h in the above discussion) is a critical value from the associated known sampling
 √
-distribution. The formula (\bar x ± 1.96 σ/ n) for the confidence interval is then generalised as:
+distribution. The formula (\bar x ± 1.96 \sigma/ n) for the confidence interval is then generalised as:
 
 Estimate ± Critical value \times Standard error
 √
-where the estimate is \bar x, the critical value is 1.96 and the standard error is σ/ n. This is
+where the estimate is \bar x, the critical value is 1.96 and the standard error is \sigma/ n. This is
 so much easier to remember. We will see that this formula holds in many of the following
 examples, but not all.
 2. Confidence intervals are frequently used, but also frequently misinterpreted. A 100(1 - α)%
@@ -8626,10 +8626,10 @@ on average 100(1 - α)% of them will contain the true parameter.
 P (1.3 < θ < 2.2) = 0.95. In the classical approach to statistics you can only make probability
 statements about random variables, and θ is assumed to be a constant.
 4. If a confidence interval is interpreted as a probability interval, this may lead to problems.
-For example, suppose that X1 and X2 are i.i.d. U [θ - 12 , θ + 12 ] random variables. Then
-P [min(X1 , X2 ) < θ < max(X1 , X2 )] = 21 so [min(x1 , x2 ), max(x1 , x2 )] is a 50% confidence
-interval for θ, where x1 and x2 are the observed values of X1 and X2 . Now suppose that
-x1 = 0.3 and x2 = 0.9. What is P (0.3 < θ < 0.9)?
+For example, suppose that X_1 and X2 are i.i.d. U [θ - 12 , θ + 12 ] random variables. Then
+P [min(X_1 , X2 ) < θ < max(X_1 , X2 )] = 21 so [min(x_1 , x2 ), max(x_1 , x2 )] is a 50% confidence
+interval for θ, where x_1 and x2 are the observed values of X_1 and X2 . Now suppose that
+x_1 = 0.3 and x2 = 0.9. What is P (0.3 < θ < 0.9)?
 
 4.4.4
 
@@ -8667,7 +8667,7 @@ Confidence intervals for µ using the CLT
 The CLT allows us to assume the large sample approximation
 √ (\BAR X - µ)
 n
-σ
+\sigma
 
 approx
 
@@ -8676,12 +8676,12 @@ approx
 N (0, 1) as n \rightarrow \infty.
 
 So a general confidence interval for µ can be constructed, just as before in Section 4.4.3. Thus a
-95% confidence interval (CI) for µ is given by \bar x ± 1.96 √σn . But note that σ is unknown so this
-CI cannot be used unless we can estimate σ, i.e. replace the unknown s.d. of \BAR X by its estimated
+95% confidence interval (CI) for µ is given by \bar x ± 1.96 √\sigman . But note that \sigma is unknown so this
+CI cannot be used unless we can estimate \sigma, i.e. replace the unknown s.d. of \BAR X by its estimated
 standard error. In this case, we get the CI in the familiar form:
 Estimate ± Critical value \times Standard error
 Suppose that we do not assume any distribution for the sampled random variable X but assume
-only that X1 , \ldots , Xn are i.i.d, following the distribution of X where E(X) = µ and Var(X) = σ 2 .
+only that X_1 , \ldots , X_n are i.i.d, following the distribution of X where E(X) = µ and Var(X) = \sigma^2 .
 √
 We know that the standard error of \BAR X is s/ n where s is the sample standard deviation with
 divisor n - 1. Then the following provides a 95% CI for µ:
@@ -8704,12 +8704,12 @@ to be
 If we can assume a distribution for X, i.e. a parametric model for X, then we can do slightly
 better in estimating the standard error of \BAR X and as a result we can improve upon the previously
 obtained 95% CI. Two examples follow.
-♥ Example 62 Poisson If X1 , \ldots , Xn are modelled as i.i.d. Poisson(λ) randomq
+♥ Example 62 Poisson If X_1 , \ldots , X_n are modelled as i.i.d. Poisson(λ) randomq
 variables, then
 p
 2
 2
-µ = λ and σ = λ. We know Var(\BAR X) = σ /n = λ/n. Hence a standard error is λ̂/n = \bar x/n
+µ = λ and \sigma = λ. We know Var(\BAR X) = \sigma /n = λ/n. Hence a standard error is λ̂/n = \bar x/n
 
 4 Statistical Inference
 
@@ -8734,9 +8734,9 @@ We see that this interval is narrower (0.74 = 4.12 - 3.38) than the earlier inte
 which has a length of 1.3. We prefer narrower confidence intervals as they facilitate more accurate
 inference regarding the unknown parameter.
 
-♥ Example 63 Bernoulli If X1 , \ldots , Xn are modelled as i.i.d. Bernoulli(p) random variables,
+♥ Example 63 Bernoulli If X_1 , \ldots , X_n are modelled as i.i.d. Bernoulli(p) random variables,
 then
-σ 2 = p(1 - p). We know Var(\BAR X) = σ 2 /n = p(1 - p)/n. Hence a standard error is
+\sigma^2 = p(1 - p). We know Var(\BAR X) = \sigma^2 /n = p(1 - p)/n. Hence a standard error is
 p µ = p and p
 p̂(1 - p̂)/n = \bar x(1 - \bar x)/n, since p̂ = \BAR X is an unbiased estimator of p. Thus a 95% CI for µ = p
 is given by
@@ -9063,7 +9063,7 @@ where S 2 is the sample variance with divisor n - 1, is standard (easily calcula
 statistic T = T (X, µ) can be an exact pivot for any sample size n > 1. The point about easy
 calculation is that for any given 1 - α, e.g. 1 - α = 0.95, we can calculate the critical value h such
 that P (-h < T < h) = 1 - α. Note also that the pivot T does not involve the other unknown
-parameter of the normal model, namely the variance σ 2 . If indeed, we can find h for any given
+parameter of the normal model, namely the variance \sigma^2 . If indeed, we can find h for any given
 1 - α, we can proceed as follows to find the exact CI for µ:
 P (-h \leq T \leq h) = 1 - α
 
@@ -9084,7 +9084,7 @@ The observed value of this interval, (\bar x ± h √sn ), is the 95% confidence
 this also of the general form, Estimate ± Critical value \times Standard error, where the Critical value
 is h and the standard error of the sample mean is √sn . Now, how do we find the critical value h for
 a given 1 - α? We need to introduce the t-distribution.
-Let X1 , \ldots , Xn be i.i.d N (µ, σ 2 ) random variables. Define \BAR X =
+Let X_1 , \ldots , X_n be i.i.d N (µ, \sigma^2 ) random variables. Define \BAR X =
 1
 S2 =
 n-1
@@ -9248,31 +9248,31 @@ problems.
 
 Introduction
 
-In statistical inference, we use observations x1 , \ldots , xn of univariate random variables X1 , \ldots , Xn in
+In statistical inference, we use observations x_1 , \ldots , x_n of univariate random variables X_1 , \ldots , X_n in
 order to draw inferences about the probability distribution f (x) of the underlying random variable
 X. So far, we have mainly been concerned with estimating features (usually unknown parameters)
 of f (x). It is often of interest to compare alternative specifications for f (x). If we have a set of
-competing probability models which might have generated the observed data, we may want to determine which of the models is most appropriate. A proposed (hypothesised) model for X1 , \ldots , Xn
+competing probability models which might have generated the observed data, we may want to determine which of the models is most appropriate. A proposed (hypothesised) model for X_1 , \ldots , X_n
 is then referred to as a hypothesis, and pairs of models are compared using hypothesis tests.
 For example, we may have two competing alternatives, f (0) (x) (model H0 ) and f (1) (x) (model
-H1 ) for f (x), both of which completely specify the joint distribution of the sample X1 , \ldots , Xn .
+H1 ) for f (x), both of which completely specify the joint distribution of the sample X_1 , \ldots , X_n .
 Completely specified statistical models are called simple hypotheses. Usually, H0 and H1 both take
 the same parametric form f (x, θ), but with different values θ(0) and θ(1) of θ. Thus the joint distribution of the sample given by f (X) is completely specified apart from the values of the unknown
 parameter θ and θ(0) 6= θ(1) are specified alternative values.
 More generally, competing hypotheses often do not completely specify the joint distribution of
-X1 , \ldots , Xn . For example, a hypothesis may state that X1 , \ldots , Xn is a random sample from the
+X_1 , \ldots , X_n . For example, a hypothesis may state that X_1 , \ldots , X_n is a random sample from the
 probability distribution f (x; θ) where θ < 0. This is not a completely specified hypothesis, since it
-is not possible to calculate probabilities such as P (X1 < 2) when the hypothesis is true, as we do
+is not possible to calculate probabilities such as P (X_1 < 2) when the hypothesis is true, as we do
 not know the exact value of θ. Such an hypothesis is called a composite hypothesis.
 Examples of hypotheses:
-X1 , \ldots , Xn ∼ N (µ, σ 2 ) with µ = 0, σ 2 = 2.
-X1 , \ldots , Xn ∼ N (µ, σ 2 ) with µ = 0, σ 2 \in R+ .
-X1 , \ldots , Xn ∼ N (µ, σ 2 ) with µ 6= 0, σ 2 \in R+ .
-X1 , \ldots , Xn ∼ Bernoulli(p) with p = 12 .
-X1 , \ldots , Xn ∼ Bernoulli(p) with p 6= 12 .
-X1 , \ldots , Xn ∼ Bernoulli(p) with p > 12 .
-X1 , \ldots , Xn ∼ Poisson(λ) with λ = 1.
-X1 , \ldots , Xn ∼ Poisson(θ) with θ > 1.
+X_1 , \ldots , X_n ∼ N (µ, \sigma^2 ) with µ = 0, \sigma^2 = 2.
+X_1 , \ldots , X_n ∼ N (µ, \sigma^2 ) with µ = 0, \sigma^2 \in R+ .
+X_1 , \ldots , X_n ∼ N (µ, \sigma^2 ) with µ 6= 0, \sigma^2 \in R+ .
+X_1 , \ldots , X_n ∼ Bernoulli(p) with p = 12 .
+X_1 , \ldots , X_n ∼ Bernoulli(p) with p 6= 12 .
+X_1 , \ldots , X_n ∼ Bernoulli(p) with p > 12 .
+X_1 , \ldots , X_n ∼ Poisson(λ) with λ = 1.
+X_1 , \ldots , X_n ∼ Poisson(θ) with θ > 1.
 
 4.7.3
 
@@ -9406,8 +9406,8 @@ does it work in a concrete example?
 
 Testing a normal mean µ
 
-Suppose that we observe data x1 , \ldots , xn which are modelled as observations of i.i.d. N (µ, σ 2 )
-random variables X1 , \ldots , Xn , and we want to test the null hypothesis
+Suppose that we observe data x_1 , \ldots , x_n which are modelled as observations of i.i.d. N (µ, \sigma^2 )
+random variables X_1 , \ldots , X_n , and we want to test the null hypothesis
 H0 : µ = µ 0
 against the alternative hypothesis
 H1 : µ 6= µ0 .
@@ -9582,8 +9582,8 @@ h
 
 t-test summary
 
-Suppose that we observe data x1 , \ldots , xn which are modelled as observations of i.i.d. N (µ, σ 2 )
-random variables X1 , \ldots , Xn and we want to test the null hypothesis H0 : µ = µ0 against the
+Suppose that we observe data x_1 , \ldots , x_n which are modelled as observations of i.i.d. N (µ, \sigma^2 )
+random variables X_1 , \ldots , X_n and we want to test the null hypothesis H0 : µ = µ0 against the
 alternative hypothesis H1 : µ 6= µ0 :
 1. Compute the test statistic
 t=
@@ -9607,7 +9607,7 @@ the manager's claim regarding a minute wait.
 ♥ Example 72 Weight gain
 For the weight gain example \bar x = 0.8671, s = 0.9653, n = 68. Then, we would be interested in
 testing H0 : µ = 0 against the alternative hypothesis H1 : µ 6= 0 in the model that the data are
-observations of i.i.d. N (µ, σ 2 ) random variables.
+observations of i.i.d. N (µ, \sigma^2 ) random variables.
 - We obtain the test statistic
 t=
 
@@ -9711,20 +9711,20 @@ equivalent concepts.
 Lecture 27: Two sample t-tests
 Lecture mission
 
-Suppose that we observe two samples of data, x1 , \ldots , xn and y1 , \ldots , ym , and that we propose to
+Suppose that we observe two samples of data, x_1 , \ldots , x_n and y1 , \ldots , ym , and that we propose to
 model them as observations of
 i.i.d.
 2
-X1 , \ldots , Xn ∼ N (µX , σX
+X_1 , \ldots , X_n ∼ N (µX , \sigmaX
 )
 and
 i.i.d.
 
-Y1 , \ldots , Ym ∼ N (µY , σY2 )
+Y1 , \ldots , Ym ∼ N (µY , \sigmaY2 )
 respectively, where it is also assumed that the X and Y variables are independent of each other.
 Suppose that we want to test the hypothesis that the distributions of X and Y are identical, that
 is
-H0 : µX = µY , σX = σY = σ
+H0 : µX = µY , \sigmaX = \sigmaY = \sigma
 against the alternative hypothesis
 H1 : µX 6= µY .
 
@@ -9738,16 +9738,16 @@ Two sample t-test statistic
 
 In the probability lectures we proved that
 2
-\BAR X ∼ N (µX , σX
+\BAR X ∼ N (µX , \sigmaX
 /n)
 
 and therefore
 
 \BAR X - Ȳ ∼ N
 
-and Ȳ ∼ N (µY , σY2 /m)
-σ2
-σ2
+and Ȳ ∼ N (µY , \sigmaY2 /m)
+\sigma2
+\sigma2
 µX - µ Y , X + Y
 n
 m
@@ -9763,7 +9763,7 @@ Hence, under H0 ,
 
 1
 1
-0, σ 2
+0, \sigma^2
 +
 n m
 
@@ -9773,10 +9773,10 @@ r
 nm (\BAR X - Ȳ )
 ∼ N (0, 1).
 n+m
-σ
+\sigma
 
-The involvement of the (unknown) σ above means that this is not a pivotal test statistic. It will be
-proved in MATH2011 that if σ is replaced by its unbiased estimator S, which here is the two-sample
+The involvement of the (unknown) \sigma above means that this is not a pivotal test statistic. It will be
+proved in MATH2011 that if \sigma is replaced by its unbiased estimator S, which here is the two-sample
 estimator of the common standard deviation, given by
 Pm
 Pn
@@ -9858,7 +9858,7 @@ zi = xi - yi ,
 
 i = 1, \ldots , n
 
-and modelling these differences as observations of i.i.d. N (µz , σZ2 ) variables Z1 , \ldots , Zn . Then, a
+and modelling these differences as observations of i.i.d. N (µz , \sigmaZ2 ) variables Z1 , \ldots , Zn . Then, a
 test of the hypothesis µX = µY is achieved by testing µZ = 0, which is just a standard (one sample)
 t-test, as described previously.
 ♥ Example 74 Paired t-test Water-quality researchers wish to measure the biomass to chlorophyll ratio for phytoplankton (in milligrams per litre of water). There are two possible tests, one
@@ -10042,7 +10042,7 @@ can plan the experiment so that no particular diet is favoured in the experiment
 diet is applied approximately equally among all types of children (boys, girls, their ethnicity
 etc.).
 The most effective way to increase the precision of an experiment is to increase the number of
-replications. Remember, Var(\BAR X) = σ 2 /n, which says that the standard deviation decreases
+replications. Remember, Var(\BAR X) = \sigma^2 /n, which says that the standard deviation decreases
 proportional to the square root of the number of replications. However, replication beyond a
 limit may be impractical due to cost and other considerations.
 3. Local control. In the simplest case of local control, the experimental units are divided into
@@ -10428,7 +10428,7 @@ for a positive natural number n. You do not need to prove these, but you should 
 remember the formulae.
 12 + 22 + · · · + n2 =
 
-2. Consider a set of numbers x1 , \ldots , xn and
+2. Consider a set of numbers x_1 , \ldots , x_n and
 n
 
 1X
@@ -10818,7 +10818,7 @@ There is no simple formula for log(a + b) or log(a - b). Now try the following e
 3
 1. Show that log xeax +3x+b = log(x) + ax3 + 3x + b.
 2. Show that e2 log(x) = x2 .
-3. Satisfy yourself that log(x1 x2 · · · xn ) =
+3. Satisfy yourself that log(x_1 x2 · · · x_n ) =
 
 A.6.2
 
@@ -11232,11 +11232,11 @@ the
 the
 
 mean,
-standard deviation σ,
+standard deviation \sigma,
 mode,
 median.
 
-Show that the interquartile range equals σ log(3).
+Show that the interquartile range equals \sigma log(3).
 90. [Cauchy distribution] A random variable X is said to have a Cauchy distribution if its
 probability density function is given by
 1
@@ -12115,7 +12115,7 @@ Therefore Var(X) =
 = 2
 λ
 p
-= λ12 and σ = Var(X) = λ1 .
+= λ12 and \sigma = Var(X) = λ1 .
 
 (c) The mode is x = 0 since this value maximises f (x).
 (d) The median m is given by
@@ -12148,7 +12148,7 @@ The interquartile range equals
 4
 1
 log(4) - log
-= log(3) = σ log(3).
+= log(3) = \sigma log(3).
 λ
 λ
 3
@@ -12291,10 +12291,10 @@ Girl's weight (kg)
 59
 
 Find
-(a) unbiased estimates of µb and σb2 , the mean and variance of the weights of the boys;
-(b) unbiased estimates of µg and σg2 , the mean and variance of the weights of the girls;
+(a) unbiased estimates of µb and \sigmab2 , the mean and variance of the weights of the boys;
+(b) unbiased estimates of µg and \sigmag2 , the mean and variance of the weights of the girls;
 (c) an unbiased estimate of µb - µg .
-Assuming that σb2 = σg2 = σ 2 , calculate an unbiased estimate of σ 2 using both sets of weights.
+Assuming that \sigmab2 = \sigmag2 = \sigma^2 , calculate an unbiased estimate of \sigma^2 using both sets of weights.
 93. [Estimation] The time that a customer has to wait for service in a restaurant has the probability density function
 (
 3θ3
@@ -12303,7 +12303,7 @@ if x \geq 0
 f (x) =
 0
 otherwise,
-where θ is an unknown positive constant. Let X1 , X2 , \ldots , Xn denote a random sample from
+where θ is an unknown positive constant. Let X_1 , X2 , \ldots , X_n denote a random sample from
 this distribution. Show that
 n
 
@@ -12333,8 +12333,8 @@ intervals for the mean height of seven-year-old children:
 (b) 99% with n = 16,
 (c) 95% with n = 16, 25, 100, 225, 400.
 97. [Confidence interval] A random variable is known to be normally distributed, but its mean µ
-and variance σ 2 are unknown. A 95% confidence interval for µ based on 9 observations was
-found to be [22.4, 25.6]. Calculate unbiased estimates of µ and σ 2 .
+and variance \sigma^2 are unknown. A 95% confidence interval for µ based on 9 observations was
+found to be [22.4, 25.6]. Calculate unbiased estimates of µ and \sigma^2 .
 98. [Confidence interval] The wavelength of radiation from a certain source is 1.372 microns. The
 following 10 independent measurements of the wavelength were obtained using a measuring
 device:
@@ -12420,32 +12420,32 @@ Solutions: Statistics examples
 (77 + 67 + \ldots + 81) = 67.3.
 10
 
-An unbiased estimate of σb2 is the sample variance of the weights of the boys,
-σ̂b2 = ((772 + 672 + \ldots + 812 ) - 10µ̂2b )/9 = 52.67̇.
-(b) Similarly, unbiased estimates of µg and σg2 are
+An unbiased estimate of \sigmab2 is the sample variance of the weights of the boys,
+\sigmâb2 = ((772 + 672 + \ldots + 812 ) - 10µ̂2b )/9 = 52.67̇.
+(b) Similarly, unbiased estimates of µg and \sigmag2 are
 1
 (42 + 57 + \ldots + 59) = 52.4,
 10
-σ̂g2 = ((422 + 572 + \ldots + 592 ) - 10µ̂2g )/9 = 56.71̇.
+\sigmâg2 = ((422 + 572 + \ldots + 592 ) - 10µ̂2g )/9 = 56.71̇.
 
 µ̂g =
 
 (c) An unbiased estimate of µb - µg is
 µ̂b - µ̂g = 67.3 - 52.4 = 14.9.
 
-E(σ̂b2 ) = E(σ̂g2 ) = σ 2 and so
+E(\sigmâb2 ) = E(\sigmâg2 ) = \sigma^2 and so
 E
 
-σ̂b2 + σ̂g2
+\sigmâb2 + \sigmâg2
 2
 
 !
-= σ2.
+= \sigma2.
 
-Therefore an unbiased estimate of σ 2 which uses both sets of weights is
+Therefore an unbiased estimate of \sigma^2 which uses both sets of weights is
 1 2
 1
-(σ̂b + σ̂g2 ) = (52.67̇ + 56.71̇)
+(\sigmâb + \sigmâg2 ) = (52.67̇ + 56.71̇)
 2
 2
 = 54.694̇.
@@ -12628,7 +12628,7 @@ Also
 = 1.6.
 3
 2
-Hence s = 2.0815 so that s2 = 4.333. This is an unbiased estimate of σ 2 .
+Hence s = 2.0815 so that s2 = 4.333. This is an unbiased estimate of \sigma^2 .
 98. In the usual notation,
 X
 
@@ -13211,7 +13211,7 @@ main="Histogram of wealth of billionaires") # produces a more detailed plot.
 - boxplot(data=bill, wealth∼region, col=2:6) # Side by side box plots of wealth by
 region. The ∼ notation in R has a left hand side and a right hand side. In the left hand side
 we put the variable which goes in the y-axis and the right hand side may contain the formula
-terms which go in the x-axis, y ∼ x, y ∼ x1 + x2. These two are examples of what is called
+terms which go in the x-axis, y ∼ x, y ∼ x_1 + x2. These two are examples of what is called
 a formula in R, which we use in regression (or curve fitting).
 - boxplot(data=bill, age∼region, col=2:6) # Age distribution of the wealthy by region.
 - plot(bill$age, bill$wealth) # Very dull plot.

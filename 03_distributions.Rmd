@@ -205,3 +205,127 @@ A quick check confirms that $F^{\prime}(x)=f(x)$. If $a=0, b=1$
 then 
 \[P(0.5<X<0.75)=F(0.75)-F(0.5)=0.25.\] We shall see many more examples later.
 :::
+
+## Expectation and variance of a random variable
+
+### Mean or expectation
+
+In Chapter \@ref(intro-stats), we defined the mean and variance of sample data $x_1 , \ldots , x_n$. 
+The random variables
+with either a pmf $f (x)$ or a pdf $f (x)$ also have their own mean (which can be called
+the expectation of $X$) and variance. The mean is called an expectation since it is a value we
+can 'expect'! The expectation is defined as
+\[E(X)= \begin{cases}\sum_{2 \ln x} x f(x) & \text { if } X \text { is discrete } \\ \int_{-\infty}^{\infty} x f(x) d x & \text { if } X \text { is continuous }\end{cases}\]
+Thus, roughly spenking:
+the expected value is either sum or integral of value times probability.
+We use the $E(\cdot)$ notation to denote expectation. The argument is in upper case since it is the expected value of the random variable which is denoted by an upper case letter. We often use the Greek letter $\mu$ to denote $E(X)$.
+
+:::{.example text="Discrete"}
+Consider the fair-die tossing experiment, with each of the six sides having a probability of $1 / 6$ of landing face up. Let $X$ be the number on the up-face of the die. Then
+\[E(X)=\sum_{x=1}^{6} x P(X=x)=\sum_{x=1}^{6} x / 6=3.5.\]
+:::
+
+:::{.example text="Continuous"}
+Consider the uniform distribution which has the pdf $f(x)=\frac{1}{b-a}, \, a<x<b.$
+\begin{align*}
+E(X) &=\int_{-\infty}^{\infty} x f(x) d x \\
+&=\int_{a}^{b} \frac{x}{b-a} d x \\
+&=\frac{b^{2}-a^{2}}{2(b-a)}=\frac{b+a}{2},
+\end{align*}
+the mid-point of the interval $(a, b)$.
+:::
+
+If $Y=g(X)$ for any function $g(\cdot)$, then $Y$ is a random variable as well. To find $E(Y)$ we simply use the value times probability rule, i.e. the expected value of $Y$ is either sum or integral of its value, $g(x)$, times probability $f(x)$:
+\[E(Y)=E(g(X))=\begin{cases}
+\sum_{\text{all $x$}} g(x) f(x) & \text { if $X$  is discrete, } \\
+\int_{-\infty}^{\infty} g(x) f(x) d x & \text { if $X$ is continuous.}
+ \end{cases}\]
+ 
+For example, if $X$ is continuous, then $E(X^2) = \int_{-\infty}{\infty} x^2 f(x) dx$.
+We prove one important property
+of expectation, namely expectation is a linear operator.
+
+<!-- TODO: put in theorem environment -->
+Suppose $Y = g(X) = aX +b$; then $E(Y ) = aE(X)+b$.
+
+The proof of this is simple and
+given below for the continuous case. In the discrete case replace
+integral ($\int$) by summation ($\sum$).
+\begin{align*}
+E(Y ) &= \int_{-\infty}^\infty (ax + b) f(x)dx \\
+&= a \int_{-\infty}^\infty x f (x)dx + b \int_{-\infty}^\infty f (x)dx \\
+&= aE(X) + b,
+\end{align*}
+using the total probability is 1 property
+($-\infty f (x)dx = 1$) in the last integral.
+ This is very convenient, e.g. suppose $E(X) = 5$ and
+$Y = -2X + 549$ then $E(Y) = 539$.
+
+### Variance
+
+The variance measures the variability of a random variable and is defined by
+\[\operatorname{Var}(X)=E(X-\mu)^{2}= \begin{cases}
+\sum_{\text {all } x}(x-\mu)^{2} f(x) & \text { if $X$ is discrete} \\
+\int_{-\infty}^{\infty}(x-\mu)^{2} f(x) dx & \text { if $X$ is continuous,}
+\end{cases}\]
+where $\mu=E(X)$, and when the sum or integral exists. 
+They can't always be assumed to exist! 
+<!-- TODO: check for similar note about expectation sometimes not existing? -->
+When the variance exists, 
+it is the expectation of $(X-\mu)^{2}$ where $\mu$ is the mean of $X$.
+We now derive an easy formula to calculate the variance:
+<!-- TODO: put into theorem environment -->
+\[\operatorname{Var}(X)=E(X-\mu)^{2}=E\left(X^{2}\right)-\mu^{2}.\]
+**Proof**:
+\begin{align*}
+\operatorname{Var}(X) &=E(X-\mu)^{2} \\
+&=E\left(X^{2}-2 X \mu+\mu^{2}\right) \\
+&=E\left(X^{2}\right)-2 \mu E(X)+\mu^{2} \\
+&=E\left(X^{2}\right)-2 \mu \mu+\mu^{2} \\
+&=E\left(X^{2}\right)-\mu^{2}.
+\end{align*}
+Thus:
+<!-- TODO: highlight as key point -->
+the variance of a random variable is the expected value of its square
+minus the square of its expected value.
+
+We usually denote the variance by $\sigma^2$. 
+The square is there to emphasise that the variance of any
+random variable is always non-negative. When can the variance be zero? 
+When there is no variation
+at all in the random variable, i.e. it takes only a single value µ with probability 1.
+Hence, there is
+nothing random about the random variable --- we can predict its outcome with certainty.
+
+<!-- TODO: highlight as key point/definition -->
+The square root of the variance is called the standard deviation of the
+random variable.
+
+<!-- TODO: fix this to not refer to uniform distribution until defined -->
+:::{.example name="Uniform"}
+Consider the uniform distribution which has the pdf $f(x)=\frac{1}{b-a}, \, a<x<b$.
+\begin{align*}
+E\left(X^{2}\right) &=\int_{a}^{b} \frac{x^{2}}{b-a} d x \\
+&=\frac{b^{3}-a^{3}}{3(b-a)} \\
+&=\frac{b^{2}+a b+a^{2}}{3}.
+\end{align*}
+Hence
+\[\operatorname{Var}(X)=\frac{b^{2}+a b+a^{2}}{3}-\left(\frac{b+a}{2}\right)^{2}=\frac{(b-a)^{2}}{12},\]
+after simplification.
+:::
+
+We prove one important property of the variance.
+
+<!-- TODO: put in theorem environment -->
+Suppose $Y=a X+b$ then $\operatorname{Var}(Y)=a^{2} \operatorname{Var}(X)$
+
+The proof of this is simple and is given below for the continuous case. In the discrete case replace integral $\left(\int\right)$ by summation $\left(\sum\right)$.
+\begin{align*}
+\operatorname{Var}(Y) &=E(Y-E(Y))^{2} \\
+&=\int_{-\infty}^{\infty}(a x+b-a \mu-b)^{2} f(x) d x \\
+&=a^{2} \int_{-\infty}^{\infty}(x-\mu)^{2} f(x) d x \\
+&=a^{2} \operatorname{Var}(X).
+\end{align*}
+<!-- TODO: redo proof just using linearity of expectation? -->
+
+This is a very useful result, e.g. suppose $\operatorname{Var}(X)=25$ and $Y=-X+5,000,000$; then $\operatorname{Var}(Y)=$ $\operatorname{Var}(X)=25$ and the standard deviation, $\sigma=5$. In words a location shift, $b$, does not change variance but a multiplicative constant, $a$ say, gets squared in variance, $a^{2}$.

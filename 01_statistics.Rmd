@@ -1,4 +1,4 @@
-# Introduction to Statistics
+# Introduction to Statistics {#intro-stats}
 
 ## What is statistics? {#what-is-statistics}
 

@@ -4953,7 +4953,7 @@ outcomes of a random experiment to the set of real numbers. For example, I toss 
 the coin is fair, there are two possible equally likely outcomes: head or tail. These two outcomes
 must be mapped to real numbers. For convenience, I may define the mapping which assigns the
 value 1 if head turns up and 0 otherwise. Hence, we have the mapping:
-Head → 1, Tail → 0.
+Head \rightarrow 1, Tail \rightarrow 0.
 43
 
 3 Random Variables and Their Probability Distributions
@@ -4974,7 +4974,7 @@ and get a value such as 1.432 metres.
 We now introduce two notations: X (or in general the capital letters Y , Z etc.) to denote the
 random variable, e.g. height of a randomly selected student, and the corresponding lower case letter
 x (y, z) to denote a particular value, e.g. 1.432 metres. We will follow this convention throughout.
-For a random variable, say X, we will also adopt the notation P (X ∈ A), read probability that X
+For a random variable, say X, we will also adopt the notation P (X \in A), read probability that X
 belongs to A, instead of the previous P \{A\} for any event A.
 
 3.1.3
@@ -5761,7 +5761,7 @@ N -1
 55
 
 The proofs of the above results use complicated finite summation and so are omitted. But note
-that when N → ∞ the variance converges to the variance of the binomial distribution. Indeed, the
+that when N \rightarrow ∞ the variance converges to the variance of the binomial distribution. Indeed, the
 hypergeometric distribution is a finite population analogue of the binomial distribution.
 
 3.3.6
@@ -5834,9 +5834,9 @@ of the geometric distribution.
 Poisson distribution
 
 The Poisson distribution can be obtained as the limit of the binomial distribution with parameters
-n and p when n → ∞ and p → 0 simultaneously, but the product λ = np remains finite. In
-practice this means that the Poisson distribution counts rare events (since p → 0) in an infinite
-population (since n → ∞). Theoretically, a random variable following the Poisson distribution can
+n and p when n \rightarrow ∞ and p \rightarrow 0 simultaneously, but the product λ = np remains finite. In
+practice this means that the Poisson distribution counts rare events (since p \rightarrow 0) in an infinite
+population (since n \rightarrow ∞). Theoretically, a random variable following the Poisson distribution can
 take any integer value from 0 to ∞. Examples of the Poisson distribution include: the number of
 breast cancer patients in Southampton; the number of text messages sent (or received) per day by
 a randomly selected first-year student; the number of credit cards a randomly selected person has
@@ -5893,7 +5893,7 @@ e-λ
 λx
 x!
 
-as n → ∞ for any fixed value of x in the range 0, 1, 2, \ldots. Note that we have used the exponential
+as n \rightarrow ∞ for any fixed value of x in the range 0, 1, 2, \ldots. Note that we have used the exponential
 limit:
 
 
@@ -5901,7 +5901,7 @@ limit:
 -λ
 e = lim 1 -
 ,
-n→∞
+n\rightarrow∞
 n
 and
 
@@ -5910,7 +5910,7 @@ and
 λ -x
 lim 1 -
 =1
-n→∞
+n\rightarrow∞
 n
 
 and
@@ -5918,7 +5918,7 @@ n (n - 1)
 (n - x + 1)
 ···
 = 1.
-n→∞ n
+n\rightarrow∞ n
 n
 n
 lim
@@ -6042,7 +6042,7 @@ f (x) =
 0
 if x \leq 0
 where θ > 0 is a parameter. We write X ∼ Exponential(θ). The distribution only resides in the
-positive half of the real line, and the tail goes down to zero exponentially as x → ∞. The rate at
+positive half of the real line, and the tail goes down to zero exponentially as x \rightarrow ∞. The rate at
 which that happens is the parameter θ. Hence θ is known as the rate parameter.
 R∞
 It is easy to prove that 0 f (x)dx = 1. This is left as an exercise. To find the mean and
@@ -6108,7 +6108,7 @@ F (x) = P (X \leq x) =
 θe-θu du = 1 - e-θx .
 0
 
-We have F (0) = 0 and F (x) → 1 when x → ∞ and F (x) is non-decreasing in x. The cdf can be
+We have F (0) = 0 and F (x) \rightarrow 1 when x \rightarrow ∞ and F (x) is non-decreasing in x. The cdf can be
 used to solve many problems. A few examples follow.
 Using R to calculate probabilities
 For the exponential distribution the command dexp(x=3, rate=1/2) calculates the pdf at
@@ -6386,7 +6386,7 @@ R∞ 1
 
 To prove R2, i.e. E(X) = µ, we prove the following two results:
 
-(i)X ∼ N (µ, σ 2 ) ←→ Z ≡
+(i)X ∼ N (µ, σ 2 ) ←\rightarrow Z ≡
 
 X -µ
 ∼ N (0, 1)
@@ -7338,7 +7338,7 @@ x2 \leq y \leq 1. Not independent!
 
 Consequences of Independence
 - Suppose that X and Y are independent random variables. Then
-P (X ∈ A, Y ∈ B) = P (X ∈ A) \times P (Y ∈ B)
+P (X \in A, Y \in B) = P (X \in A) \times P (Y \in B)
 for any events A and B. That is, the joint probability can be obtained as the product of the
 marginal probabilities. We will use this result in the next lecture. For example, suppose Jack
 and Jess are two randomly selected students. Let X denote the height of Jack and Y denote
@@ -7401,7 +7401,7 @@ standard deviation 8 centimetres. I can randomly select a number of first-year s
 each student's height.
 Suppose X1 , \ldots , Xn is a random sample from a population with distribution f (x). Then it can
 be shown that the random variables X1 , \ldots , Xn are mutually independent, i.e.
-P (X1 ∈ A1 , X2 ∈ A2 , \ldots , Xn ∈ An ) = P (X1 ∈ A1 ) \times P (X2 ∈ A2 ) \times · · · P (Xn ∈ An )
+P (X1 \in A1 , X2 \in A2 , \ldots , Xn \in An ) = P (X1 \in A1 ) \times P (X2 \in A2 ) \times · · · P (Xn \in An )
 for any set of events, A1 , A2 , \ldots An . That is, the joint probability can be obtained as the product
 of individual probabilities. An example of this for n = 2 was given in the previous lecture; see the
 discussion just below the paragraph Consequences of independence.
@@ -7597,8 +7597,8 @@ X
 i=1
 
 This also implies that \BAR X = n1 Y also follows the normal distribution approximately, as the sample
-size n → ∞. In particular, if µi = µ and σi2 = σ 2 , i.e. all means are equal and all variances are
-equal, then the CLT states that, as n → ∞,
+size n \rightarrow ∞. In particular, if µi = µ and σi2 = σ 2 , i.e. all means are equal and all variances are
+equal, then the CLT states that, as n \rightarrow ∞,
 
 \BAR X ∼ N
 Equivalently,
@@ -7616,7 +7616,7 @@ n(\BAR X - µ)
 ∼ N (0, 1)
 σ
 
-as n → ∞. The notion of convergence is explained by the convergence of distribution of \BAR X to that
+as n \rightarrow ∞. The notion of convergence is explained by the convergence of distribution of \BAR X to that
 of the normal distribution with the appropriate mean and variance. It means that the cdf of the
 √
 left hand side, n (\BAR X-µ)
@@ -7628,7 +7628,7 @@ other words,
 lim P
 n
 \leq z = Φ(z), -∞ < z < ∞.
-n→∞
+n\rightarrow∞
 σ
 So for "large samples", we can use N (0, 1) as an approximation to the sampling distribution of
 √
@@ -8077,7 +8077,7 @@ n
 n+1
 n+1
 
-which goes to zero as n → ∞. However, θ̂1 = 2\BAR X is unbiased since E(θ̂1 ) = 2E(\BAR X) = 2 2θ = θ.
+which goes to zero as n \rightarrow ∞. However, θ̂1 = 2\BAR X is unbiased since E(θ̂1 ) = 2E(\BAR X) = 2 2θ = θ.
 
 4 Statistical Inference
 
@@ -8673,7 +8673,7 @@ approx
 
 ∼
 
-N (0, 1) as n → ∞.
+N (0, 1) as n \rightarrow ∞.
 
 So a general confidence interval for µ can be constructed, just as before in Section 4.4.3. Thus a
 95% confidence interval (CI) for µ is given by \bar x ± 1.96 √σn . But note that σ is unknown so this
@@ -9164,7 +9164,7 @@ h
 1.96
 
 Note that the critical value approaches 1.96 (which is the critical value for the normal distribution)
-as n → ∞, since the t-distribution itself approaches the normal distribution for large values of its
+as n \rightarrow ∞, since the t-distribution itself approaches the normal distribution for large values of its
 df parameter.
 If you can justify that the underlying distribution is normal then you
 can use the t-distribution-based confidence interval.
@@ -9266,8 +9266,8 @@ is not possible to calculate probabilities such as P (X1 < 2) when the hypothesi
 not know the exact value of θ. Such an hypothesis is called a composite hypothesis.
 Examples of hypotheses:
 X1 , \ldots , Xn ∼ N (µ, σ 2 ) with µ = 0, σ 2 = 2.
-X1 , \ldots , Xn ∼ N (µ, σ 2 ) with µ = 0, σ 2 ∈ R+ .
-X1 , \ldots , Xn ∼ N (µ, σ 2 ) with µ 6= 0, σ 2 ∈ R+ .
+X1 , \ldots , Xn ∼ N (µ, σ 2 ) with µ = 0, σ 2 \in R+ .
+X1 , \ldots , Xn ∼ N (µ, σ 2 ) with µ 6= 0, σ 2 \in R+ .
 X1 , \ldots , Xn ∼ Bernoulli(p) with p = 12 .
 X1 , \ldots , Xn ∼ Bernoulli(p) with p 6= 12 .
 X1 , \ldots , Xn ∼ Bernoulli(p) with p > 12 .
@@ -9293,8 +9293,8 @@ does not provide significant evidence to reject H0 in favour of H1 .
 A hypothesis test is defined by its critical region or rejection region, which we shall denote by
 C. C is a subset of Rn and is the set of possible observed values of X which, if observed, would
 lead to rejection of H0 in favour of H1 , i.e.
-If x ∈ C H0 is rejected in favour of H1
-If x ∈
+If x \in C H0 is rejected in favour of H1
+If x \in
 6 C H0 is not rejected
 As X is a random variable, there remains the possibility that a hypothesis test will give an erroneous
 result. We define two types of error:
@@ -9313,8 +9313,8 @@ Correct decision
 Type II error
 
 When H0 and H1 are simple hypotheses, we can define
-α = P (Type I error) = P (X ∈ C)
-β = P (Type II error) = P (X 6∈ C)
+α = P (Type I error) = P (X \in C)
+β = P (Type II error) = P (X 6\in C)
 
 if H0 is true
 if H1 is true
@@ -10751,7 +10751,7 @@ x=0
 1-r
 
 The power of r, k + 1, in the formula for the sum is the number of terms.
-2. When k → ∞ we can evaluate the sum only when |r| < 1. In that case
+2. When k \rightarrow ∞ we can evaluate the sum only when |r| < 1. In that case
 ∞
 X
 x=0
@@ -10759,7 +10759,7 @@ x=0
 rx =
 
 1
-[rk+1 → 0 as k → ∞ for |r| < 1].
+[rk+1 \rightarrow 0 as k \rightarrow ∞ for |r| < 1].
 1-r
 
 3. For a positive n and |x| < 1, the negative binomial series is given by:
@@ -10833,7 +10833,7 @@ exp(a) ≡ ea = lim
 
 
 
-n→∞
+n\rightarrow∞
 
 1+
 
@@ -10849,7 +10849,7 @@ n
 where for a positive integer k, k! = 1 \times 2 \times 3 \times · · · \times k. Hence, 2! = 2, 3! = 6 and so on. By
 convention we use 0! = 1. Now try the following exercises:
 
-1. Satisfy yourself that limn→∞ 1 -
+1. Satisfy yourself that limn\rightarrow∞ 1 -
 2. Satisfy yourself that
 
 P∞
@@ -10980,7 +10980,7 @@ Z ∞
 Z a
 f (x)dx = lim
 f (x)dx,
-a→∞ 0
+a\rightarrow∞ 0
 
 0
 
@@ -12798,7 +12798,7 @@ prompt > directly.
 You can exit R by typing
 > q()
 in the commands window and then hit the Enter key in the keyboard or click the Run button
-in the menu. You may also exit by following File→Exit.
+in the menu. You may also exit by following File\rightarrowExit.
 
 C.1.3
 
@@ -12843,7 +12843,7 @@ first component of x. Of course x only has one component here, but this helps yo
 when the output is a vector of many components.
 - Anything you type after # sign is a comment and R will ignore.
 - You can repeat or edit previous commands by using the up and down arrow keys (↑↓).
-- We normally put the commands in a file. We can open it by following: File → Open script.
+- We normally put the commands in a file. We can open it by following: File \rightarrow Open script.
 For this session, please open a new script and type the commands. Periodically save the file
 as, for example, Rlabs.R in H:/math1024.
 - To run a bunch of commands in the opened script file we highlight the bunch and then press
@@ -12883,7 +12883,7 @@ do not need to download this file again unless you are explicitly told to do so.
 issuing the command: setwd("H:/math1024/"). In your own computer you will modify the
 command to something like: setwd("C:/math1024/")
 - In Rstudio, a more convenient way to set the working directory is: by following the menu
-Session → Set Working Directory. It then gives you a dialogue box to navigate to the
+Session \rightarrow Set Working Directory. It then gives you a dialogue box to navigate to the
 folder you want.
 - To confirm that this has been done correctly, re-issue the command getwd() and see the
 output.

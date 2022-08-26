@@ -1,0 +1,130 @@
+# Random Variables and Their Probability Distributions
+
+## Chapter mission
+
+Last chapter's combinatorial probabilities are difficult to find and very problem-specific. Instead,
+in this chapter we shall find easier ways to calculate probability in structured cases. The outcomes
+of random experiments will be represented as values of a variable which will be random since the
+outcomes are random (or un-predictable with certainty). In so doing, we will make our life a lot
+easier in calculating probabilities in many stylised situations which represent reality. 
+
+## Definition of a random variable
+
+In this section we will learn about the probability distribution of a random variable defined by
+its probability function. The probability function will be called the probability mass function for
+discrete random variables and the probability density function for continuous random variables.
+
+### Introduction
+
+A random variable defines a one-to-one mapping of the sample space consisting of all possible
+outcomes of a random experiment to the set of real numbers. For example, I toss a coin. Assuming
+the coin is fair, there are two possible equally likely outcomes: head or tail. These two outcomes
+must be mapped to real numbers. For convenience, I may define the mapping which assigns the
+value 1 if head turns up and 0 otherwise. Hence, we have the mapping
+\[\text{Head} \rightarrow 1, \text{Tail} \rightarrow 0.\]
+
+We can conveniently denote the random variable by $X$ which is the number of heads obtained by
+tossing a single coin. The possible values of $X$ are $0$ and $1$.
+
+You will say that this is a trivial example. Indeed it is. But it is very easy to generalise the
+concept of random variables. Simply define a mapping of the outcomes of a random experiment
+to the real number space. For example, I toss the coin $n$ times and count the number of heads
+and denote that to be $X$. $X$ can take any real positive integer value between $0$ and
+$n$. Among other examples, suppose I select a University of Southampton student at random and
+measure their height. The outcome in metres will probably be a number between one metre 
+and two metres. 
+But I can't exactly tell which value it will be since I do not know which student will be
+selected in the first place. However, when a student has been selected I can measure their height
+and get a value such as $1.432$ metres.
+
+We now introduce two notations: $X$ (or in general the capital letters $Y, Z$ etc.) to denote the
+random variable, e.g. height of a randomly selected student, and the corresponding lower case letter
+$x$ (or $y$, $z$) to denote a particular value, e.g. 1.432 metres. We will follow this convention throughout.
+For a random variable, say $X$, we will also adopt the notation $P (X \in A)$, read
+probability that $X$
+belongs to $A$, instead of the previous $P \{A\}$ for any event $A$.
+
+
+### Discrete or continuous random variable
+
+If a random variable has a finite or countably infinite set of values it is called discrete. For example,
+the number of Apple computer users among 20 randomly selected students, or the number of credit
+cards a randomly selected person has in their wallet.
+When the random variable can take any value on the real line it is called a continuous random
+variable. For example, the height of a randomly selected student. A random variable can also take
+a mixture of discrete and continuous values, e.g. volume of precipitation collected in a day; some
+days it could be zero, on other days it could be a continuous measurement, e.g. 1.234 mm.
+
+### Probability distribution of a random variable
+
+
+Recall the first axiom of probability ($P \{S\} = 1$), which means total probability equals 1. 
+Since a random variable is merely a mapping from the outcome space to the real line, the combined
+probability of all possible values of the random variable must be equal to 1.
+A probability distribution distributes the total probability 1 among the
+possible values of the random variable.
+
+:::{.example}
+Returning to the coin-tossing experiment, if the probability of getting a head with
+a coin is $p$ (and therefore the probability of getting a tail is $1 - p$), 
+then the probability that $Y = 0$
+is $1 - p$ and the probability that $Y = 1$ is $p$. 
+This gives us the probability distribution of $Y$, and we
+say that $Y$ has the probability function
+\[P(Y = y) = \begin{cases} 1-p & \text{for $y = 0$} \\
+p & \text{for $y = 1$.} \end{cases}\]
+This is an example of the **Bernoulli distribution** with parameter $p$, the simplest discrete
+distribution.
+:::
+
+:::{.example #two-coins}
+Suppose we consider tossing the coin twice and again defining the random variable
+$X$ to be the number of heads obtained. The values that $X$ can take are $0$, $1$ and $2$ 
+with probabilities
+$(1 - p)^2$ , $2p(1 - p)$ and $p^2$, respectively. Here the probability function is
+\[P(X = x) = \begin{cases}
+  (1 - p)^2 & \text{for $x = 0$} \\
+  2p(1 - p) & \text{for $x = 1$} \\
+  p^2 & \text{for $x = 2$.}
+  \end{cases}\]
+his is a particular case of the Binomial distribution. We will learn about it soon.
+:::
+
+In general, for a discrete random variable we define a function $f(x)$ to denote $P (X = x)$
+(or $f (y)$ to denote $P (Y = y)$) and call the function $f (x)$
+the probability function (pf) or probability
+mass function (pmf) of the random variable $X$. Arbitrary functions cannot be a pmf since the
+total probability must be 1 and all probabilities are non-negative. Hence, for $f (x)$ to be the pmf
+of a random variable $X$, we require:
+
+1. $f (x) \geq 0$ for all possible values of $x$.
+2. $\sum_{\text{all $x$}} f (x) = 1$
+
+In Example \@ref(exm:two-coins), we may rewrite the probability function in the general form
+\[f(x) = \binom{2}{x} p^x (1 - p)^{2-x}, \text{for $x = 0, 1, 2$},\]
+where $f (x) = 0$ for any other value of $x$.
+
+### Continuous random variable
+
+In many situations (both theoretical and practical) we often encounter random variables that are
+inherently continuous because they are measured on a continuum (such as time, length, weight)
+or can be conveniently well-approximated by considering them as continuous (such as the annual
+income of adults in a population, closing share prices).
+
+For a continuous random variable, $P (X = x)$ is defined to be zero since we assume that the
+measurements are continuous and there is zero probability of observing a particular value, e.g. $1.2$.
+The argument goes that a finer measuring instrument will give us an even more precise 
+measurement than $1.2$ and so on. Thus for a continuous random variable we adopt the
+convention that
+$P (X = x) = 0$ for any particular value $x$ on the real line. 
+But we define probabilities for positive
+length intervals, e.g. $P (1.2 < X < 1.9)$.
+
+For a continuous random variable $X$ we define its probability by using a continuous function
+$f(x)$ which we call its probability density function, abbreviated as its pdf. With the pdf we define
+probabilities as integrals, e.g.
+\[P (a < X < b) = \int_a^b f (u) du,\]
+which is naturally interpreted as the area under the curve $f (x)$ inside the interval $(a, b)$. 
+Recall
+that we do not use $f (x) = P (X = x)$ for any $x$ as by convention we set $P(X = x) = 0$.
+

@@ -3175,7 +3175,7 @@ the premier professional association of statisticians in the UK and also world-w
 statistics has its modern meaning as the methods for:
 collection, analysis and interpretation of data.
 - Indeed, the Oxford English Dictionary defines statistics as: “The practice or science of collecting and analysing numerical data in large quantities, especially for the purpose of inferring
-proportions in a whole from those in a representative sample.”
+proportions in a whole from those in a representative sample."
 - Note that the word 'state' has gone from its definition. Instead, statistical methods are now
 essential for everyone wanting to answer questions using data.
 For example, will it rain tomorrow? Does eating red meat make us live longer? Is smoking
@@ -3227,7 +3227,7 @@ Researchers often make guesses about scientific quantities. For example, try to 
 or 45? These predictions are meaningless without the associated uncertainties. Instead, appropriate
 data collection and correct application of statistical methods may enable us to make statements
 like: I am 97% certain that the correct age is between 47 and 54 years. Remember, “to guess is
-cheap, to guess incorrectly is expensive” – old Chinese proverb.
+cheap, to guess incorrectly is expensive" – old Chinese proverb.
 
 1.1.4
 
@@ -3241,7 +3241,7 @@ engineering, science and social science you will be studying.
 studying statistical methods.
 “All knowledge is, in final analysis, history.
 All sciences are, in the abstract, mathematics.
-All judgements are, in their rationale, statistics.”
+All judgements are, in their rationale, statistics."
 Prof. C. R. Rao
 
 1 Introduction to Statistics
@@ -3252,7 +3252,7 @@ Prof. C. R. Rao
 
 Lie, Damn Lie and Statistics?
 
-Sometimes people say, “you can prove anything in statistics!” and many such jokes. Such remarks
+Sometimes people say, “you can prove anything in statistics!" and many such jokes. Such remarks
 bear testimony to the fact that often statistics and statistical methods are miss-quoted without
 proper verification and robust justification. This is even more important in this year of the global
 pandemic as everyday we are showered with a deluge of numbers. The front and the back cover
@@ -4228,7 +4228,7 @@ The task is to select k(\geq 1) from the n (n \geq k) available people. Note tha
 involve sitting the k selected people in k (different) chairs.We want to find the number of possible
 ways to complete this task, which is denoted as n Ck or nk .
 For this, let us reconsider the task of “selecting k(\geq 1) from the n (n \geq k) available people and
-sitting the k selected people in k (different) chairs”, which we already know from the discussion
+sitting the k selected people in k (different) chairs", which we already know from the discussion
 above has n Pk ways to complete.
 Alternatively, to complete this task, one has to complete two sub-tasks sequentially. The first
 sub-task is to select k(\geq 1) from the n (n \geq k) available people, which has n Ck ways. The second
@@ -4435,7 +4435,7 @@ found to have the symptom. Given this additional information, what is the probab
 have the disease? Note that having the symptom does not fully guarantee that the person has the
 disease.
 Applications of conditional probability occur naturally in actuarial science and medical studies, where conditional probabilities such as “what is the probability that a person will survive for
-another 20 years given that they are still alive at the age of 40?” are calculated.
+another 20 years given that they are still alive at the age of 40?" are calculated.
 In many real problems, one has to determine the probability of an event A when one already
 has some partial knowledge of the outcome of an experiment, i.e. another event B has already
 occurred. For this, one needs to find the conditional probability.
@@ -4679,8 +4679,8 @@ These give the following formal definition.
 
 A and B are independent events if P \{A \cap B\} = P \{A\}P \{B\}.
 ♥ Example 20 Die throw
-Throw a fair die. Let A be the event that “the result is even” and B be the event that “the
-result is greater than 3”. We want to show that A and B are not independent.
+Throw a fair die. Let A be the event that "the result is even" and B be the event that "the
+result is greater than 3". We want to show that A and B are not independent.
 For this, we have P \{A \cap B\} = P \{either a 4 or 6 thrown\} = 1/3, but P \{A\} = 1/2 and P \{B\} =
 1/2, so that P \{A\}P \{B\} = 1/4 6= 1/3 = P \{A \cap B\}. Therefore A and B are not independent events.
 Note that independence is not the same as the mutually exclusive property. When two events, A
@@ -4699,8 +4699,8 @@ instead of the formula involving more complicated conditional probabilities.
 the probability of two sixes is 1/6 \times 1/6 = 1/36.
 
 ♥ Example 22 Assessing risk in legal cases In recent years there have been some disastrous
-miscarriages of justice as a result of incorrect assumption of independence. Please read “Incorrect
-use of independence – Sally Clark Case” on Blackboard.
+miscarriages of justice as a result of incorrect assumption of independence. Please read "Incorrect
+use of independence – Sally Clark Case" on Blackboard.
 Independence of complementary events: If A and B are independent, so are A0 and B 0 .
 Proof: Given that P \{A \cap B\} = P \{A\}P \{B\}, we need to show that P \{A0 \cap B 0 \} = P \{A0 \}P \{B 0 \}.
 This follows from
@@ -4725,8 +4725,8 @@ independence of A, B and C, it is necessary to show that both (2.1) and (2.2) ho
 ♥ Example 23 A box contains eight tickets, each labelled with a binary number. Two are
 labelled with the binary number 111, two are labelled with 100, two with 010 and two with 001.
 An experiment consists of drawing one ticket at random from the box.
-Let A be the event “the first digit is 1”, B the event “the second digit is 1” and C be the event
-“the third digit is 1”. It is clear that P \{A\} = P \{B\} = P \{C\} = 4/8 = 1/2 and P \{A \cap B\} =
+Let A be the event "the first digit is 1", B the event "the second digit is 1" and C be the event
+"the third digit is 1". It is clear that P \{A\} = P \{B\} = P \{C\} = 4/8 = 1/2 and P \{A \cap B\} =
 P \{A \cap C\} = P \{B \cap C\} = 1/4, so the events are pairwise independent, i.e. (2.1) holds. However
 P \{A \cap B \cap C\} = 2/8 6= P \{A\}P \{B\}P \{C\} = 1/8. So (2.2) does not hold and A, B and C are not
 independent.
@@ -4804,14 +4804,14 @@ System reliability
 Two components in series
 Suppose each component has a separate operating mechanism. This means that they operate
 independently.
-Let Ai be the event “component i works when required” and let P \{Ai \} = pi for i = 1, 2. For
-the system of A1 and A2 in series, the event “the system works” is the event \{A1 \cap A2 \}. Hence
+Let Ai be the event "component i works when required" and let P \{Ai \} = pi for i = 1, 2. For
+the system of A1 and A2 in series, the event "the system works" is the event \{A1 \cap A2 \}. Hence
 P \{system works\} = P \{A1 \cap A2 \} = P \{A1 \}P \{A2 \} = p1 p2 .
 The reliability gets lower when components are included in series. For n components in series,
 P \{system works\} = p1 p2 · · · pn . When pi = p for all i, the reliability of a series of n components is
 P \{system works\} = pn .
 Two components in parallel
-For the system of A1 and A2 in parallel, the event “the system works when required” is now given
+For the system of A1 and A2 in parallel, the event "the system works when required" is now given
 by the event \{A1 \cup A2 \}. Hence
 P \{system works\} = P \{A1 \cup A2 \} = P \{A1 \} + P \{A2 \} - P \{A1 \cap A2 \} = p1 + p2 - p1 p2 .
 This is greater than either p1 or p2 so that the inclusion of a (redundant) component in parallel
@@ -4837,7 +4837,7 @@ The ideas above can be combined to evaluate the reliability of more complex syst
 Each has the probability pi = P \{Di \} of closing correctly; the mechanisms are independent; all
 are operated by the same impulse. Then
 P \{current flows when required\} = p1 \times [1 - (1 - p2 )(1 - p2 )] \times [1 - (1 - p3 )(1 - p3 )(1 - p3 )].
-There are some additional examples of reliability applications given in the “Reliability Examples” document available on Blackboard. You are advised to read through and understand these
+There are some additional examples of reliability applications given in the "Reliability Examples" document available on Blackboard. You are advised to read through and understand these
 additional examples/applications.
 
 2.5.3
@@ -7630,12 +7630,12 @@ n
 \leq z = Φ(z), -∞ < z < ∞.
 n→∞
 σ
-So for “large samples”, we can use N (0, 1) as an approximation to the sampling distribution of
+So for "large samples", we can use N (0, 1) as an approximation to the sampling distribution of
 √
 n(\BAR X - µ)/σ. This result is 'exact', i.e. no approximation is required, if the distribution of the
 Xi 's are normal in the first place – this was discussed in the previous lecture.
 How large does n have to be before this approximation becomes usable? There is no definitive
-answer to this, as it depends on how “close to normal” the distribution of X is. However, it is
+answer to this, as it depends on how "close to normal" the distribution of X is. However, it is
 often a pretty good approximation for sample sizes as small as 20, or even smaller. It also depends
 on the skewness of the distribution of X; if the X-variables are highly skewed, then n will usually
 need to be larger than for corresponding symmetric X-variables for the approximation to be good.
@@ -7800,9 +7800,9 @@ success probability of the Bernoulli distribution will be the unknown p. The und
 model is then the Bernoulli distribution.
 To illustrate with another example, suppose we have observed fast food waiting times in the
 morning and afternoon. If we assume time (number of whole seconds) to be discrete, then a
-suitable model for the random variable X = “the number of seconds waited” would be the Poisson
-distribution. However, if we treat time as continuous then the random variable X = “the waiting
-time” could be modelled as a normal random variable. Now, in general, it is clear that:
+suitable model for the random variable X = "the number of seconds waited" would be the Poisson
+distribution. However, if we treat time as continuous then the random variable X = "the waiting
+time" could be modelled as a normal random variable. Now, in general, it is clear that:
 81
 
 4 Statistical Inference
@@ -8066,7 +8066,7 @@ bias(θ̃) = 0, i.e. if
 E(θ̃) = θ.
 
 So an estimator is unbiased if the expectation of its sampling distribution is equal to the quantity
-we are trying to estimate. Unbiased means “getting it right on average”, i.e. under repeated sampling (relative frequency interpretation of probability).
+we are trying to estimate. Unbiased means "getting it right on average", i.e. under repeated sampling (relative frequency interpretation of probability).
 Thus for the uniform distribution example, θ̂2 is a biased estimator of θ and
 bias(θ̂2 ) = E(θ̂2 ) - θ =
 
@@ -8083,7 +8083,7 @@ which goes to zero as n → ∞. However, θ̂1 = 2\BAR X is unbiased since E(θ
 
 87
 
-Unbiased estimators are “correct on average”, but that does not mean that they are guaranteed
+Unbiased estimators are "correct on average", but that does not mean that they are guaranteed
 to provide estimates which are close to the estimand θ. A better measure of the quality of an
 estimator than bias is the mean squared error (or m.s.e.), defined as
 h
@@ -8225,11 +8225,11 @@ Lecture mission
 
 Often, one of the main tasks of a statistician is to estimate a population average or mean. However
 the estimates, using whatever procedure, will not be usable or scientifically meaningful if we do
-not know their associated uncertainties. For example, a statement such as: “the Arctic ocean will
-be completely ice-free in the summer in the next few decades” provides little information as it
+not know their associated uncertainties. For example, a statement such as: "the Arctic ocean will
+be completely ice-free in the summer in the next few decades" provides little information as it
 does not communicate the extent or the nature of the uncertainty in it. Perhaps a more precise
-statement could be: “the Arctic ocean will be completely ice-free in the summer some time in the
-next 20-30 years”. This last statement not only gives a numerical value for the number of years
+statement could be: "the Arctic ocean will be completely ice-free in the summer some time in the
+next 20-30 years". This last statement not only gives a numerical value for the number of years
 for complete ice-melt in the summer, but also acknowledges the uncertainty of ±5 years in the
 estimate. A statistician's main job is to estimate such uncertainties. In this lecture, we will get
 started with estimating uncertainties when we estimate a population mean. We will introduce the

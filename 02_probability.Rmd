@@ -594,3 +594,171 @@ $\sum_{i=1}^k P \{B_i |A\} = 1$. Why? Nowadays Bayes' theorem is used to make st
 well. 
 <!-- TODO: rephrase/delete this sentence? -->
 
+## Independent events
+
+We have just seen that the probability of an event may change if we have additional
+information. However, in many situations the probabilities may not change. For example, the
+results of two coin tosses should not depend on each other; an expectant mother should not think
+that she must have a higher probability of having a son given that her previous three children were
+all girls.
+<!-- TODO: check if this is true? -->
+In this section we will learn about the probabilities of independent events. Much of statistical
+theory relies on the concept of independence.
+
+### Definition of independence
+
+We have seen examples where prior knowledge that an event $A$ has occurred has changed
+the probability that event $B$ occurs. There are many situations where this does not happen.
+The events
+are then said to be independent.
+Intuitively, events $A$ and $B$ are independent if the occurrence of one event does not affect the
+probability that the other event occurs.
+This is equivalent to saying that
+$P \{B|A\} = P \{B\}$, where $P \{A\} > 0$, and $P \{A|B\} = P \{A\}$, where $P \{B\} > 0$.
+These give the following formal definition.
+
+$A$ and $B$ are independent events if $P \{A \cap B\} = P \{A\}P \{B\}.$
+<!-- TODO: add an extra step in deriving this from previous line -->
+
+<!-- TODO: check for consistency of die vs dice -->
+:::{.example name="Die throw"}
+Throw a fair die. Let $A$ be the event that "the result is even" and $B$ be the event that "the
+result is greater than 3". We want to show that $A$ and $B$ are not independent.
+
+For this, we have $P \{A \cap B\} = P \{\text{either a $4$ or $6$ thrown}\} = 1/3$,
+but $P \{A\} = 1/2$ and $P \{B\} = 1/2$, so that
+$P \{A\}P \{B\} = 1/4 \not = 1/3 = P \{A \cap B\}$.
+Therefore $A$ and $B$ are not independent events.
+:::
+
+
+Note that independence is not the same as the mutually exclusive property.
+When two events, $A$
+and $B$, are mutually exclusive, the probability of their intersection,
+$A \cap B$, is zero, i.e. $P \{A \cap B\} = 0$.
+But if the two events are independent then $P \{A \cap B\} = P \{A\} \times P \{B\}$.
+<!-- TODO: delete this para? -->
+
+Independence is often assumed on physical grounds, although sometimes incorrectly. There are
+serious consequences for wrongly assuming independence, e.g. the financial crisis in 2008. However,
+when the events are independent then the simpler product formula for joint probability is then used.
+
+:::{.example}
+Two fair dice when shaken together are assumed to behave independently. Hence
+the probability of two sixes is $1/6 \times 1/6 = 1/36$.
+:::
+
+:::{.example name="Assessing risk in legal cases"}
+In recent years there have been some disastrous
+miscarriages of justice as a result of incorrect assumption of independence. Please read "Incorrect
+use of independence --- Sally Clark Case" on Blackboard.
+<!-- TODO: get/write this document -->
+:::
+
+
+<!-- TODO: put into theorem environment -->
+**Independence of complementary events**: If $A$ and $B$ are independent, so are $A^\prime$
+and $B^\prime$.
+
+**Proof**: Given that
+$P \{A \cap B\} = P \{A\}P \{B\}$, we need to show that
+$P \{A^\prime \cap B^\prime \} = P \{A^\prime \}P \{B^\prime \}$.
+We have
+\begin{align*}
+P \{A^\prime \cap B^\prime \} &= 1 - P \{A \cup B\} \\
+&= 1 - [P \{A\} + P \{B\} - P \{A \cap B\}] \\
+&= 1 - [P \{A\} + P \{B\} - P \{A\}P \{B\}] \\
+&= [1 - P \{A\}] - P \{B\}[1 - P \{A\}] \\
+& = [1 - P \{A\}][1 - P \{B\}] \\
+&= P \{A^\prime \}P \{B^\prime \}
+\end{align*}
+
+
+
+The ideas of conditional probability and independence can be extended to more than two events.
+
+### Independence with more than three events
+
+
+<!-- TODO: put into definition environment -->
+**Definition**: Three events $A$, $B$ and $C$ are defined to be independent if
+\begin{equation}
+P \{A \cap B\} = P \{A\}P \{B\}, \; P \{A \cap C\} = P \{A\}P \{C\}, \; P \{B \cap C\} = P \{B\}P \{C\},
+(\#eq:pairwise-indep)
+\end{equation}
+\begin{equation}
+P \{A \cap B \cap C\} = P \{A\}P \{B\}P \{C\}.
+(\#eq:threewise-indep)
+\end{equation}
+
+Note that \@ref(eq:pairwise-indep) does NOT imply \@ref(eq:threewise-indep)
+as shown by the next example. Hence, to show the
+independence of $A$, $B$ and $C$, it is necessary to show that both 
+\@ref(eq:pairwise-indep) and \@ref(eq:threewise-indep) hold.
+
+:::{.example}
+A box contains eight tickets, each labelled with a binary number. Two are
+labelled with the binary number $111$, two are labelled with $100$, two with $010$ and two with $001$.
+An experiment consists of drawing one ticket at random from the box.
+Let $A$ be the event "the first digit is 1", $B$ the event "the second digit is 1" 
+and $C$ be the event
+"the third digit is 1". 
+It is clear that $P \{A\} = P \{B\} = P \{C\} = 4/8 = 1/2$ and 
+$P \{A \cap B\} =
+P \{A \cap C\} = P \{B \cap C\} = 1/4$, 
+so the events are pairwise independent, i.e. \@ref(eq:pairwise-indep) holds.
+However
+$P \{A \cap B \cap C\} = 2/8 \not = P \{A\}P \{B\}P \{C\} = 1/8$. 
+So \@ref(eq:threewise-indep) does not hold and $A$, $B$ and $C$ are not
+independent.
+
+### Bernoulli trials 
+
+<!-- TODO: check for consistency in use of italics vs bold -->
+The notion of independent events naturally leads to a set of independent trials
+(or random experiments, e.g. repeated coin tossing). A set of independent trials, where each trial
+has only two possible outcomes, conveniently called success (S) and failure (F), and the probability
+of success is the same in each trial are called a set of *Bernoulli trials*. 
+There are lots of fun examples
+involving Bernoulli trials.
+
+:::{.example name="Feller's road crossing example"}
+The flow of traffic at a certain street crossing
+is such that the probability of a car passing during any given second is $p$ and cars arrive randomly,
+i.e. there is no interaction between the passing of cars at different seconds. Treating seconds as
+indivisible time units, and supposing that a pedestrian can cross the street only if no car is to
+pass during the next three seconds, find the probability that the pedestrian has to wait for exactly
+$k = 0, 1, 2, 3, 4$ seconds.
+
+Let $C_i$ denote the event that a car comes in the $i$th second and let $N_i$ denote the event that no
+car arrives in the $i$th second.
+<!-- TODO: note change in notation, $AB = A \cap B$? -->
+                    
+1. Consider $k = 0$. The pedestrian does not have to wait if and only if there are no cars in the
+next three seconds, i.e. the event $N_1 N_2 N_3$. Now the arrival of the cars in successive seconds
+are independent and the probability of no car coming in any second is $q = 1 - p$. Hence the
+answer is $P \{N_1 N_2 N_3 \} = q \cdot q \cdot q = q^3$.
+2. Consider $k = 1$. The person has to wait for one second if there is a car in the first second
+and none in the next three, i.e. the event $C_1 N_2 N_3 N_4$. Hence the probability of that is $pq^3$.
+3. Consider $k = 2$. The person has to wait two seconds if and only if there is a car in the 2nd
+second but none in the next three. It does not matter if there is a car or none in the first
+second. Hence
+\[P \{\text{wait 2 seconds}\} = P \{C_1 C_2 N_3 N_4 N_5 \} + P \{N_1 C_2 N_3 N_4 N_5 \} = p \cdot p \cdot q^3 + q \cdot p \cdot q^3 = pq^3.\]
+4. Consider k = 3. The person has to wait for three seconds if and only if a car passes in the
+3rd second but none in the next three, $C_3 N_4 N_5 N_6$. Anything can happen in the first two
+seconds, i.e. $C_1 C_2$, $C_1 N_2$, $N_1 C_2$, $N_1 N_2$ --- all these four cases are mutually
+exclusive. Hence
+\begin{align*}
+P \{\text{wait 3 seconds}\} &= P \{C_1 C_2 C_3 N_4 N_5 N_6 \} + P \{N_1 C_2 C_3 N_4 N_5 N_6 \} \\
+& \; \; +P \{C_1 N_2 C_3 N_4 N_5 N_6 \} + P \{N_1 N_2 C_3 N_4 N_5 N_6 \} \\
+&= p \cdot p \cdot p \cdot q^3 + p \cdot q \cdot p \cdot q^3 + q \cdot p \cdot p \cdot q^3 + q \cdot q \cdot p \cdot q^3 \\
+&= pq^3.
+\end{align*}
+5. Consider $k = 4$. The person has to wait exactly $4$ seconds
+if and only if a car passes in at least one of the first 3 seconds, one passes at the 4th but none
+pass in the next 3 seconds. The probability that at least one passes in the first three seconds
+is $1$ minus the probability that there is none in the first 3 seconds. This probability is $1 - q^3$.
+Hence the answer is $(1 - q^3 )pq^3$.
+:::
+
+<!-- TODO: consider whether to include old lecture 8 -->

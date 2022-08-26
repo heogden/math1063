@@ -87,7 +87,7 @@ $(1 - p)^2$ , $2p(1 - p)$ and $p^2$, respectively. Here the probability function
   2p(1 - p) & \text{for $x = 1$} \\
   p^2 & \text{for $x = 2$.}
   \end{cases}\]
-his is a particular case of the Binomial distribution. We will learn about it soon.
+This is a particular case of the Binomial distribution. We will learn about it soon.
 :::
 
 In general, for a discrete random variable we define a function $f(x)$ to denote $P (X = x)$
@@ -332,7 +332,8 @@ This is a very useful result, e.g. suppose $\operatorname{Var}(X)=25$ and $Y=-X+
 
 ## Standard discrete distributions
 
-In this section we will learn about the Bernoulli, binomial, hypergeometric and geometric 
+In this section we will learn about the Bernoulli, binomial, hypergeometric, geometric,
+negative binomial and Poisson
 distributions and their properties.
 
 
@@ -526,3 +527,112 @@ with pmf
 assuming that $x \leq N p$ and $n-x \leq N(1-p)$ so that the above combinations are well defined. 
 The mean and variance of the hypergeometric distribution are given by
 \[E(X)=n p, \quad \operatorname{Var}(X)=n p q \frac{N-n}{N-1}.\]
+
+### Negative binomial distribution
+
+Still in the Bernoulli trials set-up, we define the random variable $X$ to be the total number
+of trials
+until the $r$th success occurs, where $r$ is a given natural number. This is known as the negative
+binomial distribution with parameters $p$ and $r$.
+[Note: if $r = 1$, the negative binomial distribution is just the geometric distribution.]
+Firstly we need to identify the possible values of $X$. Possible values for $X$ are $x = r, r + 1, r +
+2, \ldots$. Secondly, the probability mass function is
+\begin{align*}
+P (X = x) &= \binom{x-1}{r-1}
+p^{r-1} (1 - p)^{(x-1)-(r-1)} \times p \\
+&=\binom{x-1}{r-1}
+p^r (1 - p)^{x-r}, \quad x = r, r + 1, \ldots
+\end{align*}
+
+:::{.example}
+In a board game that uses a single fair die, a player cannot start until they have
+rolled a six. Let $X$ be the number of rolls needed until they get a six. Then $X$ is a Geometric
+random variable with success probability $p = 1/6$.
+:::
+
+:::{.example} 
+A man plays roulette, betting on red each time. He decides to keep playing until
+he achieves his second win. The success probability for each game is $18/37$ and the results of games
+are independent. Let $X$ be the number of games played until he gets his second win. Then $X$ is
+a Negative Binomial random variable with $r = 2$ and p = $18/37$. What is the probability he plays
+more than $3$ games? i.e. find $P (X > 3)$.
+:::
+<!-- TODO: add solution here? -->
+
+Derivation of the mean and variance of the negative binomial distribution involves complicated negative binomial series and will be skipped for now, but will be proved in Lecture ???. 
+<!-- TODO: add reference -->
+For
+completeness we note down the mean and variance:
+\[E(X) = \frac{r}{p}, \quad \operatorname{Var}(X) = r \, \frac{1-p}{p^2}.\]
+Thus when r = 1, the mean and variance of the negative binomial distribution are equal to those
+of the geometric distribution.
+
+### Poisson distribution
+
+#### Introduction and definition
+
+The Poisson distribution can be obtained as the limit of the binomial distribution with parameters $n$ and $p$ when $n \rightarrow \infty$ and $p \rightarrow 0$ simultaneously, but the product $\lambda=n p$ remains finite. In practice this means that the Poisson distribution counts rare events (since $p \rightarrow 0$ ) in an infinite population (since $n \rightarrow \infty$ ). Theoretically, a random variable following the Poisson distribution can take any integer value from 0 to $\infty$. Examples of the Poisson distribution include: the number of breast cancer patients in Southampton; the number of text messages sent (or received) per day by a randomly selected first-year student; the number of credit cards a randomly selected person has in their wallet.
+
+<!-- TODO: check whether this limiting part needed? -->
+Let us find the pmf of the Poisson distribution as the limit of the pmf of the binomial distribution. Recall that if $X \sim \operatorname{Bin}(n, p)$ then $P(X=x)=\left(\begin{array}{l}n \\ x\end{array}\right) p^{x}(1-p)^{n-x}$. Now:
+\begin{align*}
+P(X=x) &=\binom{n}{x} p^{x}(1-p)^{n-x} \\
+&=\binom{n}{x} \frac{n^{n}}{n^{n}} p^{x}(1-p)^{n-x} \\
+&=\frac{n(n-1) \cdots(n-x+1)}{n^{x} x !}(n p)^{x}(n(1-p))^{n-x} \frac{1}{n^{n-x}} \\
+&=\frac{n}{n} \frac{(n-1)}{n} \cdots \frac{(n-x+1)}{n} \frac{\lambda^{x}}{x !}\left(1-\frac{\lambda}{n}\right)^{n-x}\\
+&=\frac{n}{n} \frac{(n-1)}{n} \cdots \frac{(n-x+1)}{n} \frac{\lambda^{x}}{x !}\left(1-\frac{\lambda}{n}\right)^{n}\left(1-\frac{\lambda}{n}\right)^{-x}.
+\end{align*}
+Now it is easy to see that the above tends to
+\[e^{-\lambda} \frac{\lambda^{x}}{x!}\]
+as $n \rightarrow \infty$ for any fixed value of $x$ in the range $0,1,2, \ldots .$ Note that we have used the exponential limit:
+\[e^{-\lambda}=\lim _{n \rightarrow \infty}\left(1-\frac{\lambda}{n}\right)^{n},\]
+and
+\[ \lim _{n \rightarrow \infty}\left(1-\frac{\lambda}{n}\right)^{-x}=1\]
+and
+\[ \lim _{n \rightarrow \infty} \frac{n}{n} \frac{(n-1)}{n} \cdots \frac{(n-x+1)}{n}=1.\]
+A random variable $X$ has the Poisson distribution with parameter $\lambda$ if it has the pmf:
+\[P(X=x)=e^{-\lambda} \frac{\lambda^{x}}{x !}, \quad x=0,1,2, \ldots\]
+We write $X \sim \operatorname{Poisson}(\lambda)$. It is easy to show $\sum_{x=0}^{\infty} P(X=x)=1$, i.e. $\sum_{x=0}^{\infty} e^{-\lambda} \frac{\lambda^{x}}{x !}=1$. The identity you need is simply the expansion of $e^{\lambda}$.
+
+#### Expectation
+
+Let $X \sim \operatorname{Poisson}(\lambda)$. Then
+\begin{align*}
+E(X) &=\sum_{x=0}^{\infty} x P(X=x) \\
+&=\sum_{x=0}^{\infty} x e^{-\lambda} \frac{\lambda^{x}}{x^{!} !} \\
+&=e^{-\lambda} \sum_{x=1}^{\infty} x \frac{\lambda^{x}}{x !} \\
+&=e^{-\lambda} \sum_{x=1}^{\infty} \frac{\lambda \cdot \lambda^{(x-1)}}{(x-1) !} \\
+&=\lambda e^{-\lambda \sum_{x=1}^{\infty} \frac{\lambda^{(x-1)}}{(x-1) !}} \\
+&=\lambda e^{-\lambda} \sum_{y=0}^{\infty} \frac{\lambda^{y}}{y !}[y=x-1] \\
+&=\lambda e^{-\lambda} e^{\lambda} \quad [\text {using the expansion of $e^{\lambda}$}  \\
+&=\lambda .
+\end{align*}
+
+#### Variance
+Let $X \sim \operatorname{Poisson}(\lambda)$. Then
+\begin{align*}
+E[X(X-1)] &=\sum_{x=0}^{\infty} x(x-1) P(X=x) \\
+&=\sum_{x=0}^{\infty} x(x-1) e^{-\lambda} \frac{\lambda^{x}}{x^{\prime}} \\
+&=e^{-\lambda} \sum_{x=2}^{\infty} x(x-1) \frac{\lambda^{\lambda^{x}}}{x !} \\
+&=e^{-\lambda} \sum_{x=2}^{\infty} \lambda^{2} \frac{\lambda^{x-2}}{(x-2) !} \\
+&=\lambda^{2} e^{-\lambda} \sum_{y=0}^{\infty} \frac{\lambda^{y}}{y !}[y=x-2] \\
+&=\lambda^{2} e^{-\lambda} e^{\lambda}=\lambda^{2} \quad \text { [using the expansion of $e^{\lambda}$].} 
+\end{align*}
+<!-- TODO: remove square brackets in explanation in displays throughout -->
+Now, $E\left(X^{2}\right)=E[X(X-1)]+E(X)=\lambda^{2}+\lambda$. Hence,
+\[\operatorname{Var}(X)=E\left(X^{2}\right)-(E(X))^{2}=\lambda^{2}+\lambda-\lambda^{2}=\lambda.\]
+Hence, the mean and variance are the same for the Poisson distribution.
+
+#### Using R to calculate probabilities
+
+For the Poisson distribution the command 
+```{r, eval = FALSE}
+dpois(x=3, lambda=5)
+```
+calculates the pmf of $\operatorname{Poisson}(\lambda = 5)$ at $x = 3$. 
+That is, the command will return the value $P (X = 3) = e^{-5} \frac{5^3}{3!}$. The command `ppois`
+returns the cdf or the probability up to and including the argument. Thus 
+```{r, eval = FALSE}
+ppois(q=3, lambda=5)
+```
+will return the value of $P (X \leq 3)$ when $X \sim \operatorname{Poisson}(\lambda = 5)$.

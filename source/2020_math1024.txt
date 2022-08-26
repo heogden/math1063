@@ -5995,7 +5995,7 @@ P
 y=0 y! [y = x - 2]
 = λ2 e-λ eλ = λ2 [using the expansion of eλ ]
 Now, E(X 2 ) = E[X(X - 1)] + E(X) = λ2 + λ. Hence,
-Var(X) = E(X 2 ) - (E(X))2 = λ2 + λ - λ2 = λ.
+Var(X) = E(X 2 ) - (E(X))2 = \lambda2 + \lambda - \lambda2 = \lambda.
 Hence, the mean and variance are the same for the Poisson distribution.
 The Poisson distribution can be derived from another consideration when we are waiting for
 events to occur, e.g. waiting for a bus to arrive or to be served at a supermarket till. The number
@@ -6005,11 +6005,11 @@ waiting time for small time intervals. Such a process is called a Poisson proces
 that the waiting time between successive events can be modelled by the exponential distribution
 which is discussed in the next lecture.
 Using R to calculate probabilities
-For the Poisson distribution the command dpois(x=3, lambda=5) calculates the pmf of Poisson(λ =
+For the Poisson distribution the command dpois(x=3, lambda=5) calculates the pmf of Poisson(\lambda =
 3
 5) at x = 3. That is, the command will return the value P (X = 3) = e-5 53! . The command ppois
 returns the cdf or the probability up to and including the argument. Thus ppois(q=3, lambda=5)
-will return the value of P (X \leq 3) when X \sim Poisson(λ = 5).
+will return the value of P (X \leq 3) when X \sim Poisson(\lambda = 5).
 
 3.4.4
 
@@ -6238,13 +6238,13 @@ Note that the event X > s + t and X > t implies and is implied by X > s + t sinc
 
 ♥ Example 40 The time T between any two successive arrivals in a hospital emergency department has probability density function:
 
-λe-λt if t \geq 0
+\lambdae-\lambdat if t \geq 0
 f (t) =
 0
 otherwise.
 Historically, on average the mean of these inter-arrival times is 5 minutes. Calculate (i) P (0 < T <
 5), (ii) P (T < 10|T > 5).
-An estimate of E(T ) is 5. As E(T ) = λ1 we take 51 as the estimate of λ.
+An estimate of E(T ) is 5. As E(T ) = \lambda1 we take 51 as the estimate of \lambda.
 R5
 (i) P (0 < T < 5) = 0 15 e-t/5 dt = [-e-t/5 ]50 = 1 - e-1 = 0.63212.
 (ii)
@@ -7871,11 +7871,11 @@ A parametric statistical model specifies a probability distribution for a random
 the value of a number of parameters in that distribution. This could be confusing in the first
 instance - a parametric model does not specify parameters! Here the word parametric signifies the
 fact that the probability distribution is completely specified by a few parameters in the first place.
-For example, the Poisson distribution is parameterised by the parameter λ which happens to be the
+For example, the Poisson distribution is parameterised by the parameter \lambda which happens to be the
 mean of the distribution; the normal distribution is parameterised by two parameters, the mean µ
 and the variance \sigma^2 .
 When a parametric statistical model is assumed with some unknown parameters, statistical
-inference methods use data to estimate the unknown parameters, e.g. λ, µ, \sigma^2 . Estimation will be
+inference methods use data to estimate the unknown parameters, e.g. \lambda, µ, \sigma^2 . Estimation will be
 discussed in more detail in the following lectures.
 
 4.1.4
@@ -7897,7 +7897,7 @@ But how would you estimate P (X = 0)? Consider two approaches.
 above sample, which is 12 out of 104. Thus our estimate of P (X = 0) is 12/104. Hence,
 our estimate of the number of weeks when there will be at least one computer failure is
 52 \times (1 - 12/104) = 46.
-2. Parametric. Suppose we assume that X follows the Poisson distribution with parameter λ.
+2. Parametric. Suppose we assume that X follows the Poisson distribution with parameter \lambda.
 
 4 Statistical Inference
 
@@ -7907,12 +7907,12 @@ Then the answer to the above question is
 
 
 0
-52 \times (1 - P (X = 0)) = 52 \times 1 - e-λ λ0!
+52 \times (1 - P (X = 0)) = 52 \times 1 - e-\lambda \lambda0!
 
-= 52 \times 1 - e-λ
-which involves the unknown parameter λ. For the Poisson distribution we know that E(X) =
-λ. Hence we could use the sample mean \BAR X to estimate E(X) = λ. Thus our estimate
-λ̂ = \bar x = 3.75. This type of estimator is called a moment estimator. Now our answer is
+= 52 \times 1 - e-\lambda
+which involves the unknown parameter \lambda. For the Poisson distribution we know that E(X) =
+\lambda. Hence we could use the sample mean \BAR X to estimate E(X) = \lambda. Thus our estimate
+\lambdâ = \bar x = 3.75. This type of estimator is called a moment estimator. Now our answer is
 52 \times 1 - e-3.75 =52 * (1- exp(-3.75)) = 50.78 ≈ 51, which is very different compared
 to our answer of 46 from the nonparametric approach.
 
@@ -7923,7 +7923,7 @@ Should we prefer parametric or nonparametric and why?
 The parametric approach should be preferred if the assumption of the Poisson distribution can
 be justified for the data. For example, we can look at the data histogram or compare the fitted
 x
-probabilities of different values of X, i.e. P̂ (X = x) = e-λ̂ λ̂x! , with the relative frequencies from the
+probabilities of different values of X, i.e. P̂ (X = x) = e-\lambdâ \lambdâx! , with the relative frequencies from the
 sample. In general, often model-based analysis is preferred because it is more precise and accurate,
 and we can find estimates of uncertainty in such analysis based on the structure of the model. We
 shall see this later.
@@ -7945,15 +7945,15 @@ Lecture mission
 
 Once we have collected data and proposed a statistical model for our data, the initial statistical
 analysis usually involves estimation.
-- For a parametric model, we need to estimate the unknown (unspecified) parameter λ. For
+- For a parametric model, we need to estimate the unknown (unspecified) parameter \lambda. For
 example, if our model for the computer failure data is that they are i.i.d. Poisson, we need to
-estimate the mean (λ) of the Poisson distribution.
+estimate the mean (\lambda) of the Poisson distribution.
 - For a nonparametric model, we may want to estimate the properties of the data-generating
 distribution. For example, if our model for the computer failure data is that they are i.i.d.,
 following the distribution of an unspecified common random variable X, then we may want
 to estimate µ = E(X) or \sigma^2 = Var(X).
 In the following, we use the generic notation θ to denote the estimand (what we want to estimate
-or the parameter). For example, θ is the parameter λ in the first example, and θ may be either µ
+or the parameter). For example, θ is the parameter \lambda in the first example, and θ may be either µ
 or \sigma^2 or both in the second example.
 
 4 Statistical Inference
@@ -8446,10 +8446,10 @@ s.e.(\BAR X) = √
 104
 Note that this is 'a' standard error, so other standard errors may be available. Indeed, for parametric
 inference, where we make assumptions about f (x), alternative standard errors are available. For
-example, X_1 , \ldots , X_n are i.i.d. Poisson(λ) random q
-variables. E(X) = λ, so \BAR X is an unbiased
+example, X_1 , \ldots , X_n are i.i.d. Poisson(\lambda) random q
+variables. E(X) = \lambda, so \BAR X is an unbiased
 p
-estimator of λ. Var(X) = λ, so another s.e.(\BAR X) = λ̂/n = \bar x/n. In the computer failure data
+estimator of \lambda. Var(X) = \lambda, so another s.e.(\BAR X) = \lambdâ/n = \bar x/n. In the computer failure data
 q
 example, this is 3.75
 104 = 0.19.
@@ -8704,18 +8704,18 @@ to be
 If we can assume a distribution for X, i.e. a parametric model for X, then we can do slightly
 better in estimating the standard error of \BAR X and as a result we can improve upon the previously
 obtained 95% CI. Two examples follow.
-♥ Example 62 Poisson If X_1 , \ldots , X_n are modelled as i.i.d. Poisson(λ) randomq
+♥ Example 62 Poisson If X_1 , \ldots , X_n are modelled as i.i.d. Poisson(\lambda) randomq
 variables, then
 p
 2
 2
-µ = λ and \sigma = λ. We know Var(\BAR X) = \sigma /n = λ/n. Hence a standard error is λ̂/n = \bar x/n
+µ = \lambda and \sigma = \lambda. We know Var(\BAR X) = \sigma /n = \lambda/n. Hence a standard error is \lambdâ/n = \bar x/n
 
 4 Statistical Inference
 
 96
 
-since λ̂ = \BAR X is an unbiased estimator of λ. Thus a 95% CI for µ = λ is given by
+since \lambdâ = \BAR X is an unbiased estimator of \lambda. Thus a 95% CI for µ = \lambda is given by
 r
 \bar x
 \bar x ± 1.96
@@ -8723,7 +8723,7 @@ r
 n
 For the computer failure data, \bar x = 3.75, s = 3.381 and n = 104. Under the model that the data
 are observations of i.i.d. random variables following a Poisson distribution with population mean
-λ, we compute a 95% confidence interval for λ as
+\lambda, we compute a 95% confidence interval for \lambda as
 r
 p
 \bar x
@@ -8938,38 +8938,38 @@ standard error is insufficiently reliable. However, for larger n it is adequate.
 
 4.5.4
 
-Confidence interval for a Poisson λ by quadratic inversion
+Confidence interval for a Poisson \lambda by quadratic inversion
 
-Here we proceed as in the Bernoulli case and using the CLT claim that a 95% CI for λ is given by:
+Here we proceed as in the Bernoulli case and using the CLT claim that a 95% CI for \lambda is given by:
 P
 
 
 
-√ (\BAR X - λ)
+√ (\BAR X - \lambda)
 \leq 1.96 = 0.95
 -1.96 \leq n √
-λ
+\lambda
 
 ⇒P
 
 
 
-(\BAR X - λ)2
+(\BAR X - \lambda)2
 n
 \leq 1.962 = 0.95.
-λ
+\lambda
 
-Now the confidence interval for λ is found by solving the (quadratic) equality for λ by treating n, \bar x
+Now the confidence interval for \lambda is found by solving the (quadratic) equality for \lambda by treating n, \bar x
 and h to be known:
-(\bar x - λ)2
+(\bar x - \lambda)2
 = h2 ,
 where h = 1.96
-λ
-⇒ \bar x2 - 2λ\bar x + λ2 = h2 λ/n
+\lambda
+⇒ \bar x2 - 2\lambda\bar x + \lambda2 = h2 \lambda/n
 n
 
-⇒ λ2 - λ(2\bar x + h2 /n) + \bar x2 = 0.
-Hence, the endpoints of the 95% confidence interval for λ are:
+⇒ \lambda2 - \lambda(2\bar x + h2 /n) + \bar x2 = 0.
+Hence, the endpoints of the 95% confidence interval for \lambda are:
 
 
 2\bar x +
@@ -9271,7 +9271,7 @@ X_1 , \ldots , X_n \sim N (µ, \sigma^2 ) with µ 6= 0, \sigma^2 \in R+ .
 X_1 , \ldots , X_n \sim Bernoulli(p) with p = 12 .
 X_1 , \ldots , X_n \sim Bernoulli(p) with p 6= 12 .
 X_1 , \ldots , X_n \sim Bernoulli(p) with p > 12 .
-X_1 , \ldots , X_n \sim Poisson(λ) with λ = 1.
+X_1 , \ldots , X_n \sim Poisson(\lambda) with \lambda = 1.
 X_1 , \ldots , X_n \sim Poisson(θ) with θ > 1.
 
 4.7.3
@@ -9333,21 +9333,21 @@ which will imply:
 β = P (X < 0.75|θ = 2) = 0.75/2 = .
 8
 Here the notation | means given that.
-♥ Example 68 Poisson The daily demand for a product has a Poisson distribution with mean λ,
+♥ Example 68 Poisson The daily demand for a product has a Poisson distribution with mean \lambda,
 the demands on different days being statistically independent. It is desired to test the hypotheses
 
 4 Statistical Inference
 
 104
 
-H0 : λ = 0.7, H1 : λ = 0.3. The null hypothesis is to be accepted if in 20 days the number of days
+H0 : \lambda = 0.7, H1 : \lambda = 0.3. The null hypothesis is to be accepted if in 20 days the number of days
 with no demand is less than 15. Calculate the Type I and Type II error probabilities.
 Let p denote the probability that the demand on a given day is zero.
 Then
  -0.7
 e
 under H0
-p = e-λ =
+p = e-\lambda =
 e-0.3 under H1 .
 If X denotes the number of days out of 20 with zero demand, it follows that
 X \sim B(20, e-0.7 ) under H0 ,
@@ -10659,10 +10659,10 @@ Hint Consider the identity
 (1 + t)m (1 + t)n = (1 + t)m+n
 and compare the coefficients of tm+n on both sides. If this is hard, please try small values of m and
 n, e.g. 2, 3 and see what happens.
-Exercise 2. Hard Show that if X \sim Poisson(λ), Y \sim Poisson(µ) and X and Y are independent
+Exercise 2. Hard Show that if X \sim Poisson(\lambda), Y \sim Poisson(µ) and X and Y are independent
 random variables then
-X + Y \sim Poisson(λ + µ).
-Suppose X \sim Poisson(λ), Y \sim Poisson(µ), and let Z = X + Y . To determine the distribution
+X + Y \sim Poisson(\lambda + µ).
+Suppose X \sim Poisson(\lambda), Y \sim Poisson(µ), and let Z = X + Y . To determine the distribution
 
 A Mathematical Concepts Needed in MATH1024
 
@@ -10688,7 +10688,7 @@ X
 P \{Y = z - x\}P \{X = x\}
 
 
-e-µ µz-x /(z - x)! e-λ λx /x!
+e-µ µz-x /(z - x)! e-\lambda \lambdax /x!
 
 x=0
 
@@ -10697,42 +10697,42 @@ x=0
 =
 =
 
--µ-λ
+-µ-\lambda
 
 z
 X
 
 1
-λx µz-x
+\lambdax µz-x
 x! (z - x)!
 
 x=0
 z
--(λ+µ)
+-(\lambda+µ)
 X
 e
 
 z!
-e-(λ+µ)
+e-(\lambda+µ)
 z!
-e-(λ+µ)
+e-(\lambda+µ)
 z!
 
 z!
-λx µz-x
+\lambdax µz-x
 x! (z - x)!
 x=0
 z  
 X
 z x z-x
-λ µ
+\lambda µ
 x
 x=0
 
-(µ + λ)z (binomial sum).
+(µ + \lambda)z (binomial sum).
 
-Thus Z \sim Poisson(λ+µ) since the above is the probability mass function of the Poisson distribution
-with parameter λ + µ.
+Thus Z \sim Poisson(\lambda+µ) since the above is the probability mass function of the Poisson distribution
+with parameter \lambda + µ.
 
 A.5
 
@@ -10856,7 +10856,7 @@ P\infty
 
 x=0 e
 
--λ λx
+-\lambda \lambdax
 x!
 
 x2
@@ -10897,7 +10897,7 @@ dF (x)
 dx
 
 For example, consider the pair
-f (x) = λe-λx , F (x) = 1 - e-λx .
+f (x) = \lambdae-\lambdax , F (x) = 1 - e-\lambdax .
 Satisfy yourself that the fundamental theorem of calculus holds.
 
 A.7.2
@@ -11058,9 +11058,9 @@ Now we can easily tackle integrals such as the following:
 R\infty
 1. For fun try to evaluate 0 xα-1 e-βx dx for α > 0 and β > 0.
 R\infty
-2. Prove that 0 xe-λx dx = λ12 .
+2. Prove that 0 xe-\lambdax dx = \lambda12 .
 R\infty
-3. Prove that 0 x2 e-λx dx = λ23 .
+3. Prove that 0 x2 e-\lambdax dx = \lambda23 .
 Solution to the combinatorics problems.
 1.
 
@@ -11197,7 +11197,7 @@ otherwise.
 Obtain expressions for the mean and variance in terms of n. Given that the variance is 10,
 find n.
 87. [Poisson distribution] The number of incoming calls at a switchboard in one hour is Poisson
-distributed with mean λ = 8. The numbers arriving in non-overlapping time intervals are
+distributed with mean \lambda = 8. The numbers arriving in non-overlapping time intervals are
 statistically independent. Find the probability that in 10 non-overlapping one hour periods
 at least two of the periods have at least 15 calls.
 88. [Continuous distribution] The random variable X has probability density function
@@ -11216,7 +11216,7 @@ otherwise.
 (c) In 100 independent observations of X, how many on average will fall in the range (0, 12 )?
 89. [Exponential distribution] The random variable X has probability density function
 
-λe-λx if x \geq 0
+\lambdae-\lambdax if x \geq 0
 f (x) =
 0
 otherwise.
@@ -12045,48 +12045,48 @@ Z
 
 \infty
 
-xe-λx dx
+xe-\lambdax dx
 0
 Z
--λx \infty
+-\lambdax \infty
 = [-xe
 ]0 +
 
-E(X) = λ
+E(X) = \lambda
 
 \infty
 
-e-λx dx (integrating by parts)
+e-\lambdax dx (integrating by parts)
 
 0
 
 =0-
 
-1 -λx \infty
+1 -\lambdax \infty
 1
 [e
 ]0 = .
-λ
-λ
+\lambda
+\lambda
 
 B Worked Examples
 
 135
 
 (b)
-E(X 2 ) = λ
+E(X 2 ) = \lambda
 
 Z
 
 \infty
 
-x2 e-λx dx
+x2 e-\lambdax dx
 
 0
 
 =
 
-[-x2 e-λx ]\infty
+[-x2 e-\lambdax ]\infty
 0
 
 Z
@@ -12094,53 +12094,53 @@ Z
 
 \infty
 
-xe-λx dx
+xe-\lambdax dx
 
 0
 
 Therefore Var(X) =
 
 2
-λ2
+\lambda2
 
 -
 
 1
-λ2
+\lambda2
 
 2
 = 0 + 2 (using the first result)
-λ
+\lambda
 2
 = 2
-λ
+\lambda
 p
-= λ12 and \sigma = Var(X) = λ1 .
+= \lambda12 and \sigma = Var(X) = \lambda1 .
 
 (c) The mode is x = 0 since this value maximises f (x).
 (d) The median m is given by
 Z m
 1
 1
-λe-λx dx = , which implies that m = log(2).
+\lambdae-\lambdax dx = , which implies that m = log(2).
 2
-λ
+\lambda
 0
 If u and l denote the upper and lower quartiles,
 Z u
 Z l
 3
 1
--λx
-λe
+-\lambdax
+\lambdae
 dx = and
-λe-λx dx = ,
+\lambdae-\lambdax dx = ,
 4
 4
 0
 0
 
-which implies that u = λ1 log(4) and l = λ1 log 34 .
+which implies that u = \lambda1 log(4) and l = \lambda1 log 34 .
 The interquartile range equals
  
 1
@@ -12149,10 +12149,10 @@ The interquartile range equals
 1
 log(4) - log
 = log(3) = \sigma log(3).
-λ
-λ
+\lambda
+\lambda
 3
-λ
+\lambda
 R\infty
 90. (a) We must show that -\infty f (x) dx = 1 and f (x) \geq 0 for all x.
 R\infty

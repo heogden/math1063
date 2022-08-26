@@ -762,3 +762,4 @@ Hence the answer is $(1 - q^3 )pq^3$.
 :::
 
 <!-- TODO: consider whether to include old lecture 8 -->
+

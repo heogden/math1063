@@ -712,7 +712,7 @@ $P \{A \cap B \cap C\} = 2/8 \not = P \{A\}P \{B\}P \{C\} = 1/8$.
 So \@ref(eq:threewise-indep) does not hold and $A$, $B$ and $C$ are not
 independent.
 
-### Bernoulli trials 
+### Bernoulli trials {#bernoulli-trials}
 
 <!-- TODO: check for consistency in use of italics vs bold -->
 The notion of independent events naturally leads to a set of independent trials

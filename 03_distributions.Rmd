@@ -329,3 +329,200 @@ The proof of this is simple and is given below for the continuous case. In the d
 <!-- TODO: redo proof just using linearity of expectation? -->
 
 This is a very useful result, e.g. suppose $\operatorname{Var}(X)=25$ and $Y=-X+5,000,000$; then $\operatorname{Var}(Y)=$ $\operatorname{Var}(X)=25$ and the standard deviation, $\sigma=5$. In words a location shift, $b$, does not change variance but a multiplicative constant, $a$ say, gets squared in variance, $a^{2}$.
+
+## Standard discrete distributions
+
+In this section we will learn about the Bernoulli, binomial, hypergeometric and geometric 
+distributions and their properties.
+
+
+### Bernoulli distribution
+
+<!-- TODO: refer back to Bernoulli trials, S/F as below? -->
+<!-- TODO: describe parameter $p$ -->
+
+The Bernoulli distribution has pmf \[f(x)=p^{x}(1-p)^{1-x}, x=0,1.\]
+Hence \[E(X)=0 \cdot(1-p)+1 \cdot p=p,\]
+\[E\left(X^{2}\right)=0^{2} \cdot(1-p)+1^{2} \cdot p=p\] and
+\[\operatorname{Var}(X)=E\left(X^{2}\right)-(E(X))^{2}=p-p^{2}=p(1-p).\]
+Hence $\operatorname{Var}(X)<E(X)$.
+
+### Binomial distribution
+
+#### Introduction and definition
+Suppose that we have a sequence of $n$ Bernoulli trials (defined in Section \@ref(bernoulli-trials),
+e.g. coin tosses) such that we get a success $(S)$ or failure $(F)$ with probabilities $P\{S\}=p$ and $P\{F\}=1-p$ respectively. Let $X$ be the number of successes in the $n$ trials. Then $X$ is called a binomial random variable with parameters $n$ and $p$.
+
+An outcome of the experiment (of carrying out $n$ such independent trials) is represented by a sequence of $S$'s and $F$'s (such as $S S \ldots F S \ldots S F)$ 
+that comprises $x$ $S$ 's, and $(n-x)$ $F$ 's.
+The probability associated with this outcome is
+\[P\{S S \ldots F S \ldots S F\}=p p \cdots(1-p) p \cdots p(1-p)=p^{x}(1-p)^{n-x}.\]
+For this sequence, $X=x$, but there are many other sequences which will also give $X=x$. 
+In fact there are $\binom{n}{x}$ such sequences. Hence
+\[P(X=x)= \binom{n}{x} p^{x}(1-p)^{n-x}, x=0,1, \ldots, n .\]
+This is the pmf of the binomial Distribution with parameters $n$ and $p$, often written as $\operatorname{Bin}(n, p)$.
+<!-- TODO: describe $\sim$ notation -->
+
+How can we guarantee that $\sum_{x=0}^{n} P(X=x)=1$? This guarantee is provided by the binomial theorem:
+\[(a+b)^{n}=b^{n}+ \binom{n}{1} a b^{n-1}+\cdots+\binom{n}{x} a^x b^{n-x}+\cdots +a^{n}.\]
+To prove $\sum_{x=0}^{n} P(X=x)=1$, i.e. $\sum_{x=0}^{n}\binom{n}{x} p^{x}(1-p)^{n-x}=1$, 
+choose $a=p$ and $b=1-p$ in the binomial theorem.
+
+:::{.example #widgets}
+Suppose that widgets are manufactured in a mass production process with $1\%$
+defective. The widgets are packaged in bags of 10 with a money-back guarantee if more than 1
+widget per bag is defective. For what proportion of bags would the company have to provide a
+refund?
+
+First, we find the probability that a randomly selected bag has at most 1 defective
+widget. Let $X$ be the number of defective widgets in a bag, then 
+$X \sim \operatorname{Bin}(n = 10, p = 0.01).$
+So this
+probability is equal to
+\[P (X = 0) + P (X = 1) = (0.99)10 + 10(0.01)1 (0.99)9 = 0.9957.\]
+Hence the probability that a refund is required is $1 - 0.9957 = 0.0043$, 
+i.e. only just over 4 in 1000
+bags will incur the refund on average.
+:::
+
+:::{.example}
+A binomial random variable can also be described using the urn model. Suppose
+we have an urn (population) containing $N$ individuals, a proportion $p$ of which are of type $S$ and a
+proportion $1 - p$ of type $F$. If we select a sample of $n$ individuals at random with replacement,
+then the number, $X$, of type $S$ individuals in the sample follows the binomial distribution with
+parameters $n$ and $p$.
+:::
+
+#### Using R to calculate probabilities
+<!-- TODO:consider whether or not this should go into section structure -->
+
+Probabilities under all the standard distributions have been calculated in R and will be used
+throughout MATH1024. You will not be required to use any tables. 
+For the binomial distribution
+the command 
+```{r, eval = FALSE}
+dbinom(x=3, size=5, prob=0.34)
+```
+calculates the pmf of $\operatorname{Bin}(n = 5, p = 0.34)$ at $x=3$,
+with value $P (X = 3) = \binom{5}{3} (0.34)^3 (1 - 0.34)^{5-3}$. 
+The command `pbinom` returns the cdf or the probability up to
+and including the argument. Thus 
+```{r, eval = FALSE}
+pbinom(q=3, size=5, prob=0.34)
+```
+will return the value of
+$P (X \leq 3)$ when $X \sim \operatorname{Bin}(n = 5, p = 0.34)$. 
+As a check, in Example \@ref(exm:widgets), we may compute the probability
+that a randomly selected bag has at most 1 defective
+widget with the command
+```{r}
+pbinom(q=1, size=10, prob=0.01)
+```
+which matches our earlier calculations.
+
+#### Expectation 
+
+Let $X \sim \operatorname{Bin}(n, p)$. We have
+\[E(X)=\sum_{x=0}^{n} x P(X=x)=\sum_{x=0}^{n} x \binom{n}{x} p^{x}(1-p)^{n-x}.\]
+Below we prove that $E(X)=n p$. Recall that $k !=k(k-1) !$ for any $k>0$.
+\begin{align*}
+E(X) &=\sum_{x=0}^{n} x \binom{n}{x} p^{x}(1-p)^{n-x} \\
+&=\sum_{x=1}^{n} x \frac{(n ! x) !}{x !(n-x)} p^{x}(1-p)^{n-x} \\
+&=\sum_{x=1}^{n} \frac{n !}{(x-1) !(n-x) !} p^{x}(1-p)^{n-x} \\
+&=n p \sum_{x=1}^{n} \frac{(n-1) !}{(x-1) !(n-1-x+1) !} p^{x-1}(1-p)^{n-1-x+1} \\
+&=n p \sum_{y=0}^{n-1} \frac{(n-1) !}{(n) !(n-1) !-y) !} p^{y}(1-p)^{n-1-y} \\
+&=n p(p+1-p)^{n-1}=n p
+\end{align*}
+where we used the substitution $y=x-1$ and then the binomial theorem to conclude that the last sum is equal to $1 .$
+
+<!-- TODO: use pf trick rather than binomial theorem? -->
+
+#### Variance
+
+Let $X \sim \operatorname{Bin}(n, p)$. Then $\operatorname{Var}(X)=n p(1-p)$. 
+It is difficult to find $E\left(X^{2}\right)$ directly, but the factorial structure
+allows us to find $E[X(X-1)]$. Recall that $k !=k(k-1)(k-2) !$ for any $k>1$.
+\begin{align*}
+E[(X(X-1)]&=\sum_{x=0}^{n} x(x-1) \binom{n}{x} p^{x}(1-p)^{n-x} \\
+&=\sum_{x=2}^{n} x(x-1) \frac{n !}{x !(n-x) !} p^{x}(1-p)^{n-x} \\
+&=\sum_{x=2}^{n} \frac{n !}{(x-2) !(n-x) !} p^{x}(1-p)^{n-x} \\
+&=n(n-1) p^{2} \sum_{x=2}^{n} \frac{(n-2) !}{(x-2) !(n-2-x+2) !} p^{x-2}(1-p)^{n-2-x+2} \\
+&=n(n-1) p^{2} \sum_{y=0}^{n-2} \frac{(n-2) !}{(y) !(n-2-y) !} p^{y}(1-p)^{n-2-y} \\
+&=n(n-1) p^{2}(p+1-p)^{n-2} .
+\end{align*}
+<!-- TODO: use pf trick rather than binomial theorem? -->
+Now, $E\left(X^{2}\right)=E[X(X-1)]+E(X)=n(n-1) p^{2}+n p$. Hence,
+\[\operatorname{Var}(X)=E\left(X^{2}\right)-(E(X))^{2}=n(n-1) p^{2}+n p-(n p)^{2}=n p(1-p).\]
+It is illuminating to see these direct proofs. Later on we shall apply statistical theory to directly prove these! Notice that the binomial theorem is used repeatedly to prove the results.
+
+### Geometric distribution
+
+#### Introduction and definition
+Suppose that we have the same situation as for the binomial distribution but we consider a different r.v. $X$, which is defined as the number of trials that lead to the first success. The outcomes for this experiment are:
+\[\begin{array}{rll}
+S & X=1, & P(X=1)=p \\
+F S & X=2, & P(X=2)=(1-p) p \\
+F F S & X=3, & P(X=3)=(1-p)^{2} p \\
+F F F S & X=4, & P(X=4)=(1-p)^{3} p \\
+\vdots & \vdots &
+\end{array}\]
+In general we have
+\[P(X=x)=(1-p)^{x-1} p, x=1,2, \ldots\]
+This is called the **geometric** distribution, and it has a (countably) infinite domain starting at $1$ rather than $0$. We write $X \sim \operatorname{Geo}(p)$.
+Let us check that the probability function has the required property:
+\begin{align*}
+\sum_{x=1}^{\infty} P(X=x) &=\sum_{x=1}^{\infty}(1-p)^{x-1} p \\
+&=p \sum_{y=0}^{\infty}(1-p)^{y} \quad \text{[substitute  $y=x-1$]} \\
+&=p \frac{1}{1-(1-p)} \quad \text {[see Section ??] } \\
+&=1
+\end{align*}
+<!-- TODO: add reference or change to avoid using -->
+We can also find the probability that $X>k$ for some given natural number $k$ :
+\begin{align*}
+\sum_{x=k+1}^{\infty} P(X=x) &=\sum_{x=k+1}^{\infty}(1-p)^{x-1} p \\
+&=p\left[(1-p)^{k+1-1}+(1-p)^{k+2-1}+(1-p)^{k+3-1}+\ldots\right.\\
+&=p(1-p)^{k} \sum_{y=0}^{\infty}(1-p)^{y} \\
+&=(1-p)^{k}
+\end{align*}
+
+#### Memoryless property 
+
+Let $X$ follow the geometric distribution and suppose that $s$ and $k$ are positive integers. We then have
+\[P(X>s+k \mid X>k)=P(X>s).\]
+
+The proof is given below. In practice this means that the random variable does not remember its age (denoted by $k$) to determine how long more (denoted by $s$) it will survive! The proof below uses the definition of conditional probability
+\[P\{A \mid B\}=\frac{P\{A \cap B\}}{P\{B\}}.\]
+Now the proof,
+\begin{align*}
+P(X>s+k \mid X>k) &=\frac{P(X>s+k, X>k)}{P(X>k)} \\
+&=\frac{P(X>s+k)}{P(X>k)} \\
+&=\frac{(1-p)^{s+k}}{(1-p)^{k}} \\
+&=(1-p)^{s},
+\end{align*}
+which does not depend on $k$. Note that the event $X>s+k$ and $X>k$ implies and is implied by $X>s+k$ since $s>0$.
+
+
+#### Expectation and variance
+Let $X \sim \operatorname{Geo}(p)$. We can show that $E(X)=p$ using the negative binomial series, 
+see Section ???, as follows:
+<!-- TODO: insert reference to negative binomial series (or avoid use) -->
+\begin{align*}
+E(X) &=\sum_{x=1}^{\infty} x P(X=x) \\
+&=\sum_{x=1}^{\infty} x p(1-p)^{x-1} \\
+&=p\left[1+2(1-p)+3(1-p)^{2}+4(1-p)^{3}+\ldots\right]
+\end{align*}
+For $n>0$ and $|x|<1$, the negative binomial series is given by:
+\[(1-x)^{-n}=1+n x+\frac{1}{2} n(n+1) x^{2}+\frac{1}{6} n(n+1)(n+2) x^{3}+\cdots+\frac{n(n+1)(n+2) \cdots(n+k-1)}{k !} x^{k}+\cdots\]
+With $n=2$ and $x=1-p$ the general term is given by:
+\[\frac{n(n+1)(n+2)(n+k-1)}{k !}=\frac{2 \times 3 \times 4 \times \cdots \times(2+k-1)}{k !}=k+1.\]
+Thus $E(X)=p(1-1+p)^{-2}=1 / p$. It can be shown that $\operatorname{Var}(X)=(1-p) / p^{2}$ using negative binomial series. But this is more complicated and is not required here. 
+The second-year module MATH2011 will provide an alternative proof.
+
+### Hypergeometric distribution
+
+Suppose we have an urn (population) containing $N$ individuals, a proportion $p$ of which are of type $S$ and a proportion $1-p$ of type $F$. If we select a sample of $n$ individuals at random without replacement, then the number, $X$, of type $S$ individuals in the sample has the hypergeometric distribution,
+with pmf
+\[P(X=x)=\frac{\binom{Np}{x} \binom{N(1-p)}{n-x}}{\binom{N}{n}}, \quad x=0,1, \ldots, n,\]
+assuming that $x \leq N p$ and $n-x \leq N(1-p)$ so that the above combinations are well defined. 
+The mean and variance of the hypergeometric distribution are given by
+\[E(X)=n p, \quad \operatorname{Var}(X)=n p q \frac{N-n}{N-1}.\]

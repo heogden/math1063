@@ -5471,7 +5471,7 @@ defective. The widgets are packaged in bags of 10 with a money-back guarantee if
 widget per bag is defective. For what proportion of bags would the company have to provide a
 refund?
 Firstly, we want to find the probability that a randomly selected bag has at most 1 defective
-widget. Note that the number of defective widgets in a bag X, X ∼ Bin(n = 10, p = 0.01). So, this
+widget. Note that the number of defective widgets in a bag X, X \sim Bin(n = 10, p = 0.01). So, this
 probability is equal to
 P (X = 0) + P (X = 1) = (0.99)10 + 10(0.01)1 (0.99)9 = 0.9957.
 Hence the probability that a refund is required is 1 - 0.9957 = 0.0043, i.e. only just over 4 in 1000
@@ -5488,7 +5488,7 @@ the command dbinom(x=3, size=5, prob=0.34) calculates the pmf of Bin(n = 5, p = 
 x = 3. That is, the command dbinom(x=3, size=5, prob=0.34) will return the value P (X =
 3) = 53 (0.34)3 (1 - 0.34)5-3 . The command pbinom returns the cdf or the probability up to
 and including the argument. Thus pbinom(q=3, size=5, prob=0.34) will return the value of
-P (X \leq 3) when X ∼ Bin(n = 5, p = 0.34). As a check, in the above example the command is
+P (X \leq 3) when X \sim Bin(n = 5, p = 0.34). As a check, in the above example the command is
 pbinom(q=1, size=10, prob=0.01), which returns 0.9957338.
 ♥ Example 33 A binomial random variable can also be described using the urn model. Suppose
 we have an urn (population) containing N individuals, a proportion p of which are of type S and a
@@ -5496,7 +5496,7 @@ proportion 1 - p of type F . If we select a sample of n individuals at random wi
 then the number, X, of type S individuals in the sample follows the binomial distribution with
 parameters n and p.
 Mean of the Binomial distribution
-Let X ∼ Bin(n, p). We have
+Let X \sim Bin(n, p). We have
 E(X) =
 
 n
@@ -5539,7 +5539,7 @@ Pn-1 (n-1)!
 where we used the substitution y = x - 1 and then the binomial theorem to conclude that the last
 sum is equal to 1.
 Variance of the Binomial distribution
-Let X ∼ Bin(n, p). Then Var(X) = np(1 - p). It is difficult to find E(X 2 ) directly, but the factorial
+Let X \sim Bin(n, p). Then Var(X) = np(1 - p). It is difficult to find E(X 2 ) directly, but the factorial
 structure allows us to find E[X(X - 1)]. Recall that k! = k(k - 1)(k - 2)! for any k > 1.
 
 Pn
@@ -5606,7 +5606,7 @@ X = 4, P (X = 4) = (1 - p)3 p
 In general we have
 P (X = x) = (1 - p)x-1 p, x = 1, 2, \ldots
 This is called the geometric distribution, and it has a (countably) infinite domain starting at 1 not
-0. We write X ∼Geo(p).
+0. We write X \simGeo(p).
 Let us check that the probability function has the required property:
 \infty
 X
@@ -5695,7 +5695,7 @@ P (X>k)
 which does not depend on k. Note that the event X > s + k and X > k implies and is implied by
 X > s + k since s > 0.
 Mean and variance of the Geometric distribution
-Let X ∼Geo(p). We can show that E(X) = p using the negative binomial series, see Section A.5,
+Let X \simGeo(p). We can show that E(X) = p using the negative binomial series, see Section A.5,
 as follows:
 P
 E(X) = P\infty
@@ -5843,7 +5843,7 @@ a randomly selected first-year student; the number of credit cards a randomly se
 in their wallet.
 Let us find the pmf of the Poisson distribution as
  the limit of the pmf of the binomial distribution.
-Recall that if X ∼ Bin(n, p) then P (X = x) = nx px (1 - p)n-x . Now:
+Recall that if X \sim Bin(n, p) then P (X = x) = nx px (1 - p)n-x . Now:
 P (X = x) =
 =
 =
@@ -5929,7 +5929,7 @@ A random variable X has the Poisson distribution with parameter λ if it has the
 x!
 P
 P\infty -λ λx
-We write X ∼ Poisson(λ). It is trivial to show \infty
+We write X \sim Poisson(λ). It is trivial to show \infty
 x=0 P (X = x) = 1, i.e.
 x=0 e
 x! = 1. The
@@ -5941,7 +5941,7 @@ P (X = x) = e-λ
 57
 
 Mean of the Poisson distribution
-Let X ∼ Poisson(λ). Then
+Let X \sim Poisson(λ). Then
 P\infty
 E(X) =
 xP (X = x)
@@ -5970,7 +5970,7 @@ y=0 y! [y = x - 1]
 = λe-λ eλ [using the expansion of eλ ]
 = λ.
 Variance of the Poisson distribution
-Let X ∼ Poisson(λ). Then
+Let X \sim Poisson(λ). Then
 P\infty
 x(x - 1)P (X = x)
 E[X(X - 1)] =
@@ -6009,7 +6009,7 @@ For the Poisson distribution the command dpois(x=3, lambda=5) calculates the pmf
 3
 5) at x = 3. That is, the command will return the value P (X = 3) = e-5 53! . The command ppois
 returns the cdf or the probability up to and including the argument. Thus ppois(q=3, lambda=5)
-will return the value of P (X \leq 3) when X ∼ Poisson(λ = 5).
+will return the value of P (X \leq 3) when X \sim Poisson(λ = 5).
 
 3.4.4
 
@@ -6041,7 +6041,7 @@ if x > 0
 f (x) =
 0
 if x \leq 0
-where θ > 0 is a parameter. We write X ∼ Exponential(θ). The distribution only resides in the
+where θ > 0 is a parameter. We write X \sim Exponential(θ). The distribution only resides in the
 positive half of the real line, and the tail goes down to zero exponentially as x \rightarrow \infty. The rate at
 which that happens is the parameter θ. Hence θ is known as the rate parameter.
 R\infty
@@ -6114,7 +6114,7 @@ Using R to calculate probabilities
 For the exponential distribution the command dexp(x=3, rate=1/2) calculates the pdf at
 x = 3. The rate parameter to be supplied is the θ parameter here. The command pexp returns the
 cdf or the probability up to and including the argument. Thus pexp(q=3, rate=1/2) will return
-the value of P (X \leq 3) when X ∼ Exponential(θ = 0.5).
+the value of P (X \leq 3) when X \sim Exponential(θ = 0.5).
 ♥ Example 36 Mobile phone Suppose that the lifetime of a phone (e.g. the time until the
 phone does not function even after repairs), denoted by X, manufactured by the company A Pale,
 is exponentially distributed with mean 550 days.
@@ -6386,10 +6386,10 @@ R\infty 1
 
 To prove R2, i.e. E(X) = µ, we prove the following two results:
 
-(i)X ∼ N (µ, \sigma^2 ) ←\rightarrow Z ≡
+(i)X \sim N (µ, \sigma^2 ) ←\rightarrow Z ≡
 
 X -µ
-∼ N (0, 1)
+\sim N (0, 1)
 \sigma
 
 (ii) E(Z) = 0.
@@ -6440,7 +6440,7 @@ for - \infty < z < \infty,
 dz
 2
 2π
-by the fundamental theorem of calculus. This proves that Z ∼ N (0, 1). The converse is proved just
+by the fundamental theorem of calculus. This proves that Z \sim N (0, 1). The converse is proved just
 by reversing the steps. Thus we have proved (i) above. We use the Φ(·) notation to denote the cdf
 of the standard normal distribution. Now:
 E(Z) =
@@ -6519,7 +6519,7 @@ R\infty 3
 
 as we hoped for! This proves R3.
 Linear transformation of a Normal random variable
-Suppose X ∼ N (µ, \sigma^2 ) and a and b are constants. Then the distribution of Y = aX + b is
+Suppose X \sim N (µ, \sigma^2 ) and a and b are constants. Then the distribution of Y = aX + b is
 N (aµ + b, a2 \sigma^2 ).
 Proof: The result that Y has mean aµ + b and variance a2 \sigma^2 can already be claimed from
 the linearity of the expectations and the variance result for linear functions. What remains to be
@@ -6556,7 +6556,7 @@ normal distribution, often denoted by Z, is used to calculate probabilities of i
 
 65
 
-distribution because of the following reasons. Suppose X ∼ N (µ, \sigma^2 ) and we are interested in finding
+distribution because of the following reasons. Suppose X \sim N (µ, \sigma^2 ) and we are interested in finding
 P (a \leq X \leq b) for two constants a and b.
 P (a \leq X \leq b) =
 =
@@ -6650,7 +6650,7 @@ for positive z values. Suppose a > 0, then
 In R, we use the function pnorm to calculate the probabilities. The general function is: pnorm(q,
 mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE). So, we use the command pnorm(1)
 to calculate Φ(1) = P (Z \leq 1). We can also use the command pnorm(15, mean=10, sd=2) to
-calculate P (X \leq 15) when X ∼ N (µ = 10, \sigma^2 = 4) directly.
+calculate P (X \leq 15) when X \sim N (µ = 10, \sigma^2 = 4) directly.
 1. P (-1 < Z < 1) = Φ(1) - Φ(-1) = 0.6827. This means that 68.27% of the probability lies
 within 1 standard deviation of the mean.
 2. P (-2 < Z < 2) = Φ(2) - Φ(-2) = 0.9545. This means that 95.45% of the probability lies
@@ -6684,7 +6684,7 @@ pnorm(25, mean=58, sd=32.25) = 0.1531. Ouch!
 of marks was N (42, 142 ). The school's policy is to present scaled marks whose distribution is
 N (50, 152 ). What linear transformation should the lecturer apply to the raw marks to accomplish
 this and what would the raw mark of 40 be transformed to?
-Suppose X ∼ N (µx = 42, \sigmax2 = 142 ) and Y ∼ N (µy = 50, \sigmay2 = 152 ). Hence, we should have
+Suppose X \sim N (µx = 42, \sigmax2 = 142 ) and Y \sim N (µy = 50, \sigmay2 = 152 ). Hence, we should have
 Z=
 
 Y - µy
@@ -6711,7 +6711,7 @@ Y = 50 +
 14
 
 ♥ Example 43 Log-normal distribution
-If X ∼ N (µ, \sigma^2 ) then the random variable Y = exp(X) is called a log-normal random variable
+If X \sim N (µ, \sigma^2 ) then the random variable Y = exp(X) is called a log-normal random variable
 and its distribution is called a log-normal distribution with parameters µ and \sigma^2 .
 
 3 Random Variables and Their Probability Distributions
@@ -7406,7 +7406,7 @@ for any set of events, A1 , A2 , \ldots An . That is, the joint probability can 
 of individual probabilities. An example of this for n = 2 was given in the previous lecture; see the
 discussion just below the paragraph Consequences of independence.
 ♥ Example 52 Distribution of the sum of independent binomial random variables
-Suppose X ∼ Bin(m, p) and Y ∼ Bin(n, p) independently. Note that p is the same in both distributions. Using the above fact that joint probability is the multiplication of individual probabilities,
+Suppose X \sim Bin(m, p) and Y \sim Bin(n, p) independently. Note that p is the same in both distributions. Using the above fact that joint probability is the multiplication of individual probabilities,
 we can conclude that Z = X + Y has the binomial distribution. It is intuitively clear that this
 should happen since X comes from m Bernoulli trials and Y comes from n Bernoulli trials independently, so Z comes from m + n Bernoulli trials with common success probability p. We can prove
 the result mathematically as well, by finding the probability mass function of Z = X + Y directly
@@ -7462,7 +7462,7 @@ the individual random variables.
 The second result is only true for independent random variables, e.g. random samples. Now we
 will consider many examples.
 ♥ Example 53 Mean and variance of binomial distribution
-Suppose Y ∼ Bin(n, p). Then we can write:
+Suppose Y \sim Bin(n, p). Then we can write:
 Y = X_1 + X2 + \ldots + X_n
 where each Xi is an independent Bernoulli trial with success probability p. We have shown before
 that, E(Xi ) = p and Var(Xi ) = p(1 - p) by direct calculation. Now the above two results imply
@@ -7492,11 +7492,11 @@ and
 Var(Y ) = Var(X_1 ) + · · · + Var(Xr ) = (1 - p)/p2 + · · · + (1 - p)/p2 = r(1 - p)/p2 .
 
 ♥ Example 55 Sum of independent Normal random variables
-Suppose that Xi ∼ N (µi , \sigmai2 ), i = 1, 2, \ldots , k are independent random variables. Let a1 , a2 , \ldots , ak
+Suppose that Xi \sim N (µi , \sigmai2 ), i = 1, 2, \ldots , k are independent random variables. Let a1 , a2 , \ldots , ak
 be constants and suppose that
 Y = a1 X_1 + · · · + ak Xk .
 Then we can prove that:
-Y ∼N
+Y \simN
 
 k
 X
@@ -7523,13 +7523,13 @@ i=1 ai µi and Var(Y ) =
 distribution cannot yet be proved with the theory we know. This proof will be provided in the
 second-year distribution theory module MATH2011.
 As a consequence of the stated result we can easily see the following. Suppose X_1 and X2 are
-independent N (µ, \sigma^2 ) random variables. Then 2X_1 ∼ N (2µ, 4\sigma^2 ), X_1 + X2 ∼ N (2µ, 2\sigma^2 ), and
-X_1 - X2 ∼ N (0, 2\sigma^2 ). Note that 2X_1 and X_1 + X2 have different distributions.
-Suppose that Xi ∼ N (µ, \sigma^2 ), i = 1, \ldots , n are independent. Then
-X_1 + · · · + X_n ∼ N (nµ, n\sigma^2 ),
+independent N (µ, \sigma^2 ) random variables. Then 2X_1 \sim N (2µ, 4\sigma^2 ), X_1 + X2 \sim N (2µ, 2\sigma^2 ), and
+X_1 - X2 \sim N (0, 2\sigma^2 ). Note that 2X_1 and X_1 + X2 have different distributions.
+Suppose that Xi \sim N (µ, \sigma^2 ), i = 1, \ldots , n are independent. Then
+X_1 + · · · + X_n \sim N (nµ, n\sigma^2 ),
 and consequently,
 1
-\BAR X = (X_1 + · · · + X_n ) ∼ N
+\BAR X = (X_1 + · · · + X_n ) \sim N
 n
 
 3.9.3
@@ -7600,7 +7600,7 @@ This also implies that \BAR X = n1 Y also follows the normal distribution approx
 size n \rightarrow \infty. In particular, if µi = µ and \sigmai2 = \sigma^2 , i.e. all means are equal and all variances are
 equal, then the CLT states that, as n \rightarrow \infty,
 
-\BAR X ∼ N
+\BAR X \sim N
 Equivalently,
 
 √
@@ -7613,7 +7613,7 @@ n
 .
 
 n(\BAR X - µ)
-∼ N (0, 1)
+\sim N (0, 1)
 \sigma
 
 as n \rightarrow \infty. The notion of convergence is explained by the convergence of distribution of \BAR X to that
@@ -7682,7 +7682,7 @@ np(1 - p)
 
 )
 
-where Z ∼ N (0, 1).
+where Z \sim N (0, 1).
 We should take account of the fact that the binomial random variable Y is integer-valued, and
 so P (y1 \leq Y \leq y2 ) = P (y1 - f1 \leq Y \leq y2 + f2 ) for any two fractions 0 < f1 , f2 < 1. This is called
 
@@ -7849,7 +7849,7 @@ i.i.d. for short).
 
 A fully specified model
 
-Sometimes a model completely specifies the probability distribution of X_1 , X2 , \ldots , X_n . For example, if we assume that the waiting time X ∼ N (µ, \sigma^2 ) where µ = 100, and \sigma^2 = 100, then this
+Sometimes a model completely specifies the probability distribution of X_1 , X2 , \ldots , X_n . For example, if we assume that the waiting time X \sim N (µ, \sigma^2 ) where µ = 100, and \sigma^2 = 100, then this
 is a fully specified model. In this case, there is no need to collect any data as there is no need
 
 4 Statistical Inference
@@ -8151,7 +8151,7 @@ n
 
 where Var(X) is the variance of the population sampled from. Returning to our example, we know
 θ2
-that if X ∼ U [0, θ] then Var(X) = 12
+that if X \sim U [0, θ] then Var(X) = 12
 . Therefore we have:
  
 
@@ -8522,12 +8522,12 @@ It is common to present intervals with high confidence levels, usually 90%, 95% 
 Confidence interval for a normal mean
 
 Let X_1 , \ldots , X_n be i.i.d. N (µ, \sigma^2 ) random variables. We know that from CLT Lecture 14
-\BAR X ∼ N (µ, \sigma^2 /n)
+\BAR X \sim N (µ, \sigma^2 /n)
 
 ⇒
 
 √ (\BAR X - µ)
-∼ N (0, 1).
+\sim N (0, 1).
 n
 \sigma
 
@@ -8671,7 +8671,7 @@ n
 
 approx
 
-∼
+\sim
 
 N (0, 1) as n \rightarrow \infty.
 
@@ -9100,7 +9100,7 @@ i=1
 Then, it can be shown (and will be in MATH2011) that
 √ (\BAR X - µ)
 n
-∼ tn-1 ,
+\sim tn-1 ,
 S
 
 .
@@ -9265,14 +9265,14 @@ probability distribution f (x; θ) where θ < 0. This is not a completely specif
 is not possible to calculate probabilities such as P (X_1 < 2) when the hypothesis is true, as we do
 not know the exact value of θ. Such an hypothesis is called a composite hypothesis.
 Examples of hypotheses:
-X_1 , \ldots , X_n ∼ N (µ, \sigma^2 ) with µ = 0, \sigma^2 = 2.
-X_1 , \ldots , X_n ∼ N (µ, \sigma^2 ) with µ = 0, \sigma^2 \in R+ .
-X_1 , \ldots , X_n ∼ N (µ, \sigma^2 ) with µ 6= 0, \sigma^2 \in R+ .
-X_1 , \ldots , X_n ∼ Bernoulli(p) with p = 12 .
-X_1 , \ldots , X_n ∼ Bernoulli(p) with p 6= 12 .
-X_1 , \ldots , X_n ∼ Bernoulli(p) with p > 12 .
-X_1 , \ldots , X_n ∼ Poisson(λ) with λ = 1.
-X_1 , \ldots , X_n ∼ Poisson(θ) with θ > 1.
+X_1 , \ldots , X_n \sim N (µ, \sigma^2 ) with µ = 0, \sigma^2 = 2.
+X_1 , \ldots , X_n \sim N (µ, \sigma^2 ) with µ = 0, \sigma^2 \in R+ .
+X_1 , \ldots , X_n \sim N (µ, \sigma^2 ) with µ 6= 0, \sigma^2 \in R+ .
+X_1 , \ldots , X_n \sim Bernoulli(p) with p = 12 .
+X_1 , \ldots , X_n \sim Bernoulli(p) with p 6= 12 .
+X_1 , \ldots , X_n \sim Bernoulli(p) with p > 12 .
+X_1 , \ldots , X_n \sim Poisson(λ) with λ = 1.
+X_1 , \ldots , X_n \sim Poisson(θ) with θ > 1.
 
 4.7.3
 
@@ -9350,20 +9350,20 @@ under H0
 p = e-λ =
 e-0.3 under H1 .
 If X denotes the number of days out of 20 with zero demand, it follows that
-X ∼ B(20, e-0.7 ) under H0 ,
-X ∼ B(20, e-0.3 ) under H1 .
+X \sim B(20, e-0.7 ) under H0 ,
+X \sim B(20, e-0.3 ) under H1 .
 Thus
 α = P (Reject H0 |H0 true)
-= P (X \geq 15|X ∼ B(20, e-0.7 ))
-= 1 - P (X \leq 14|X ∼ B(20, 0.4966))
+= P (X \geq 15|X \sim B(20, e-0.7 ))
+= 1 - P (X \leq 14|X \sim B(20, 0.4966))
 = 1 - 0.98028
 = 0.01923 (1-pbinom(14,size=20,prob=0.4966) in R).
 Furthermore
 β = P (Accept H0 |H1 true)
-= P (X \leq 14|X ∼ B(20, e-0.3 ))
-= P (X \leq 14|X ∼ B(20, 0.7408))
-= P (Y \geq 6|Y ∼ B(20, 0.2592))
-= 1 - P (Y \leq 5|Y ∼ B(20, 0.2592))
+= P (X \leq 14|X \sim B(20, e-0.3 ))
+= P (X \leq 14|X \sim B(20, 0.7408))
+= P (Y \geq 6|Y \sim B(20, 0.2592))
+= 1 - P (Y \leq 5|Y \sim B(20, 0.2592))
 = 1 - 0.58022
 = 0.42023 (1-pbinom(5,size=20,prob=0.2592) in R).
 Sometimes α is called the size (or significance level) of the test and ω ≡ 1 - β is called the
@@ -9414,12 +9414,12 @@ H1 : µ 6= µ0 .
 We recall that
 
 √ (\BAR X - µ)
-∼ tn-1
+\sim tn-1
 n
 S
 and therefore, when H0 is true, often written as under H0 ,
 √ (\BAR X - µ0 )
-∼ tn-1
+\sim tn-1
 n
 S
 
@@ -9662,7 +9662,7 @@ p-value examples
 
 In the fast food example, a test of H0 : µ = 60 resulted in a test statistic t = 1.91. Then the p-value
 is given by:
-p = P (T > 1.91) = 0.036, when T ∼ t19 .
+p = P (T > 1.91) = 0.036, when T \sim t19 .
 This is the area of the shaded region in the figure overleaf. In R it is: 1 - pt(1.91, df=19). The
 p-value 0.036 indicates some evidence against the manager's claim at the 5% level of significance
 but not the 1% level of significance. In the graph, what would be the area under the curve to the
@@ -9675,7 +9675,7 @@ right of of the red line?
 When the alternative hypothesis is two-sided the p-value has to be calculated from P (|T | > tobs ),
 where tobs is the observed value and T follows the t-distribution with n - 1 df. For the weight gain
 example, because the alternative is two-sided, the p-value is given by:
-p = P (|T | > 7.41) = 2.78 \times 10-10 ≈ 0.0, when T ∼ t67 .
+p = P (|T | > 7.41) = 2.78 \times 10-10 ≈ 0.0, when T \sim t67 .
 This very small p-value for the second example indicates very strong evidence against the null
 hypothesis of no weight gain in the first year of university.
 
@@ -9715,12 +9715,12 @@ Suppose that we observe two samples of data, x_1 , \ldots , x_n and y1 , \ldots 
 model them as observations of
 i.i.d.
 2
-X_1 , \ldots , X_n ∼ N (µX , \sigmaX
+X_1 , \ldots , X_n \sim N (µX , \sigmaX
 )
 and
 i.i.d.
 
-Y1 , \ldots , Ym ∼ N (µY , \sigmaY2 )
+Y1 , \ldots , Ym \sim N (µY , \sigmaY2 )
 respectively, where it is also assumed that the X and Y variables are independent of each other.
 Suppose that we want to test the hypothesis that the distributions of X and Y are identical, that
 is
@@ -9738,14 +9738,14 @@ Two sample t-test statistic
 
 In the probability lectures we proved that
 2
-\BAR X ∼ N (µX , \sigmaX
+\BAR X \sim N (µX , \sigmaX
 /n)
 
 and therefore
 
-\BAR X - Ȳ ∼ N
+\BAR X - Ȳ \sim N
 
-and Ȳ ∼ N (µY , \sigmaY2 /m)
+and Ȳ \sim N (µY , \sigmaY2 /m)
 \sigma2
 \sigma2
 µX - µ Y , X + Y
@@ -9756,7 +9756,7 @@ m
 .
 
 Hence, under H0 ,
-\BAR X - Ȳ ∼ N
+\BAR X - Ȳ \sim N
 
 
 
@@ -9771,7 +9771,7 @@ r
 ⇒
 
 nm (\BAR X - Ȳ )
-∼ N (0, 1).
+\sim N (0, 1).
 n+m
 \sigma
 
@@ -9793,7 +9793,7 @@ then
 r
 
 nm (\BAR X - Ȳ )
-∼ tn+m-2 .
+\sim tn+m-2 .
 n+m
 S
 
@@ -10659,10 +10659,10 @@ Hint Consider the identity
 (1 + t)m (1 + t)n = (1 + t)m+n
 and compare the coefficients of tm+n on both sides. If this is hard, please try small values of m and
 n, e.g. 2, 3 and see what happens.
-Exercise 2. Hard Show that if X ∼ Poisson(λ), Y ∼ Poisson(µ) and X and Y are independent
+Exercise 2. Hard Show that if X \sim Poisson(λ), Y \sim Poisson(µ) and X and Y are independent
 random variables then
-X + Y ∼ Poisson(λ + µ).
-Suppose X ∼ Poisson(λ), Y ∼ Poisson(µ), and let Z = X + Y . To determine the distribution
+X + Y \sim Poisson(λ + µ).
+Suppose X \sim Poisson(λ), Y \sim Poisson(µ), and let Z = X + Y . To determine the distribution
 
 A Mathematical Concepts Needed in MATH1024
 
@@ -10731,7 +10731,7 @@ x=0
 
 (µ + λ)z (binomial sum).
 
-Thus Z ∼ Poisson(λ+µ) since the above is the probability mass function of the Poisson distribution
+Thus Z \sim Poisson(λ+µ) since the above is the probability mass function of the Poisson distribution
 with parameter λ + µ.
 
 A.5
@@ -12970,7 +12970,7 @@ title("A scatter plot of the weights in Week 12 against the weights in Week 1")
 the first and third quartiles but not beyond the distance 1.5 times the inter-quartile range.
 Points beyond the two whiskers are suspected outliers and are plotted individually.
 - boxplot(ffood) generates two boxplots side-by-side: one for the AM service times and the
-other for the PM service times. Try boxplot(data=bill, wealth ∼ region, col=2:6)
+other for the PM service times. Try boxplot(data=bill, wealth \sim region, col=2:6)
 - Various parameters of the plot are controlled by the par command. To learn about these
 type ?par.
 
@@ -13208,12 +13208,12 @@ the comments after the # sign, i.e. you do not have to type those in.
 - hist(bill$wealth, nclass=20) # produces a more detailed plot.
 - hist(bill$wealth, nclass=20, xlab="Wealth",
 main="Histogram of wealth of billionaires") # produces a more detailed plot.
-- boxplot(data=bill, wealth∼region, col=2:6) # Side by side box plots of wealth by
-region. The ∼ notation in R has a left hand side and a right hand side. In the left hand side
+- boxplot(data=bill, wealth\simregion, col=2:6) # Side by side box plots of wealth by
+region. The \sim notation in R has a left hand side and a right hand side. In the left hand side
 we put the variable which goes in the y-axis and the right hand side may contain the formula
-terms which go in the x-axis, y ∼ x, y ∼ x_1 + x2. These two are examples of what is called
+terms which go in the x-axis, y \sim x, y \sim x_1 + x2. These two are examples of what is called
 a formula in R, which we use in regression (or curve fitting).
-- boxplot(data=bill, age∼region, col=2:6) # Age distribution of the wealthy by region.
+- boxplot(data=bill, age\simregion, col=2:6) # Age distribution of the wealthy by region.
 - plot(bill$age, bill$wealth) # Very dull plot.
 - plot(bill$age, bill$wealth, xlab="Age", ylab="Wealth", pch="*") # A bit better.
 - plot(bill$age, bill$wealth, xlab="Age", ylab="Wealth", type="n") # Lays the plot

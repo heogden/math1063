@@ -125,6 +125,33 @@ $f(x)$ which we call its probability density function, abbreviated as its pdf. W
 probabilities as integrals, e.g.
 \[P (a < X < b) = \int_a^b f (u) du,\]
 which is naturally interpreted as the area under the curve $f (x)$ inside the interval $(a, b)$. 
+This is demonstrated in Figure \@ref(fig:interval-probs-from-pdf).
 Recall
 that we do not use $f (x) = P (X = x)$ for any $x$ as by convention we set $P(X = x) = 0$.
 
+```{r interval-probs-from-pdf, echo = FALSE, fig.cap = "The shaded area is $P (a < X < b)$ if the pdf of $X$ is the drawn curve."}
+library(ggplot2)
+f <- function(x) {
+    dgamma(x, shape = 3, rate = 0.5)
+}
+
+a <- 6
+b <- 8
+
+plot_data <- tibble(x = seq(a, b, length.out = 100),
+                    ymax = f(x),
+                    ymin = 0)
+
+plot_data %>%
+    ggplot(mapping = aes(x = x, ymin = ymin, ymax = ymax)) + 
+    geom_function(fun = f) +
+    geom_ribbon(alpha = 0.3) +
+    xlab("x") +
+    ylab("f(x)") +
+    scale_x_continuous(breaks = c(0, 5, a, b, 10, 15, 20),
+                       labels = c(0, 5, "a", "b", 10, 15, 20),
+                       limits = c(0, 20)) +
+    geom_hline(aes(yintercept = 0)) +
+    theme(panel.grid.minor = element_blank(),
+          panel.grid = element_blank())
+```

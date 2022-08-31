@@ -6547,8 +6547,8 @@ how to calculate these probabilities using R.
 
 Standard normal distribution
 
-Now we can claim that the normal pdf (3.1) is symmetric about the mean µ. The spread of the
-pdf is determined by \sigma, the standard deviation of the distribution. When µ = 0 and \sigma = 1,
+Now we can claim that the normal pdf (3.1) is symmetric about the mean \mu. The spread of the
+pdf is determined by \sigma, the standard deviation of the distribution. When \mu = 0 and \sigma = 1,
 the normal distribution N (0, 1) is called is called the standard normal distribution. The standard
 normal distribution, often denoted by Z, is used to calculate probabilities of interest for any normal
 
@@ -6556,7 +6556,7 @@ normal distribution, often denoted by Z, is used to calculate probabilities of i
 
 65
 
-distribution because of the following reasons. Suppose X \sim N (µ, \sigma^2 ) and we are interested in finding
+distribution because of the following reasons. Suppose X \sim N (\mu, \sigma^2 ) and we are interested in finding
 P (a \leq X \leq b) for two constants a and b.
 P (a \leq X \leq b) =
 =
@@ -6569,28 +6569,28 @@ n
 
 o
 
-(x-µ)2
+(x-\mu)2
 √ 1
 a 2π\sigma^2 exp - 2\sigma^2
 n 2o
-R b-µ
+R b-\mu
 \sigma
 √1
 exp
 - z2 dz
-2π a-µ
+2π a-\mu
 \sigma
 
 dx
 
-[substituted z = x-µ
+[substituted z = x-\mu
 \sigma so that dx = \sigmadz]
 n
 n
 o
 o
-b-µ
-a-µ
+b-\mu
+a-\mu
 R \sigma 1
 R \sigma 1
 z2
@@ -6613,20 +6613,20 @@ dz
 
 
 
-- P Z \leq a-µ
-= P Z \leq b-µ
+- P Z \leq a-\mu
+= P Z \leq b-\mu
 \sigma
 \sigma
 =
 
-= cdf of Z at b-µ
+= cdf of Z at b-\mu
 \sigma - cdf of Z at
 
-b-µ
-= Φ \sigma - Φ a-µ
+b-\mu
+= Φ \sigma - Φ a-\mu
 \sigma
 
-a-µ
+a-\mu
 \sigma
 
 where we use the notation Φ(·) to denote the cdf of Z, i.e.
@@ -6640,7 +6640,7 @@ du.
 2
 2π
 -\infty
-This result allows us to find the probabilities about a normal random variable X of any mean µ and
+This result allows us to find the probabilities about a normal random variable X of any mean \mu and
 variance \sigma^2 through the probabilities of the standard normal random variable Z. For this reason,
 only Φ(z) is tabulated. Further more, due to the symmetry of the pdf of Z, Φ(z) is tabulated only
 for positive z values. Suppose a > 0, then
@@ -6650,7 +6650,7 @@ for positive z values. Suppose a > 0, then
 In R, we use the function pnorm to calculate the probabilities. The general function is: pnorm(q,
 mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE). So, we use the command pnorm(1)
 to calculate Φ(1) = P (Z \leq 1). We can also use the command pnorm(15, mean=10, sd=2) to
-calculate P (X \leq 15) when X \sim N (µ = 10, \sigma^2 = 4) directly.
+calculate P (X \leq 15) when X \sim N (\mu = 10, \sigma^2 = 4) directly.
 1. P (-1 < Z < 1) = Φ(1) - Φ(-1) = 0.6827. This means that 68.27% of the probability lies
 within 1 standard deviation of the mean.
 2. P (-2 < Z < 2) = Φ(2) - Φ(-2) = 0.9545. This means that 95.45% of the probability lies
@@ -6684,22 +6684,22 @@ pnorm(25, mean=58, sd=32.25) = 0.1531. Ouch!
 of marks was N (42, 142 ). The school's policy is to present scaled marks whose distribution is
 N (50, 152 ). What linear transformation should the lecturer apply to the raw marks to accomplish
 this and what would the raw mark of 40 be transformed to?
-Suppose X \sim N (µx = 42, \sigmax2 = 142 ) and Y \sim N (µy = 50, \sigmay2 = 152 ). Hence, we should have
+Suppose X \sim N (\mux = 42, \sigmax2 = 142 ) and Y \sim N (\muy = 50, \sigmay2 = 152 ). Hence, we should have
 Z=
 
-Y - µy
-X - µx
+Y - \muy
+X - \mux
 =
 ,
 \sigmax
 \sigmay
 
 giving us:
-Y = µy +
+Y = \muy +
 
 \sigmay
 15
-(X - µx ) = 50 + (X - 42).
+(X - \mux ) = 50 + (X - 42).
 \sigmax
 14
 
@@ -6711,8 +6711,8 @@ Y = 50 +
 14
 
 ♥ Example 43 Log-normal distribution
-If X \sim N (µ, \sigma^2 ) then the random variable Y = exp(X) is called a log-normal random variable
-and its distribution is called a log-normal distribution with parameters µ and \sigma^2 .
+If X \sim N (\mu, \sigma^2 ) then the random variable Y = exp(X) is called a log-normal random variable
+and its distribution is called a log-normal distribution with parameters \mu and \sigma^2 .
 
 3 Random Variables and Their Probability Distributions
 
@@ -6724,7 +6724,7 @@ E(Y ) = E[exp(X)]
 
 Z \infty
 1
-(x - µ)2
+(x - \mu)2
 exp(x) √ exp -
 =
 dx
@@ -6735,9 +6735,9 @@ dx
 Z \infty
  2
 
-µ - (µ + \sigma^2 )2
+\mu - (\mu + \sigma^2 )2
 1
-x - 2(µ + \sigma^2 )x + (µ + \sigma^2 )2
+x - 2(\mu + \sigma^2 )x + (\mu + \sigma^2 )2
 √ exp -
 = exp -
 dx
@@ -6746,12 +6746,12 @@ dx
 -\infty \sigma^2π
  2
 
-µ - (µ + \sigma^2 )2
+\mu - (\mu + \sigma^2 )2
 = exp -
-[integrating a N (µ + \sigma^2 , \sigma^2 ) r.v. over its domain]
+[integrating a N (\mu + \sigma^2 , \sigma^2 ) r.v. over its domain]
 2\sigma^2
 
-= exp µ + \sigma^2 /2
+= exp \mu + \sigma^2 /2
 
 Similarly, one can show that
 E(Y 2 ) = E[exp(2X)]
@@ -6759,7 +6759,7 @@ E(Y 2 ) = E[exp(2X)]
 
 Z \infty
 1
-(x - µ)2
+(x - \mu)2
 √
 =
 exp(2x)
@@ -6770,12 +6770,12 @@ dx
 -\infty
 = ···
 
-= exp 2µ + 2\sigma^2 .
+= exp 2\mu + 2\sigma^2 .
 
 Hence, the variance is given by
 
 
-Var(Y ) = E(Y 2 ) - (E(Y ))2 = exp 2µ + 2\sigma^2 - exp 2µ + \sigma^2 .
+Var(Y ) = E(Y 2 ) - (E(Y ))2 = exp 2\mu + 2\sigma^2 - exp 2\mu + \sigma^2 .
 
 3.7.3
 
@@ -7237,15 +7237,15 @@ E(XY ) = (-1)(0)0 + (-1)(1)
 
 We will not consider any continuous examples as the second-year module MATH2011 will study
 them in detail.
-Suppose that two random variables X and Y have joint pmf or pdf f (x, y) and let E(X) = µx
-and E(Y ) = µy . The covariance between X and Y is defined by
+Suppose that two random variables X and Y have joint pmf or pdf f (x, y) and let E(X) = \mux
+and E(Y ) = \muy . The covariance between X and Y is defined by
 
 3 Random Variables and Their Probability Distributions
 
 71
 
-Cov(X, Y ) = E [(X - µx )(Y - µy )] = E(XY ) - µx µy .
-Let \sigmax2 = Var(X) = E(X 2 ) - µ2x and \sigmay2 = Var(Y ) = E(Y 2 ) - µ2y . The correlation coefficient
+Cov(X, Y ) = E [(X - \mux )(Y - \muy )] = E(XY ) - \mux \muy .
+Let \sigmax2 = Var(X) = E(X 2 ) - \mu2x and \sigmay2 = Var(Y ) = E(Y 2 ) - \mu2y . The correlation coefficient
 between X and Y is defined by:
 
 Corr(X, Y ) = p
@@ -7255,7 +7255,7 @@ Var(X) Var(Y )
 
 =
 
-E(XY ) - µx µy
+E(XY ) - \mux \muy
 .
 \sigmax \sigmay
 
@@ -7447,11 +7447,11 @@ random variables with common probability is binomial as well. This is called the
 property of random variables. You are asked to prove this for the Poisson distribution in an
 exercise sheet.
 Now we will state two main results without proof. The proofs will presented in the secondyear distribution theory module MATH2011. Suppose that X_1 , \ldots , X_n is a random sample from
-a population distribution with finite variance, and suppose that E(Xi ) = µi and Var(Xi ) = \sigmai2 .
+a population distribution with finite variance, and suppose that E(Xi ) = \mui and Var(Xi ) = \sigmai2 .
 Define a new random variable
 Y = a1 X_1 + a2 X2 + · · · + an X_n
 where a1 , a2 , \ldots , an are constants. Then:
-1. E(Y ) = a1 µ1 + a2 µ2 + · · · + an µn .
+1. E(Y ) = a1 \mu1 + a2 \mu2 + · · · + an \mun .
 2. Var(Y ) = a21 \sigma12 + a22 \sigma22 + · · · + a2n \sigman2 .
 For example, if ai = 1 for all i = 1, \ldots , n, the two results above imply that:
 The expectation of the sum of independent random variables is the sum of the expectations
@@ -7492,7 +7492,7 @@ and
 Var(Y ) = Var(X_1 ) + · · · + Var(Xr ) = (1 - p)/p2 + · · · + (1 - p)/p2 = r(1 - p)/p2 .
 
 ♥ Example 55 Sum of independent Normal random variables
-Suppose that Xi \sim N (µi , \sigmai2 ), i = 1, 2, \ldots , k are independent random variables. Let a1 , a2 , \ldots , ak
+Suppose that Xi \sim N (\mui , \sigmai2 ), i = 1, 2, \ldots , k are independent random variables. Let a1 , a2 , \ldots , ak
 be constants and suppose that
 Y = a1 X_1 + · · · + ak Xk .
 Then we can prove that:
@@ -7502,7 +7502,7 @@ k
 X
 i=1
 
-a i µi ,
+a i \mui ,
 
 k
 X
@@ -7519,14 +7519,14 @@ Pk
 2 2
 It is clear that E(Y ) =
 i=1 ai \sigmai . But that Y has the normal
-i=1 ai µi and Var(Y ) =
+i=1 ai \mui and Var(Y ) =
 distribution cannot yet be proved with the theory we know. This proof will be provided in the
 second-year distribution theory module MATH2011.
 As a consequence of the stated result we can easily see the following. Suppose X_1 and X2 are
-independent N (µ, \sigma^2 ) random variables. Then 2X_1 \sim N (2µ, 4\sigma^2 ), X_1 + X2 \sim N (2µ, 2\sigma^2 ), and
+independent N (\mu, \sigma^2 ) random variables. Then 2X_1 \sim N (2\mu, 4\sigma^2 ), X_1 + X2 \sim N (2\mu, 2\sigma^2 ), and
 X_1 - X2 \sim N (0, 2\sigma^2 ). Note that 2X_1 and X_1 + X2 have different distributions.
-Suppose that Xi \sim N (µ, \sigma^2 ), i = 1, \ldots , n are independent. Then
-X_1 + · · · + X_n \sim N (nµ, n\sigma^2 ),
+Suppose that Xi \sim N (\mu, \sigma^2 ), i = 1, \ldots , n are independent. Then
+X_1 + · · · + X_n \sim N (n\mu, n\sigma^2 ),
 and consequently,
 1
 \BAR X = (X_1 + · · · + X_n ) \sim N
@@ -7537,7 +7537,7 @@ n
 
 
 \sigma2
-µ,
+\mu,
 .
 n
 
@@ -7574,7 +7574,7 @@ Statement of the Central Limit Theorem (CLT)
 
 2
 Let X_1 , \ldots , X
-n be independent random variables with finite E(Xi ) = µi and finite Var(Xi ) = \sigmai .
+n be independent random variables with finite E(Xi ) = \mui and finite Var(Xi ) = \sigmai .
 P
 n
 Define Y = i=1 Xi . Then, for a sufficiently large n, the central limit theorem states that Y is
@@ -7585,7 +7585,7 @@ E(Y ) =
 n
 X
 
-µi , Var(Y ) =
+\mui , Var(Y ) =
 
 i=1
 
@@ -7597,7 +7597,7 @@ X
 i=1
 
 This also implies that \BAR X = n1 Y also follows the normal distribution approximately, as the sample
-size n \rightarrow \infty. In particular, if µi = µ and \sigmai2 = \sigma^2 , i.e. all means are equal and all variances are
+size n \rightarrow \infty. In particular, if \mui = \mu and \sigmai2 = \sigma^2 , i.e. all means are equal and all variances are
 equal, then the CLT states that, as n \rightarrow \infty,
 
 \BAR X \sim N
@@ -7606,25 +7606,25 @@ Equivalently,
 √
 
 \sigma2
-µ,
+\mu,
 n
 
 
 .
 
-n(\BAR X - µ)
+n(\BAR X - \mu)
 \sim N (0, 1)
 \sigma
 
 as n \rightarrow \infty. The notion of convergence is explained by the convergence of distribution of \BAR X to that
 of the normal distribution with the appropriate mean and variance. It means that the cdf of the
 √
-left hand side, n (\BAR X-µ)
+left hand side, n (\BAR X-\mu)
 \sigma , converges to the cdf of the standard normal random variable, Φ(·). In
 other words,
 
 
-√ (\BAR X - µ)
+√ (\BAR X - \mu)
 lim P
 n
 \leq z = Φ(z), -\infty < z < \infty.
@@ -7632,7 +7632,7 @@ n\rightarrow\infty
 \sigma
 So for "large samples", we can use N (0, 1) as an approximation to the sampling distribution of
 √
-n(\BAR X - µ)/\sigma. This result is 'exact', i.e. no approximation is required, if the distribution of the
+n(\BAR X - \mu)/\sigma. This result is 'exact', i.e. no approximation is required, if the distribution of the
 Xi 's are normal in the first place – this was discussed in the previous lecture.
 How large does n have to be before this approximation becomes usable? There is no definitive
 answer to this, as it depends on how "close to normal" the distribution of X is. However, it is
@@ -7849,7 +7849,7 @@ i.i.d. for short).
 
 A fully specified model
 
-Sometimes a model completely specifies the probability distribution of X_1 , X2 , \ldots , X_n . For example, if we assume that the waiting time X \sim N (µ, \sigma^2 ) where µ = 100, and \sigma^2 = 100, then this
+Sometimes a model completely specifies the probability distribution of X_1 , X2 , \ldots , X_n . For example, if we assume that the waiting time X \sim N (\mu, \sigma^2 ) where \mu = 100, and \sigma^2 = 100, then this
 is a fully specified model. In this case, there is no need to collect any data as there is no need
 
 4 Statistical Inference
@@ -7859,7 +7859,7 @@ is a fully specified model. In this case, there is no need to collect any data a
 to make any inference about any unknown quantities, although we may use the data to judge the
 plausibility of the model.
 However, a fully specified model would be appropriate when for example, there is some external
-(to the data) theory as to why the model (in particular the values of µ and \sigma^2 ) was appropriate.
+(to the data) theory as to why the model (in particular the values of \mu and \sigma^2 ) was appropriate.
 Fully specified models such as this are uncommon as we rarely have external theory which allows
 us to specify a model so precisely.
 
@@ -7872,10 +7872,10 @@ the value of a number of parameters in that distribution. This could be confusin
 instance - a parametric model does not specify parameters! Here the word parametric signifies the
 fact that the probability distribution is completely specified by a few parameters in the first place.
 For example, the Poisson distribution is parameterised by the parameter \lambda which happens to be the
-mean of the distribution; the normal distribution is parameterised by two parameters, the mean µ
+mean of the distribution; the normal distribution is parameterised by two parameters, the mean \mu
 and the variance \sigma^2 .
 When a parametric statistical model is assumed with some unknown parameters, statistical
-inference methods use data to estimate the unknown parameters, e.g. \lambda, µ, \sigma^2 . Estimation will be
+inference methods use data to estimate the unknown parameters, e.g. \lambda, \mu, \sigma^2 . Estimation will be
 discussed in more detail in the following lectures.
 
 4.1.4
@@ -7951,9 +7951,9 @@ estimate the mean (\lambda) of the Poisson distribution.
 - For a nonparametric model, we may want to estimate the properties of the data-generating
 distribution. For example, if our model for the computer failure data is that they are i.i.d.,
 following the distribution of an unspecified common random variable X, then we may want
-to estimate µ = E(X) or \sigma^2 = Var(X).
+to estimate \mu = E(X) or \sigma^2 = Var(X).
 In the following, we use the generic notation \theta to denote the estimand (what we want to estimate
-or the parameter). For example, \theta is the parameter \lambda in the first example, and \theta may be either µ
+or the parameter). For example, \theta is the parameter \lambda in the first example, and \theta may be either \mu
 or \sigma^2 or both in the second example.
 
 4 Statistical Inference
@@ -8240,7 +8240,7 @@ standard error of an estimator.
 Estimation of a population mean
 
 Suppose that x_1 , \ldots , x_n is a random sample from any probability distribution f (x), which may be
-discrete or continuous. Suppose that we want to estimate the unknown population mean E(X) = µ
+discrete or continuous. Suppose that we want to estimate the unknown population mean E(X) = \mu
 and variance, Var(X) = \sigma^2 . In order to do this, it is not necessary to make any assumptions about
 f (x), so this may be thought of as nonparametric inference.
 We have the following results:
@@ -8260,7 +8260,7 @@ Xi
 n
 i=1
 
-is an unbiased estimator of µ = E(X), i.e. E(\BAR X) = µ,
+is an unbiased estimator of \mu = E(X), i.e. E(\BAR X) = \mu,
 R2 Var(\BAR X) = \sigma^2 /n,
 R3 the sample variance with divisor n - 1
 n
@@ -8339,9 +8339,9 @@ To evaluate the expectation of the above, we need E(Xi2 ) and E(\BAR X 2 ). In g
 random variable,
 Var(Y ) = E(Y 2 ) - (E(Y ))2 ⇒ E(Y 2 ) = Var(Y ) + (E(Y ))2 .
 Thus, we have
-E(Xi2 ) = Var(Xi ) + (E(Xi ))2 = \sigma^2 + µ2 ,
+E(Xi2 ) = Var(Xi ) + (E(Xi ))2 = \sigma^2 + \mu2 ,
 and
-E(\BAR X 2 ) = Var(\BAR X) + (E(\BAR X))2 = \sigma^2 /n + µ2 ,
+E(\BAR X 2 ) = Var(\BAR X) + (E(\BAR X))2 = \sigma^2 /n + \mu2 ,
 
 4 Statistical Inference
 
@@ -8378,14 +8378,14 @@ i=1
 2
 2
 2
-+ µ2 )
++ \mu2 )
 = n-1
-i=1 (\sigma + µ ) - n(\sigma /n
+i=1 (\sigma + \mu ) - n(\sigma /n
 
 
 1
 = n-1
-n\sigma^2 + nµ2 - \sigma^2 - nµ2 )
+n\sigma^2 + n\mu2 - \sigma^2 - n\mu2 )
 = \sigma^2 ≡ Var(X).
 In words, this proves that
 The sample variance is an unbiased estimator of the population variance.
@@ -8521,22 +8521,22 @@ It is common to present intervals with high confidence levels, usually 90%, 95% 
 
 Confidence interval for a normal mean
 
-Let X_1 , \ldots , X_n be i.i.d. N (µ, \sigma^2 ) random variables. We know that from CLT Lecture 14
-\BAR X \sim N (µ, \sigma^2 /n)
+Let X_1 , \ldots , X_n be i.i.d. N (\mu, \sigma^2 ) random variables. We know that from CLT Lecture 14
+\BAR X \sim N (\mu, \sigma^2 /n)
 
 ⇒
 
-√ (\BAR X - µ)
+√ (\BAR X - \mu)
 \sim N (0, 1).
 n
 \sigma
 
 √
-Suppose we know that \sigma = 10, so n(\BAR X - µ)/\sigma is a pivot for µ. Then we can use the distribution
+Suppose we know that \sigma = 10, so n(\BAR X - \mu)/\sigma is a pivot for \mu. Then we can use the distribution
 function of the standard normal distribution to find values h1 and h2 such that
 
 
-√ (\BAR X - µ)
+√ (\BAR X - \mu)
 \leq h2 = 1 - α
 P h1 \leq n
 \sigma
@@ -8561,7 +8561,7 @@ qnorm(0.975). You may also occasionally see 90% (h = 1.645 = qnorm(0.95)) or 99%
 intervals for a reasonably high level of confidence without making the interval unnecessarily wide.
 Therefore we have
 
-√ (\BAR X - µ)
+√ (\BAR X - \mu)
 P -1.96 \leq n
 \leq 1.96 = 0.95
 \sigma
@@ -8570,32 +8570,32 @@ P -1.96 \leq n
 \sigma
 \sigma
 = 0.95.
-⇒ P \BAR X - 1.96 √ \leq µ \leq \BAR X + 1.96 √
+⇒ P \BAR X - 1.96 √ \leq \mu \leq \BAR X + 1.96 √
 n
 n
 
 
-Hence, \BAR X - 1.96 √\sigman and \BAR X + 1.96 √\sigman are the endpoints of a random interval which includes µ with
+Hence, \BAR X - 1.96 √\sigman and \BAR X + 1.96 √\sigman are the endpoints of a random interval which includes \mu with
 
 
 probability 0.95. The observed value of this interval, \bar x ± 1.96 √\sigman , is called a 95% confidence
-interval for µ.
+interval for \mu.
 ♥ Example 60 For the fast food waiting time data, we have n = 20 data points combined from
 the morning and afternoon data sets. We have \bar x = 67.85 and n = 20. Hence, under the normal
-model assuming (just for the sake of illustration) \sigma = 18, a 95% confidence interval for µ is
+model assuming (just for the sake of illustration) \sigma = 18, a 95% confidence interval for \mu is
 √
 √
-67.85 - 1.96(18/ 20) \leq µ \leq 67.85 + 1.96(18/ 20)
+67.85 - 1.96(18/ 20) \leq \mu \leq 67.85 + 1.96(18/ 20)
 ⇒
 
-59.96 \leq µ \leq 75.74
+59.96 \leq \mu \leq 75.74
 
 The R command is mean(a) + c(-1, 1) * qnorm(0.975) * 18/sqrt(20), assuming a is the
 vector containing 20 waiting times. If \sigma is unknown, we need to seek alternative methods for finding
 the confidence intervals.
 Some important remarks about confidence intervals.
 √
-1. Notice that \bar x is an unbiased estimate of µ, \sigma/ n is the standard error of the estimate and 1.96
+1. Notice that \bar x is an unbiased estimate of \mu, \sigma/ n is the standard error of the estimate and 1.96
 (in general h in the above discussion) is a critical value from the associated known sampling
 √
 distribution. The formula (\bar x ± 1.96 \sigma/ n) for the confidence interval is then generalised as:
@@ -8610,7 +8610,7 @@ confidence interval for \theta is a single observation of a random interval whic
 sampling, would include \theta 100(1 - α)% of the time.
 The following example from the National Lottery in the UK clarifies the interpretation. We
 collected 6 chosen lottery numbers (sampled at random from 1 to 49) for 20 weeks and then
-constructed 95% confidence intervals for the population mean µ = 25 and plotted the intervals
+constructed 95% confidence intervals for the population mean \mu = 25 and plotted the intervals
 along with the observed sample means in the following figure. It can be seen that exactly
 
 4 Statistical Inference
@@ -8662,10 +8662,10 @@ above normal example for known variance.
 
 4.5.2
 
-Confidence intervals for µ using the CLT
+Confidence intervals for \mu using the CLT
 
 The CLT allows us to assume the large sample approximation
-√ (\BAR X - µ)
+√ (\BAR X - \mu)
 n
 \sigma
 
@@ -8675,22 +8675,22 @@ approx
 
 N (0, 1) as n \rightarrow \infty.
 
-So a general confidence interval for µ can be constructed, just as before in Section 4.4.3. Thus a
-95% confidence interval (CI) for µ is given by \bar x ± 1.96 √\sigman . But note that \sigma is unknown so this
+So a general confidence interval for \mu can be constructed, just as before in Section 4.4.3. Thus a
+95% confidence interval (CI) for \mu is given by \bar x ± 1.96 √\sigman . But note that \sigma is unknown so this
 CI cannot be used unless we can estimate \sigma, i.e. replace the unknown s.d. of \BAR X by its estimated
 standard error. In this case, we get the CI in the familiar form:
 Estimate ± Critical value \times Standard error
 Suppose that we do not assume any distribution for the sampled random variable X but assume
-only that X_1 , \ldots , X_n are i.i.d, following the distribution of X where E(X) = µ and Var(X) = \sigma^2 .
+only that X_1 , \ldots , X_n are i.i.d, following the distribution of X where E(X) = \mu and Var(X) = \sigma^2 .
 √
 We know that the standard error of \BAR X is s/ n where s is the sample standard deviation with
-divisor n - 1. Then the following provides a 95% CI for µ:
+divisor n - 1. Then the following provides a 95% CI for \mu:
 s
 \bar x ± 1.96 √ .
 n
 ♥ Example 61 For the computer failure data, \bar x = 3.75, s = 3.381 and n = 104. Under the
-model that the data are observations of i.i.d. random variables with population mean µ (but no
-other assumptions about the underlying distribution), we compute a 95% confidence interval for µ
+model that the data are observations of i.i.d. random variables with population mean \mu (but no
+other assumptions about the underlying distribution), we compute a 95% confidence interval for \mu
 to be
 
 
@@ -8709,13 +8709,13 @@ variables, then
 p
 2
 2
-µ = \lambda and \sigma = \lambda. We know Var(\BAR X) = \sigma /n = \lambda/n. Hence a standard error is \lambdâ/n = \bar x/n
+\mu = \lambda and \sigma = \lambda. We know Var(\BAR X) = \sigma /n = \lambda/n. Hence a standard error is \lambdâ/n = \bar x/n
 
 4 Statistical Inference
 
 96
 
-since \lambdâ = \BAR X is an unbiased estimator of \lambda. Thus a 95% CI for µ = \lambda is given by
+since \lambdâ = \BAR X is an unbiased estimator of \lambda. Thus a 95% CI for \mu = \lambda is given by
 r
 \bar x
 \bar x ± 1.96
@@ -8737,8 +8737,8 @@ inference regarding the unknown parameter.
 ♥ Example 63 Bernoulli If X_1 , \ldots , X_n are modelled as i.i.d. Bernoulli(p) random variables,
 then
 \sigma^2 = p(1 - p). We know Var(\BAR X) = \sigma^2 /n = p(1 - p)/n. Hence a standard error is
-p µ = p and p
-p̂(1 - p̂)/n = \bar x(1 - \bar x)/n, since p̂ = \BAR X is an unbiased estimator of p. Thus a 95% CI for µ = p
+p \mu = p and p
+p̂(1 - p̂)/n = \bar x(1 - \bar x)/n, since p̂ = \BAR X is an unbiased estimator of p. Thus a 95% CI for \mu = p
 is given by
 r
 \bar x(1 - \bar x)
@@ -9028,7 +9028,7 @@ applying the method for a small sample size. In such cases we should use alterna
 calculating confidence intervals. For example, we learned a technique of finding confidence intervals
 which does not require us to approximately estimate the standard errors for Bernoulli and Poisson
 distributions. In the next lecture, we will learn how to find an exact confidence interval for the
-normal mean µ using the t-distribution.
+normal mean \mu using the t-distribution.
 
 4 Statistical Inference
 
@@ -9055,20 +9055,20 @@ Obtaining an exact confidence interval for the normal mean
 For normal models we do not have to rely on large sample approximations, because it turns out
 that the distribution of
 √
-n(\BAR X - µ)
+n(\BAR X - \mu)
 T =
 ,
 S
 where S 2 is the sample variance with divisor n - 1, is standard (easily calculated) and thus the
-statistic T = T (X, µ) can be an exact pivot for any sample size n > 1. The point about easy
+statistic T = T (X, \mu) can be an exact pivot for any sample size n > 1. The point about easy
 calculation is that for any given 1 - α, e.g. 1 - α = 0.95, we can calculate the critical value h such
 that P (-h < T < h) = 1 - α. Note also that the pivot T does not involve the other unknown
 parameter of the normal model, namely the variance \sigma^2 . If indeed, we can find h for any given
-1 - α, we can proceed as follows to find the exact CI for µ:
+1 - α, we can proceed as follows to find the exact CI for \mu:
 P (-h \leq T \leq h) = 1 - α
 
 
-√ (\BAR X - µ)
+√ (\BAR X - \mu)
 i.e. P -h \leq n
 \leq h = 0.95
 S
@@ -9076,15 +9076,15 @@ S
 
 S
 S
-⇒ P \BAR X - h √ \leq µ \leq \BAR X + h √
+⇒ P \BAR X - h √ \leq \mu \leq \BAR X + h √
 = 0.95
 n
 n
-The observed value of this interval, (\bar x ± h √sn ), is the 95% confidence interval for µ. Remarkably,
+The observed value of this interval, (\bar x ± h √sn ), is the 95% confidence interval for \mu. Remarkably,
 this also of the general form, Estimate ± Critical value \times Standard error, where the Critical value
 is h and the standard error of the sample mean is √sn . Now, how do we find the critical value h for
 a given 1 - α? We need to introduce the t-distribution.
-Let X_1 , \ldots , X_n be i.i.d N (µ, \sigma^2 ) random variables. Define \BAR X =
+Let X_1 , \ldots , X_n be i.i.d N (\mu, \sigma^2 ) random variables. Define \BAR X =
 1
 S2 =
 n-1
@@ -9098,7 +9098,7 @@ Xi2 - n\BAR X 2
 i=1
 
 Then, it can be shown (and will be in MATH2011) that
-√ (\BAR X - µ)
+√ (\BAR X - \mu)
 n
 \sim tn-1 ,
 S
@@ -9121,7 +9121,7 @@ and
 where tn-1 denotes the standard t distribution with n - 1 degrees of freedom. The standard t distribution is a family of distributions which depend on one parameter called the degrees-of-freedom
 (df) which is n - 1 here. The concept of degrees of freedom is that it is usually the number of
 independent random samples, n here, minus the number of linear parameters estimated, 1 here for
-µ. Hence the df is n - 1.
+\mu. Hence the df is n - 1.
 The probability density function of the tk distribution is similar to a standard normal, in that
 it is symmetric around zero and 'bell-shaped', but the t-distribution is more heavy-tailed, giving
 greater probability to observations further away from zero. The figure below illustrates the tk
@@ -9171,14 +9171,14 @@ can use the t-distribution-based confidence interval.
 ♥ Example 65 Fast food waiting time revisited We would like to find a confidence interval for
 the true mean waiting time. If X denotes the waiting time in seconds, we have n = 20, \bar x = 67.85,
 s = 18.36. Hence, recalling that the critical value h = 2.093, from the command qt(0.975,
-df=19), a 95% confidence interval for µ is
+df=19), a 95% confidence interval for \mu is
 √
 √
-67.85 - 2.093 \times 18.36/ 20 \leq µ \leq 67.85 + 2.093 \times 18.36/ 20
+67.85 - 2.093 \times 18.36/ 20 \leq \mu \leq 67.85 + 2.093 \times 18.36/ 20
 ⇒
 In R we issue the commands:
 
-59.26 \leq µ \leq 76.44.
+59.26 \leq \mu \leq 76.44.
 
 4 Statistical Inference
 
@@ -9198,13 +9198,13 @@ confidence is getting higher.
 
 ♥ Example 66 Weight gain revisited We would like to find a confidence interval for the true
 average weight gain (final weight – initial weight). Here n = 68, \bar x = 0.8672 and s = 0.9653. Hence,
-a 95% confidence interval for µ is
+a 95% confidence interval for \mu is
 √
 √
-0.8672 - 1.996 \times 0.9653/ 68 \leq µ \leq 0.8672 + 1.996 \times 0.9653/ 68
+0.8672 - 1.996 \times 0.9653/ 68 \leq \mu \leq 0.8672 + 1.996 \times 0.9653/ 68
 ⇒
 
-0.6335 \leq µ \leq 1.1008
+0.6335 \leq \mu \leq 1.1008
 
 [In R, we obtain the critical value 1.996 by qt(0.975, df=67) or -qt(0.025, df=67)]
 In R the command is: mean(x) + c(-1, 1) * qt(0.975, df=67) * sqrt(var(x)/68) if the
@@ -9265,9 +9265,9 @@ probability distribution f (x; \theta) where \theta < 0. This is not a completel
 is not possible to calculate probabilities such as P (X_1 < 2) when the hypothesis is true, as we do
 not know the exact value of \theta. Such an hypothesis is called a composite hypothesis.
 Examples of hypotheses:
-X_1 , \ldots , X_n \sim N (µ, \sigma^2 ) with µ = 0, \sigma^2 = 2.
-X_1 , \ldots , X_n \sim N (µ, \sigma^2 ) with µ = 0, \sigma^2 \in R+ .
-X_1 , \ldots , X_n \sim N (µ, \sigma^2 ) with µ 6= 0, \sigma^2 \in R+ .
+X_1 , \ldots , X_n \sim N (\mu, \sigma^2 ) with \mu = 0, \sigma^2 = 2.
+X_1 , \ldots , X_n \sim N (\mu, \sigma^2 ) with \mu = 0, \sigma^2 \in R+ .
+X_1 , \ldots , X_n \sim N (\mu, \sigma^2 ) with \mu 6= 0, \sigma^2 \in R+ .
 X_1 , \ldots , X_n \sim Bernoulli(p) with p = 12 .
 X_1 , \ldots , X_n \sim Bernoulli(p) with p 6= 12 .
 X_1 , \ldots , X_n \sim Bernoulli(p) with p > 12 .
@@ -9404,35 +9404,35 @@ does it work in a concrete example?
 
 4.7.5
 
-Testing a normal mean µ
+Testing a normal mean \mu
 
-Suppose that we observe data x_1 , \ldots , x_n which are modelled as observations of i.i.d. N (µ, \sigma^2 )
+Suppose that we observe data x_1 , \ldots , x_n which are modelled as observations of i.i.d. N (\mu, \sigma^2 )
 random variables X_1 , \ldots , X_n , and we want to test the null hypothesis
-H0 : µ = µ 0
+H0 : \mu = \mu 0
 against the alternative hypothesis
-H1 : µ 6= µ0 .
+H1 : \mu 6= \mu0 .
 We recall that
 
-√ (\BAR X - µ)
+√ (\BAR X - \mu)
 \sim tn-1
 n
 S
 and therefore, when H0 is true, often written as under H0 ,
-√ (\BAR X - µ0 )
+√ (\BAR X - \mu0 )
 \sim tn-1
 n
 S
 
 √
-so n(\BAR X - µ0 )/s is a test statistic for this test. The sampling distribution of the test statistic when
+so n(\BAR X - \mu0 )/s is a test statistic for this test. The sampling distribution of the test statistic when
 the null hypothesis is true is called the null distribution of the test statistic. In this example, the
 null distribution is the t-distribution with n - 1 degrees of freedom.
 This test is called a t-test. We reject the null hypothesis H0 in favour of the alternative H1 if
 the observed test statistic seems unlikely to have been generated by the null distribution.
 ♥ Example 69 Weight gain data
 For the weight gain data, if x denotes the differences in weight gain, we have \bar x = 0.8672,
-s = 0.9653 and n = 68. Hence our test statistic for the null hypothesis H0 : µ = µ0 = 0 is
-√ (\bar x - µ0 )
+s = 0.9653 and n = 68. Hence our test statistic for the null hypothesis H0 : \mu = \mu0 = 0 is
+√ (\bar x - \mu0 )
 n
 = 7.41.
 s
@@ -9443,12 +9443,12 @@ s
 
 The observed value of 7.41 does not seem reasonable from the graph below. The graph has
 plotted the density of the t-distribution with 67 degrees of freedom, and a vertical line is drawn at
-the observed value of 7.41. So there may be evidence here to reject H0 : µ = 0.
+the observed value of 7.41. So there may be evidence here to reject H0 : \mu = 0.
 
 ♥ Example 70 Fast food waiting time revisited Suppose the manager of the fast food outlet
-claims that the average waiting time is only 60 seconds. So, we want to test H0 : µ = 60. We have
-n = 20, \bar x = 67.85, s = 18.36. Hence our test statistic for the null hypothesis H0 : µ = µ0 = 60 is
-√ (\bar x - µ0 ) √ (67.85 - 60)
+claims that the average waiting time is only 60 seconds. So, we want to test H0 : \mu = 60. We have
+n = 20, \bar x = 67.85, s = 18.36. Hence our test statistic for the null hypothesis H0 : \mu = \mu0 = 60 is
+√ (\bar x - \mu0 ) √ (67.85 - 60)
 n
 = 20
 = 1.91.
@@ -9502,7 +9502,7 @@ Rejection region for the t-test
 For the t-test, the null distribution is tn-1 where n is the sample size, so the rejection region
 for the test corresponds to a region of total probability α = 0.05 comprising the 'most extreme'
 values in the direction of the alternative hypothesis. If the alternative hypothesis is two-sided,
-e.g. H1 : µ 6= µ0 , then this is obtained as below, where the two shaded regions both have area
+e.g. H1 : \mu 6= \mu0 , then this is obtained as below, where the two shaded regions both have area
 (probability) α/2 = 0.025.
 
 The value of h depends on the sample size n and can be found by issuing the qt command.
@@ -9539,7 +9539,7 @@ h
 
 Note that we need to put n - 1 in the df argument of qt and the last value for n = \infty is obtained
 from the normal distribution.
-However, if the alternative hypothesis is one-sided, e.g. H1 : µ > µ0 , then the critical region
+However, if the alternative hypothesis is one-sided, e.g. H1 : \mu > \mu0 , then the critical region
 will only be in the right tail. Consequently, we need to leave an area α on the right and as a result
 the critical values will be from a command such as:
 qt(0.95, df=c(1, 4, 9, 14, 19, 29, 49, 99))
@@ -9582,13 +9582,13 @@ h
 
 t-test summary
 
-Suppose that we observe data x_1 , \ldots , x_n which are modelled as observations of i.i.d. N (µ, \sigma^2 )
-random variables X_1 , \ldots , X_n and we want to test the null hypothesis H0 : µ = µ0 against the
-alternative hypothesis H1 : µ 6= µ0 :
+Suppose that we observe data x_1 , \ldots , x_n which are modelled as observations of i.i.d. N (\mu, \sigma^2 )
+random variables X_1 , \ldots , X_n and we want to test the null hypothesis H0 : \mu = \mu0 against the
+alternative hypothesis H1 : \mu 6= \mu0 :
 1. Compute the test statistic
 t=
 
-√ (\bar x - µ0 )
+√ (\bar x - \mu0 )
 n
 .
 s
@@ -9598,20 +9598,20 @@ the form |t| > h where -h is the α/2 percentile of the null distribution, tn-1 
 3. If your computed t lies in the rejection region, i.e. |t| > h, you report that H0 is rejected in
 favour of H1 at the chosen level of significance. If t does not lie in the rejection region, you
 report that H0 is not rejected. [Never refer to 'accepting' a hypothesis.]
-♥ Example 71 Fast food waiting time We would like to test H0 : µ = 60 against the alternative
-H1 : µ > 60, as this alternative will refute the claim of the store manager that customers only wait
+♥ Example 71 Fast food waiting time We would like to test H0 : \mu = 60 against the alternative
+H1 : \mu > 60, as this alternative will refute the claim of the store manager that customers only wait
 for a maximum of one minute. We calculated the observed value to be 1.91. This is a one-sided test
 and for a 5% level of significance, the critical value h will come from qt(0.95, df=19)=1.73. Thus
 the observed value is higher than the critical value so we will reject the null hypothesis, disputing
 the manager's claim regarding a minute wait.
 ♥ Example 72 Weight gain
 For the weight gain example \bar x = 0.8671, s = 0.9653, n = 68. Then, we would be interested in
-testing H0 : µ = 0 against the alternative hypothesis H1 : µ 6= 0 in the model that the data are
-observations of i.i.d. N (µ, \sigma^2 ) random variables.
+testing H0 : \mu = 0 against the alternative hypothesis H1 : \mu 6= 0 in the model that the data are
+observations of i.i.d. N (\mu, \sigma^2 ) random variables.
 - We obtain the test statistic
 t=
 
-√ (\bar x - µ0 ) √ (0.8671 - 0)
+√ (\bar x - \mu0 ) √ (0.8671 - 0)
 n
 = 68
 = 7.41.
@@ -9660,7 +9660,7 @@ Reject H0 if p-value < α.
 
 p-value examples
 
-In the fast food example, a test of H0 : µ = 60 resulted in a test statistic t = 1.91. Then the p-value
+In the fast food example, a test of H0 : \mu = 60 resulted in a test statistic t = 1.91. Then the p-value
 is given by:
 p = P (T > 1.91) = 0.036, when T \sim t19 .
 This is the area of the shaded region in the figure overleaf. In R it is: 1 - pt(1.91, df=19). The
@@ -9683,16 +9683,16 @@ hypothesis of no weight gain in the first year of university.
 
 Equivalence of testing and interval estimation
 
-Note that the 95% confidence interval for µ in the weight gain example has previously been calculated to be (0.6335, 1.1008) in Section 4.6.2. This interval does not include the hypothesised value
-0 of µ. Hence we can conclude that the hypothesis test at
+Note that the 95% confidence interval for \mu in the weight gain example has previously been calculated to be (0.6335, 1.1008) in Section 4.6.2. This interval does not include the hypothesised value
+0 of \mu. Hence we can conclude that the hypothesis test at
 √ the 5% level of significance will reject
 0)
-the null hypothesis H0 : µ = 0. This is because |Tobs = n(\bar x-µ
+the null hypothesis H0 : \mu = 0. This is because |Tobs = n(\bar x-\mu
 | > h implies and is implied by
 s
 √
 √
-µ0 being outside the interval (\bar x - hs/ n, \bar x + hs/ n). Notice that h is the same in both. For
+\mu0 being outside the interval (\bar x - hs/ n, \bar x + hs/ n). Notice that h is the same in both. For
 this reason we often just calculate the confidence interval and take the reject/do not reject decision
 merely by inspection.
 
@@ -9715,18 +9715,18 @@ Suppose that we observe two samples of data, x_1 , \ldots , x_n and y1 , \ldots 
 model them as observations of
 i.i.d.
 2
-X_1 , \ldots , X_n \sim N (µX , \sigmaX
+X_1 , \ldots , X_n \sim N (\muX , \sigmaX
 )
 and
 i.i.d.
 
-Y1 , \ldots , Ym \sim N (µY , \sigmaY2 )
+Y1 , \ldots , Ym \sim N (\muY , \sigmaY2 )
 respectively, where it is also assumed that the X and Y variables are independent of each other.
 Suppose that we want to test the hypothesis that the distributions of X and Y are identical, that
 is
-H0 : µX = µY , \sigmaX = \sigmaY = \sigma
+H0 : \muX = \muY , \sigmaX = \sigmaY = \sigma
 against the alternative hypothesis
-H1 : µX 6= µY .
+H1 : \muX 6= \muY .
 
 4 Statistical Inference
 
@@ -9738,17 +9738,17 @@ Two sample t-test statistic
 
 In the probability lectures we proved that
 2
-\BAR X \sim N (µX , \sigmaX
+\BAR X \sim N (\muX , \sigmaX
 /n)
 
 and therefore
 
 \BAR X - Ȳ \sim N
 
-and Ȳ \sim N (µY , \sigmaY2 /m)
+and Ȳ \sim N (\muY , \sigmaY2 /m)
 \sigma2
 \sigma2
-µX - µ Y , X + Y
+\muX - \mu Y , X + Y
 n
 m
 
@@ -9808,7 +9808,7 @@ s
 
 is a test statistic for this test. The rejection region is |t| > h where -h is the α/2 (usually 0.025)
 percentile of tn+m-2 .
-Confidence interval for µX - µY .
+Confidence interval for \muX - \muY .
 From the hypothesis testing, a 100(1 - α)% confidence interval is given by
 r
 n+m
@@ -9858,8 +9858,8 @@ zi = xi - yi ,
 
 i = 1, \ldots , n
 
-and modelling these differences as observations of i.i.d. N (µz , \sigmaZ2 ) variables Z1 , \ldots , Zn . Then, a
-test of the hypothesis µX = µY is achieved by testing µZ = 0, which is just a standard (one sample)
+and modelling these differences as observations of i.i.d. N (\muz , \sigmaZ2 ) variables Z1 , \ldots , Zn . Then, a
+test of the hypothesis \muX = \muY is achieved by testing \muZ = 0, which is just a standard (one sample)
 t-test, as described previously.
 ♥ Example 74 Paired t-test Water-quality researchers wish to measure the biomass to chlorophyll ratio for phytoplankton (in milligrams per litre of water). There are two possible tests, one
 less expensive than the other. To see whether the two tests give the same results, ten water samples
@@ -9898,12 +9898,12 @@ Test 2 (y)
 57.5
 
 To test the null-hypothesis
-H0 : µZ = 0 against H1 : µZ 6= 0
+H0 : \muZ = 0 against H1 : \muZ 6= 0
 1 Pn
 2
 we use the test statistic t = n sz̄z , where s2z = n-1
 i=1 (zi - z̄) .
-Confidence interval for µZ .
+Confidence interval for \muZ .
 From the hypothesis testing, a 100(1 - α)% confidence interval is given by z̄ ± h √szn , where h is
 the critical value of the t distribution with n - 1 degrees of freedom. In R we perform the test as
 follows:
@@ -10659,10 +10659,10 @@ Hint Consider the identity
 (1 + t)m (1 + t)n = (1 + t)m+n
 and compare the coefficients of tm+n on both sides. If this is hard, please try small values of m and
 n, e.g. 2, 3 and see what happens.
-Exercise 2. Hard Show that if X \sim Poisson(\lambda), Y \sim Poisson(µ) and X and Y are independent
+Exercise 2. Hard Show that if X \sim Poisson(\lambda), Y \sim Poisson(\mu) and X and Y are independent
 random variables then
-X + Y \sim Poisson(\lambda + µ).
-Suppose X \sim Poisson(\lambda), Y \sim Poisson(µ), and let Z = X + Y . To determine the distribution
+X + Y \sim Poisson(\lambda + \mu).
+Suppose X \sim Poisson(\lambda), Y \sim Poisson(\mu), and let Z = X + Y . To determine the distribution
 
 A Mathematical Concepts Needed in MATH1024
 
@@ -10688,7 +10688,7 @@ X
 P \{Y = z - x\}P \{X = x\}
 
 
-e-µ µz-x /(z - x)! e-\lambda \lambdax /x!
+e-\mu \muz-x /(z - x)! e-\lambda \lambdax /x!
 
 x=0
 
@@ -10697,42 +10697,42 @@ x=0
 =
 =
 
--µ-\lambda
+-\mu-\lambda
 
 z
 X
 
 1
-\lambdax µz-x
+\lambdax \muz-x
 x! (z - x)!
 
 x=0
 z
--(\lambda+µ)
+-(\lambda+\mu)
 X
 e
 
 z!
-e-(\lambda+µ)
+e-(\lambda+\mu)
 z!
-e-(\lambda+µ)
+e-(\lambda+\mu)
 z!
 
 z!
-\lambdax µz-x
+\lambdax \muz-x
 x! (z - x)!
 x=0
 z  
 X
 z x z-x
-\lambda µ
+\lambda \mu
 x
 x=0
 
-(µ + \lambda)z (binomial sum).
+(\mu + \lambda)z (binomial sum).
 
-Thus Z \sim Poisson(\lambda+µ) since the above is the probability mass function of the Poisson distribution
-with parameter \lambda + µ.
+Thus Z \sim Poisson(\lambda+\mu) since the above is the probability mass function of the Poisson distribution
+with parameter \lambda + \mu.
 
 A.5
 
@@ -12291,9 +12291,9 @@ Girl's weight (kg)
 59
 
 Find
-(a) unbiased estimates of µb and \sigmab2 , the mean and variance of the weights of the boys;
-(b) unbiased estimates of µg and \sigmag2 , the mean and variance of the weights of the girls;
-(c) an unbiased estimate of µb - µg .
+(a) unbiased estimates of \mub and \sigmab2 , the mean and variance of the weights of the boys;
+(b) unbiased estimates of \mug and \sigmag2 , the mean and variance of the weights of the girls;
+(c) an unbiased estimate of \mub - \mug .
 Assuming that \sigmab2 = \sigmag2 = \sigma^2 , calculate an unbiased estimate of \sigma^2 using both sets of weights.
 93. [Estimation] The time that a customer has to wait for service in a restaurant has the probability density function
 (
@@ -12316,7 +12316,7 @@ i=1
 
 is an unbiased estimator for \theta. Find the standard error of \thetâ.
 94. [Confidence interval] In an experiment, 100 observations were taken from a normal distribution with variance 16. The experimenter quoted [1.545, 2.861] as the confidence interval for
-µ. What level of confidence was used?
+\mu. What level of confidence was used?
 
 B Worked Examples
 
@@ -12332,9 +12332,9 @@ intervals for the mean height of seven-year-old children:
 (a) 90% with n = 16,
 (b) 99% with n = 16,
 (c) 95% with n = 16, 25, 100, 225, 400.
-97. [Confidence interval] A random variable is known to be normally distributed, but its mean µ
-and variance \sigma^2 are unknown. A 95% confidence interval for µ based on 9 observations was
-found to be [22.4, 25.6]. Calculate unbiased estimates of µ and \sigma^2 .
+97. [Confidence interval] A random variable is known to be normally distributed, but its mean \mu
+and variance \sigma^2 are unknown. A 95% confidence interval for \mu based on 9 observations was
+found to be [22.4, 25.6]. Calculate unbiased estimates of \mu and \sigma^2 .
 98. [Confidence interval] The wavelength of radiation from a certain source is 1.372 microns. The
 following 10 independent measurements of the wavelength were obtained using a measuring
 device:
@@ -12393,10 +12393,10 @@ Level after
 1.78
 1.90
 
-Let µ1 and µ2 denote respectively the mean blood glucose levels of a randomly selected rat
+Let \mu1 and \mu2 denote respectively the mean blood glucose levels of a randomly selected rat
 before and after treatment with insulin. By considering the differences of the measurements
 on each rat and assuming that they are normally distributed, find a 95% confidence interval
-for µ1 - µ2 .
+for \mu1 - \mu2 .
 
 B Worked Examples
 
@@ -12413,25 +12413,25 @@ B.4
 
 Solutions: Statistics examples
 
-92. (a) An unbiased estimate of µb is given by the mean weight of the boys,
-µ̂b =
+92. (a) An unbiased estimate of \mub is given by the mean weight of the boys,
+\mûb =
 
 1
 (77 + 67 + \ldots + 81) = 67.3.
 10
 
 An unbiased estimate of \sigmab2 is the sample variance of the weights of the boys,
-\sigmâb2 = ((772 + 672 + \ldots + 812 ) - 10µ̂2b )/9 = 52.67̇.
-(b) Similarly, unbiased estimates of µg and \sigmag2 are
+\sigmâb2 = ((772 + 672 + \ldots + 812 ) - 10\mû2b )/9 = 52.67̇.
+(b) Similarly, unbiased estimates of \mug and \sigmag2 are
 1
 (42 + 57 + \ldots + 59) = 52.4,
 10
-\sigmâg2 = ((422 + 572 + \ldots + 592 ) - 10µ̂2g )/9 = 56.71̇.
+\sigmâg2 = ((422 + 572 + \ldots + 592 ) - 10\mû2g )/9 = 56.71̇.
 
-µ̂g =
+\mûg =
 
-(c) An unbiased estimate of µb - µg is
-µ̂b - µ̂g = 67.3 - 52.4 = 14.9.
+(c) An unbiased estimate of \mub - \mug is
+\mûb - \mûg = 67.3 - 52.4 = 14.9.
 
 E(\sigmâb2 ) = E(\sigmâg2 ) = \sigma^2 and so
 E
@@ -12620,7 +12620,7 @@ The midpoint is \bar x and therefore
 = 24.0.
 2
 
-This is an unbiased estimate of µ.
+This is an unbiased estimate of \mu.
 Also
 25.6 - 22.4
 2.306s
@@ -12696,7 +12696,7 @@ P
 ¯
 Then i=1 di = 1.78 and 10
 i=1 di = 0.7924 so that d = 0.178, sd = 0.2299.
-A 95% confidence interval for the mean difference µ1 - µ2 is
+A 95% confidence interval for the mean difference \mu1 - \mu2 is
 
 
 sd
@@ -12720,7 +12720,7 @@ or [0.014, 0.342], as critical value = 2.262
 10
 (qt(0.975,df=9) in R).
 Note that the two samples are not independent. Thus the standard method of finding a
-confidence interval for µ1 - µ2 , as used in Question 9 for example, would be inappropriate.
+confidence interval for \mu1 - \mu2 , as used in Question 9 for example, would be inappropriate.
 101. The mean of the heights is 1.624 and the standard deviation is 0.04326. A 99% confidence
 interval for the mean height is therefore
 

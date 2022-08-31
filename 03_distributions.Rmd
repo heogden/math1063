@@ -848,3 +848,100 @@ P(T<10 \mid T>5) &=\frac{P(5<T<10)}{P(T>5)} \\
 \end{align*}
 
 :::
+
+### Normal distribution
+
+#### Definition, mean and variance 
+
+<!-- TODO: motivate why normal distn important -->
+<!-- TODO: split up into more subsections -->
+
+A random variable $X$ is said to have the normal distribution with parameters $\mu$ and $\sigma^2$ if it has pdf of the form
+\begin{equation}
+f(x)=\frac{1}{\sqrt{2 \pi \sigma^2}} \exp \left\{-\frac{(x-\mu)^2}{2 \sigma^2}\right\}, \; -\infty<x<\infty
+(\#eq:normal-pdf)
+\end{equation}
+where $-\infty<\mu<\infty$ and $\sigma>0$ are two given constants. 
+It is easy to see that $f(x)>0$ for all $x$. We will now prove that
+
+- **R1**: $\int_{-\infty}^{\infty} f(x) d x=1$ or total probability equals 1, so that $f(x)$ defines a valid pdf.
+- **R2**: $E(X)=\mu$, i.e. the mean is $\mu$.
+- **R3**: $\operatorname{Var}(X)=\sigma^2$, i.e. the variance is $\sigma^2$.
+
+We denote the normal distribution by the notation $N\left(\mu, \sigma^2\right)$.
+Suppose all of these hold (since they are proved below). Then we may remember 
+the pdf of the normal distribution as:
+<!-- TODO: remove "variable" notation? -->
+\[f(\text{variable})=\frac{1}{\sqrt{2 \pi \, \text{variance}}} \exp \left\{-\frac{(\text {variable}-\text {mean})^2}{2 \, \text{variance}}\right\}\]
+where variable denotes the random variable. The density (pdf) is much easier to remember and work with when the mean $\mu=0$ and variance $\sigma^2=1$. In this case, we simply write:
+\[f(x)=\frac{1}{\sqrt{2 \pi}} \exp \left\{-\frac{x^2}{2}\right\} \quad \text { or } \quad f(\text{variable})=\frac{1}{\sqrt{2 \pi}} \exp \left\{-\frac{\text{variable}^2}{2}\right\}.\]
+Now let us prove the 3 assertions, **R1**, **R2** and **R3**. **R1** is proved as follows:
+\begin{align*}
+\int_{-\infty}^{\infty} f(x) d x &=\int_{-\infty}^{\infty} \frac{1}{\sqrt{2 \pi \sigma^2}} \exp \left\{-\frac{(x-\mu)^2}{2 \sigma^2}\right\} d x \\
+&=\frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} \exp \left\{-\frac{z^2}{2}\right\} d z \quad \text { (substitute } z=\frac{x-\mu}{\sigma} \text { so that } d x=\sigma d z) \\
+&=\frac{1}{\sqrt{2 \pi}} 2 \int_0^{\infty} \exp \left\{-\frac{z^2}{2}\right\} d z \quad \text { (since the integrand is an even function) } \\
+&=\frac{1}{\sqrt{2 \pi}} 2 \int_0^{\infty} \exp \{-u\} \frac{d u}{\sqrt{2 u}}\text { (substitute } u=\frac{z^2}{2} \text { so that } z=\sqrt{2 u} \text { and } d z=\frac{d u}{\sqrt{2 u}}) \\
+&=\frac{1}{2 \sqrt{\pi}} 2 \int_0^{\infty} u^{\frac{1}{2}-1} \exp \{-u\} d u \quad \text { (rearrange the terms) } \\
+&=\frac{1}{\sqrt{\pi}} \Gamma\left(\frac{1}{2}\right) \quad \text { (recall the definition of the Gamma function) }\\
+&=\frac{1}{\sqrt{\pi}} \sqrt{\pi}=1 \quad \text { as } \Gamma\left(\frac{1}{2}\right)=\sqrt{\pi}.
+\end{align*}
+
+To prove **R2**, i.e. $E(X)=\mu$, we prove the following two results:
+
+\begin{equation}
+X \sim N\left(\mu, \sigma^2\right) \longleftrightarrow Z \equiv \frac{X-\mu}{\sigma} \sim N(0,1)
+(\#eq:standardise-normal)
+\end{equation}
+\begin{equation}
+E(Z)=0
+(\#eq:std-normal-mean-zero)
+\end{equation}
+
+Then by the linearity of expectations, i.e. if $X=\mu+\sigma Z$ for constants $\mu$ and $\sigma$ then $E(X)=\mu+\sigma E(Z)=\mu$, the result follows. To prove \@ref(eq:standardise-normal),
+we first calculate the cdf of $Z$, given by:
+\begin{align*}
+\Phi(z) &=P(Z \leq z) \\
+&=P\left(\frac{X-\mu}{\sigma} \leq z\right) \\
+&=P(X \leq \mu+z \sigma) \\
+&=\int_{-\infty}^{\mu+z \sigma} \frac{1}{\sqrt{2 \pi \sigma^2}} \exp \left\{-\frac{(x-\mu)^2}{2 \sigma^2}\right\} d x \\
+&=\int_{-\infty}^z \frac{1}{\sqrt{2 \pi}} \exp \left\{-\frac{u^2}{2}\right\} d u, \quad[u=(x-\mu) / \sigma]
+\end{align*}
+and so the pdf of $Z$ is
+\[\frac{d \Phi(z)}{d z}=\frac{1}{\sqrt{2 \pi}} \exp \left\{-\frac{z^2}{2}\right\} \text { for }-\infty<z<\infty,\]
+by the fundamental theorem of calculus. This proves that $Z \sim N(0,1)$. The converse is proved just by reversing the steps. Thus we have proved \@ref(eq:standardise-normal) above. We use the $\Phi(\cdot)$ notation to denote the cdf of the standard normal distribution. Now:
+\begin{align*}
+E(Z) &=\int_{-\infty}^{\infty} z f(z) d z \\
+&=\int_{-\infty}^{\infty} z \frac{1}{\sqrt{2 \pi}} \exp \left\{-\frac{z^2}{2}\right\} d z \\
+&=\frac{1}{\sqrt{2 \pi}} \times 0=0,
+\end{align*}
+since the integrand $g(z)=z \exp \left\{-\frac{z^2}{2}\right\}$ is an odd function, i.e. $g(z)=-g(-z)$; for an odd function $g(z), \int_{-a}^a g(z) d z=0$ for any $a$. Therefore we have also proved 
+\@ref(eq:std-normal-mean-zero) and hence **R2**.
+
+To prove **R3**, i.e. $\operatorname{Var}(X)=\sigma^2$, we show that $\operatorname{Var}(Z)=1$ 
+where $Z=\frac{X-\mu}{\sigma}$ and then claim that
+$\operatorname{Var}(X)=\sigma^2 \operatorname{Var}(Z)=\sigma^2$ from our earlier result. 
+Since $E(Z)=0, \operatorname{Var}(Z)=E\left(Z^2\right)$, which is
+calculated below:
+\begin{align*}
+E\left(Z^2\right) &=\int_{-\infty}^{\infty} z^2 f(z) d z \\
+&=\int_{-\infty}^{\infty} z^2 \frac{1}{\sqrt{2 \pi}} \exp \left\{-\frac{z^2}{2}\right\} d z \\
+&=\frac{2}{\sqrt{2 \pi}} \int_0^{\infty} z^2 \exp \left\{-\frac{z^2}{2}\right\} d z \quad \text { (since the integrand is an even function) } \\
+&=\frac{2}{\sqrt{2 \pi}} \int_0^{\infty} 2 u \exp \{-u\} \frac{d u}{\sqrt{2 u}} \quad \text { (substitute } u=\frac{z^2}{2} \text { so that } z=\sqrt{2 u} \text { and } d z=\frac{d u}{\sqrt{2 u}} ) \\
+&=\frac{4}{2 \sqrt{\pi}} \int_0^{\infty} u^{\frac{1}{2}} \exp \{-u\} d u \\
+&=\frac{2}{\sqrt{\pi}} \int_0^{\infty} u^{\frac{3}{2}}-1 \exp \{-u\} d u \\
+&=\frac{2}{\sqrt{\pi}} \Gamma\left(\frac{3}{2}\right) \quad \text { (definition of the gamma function) }\\
+&=\frac{2}{\sqrt{\pi}}\left(\frac{3}{2}-1\right) \Gamma\left(\frac{3}{2}-1\right) \quad \text { (reduction property of the gamma function) }\\
+&=\frac{2}{\sqrt{\pi}} \frac{1}{2} \sqrt{\pi} \quad\text { (since } \Gamma\left(\frac{1}{2}\right) =\sqrt{\pi}) \\
+&=1,
+\end{align*}
+as we hoped for! This proves **R3**.
+
+#### Linear transformation of a Normal random variable
+
+<!-- TODO: put in thoerem environment? -->
+
+Suppose $X \sim N\left(\mu, \sigma^2\right)$ and $a$ and $b$ are constants. Then the distribution of $Y=a X+b$ is $N\left(a \mu+b, a^2 \sigma^2\right)$
+
+Proof: The result that $Y$ has mean $a \mu+b$ and variance $a^2 \sigma^2$ can already be claimed from the linearity of the expectations and the variance result for linear functions. What remains to be proved is that the normality of $Y$, i.e. how can we claim that $Y$ will follow the normal distribution too? For this, we note that
+\[Y=a X+b=a(\mu+\sigma Z)+b=(a \mu+b)+a \sigma Z\]
+since $X=\mu+\sigma Z$. Now we use \@ref(eq:standardise-normal) to claim the normality of $Y$.

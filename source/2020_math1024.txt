@@ -6193,10 +6193,10 @@ rate) calculates the 100p percentile of the exponential distribution with parame
 ♥ Example 38 Survival function The exponential distribution is sometimes used to model
 the survival times in different experiments. For example, an exponential random variable T may
 be assumed to model the number of days a cancer patient survives after chemotherapy. In such a
-situation, the function S(t) = 1 - F (t) = e-θt is called the survival function. See Figure 3.2 for an
+situation, the function S(t) = 1 - F (t) = e-\thetat is called the survival function. See Figure 3.2 for an
 example plot.
 
-Figure 3.2: S(t) for θ = 1, 0.5, 0.2.
+Figure 3.2: S(t) for \theta = 1, 0.5, 0.2.
 Assuming the mean survival time to be 100 days for a fatal late detected cancer, we can expect
 that half of the patients survive 69.3 days after chemo since qexp(0.50, rate=1/100) = 69.3.
 You will learn more about this in a third-year module, Math3085: Survival models, important in
@@ -6226,9 +6226,9 @@ P (X>s+t,X>t)
 P (X>t)
 P (X>s+t)
 P (X>t)
-e-θ(s+t)
-e-θt
-e-θs
+e-\theta(s+t)
+e-\thetat
+e-\thetas
 
 =
 =
@@ -7952,8 +7952,8 @@ estimate the mean (\lambda) of the Poisson distribution.
 distribution. For example, if our model for the computer failure data is that they are i.i.d.,
 following the distribution of an unspecified common random variable X, then we may want
 to estimate µ = E(X) or \sigma^2 = Var(X).
-In the following, we use the generic notation θ to denote the estimand (what we want to estimate
-or the parameter). For example, θ is the parameter \lambda in the first example, and θ may be either µ
+In the following, we use the generic notation \theta to denote the estimand (what we want to estimate
+or the parameter). For example, \theta is the parameter \lambda in the first example, and \theta may be either µ
 or \sigma^2 or both in the second example.
 
 4 Statistical Inference
@@ -7989,62 +7989,62 @@ Statistic and estimator
 
 A statistic T (x) is any function of the observed data x_1 , \ldots , x_n alone (and therefore does not depend
 on any parameters or other unknowns).
-An estimate of θ is any statistic which is used to estimate θ under a particular statistical model.
-We will use θ̃(x) (sometimes shortened to θ̃) to denote an estimate of θ.
-An estimate θ̃(x) is an observation of a corresponding random variable θ̃(X) which is called an
+An estimate of \theta is any statistic which is used to estimate \theta under a particular statistical model.
+We will use \thetã(x) (sometimes shortened to \thetã) to denote an estimate of \theta.
+An estimate \thetã(x) is an observation of a corresponding random variable \thetã(X) which is called an
 estimator. Thus an estimate is a particular observed value, e.g. 1.2, but an estimator is a random
 variable which can take values which are called estimates.
 An estimate is a particular numerical value, e.g. \bar x; an estimator is a
 random variable, e.g. \BAR X.
-The probability distribution of any estimator θ̃(X) is called its sampling distribution. The
-estimate θ̃(x) is an observed value (a number), and is a single observation from the sampling distribution of θ̃(X).
-♥ Example 58 Suppose that we have a random sample X_1 , \ldots , X_n from the uniform distribution on the interval [0, θ] where θ > 0 is unknown. Suppose that n = 5 and we have the sample
-observations x_1 = 2.3, x2 = 3.6, x3 = 20.2, x4 = 0.9, x5 = 17.2. Our objective is to estimate θ. How
+The probability distribution of any estimator \thetã(X) is called its sampling distribution. The
+estimate \thetã(x) is an observed value (a number), and is a single observation from the sampling distribution of \thetã(X).
+♥ Example 58 Suppose that we have a random sample X_1 , \ldots , X_n from the uniform distribution on the interval [0, \theta] where \theta > 0 is unknown. Suppose that n = 5 and we have the sample
+observations x_1 = 2.3, x2 = 3.6, x3 = 20.2, x4 = 0.9, x5 = 17.2. Our objective is to estimate \theta. How
 can we proceed?
-Rθ
-Here the pdf f (x) = 1θ for 0 \leq x \leq θ and 0 otherwise. Hence E(X) = 0 1θ xdx = 2θ . There are
-many possible estimators for θ, e.g. θ̂1 (X) = 2 \BAR X, which is motivated by the method of moments
-because θ = 2E(X). A second estimator is θ̂2 (X) = max\{X_1 , X2 , \ldots , X_n \}, which is intuitive since
+R\theta
+Here the pdf f (x) = 1\theta for 0 \leq x \leq \theta and 0 otherwise. Hence E(X) = 0 1\theta xdx = 2\theta . There are
+many possible estimators for \theta, e.g. \thetâ1 (X) = 2 \BAR X, which is motivated by the method of moments
+because \theta = 2E(X). A second estimator is \thetâ2 (X) = max\{X_1 , X2 , \ldots , X_n \}, which is intuitive since
 
 4 Statistical Inference
 
 86
 
-θ must be greater than or equal to all observed values and thus the maximum of the sample value
-will be closest to θ. This is also the maximum likelihood estimate of θ, which you will learn in
+\theta must be greater than or equal to all observed values and thus the maximum of the sample value
+will be closest to \theta. This is also the maximum likelihood estimate of \theta, which you will learn in
 MATH3044.
-How could we choose between the two estimators θ̂1 and θ̂2 ? This is where we need to learn the
+How could we choose between the two estimators \thetâ1 and \thetâ2 ? This is where we need to learn the
 sampling distribution of an estimator to determine which estimator will be unbiased, i.e. correct on
 average, and which will have minimum variability. We will formally define these in a minute, but
-first let us derive the sampling distribution, i.e. the pdf, of θ̂2 . Note that θ̂2 is a random variable
+first let us derive the sampling distribution, i.e. the pdf, of \thetâ2 . Note that \thetâ2 is a random variable
 since the sample X_1 , \ldots , X_n is random. We will first find its cdf and then differentiate the cdf to
-get the pdf. For ease of notation, suppose Y = θ̂2 (X) = max\{X_1 , X2 , \ldots , X_n \}. For any 0 < y < θ,
+get the pdf. For ease of notation, suppose Y = \thetâ2 (X) = max\{X_1 , X2 , \ldots , X_n \}. For any 0 < y < \theta,
 the cdf of Y , F (y) is given by:
 P (Y \leq y) = P (max\{X_1 , X2 , \ldots , X_n \} \leq y)
 = P (X_1 \leq y, X2 \leq y, \ldots , X_n \leq y)) [max \leq y if and only if each \leq y]
 = P (X_1 \leq y)P (X2 \leq y) · · · P (X_n \leq y) [since the X's are independent]
-= yθ yθ · · · yθ
+= y\theta y\theta · · · y\theta
 n
-= yθ .
+= y\theta .
 Now the pdf of Y is f (y) =
 
 dF (y)
 dy
 
-see the pdf. Now E(θ̂2 ) = E(Y ) =
+see the pdf. Now E(\thetâ2 ) = E(Y ) =
 integration.
 
 4.2.4
 
 n-1
 
-= n y θn for 0 \leq y \leq θ. We can plot this as a function of y to
+= n y \thetan for 0 \leq y \leq \theta. We can plot this as a function of y to
 n
-n+1 θ
+n+1 \theta
 
-and Var(θ̂2 ) =
+and Var(\thetâ2 ) =
 
-nθ2
+n\theta2
 .
 (n+2)(n+1)2
 
@@ -8052,64 +8052,64 @@ You can prove this by easy
 
 Bias and mean square error
 
-In the uniform distribution example we saw that the estimator θ̂2 = Y = max\{X_1 , X2 , \ldots , X_n \} is
+In the uniform distribution example we saw that the estimator \thetâ2 = Y = max\{X_1 , X2 , \ldots , X_n \} is
 n-1
-a random variable and its pdf is given by f (y) = n y θn for 0 \leq y \leq θ. This probability distribution
+a random variable and its pdf is given by f (y) = n y \thetan for 0 \leq y \leq \theta. This probability distribution
 n
-θ.
-is called the sampling distribution of θ̂2 . For this we have seen that E(θ̂2 ) = n+1
-In general, we define the bias of an estimator θ̃(X) of θ to be
-bias(θ̃) = E(θ̃) - θ.
-An estimator θ̃(X) is said to be unbiased if
-bias(θ̃) = 0, i.e. if
+\theta.
+is called the sampling distribution of \thetâ2 . For this we have seen that E(\thetâ2 ) = n+1
+In general, we define the bias of an estimator \thetã(X) of \theta to be
+bias(\thetã) = E(\thetã) - \theta.
+An estimator \thetã(X) is said to be unbiased if
+bias(\thetã) = 0, i.e. if
 
-E(θ̃) = θ.
+E(\thetã) = \theta.
 
 So an estimator is unbiased if the expectation of its sampling distribution is equal to the quantity
 we are trying to estimate. Unbiased means "getting it right on average", i.e. under repeated sampling (relative frequency interpretation of probability).
-Thus for the uniform distribution example, θ̂2 is a biased estimator of θ and
-bias(θ̂2 ) = E(θ̂2 ) - θ =
+Thus for the uniform distribution example, \thetâ2 is a biased estimator of \theta and
+bias(\thetâ2 ) = E(\thetâ2 ) - \theta =
 
 n
 1
-θ-θ =-
-θ,
+\theta-\theta =-
+\theta,
 n+1
 n+1
 
-which goes to zero as n \rightarrow \infty. However, θ̂1 = 2\BAR X is unbiased since E(θ̂1 ) = 2E(\BAR X) = 2 2θ = θ.
+which goes to zero as n \rightarrow \infty. However, \thetâ1 = 2\BAR X is unbiased since E(\thetâ1 ) = 2E(\BAR X) = 2 2\theta = \theta.
 
 4 Statistical Inference
 
 87
 
 Unbiased estimators are "correct on average", but that does not mean that they are guaranteed
-to provide estimates which are close to the estimand θ. A better measure of the quality of an
+to provide estimates which are close to the estimand \theta. A better measure of the quality of an
 estimator than bias is the mean squared error (or m.s.e.), defined as
 h
 i
-m.s.e.(θ̃) = E (θ̃ - θ)2 .
-Therefore, if θ̃ is unbiased for θ, i.e. if E(θ̃) = θ, then m.s.e.(θ̃) = Var(θ̃). In general, we have the
+m.s.e.(\thetã) = E (\thetã - \theta)2 .
+Therefore, if \thetã is unbiased for \theta, i.e. if E(\thetã) = \theta, then m.s.e.(\thetã) = Var(\thetã). In general, we have the
 following result:
-m.s.e.(θ̃) = Var(θ̃) + bias(θ̃)2 .
+m.s.e.(\thetã) = Var(\thetã) + bias(\thetã)2 .
 The proof is similar to the one we did in Lecture 2.
 h
 i
-m.s.e.(θ̃) = E (θ̃ - θ)2
+m.s.e.(\thetã) = E (\thetã - \theta)2
 
  
  
 2 
-= E θ̃ - E θ̃ + E θ̃ - θ
+= E \thetã - E \thetã + E \thetã - \theta
 
  2   
 2
 
     
 
-= E θ̃ - E θ̃
-+ E θ̃ - θ + 2 θ̃ - E θ̃
-E θ̃ - θ
+= E \thetã - E \thetã
++ E \thetã - \theta + 2 \thetã - E \thetã
+E \thetã - \theta
 h
  i2
 h  
@@ -8117,31 +8117,31 @@ i2
 h
     
 i
-= E θ̃ - E θ̃
-+ E E θ̃ - θ + 2E θ̃ - E θ̃
-E θ̃ - θ
+= E \thetã - E \thetã
++ E E \thetã - \theta + 2E \thetã - E \thetã
+E \thetã - \theta
   h  
 i2
   
  h
  i
-= Var θ̃ + E θ̃ - θ + 2 E θ̃ - θ E θ̃ - E θ̃
+= Var \thetã + E \thetã - \theta + 2 E \thetã - \theta E \thetã - E \thetã
  
   
 h  
  i
-= Var θ̃ + bias(θ̃)2 + 2 E θ̃ - θ E θ̃ - E θ̃
+= Var \thetã + bias(\thetã)2 + 2 E \thetã - \theta E \thetã - E \thetã
  
-= Var θ̃ + bias(θ̃)2 .
+= Var \thetã + bias(\thetã)2 .
 Hence, the mean squared error incorporates both the bias and the variability (sampling variance)
-of θ̃. We are then faced with the bias-variance trade-off when selecting an optimal estimator. We
+of \thetã. We are then faced with the bias-variance trade-off when selecting an optimal estimator. We
 may allow the estimator to have a little bit of bias if we can ensure that the variance of the biased
 estimator will be much smaller than that of any unbiased estimator.
-♥ Example 59 Uniform distribution Continuing with the uniform distribution U [0, θ] example,
+♥ Example 59 Uniform distribution Continuing with the uniform distribution U [0, \theta] example,
 1
-θ. How do these estimators
-we have seen that θ̂1 = 2\BAR X is unbiased for θ but bias(θ̂2 ) = - n+1
-compare with respect to the m.s.e? Since θ̂1 is unbiased, its m.s.e is its variance. In the next
+\theta. How do these estimators
+we have seen that \thetâ1 = 2\BAR X is unbiased for \theta but bias(\thetâ2 ) = - n+1
+compare with respect to the m.s.e? Since \thetâ1 is unbiased, its m.s.e is its variance. In the next
 lecture, we will prove that for random sampling from any population
 Var(\BAR X) =
 
@@ -8150,23 +8150,23 @@ Var(X)
 n
 
 where Var(X) is the variance of the population sampled from. Returning to our example, we know
-θ2
-that if X \sim U [0, θ] then Var(X) = 12
+\theta2
+that if X \sim U [0, \theta] then Var(X) = 12
 . Therefore we have:
  
 
 
-θ2
-θ2
-m.s.e.(θ̂1 ) = Var θ̂1 = Var 2\BAR X = 4Var \BAR X = 4
+\theta2
+\theta2
+m.s.e.(\thetâ1 ) = Var \thetâ1 = Var 2\BAR X = 4Var \BAR X = 4
 =
 .
 12n
 3n
-Now, for θ̂2 we know that:
-1. Var(θ̂2 ) =
+Now, for \thetâ2 we know that:
+1. Var(\thetâ2 ) =
 
-nθ2
+n\theta2
 ;
 (n+2)(n+1)2
 
@@ -8175,35 +8175,35 @@ nθ2
 88
 
 1
-2. bias(θ̂2 ) = - n+1
-θ.
+2. bias(\thetâ2 ) = - n+1
+\theta.
 
 Now
 
  
-m.s.e.(θ̂2 ) = Var θ̂2 + bias(θ̂2 )2
+m.s.e.(\thetâ2 ) = Var \thetâ2 + bias(\thetâ2 )2
 =
 =
 =
 
-nθ2
-θ2
+n\theta2
+\theta2
 2 + (n+1)2
 (n+2)(n+1)
 
 
 n
-θ2
+\theta2
 +1
 (n+1)2 n+2
 2
 2n+2
-θ
+\theta
 .
 (n+1)2 n+2
 
-Clearly, the m.s.e of θ̂2 is an order of magnitude (of order n2 rather than n) smaller than the m.s.e
-of θ̂1 , providing justification for the preference of θ̂2 = max\{X_1 , X2 , \ldots , X_n \} as an estimator of θ.
+Clearly, the m.s.e of \thetâ2 is an order of magnitude (of order n2 rather than n) smaller than the m.s.e
+of \thetâ1 , providing justification for the preference of \thetâ2 = max\{X_1 , X2 , \ldots , X_n \} as an estimator of \theta.
 
 4.2.5
 
@@ -8394,16 +8394,16 @@ The sample variance is an unbiased estimator of the population variance.
 
 Standard deviation and standard error
 
-It follows that, for an unbiased (or close to unbiased) estimator θ̃,
-m.s.e.(θ̃) = Var(θ̃)
+It follows that, for an unbiased (or close to unbiased) estimator \thetã,
+m.s.e.(\thetã) = Var(\thetã)
 and therefore the sampling variance of the estimator is an important summary of its quality.
-We usually prefer to focus on the standard deviation of the sampling distribution of θ̃,
+We usually prefer to focus on the standard deviation of the sampling distribution of \thetã,
 q
-s.d.(θ̃) = Var(θ̃).
-In practice we will not know s.d.(θ̃), as it will typically depend on unknown features of the
-distribution of X_1 , \ldots , X_n . However, we may be able to estimate s.d.(θ̃) using the observed sample
-x_1 , \ldots , x_n . We define the standard error, s.e.(θ̃), of an estimator θ̃ to be an estimate of the standard
-deviation of its sampling distribution, s.d.(θ̃).
+s.d.(\thetã) = Var(\thetã).
+In practice we will not know s.d.(\thetã), as it will typically depend on unknown features of the
+distribution of X_1 , \ldots , X_n . However, we may be able to estimate s.d.(\thetã) using the observed sample
+x_1 , \ldots , x_n . We define the standard error, s.e.(\thetã), of an estimator \thetã to be an estimate of the standard
+deviation of its sampling distribution, s.d.(\thetã).
 Standard error of an estimator is an estimate of the standard deviation
 of its sampling distribution
 We proved that
@@ -8484,36 +8484,36 @@ allow us to be much more precise by harnessing the power of the data.
 
 Basics
 
-An estimate θ̃ of a parameter θ is sometimes referred to as a point estimate. The usefulness of a
+An estimate \thetã of a parameter \theta is sometimes referred to as a point estimate. The usefulness of a
 point estimate is enhanced if some kind of measure of its precision can also be provided. Usually,
 for an unbiased estimator, this will be a standard error, an estimate of the standard deviation of the
 associated estimator, as we have discussed previously. An alternative summary of the information
-provided by the observed data about the location of a parameter θ and the associated precision is
+provided by the observed data about the location of a parameter \theta and the associated precision is
 an interval estimate or confidence interval.
 Suppose that x_1 , \ldots , x_n are observations of random variables X_1 , \ldots , X_n whose joint pdf is
-specified apart from a single parameter θ. To construct a confidence interval for θ, we need to find
+specified apart from a single parameter \theta. To construct a confidence interval for \theta, we need to find
 
 4 Statistical Inference
 
 92
 
-a random variable T (X, θ) whose distribution does not depend on θ and is therefore known. This
-random variable T (X, θ) is called a pivot for θ. Hence we can find numbers h1 and h2 such that
-P (h1 \leq T (X, θ) \leq h2 ) = 1 - α
+a random variable T (X, \theta) whose distribution does not depend on \theta and is therefore known. This
+random variable T (X, \theta) is called a pivot for \theta. Hence we can find numbers h1 and h2 such that
+P (h1 \leq T (X, \theta) \leq h2 ) = 1 - α
 
 (1),
 
 where 1 - α is any specified probability. If (1) can be 'inverted' (or manipulated), we can write it
 as
-P [g1 (X) \leq θ \leq g2 (X)] = 1 - α.
+P [g1 (X) \leq \theta \leq g2 (X)] = 1 - α.
 (2)
-Hence with probability 1 - α, the parameter θ will lie between the random variables g1 (X) and
-g2 (X). Alternatively, the random interval [g1 (X), g2 (X)] includes θ with probability 1 - α. Now,
+Hence with probability 1 - α, the parameter \theta will lie between the random variables g1 (X) and
+g2 (X). Alternatively, the random interval [g1 (X), g2 (X)] includes \theta with probability 1 - α. Now,
 when we observe x_1 , \ldots , x_n , we observe a single observation of the random interval [g1 (X), g2 (X)],
-which can be evaluated as [g1 (x), g2 (x)]. We do not know if θ lies inside or outside this interval,
+which can be evaluated as [g1 (x), g2 (x)]. We do not know if \theta lies inside or outside this interval,
 but we do know that if we observed repeated samples, then 100(1 - α)% of the resulting intervals
-would contain θ. Hence, if 1 - α is high, we can be reasonably confident that our observed interval
-contains θ. We call the observed interval [g1 (x), g2 (x)] a 100(1 - α)% confidence interval for θ.
+would contain \theta. Hence, if 1 - α is high, we can be reasonably confident that our observed interval
+contains \theta. We call the observed interval [g1 (x), g2 (x)] a 100(1 - α)% confidence interval for \theta.
 It is common to present intervals with high confidence levels, usually 90%, 95% or 99%, so that
 α = 0.1, 0.05 or 0.01 respectively.
 
@@ -8606,8 +8606,8 @@ where the estimate is \bar x, the critical value is 1.96 and the standard error 
 so much easier to remember. We will see that this formula holds in many of the following
 examples, but not all.
 2. Confidence intervals are frequently used, but also frequently misinterpreted. A 100(1 - α)%
-confidence interval for θ is a single observation of a random interval which, under repeated
-sampling, would include θ 100(1 - α)% of the time.
+confidence interval for \theta is a single observation of a random interval which, under repeated
+sampling, would include \theta 100(1 - α)% of the time.
 The following example from the National Lottery in the UK clarifies the interpretation. We
 collected 6 chosen lottery numbers (sampled at random from 1 to 49) for 20 weeks and then
 constructed 95% confidence intervals for the population mean µ = 25 and plotted the intervals
@@ -8623,13 +8623,13 @@ with 100(1 - α)% confidence levels again and again for hypothetical repetition 
 on average 100(1 - α)% of them will contain the true parameter.
 
 3. A confidence interval is not a probability interval. You should avoid making statements like
-P (1.3 < θ < 2.2) = 0.95. In the classical approach to statistics you can only make probability
-statements about random variables, and θ is assumed to be a constant.
+P (1.3 < \theta < 2.2) = 0.95. In the classical approach to statistics you can only make probability
+statements about random variables, and \theta is assumed to be a constant.
 4. If a confidence interval is interpreted as a probability interval, this may lead to problems.
-For example, suppose that X_1 and X2 are i.i.d. U [θ - 12 , θ + 12 ] random variables. Then
-P [min(X_1 , X2 ) < θ < max(X_1 , X2 )] = 21 so [min(x_1 , x2 ), max(x_1 , x2 )] is a 50% confidence
-interval for θ, where x_1 and x2 are the observed values of X_1 and X2 . Now suppose that
-x_1 = 0.3 and x2 = 0.9. What is P (0.3 < θ < 0.9)?
+For example, suppose that X_1 and X2 are i.i.d. U [\theta - 12 , \theta + 12 ] random variables. Then
+P [min(X_1 , X2 ) < \theta < max(X_1 , X2 )] = 21 so [min(x_1 , x2 ), max(x_1 , x2 )] is a 50% confidence
+interval for \theta, where x_1 and x2 are the observed values of X_1 and X2 . Now suppose that
+x_1 = 0.3 and x2 = 0.9. What is P (0.3 < \theta < 0.9)?
 
 4.4.4
 
@@ -8653,9 +8653,9 @@ Lecture 23: Confidence intervals using the CLT
 Lecture mission
 
 Confidence intervals are generally difficult to find. The difficulty lies in finding a pivot, i.e. a
-statistic T (X, θ) such that
-P (h1 \leq T (X, θ) \leq h2 ) = 1 - α
-for two suitable numbers h1 and h2 , and also that the above can be inverted to put the unknown θ
+statistic T (X, \theta) such that
+P (h1 \leq T (X, \theta) \leq h2 ) = 1 - α
+for two suitable numbers h1 and h2 , and also that the above can be inverted to put the unknown \theta
 in the middle of the inequality inside the probability statement. One solution to this problem is to
 use the powerful Central Limit Theorem (CLT) to claim normality, and then basically follow the
 above normal example for known variance.
@@ -9257,13 +9257,13 @@ is then referred to as a hypothesis, and pairs of models are compared using hypo
 For example, we may have two competing alternatives, f (0) (x) (model H0 ) and f (1) (x) (model
 H1 ) for f (x), both of which completely specify the joint distribution of the sample X_1 , \ldots , X_n .
 Completely specified statistical models are called simple hypotheses. Usually, H0 and H1 both take
-the same parametric form f (x, θ), but with different values θ(0) and θ(1) of θ. Thus the joint distribution of the sample given by f (X) is completely specified apart from the values of the unknown
-parameter θ and θ(0) 6= θ(1) are specified alternative values.
+the same parametric form f (x, \theta), but with different values \theta(0) and \theta(1) of \theta. Thus the joint distribution of the sample given by f (X) is completely specified apart from the values of the unknown
+parameter \theta and \theta(0) 6= \theta(1) are specified alternative values.
 More generally, competing hypotheses often do not completely specify the joint distribution of
 X_1 , \ldots , X_n . For example, a hypothesis may state that X_1 , \ldots , X_n is a random sample from the
-probability distribution f (x; θ) where θ < 0. This is not a completely specified hypothesis, since it
+probability distribution f (x; \theta) where \theta < 0. This is not a completely specified hypothesis, since it
 is not possible to calculate probabilities such as P (X_1 < 2) when the hypothesis is true, as we do
-not know the exact value of θ. Such an hypothesis is called a composite hypothesis.
+not know the exact value of \theta. Such an hypothesis is called a composite hypothesis.
 Examples of hypotheses:
 X_1 , \ldots , X_n \sim N (µ, \sigma^2 ) with µ = 0, \sigma^2 = 2.
 X_1 , \ldots , X_n \sim N (µ, \sigma^2 ) with µ = 0, \sigma^2 \in R+ .
@@ -9272,7 +9272,7 @@ X_1 , \ldots , X_n \sim Bernoulli(p) with p = 12 .
 X_1 , \ldots , X_n \sim Bernoulli(p) with p 6= 12 .
 X_1 , \ldots , X_n \sim Bernoulli(p) with p > 12 .
 X_1 , \ldots , X_n \sim Poisson(\lambda) with \lambda = 1.
-X_1 , \ldots , X_n \sim Poisson(θ) with θ > 1.
+X_1 , \ldots , X_n \sim Poisson(\theta) with \theta > 1.
 
 4.7.3
 
@@ -9320,17 +9320,17 @@ if H0 is true
 if H1 is true
 
 ♥ Example 67 Uniform Suppose that we have one observation from the uniform distribution
-on the range (0, θ). In this case, f (x) = 1/θ if 0 < x < θ and P (X \leq x) = xθ for 0 < x < θ. We
-want to test H0 : θ = 1 against the alternative H1 : θ = 2. Suppose we decide arbitrarily that we
+on the range (0, \theta). In this case, f (x) = 1/\theta if 0 < x < \theta and P (X \leq x) = x\theta for 0 < x < \theta. We
+want to test H0 : \theta = 1 against the alternative H1 : \theta = 2. Suppose we decide arbitrarily that we
 will reject H0 if X > 0.75. Then
 α = P (Type I error) = P (X > 0.75) if H0 is true
 β = P (Type II error) = P (X < 0.75) if H1 is true
 which will imply:
 1
-α = P (X > 0.75|θ = 1) = 1 - 0.75 = ,
+α = P (X > 0.75|\theta = 1) = 1 - 0.75 = ,
 4
 3
-β = P (X < 0.75|θ = 2) = 0.75/2 = .
+β = P (X < 0.75|\theta = 2) = 0.75/2 = .
 8
 Here the notation | means given that.
 ♥ Example 68 Poisson The daily demand for a product has a Poisson distribution with mean \lambda,
@@ -9395,10 +9395,10 @@ The test statistic
 We perform a hypothesis test by computing a test statistic, T (X). A test statistic must (obviously)
 be a statistic (i.e. a function of X and other known quantities only). Furthermore, the random
 variable T (X) must have a distribution which is known under the null hypothesis. The easiest way
-to construct a test statistic is to obtain a pivot for θ. If T (X, θ) is a pivot for θ then its sampling
-distribution is known and, therefore, under the null hypothesis (θ = θ0 ) the sampling distribution
-of T (X, θ0 ) is known. Hence T (x, θ0 ) is a test statistic, as it depends on observed data x and the
-hypothesised value θ0 only. We then assess the plausibility of H0 by evaluating whether T (x, θ0 )
+to construct a test statistic is to obtain a pivot for \theta. If T (X, \theta) is a pivot for \theta then its sampling
+distribution is known and, therefore, under the null hypothesis (\theta = \theta0 ) the sampling distribution
+of T (X, \theta0 ) is known. Hence T (x, \theta0 ) is a test statistic, as it depends on observed data x and the
+hypothesised value \theta0 only. We then assess the plausibility of H0 by evaluating whether T (x, \theta0 )
 seems like a reasonable observation from its (known) distribution. This is all rather abstract. How
 does it work in a concrete example?
 
@@ -12297,24 +12297,24 @@ Find
 Assuming that \sigmab2 = \sigmag2 = \sigma^2 , calculate an unbiased estimate of \sigma^2 using both sets of weights.
 93. [Estimation] The time that a customer has to wait for service in a restaurant has the probability density function
 (
-3θ3
+3\theta3
 if x \geq 0
-(x+θ)4
+(x+\theta)4
 f (x) =
 0
 otherwise,
-where θ is an unknown positive constant. Let X_1 , X2 , \ldots , X_n denote a random sample from
+where \theta is an unknown positive constant. Let X_1 , X2 , \ldots , X_n denote a random sample from
 this distribution. Show that
 n
 
-θ̂ =
+\thetâ =
 
 2X
 Xi
 n
 i=1
 
-is an unbiased estimator for θ. Find the standard error of θ̂.
+is an unbiased estimator for \theta. Find the standard error of \thetâ.
 94. [Confidence interval] In an experiment, 100 observations were taken from a normal distribution with variance 16. The experimenter quoted [1.545, 2.861] as the confidence interval for
 µ. What level of confidence was used?
 
@@ -12457,67 +12457,67 @@ Therefore an unbiased estimate of \sigma^2 which uses both sets of weights is
 93. The mean of the distribution is
 \infty
 
-3θ3 x
+3\theta3 x
 dx
-(x + θ)4
+(x + \theta)4
 0
 Z \infty
-y-θ
+y-\theta
 3
-dy (where y = x + θ)
-= 3θ
+dy (where y = x + \theta)
+= 3\theta
 y4
-θ
+\theta
 
 1
-θ \infty
+\theta \infty
 3
-= 3θ - 2 + 3
+= 3\theta - 2 + 3
 2y
-3y θ
+3y \theta
 
 
 1
 1
 3
-= 3θ
-= θ/2
+= 3\theta
+= \theta/2
 -
-2θ2 3θ2
+2\theta2 3\theta2
 Z
 
 E(X) =
 
-Hence E(Xi ) = θ/2, i = 1, 2, \ldots , n, and E(θ̂) = θ.
-Thus θ̂ is an unbiased estimator for θ.
+Hence E(Xi ) = \theta/2, i = 1, 2, \ldots , n, and E(\thetâ) = \theta.
+Thus \thetâ is an unbiased estimator for \theta.
 Z \infty
 Z \infty
-3θ3 x2
-(y - θ)2
+3\theta3 x2
+(y - \theta)2
 3
 E(X 2 ) =
 dx
 =
-3θ
+3\theta
 dy
-(x + θ)4
+(x + \theta)4
 y4
 0
-θ
+\theta
 
 
-θ
-θ2 \infty
+\theta
+\theta2 \infty
 
 1
 3
-= 3θ - + 2 - 3
+= 3\theta - + 2 - 3
 y y
-3y θ
-= θ2 .
-So Var(X) = θ2 - (θ/2)2 = 3θ2 /4.
+3y \theta
+= \theta2 .
+So Var(X) = \theta2 - (\theta/2)2 = 3\theta2 /4.
 p
-Hence Var(θ̂) = 4Var(\BAR X) = 3θ2 /n and SE(θ̂) = θ 3/n.
+Hence Var(\thetâ) = 4Var(\BAR X) = 3\theta2 /n and SE(\thetâ) = \theta 3/n.
 
 94. The 100(1 - α)% symmetric confidence interval is
 

@@ -636,3 +636,215 @@ returns the cdf or the probability up to and including the argument. Thus
 ppois(q=3, lambda=5)
 ```
 will return the value of $P (X \leq 3)$ when $X \sim \operatorname{Poisson}(\lambda = 5)$.
+
+## Standard continuous distributions
+
+### Exponential distribution
+
+#### Introduction and definition
+
+A continuous random variable $X$ is said to follow the exponential distribution if its pdf is of the form:
+\[f(x)= \begin{cases}\theta e^{-\theta x} & \text { if $x>0$} \\ 0 & \text { if $x \leq 0$}\end{cases}\]
+where $\theta>0$ is a parameter. We write $X \sim \operatorname{Exponential}(\theta)$. 
+The distribution only resides in the positive half of the real line, and the tail goes 
+down to zero exponentially as $x \rightarrow \infty$. The rate at which that happens
+is the parameter $\theta$. Hence $\theta$ is known as the rate parameter.
+
+It is easy to prove that $\int_{0}^{\infty} f(x) d x=1$. This is left as an exercise. To find the mean and variance of the distribution we need the gamma function as discussed in Section ??.
+<!-- TODO: add reference -->
+
+<!-- TODO: put into definition environment -->
+**Definition**: Gamma function:
+For any positive number $a$,
+\[\Gamma(a)=\int_{0}^{\infty} x^{a-1} e^{-x} d x\]
+is defined to be the gamma function and it has a finite real value. Moreover, we have the following facts
+\[\Gamma\left(\frac{1}{2}\right)=\sqrt{\pi} ; \quad \Gamma(1)=1 ; \quad \Gamma(a)=(a-1) \Gamma(a-1) \text { if $a>1$}\]
+These last two facts imply that $\Gamma(k)=(k-1)!$ when $k$ is a positive integer. 
+Find $\Gamma\left(\frac{3}{2}\right)$.
+
+#### Expectation and variance
+By definition,
+\begin{align*}
+E(X) &=\int_{-\infty}^{\infty} x f(x) d x \\
+&=\int_{0}^{\infty} x \theta e^{-\theta x} d x \\
+&=\int_{0}^{\infty} y e^{-y} \frac{d y}{\theta} \quad \text {(substitute $y=\theta x$)}         \\
+&=\frac{1}{\theta} \int_{0}^{\infty} y^{2-1} e^{-y} d y \\
+&=\frac{1}{\theta} \Gamma(2) \\
+&=\frac{1}{\theta} \quad \text { since } \Gamma(2)=1 !=1 .
+\end{align*}
+Now,
+\begin{align*}
+E\left(X^{2}\right) &=\int_{-\infty}^{\infty} x^{2} f(x) d x \\
+&=\int_{0}^{\infty} x^{2} \theta e^{-\theta x} d x \\
+&=\theta \int_{0}^{\infty}\left(\frac{y}{\theta}\right)^{2} e^{-y \frac{d y}{\theta}} \quad \text {(substitute $y=\theta x$)} \\
+&=\frac{1}{\theta^{2}} \int_{0}^{\infty} y^{3-1} e^{-y} d y \\
+&=\frac{1}{\theta^{2}} \Gamma(3) \\
+&=\frac{2}{\theta^{2}} \quad \text { since } \Gamma(3)=2 !=2  ,
+\end{align*}
+and so 
+\[\operatorname{Var}(X)=E\left(X^{2}\right)-[E(X)]^{2}=2 / \theta^{2}-1 / \theta^{2}=1 / \theta^{2}.\]
+For this random variable the mean is equal to the standard deviation.
+
+#### Using R to calculate probabilities
+For $X \sim \operatorname{Exponential}(\theta=0.5)$, the command 
+```{r, eval = FALSE}
+dexp(x = 3, rate = 1/2)
+```
+calculates the pdf at $x=3$. The rate parameter to be supplied is the $\theta$ parameter here.
+The command `pexp` returns the cdf or the probability up to and including the argument. 
+Thus 
+```{r, eval = FALSE}
+pexp(q = 3, rate = 1/2)
+```
+will return the value of $P(X \leq 3)$.
+
+#### Cumulative distribution function
+
+It is easy to find the cdf of the exponential distribution. For $x>0$,
+\[F(x)=P(X \leq x)=\int_{0}^{x} \theta e^{-\theta u} d u=1-e^{-\theta x}.\]
+We have $F(0)=0$ and $F(x) \rightarrow 1$ when $x \rightarrow \infty$ and $F(x)$ is non-decreasing in $x$. The cdf can be used to solve many problems. A few examples follow.
+
+:::{.example name="Mobile phone"}
+Suppose that the lifetime of a phone (e.g. the time until the phone does not function even after repairs), denoted by $X$, manufactured by the company A Pale, is exponentially distributed with mean 550 days.
+1. Find the probability that a randomly selected phone will still function after two years, i.e. $X>730$ ? (Assume there is no leap year in the two years.)
+2. What are the times by which $25 \%, 50 \%, 75 \%$ and $90 \%$ of the manufactured phones will have failed?
+
+Here the mean $1 / \theta=550$. Hence $\theta=1 / 550$ is the rate parameter. The solution to the first problem is
+\[P(X>730)=1-P(X \leq 730)=1-\left(1-e^{-730 / 550}\right)=e^{-730 / 550}=0.2652.\]
+Alternatively, we can do the calculation in R:
+```{r}
+1 - pexp(q = 730, rate = 1 / 550)
+```
+:::
+
+For the second problem we are given the probabilities of failure $($0.25$, $0.50$, etc.). We will have to invert the probabilities to find the value of the random variable. In other words, we
+will have to find a $q$ such that $F(q)=p$, where $p$ is the given probability. For example,
+what value of $q$ will give us $F(q)=0.25$, so that $25 \%$ of the phones will have failed by
+time $q$?
+
+<!-- TODO: consider moving definition of quantiles outside of this specfic case -->
+<!-- TODO: put into definition environment -->
+For a given $0<p<1$, the $p$ th quantile (or $100 p$ percentile) of the random variable $X$ with $c d f(x)$ is defined to be the value $q$ for which $F(q)=p$.
+
+The 50th percentile is called the median. The 25th and 75 th percentiles are called the quartiles.
+
+
+<!-- TODO: check for earlier definition of pdf -->
+:::{.example name="Uniform distribution"}
+Consider the uniform distribution $U(a, b)$ in the interval $(a, b)$. Here $F(x)=\frac{x-a}{b-a}$. So for a given $p, F(q)=p$ implies $q=a+p(b-a)$.
+
+For the uniform $U(a, b)$ distribution the median is $\frac{b+a}{2}$
+and the quartiles are $\frac{b + 3a}{4}$ and $\frac{3b + a}{4}$.
+:::
+
+Returning to the exponential distribution example, we have $p=F(q)=1-e^{-\theta q}$. Find $q$ when $p$ is given.
+\begin{align*}
+p &=1-e^{-\theta q} \\
+\Rightarrow e^{-\theta q} &=1-p \\
+\Rightarrow-\theta q &=\log (1-p) \\
+\Rightarrow q &=\frac{-\log (1-p)}{\theta} \\
+\Rightarrow q &=-550 \times \log (1-p) .
+\end{align*}
+Review the rules of $\log$ in Section ???.
+<!-- TODO: add reference or delete -->
+Now we have
+\[q=-550 \times \log (1-p) = \begin{cases}
+\hline 158.2 & \text{for $p = 0.25$} \\
+381.23 & \text{for $p = 0.50$} \\
+762.46 & \text{for $p = 0.75$} \\
+1266.422 & \text{for $p = 0.90$.}
+  \end{cases}\]
+  
+
+In R you can find these values by
+```{r, eval = FALSE}
+qexp(p = 0.25, rate = 1/550)
+qexp(p = 0.50, rate = 1/550)
+``` 
+and so on.
+The function
+```{r, eval = FALSE}
+qexp(p, rate)
+```
+calculates the $100 p$ percentile of the exponential
+distribution with parameter `rate`.
+
+
+:::{.example name="Survival function"}
+The exponential distribution is sometimes used to model
+the survival times in different experiments. For example, an exponential random variable 
+$T$ may be assumed to model the number of days a cancer patient survives after chemotherapy. 
+In such a situation, the function $S(t) = 1 - F (t) = e^{-\theta t}$ is called the survival function.
+See Figure \@ref(fig:survival-probs) for an example plot.
+
+```{r, survival-probs, echo = FALSE, fig.cap = "$S(t)$ for $\\theta = 0.2, 0.5, 1$."}
+plot_data <- crossing(t = seq(0, 20, length.out = 100),
+                      theta = c(1, 0.5, 0.2)) %>%
+    mutate(survival_prob = pexp(t, rate = theta, lower.tail = FALSE))
+
+plot_data %>%
+    mutate(theta = as.character(theta)) %>%
+    ggplot(aes(x = t, y = survival_prob, linetype = theta)) +
+    geom_line() +
+    ylab(label = "S(t)")
+           
+```
+    
+Assuming the mean survival time to be $100$ days for a fatal late detected cancer, we can expect
+that half of the patients survive $69.3$ days after chemo since 
+```{r}
+qexp(0.50, rate=1/100)
+```
+You will learn more about this in a third-year module, MATH3085: Survival Models, 
+which is important in the actuarial profession.
+
+:::
+                                   
+#### Memoryless property 
+
+Like the geometric distribution, the exponential distribution also has the memoryless property. 
+In simple terms, it means that the probability that the system will survive an additional period 
+$s>0$ given that it has survived up to time $t$ is the same as the probability that the system 
+survives the period $s$ to begin with. That is, it forgets that it has survived up to a particular
+time when it is thinking of its future remaining life time.
+
+The proof is exactly as in the case of the geometric distribution, reproduced below. 
+Recall the definition of conditional probability:
+\[P\{A \mid B\}=\frac{P\{A \cap B\}}{P\{B\}}\]
+$$
+Now the proof,
+\begin{align*}
+P(X>s+t \mid X>t) &=\frac{P(X>s+t, X>t)}{P(X>t)} \\
+&=\frac{P(X>s>t)}{P(X>t)} \\
+&=\frac{e^{-\theta(s+t)}}{e^{-\theta t}} \\
+&=e^{-\theta s} \\
+&=P(X>s).
+\end{align*}
+Note that the event $X>s+t$ and $X>t$ implies and is implied by $X>s+t$ since $s>0$.
+
+
+<!-- TODO: note example just an application of the above? -->
+
+:::{.example}
+The time $T$ between any two successive arrivals in a hospital emergency department has probability density function:
+\[f(t)= \begin{cases}
+  \lambda e^{-\lambda t} & \text { if $t \geq 0$} \\
+  0 & \text { otherwise.}\end{cases}
+\]
+Historically, on average the mean of these inter-arrival times is 5 minutes. 
+Calculate 
+
+(i) $P(0<T< 5)$, 
+(ii) $P(T<10 \mid T>5)$.
+
+An estimate of $E(T)$ is 5. As $E(T)=\frac{1}{\lambda}$ we take 
+$\frac{1}{5}$ as the estimate of $\lambda$.
+
+(i) $P(0<T<5)=\int_0^5 \frac{1}{5} e^{-t / 5} d t=\left[-e^{-t / 5}\right]_0^5=1-e^{-1}=0.63212$.
+(ii) We have \begin{align*}
+P(T<10 \mid T>5) &=\frac{P(5<T<10)}{P(T>5)} \\
+&=\frac{\int_5^{10} \frac{1}{5} e^{-t / 5} d t}{\int_5^{\infty} \frac{1}{5} e^{-t / 5} d t}=\frac{\left[-e^{-t / 5}\right]_5^{10}}{\left[-e^{-t / 5}\right]_5^{\infty}} \\
+&=1-e^{-1}=0.63212 .
+\end{align*}
+
+:::

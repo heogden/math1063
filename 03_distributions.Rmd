@@ -945,3 +945,129 @@ Suppose $X \sim N\left(\mu, \sigma^2\right)$ and $a$ and $b$ are constants. Then
 Proof: The result that $Y$ has mean $a \mu+b$ and variance $a^2 \sigma^2$ can already be claimed from the linearity of the expectations and the variance result for linear functions. What remains to be proved is that the normality of $Y$, i.e. how can we claim that $Y$ will follow the normal distribution too? For this, we note that
 \[Y=a X+b=a(\mu+\sigma Z)+b=(a \mu+b)+a \sigma Z\]
 since $X=\mu+\sigma Z$. Now we use \@ref(eq:standardise-normal) to claim the normality of $Y$.
+
+#### Standard normal distribution
+
+Now we can claim that the normal pdf \@ref(eq:normal-pdf) 
+is symmetric about the mean $\mu$. The spread of the
+pdf is determined by $\sigma$, the standard deviation of the distribution. When $\mu = 0$ and 
+$\sigma = 1$,
+the normal distribution $N(0, 1)$ is called is called the standard normal distribution. The standard
+normal distribution, often denoted by $Z$, 
+<!-- TODO: fix distribution noted as Z (vs random variable) -->
+is used to calculate probabilities of interest for any normal 
+distribution because of the following reasons. 
+Suppose $X \sim N\left(\mu, \sigma^2\right)$ and we are interested in finding $P(a \leq X \leq b)$ for two constants $a$ and $b$.
+\begin{align*}
+P(a \leq X \leq b) &=\int_a^b f(x) d x \\
+&=\int_a^b \frac{1}{\sqrt{2 \pi \sigma^2}} \exp \left\{-\frac{(x-\mu)^2}{2 \sigma^2}\right\} d x \\
+&\left.=\frac{1}{\sqrt{2 \pi}} \int_{\frac{a-\mu}{\sigma}}^\sigma \exp \left\{-\frac{z^2}{2}\right\} d z \quad \text { [substituted } z=\frac{x-\mu}{\sigma} \text { so that } d x=\sigma d z\right] \\
+&=\int_{-\infty}^{\frac{b-\mu}{\sigma}} \frac{1}{\sqrt{2 \pi}} \exp \left\{-\frac{z^2}{2}\right\} d z-\int_{-\infty}^{\frac{a-\mu}{\sigma}} \frac{1}{\sqrt{2 \pi}} \exp \left\{-\frac{z^2}{2}\right\} d z \\
+&=P\left(Z \leq \frac{b-\mu}{\sigma}\right)-P\left(Z \leq \frac{a-\mu}{\sigma}\right) \\
+&=\text { cdf of } Z \text { at } \frac{b-\mu}{\sigma}-\text { cdf of } Z \text { at } \frac{a-\mu}{\sigma} \\
+&=\Phi\left(\frac{b-\mu}{\sigma}\right)-\Phi\left(\frac{a-\mu}{\sigma}\right)
+\end{align*}
+where we use the notation $\Phi(\cdot)$ to denote the cdf of $Z$, i.e.
+\[P(Z \leq z)=\Phi(z)=\int_{-\infty}^z \frac{1}{\sqrt{2 \pi}} \exp \left\{-\frac{u^2}{2}\right\} d u.\]
+This result allows us to find the probabilities about a normal random variable $X$ of any mean $\mu$ and variance $\sigma^2$ through the probabilities of the standard normal random variable $Z$. For this reason, only $\Phi(z)$ is tabulated. Further more, due to the symmetry of the pdf of $Z, \Phi(z)$ is tabulated only for positive $z$ values. Suppose $a>0$, then
+\begin{align*}
+\Phi(-a)=P(Z \leq-a) &=P(Z>a) \\
+&=1-P(Z \leq a) \\
+&=1-\Phi(a).
+\end{align*}
+
+In R, we use the function `pnorm` to calculate the probabilities. 
+The general function is
+```{r, eval = FALSE}
+pnorm(q, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)
+```
+<!-- TODO: describe role of defaults before here -->
+So, we use the command 
+```{r}
+pnorm(1)
+```
+to calculate $\Phi(1)=P(Z \leq 1)$. 
+We can also use the command 
+```{r}
+pnorm(15, mean=10, sd=2)
+```
+to calculate $P(X \leq 15)$ when $X \sim N\left(\mu=10, \sigma^2=4\right)$ directly.
+
+1. $P(-1<Z<1)=\Phi(1)-\Phi(-1)=0.6827$. This means that $68.27 \%$ of the probability lies within 1 standard deviation of the mean.
+2. $P(-2<Z<2)=\Phi(2)-\Phi(-2)=0.9545$. This means that $95.45 \%$ of the probability lies within 2 standard deviations of the mean.
+3. $P(-3<Z<3)=\Phi(3)-\Phi(-3)=0.9973$. This means that $99.73 \%$ of the probability lies within 3 standard deviations of the mean.
+
+We are often interested in the quantiles (inverse-cdf of probability), $\Phi^{-1}(\cdot)$ of the normal distribution for various reasons. We find the $p$th quantile by issuing the R command `qnorm(p)`
+
+1. $\texttt{qnorm(0.95)} = \Phi^{-1}(0.95) = 1.645$.
+This means that the 95th percentile of the standard normal distribution is 1.645. This also means that $P(-1.645<Z<1.645)=\Phi(1.645)-$ $\Phi(-1.645)=0.90$.
+2. $\texttt{qnorm(0.975)} = \Phi^{-1}(0.975) = 1.96$. This means that the 97.5th percentile of the standard normal distribution is 1.96. This also means that $P (-1.96 < Z < 1.96) = \Phi(1.96) -
+\Phi(-1.96) = 0.95$.
+
+<!-- TODO: draw these as a figure? -->
+
+:::{.example}
+Suppose the marks in MATH1024 follow the normal distribution with mean
+58 and standard deviation 32.25.
+
+1. What percentage of students will fail (i.e. score less than 40) in MATH1024? Answer:
+$\texttt{pnorm(40, mean=58, sd=32.25)} = 28.84\%$.
+2. What percentage of students will get an A result (score greater than 70)? Answer: $\texttt{1 - pnorm(70, mean=58, sd=32.25)} = 35.49\%$.
+3. What is the probability that a randomly selected student will score more than 90? Answer:
+$\texttt{1 - pnorm(90, mean=58, sd=32.25)} = 0.1605$.
+4. What is the probability that a randomly selected student will score less than 25? Answer:
+$\texttt{pnorm(25, mean=58, sd=32.25) = 0.1531}$. Ouch!
+5. What is the probability that a randomly selected student scores a 2:1, (i.e. a mark between
+60 and 70)? Left as an exercise.
+:::
+
+
+:::{.example}
+A lecturer set and marked an examination and found that the distribution
+of marks was $N (42, 142 )$. The school's policy is to present scaled marks whose distribution is
+$N (50, 152 )$. What linear transformation should the lecturer apply to the raw marks to accomplish
+this and what would the raw mark of 40 be transformed to?
+
+
+Let $X$ be the raw mark and $Y$ the scaled mark. We have
+$X \sim N (\mu_x = 42, \sigma_x^2 = 142 )$ and aim to define the scaling such that
+$Y \sim N (\mu_y = 50, \sigma_y^2 = 152)$. 
+If we standardise both variables, they should each have standard normal
+distribution, so we choose $Y$ such that
+\[\frac{X - \mu_x}{\sigma_x} = \frac{Y - \mu_y}{\sigma_y}\]
+giving 
+\[Y = \mu_y + \frac{\sigma_y}{\sigma_x}(X - \mu_x) = 50 + \frac{15}{14}(X - 42).\]
+
+Now at raw mark $X = 40$, the transformed mark would be
+\[Y = 50 + \frac{15}{14}(40 - 42) = 47.86.\]
+:::
+
+#### Log-normal distribution
+
+If $X \sim N (\mu, \sigma^2)$ then the random variable $Y = exp(X)$ is called a 
+log-normal random variable
+and its distribution is called a log-normal distribution with parameters $\mu$ and $\sigma^2$.
+
+The mean of the random variable $Y$ is given by
+\begin{align*}
+E(Y) &=E[\exp (X)] \\
+&=\int_{-\infty}^{\infty} \exp (x) \frac{1}{\sigma \sqrt{2 \pi}} \exp \left\{-\frac{(x-\mu)^2}{2 \sigma^2}\right\} d x \\
+&=\exp \left\{-\frac{\mu^2-\left(\mu+\sigma^2\right)^2}{2 \sigma^2}\right\} \int_{-\infty}^{\infty} \frac{1}{\sigma \sqrt{2 \pi}} \exp \left\{-\frac{x^2-2\left(\mu+\sigma^2\right) x+\left(\mu+\sigma^2\right)^2}{2 \sigma^2}\right\} d x \\
+&=\exp \left\{-\frac{\mu^2-\left(\mu+\sigma^2\right)^2}{2 \sigma^2}\right\} \quad \text{(integrating a 
+$N(\mu+\sigma^2, \sigma^2)$ r.v. over its domain) }\\
+&=\exp \left\{\mu+\sigma^2 / 2\right\}.
+\end{align*}
+Similarly, one can show that
+\begin{align*}
+E(Y^2) &=E[\exp (2 X)] \\
+&=\int_{-\infty}^{\infty} \exp (2 x) \frac{1}{\sigma \sqrt{2 \pi}} \exp \left\{-\frac{(x-\mu)^2}{2 \sigma^2}\right\} d x \\
+&=\cdots \\
+&=\exp \left\{2 \mu+2 \sigma^2\right\}.
+\end{align*}
+Hence, the variance is given by
+\[\operatorname{Var}(Y)=E(Y^2)-(E(Y))^2=\exp \left\{2 \mu+2 \sigma^2\right\}-\exp \left\{2 \mu+\sigma^2\right\}.\]
+
+The log-normal
+distribution is often used in practice for modelling economic variables of interest in business
+and finance, e.g. volume of sales, income of individuals. You do not need to remember the mean
+and variance of the log-normal distribution.

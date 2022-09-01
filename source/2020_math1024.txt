@@ -6649,26 +6649,26 @@ for positive z values. Suppose a > 0, then
 = 1 - Φ(a).
 In R, we use the function pnorm to calculate the probabilities. The general function is: pnorm(q,
 mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE). So, we use the command pnorm(1)
-to calculate Φ(1) = P (Z \leq 1). We can also use the command pnorm(15, mean=10, sd=2) to
+to calculate \Phi(1) = P (Z \leq 1). We can also use the command pnorm(15, mean=10, sd=2) to
 calculate P (X \leq 15) when X \sim N (\mu = 10, \sigma^2 = 4) directly.
-1. P (-1 < Z < 1) = Φ(1) - Φ(-1) = 0.6827. This means that 68.27% of the probability lies
+1. P (-1 < Z < 1) = \Phi(1) - \Phi(-1) = 0.6827. This means that 68.27% of the probability lies
 within 1 standard deviation of the mean.
-2. P (-2 < Z < 2) = Φ(2) - Φ(-2) = 0.9545. This means that 95.45% of the probability lies
+2. P (-2 < Z < 2) = \Phi(2) - \Phi(-2) = 0.9545. This means that 95.45% of the probability lies
 within 2 standard deviations of the mean.
-3. P (-3 < Z < 3) = Φ(3) - Φ(-3) = 0.9973. This means that 99.73% of the probability lies
+3. P (-3 < Z < 3) = \Phi(3) - \Phi(-3) = 0.9973. This means that 99.73% of the probability lies
 within 3 standard deviations of the mean.
-We are often interested in the quantiles (inverse-cdf of probability, Φ-1 (·) of the normal distribution
+We are often interested in the quantiles (inverse-cdf of probability, \Phi-1 (·) of the normal distribution
 for various reasons. We find the pth quantile by issuing the R command qnorm(p).
-1. qnorm(0.95) = Φ-1 (0.95) = 1.645. This means that the 95th percentile of the standard
-normal distribution is 1.645. This also means that P (-1.645 < Z < 1.645) = Φ(1.645) -
-Φ(-1.645) = 0.90.
+1. qnorm(0.95) = \Phi-1 (0.95) = 1.645. This means that the 95th percentile of the standard
+normal distribution is 1.645. This also means that P (-1.645 < Z < 1.645) = \Phi(1.645) -
+\Phi(-1.645) = 0.90.
 
 3 Random Variables and Their Probability Distributions
 
 66
 
-2. qnorm(0.975) = Φ-1 (0.975) = 1.96. This means that the 97.5th percentile of the standard normal distribution is 1.96. This also means that P (-1.96 < Z < 1.96) = Φ(1.96) -
-Φ(-1.96) = 0.95.
+2. qnorm(0.975) = \Phi-1 (0.975) = 1.96. This means that the 97.5th percentile of the standard normal distribution is 1.96. This also means that P (-1.96 < Z < 1.96) = \Phi(1.96) -
+\Phi(-1.96) = 0.95.
 ♥ Example 41 Historically, the marks in MATH1024 follow the normal distribution with mean
 58 and standard deviation 32.25.
 1. What percentage of students will fail (i.e. score less than 40) in MATH1024? Answer:
@@ -7620,14 +7620,14 @@ as n \rightarrow \infty. The notion of convergence is explained by the convergen
 of the normal distribution with the appropriate mean and variance. It means that the cdf of the
 √
 left hand side, n (\BAR X-\mu)
-\sigma , converges to the cdf of the standard normal random variable, Φ(·). In
+\sigma , converges to the cdf of the standard normal random variable, \Phi(·). In
 other words,
 
 
 √ (\BAR X - \mu)
 lim P
 n
-\leq z = Φ(z), -\infty < z < \infty.
+\leq z = \Phi(z), -\infty < z < \infty.
 n\rightarrow\infty
 \sigma
 So for "large samples", we can use N (0, 1) as an approximation to the sampling distribution of
@@ -7754,7 +7754,7 @@ np(1 - p)
 205.5 - 250
 = P Z\leq
 15
-= Φ(-2.967) = 0.0015.
+= \Phi(-2.967) = 0.0015.
 This probability is so small that it casts doubt on the validity of the assumption that the market
 share is 10%.
 
@@ -8548,7 +8548,7 @@ It is common practice to make the interval symmetric, so that the two unshaded a
 α
 -h1 = h2 ≡ h
 and
-Φ(h) = 1 - .
+\Phi(h) = 1 - .
 2
 The most common choice of confidence level is 1 - α = 0.95, in which case h = 1.96 =
 qnorm(0.975). You may also occasionally see 90% (h = 1.645 = qnorm(0.95)) or 99% (h =

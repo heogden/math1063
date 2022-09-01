@@ -421,7 +421,7 @@ pbinom(q=1, size=10, prob=0.01)
 ```
 which matches our earlier calculations.
 
-#### Expectation 
+#### Expectation {#sec:bin-mean}
 
 Let $X \sim \operatorname{Bin}(n, p)$. We have
 \[E(X)=\sum_{x=0}^{n} x P(X=x)=\sum_{x=0}^{n} x \binom{n}{x} p^{x}(1-p)^{n-x}.\]
@@ -438,7 +438,7 @@ where we used the substitution $y=x-1$ and then the binomial theorem to conclude
 
 <!-- TODO: use pf trick rather than binomial theorem? -->
 
-#### Variance
+#### Variance {#sec:bin-var}
 
 Let $X \sim \operatorname{Bin}(n, p)$. Then $\operatorname{Var}(X)=n p(1-p)$. 
 It is difficult to find $E\left(X^{2}\right)$ directly, but the factorial structure
@@ -1237,7 +1237,7 @@ variables $X$ and $Y$, and it is free of the measuring units of $X$ and $Y$ as t
 in the ratio.
 
 
-### Independence
+### Independence {#sec:indep}
 
 Independence is an important concept. Recall that we say two events $A$ and $B$ are independent if $P(A \cap B)=P(A) \times P(B)$. We use the same idea here. Two random variables $X$ and $Y$ having the joint pdf or pmf $f(x, y)$ are said to be independent if and only if $f(x, y)=f_X(x) \times f_Y(y)$ for *all* $x$ and $y$.
 
@@ -1300,3 +1300,90 @@ As a special case, let $g(x)=x$ and $h(y)=y$. Then we have
 Consequently, for independent random variables $X$ and $Y, \operatorname{Cov}(X, Y)=0$ and $\operatorname{Corr}(X, Y)=$ 0. But the converse is not true in general. That is, merely having $\operatorname{Corr}(X, Y)=0$ does not imply that $X$ and $Y$ are independent random variables.
 
 <!-- TODO: give an example of this, or set as an exercise? -->
+
+## Sums of random variables
+
+In this section we consider sums of random variables, which arise frequently in both practice and
+theoretical results. For example, the mark achieved in an exam is the sum of the marks for each
+question, and the sample mean is proportional to the sum of the sample values. 
+
+Suppose we have obtained a random sample from a distribution with pmf or pdf $f(x)$, so that $X$ can either be a discrete or a continuous random variable. We will learn more about random sampling in the next chapter. Let $X_1, \ldots, X_n$ denote the random sample of size $n$ where $n$ is a positive integer. We use upper case letters since each member of the random sample is a random variable. For example, I toss a fair coin $n$ times and let $X_i$ take the value 1 if a head appears in the $i$ th trial and 0 otherwise. Now I have a random sample $X_1, \ldots, X_n$ from the Bernoulli distribution with probability of success equal to $0.5$ since the coin is assumed to be fair.
+
+We can get a random sample from a continuous random variable as well. Suppose it is known that the distribution of the heights of first-year students is normal with mean 175 centimetres and standard deviation 8 centimetres. I can randomly select a number of first-year students and record each student's height.
+
+Suppose $X_1, \ldots, X_n$ is a random sample from a population with distribution $f(x)$. Then it can be shown that the random variables $X_1, \ldots, X_n$ are mutually independent, i.e.
+\[P\left(X_1 \in A_1, X_2 \in A_2, \ldots, X_n \in A_n\right)=P\left(X_1 \in A_1\right) \times P\left(X_2 \in A_2\right) \times \cdots P\left(X_n \in A_n\right)\]
+for any set of events, $A_1, A_2, \ldots A_n$. That is, the joint probability can be obtained as the product of individual probabilities. An example of this for $n=2$ was given in Section \@ref(sec:indep).
+
+:::{.example name="Distribution of the sum of independent binomial random variables"}
+Suppose $X \sim \operatorname{Bin}(m, p)$ and $Y \sim \operatorname{Bin}(n, p)$ independently. Note that $p$ is the same in both distributions. Using the above fact that joint probability is the multiplication of individual probabilities, we can conclude that $Z=X+Y$ has the binomial distribution. It is intuitively clear that this should happen since $X$ comes from $m$ Bernoulli trials and $Y$ comes from $n$ Bernoulli trials independently, so $Z$ comes from $m+n$ Bernoulli trials with common success probability $p$. We can prove the result mathematically as well, by finding the probability mass function of $Z=X+Y$ directly and observing that it is of the appropriate form. First, note that
+\[P(Z=z)=P(X=x, Y=y)\]
+subject to the constraint that $x+y=z, 0 \leq x \leq m, 0 \leq y \leq n$. Thus,
+\begin{align*}
+P(Z=z) &= \sum_{x+y=z} P(X=x, Y=y) \\
+&= \sum_{x+y=z} \binom{m}{x} p^x(1-p)^{m-x}\binom{n}{y} p^y(1-p)^{n-y} \\
+&= \sum_{x+y=z} \binom{m}{x}\binom{n}{y} p^z(1-p)^{m+n-z} \\
+&= p^z(1-p)^{m+n-z} \sum_{x+y=z} \binom{m}{x}\binom{n}{y} \\
+&= \binom{m+n}{z} p^z(1-p)^{m+n-z},
+\end{align*}
+using a result stated in Section ???. 
+<!-- TODO: check reference to result -->
+Thus, we have proved that the sum of independent binomial random variables with common probability is binomial as well. This is called the reproductive property of random variables. You are asked to prove this for the Poisson distribution in an exercise sheet.
+<!-- TODO: check exercise sheet contains this question, or remove comment -->
+:::
+
+Now we will state two main results without proof. The proofs will presented in the second-year distribution theory module MATH2011. Suppose that $X_1, \ldots, X_n$ is a random sample from a population distribution with finite variance, and suppose that $E\left(X_i\right)=\mu_i$ and $\operatorname{Var}\left(X_i\right)=\sigma_i^2$. Define a new random variable
+\[Y=a_1 X_1+a_2 X_2+\cdots+a_n X_n\]
+where $a_1, a_2, \ldots, a_n$ are constants. Then:
+
+1. $E(Y)=a_1 \mu_1+a_2 \mu_2+\cdots+a_n \mu_n$.
+2. $\operatorname{Var}(Y)=a_1^2 \sigma_1^2+a_2^2 \sigma_2^2+\cdots+a_n^2 \sigma_n^2$.
+
+For example, if $a_i=1$ for all $i=1, \ldots, n$, the two results above imply that:
+- The expectation of the sum of independent random variables is the sum of the expectations of the individual random variables
+- the variance of the sum of independent random variables is the sum of the variances of the individual random variables.
+
+The second result is *only* true for independent random variables, e.g. random samples. Now we will consider many examples.
+
+:::{.example name="Mean and variance of binomial distribution"}
+Suppose $Y \sim \operatorname{Bin}(n, p)$. Then we can write:
+\[Y=X_1+X_2+\ldots+X_n\]
+where each $X_i$ is an independent Bernoulli trial with success probability $p$. We have shown before that, $E\left(X_i\right)=p$ and $\operatorname{Var}\left(X_i\right)=p(1-p)$ by direct calculation. Now the above two results imply that:
+\[
+E(Y)=E\left(\sum_{i=1}^n X_i\right)=p+p+\ldots+p=n p . \\
+\operatorname{Var}(Y)=\operatorname{Var}\left(X_1\right)+\cdots+\operatorname{Var}\left(X_n\right)=p(1-p)+\ldots+p(1-p)=n p(1-p) .
+\]
+Thus we avoided the complicated sums used to derive $E(X)$ and $\operatorname{Var}(X)$ in 
+Sections \@ref(sec:bin-mean) and \@ref(sec:bin-var).
+:::
+
+:::{.example name="Mean and variance of negative binomial distribution"}
+Recall that the negative binomial random variable $Y$ is the number of trials needed to obtain the
+$r$th success in a sequence of independent Bernoulli trials, each with success probability $p$.
+Let $X_i$ be the number of trials needed after the $(i-1)$th success to obtain the $i$th success.
+Each $X_i$ is a geometric random variable and $Y=X_1+\cdots+X_r$. Hence
+\[E(Y)=E(X_1)+\cdots+E(X_r)=1 / p+\cdots+1 / p=r / p\]
+and
+\[\operatorname{Var}(Y)=\operatorname{Var}(X_)+\cdots+\operatorname{Var}(X_r)=(1-p) / p^2+\cdots+(1-p) / p^2=r(1-p) / p^2.\]
+:::
+
+:::{.example name="Sum of independent Normal random variables"}
+Suppose that $X_i \sim N\left(\mu_i, \sigma_i^2\right), i=1,2, \ldots, k$ 
+are independent random variables. Let $a_1, a_2, \ldots, a_k$ be constants 
+and suppose that
+\[Y=a_1 X_1+\cdots+a_k X_k.\]
+Then we can prove that:
+\[Y \sim N\left(\sum_{i=1}^k a_i \mu_i, \sum_{i=1}^k a_i^2 \sigma_i^2\right).\]
+It is clear that $E(Y)=\sum_{i=1}^k a_i \mu_i$ and $\operatorname{Var}(Y)=\sum_{i=1}^k a_i^2 \sigma_i^2$. But that $Y$ has the normal distribution cannot yet be proved with the theory we know.
+This proof will be provided in the second-year distribution theory module MATH2011.
+
+As a consequence of the stated result we can easily see the following. 
+Suppose $X_1$ and $X_2$ are independent $N\left(\mu, \sigma^2\right)$ random variables. 
+Then $2 X_1 \sim N\left(2 \mu, 4 \sigma^2\right), X_1+X_2 \sim N\left(2 \mu, 2 \sigma^2\right)$, 
+and $X_1-X_2 \sim N\left(0,2 \sigma^2\right)$. Note that $2 X_1$ and $X_1+X_2$ have different 
+distributions.
+Suppose that $X_i \sim N\left(\mu, \sigma^2\right), i=1, \ldots, n$ are independent. Then
+\[X_1+\cdots+X_n \sim N\left(n \mu, n \sigma^2\right),\]
+and consequently
+\[\bar{X}=\frac{1}{n}\left(X_1+\cdots+X_n\right) \sim N\left(\mu, \frac{\sigma^2}{n}\right).\]
+:::

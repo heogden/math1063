@@ -1387,3 +1387,99 @@ Suppose that $X_i \sim N\left(\mu, \sigma^2\right), i=1, \ldots, n$ are independ
 and consequently
 \[\bar{X}=\frac{1}{n}\left(X_1+\cdots+X_n\right) \sim N\left(\mu, \frac{\sigma^2}{n}\right).\]
 :::
+
+
+## The Central Limit Theorem
+
+### Introduction
+
+The sum (and average) of independent random variables show a remarkable behaviour in practice which is captured by the Central Limit Theorem (CLT). These random variables do not even have to be continuous, all we require is that they are independent and each of them has a finite mean and a finite variance. A version of the CLT follows.
+
+### Statement of the Central Limit Theorem (CLT)
+
+Let $X_{1}, \ldots, X_{n}$ be independent random variables with finite $E\left(X_{i}\right)=\mu_{i}$ and finite $\operatorname{Var}\left(X_{i}\right)=\sigma_{i}^{2}$. Define $Y=\sum_{i=1}^{n} X_{i}$. Then, for a sufficiently large $n$, the central limit theorem states that $Y$ is approximately normally distributed with
+\[E(Y)=\sum_{i=1}^{n} \mu_{i}, \quad \operatorname{Var}(Y)=\sum_{i=1}^{n} \sigma_{i}^{2}.\]
+This also implies that $\bar{X}=\frac{1}{n} Y$ also follows the normal distribution approximately,
+as the sample size $n \rightarrow \infty$. In particular, if $\mu_{i}=\mu$ and
+$\sigma_{i}^{2}=\sigma^{2}$, i.e. all means are equal and all variances are equal, then the CLT
+states that, as $n \rightarrow \infty$,
+\[\bar{X} \sim N\left(\mu, \frac{\sigma^{2}}{n}\right).\]
+Equivalently,
+\[\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma} \sim N(0,1)\]
+as $n \rightarrow \infty$. The notion of convergence is explained by the convergence of distribution of $\bar{X}$ to that of the normal distribution with the appropriate mean and variance. It means that the $\mathrm{cdf}$ of the left hand side, $\sqrt{n} \frac{(\bar{X}-\mu)}{\sigma}$, converges to the cdf of the standard normal random variable, $\Phi(\cdot)$. In other words,
+\[\lim _{n \rightarrow \infty} P\left(\sqrt{n} \frac{(\bar{X}-\mu)}{\sigma} \leq z\right)=\Phi(z), \quad-\infty<z<\infty.\]
+So for "large samples", we can use $N(0,1)$ as an approximation to the sampling distribution of $\sqrt{n}(\bar{X}-\mu) / \sigma$. This result is 'exact', i.e. no approximation is required, if the distribution of the $X_{i}$ 's are normal in the first place --- this was discussed in the previous lecture.
+
+How large does $n$ have to be before this approximation becomes usable? There is no definitive answer to this, as it depends on how "close to normal" the distribution of $X$ is. However, it is often a pretty good approximation for sample sizes as small as 20, or even smaller. It also depends on the skewness of the distribution of $X$; if the $X$-variables are highly skewed, then $n$ will usually need to be larger than for corresponding symmetric $X$-variables for the approximation to be good. We will investigate this numerically using R.
+
+```{r, fig.cap = "Distribution of normalised sample means for samples of different sizes. Initially very skew (original distribution, $n=1$ ) becoming rapidly closer to standard normal (dashed line) with increasing $n$."}
+f <- function(z, n) {
+    dgamma(z + sqrt(n), shape = n, scale = 1 / sqrt(n))
+}
+
+plot_data <- crossing(x = seq(-5, 5, length.out = 1000),
+                      n = c(1, 2, 5, 10, 20, 50)) %>%
+    mutate(pdf = f(x, n),
+           n = as.factor(n))
+
+plot_data %>%
+    ggplot(aes(x = x, y = pdf, colour= n)) +
+    geom_line() +
+    geom_function(fun = dnorm, linetype = "dashed", colour = "black")
+        
+```
+
+### Application of CLT to binomial distribution
+
+We know that a binomial random variable $Y$ with parameters $n$ and $p$ is the number of successes in a set of $n$ independent Bernoulli trials, each with success probability $p$. We may write
+\[Y=X_{1}+X_{2}+\cdots+X_{n},\]
+where $X_{1}, \ldots, X_{n}$ are independent Bernoulli random variables with success probability $p$. It follows from the CLT that, for a sufficiently large $n, Y$ is approximately normally distributed with expectation $E(Y)=n p$ and variance $\operatorname{Var}(Y)=n p(1-p)$.
+
+<!-- TODO: generate plot? Really histograms? But then what bin width? -->
+<!-- Maybe replace with CDF plots? -->
+<!-- "Histograms of normalised sample means for Bernoulli $(p=0.8)$ samples of different sizes, converging to standard normal." -->
+
+Hence, for given integers $y_{1}$ and $y_{2}$ between 0 and $n$ and a suitably large $n$, we have
+\begin{align*}
+P\left(y_{1} \leq Y \leq y_{2}\right) &=P\left\{\frac{y_{1}-n p}{\sqrt{n p(1-p)}} \leq \frac{Y-n p}{\sqrt{n p(1-p)}} \leq \frac{y_{2}-n p}{\sqrt{n p(1-p)}}\right\} \\
+& \approx P\left\{\frac{y_{1}-n p}{\sqrt{n p(1-p)}} \leq Z \leq \frac{y_{2}-n p}{\sqrt{n p(1-p)}}\right\}
+\end{align*}
+where $Z \sim N(0,1)$.
+
+We should take account of the fact that the binomial random variable $Y$ is integer-valued, and so 
+$P(y_{1} \leq Y \leq y_{2})=P(y_{1}-f_{1} \leq Y \leq y_{2}+f_{2})$ for any two fractions
+$0<f_{1}, f_{2}<1$. This is called
+continuity correction and we take $f_{1}=f_{2}=0.5$ in practice.
+\begin{align*}
+P\left(y_{1} \leq Y \leq y_{2}\right) &=P\left(y_{1}-0.5 \leq Y \leq y_{2}+0.5\right) \\
+&=P\left\{\frac{y_{1}-0.5-n p}{\sqrt{n p(1-p)}} \leq \frac{Y-n p}{\sqrt{n p(1-p)}} \leq \frac{y_{2}+0.5-n p}{\sqrt{n p(1-p)}}\right\} \\
+& \approx P\left\{\frac{y_{1}-0.5-n p}{\sqrt{n p(1-p)}} \leq Z \leq \frac{y_{2}+0.5-n p}{\sqrt{n p(1-p)}}\right\} .
+\end{align*}
+What do we mean by a suitably large $n$? A commonly-used guideline is that the approximation is adequate if $n p \geq 5$ and $n(1-p) \geq 5$.
+
+:::{.example}
+A producer of natural yoghurt believed that the market share of their brand was $10 \%$. To investigate this, a survey of 2500 yoghurt consumers was carried out. It was observed that only 205 of the people surveyed expressed a preference for their brand. Should the producer be concerned that they might be losing market share?
+
+Assume that the conjecture about market share is true. Then the number of people $Y$ who prefer this product follows a binomial distribution with $p=0.1$ and $n=2500$. So the mean is $n p=250$, 
+the variance is $n p(1-p)=225$, and the standard deviation is 15 . The exact probability of 
+observing $(Y \leq 205)$ is given by the sum of the binomial probabilities up to and including 205,
+which is difficult to compute. However, this can be approximated by using the CLT:
+\begin{align*}
+P(Y \leq 205) &=P(Y \leq 205.5) \\
+&=P\left\{\frac{Y-n p}{\sqrt{n p(1-p)}} \leq \frac{205.5-n p}{\sqrt{n p(1-p)}}\right\} \\
+& \approx P\left\{Z \leq \frac{205.5-n p}{\sqrt{n p(1-p)}}\right\} \\
+&=P\left\{Z \leq \frac{205.5-250}{15}\right\} \\
+&=\Phi(-2.967)=0.0015.
+\end{align*}
+This probability is so small that it casts doubt on the validity of the assumption that the market share is $10 \%$.
+
+Although the exact binomial probabilities are difficult to compute by hand,
+in this case we may compute them in R. Recall $Y \sim \operatorname{Bin}(n = 2500, p = 0.1)$,
+so $P(Y \leq 205)$ is
+```{r}
+pbinom(205, size = 2500, prob = 0.1)
+```
+In this case the normal approximation was good enough to correctly conclude that this
+probability is very small (of the order of $0.1\%$), which was all we needed to answer 
+the question of interest here.
+:::

@@ -1071,3 +1071,232 @@ The log-normal
 distribution is often used in practice for modelling economic variables of interest in business
 and finance, e.g. volume of sales, income of individuals. You do not need to remember the mean
 and variance of the log-normal distribution.
+
+## Joint distributions
+
+### Introduction 
+
+Often we need to study more than one random variable, e.g. height and weight, simultaneously,
+so that we can exploit the relationship between them to make inferences about their properties.
+Multiple random variables are studied through their joint probability distribution. In this section
+we will study covariance and correlation and then discuss when random variables are independent.
+
+### Joint distribution of discrete random variables
+
+If $X$ and $Y$ are discrete, the quantity $f(x, y) = P (X = x \cap Y = y)$ is called 
+the joint probability
+mass function (joint pmf) of $X$ and $Y$. To be a joint pmf, $f (x, y)$ needs to satisfy 
+two conditions:
+\[f (x, y) \geq 0 \quad \text{ for all $x$ and $y$}\] and
+\[\sum_{\text{all $x$}} \sum_{\text{all $y$}} f(x, y) = 1.\]
+The marginal probability mass functions (marginal pmfs) of $X$ and $Y$ are respectively
+\[f_X(x) = \sum_y f(x, y), \quad f_Y(y) = \sum_x f(x, y)\]
+Use the identity $\sum_{x} \sum_{y} f(x, y) = 1$
+ to prove that $f_X(x)$ and $f_Y(y)$ are really pmfs.
+
+:::{.example #joint-pdf-discrete}
+Suppose that two fair dice are tossed independently one after the other. Let
+\[X = \begin{cases}
+-1 & \text{if the result from die 1 is larger} \\
+0 & \text{if the results are equal} \\
+1 & \text{if the result from die 1 is smaller}
+\end{cases}
+\]
+and let $Y = |\text{difference between the two dice}|$.
+Find the joint
+probability pmf for $X$ and $Y$.
+
+There are 36 possible outcomes for the results of the dice rolls,
+and each gives a pair of values $(x, y)$ for $X$ and $Y$.
+
+<!-- TODO: write joint probability in table form for this example? -->
+
+```{r, echo = FALSE}
+x <- outer(1:6, 1:6, FUN = function(r1, r2){sign(r2 - r1)})
+y <- outer(1:6, 1:6, FUN = function(r1, r2){abs(r2 - r1)})
+
+x_y <- matrix(paste("(", x, ", ", y, ")", sep = ""), nrow = 6)
+rownames(x_y) <- 1:6
+colnames(x_y) <- 1:6
+
+kable(x_y, row.names = TRUE)
+```
+
+```{r, include = FALSE}
+joint_counts <- tibble(x = as.numeric(x), y = as.numeric(y), count = 1) %>%
+    group_by(x, y) %>%
+    summarise(count = sum(count))
+
+cat(paste("\\frac{", joint_counts$count, "}{36} ", "& \\text{if $x = ", joint_counts$x, ", y = ", joint_counts$y, "$} \\\\ \n", sep = ""))
+
+x_counts <- joint_counts %>%
+    group_by(x) %>%
+    summarise(count = sum(count))
+
+cat(paste("\\frac{", x_counts$count, "}{36} ", "& \\text{if $x = ", x_counts$x, "$} \\\\ \n", sep = ""))
+
+```
+
+The joint pmf is
+\[f(x, y) = \begin{cases}
+  \frac{5}{36} & \text{if $x = -1, y = 1$} \\ 
+ \frac{4}{36} & \text{if $x = -1, y = 2$} \\ 
+ \frac{3}{36} & \text{if $x = -1, y = 3$} \\ 
+ \frac{2}{36} & \text{if $x = -1, y = 4$} \\ 
+ \frac{1}{36} & \text{if $x = -1, y = 5$} \\ 
+ \frac{6}{36} & \text{if $x = 0, y = 0$} \\ 
+ \frac{5}{36} & \text{if $x = 1, y = 1$} \\ 
+ \frac{4}{36} & \text{if $x = 1, y = 2$} \\ 
+ \frac{3}{36} & \text{if $x = 1, y = 3$} \\ 
+ \frac{2}{36} & \text{if $x = 1, y = 4$} \\ 
+ \frac{1}{36} & \text{if $x = 1, y = 5$} \\
+ 0 & \text{otherwise.}
+  \end{cases}\]
+
+The marginal pmf for $X$ is
+\[f_X(x) = \begin {cases}
+  \frac{15}{36} & \text{if $x = -1$} \\ 
+ \frac{6}{36} & \text{if $x = 0$} \\ 
+ \frac{15}{36} & \text{if $x = 1$.} 
+ \end{cases}\]
+ 
+**Exercise**: Write down the marginal distribution of $Y$ and hence find the mean and variance of
+$Y$.
+:::
+
+### Joint distribution of continuous random variables
+
+If $X$ and $Y$ are continuous, a non-negative real-valued function $f(x, y)$ is called the joint probability density function (joint pdf) of $X$ and $Y$ if
+\[\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(x, y) d x \, d y=1\]
+The marginal pdfs of $X$ and $Y$ are respectively
+\[f_X(x)=\int_{-\infty}^{\infty} f(x, y) d y, \quad f_Y(y)=\int_{-\infty}^{\infty} f(x, y) d x\]
+
+:::{.example #joint-pdf-cts}
+Define a joint pdf by
+\[f(x, y)= \begin{cases}
+6 x y^2 & \text { if $0<x<1$ and $0<y<1$} \\
+0 & \text { otherwise. }
+\end{cases}\]
+How can we show that the above is a pdf? It is non-negative for all $x$ and $y$ values. 
+But does it integrate to 1? We are going to use the following rule.
+:::
+
+**Result**: Suppose that a real-valued function $f(x, y)$ is continuous in a region $A$ 
+where $a<x<b$ and $c<y<d$, then
+\[\int_A f(x, y) d x d y=\int_c^d \int_a^b f(x, y) d x \, dy.\]
+<!-- TODO: add more detail about how we use this when A is domain -->
+Here $a$ and $b$ may depend upon $y$ but $c$ and $d$ should be free of $x$ and $y$. 
+When we evaluate the inner integral $\int_a^b f(x, y) d x$, we treat $y$ as constant.
+
+**Notes**: To evaluate a bivariate integral over a region $A$ we:
+
+- Draw a picture of $A$ whenever possible.
+- Rewrite the region $A$ as an intersection of two one-dimensional intervals. The first interval is obtained by treating one variable as constant.
+- Perform two one-dimensional integrals.
+
+<!-- TODO: can we label as #joint-pdf-cts continued? -->
+:::{.example}
+Continuing Example \@ref(exm:joint-pdf-cts),
+\begin{align*}
+\int_0^1 \int_0^1 f(x, y) d x d y &=\int_0^1 \int_0^1 6 x y^2 d x d y \\
+&=6 \int_0^1 y^2 d y \int_0^1 x d x \\
+&=3 \int_0^1 y^2 d y\left[\text { as } \int_0^1 x d x=\frac{1}{2}\right] \\
+&=1 .\left[\text { as } \int_0^1 y^2 d y=\frac{1}{3}\right]
+\end{align*}
+Now we can find the marginal pdfs as well.
+\[f_X(x)=2 x, \, 0<x<1, \quad f_Y(y)=3 y^2, \, 0<y<1.\]
+:::
+
+The probability of any event in the two-dimensional space can be found by integration 
+and again more details will be provided in a second-year module. You will come across 
+multivariate integrals in a second semester module. You will not be asked to do bivariate
+integration in this module.
+<!-- TODO: which modules? Rephrase to clarify what is needed for MATH1024 -->
+
+### Covariance and correlation
+
+We first define the expectation of a real-valued scalar function $g(X, Y)$ of $X$ and $Y$ :
+\[E[g(X, Y)]= \begin{cases}\sum_x \sum_y g(x, y) f(x, y) & \text { if } X \text { and } Y \text { are discrete } \\ \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} g(x, y) f(x, y) d x d y & \text { if } X \text { and } Y \text { are continuous. }\end{cases}\]
+
+:::{.example}
+Continuing Example \@ref(exm:joint-pdf-discrete),
+let $g(x, y)=x y$.
+\[E(X Y)=(-1)(0) 0+(-1)(1) \frac{5}{36}+\cdots+(1)(5) \frac{1}{36}=0.\]
+**Exercises**: Try $g(x, y)=x$. It will be the same thing as $E(X)=\sum_x x f_X(x)$.
+:::
+
+We will not consider any continuous examples as the second-year module MATH2011 will study them in detail.
+
+Suppose that two random variables $X$ and $Y$ have joint pmf or pdf $f(x, y)$ and let $E(X)=\mu_x$ and $E(Y)=\mu_y$. The covariance between $X$ and $Y$ is defined by
+\[\operatorname{Cov}(X, Y)=E\left[\left(X-\mu_x\right)\left(Y-\mu_y\right)\right]=E(X Y)-\mu_x \mu_y.\]
+Let $\sigma_x^2=\operatorname{Var}(X)=E\left(X^2\right)-\mu_x^2$ and $\sigma_y^2=\operatorname{Var}(Y)=E\left(Y^2\right)-\mu_y^2$. The correlation coefficient between $X$ and $Y$ is defined by:
+\[\operatorname{Corr}(X, Y)=\frac{\operatorname{Cov}(X, Y)}{\sqrt{\operatorname{Var}(X) \operatorname{Var}(Y)}}=\frac{E(X Y)-\mu_x \mu_y}{\sigma_x \sigma_y}.\]
+It can be proved that for any two random variables, $-1 \leq \operatorname{Corr}(X, Y) \leq 1$. 
+The correlation $\operatorname{Corr}(X, Y)$ is a measure of linear dependency between two random 
+variables $X$ and $Y$, and it is free of the measuring units of $X$ and $Y$ as the units cancel
+in the ratio.
+
+
+### Independence
+
+Independence is an important concept. Recall that we say two events $A$ and $B$ are independent if $P(A \cap B)=P(A) \times P(B)$. We use the same idea here. Two random variables $X$ and $Y$ having the joint pdf or pmf $f(x, y)$ are said to be independent if and only if $f(x, y)=f_X(x) \times f_Y(y)$ for *all* $x$ and $y$.
+
+In the discrete case $X$ and $Y$ are independent if each cell probability, $f(x, y)$, is the product of the corresponding row and column totals. In Example \@ref(exm:joint-pdf-discrete) 
+$X$ and $Y$ are not independent. 
+
+:::{.example}
+Suppose $X$ and $Y$ have joint pdf given by the probability table:
+
+<!-- \begin{tabular}{cc|ccc|c} -->
+<!-- \multicolumn{2}{c}{} & & \multicolumn{3}{c}{$y$} \\ -->
+<!-- \multicolumn{2}{c}{} & 1 & 2 & 3 & Total \\ -->
+<!-- \hline \multirow{2}{*}{$x$} & 0 & $\frac{1}{6}$ & $\frac{1}{12}$ & $\frac{1}{12}$ & $\frac{1}{3}$ \\ -->
+<!-- & 1 & $\frac{1}{4}$ & $\frac{1}{8}$ & $\frac{1}{8}$ & $\frac{1}{2}$ \\ -->
+<!-- & 2 & $\frac{1}{12}$ & $\frac{1}{24}$ & $\frac{1}{24}$ & $\frac{1}{6}$ \\ -->
+<!-- \hline & Total & $\frac{1}{2}$ & $\frac{1}{4}$ & $\frac{1}{4}$ & 1 -->
+<!-- \end{tabular} -->
+
+|  |  |  | $y$ |  |  |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+|  |  | 1 | 2 | 3 | Total |
+| $x$ | 0 | $\frac{1}{6}$ | $\frac{1}{12}$ | $\frac{1}{12}$ | $\frac{1}{3}$ |
+|  | 1 | $\frac{1}{4}$ | $\frac{1}{8}$ | $\frac{1}{8}$ | $\frac{1}{2}$ |
+|  | 2 | $\frac{1}{12}$ | $\frac{1}{24}$ | $\frac{1}{24}$ | $\frac{1}{6}$ |
+|  | Total | $\frac{1}{2}$ | $\frac{1}{4}$ | $\frac{1}{4}$ | 1 |
+
+
+<!-- TODO: check formatting of the table in pdf? -->
+Verify that in the following example $X$ and $Y$ are independent. 
+We need to check all 9 cells.
+:::
+
+<!-- TODO: remove or add details to these examples? -->
+
+:::{.example}
+Let $f(x, y)=6 x y^2, 0<x<1,0<y<1$. Check that $X$ and $Y$ are independent.
+:::
+
+:::{.example}
+Let $f(x, y)=2 x, 0 \leq x \leq 1,0 \leq y \leq 1$. Check that $X$ and $Y$ are independent.
+:::
+
+Sometimes the joint pdf may look like something you can factorise, but $X$ and $Y$ may 
+not be independent because they may be related in the domain. For instance,
+
+1. $f(x, y)=\frac{21}{4} x^2 y, x^2 \leq y \leq 1$. Not independent!
+2. $f(x, y)=e^{-y}, 0<x<y<\infty$. Not independent!
+
+Here are some useful consequences of independence:
+
+- Suppose that $X$ and $Y$ are independent random variables. Then
+\[P(X \in A, Y \in B)=P(X \in A) \times P(Y \in B)\]
+for any events $A$ and $B$. That is, the joint probability can be obtained as the product of the marginal probabilities. We will use this result in the next section. For example, suppose Jack and Jess are two randomly selected students. Let $X$ denote the height of Jack and $Y$ denote the height of Jess. Then
+\[P(X<182 \text { and } Y>165)=P(X<182) \times P(Y>165) .\]
+This is true for any numbers other than the example numbers 182 and 165, and for any inequalities.
+- Let $g(x)$ be a function of $x$ only and $h(y)$ be a function of $y$ only. Then, if $X$ and $Y$ are independent,
+\[E[g(X) h(Y)]=E[g(X)] \times E[h(Y)].\]
+As a special case, let $g(x)=x$ and $h(y)=y$. Then we have
+\[E(X Y)=E(X) \times E(Y).\]
+Consequently, for independent random variables $X$ and $Y, \operatorname{Cov}(X, Y)=0$ and $\operatorname{Corr}(X, Y)=$ 0. But the converse is not true in general. That is, merely having $\operatorname{Corr}(X, Y)=0$ does not imply that $X$ and $Y$ are independent random variables.
+
+<!-- TODO: give an example of this, or set as an exercise? -->

@@ -1,0 +1,163 @@
+# Statistical Inference
+
+## Chapter mission
+
+In the last chapter we learned the probability distributions of common random variables that we use
+in practice. We learned how to calculate the probabilities based on our assumption of a probability
+distribution with known parameter values. Statistical inference is the process by which we try to
+learn about those probability distributions using only random observations. Hence, if our aim is
+to learn about some typical characteristics of the population of Southampton students, we simply
+randomly select few students, observe their characteristics and then try to generalise, as discussed
+in Lecture 1. For example, suppose we are interested in learning what proportion of Southampton
+students are of Indian origin. We may then select a number of students at random and observe
+the sample proportion of Indian origin students. We will then claim that the sample proportion is
+really our guess for the population proportion. But obviously we may be making grave errors since
+we are inferring about some unknown based on only a tiny fraction of total information. Statistical
+inference methods formalise these aspects. We will learn some of these methods here.
+
+## Foundations of statistical inference
+
+
+Statistical analysis (or inference) involves drawing conclusions, and making predictions and decisions, using the evidence provided to us by observed data. To do this we use probability distributions, often called statistical models, to describe the process by which the observed data were
+generated. For example, we may suppose that the true proportion of Indian origin students is $p$,
+$0 < p < 1$, and if we have selected $n$ students at random, 
+that each of those students gives rise to a
+Bernoulli distribution which takes the value $1$ if the student is of Indian origin and $0$
+otherwise. The
+success probability of the Bernoulli distribution will be the unknown $p$. The underlying statistical
+model is then the Bernoulli distribution.
+<!-- TODO: change example here? -->
+
+To illustrate with another example, suppose we have observed fast food waiting times in the
+morning and afternoon. If we assume time (number of whole seconds) to be discrete, then a
+suitable model for the random variable $X =$ "the number of seconds waited" would be the Poisson
+distribution. However, if we treat time as continuous then the random variable $X =$ "the waiting
+time" could be modelled as a normal random variable. 
+<!-- TODO: add reference to exponential distribution? -->
+
+Now, in general, it is clear that:
+
+- The form of the assumed model helps us to understand the real-world process by which the
+data were generated.
+- If the model explains the observed data well, then it should also inform us about future
+(or unobserved) data, and hence help us to make predictions (and decisions contingent on
+unobserved data).
+- The use of statistical models, together with a carefully constructed methodology for their
+analysis, also allows us to quantify the uncertainty associated with any conclusions, predictions or decisions we make.
+
+We will use the notation $x_1 , x_2 , \ldots , x_n$ to denote $n$ observations
+of the random variables $X_1 , X_2 , \ldots , X_n$ (corresponding capital letters). 
+For the fast food waiting
+time example, we have $n = 20$, $x_1 = 38, x_2 = 100, \ldots, x_{20} = 70$, and 
+$X_i$ is the waiting time for the $i$th person in the sample.
+ 
+<!-- TODO refer back to data -->
+ 
+### Statistical models
+
+Suppose we denote the complete data by the vector $x = (x_1 , x_2 , \ldots , x_n)$ and use 
+$X = (X_1 , X_2 , \ldots , X_n)$
+for the corresponding random variables. A statistical model specifies a probability distribution for
+the random variables $X$ corresponding to the data observations $x$. Providing a specification for
+the distribution of $n$ jointly varying random variables can be a daunting task, particularly if $n$ is
+large. However, this task is made much easier if we can make some simplifying assumptions, such
+as
+
+1. $X_1 , X_2 , \ldots , X_n$ are independent random variables,
+2. $X_1 , X_2 , \ldots , X_n$ have the same probability distribution 
+(so $x_1 , x_2 , \ldots , x_n$ are observations of a single random variable $X$).
+
+Assumption 1 depends on the sampling mechanism and is very common in practice. If we are
+to make this assumption for the Southampton student sampling experiment, we need to select
+randomly among all possible students. We should not get the sample from an event in the Indian
+or Chinese Student Association as that will give us a biased result. The assumption will be violated when samples are correlated either in time or in space, e.g. the daily air pollution level in
+Southampton for the last year or the air pollution levels in two nearby locations in Southampton.
+In this module we will only consider data sets where Assumption 1 is reasonable. Assumption 2 is not
+always appropriate, but is often reasonable when we are modelling a single variable. In the fast
+food waiting time example, we must assume that there are no differences between the AM and PM
+waiting times for Assumption 2 to hold.
+If Assumption 1 and 2 both hold, we say that $X_1 , \ldots , X_{n}$ are 
+independent and identically distributed (or i.i.d. for short).
+
+### A fully specified model
+
+Sometimes a model completely specifies the probability distribution of $X_1 , X_2 , \ldots , X_n$. 
+For example, if we assume that the waiting time $X \sim N (\mu, \sigma^2)$ where $\mu = 100$, and 
+$\sigma^2 = 100$, then this
+is a fully specified model. In this case, there is no need to collect any data as there is no need
+to make any inference about any unknown quantities, although we may use the data to judge the
+plausibility of the model.
+A fully specified model might be appropriate when there is some external
+(to the data) theory as to why the model (in particular the values of $\mu$ and $\sigma^2$)
+was appropriate.
+Fully specified models such as this are uncommon as we rarely have external theory which allows
+us to specify a model so precisely.
+
+### A parametric statistical model
+
+A parametric statistical model specifies a probability distribution for a random sample apart from
+the value of a number of parameters in that distribution. This could be confusing in the first
+instance -- a parametric model does not specify parameters! Here the word parametric signifies the
+fact that the probability distribution is completely specified by a few parameters in the first place.
+For example, the Poisson distribution is parameterised by the parameter $\lambda$ which happens 
+to be the
+mean of the distribution; the normal distribution is parameterised by two parameters, the mean $\mu$
+and the variance $\sigma^2$.
+When a parametric statistical model is assumed with some unknown parameters, statistical
+inference methods use data to estimate the unknown parameters, e.g. $\lambda$, $\mu$, $\sigma^2$. 
+Estimation will be
+discussed in more detail in the following sections.
+
+
+### A nonparametric statistical model
+
+Sometimes it is not appropriate, or we want to avoid, making a precise specification for the 
+distribution which generated $X_1 , X_2 , \ldots , X_n$. For example, when the data histogram 
+does not show
+a bell-shaped distribution, it would be wrong to assume a normal distribution for the data. In
+such a case, although we can attempt to use some other non-bell-shaped parametric model, we can
+decide altogether to abandon parametric models. We may then still assume that 
+$X_1 , X_2 , \ldots , X_n$
+are i.i.d. random variables, but from a nonparametric statistical model which cannot be written
+down, having a probability function which only depends on a finite number of parameters. Such
+analysis approaches are also called distribution-free methods.
+
+<!-- TODO: add reference to previous example -->
+:::{.example name="Return to the computer failure example"}
+Let X denote the count of computer failures per week. We want to estimate how often will the
+computer system fail at least once per week in the next year? The answer is $52 \times (1 - P (X = 0))$.
+But how would you estimate $P (X = 0)$? Consider two approaches.
+
+1. **Nonparametric**. Estimate $P (X = 0)$ by the relative frequency of number of zeros in the
+above sample, which is 12 out of 104. Thus our estimate of $P (X = 0)$ is $12/104$. Hence,
+our estimate of the number of weeks when there will be at least one computer failure is
+$52 \times (1 - 12/104) = 46$.
+2. **Parametric**. Suppose we assume that $X$ follows the Poisson distribution with parameter 
+$\lambda$.
+Then the answer to the above question is
+\[52 \times (1 - P (X = 0)) = 52 \times \left(1 - e^{-\lambda} \frac{\lambda^0}{0!} \right)
+= 52 \times 1 - e^{-\lambda}\]
+which involves the unknown parameter $\lambda$. For the Poisson distribution we know that $E(X) =
+\lambda$. Hence we could use the sample mean $\bar X$ to estimate $E(X) = \lambda$. Thus we estimate
+$\hat \lambda = \bar x = 3.75.$ This type of estimator is called a moment estimator.
+Now our estimate of the number of weeks when there will be at least one computer failure is
+$52 \times (1 - e^{-3.75}) = 50.78 \approx 51$, which is very different from our
+answer of 46 from the nonparametric approach.
+:::
+
+
+### Should we prefer parametric or nonparametric and why?
+
+The parametric approach should be preferred if the assumption of the Poisson distribution can
+be justified for the data. For example, we can look at the data histogram or compare the fitted
+probabilities of different values of $X$, i.e. 
+\[\hat P (X = x) = e^{-\hat \lambda} \frac{\hat \lambda}{x!},\]
+with the relative frequencies from the
+sample. In general, often model-based analysis is preferred because it is more precise and accurate,
+and we can find estimates of uncertainty in such analysis based on the structure of the model. We
+shall see this later.
+
+The nonparametric approach should be preferred if the model cannot be justified for the data,
+as in this case the parametric approach will provide incorrect answers.
+
+<!-- TODO: actually do this with the data? -->

@@ -118,37 +118,19 @@ including techniques of point and interval estimation and hypothesis testing.
 
 
 
-## Basic statistics
-
-### Introduction and example data sets
-
-In Section \@ref(what-is-statistics) we got a glimpse of the nature of uncertainty and statistics.
-Now we will
-hands dirty with data and learn a bit more about it.
-How do I obtain data? How do I summarise it? Which is the best measure among mean, median
-and mode? What do I make of the spread of the data?
-
-How should we collect data in the first place? Unless we can ask everyone in the population we
-should select individuals randomly (haphazardly) in order to get a representative sample. Otherwise we may introduce bias. For example, in order to gauge student opinion in this class I should
-not only survey the international students. But there are cases when systematic sampling may
-be preferable. For example, selecting every third caller in a radio phone-in show for a prize, or
-sampling air pollution hourly or daily. There is a whole branch of statistics called *survey methods*
-or *sample surveys*, where these issues are studied.
-As well as randomness, we need to pay attention to the **design** of the study. In a *designed
-experiment* the investigator controls the values of certain experimental variables and then measures
-a corresponding output or response variable. In *designed surveys* an investigator collects data on a
-randomly selected sample of a well-defined population. Designed studies can often be more effective
-at providing reliable conclusions, but are frequently not possible because of difficulties in the study.
-
+## Example data sets
 
  In this module, we will assume that we have data from $n$ randomly selected sampling units, 
  which we will conveniently denote by  $x_1, x_2, \dots, x_n$. 
  We will assume that these values are numeric, either discrete like
 counts, e.g. number of road accidents, or continuous, e.g. heights of 4-year-olds, marks obtained
-in an examination. We will consider the following example:
+in an examination. 
+
+
+We will use the following examples to demonstrate ideas throughout the module:
 
 ::: {.example name="Fast food service time" #fastfood}
-The service times (in seconds) of customers at a fast-food
+This dataset contains the service times (in seconds) of customers at a fast-food
 restaurant. The first row is for customers who were served from 9–10am and the second row is for
 customers who who were served from 2–3pm on the same day.
 
@@ -165,16 +147,74 @@ fastfood %>%
     t %>%
     kable
 ```
-
-How can we explore the data?
+We would like to compare these AM and PM service times.
 :::
 
+::: {.example name="Computer failures" #compfail}
+This dataset contains 
+weekly failures of a university computer system over a period of two years.
 
-In general, we can
+```{r, echo = FALSE, comment = ""}
+compfail <- scan("compfail.txt")
+cat(compfail, fill = TRUE)
+```
+We would like to summarise this data and make predictions about future failures.
+:::
+
+::: {.example name="Weight gain" #wtgain}
+Is it true that students tend to gain weight during their first year in college? Cornell Professor
+of Nutrition, David Levitsky, recruited students from two large sections of an introductory health
+course. Although they were volunteers, they appeared to match the rest of the class in
+terms of demographic variables such as sex and ethnicity. 68 students were weighed during the first
+week of the semester, then again 12 weeks later. The first 10 rows of the data are:
+
+```{r, echo = FALSE, message = FALSE}
+wtgain <- read_table("wtgain.txt")
+kable(head(wtgain, n = 10), col.names = c("Student number", "Initial weight (kg)", "Final weight (kg)"))
+```
+We would like to explore the data graphically and to
+test whether the data support the hypothesis that students gain 
+weight during their first year in college.
+:::
+
+::: {.example name="Billionaires" #billionaires}
+Fortune magazine publishes a list of the world's billionaires each year. The 1992 list includes
+225 individuals. Their wealth, age, and geographic location (Asia, Europe, Middle East, United
+States, and Other) are reported. 
+
+The variables in the data are:
+
+- `wealth`: Wealth of family or individual in billions of dollars
+- `age`: Age in years (for families it is the maximum age of family members)
+- `region`: Region of the World (Asia, Europe, Middle East, United States and Other). 
+The first 10 rows of the data are:
+
+```{r, echo = FALSE, message = FALSE}
+billionaires <- read_table("billionaires.txt") %>%
+    mutate(region = recode(region, "M" = "Middle East",
+                           "U" = "United States",
+                           "A" = "Asia",
+                           "E" = "Europe",
+                           "O" = "Other"))
+kable(head(billionaires, n = 10))
+```
+We will investigate differences in wealth of billionaires by age and
+region using many exploratory graphical tools and statistical methods.
+:::
+
+## Summarising data sets
+
+### Summarising categorical data
+
+We can
 summarise categorical (not numeric) data by tables. For example,
 we could summarise the results of 20 coin tosses as: 12 heads, 8 tails.
-For numeric data $x_1, x_2, \dots, x_n$, we would like to measure the
-average location and the spread or variability of the data.
+
+For the computer failure data (Example \@ref(exm:compfail)) we may
+summarise the count of failures per week:
+```{r, echo = FALSE}
+kable(t(table(compfail)))
+```
 
 ### Measures of location
 

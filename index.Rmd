@@ -6,7 +6,12 @@ output:
   bookdown::gitbook: default
 ---
 
+```{r, echo = FALSE}
+knitr::opts_knit$set(root.dir = 'datasets', comment = "")
+```
+
 # Preface {-}
 
 These notes are based on original lecture notes
 by Professor Sujit Sahu.
+

@@ -224,7 +224,7 @@ their mean is zero.**
 - The above justifies why we often use the mean as a representative value. For the service time
 data, the mean time in AM is 68.9 seconds and for PM the mean is 66.8 seconds.
 
-**The sample median minimises the SSA**
+#### The sample median minimises the SSA
 
 - Here the derivative approach does not work since the derivative does not exist for the absolute
 function.
@@ -257,13 +257,12 @@ So the median is any value between 63 and 64. For convenience, we often take the
 these. So the median is 63.5 seconds. Note that we use the unit of the observations when
 reporting any measure of location.
 
-**The sample mode minimises the average of a 0-1 error function.**
+#### The sample mode minimises the average of a 0-1 error function.
 
 The mode or the most frequent (or the most likely) value in the data is taken as the most representative value if we consider a 0-1 error function instead of the SSA or SSE above. Here, one assumes
-that the error is 0 if our guess a is the correct answer and 1 if it is not. It can then be proved that
-(proof not required) the best guess a will be the mode of the data.
+that the error is 0 if our guess $a$ is the correct answer and 1 if it is not. It can then be proved that the best guess $a$ will be the mode of the data.
 
-**Which of the three (mean, median and mode) would you prefer?**
+#### Impact of extreme observations
 
 The mean gets more affected by extreme observations while the median does not. For example for
 the AM service times, suppose the next observation is 190. The median will be 64 instead of 63.5

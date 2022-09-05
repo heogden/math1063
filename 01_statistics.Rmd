@@ -310,9 +310,9 @@ $$
 Sometimes the variance is defined with the divisor $n$ instead of $n - 1$. We have chosen $n - 1$
 since this is the default in R. We will return to this in Chapter \@ref(inference).
 
-The *standard deviation* is the square root of variance
-\[s = \operatorname{sd}(x) = \sqrt{\operatorname{Var}(x)}}.\]
-The standard deviation (sd) for the AM service times is 23.2 seconds. Note that it has the
+The *standard deviation* (sd) is the square root of variance
+\[s = \operatorname{sd}(x) = \sqrt{\operatorname{Var}(x)}.\]
+The standard deviation for the AM service times is 23.2 seconds. Note that it has the
 same unit as the observations.
 
 The *interquartile range* (IQR) is the difference between the third, $Q_3$ and first, $Q_1$ quartiles,

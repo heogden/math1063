@@ -4,21 +4,21 @@
 
 ### Early and modern definitions
 
-- The word *statistics* has its roots in the Latin word *status* which means the state, and in the
+The word *statistics* has its roots in the Latin word *status* which means the state, and in the
 middle of the 18th century was intended to mean
 *collection, processing and use of data by the state*.
-- With the rapid industrialisation of Europe in the first half of the 19th century, statistics
+With the rapid industrialisation of Europe in the first half of the 19th century, statistics
 became established as a discipline. This led to the formation of the Royal Statistical Society,
 the premier professional association of statisticians in the UK and also world-wide, in 1834.
-- During this 19th century growth period, statistics acquired a new meaning as the *interpretation of data or methods of extracting information from data for decision making*. Thus
+During this 19th century growth period, statistics acquired a new meaning as the *interpretation of data or methods of extracting information from data for decision making*. Thus
 statistics has its modern meaning as the methods for
 *collection, analysis and interpretation of data*.
-- Indeed, the Oxford English Dictionary defines *statistics* as
+Indeed, the Oxford English Dictionary defines *statistics* as
 
 > The practice or science of collecting and analysing numerical data in large quantities, especially for the purpose of inferring
 proportions in a whole from those in a representative sample.
 
-- Note that the word ‘state’ has gone from its definition. Instead, statistical methods are now
+Note that the word ‘state’ has gone from its definition. Instead, statistical methods are now
 essential for **everyone** wanting to answer questions using data.
 
 For example, will it rain tomorrow? Does eating red meat make us live longer? Is smoking
@@ -41,12 +41,12 @@ such effects will not be known for a long time, e.g. at least until the birth. T
 
 ### Statistics tames uncertainty
 
-- It is clear that we may never be able to get to the bottom of every case to learn the full truth
+It is clear that we may never be able to get to the bottom of every case to learn the full truth
 and so will have to make a decision under uncertainty; thus mistakes cannot be avoided!
-- If mistakes cannot be avoided, it is better to know how often we make mistakes (which
+If mistakes cannot be avoided, it is better to know how often we make mistakes (which
 provides knowledge of the amount of uncertainty) by following a particular rule of decision
 making.
-- Such knowledge could be put to use in finding a rule of decision making which does not betray
+Such knowledge could be put to use in finding a rule of decision making which does not betray
 us too often, or which minimises the frequency of wrong decisions, or which minimises the
 loss due to wrong decisions.
 
@@ -66,11 +66,11 @@ like: I am 90% certain that the correct age is between 29 and 39 years. Remember
 
 ### Why should I study statistics as part of my degree?
 
-- Studying statistics will equip you with the basic skills in data analysis and doing science with
+Studying statistics will equip you with the basic skills in data analysis and doing science with
 data.
-- A decent level of statistical knowledge is required no matter what branch of mathematics,
+A decent level of statistical knowledge is required no matter what branch of mathematics,
 engineering, science and social science you will be studying.
-- Learning statistical theories gives you the opportunity to practice your deductive mathematical skills on real life problems. In this way, you will improve at mathematical methods while
+Learning statistical theories gives you the opportunity to practice your deductive mathematical skills on real life problems. In this way, you will improve at mathematical methods while
 studying statistical methods.
 
 >All knowledge is, in final analysis, history.  
@@ -83,18 +83,12 @@ studying statistical methods.
 Sometimes people say, "you can prove anything in statistics!" and many such jokes. Such remarks
 bear testimony to the fact that often statistics and statistical methods are mis-quoted without
 proper verification and robust justification. This is even more important in recent years of the global
-pandemic when every day we have been showered with a deluge of numbers. The front and the back cover
-of this booklet plot two pandemic related diagrams that we plan to discuss as we learn different
-topics in this module.
-Returning to the criticisms of statistics, admittedly and regretfully, statistics can be very much
-mis-used and mis-interpreted. However, we statisticians argue:
+pandemic when every day we have been showered with a deluge of numbers. 
 
-- Every number is guilty unless proved innocent.
-- Figures won't lie, but liars can figure!
-
-Hence, although people may misuse the tools of statistics, it is our duty to learn and sharpen the
-those to develop scientifically robust and strong arguments.
-As discussed before statistical methods are only viable tool whenever there is uncertainty in
+Statistics can be very much
+mis-used and mis-interpreted, and as statisticians it is our duty to
+correctly apply statistical techniques to develop scientifically robust and strong arguments.
+As discussed before statistical methods are the only viable tool whenever there is uncertainty in
 decision making. In scientific investigations, statistics is an inevitable instrument in search of truth
 when uncertainty cannot be totally removed from decision making. Of course, a statistical method
 may not yield the best predictions in a very particular situation, but a systematic and robust
@@ -183,21 +177,25 @@ central tendency) and the spread or variability.
 
 ### Measures of location
 
-- We are seeking a representative value for the data 
+#### Introduction
+
+We are seeking a representative value for the data 
 $x_1, x_2, \dots, x_n$ which should be a function
 of the data. If $a$ is that representative value then how much error is associated with it?
-- The total error could be the sum of squares of the deviations
-from $a$, $\text{SSE} = \sum_{i=1}^n (x_i - x)^2$ or
+The total error could be the sum of squares of the deviations
+from $a$, \[\text{SSE} = \sum_{i=1}^n (x_i - x)^2\]
 or the sum of the absolute deviations from $a$, 
-$\text{SSA} = \sum_{i=1}^n |x_i - x|$.
-- What value of a will minimise the SSE or the SSA? For SSE the answer is the sample mean
+\[\text{SSA} = \sum_{i=1}^n |x_i - x|.\]
+What value of $a$ will minimise the SSE or the SSA? For SSE the answer is the sample mean
 and for SSA the answer is the sample median.
 
-**The sample mean minimises the SSE**
 
-- Let us define the sample mean by
+#### The sample mean minimises the SSE
+
+Let us define the sample mean by
 \[\bar x = \frac{1}{n} (x_1 + x_2 + \dots + x_n)
   = \frac{1}{n} \sum_{i=1}^n x_i.\]
+
 - How can we prove the above assertion? Use the derivative method. 
 Set $\frac{\partial}{\partial a} \text{SSE} = 0$ and solve
 for $a$. Check the second derivative condition that it is positive at the solution for $a$. Try this

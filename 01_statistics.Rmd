@@ -54,18 +54,14 @@ Thus we have the equation
 \[\text{Uncertain knowledge} +
   \text{Knowledge of the extent of uncertainty in it} =
   \text{Usable knowledge.}\]
-<!-- TODO: fix formatting -->
 
-
-Researchers often make guesses about scientific quantities. For example, try to guess my age: 65
-or 45? 
+Researchers often make guesses about scientific quantities. For example, try to guess my age.
 These predictions are meaningless without the associated uncertainties. Instead, appropriate
 data collection and correct application of statistical methods may enable us to make statements
-like: I am 97% certain that the correct age is between 47 and 54 years. Remember, 
+like: I am 90% certain that the correct age is between 29 and 39 years. Remember, 
 
 > to guess is cheap, to guess incorrectly is expensive  
 -- <cite>old Chinese proverb.</cite>
-<!-- TODO: update ages -->
 
 
 ### Why should I study statistics as part of my degree?
@@ -96,7 +92,7 @@ mis-used and mis-interpreted. However, we statisticians argue:
 - Every number is guilty unless proved innocent.
 - Figures won't lie, but liars can figure!
 
-Hence, although people may miss-use the tools of statistics, it is our duty to learn and sharpen the
+Hence, although people may misuse the tools of statistics, it is our duty to learn and sharpen the
 those to develop scientifically robust and strong arguments.
 As discussed before statistical methods are only viable tool whenever there is uncertainty in
 decision making. In scientific investigations, statistics is an inevitable instrument in search of truth
@@ -114,7 +110,7 @@ will also learn how to explore data using graphical methods.
   * For this we will use the R statistical package. R is freely available to download. Search
 "download R" or go to: https://cran.r-project.org/. We will use it as a calculator
 and also as a graphics package to explore data, perform statistical analysis, illustrate
-theorems and calculate probabilities. You do not need to learn any programming language. You will be instructed to learn basic commands like: `2+2`; `mean(x)`; `plot(x,y)`.
+theorems and calculate probabilities. 
   * In this module we will demonstrate using the R package. A nicer experience is provided
 by the commercial, but still freely available, R Studio software. It is recommended that
 you use that.
@@ -126,28 +122,17 @@ normal. etc. We will learn their basic properties, e.g. mean and variance.
 - **Chapter 4: Statistical Inference**. We will discuss basic ideas of statistical inference,
 including techniques of point and interval estimation and hypothesis testing.
 
-### Take home points:
 
-- We apply statistical methods whenever there is uncertainty and complete enumeration is not
-possible.
-- This module will provide a very gentle introduction to statistics and probability together with
-the software package R for data analysis.
-- Statistical knowledge is essential for any scientific career in academia, industry and government.
-- Read the New York Times article "For Today's Graduate, Just One Word: Statistics"
-(search on Google).
-- Watch the YouTube video "Joy of Statistics" before attending the next lecture.
 
 ## Basic statistics
 
-### Lecture mission
+### Introduction
 
-In Lecture \@ref(what-is-statistics) we got a glimpse of the nature of uncertainty and statistics. In this lecture we get our
+In Section \@ref(what-is-statistics) we got a glimpse of the nature of uncertainty and statistics.
+Now we will
 hands dirty with data and learn a bit more about it.
-
 How do I obtain data? How do I summarise it? Which is the best measure among mean, median
 and mode? What do I make of the spread of the data?
-
-### How do I obtain data?
 
 How should we collect data in the first place? Unless we can ask everyone in the population we
 should select individuals randomly (haphazardly) in order to get a representative sample. Otherwise we may introduce bias. For example, in order to gauge student opinion in this class I should
@@ -161,29 +146,42 @@ a corresponding output or response variable. In *designed surveys* an investigat
 randomly selected sample of a well-defined population. Designed studies can often be more effective
 at providing reliable conclusions, but are frequently not possible because of difficulties in the study.
 
-We will return to the topics of survey methods and designed surveys later in Lecture 28.
-<!-- TODO: add correct reference -->
- Until
-then we assume that we have data from $n$ randomly selected sampling units, which we will conveniently denote by  $x_1, x_2, \dots, x_n$. We will assume that these values are numeric, either discrete like
+
+ In this module, we will assume that we have data from $n$ randomly selected sampling units, 
+ which we will conveniently denote by  $x_1, x_2, \dots, x_n$. 
+ We will assume that these values are numeric, either discrete like
 counts, e.g. number of road accidents, or continuous, e.g. heights of 4-year-olds, marks obtained
 in an examination. We will consider the following example:
 
 ::: {.example name="Fast food service time" #fastfood}
 The service times (in seconds) of customers at a fast-food
-restaurant. The first row is for customers who were served from 9–10AM and the second row is for
+restaurant. The first row is for customers who were served from 9–10am and the second row is for
 customers who who were served from 2–3pm on the same day.
-<!-- TODO: add data -->
+
+
+```{r, echo = FALSE}
+fastfood <- tibble(time = rep(c("AM", "PM"), times = 10),
+                   service = c(38, 45, 100, 62, 64, 52, 43, 72, 63, 81, 59, 88,
+                               107, 64, 52, 75, 86, 59, 77, 70))
+                   
+fastfood %>%
+    mutate(customer = rep(1:10, each = 2)) %>%
+    pivot_wider(names_from = "time", values_from = "service") %>%
+    select(-customer) %>%
+    t %>%
+    kable
+```
 
 How can we explore the data?
 :::
 
-### Summarising data
 
-- We summarise categorical (not numeric) data by tables. For example: 5 reds, 6 blacks etc.
-- For numeric data $x_1, x_2, \dots, x_n$, we would like to know the centre (measures of location or
+In general, we can
+summarise categorical (not numeric) data by tables. For example: 5 reds, 6 blacks etc.
+For numeric data $x_1, x_2, \dots, x_n$, we would like to know the centre (measures of location or
 central tendency) and the spread or variability.
 
-**Measures of location**
+### Measures of location
 
 - We are seeking a representative value for the data 
 $x_1, x_2, \dots, x_n$ which should be a function
@@ -207,7 +205,7 @@ at home.
 - Following is an alternative proof that establishes a very important result in statistics.
 $$
 \begin{aligned}
-\sum_{i=1}^{n}\left(x_{i}-a\right)^{2} &=\sum_{i=1}^{n}\left(x_{i}-\bar{x}+\bar{x}-a\right)^{2} \quad\{\text { Add and subtract } \bar{x}\} \\
+\sum_{i=1}^{n}\left(x_{i}-a\right)^{2} &=\sum_{i=1}^{n}\left(x_{i}-\bar{x}+\bar{x}-a\right)^{2} \quad \text{(Add and subtract $\bar{x}$)} \\
 &=\sum_{i=1}^{n}\left\{\left(x_{i}-\bar{x}\right)^{2}+2\left(x_{i}-\bar{x}\right)(\bar{x}-a)+(\bar{x}-a)^{2}\right\} \\
 &=\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}+2(\bar{x}-a) \sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)+\sum_{i=1}^{n}(\bar{x}-a)^{2} \\
 &=\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}+n(\bar{x}-a)^{2},
@@ -273,7 +271,7 @@ The mean gets more affected by extreme observations while the median does not. F
 the AM service times, suppose the next observation is 190. The median will be 64 instead of 63.5
 but the mean will shoot up to 79.9.
 
-**Measures of spread**
+#### Measures of spread
 
 - A quick measure of the spread is the *range*, which is defined as the difference between the
 maximum and minimum observations. For the AM service times the range is $69$ ($107 - 38$)
@@ -288,8 +286,7 @@ $$
 \operatorname{Var}(x)=s^{2}=\frac{1}{n-1}\left(\sum_{i=1}^{n} x_{i}^{2}-n \bar{x}^{2}\right)
 $$
 - Sometimes the variance is defined with the divisor $n$ instead of $n - 1$. We have chosen $n - 1$
-since this is the default in R. We will return to this in Chapter ??. 
-<!-- TODO: fix reference here. -->
+since this is the default in R. We will return to this in Chapter \@ref(inference).
 - The standard deviation (sd) for the AM service times is 23.2 seconds. Note that it has the
 same unit as the observations.
 - The interquartile range (IQR) is the difference between the third, $Q_3$ and first, $Q_1$ quartiles,
@@ -299,12 +296,5 @@ Note that the median is the second quartile, $Q_2$. When $n$ is even, definition
 are similar to that of the median, $Q_2$. The IQR for the AM service times is $83.75 - 53.75 = 30$
 seconds.
 
-### Take home points
-
-- As a measure of location we have three choices: mean, median and mode, each of which is
-optimal under a different consideration.
-- We have discussed three measures of spread: range, sd and the IQR.
-- Additional examples and mathematical details are provided in Section ??
-<!-- TODO: fix reference here. -->
 
 <!-- TODO: redo lecture 3 on R. -->

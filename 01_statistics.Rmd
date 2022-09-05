@@ -230,35 +230,51 @@ $x_{(1)} \leq x_{(2)} \leq \dots \leq x_{(n)}$.
 For the AM service time data \[38 < 43 < 52 < 59 < 63 < 64 < 77 < 86 < 100 < 107.\]
 If $n$ is odd, there is a unique middle value.
 If $n$ is even, there are two middle values (63 and 64 for the AM service time data).
-By convention, we define the sample median to be the mean of these values
+Any value betwen those two middle values is a sample median. 
+By convention, we often use the mean of these values
 (63.5 for the the AM service time data).
-More formally, we define the median as 
-\[ \operatorname{median}(x) = \begin{cases}
-  x_{\left(\frac{n+1}{2}\right)} & \text{if $n$ is odd} \\
-  \frac{1}{2}\Big[x_{\left(\frac{n}{2}\right)} + x_{\left(\frac{n}{2} +1\right)}\Big] & \text{if $n$ is even.} 
-\end{cases}\]
 
 ::: {.theorem}
 The sample median minimises the SSE.
 :::
 
 ::: {.proof}
-We have
-\begin{align*}
-\text{SAE}(a) &=
- \sum_{i=1}^n |x_i − a| \\
- &= \sum_{i=1}^n |x_{(i)} − a| \\
- &= |x_{(1)} − a| + |x_{(n)} − a| + |x_{(2)} − a| + |x_{(n−1)} − a| + \dots.
- \end{align*}
-Looking at pairs of terms, we find:
+If $a<x_{(1)}$, then
+\begin{equation}
+\text{SAE}(a) = \sum_{i=1}^n (x_i - a).
+(\#eq:SAE-lower)
+\end{equation}
+As $a$ increases, each term of \@ref(eq:SAE-lower) 
+decreases until $a$ reaches $x_{(1)}$, so $\text{SAE} (x_{(1)})< \text{SAE}(a)$ for all $a<x_{(1)}$.
+We conclude the minimise of the SAE is at least $x_{(1)}$.
 
-- $|x_{(1)} − a| + |x_{(n)} − a|$ is minimised when $a$ is such that $x_{(1)} \leq a \leq x_{(n)}$.
-- $|x_{(2)} − a| + |x_{(n−1)} − a|$ is minimised when $a$ is such that $x_{(2)} \leq a \leq x_{(n−1)}$.
-- When $n$ is odd, the last term $|x_{(n+1)} − a|$ is minimised when $a = x_{\left(\frac{n+1}{2}\right)}$ or the middle value in the ordered list, which we defined as the median.
-- If however, $n$ is even, the last pair of terms will be 
-$|x_{\left(\frac{n}{2}\right)} − a| + |x_{\left(\frac{n}{2} +1\right)} − a|.$ This will be
-minimised when $a$ is any value between $x_{\left(\frac{n}{2}\right)}$ and $x_{\left(\frac{n}{2} +1\right)}$. We defined the median to be the mean of these two values, so the median minimises the SAE.
+Now suppose $x_{(k)} \leq a < x_{(k+1)}$ and let $\epsilon > 0$ be a small
+number such that 
+ $a + \epsilon < x_{(k+1)}$. Then
+\begin{align*}
+\text{SAE}(a + \epsilon) &=\sum_{i=1}^k\left(a + \epsilon - x_{(i)}\right)+\sum_{i=k+1}^n\left(x_{(i)}-(a+\epsilon)\right) \\
+&= k \epsilon +\sum_{i=1}^k\left(a-x_{(i)}\right)-(n-k)\epsilon+\sum_{i=k+1}^n\left(x_{(i)}-a\right) \\
+&=(2 k-n) \epsilon+\sum_{i=1}^k\left(a-x_{(i)}\right)+\sum_{i=k+1}^n\left(x_{(i)}-a\right) \\
+&= (2 k-n)\epsilon + \text{SAE}(a)
+\end{align*}
+so $\text{SAE}(a+\epsilon)-\text{SAE}(a)=(2 k-n)\epsilon$. This is negative if $k < \frac{n}{2}$, zero if $k = \frac{n}{2}$, and positive if $k>\frac{n}{2}$. 
+
+For each $k < \frac{n}{2}$, 
+the SAE is decreasing
+in the interval $[x_{(k)}, x_{(k+1)})$, and we conclude the minimiser of the SAE is at least $x_{(k+1)}$.
+Starting at $k = 1$, we continue increasing $k$ by one and concluding the the minimiser of the SAE is at least $x_{(k+1)}$,
+until we reach a $k$ such that $k \geq \frac{n}{2}$:
+
+- If $n$ is odd, this happens at
+$k = \frac{n+1}{2}$. In that case, since $k > \frac{n}{2}$,
+the SAE is increasing in the interval $[x_{(k)}, x_{(k+1)})$, so we conclude the SAE is minimised
+at $x_{(k)} = x_{\left(\frac{n+1}{2}\right)}$, the median point. 
+- If $n$ is even, this happens at $k = \frac{n}{2}$. In that case the SAE is constant
+in the interval $[x_{(k)}, x_{(k+1)})$, so we conclude that the SAE is minimised at any $a$ between
+the two middle points
+$x_{\left(\frac{n}{2}\right)}$ and $x_{\left(\frac{n}{2}+1\right)}$, i.e. any median point.
 :::
+
 
 We have
 established the fact that
@@ -266,7 +282,7 @@ the sum of (or mean) of the absolute deviations from any number $a$ is
 minimised when $a$ is the median. This justifies why
 median is also often used as a representative value.
 
-The mean gets more affected by extreme observations while the median does not. For example for
+The mean gets more affected by extreme observations than the median. For example for
 the AM service times, suppose the next observation is 190. The median will be 64 instead of 63.5
 but the mean will shoot up to 79.9.
 
@@ -274,8 +290,6 @@ but the mean will shoot up to 79.9.
 
 The mode or the most frequent (or the most likely) value in the data is taken as the most representative value if we consider a 0-1 error function instead of the SAE or SSE above. Here, one assumes
 that the error is 0 if our guess $a$ is the correct answer and 1 if it is not. It can then be proved that the best guess $a$ will be the mode of the data.
-
-#### Impact of extreme observations
 
 
 ### Measures of spread

@@ -183,90 +183,100 @@ We are seeking a representative value for the data
 $x_1, x_2, \dots, x_n$ which should be a function
 of the data. If $a$ is that representative value then how much error is associated with it?
 The total error could be the sum of squares of the deviations
-from $a$, \[\text{SSE} = \sum_{i=1}^n (x_i - x)^2\]
+from $a$, \[\text{SSE}(a) = \sum_{i=1}^n (x_i - a)^2\]
 or the sum of the absolute deviations from $a$, 
-\[\text{SSA} = \sum_{i=1}^n |x_i - x|.\]
+\[\text{SSA}(a) = \sum_{i=1}^n |x_i - a|.\]
 What value of $a$ will minimise the SSE or the SSA? For SSE the answer is the sample mean
 and for SSA the answer is the sample median.
 
 
-#### The sample mean minimises the SSE
+#### The sample mean
 
-Let us define the sample mean by
+The *sample mean* is
 \[\bar x = \frac{1}{n} (x_1 + x_2 + \dots + x_n)
   = \frac{1}{n} \sum_{i=1}^n x_i.\]
+  For the service time
+data from Example \@ref(exm:fastfood), 
+the AM mean time is 68.9 seconds and the PM mean time is 66.8 seconds.
+  
+::: {.theorem}
+The sample mean $\bar x$ minimises the SSE.
+:::
 
-- How can we prove the above assertion? Use the derivative method. 
-Set $\frac{\partial}{\partial a} \text{SSE} = 0$ and solve
-for $a$. Check the second derivative condition that it is positive at the solution for $a$. Try this
-at home.
-- Following is an alternative proof that establishes a very important result in statistics.
-$$
-\begin{aligned}
-\sum_{i=1}^{n}\left(x_{i}-a\right)^{2} &=\sum_{i=1}^{n}\left(x_{i}-\bar{x}+\bar{x}-a\right)^{2} \quad \text{(Add and subtract $\bar{x}$)} \\
+
+::: {.proof}
+We have
+\begin{align*}
+\text{SSE}(a) &= \sum_{i=1}^{n}\left(x_{i}-a\right)^{2} \\
+&=\sum_{i=1}^{n}\left(x_{i}-\bar{x}+\bar{x}-a\right)^{2} \quad \text{(Add and subtract $\bar{x}$)} \\
 &=\sum_{i=1}^{n}\left\{\left(x_{i}-\bar{x}\right)^{2}+2\left(x_{i}-\bar{x}\right)(\bar{x}-a)+(\bar{x}-a)^{2}\right\} \\
 &=\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}+2(\bar{x}-a) \sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)+\sum_{i=1}^{n}(\bar{x}-a)^{2} \\
 &=\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}+n(\bar{x}-a)^{2},
-\end{aligned}
-$$
+\end{align*}
 since $\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)=n \bar{x}-n \bar{x}=0$.
 
-
-  * Now note that: the first term is free of $a$; the second term is non-negative for any value
+The first term is free of $a$ and the second term is non-negative for any value
 of $a$. Hence the minimum occurs when the second term is zero, i.e. when $a = \bar x$.
-  * This establishes the fact that
-**the sum of (or mean) squares of the deviations from any number $a$ is minimised when $a$ is the mean.**
-  * In the proof we also noted that $\sum_{i=1}^n (x_i − \bar x) = 0$. This is stated as
-**the sum of the deviations of a set of numbers from
-their mean is zero.**
-  *   In statistics and in this module, you will come across these two facts again and again!
+:::
 
-- The above justifies why we often use the mean as a representative value. For the service time
-data, the mean time in AM is 68.9 seconds and for PM the mean is 66.8 seconds.
+We have established the fact that
+the sum of (or mean) squares of the deviations from any number $a$ is minimised when $a$ is the mean.
+This justifies why we often use the mean as a representative value. 
 
-#### The sample median minimises the SSA
+#### The sample median
 
-- Here the derivative approach does not work since the derivative does not exist for the absolute
-function.
-- Instead we use the following argument. First, order the observations:
+The *sample median* is the middle value in the ordered list of observations
 $x_{(1)} \leq x_{(2)} \leq \dots \leq x_{(n)}$.
-For the AM service time data: $38 < 43 < 52 < 59 < 63 < 64 < 77 < 86 < 100 < 107$.
-- Now note that:
-\[\text{SSA} =
- \sum_{i=1}^n |x_i − a| =
-\sum_{i=1}^n |x_{(i)} − a| = |x_{(1)} − a| + |x+{(n)} − a| + |x_{(2)} − a| + |x_{(n−1)} − a| + \dots.\]
+For the AM service time data \[38 < 43 < 52 < 59 < 63 < 64 < 77 < 86 < 100 < 107.\]
+If $n$ is odd, there is a unique middle value.
+If $n$ is even, there are two middle values (63 and 64 for the AM service time data).
+By convention, we define the sample median to be the mean of these values
+(63.5 for the the AM service time data).
+More formally, we define the median as 
+\[ \operatorname{median}(x) = \begin{cases}
+  x_{\left(\frac{n+1}{2}\right)} & \text{if $n$ is odd} \\
+  \frac{1}{2}\Big[x_{\left(\frac{n}{2}\right)} + x_{\left(\frac{n}{2} +1\right)}\Big] & \text{if $n$ is even.} 
+\end{cases}\]
 
-- Easy to argue that $|x_{(1)} − a| + |x_{(n)} − a|$ is minimised when $a$ is such that $x_{(1)} \leq a \leq x_{(n)}$.
-- Easy to argue that $|x_{(2)} − a| + |x_{(n−1)} − a|$ is minimised when $a$ is such that $x_{(2)} \leq a \leq x_{(n−1)}$.
-- When $n$ is odd, the last term $|x_{(n+1)} − a|$ is minimised when $a = x_{\left(\frac{n+1}{2}\right)}$ or the middle value in the ordered list.
-- If however, $n$ is even, the last pair of terms will be $|x_\left(\frac{n}{2}\right) − a| + |x\left(\frac{n}{2} +1\right) − a|$. This will be
-minimised when a is any value between $x_\left(\frac{n}{2}\right)$ and $x\left(\frac{n}{2} +1\right)$.
-For convenience, we often take the
-mean of these as the middle value.
-- Hence the middle value, popularly known as the median, minimises the SSA. Hence the
-median is also often used as a representative value or a measure of central tendency. This
-establishes the fact that:
-the sum of (or mean) of the absolute deviations from any number a is
-minimised when a is the median.
-- To recap: the median is defined as the observation ranked $\frac{1}{2}(n+1)$
-in the ordered list if $n$ is odd.
-If $n$ is even, the median is any value between $\frac{n}{2}$th and $(\frac{n}{2} +1)$th
-in the ordered list. For example,
-for the AM service times, $n = 10$ and $38 < 43 < 52 < 59 < 63 < 64 < 77 < 86 < 100 < 107$.
-So the median is any value between 63 and 64. For convenience, we often take the mean of
-these. So the median is 63.5 seconds. Note that we use the unit of the observations when
-reporting any measure of location.
+::: {.theorem}
+The sample median minimises the SSE.
+:::
 
-#### The sample mode minimises the average of a 0-1 error function.
+::: {.proof}
+We have
+\begin{align*}
+\text{SSA}(a) &=
+ \sum_{i=1}^n |x_i − a| \\
+ &= \sum_{i=1}^n |x_{(i)} − a| \\
+ &= |x_{(1)} − a| + |x_{(n)} − a| + |x_{(2)} − a| + |x_{(n−1)} − a| + \dots.
+ \end{align*}
+Looking at pairs of terms, we find:
+
+- $|x_{(1)} − a| + |x_{(n)} − a|$ is minimised when $a$ is such that $x_{(1)} \leq a \leq x_{(n)}$.
+- $|x_{(2)} − a| + |x_{(n−1)} − a|$ is minimised when $a$ is such that $x_{(2)} \leq a \leq x_{(n−1)}$.
+- When $n$ is odd, the last term $|x_{(n+1)} − a|$ is minimised when $a = x_{\left(\frac{n+1}{2}\right)}$ or the middle value in the ordered list, which we defined as the median.
+- If however, $n$ is even, the last pair of terms will be 
+$|x_{\left(\frac{n}{2}\right)} − a| + |x_{\left(\frac{n}{2} +1\right)} − a|.$ This will be
+minimised when $a$ is any value between $x_{\left(\frac{n}{2}\right)}$ and $x_{\left(\frac{n}{2} +1\right)}$. We defined the median to be the mean of these two values, so the median minimises the SSA.
+:::
+
+We have
+established the fact that
+the sum of (or mean) of the absolute deviations from any number $a$ is
+minimised when $a$ is the median. This justifies why
+median is also often used as a representative value.
+
+The mean gets more affected by extreme observations while the median does not. For example for
+the AM service times, suppose the next observation is 190. The median will be 64 instead of 63.5
+but the mean will shoot up to 79.9.
+
+#### The sample mode
 
 The mode or the most frequent (or the most likely) value in the data is taken as the most representative value if we consider a 0-1 error function instead of the SSA or SSE above. Here, one assumes
 that the error is 0 if our guess $a$ is the correct answer and 1 if it is not. It can then be proved that the best guess $a$ will be the mode of the data.
 
 #### Impact of extreme observations
 
-The mean gets more affected by extreme observations while the median does not. For example for
-the AM service times, suppose the next observation is 190. The median will be 64 instead of 63.5
-but the mean will shoot up to 79.9.
 
 ### Measures of spread
 

@@ -182,12 +182,12 @@ central tendency) and the spread or variability.
 We are seeking a representative value for the data 
 $x_1, x_2, \dots, x_n$ which should be a function
 of the data. If $a$ is that representative value then how much error is associated with it?
-The total error could be the sum of squares of the deviations
-from $a$, \[\text{SSE}(a) = \sum_{i=1}^n (x_i - a)^2\]
-or the sum of the absolute deviations from $a$, 
-\[\text{SSA}(a) = \sum_{i=1}^n |x_i - a|.\]
-What value of $a$ will minimise the SSE or the SSA? For SSE the answer is the sample mean
-and for SSA the answer is the sample median.
+The total error could be the sum of squares of the errors, 
+\[\text{SSE}(a) = \sum_{i=1}^n (x_i - a)^2\]
+or the sum of the absolute errors
+\[\text{SAE}(a) = \sum_{i=1}^n |x_i - a|.\]
+What value of $a$ will minimise the SSE or the SAE? For SSE the answer is the sample mean
+and for SAE the answer is the sample median.
 
 
 #### The sample mean
@@ -245,7 +245,7 @@ The sample median minimises the SSE.
 ::: {.proof}
 We have
 \begin{align*}
-\text{SSA}(a) &=
+\text{SAE}(a) &=
  \sum_{i=1}^n |x_i − a| \\
  &= \sum_{i=1}^n |x_{(i)} − a| \\
  &= |x_{(1)} − a| + |x_{(n)} − a| + |x_{(2)} − a| + |x_{(n−1)} − a| + \dots.
@@ -257,7 +257,7 @@ Looking at pairs of terms, we find:
 - When $n$ is odd, the last term $|x_{(n+1)} − a|$ is minimised when $a = x_{\left(\frac{n+1}{2}\right)}$ or the middle value in the ordered list, which we defined as the median.
 - If however, $n$ is even, the last pair of terms will be 
 $|x_{\left(\frac{n}{2}\right)} − a| + |x_{\left(\frac{n}{2} +1\right)} − a|.$ This will be
-minimised when $a$ is any value between $x_{\left(\frac{n}{2}\right)}$ and $x_{\left(\frac{n}{2} +1\right)}$. We defined the median to be the mean of these two values, so the median minimises the SSA.
+minimised when $a$ is any value between $x_{\left(\frac{n}{2}\right)}$ and $x_{\left(\frac{n}{2} +1\right)}$. We defined the median to be the mean of these two values, so the median minimises the SAE.
 :::
 
 We have
@@ -272,7 +272,7 @@ but the mean will shoot up to 79.9.
 
 #### The sample mode
 
-The mode or the most frequent (or the most likely) value in the data is taken as the most representative value if we consider a 0-1 error function instead of the SSA or SSE above. Here, one assumes
+The mode or the most frequent (or the most likely) value in the data is taken as the most representative value if we consider a 0-1 error function instead of the SAE or SSE above. Here, one assumes
 that the error is 0 if our guess $a$ is the correct answer and 1 if it is not. It can then be proved that the best guess $a$ will be the mode of the data.
 
 #### Impact of extreme observations

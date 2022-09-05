@@ -177,7 +177,7 @@ central tendency) and the spread or variability.
 
 ### Measures of location
 
-#### Introduction
+#### Choosing a representative value for the data
 
 We are seeking a representative value for the data 
 $x_1, x_2, \dots, x_n$ which should be a function
@@ -268,25 +268,29 @@ The mean gets more affected by extreme observations while the median does not. F
 the AM service times, suppose the next observation is 190. The median will be 64 instead of 63.5
 but the mean will shoot up to 79.9.
 
-#### Measures of spread
+### Measures of spread
 
-- A quick measure of the spread is the *range*, which is defined as the difference between the
+A quick measure of the spread is the *range*, which is defined as the difference between the
 maximum and minimum observations. For the AM service times the range is $69$ ($107 - 38$)
 seconds.
 
-- Standard deviation: square root of variance $=\frac{1}{n-1} \sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}$.
+The *variance* is
+\[\frac{1}{n-1} \sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}.\]
+We have
+\[\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}=\sum_{i=1}^{n}\left(x_{i}^{2}-2 x_{i} \bar{x}+\bar{x}^{2}\right)=\sum_{i=1}^{n} x_{i}^{2}-2 \bar{x}(n \bar{x})+n \bar{x}^{2}=\sum_{i=1}^{n} x_{i}^{2}-n \bar{x}^{2},\]
+so we calculate variance as
 $$
-\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}=\sum_{i=1}^{n}\left(x_{i}^{2}-2 x_{i} \bar{x}+\bar{x}^{2}\right)=\sum_{i=1}^{n} x_{i}^{2}-2 \bar{x}(n \bar{x})+n \bar{x}^{2}=\sum_{i=1}^{n} x_{i}^{2}-n \bar{x}^{2}
+\operatorname{Var}(x)=\frac{1}{n-1}\left(\sum_{i=1}^{n} x_{i}^{2}-n \bar{x}^{2}\right).
 $$
-Hence we calculate variance by the formula:
-$$
-\operatorname{Var}(x)=s^{2}=\frac{1}{n-1}\left(\sum_{i=1}^{n} x_{i}^{2}-n \bar{x}^{2}\right)
-$$
-- Sometimes the variance is defined with the divisor $n$ instead of $n - 1$. We have chosen $n - 1$
+Sometimes the variance is defined with the divisor $n$ instead of $n - 1$. We have chosen $n - 1$
 since this is the default in R. We will return to this in Chapter \@ref(inference).
-- The standard deviation (sd) for the AM service times is 23.2 seconds. Note that it has the
+
+The *standard deviation* is the square root of variance
+\[s = \operatorname{sd}(x) = \sqrt{\operatorname{Var}(x)}}.\]
+The standard deviation (sd) for the AM service times is 23.2 seconds. Note that it has the
 same unit as the observations.
-- The interquartile range (IQR) is the difference between the third, $Q_3$ and first, $Q_1$ quartiles,
+
+The *interquartile range* (IQR) is the difference between the third, $Q_3$ and first, $Q_1$ quartiles,
 which are respectively the observations ranked $\frac{1}{4}(3n + 1)$ and $\frac{1}{4}(n + 3)$
 in the ordered list.
 Note that the median is the second quartile, $Q_2$. When $n$ is even, definitions of $Q_3$ and $Q_1$

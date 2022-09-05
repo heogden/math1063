@@ -120,7 +120,7 @@ including techniques of point and interval estimation and hypothesis testing.
 
 ## Basic statistics
 
-### Introduction
+### Introduction and example data sets
 
 In Section \@ref(what-is-statistics) we got a glimpse of the nature of uncertainty and statistics.
 Now we will
@@ -171,9 +171,10 @@ How can we explore the data?
 
 
 In general, we can
-summarise categorical (not numeric) data by tables. For example: 5 reds, 6 blacks etc.
-For numeric data $x_1, x_2, \dots, x_n$, we would like to know the centre (measures of location or
-central tendency) and the spread or variability.
+summarise categorical (not numeric) data by tables. For example,
+we could summarise the results of 20 coin tosses as: 12 heads, 8 tails.
+For numeric data $x_1, x_2, \dots, x_n$, we would like to measure the
+average location and the spread or variability of the data.
 
 ### Measures of location
 

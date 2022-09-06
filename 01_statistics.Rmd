@@ -532,6 +532,9 @@ ggplot(data = fastfood) +
 Since no outlying points are shown
 in this case, the whiskers show the range of the data.
 
+We see that the AM service times are on average shorter,
+but also more spread out than the PM service times.
+
 We can also use any of the other methods for plotting 
 a single continuous variable, and draw separate
 plots for each group in the discrete variable.
@@ -609,3 +612,10 @@ ggplot(data = billionaires) +
     xlab("Age (years)") +
     ylab("Wealth (billions of dollars)")
 ```
+
+The plot lets us immediatly read off some interesting
+aspects of the data. For instance, there were a few very young
+billionaires, the richest person
+in the world at this time was age 50 and from the Middle East,
+and the richest few people in the world had wealth
+many times higher than most people on the list.

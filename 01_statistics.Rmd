@@ -209,13 +209,13 @@ R is freely available to download:  search
 We will access R via the RStudio integrated development environment,
 which you can download from https://www.rstudio.com/products/rstudio/.
 which provides a nice editor for R code alongside a console.
-Details about using R and RStudio are given in the worksheets for 
+Details about using R and RStudio are given in the
 the practical sessions.
-If you want to complete the worksheets on your own computer,
+If you want to complete the practical sessions on your own computer,
 please try to install R and RStudio before attending the practical sessions.
 
 We will not give details of using R in these notes: this will
-all be covered by the worksheets. In the
+all be covered by the practical sessions. In the
 notes, we provide simple commands used to calculate useful
 quantities in R, and show some of the graphical outputs
 we can get from R.
@@ -388,7 +388,7 @@ very easily in R.
 As an example, suppose we have stored the
 weekly counts of computer failures from Example \@ref(exm:compfail)
 in an object called `compfail` in R. You will
-find out how to read the data into R in the practical worksheets.
+find out how to read the data into R in the practical sessions.
 
 Then we can calculate these quantities with:
 ```{r}
@@ -428,7 +428,7 @@ relationship between two or more variables, and on whether
 the variables of interest are discrete or continuous.
 
 Here, we will show some plots produced by R. You will find
-out how to make these plots in R in the computer worksheets.
+out how to make these plots in R in the practical sessions.
 
 
 ### Distribution of a single discrete variable

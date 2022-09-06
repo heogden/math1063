@@ -413,9 +413,8 @@ table(compfail)
 ## Exploratory data plots
 
 ### Introduction 
-While the simple numerical summaries we have seen
-in Section \@ref(summaries) provide useful insight
-into data, often the clearest way to generate
+
+Often the clearest way to generate
 insight is to plot the data. 
 Plots may be used to check the shape of the distribution 
 of a variable, and to investigate
@@ -425,7 +424,7 @@ in a dataset.
 The type of plot which is most appropriate often
 depends on the type of data, and whether we are
 interested in looking at a single variables or the 
-relationship between two variables.
+relationship between two or more variables.
 
 Here, we will show some plots produced by R. You will find
 out how to make these plots in R in the computer worksheets.

@@ -463,6 +463,9 @@ We can use a box-and-whiskers
 plot to summarise the distribution of the weight difference:
 
 ```{r, echo = FALSE}
+wtgain_diff <- wtgain %>%
+    mutate(diff = final - initial)
+
 ggplot(wtgain_diff) +
     geom_boxplot(aes(x = diff)) +
     xlab("Final weight - Initial weight (kg)")
@@ -488,9 +491,6 @@ we could plot
 a histogram of the weight difference:
 
 ```{r, echo = FALSE}
-wtgain_diff <- wtgain %>%
-    mutate(diff = final - initial)
-
 ggplot(wtgain_diff) +
     geom_histogram(aes(x = diff), binwidth = 0.5, boundary = 0) +
     xlab("Final weight - Initial weight (kg)") +

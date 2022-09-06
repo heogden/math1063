@@ -289,7 +289,7 @@ $x_{(1)} \leq x_{(2)} \leq \dots \leq x_{(n)}$.
 For the AM service time data \[38 < 43 < 52 < 59 < 63 < 64 < 77 < 86 < 100 < 107.\]
 If $n$ is odd, there is a unique middle value.
 If $n$ is even, there are two middle values (63 and 64 for the AM service time data).
-Any value betwen those two middle values is a sample median. 
+Any value between those two middle values is a sample median. 
 By convention, we often use the mean of these values
 (63.5 for the the AM service time data).
 
@@ -421,10 +421,11 @@ of a variable, and to investigate
 the relationship between different variables
 in a dataset.
 
-The type of plot which is most appropriate often
-depends on the type of data, and whether we are
-interested in looking at a single variables or the 
-relationship between two or more variables.
+The type of plot which is most appropriate
+depends on whether we are looking at the distribution of
+a single variables or the 
+relationship between two or more variables, and on whether
+the variables of interest are discrete or continuous.
 
 Here, we will show some plots produced by R. You will find
 out how to make these plots in R in the computer worksheets.
@@ -461,7 +462,7 @@ in Example \@ref(exm:wtgain).
 We can use a box-and-whiskers 
 plot to summarise the distribution of the weight difference:
 
-```{r}
+```{r, echo = FALSE}
 ggplot(wtgain_diff) +
     geom_boxplot(aes(x = diff)) +
     xlab("Final weight - Initial weight (kg)")
@@ -476,7 +477,7 @@ further than $1.5 \times \text{IQR}$ from the first quartile
 to the largest value no
 further than $1.5 \times \text{IQR}$ from the third quartile.
 
-Any outliers, which are outisde the range of the whiskers,
+Any outliers, which are outside the range of the whiskers,
 are shown as separate points.
 
 We can see the the majority of students in the sample do gain weight 
@@ -551,8 +552,9 @@ ggplot(data = fastfood) +
     facet_wrap(~time)
 ```
 
-With density plots, we could also plot the densities
-for the different groups on a single plot:
+We could also plot the densities
+for the different groups on a single plot,
+using colour of the lines to distinguish between the groups:
 ```{r, echo = FALSE}
 ggplot(data = fastfood) +
     geom_density(aes(x = service, colour = time)) +
@@ -561,7 +563,7 @@ ggplot(data = fastfood) +
 
 ### Relationship between two continuous variables
 
-A scatterplot is a good way to look at the relationship
+A scatter-plot is a good way to look at the relationship
 between two continuous variables.
 For instance, for the weight data from Example \@ref(exm:wtgain),
 we can plot the final weights against the initial weights:
@@ -597,7 +599,7 @@ to plot relationships between more than two variables.
 
 For instance, in the billionaires data in Example
 \@ref(exm:billionaires), we can plot wealth against
-age as a scatterplot, using the colour of the 
+age as a scatter-plot, using the colour of the 
 points to distinguish between different regions.
 
 

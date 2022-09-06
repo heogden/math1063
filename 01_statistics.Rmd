@@ -100,14 +100,8 @@ methods prove that cigarette smoking is bad for human health.
 
 - **Chapter 1**: We will start with the basic statistics used in everyday life, e.g. mean, median,
 mode, standard deviation, etc. Statistical analysis and report writing will be discussed. We
-will also learn how to explore data using graphical methods.
-  * For this we will use the R statistical package. R is freely available to download. Search
-"download R" or go to: https://cran.r-project.org/. We will use it as a calculator
-and also as a graphics package to explore data, perform statistical analysis, illustrate
-theorems and calculate probabilities. 
-  * In this module we will demonstrate using the R package. A nicer experience is provided
-by the commercial, but still freely available, R Studio software. It is recommended that
-you use that.
+will also learn how to explore data using graphical methods. We will introduce the R
+programming language to help us with these tasks. 
 - **Chapter 2: Introduction to Probability**. We will define and interpret probability as a
 measure of uncertainty. We will learn the rules of probability and then explore fun examples
 of probability, e.g. the probability of winning the National Lottery.
@@ -363,4 +357,168 @@ are similar to that of the median, $Q_2$. The IQR for the AM service times is $8
 seconds.
 
 
-<!-- TODO: redo lecture 3 on R. -->
+## Introduction to R
+
+### Getting started
+
+R is a programming language for statistics. We will use R as a calculator,
+to summarise data, make exploratory plots,
+perform statistical analysis, illustrate
+theorems and calculate probabilities. 
+You will get practice of using R yourself during the computer practical sessions.
+
+R is freely available to download:  search
+"download R" or go to: https://cran.r-project.org/. 
+We will access R via the RStudio integrated development environment,
+which you can download from https://www.rstudio.com/products/rstudio/.
+which provides a nice editor for R code alongside a console.
+Details about using R and RStudio are given in the worksheets for 
+the practical sessions.
+If you want to complete the worksheets on your own computer,
+please try to install R and RStudio before attending the practical sessions.
+
+We will not give details of using R in this section: this will
+all be covered by the worksheets. Here, we describe some of the outputs
+we can get from R, and how we can use and interpret them.
+
+### Summarising data in R
+
+We can calculate the mean, median, variance and standard deviation
+very easily in R. 
+
+As an example, suppose we have stored the
+weekly counts of computer failures from Example \@ref(exm:compfail)
+in an object called `compfail` in R. You will
+find out how to read the data into R in the practical worksheets.
+
+Then we can calculate these quantities with:
+```{r}
+mean(compfail)
+median(compfail)
+var(compfail)
+sd(compfail)
+```
+R saves us a lot of effort here relative to computing
+these quantities by hand.
+
+The `summary` command provides several using summary statistics:
+```{r}
+summary(compfail)
+```
+
+We can find a table summarising the counts by typing
+```{r}
+table(compfail)
+```
+
+### Exploratory data plots in R
+
+The type of plot which is most appropriate often
+depends on the type of data, and whether we are
+interested in looking at a single variables or the 
+relationship between two variables.
+
+Here, we will show the plots produced by R. You will find
+out how to make these plots in R in the computer worksheets.
+
+A scatterplot is a good way to look at the relationship
+between two continuous variables.
+For instance, for the weight data from Example \@ref(exm:wtgain),
+we can plot the final weights against the initial weights:
+
+```{r, echo = FALSE}
+plot_wt <- ggplot(data = wtgain) +
+    geom_point(mapping = aes(x = initial, y = final)) +
+    xlab("Initial weight (kg)") +
+    ylab("Final weight (kg)")
+
+plot_wt
+```
+
+We can add the straight line $y = x$ to the plot, and make
+the axis labels
+
+```{r, echo = FALSE}
+plot_wt_2 <- plot_wt +
+    geom_abline(slope = 1, intercept = 0, linetype = "dashed")
+
+plot_wt_2
+```
+
+We can see that the majority of the points lie above this $y = x$
+line, so the majority of students in the sample do gain weight 
+over the course of the study. This appears to be the case irrespective
+of the initial weight of the student.
+
+If we are interested only in the gain in weight, we could also plot
+a histogram of the difference between the final and initial weights:
+
+```{r, echo = FALSE}
+wtgain_diff <- wtgain %>%
+    mutate(diff = final - initial)
+
+ggplot(wtgain_diff) +
+    geom_histogram(aes(x = diff), binwidth = 0.5, boundary = 0) +
+    xlab("Final weight - Initial weight (kg)") +
+    geom_vline(xintercept = 0, linetype = "dashed")
+```
+
+We can use a box-and-whiskers plot to summarise continuous variables,
+and to show how a continuous variable changes with a discrete
+one. For instance, for the service time data from Example \@ref(exm:fastfood),
+we are interested in how AM and PM service times compare:
+
+```{r, echo = FALSE}
+ggplot(data = fastfood) +
+    geom_boxplot(aes(service, time)) +
+    xlab("Service time (minutes)") +
+    ylab("Time of day")
+```
+
+The line
+in the middle of each box is the median service time for that group,
+and the box runs from the first quartile
+to the third quartile.
+The lines (or whiskers) extend from the smallest value no further 
+further than $1.5 \times \text{IQR}$ from the first quartile
+to the largest value no
+further than $1.5 \times \text{IQR}$ from the third quartile.
+
+Any outliers, which are outisde the range of the whiskers,
+are shown as separate points. When no outlying plots are shown,
+as in this case, the whiskers show the range of the data.
+
+To demonstrate the effect of outliers,
+suppose we there is another AM service time observed,
+of 190 seconds. 
+
+```{r, echo = FALSE}
+fastfood_outlier <- fastfood %>%
+    add_row(time = "AM", service = 190)
+
+ggplot(data = fastfood_outlier) +
+    geom_boxplot(aes(service, time)) +
+    xlab("Service time (minutes)") +
+    ylab("Time of day")
+```
+
+We can see on the box-and-whiskers plot that this new
+point is an outlier, relative to the other AM service times.
+
+To explore the distribution of a single discrete variable, 
+we may use a bar plot. For instance, we may
+plot the weekly counts of
+computer failures from Example \@ref(exm:compfail):
+
+```{r, echo = FALSE}
+compfail_by_week <- tibble(week = 1:length(compfail),
+                           failures = compfail)
+ggplot(compfail_by_week) +
+    geom_bar(aes(x = failures)) +
+    xlab("Number of failures in a week")
+```
+
+This plot shows the same information as in the summary
+table of counts, but it is easier to process the information
+visually.
+

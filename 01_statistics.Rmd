@@ -585,3 +585,20 @@ over the course of the study, as we have seen before.
 This appears to be the case irrespective
 of the initial weight of the student.
 
+### Relationships between more than two variables
+
+We can combine the methods we have already seen
+to plot relationships between more than two variables.
+
+For instance, in the billionaires data in Example
+\@ref(exm:billionaires), we can plot wealth against
+age as a scatterplot, using the colour of the 
+points to distinguish between different regions.
+
+
+```{r, echo = FALSE}
+ggplot(data = billionaires) +
+    geom_point(aes(x = age, y = wealth, colour = region)) +
+    xlab("Age (years)") +
+    ylab("Wealth (billions of dollars)")
+```

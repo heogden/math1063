@@ -196,6 +196,30 @@ We will investigate differences in wealth of billionaires by age and
 region using many exploratory graphical tools and statistical methods.
 :::
 
+## Introduction to R
+
+R is a programming language for statistics. We will use R as a calculator,
+to summarise data, make exploratory plots,
+perform statistical analysis, illustrate
+theorems and calculate probabilities. 
+You will get practice of using R yourself during the computer practical sessions.
+
+R is freely available to download:  search
+"download R" or go to: https://cran.r-project.org/. 
+We will access R via the RStudio integrated development environment,
+which you can download from https://www.rstudio.com/products/rstudio/.
+which provides a nice editor for R code alongside a console.
+Details about using R and RStudio are given in the worksheets for 
+the practical sessions.
+If you want to complete the worksheets on your own computer,
+please try to install R and RStudio before attending the practical sessions.
+
+We will not give details of using R in these notes: this will
+all be covered by the worksheets. In the
+notes, we provide simple commands used to calculate useful
+quantities in R, and show some of the graphical outputs
+we can get from R.
+
 ## Summarising data sets
 
 ### Summarising categorical data
@@ -356,31 +380,6 @@ Note that the median is the second quartile, $Q_2$. When $n$ is even, definition
 are similar to that of the median, $Q_2$. The IQR for the AM service times is $83.75 - 53.75 = 30$
 seconds.
 
-
-## Introduction to R
-
-### Getting started
-
-R is a programming language for statistics. We will use R as a calculator,
-to summarise data, make exploratory plots,
-perform statistical analysis, illustrate
-theorems and calculate probabilities. 
-You will get practice of using R yourself during the computer practical sessions.
-
-R is freely available to download:  search
-"download R" or go to: https://cran.r-project.org/. 
-We will access R via the RStudio integrated development environment,
-which you can download from https://www.rstudio.com/products/rstudio/.
-which provides a nice editor for R code alongside a console.
-Details about using R and RStudio are given in the worksheets for 
-the practical sessions.
-If you want to complete the worksheets on your own computer,
-please try to install R and RStudio before attending the practical sessions.
-
-We will not give details of using R in this section: this will
-all be covered by the worksheets. Here, we describe some of the outputs
-we can get from R, and how we can use and interpret them.
-
 ### Summarising data in R
 
 We can calculate the mean, median, variance and standard deviation
@@ -411,7 +410,7 @@ We can find a table summarising the counts by typing
 table(compfail)
 ```
 
-### Exploratory data plots in R
+## Exploratory data plots
 
 The type of plot which is most appropriate often
 depends on the type of data, and whether we are

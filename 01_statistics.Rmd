@@ -480,6 +480,9 @@ further than $1.5 \times \text{IQR}$ from the third quartile.
 Any outliers, which are outisde the range of the whiskers,
 are shown as separate points.
 
+We can see the the majority of students in the sample do gain weight 
+over the course of the study.
+
 To get more information about the shape of the distribution,
 we could plot 
 a histogram of the weight difference:
@@ -577,6 +580,8 @@ plot_wt_2
 ```
 
 We can see that the majority of the points lie above this $y = x$
-line, so the majority of students in the sample do gain weight 
-over the course of the study. This appears to be the case irrespective
+line, so the majority of students in the sample gain weight 
+over the course of the study, as we have seen before.
+This appears to be the case irrespective
 of the initial weight of the student.
+

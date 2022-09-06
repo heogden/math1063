@@ -495,7 +495,13 @@ ggplot(wtgain_diff) +
     xlab("Final weight - Initial weight (kg)") +
     geom_vline(xintercept = 0, linetype = "dashed")
 ```
-<!-- TODO: note impact of binwidth -->
+
+The histogram splits the $x$-axis into small intervals
+or "bins"
+(here each of width 0.5), and counts how many times
+the variable (here difference in weight) is
+in each bin. Histograms often look very different
+for different bin widths.
 
 Alternatively, we could draw a density plot
 ```{r, echo = FALSE}

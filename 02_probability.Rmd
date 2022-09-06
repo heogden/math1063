@@ -1,4 +1,4 @@
-# Introduction to Probability
+# Introduction to Probability {#intro-prob}
 
 ## Chapter mission
 

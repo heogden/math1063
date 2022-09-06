@@ -430,7 +430,128 @@ relationship between two variables.
 Here, we will show some plots produced by R. You will find
 out how to make these plots in R in the computer worksheets.
 
-### Scatterplots
+
+### Distribution of a single discrete variable
+
+To explore the distribution of a single discrete variable, 
+we may use a bar plot. For instance, we may
+plot the weekly counts of
+computer failures from Example \@ref(exm:compfail):
+
+```{r, echo = FALSE}
+compfail_by_week <- tibble(week = 1:length(compfail),
+                           failures = compfail)
+ggplot(compfail_by_week) +
+    geom_bar(aes(x = failures)) +
+    xlab("Number of failures in a week")
+```
+
+This plot shows the same information as in the summary
+table of counts, but it is easier to process the information
+visually.
+
+
+### Distribution of a single continuous variable
+
+There are several different types of plots which may be 
+used to summarise the shape of the
+distribution of a single continuous variables.
+For instance, suppose we are interested in the gain in weight
+in Example \@ref(exm:wtgain).
+
+We can use a box-and-whiskers 
+plot to summarise the distribution of the weight difference:
+
+```{r}
+ggplot(wtgain_diff) +
+    geom_boxplot(aes(x = diff)) +
+    xlab("Final weight - Initial weight (kg)")
+```
+
+The line
+in the middle of the box is the median service weight difference,
+and the box runs from the first quartile
+to the third quartile.
+The lines (or whiskers) extend from the smallest value no further 
+further than $1.5 \times \text{IQR}$ from the first quartile
+to the largest value no
+further than $1.5 \times \text{IQR}$ from the third quartile.
+
+Any outliers, which are outisde the range of the whiskers,
+are shown as separate points.
+
+To get more information about the shape of the distribution,
+we could plot 
+a histogram of the weight difference:
+
+```{r, echo = FALSE}
+wtgain_diff <- wtgain %>%
+    mutate(diff = final - initial)
+
+ggplot(wtgain_diff) +
+    geom_histogram(aes(x = diff), binwidth = 0.5, boundary = 0) +
+    xlab("Final weight - Initial weight (kg)") +
+    geom_vline(xintercept = 0, linetype = "dashed")
+```
+<!-- TODO: note impact of binwidth -->
+
+Alternatively, we could draw a density plot
+```{r, echo = FALSE}
+ggplot(wtgain_diff) +
+    geom_density(aes(x = diff)) +
+    xlab("Final weight - Initial weight (kg)") +
+    geom_vline(xintercept = 0, linetype = "dashed")
+```
+
+This plots an estimate of the probability density function,
+which we will learn about in Chapter \@ref(distributions).
+
+### Relationship between continuous and discrete variables
+
+We can also use a box-and-whiskers plot to show how a continuous
+variable changes with a discrete
+one. For instance, for the service time data from Example \@ref(exm:fastfood),
+we are interested in how AM and PM service times compare:
+
+```{r, echo = FALSE}
+ggplot(data = fastfood) +
+    geom_boxplot(aes(service, time)) +
+    xlab("Service time (minutes)") +
+    ylab("Time of day")
+```
+
+Since no outlying points are shown
+in this case, the whiskers show the range of the data.
+
+We can also use any of the other methods for plotting 
+a single continuous variable, and draw separate
+plots for each group in the discrete variable.
+
+We can use histograms:
+```{r, echo = FALSE}
+ggplot(data = fastfood) +
+    geom_histogram(aes(x = service), binwidth = 10) +
+    xlab("Service time (minutes)") +
+    facet_wrap(~time)
+```
+
+Or density plots:
+```{r, echo = FALSE}
+ggplot(data = fastfood) +
+    geom_density(aes(x = service)) +
+    xlab("Service time (minutes)") +
+    facet_wrap(~time)
+```
+
+With density plots, we could also plot the densities
+for the different groups on a single plot:
+```{r, echo = FALSE}
+ggplot(data = fastfood) +
+    geom_density(aes(x = service, colour = time)) +
+    xlab("Service time (minutes)")
+```
+
+### Relationship between two continuous variables
 
 A scatterplot is a good way to look at the relationship
 between two continuous variables.
@@ -459,87 +580,3 @@ We can see that the majority of the points lie above this $y = x$
 line, so the majority of students in the sample do gain weight 
 over the course of the study. This appears to be the case irrespective
 of the initial weight of the student.
-
-### Histograms
-
-Histograms may be used to summarise the shape of the
-distribution of a single continuous variables.
-
-For instance, if we are interested only in the gain in weight
-in Example \@ref(exm:wtgain), 
-we could plot
-a histogram of the difference between the final and initial weights:
-
-```{r, echo = FALSE}
-wtgain_diff <- wtgain %>%
-    mutate(diff = final - initial)
-
-ggplot(wtgain_diff) +
-    geom_histogram(aes(x = diff), binwidth = 0.5, boundary = 0) +
-    xlab("Final weight - Initial weight (kg)") +
-    geom_vline(xintercept = 0, linetype = "dashed")
-```
-
-### Box-and-whiskers plots
-
-We can use a box-and-whiskers plot to summarise continuous variables,
-and to show how a continuous variable changes with a discrete
-one. For instance, for the service time data from Example \@ref(exm:fastfood),
-we are interested in how AM and PM service times compare:
-
-```{r, echo = FALSE}
-ggplot(data = fastfood) +
-    geom_boxplot(aes(service, time)) +
-    xlab("Service time (minutes)") +
-    ylab("Time of day")
-```
-
-The line
-in the middle of each box is the median service time for that group,
-and the box runs from the first quartile
-to the third quartile.
-The lines (or whiskers) extend from the smallest value no further 
-further than $1.5 \times \text{IQR}$ from the first quartile
-to the largest value no
-further than $1.5 \times \text{IQR}$ from the third quartile.
-
-Any outliers, which are outisde the range of the whiskers,
-are shown as separate points. When no outlying plots are shown,
-as in this case, the whiskers show the range of the data.
-
-To demonstrate the effect of outliers,
-suppose we there is another AM service time observed,
-of 190 seconds. 
-
-```{r, echo = FALSE}
-fastfood_outlier <- fastfood %>%
-    add_row(time = "AM", service = 190)
-
-ggplot(data = fastfood_outlier) +
-    geom_boxplot(aes(service, time)) +
-    xlab("Service time (minutes)") +
-    ylab("Time of day")
-```
-
-We can see on the box-and-whiskers plot that this new
-point is an outlier, relative to the other AM service times.
-
-### Bar plots
-
-To explore the distribution of a single discrete variable, 
-we may use a bar plot. For instance, we may
-plot the weekly counts of
-computer failures from Example \@ref(exm:compfail):
-
-```{r, echo = FALSE}
-compfail_by_week <- tibble(week = 1:length(compfail),
-                           failures = compfail)
-ggplot(compfail_by_week) +
-    geom_bar(aes(x = failures)) +
-    xlab("Number of failures in a week")
-```
-
-This plot shows the same information as in the summary
-table of counts, but it is easier to process the information
-visually.
-

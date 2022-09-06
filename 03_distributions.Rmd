@@ -1,4 +1,4 @@
-# Random Variables and Their Probability Distributions
+# Random Variables and Their Probability Distributions {#distributions}
 
 ## Chapter mission
 

@@ -220,7 +220,7 @@ notes, we provide simple commands used to calculate useful
 quantities in R, and show some of the graphical outputs
 we can get from R.
 
-## Summarising data sets
+## Summarising data sets {#summaries}
 
 ### Summarising categorical data
 
@@ -412,13 +412,25 @@ table(compfail)
 
 ## Exploratory data plots
 
+### Introduction 
+While the simple numerical summaries we have seen
+in Section \@ref(summaries) provide useful insight
+into data, often the clearest way to generate
+insight is to plot the data. 
+Plots may be used to check the shape of the distribution 
+of a variable, and to investigate
+the relationship between different variables
+in a dataset.
+
 The type of plot which is most appropriate often
 depends on the type of data, and whether we are
 interested in looking at a single variables or the 
 relationship between two variables.
 
-Here, we will show the plots produced by R. You will find
+Here, we will show some plots produced by R. You will find
 out how to make these plots in R in the computer worksheets.
+
+### Scatterplots
 
 A scatterplot is a good way to look at the relationship
 between two continuous variables.
@@ -434,8 +446,7 @@ plot_wt <- ggplot(data = wtgain) +
 plot_wt
 ```
 
-We can add the straight line $y = x$ to the plot, and make
-the axis labels
+We can add the straight line $y = x$ to the plot:
 
 ```{r, echo = FALSE}
 plot_wt_2 <- plot_wt +
@@ -449,7 +460,14 @@ line, so the majority of students in the sample do gain weight
 over the course of the study. This appears to be the case irrespective
 of the initial weight of the student.
 
-If we are interested only in the gain in weight, we could also plot
+### Histograms
+
+Histograms may be used to summarise the shape of the
+distribution of a single continuous variables.
+
+For instance, if we are interested only in the gain in weight
+in Example \@ref(exm:wtgain), 
+we could plot
 a histogram of the difference between the final and initial weights:
 
 ```{r, echo = FALSE}
@@ -461,6 +479,8 @@ ggplot(wtgain_diff) +
     xlab("Final weight - Initial weight (kg)") +
     geom_vline(xintercept = 0, linetype = "dashed")
 ```
+
+### Box-and-whiskers plots
 
 We can use a box-and-whiskers plot to summarise continuous variables,
 and to show how a continuous variable changes with a discrete
@@ -503,6 +523,8 @@ ggplot(data = fastfood_outlier) +
 
 We can see on the box-and-whiskers plot that this new
 point is an outlier, relative to the other AM service times.
+
+### Bar plots
 
 To explore the distribution of a single discrete variable, 
 we may use a bar plot. For instance, we may

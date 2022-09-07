@@ -561,12 +561,15 @@ ggplot(data = fastfood) +
 
 We could also plot the densities
 for the different groups on a single plot,
-using colour of the lines to distinguish between the groups:
+using line type to distinguish between the groups:
 
 ```{r, echo = FALSE, fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
 ggplot(data = fastfood) +
-    geom_density(aes(x = service, colour = time)) +
+    geom_density(aes(x = service, linetype = time), show.legend = FALSE) +
+    stat_density(aes(x = service, linetype = time), 
+                 geom = "line", position = "identity") + # to fix legend to give lines 
     xlab("Service time (minutes)")
+
 ```
 
 ### Relationship between two continuous variables
@@ -607,13 +610,13 @@ to plot relationships between more than two variables.
 
 For instance, in the billionaires data in Example
 \@ref(exm:billionaires), we can plot wealth against
-age as a scatter-plot, using the colour of the 
+age as a scatter-plot, using the shape of the 
 points to distinguish between different regions.
 
 
 ```{r, echo = FALSE, fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
 ggplot(data = billionaires) +
-    geom_point(aes(x = age, y = wealth, colour = region)) +
+    geom_point(aes(x = age, y = wealth, shape = region), alpha = 0.5) +
     xlab("Age (years)") +
     ylab("Wealth (billions of dollars)")
 ```

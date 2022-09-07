@@ -7,9 +7,10 @@ output:
 ---
 
 ```{r, echo = FALSE, message = FALSE}
-knitr::opts_knit$set(root.dir = 'datasets', comment = "")
 library(tidyverse)
 library(knitr)
+knitr::opts_knit$set(root.dir = 'datasets', comment = "",
+                     fig.width = 4, fig.height = 3, out.width = "50%", fig.align = "center")
 ```
 
 # Preface {-}

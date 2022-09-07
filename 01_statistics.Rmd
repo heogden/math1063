@@ -438,7 +438,7 @@ we may use a bar plot. For instance, we may
 plot the weekly counts of
 computer failures from Example \@ref(exm:compfail):
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
 compfail_by_week <- tibble(week = 1:length(compfail),
                            failures = compfail)
 ggplot(compfail_by_week) +
@@ -462,7 +462,7 @@ in Example \@ref(exm:wtgain).
 We can use a box-and-whiskers 
 plot to summarise the distribution of the weight difference:
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
 wtgain_diff <- wtgain %>%
     mutate(diff = final - initial)
 
@@ -490,7 +490,7 @@ To get more information about the shape of the distribution,
 we could plot 
 a histogram of the weight difference:
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
 ggplot(wtgain_diff) +
     geom_histogram(aes(x = diff), binwidth = 0.5, boundary = 0) +
     xlab("Final weight - Initial weight (kg)") +
@@ -504,8 +504,9 @@ the variable (here difference in weight) is
 in each bin. Histograms often look very different
 for different bin widths.
 
-Alternatively, we could draw a density plot
-```{r, echo = FALSE}
+Alternatively, we could draw a density plot:
+
+```{r, echo = FALSE, fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
 ggplot(wtgain_diff) +
     geom_density(aes(x = diff)) +
     xlab("Final weight - Initial weight (kg)") +
@@ -522,7 +523,7 @@ variable changes with a discrete
 one. For instance, for the service time data from Example \@ref(exm:fastfood),
 we are interested in how AM and PM service times compare:
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
 ggplot(data = fastfood) +
     geom_boxplot(aes(service, time)) +
     xlab("Service time (minutes)") +
@@ -540,7 +541,8 @@ a single continuous variable, and draw separate
 plots for each group in the discrete variable.
 
 We can use histograms:
-```{r, echo = FALSE}
+
+```{r, echo = FALSE, fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
 ggplot(data = fastfood) +
     geom_histogram(aes(x = service), binwidth = 10) +
     xlab("Service time (minutes)") +
@@ -548,7 +550,8 @@ ggplot(data = fastfood) +
 ```
 
 Or density plots:
-```{r, echo = FALSE}
+
+```{r, echo = FALSE, fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
 ggplot(data = fastfood) +
     geom_density(aes(x = service)) +
     xlab("Service time (minutes)") +
@@ -558,7 +561,8 @@ ggplot(data = fastfood) +
 We could also plot the densities
 for the different groups on a single plot,
 using colour of the lines to distinguish between the groups:
-```{r, echo = FALSE}
+
+```{r, echo = FALSE, fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
 ggplot(data = fastfood) +
     geom_density(aes(x = service, colour = time)) +
     xlab("Service time (minutes)")
@@ -571,7 +575,7 @@ between two continuous variables.
 For instance, for the weight data from Example \@ref(exm:wtgain),
 we can plot the final weights against the initial weights:
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
 plot_wt <- ggplot(data = wtgain) +
     geom_point(mapping = aes(x = initial, y = final)) +
     xlab("Initial weight (kg)") +
@@ -582,7 +586,7 @@ plot_wt
 
 We can add the straight line $y = x$ to the plot:
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
 plot_wt_2 <- plot_wt +
     geom_abline(slope = 1, intercept = 0, linetype = "dashed")
 
@@ -606,7 +610,7 @@ age as a scatter-plot, using the colour of the
 points to distinguish between different regions.
 
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
 ggplot(data = billionaires) +
     geom_point(aes(x = age, y = wealth, colour = region)) +
     xlab("Age (years)") +

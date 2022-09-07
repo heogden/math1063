@@ -664,7 +664,6 @@ independent.
 
 ### Bernoulli trials {#bernoulli-trials}
 
-<!-- TODO: check for consistency in use of italics vs bold -->
 The notion of independent events naturally leads to a set of independent trials
 (or random experiments, e.g. repeated coin tossing). A set of independent trials, where each trial
 has only two possible outcomes, conveniently called success (S) and failure (F), and the probability
@@ -711,5 +710,5 @@ is $1$ minus the probability that there is none in the first 3 seconds. This pro
 Hence the answer is $(1 - q^3 )pq^3$.
 :::
 
-<!-- TODO: consider whether to include old lecture 8 -->
 
+\pagebreak

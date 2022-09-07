@@ -128,7 +128,6 @@ This dataset contains the service times (in seconds) of customers at a fast-food
 restaurant. The first row is for customers who were served from 9–10am and the second row is for
 customers who who were served from 2–3pm on the same day.
 
-
 ```{r, echo = FALSE}
 fastfood <- tibble(time = rep(c("AM", "PM"), times = 10),
                    service = c(38, 45, 100, 62, 64, 52, 43, 72, 63, 81, 59, 88,
@@ -139,10 +138,11 @@ fastfood %>%
     pivot_wider(names_from = "time", values_from = "service") %>%
     select(-customer) %>%
     t %>%
-    kableExtra::kbl(booktabs = TRUE)
+    center_tab
 ```
 We would like to compare these AM and PM service times.
 :::
+
 
 ::: {.example name="Computer failures" #compfail}
 This dataset contains 
@@ -164,7 +164,7 @@ week of the semester, then again 12 weeks later. The first 10 rows of the data a
 
 ```{r, echo = FALSE, message = FALSE}
 wtgain <- read_table("wtgain.txt")
-kableExtra::kbl(head(wtgain, n = 10), col.names = c("Student number", "Initial weight (kg)", "Final weight (kg)"), booktabs = TRUE)
+center_tab(head(wtgain, n = 10), col.names = c("Student number", "Initial weight (kg)", "Final weight (kg)"))
 ```
 We would like to explore the data graphically and to
 test whether the data support the hypothesis that students gain 
@@ -191,7 +191,7 @@ billionaires <- read_table("billionaires.txt") %>%
                            "A" = "Asia",
                            "E" = "Europe",
                            "O" = "Other"))
-kableExtra::kbl(head(billionaires, n = 10), booktabs = TRUE)
+center_tab(head(billionaires, n = 10))
 ```
 We will investigate differences in wealth of billionaires by age and
 region using many exploratory graphical tools and statistical methods.
@@ -232,7 +232,7 @@ we could summarise the results of 20 coin tosses as: 12 heads, 8 tails.
 For the computer failure data (Example \@ref(exm:compfail)) we may
 summarise the count of failures per week:
 ```{r, echo = FALSE}
-kableExtra::kbl(t(table(compfail)), booktabs = TRUE)
+center_tab(t(table(compfail)))
 ```
 
 ### Measures of location

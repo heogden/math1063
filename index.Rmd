@@ -4,12 +4,23 @@ author: "Helen Ogden, based on original notes by Sujit Sahu"
 output:
   bookdown::pdf_book:
     toc: false
+    extra_dependencies: ["float"]
 ---
 
 ```{r, echo = FALSE, message = FALSE}
 library(tidyverse)
 library(knitr)
+library(kableExtra)
 knitr::opts_knit$set(root.dir = 'datasets', comment = "",
                      fig.width = 4, fig.height = 3, out.width = "50%", fig.align = "center")
+
+center_tab <- function(x, ...) {
+    x %>%
+        kbl(booktabs = TRUE, ...) %>%
+        kable_styling(position = "center",
+                      latex_options = "HOLD_position")
+}
+
+
 ```
 

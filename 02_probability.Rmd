@@ -473,7 +473,7 @@ library(tidyverse)
 phones_data <- tibble(Company = c("A Pale", "B Sung", "C Windows"),
                       "Market share" = c("30%", "40%", "50%"),
                       "Percent defective" = c("5%", "8%", "10%"))
-kableExtra::kbl(phones_data, booktabs = TRUE)
+center_tab(phones_data)
 ```
 :::
 

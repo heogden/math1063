@@ -139,7 +139,7 @@ fastfood %>%
     pivot_wider(names_from = "time", values_from = "service") %>%
     select(-customer) %>%
     t %>%
-    kable
+    kableExtra::kbl(booktabs = TRUE)
 ```
 We would like to compare these AM and PM service times.
 :::
@@ -164,7 +164,7 @@ week of the semester, then again 12 weeks later. The first 10 rows of the data a
 
 ```{r, echo = FALSE, message = FALSE}
 wtgain <- read_table("wtgain.txt")
-kable(head(wtgain, n = 10), col.names = c("Student number", "Initial weight (kg)", "Final weight (kg)"))
+kableExtra::kbl(head(wtgain, n = 10), col.names = c("Student number", "Initial weight (kg)", "Final weight (kg)"), booktabs = TRUE)
 ```
 We would like to explore the data graphically and to
 test whether the data support the hypothesis that students gain 
@@ -181,6 +181,7 @@ The variables in the data are:
 - `wealth`: Wealth of family or individual in billions of dollars
 - `age`: Age in years (for families it is the maximum age of family members)
 - `region`: Region of the World (Asia, Europe, Middle East, United States and Other). 
+
 The first 10 rows of the data are:
 
 ```{r, echo = FALSE, message = FALSE}
@@ -190,7 +191,7 @@ billionaires <- read_table("billionaires.txt") %>%
                            "A" = "Asia",
                            "E" = "Europe",
                            "O" = "Other"))
-kable(head(billionaires, n = 10))
+kableExtra::kbl(head(billionaires, n = 10), booktabs = TRUE)
 ```
 We will investigate differences in wealth of billionaires by age and
 region using many exploratory graphical tools and statistical methods.
@@ -207,7 +208,7 @@ You will get practice of using R yourself during the computer practical sessions
 R is freely available to download:  search
 "download R" or go to: https://cran.r-project.org/. 
 We will access R via the RStudio integrated development environment,
-which you can download from https://www.rstudio.com/products/rstudio/.
+which you can download from https://www.rstudio.com/products/rstudio/
 which provides a nice editor for R code alongside a console.
 Details about using R and RStudio are given in the
 the practical sessions.
@@ -231,7 +232,7 @@ we could summarise the results of 20 coin tosses as: 12 heads, 8 tails.
 For the computer failure data (Example \@ref(exm:compfail)) we may
 summarise the count of failures per week:
 ```{r, echo = FALSE}
-kable(t(table(compfail)))
+kableExtra::kbl(t(table(compfail)), booktabs = TRUE)
 ```
 
 ### Measures of location

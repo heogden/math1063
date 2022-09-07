@@ -559,6 +559,8 @@ ggplot(data = fastfood) +
     facet_wrap(~time)
 ```
 
+\pagebreak
+
 We could also plot the densities
 for the different groups on a single plot,
 using line type to distinguish between the groups:
@@ -611,17 +613,17 @@ to plot relationships between more than two variables.
 For instance, in the billionaires data in Example
 \@ref(exm:billionaires), we can plot wealth against
 age as a scatter-plot, using the shape of the 
-points to distinguish between different regions.
+points to distinguish between different regions:
 
 
-```{r, echo = FALSE, fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
+```{r, echo = FALSE, fig.width = 6, fig.height = 3, out.width = "80%", fig.align = "center"}
 ggplot(data = billionaires) +
     geom_point(aes(x = age, y = wealth, shape = region), alpha = 0.5) +
     xlab("Age (years)") +
     ylab("Wealth (billions of dollars)")
 ```
 
-The plot lets us immediatly read off some interesting
+The plot lets us immediately read off some interesting
 aspects of the data. For instance, there were a few very young
 billionaires, the richest person
 in the world at this time was age 50 and from the Middle East,

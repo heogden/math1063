@@ -3,21 +3,21 @@
 ## Definitions of probability
 
 
-### Introduction
-
 Probabilities are often used to express the uncertainty of events of interest happening. For example,
-we may say that: (i) it is highly likely that Liverpool will retain the premiership title this season
-or to be more specific, I think there is more than an 80% chance that Liverpool will keep the title;
+we may say that: (i) I think 
+it is highly likely that Manchester City will retain the premiership title this season
+or to be more specific, I think there is more than an 80% chance that Manchester City
+will keep the title;
 (ii) the probability of a tossed fair coin landing heads is 0.5. 
 As we have seen in the Chapter \@ref(intro-stats), there is uncertainty
 everywhere, and probability is the language we use to quantify this uncertainty.
 
-The two examples above, Liverpool and tossing a coin, convey two different interpretations of
-probability. The Liverpool probability is the commentator's own subjective belief. The
+The two examples above, football and tossing a coin, convey two different interpretations of
+probability. The football probability is the commentator's own subjective belief. The
 commentator certainly has not performed a large experiment involving all the 20 teams over the
 whole (future) season under all playing conditions, players, managers and transfers. This notion
 is known as subjective probability. Subjective probability gives a measure of the plausibility of
-the proposition, to the person making it, in the light of past experience (e.g. Liverpool are the
+the proposition, to the person making it, in the light of past experience (e.g. Manchester City are the
 current champions) and other evidence (e.g. they spent the maximum amount of money buying
 players). There are plenty of other examples, e.g. I think there is a 70% chance that the FTSE
 100 will rise tomorrow, or according to the Met Office there is a 40% chance that we will have a
@@ -26,27 +26,6 @@ white Christmas this year in Southampton.
 The second definition of probability comes from the long-term relative frequency of a result of
 a random experiment (e.g. coin tossing) which can be repeated an infinite number of times under
 essentially similar conditions.
-
-### Definitions
-
-A *random experiment* is one in which we do not know exactly
-what outcome the experiment will give, even though we can write down all the possible outcomes
-which together are called the *sample space* ($S$). For example, in a coin tossing experiment, $S
-= \{\text{head}, \text{tail}\}$. If we toss two coins together, 
-$S = \{\text{HH}, \text{HT}, \text{TH}, \text{TT}\}$ where $\text{H}$ and $\text{T}$ denote
-respectively the outcome head and tail from the toss of a single coin.
-
-An *event* is a particular result of the random experiment. For example, 
-$\text{HH}$
-(two heads) is an event when we toss two coins together. Similarly, at least one head e.g. 
-$\{\text{HH}, \text{HT}, \text{TH}\}$ is an event as well. 
-Events are denoted by capital letters $A, B, C, \ldots$ or $A_1, B_1, A_2$ etc., and
-a single outcome is called an *elementary event*, e.g. $\text{HH}$. 
-An event which is a group of elementary
-events is called a *composite event*, e.g. at least one head. How to determine the probability of a
-given event $A$, $P\{A\}$, is the focus of probability theory.
-
-### Probability as relative frequency 
 
 Imagine we are able to repeat a random experiment
 under identical conditions and count how many of those repetitions result in the event $A$. The
@@ -66,17 +45,31 @@ probability. For example, if the coin in the example above is fair
 this information and the common knowledge that $P\{\text{head}\}+P\{\text{tail}\} = 1$
 immediately imply that
 $P\{\text{head}\} = 0.5$ and $P\{\text{tail}\} = 0.5$. 
-
-## Axioms of probability
-
-### Some definitions from set theory
-
 The 'common knowledge' about probability
-will be formalized as the axioms of probability, which form the foundation of probability theory.
-Before we can state and use these axioms, we need to introduce some ideas some set theory (which
-is taught in calculus). The sample space $S$ is called the whole set and it is composed 
-of all possible
-elementary events (outcomes from a single replicate).
+will be formalised as the axioms of probability, which form the foundation of probability theory.
+
+## Some definitions 
+
+Before we can state and use the axioms of probability, 
+we need introduce some terminology. 
+
+A *random experiment* is one in which we do not know exactly
+what outcome the experiment will give, even though we can write down all the possible outcomes.
+The set of all possible outcomes is 
+called the *sample space* ($S$). For example, in a coin tossing experiment, $S
+= \{\text{head}, \text{tail}\}$. If we toss two coins together, 
+$S = \{\text{HH}, \text{HT}, \text{TH}, \text{TT}\}$ where $\text{H}$ and $\text{T}$ denote
+respectively the outcome head and tail from the toss of a single coin.
+
+An *event* is a particular result of the random experiment. For example, 
+$\text{HH}$
+(two heads) is an event when we toss two coins together. Similarly, at least one head e.g. 
+$\{\text{HH}, \text{HT}, \text{TH}\}$ is an event as well. 
+Events are denoted by capital letters $A, B, C, \ldots$ or $A_1, B_1, A_2$ etc., and
+a single outcome is called an *elementary event*, e.g. $\text{HH}$. 
+An event which is a group of elementary
+events is called a *composite event*, e.g. at least one head. How to determine the probability of a
+given event $A$, $P\{A\}$, is the focus of probability theory.
 
 ::: {.example name="Die throw" #die-throw}
 Roll a six-faced die and observe the score on the uppermost face.
@@ -120,7 +113,7 @@ For a given event $A$, the *complement* of $A$ is the event that consists of all
 $A$ and is denoted by $A^\prime$ . Note that $A \cup A^\prime = S$ and $A \cap A^\prime = \emptyset$.
 
 
-### Axioms of probability
+## Axioms of probability
 
 Here are the three axioms of probability:
 
@@ -157,7 +150,11 @@ $$
 :::
 (6) The sum of the probabilities of all the outcomes in the sample space $S$ is 1 .
 
-### Application to an experiment with equally likely outcomes
+
+
+## Using combinatorics to find probabilities
+
+### Experiments with equally likely outcomes
 
 For an experiment with $N$ equally likely possible outcomes, the axioms (and the consequences
 above) can be used to find $P\{A\}$ of any event $A$ in the following way.
@@ -167,6 +164,12 @@ From consequence (4), we assign probability $1/N$ to each outcome.
 For any event $A$, we find $P\{A\}$ by adding up $1/N$ for each of the outcomes in event $A$:
 \[P \{A\} = \frac{\text{number of outcomes in $A$}}
 {\text{total number of possible outcomes of the experiment}}.\]
+
+For experiments with equally likely outcomes, the task of calculating the probability 
+of an event therefore reduces to counting the number of outcomes in the event
+and the total number of possible outcomes. 
+In the following sections, will use ideas from combinatorics
+(the mathematics of counting) to help us complete these tasks.
 
 Return to Example \@ref(exm:die-throw)
 where a six-faced die is rolled. Suppose that one wins a bet if a 6 is
@@ -189,12 +192,9 @@ by inspection. Remember, each of the 36 outcomes has equal probability $1/36$.
 :::
 
 
-## Using combinatorics to find probability
-
-
 ### Multiplication rule of counting {#sec-multiplication-rule}
 
-To complete a specific task, supose one has to complete $k(\geq 1)$ sub-tasks sequentially.
+To complete a specific task, suppose one has to complete $k(\geq 1)$ sub-tasks sequentially.
 If there are 
 $n_i$
 different ways to complete the $i$th sub-task ($i = 1, \ldots, k$) then there are 
@@ -267,7 +267,7 @@ positions of the premier league table at the end of a season? This number is giv
 $\binom{20, 3} = 20 \times 19 \times 18/3!$, which does not take into consideration the rankings of the three bottom teams.
 :::
 
-:::{.example name="Microchip" #microchip}
+:::{.example name="Microchips" #microchip}
 A box contains 12 microchips of which 4 are faulty. A sample of size
 3 is drawn from the box without replacement.
 
@@ -286,7 +286,7 @@ a sample is said to be selected at random if all the possible samples of size n 
 be selected. All the possible samples are then equally likely outcomes of the experiment and so
 assigned equal probabilities.
 
-:::{.example name="Microchip continued"}
+:::{.example name="Microchips continued"}
 In Example \@ref(exm:microchip) assume that 3 microchips are selected at
 random without replacement. Then
 

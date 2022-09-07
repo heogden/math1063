@@ -143,14 +143,18 @@ Hence, the probability of an event A is the sum of the probabilities of the indi
 $$
 P\{A \cup B\}=P\{A\}+P\{B\}-P\{A \cap B\} .
 $$
-**Proof**: We can write $A \cup B=\left(A \cap B^{\prime}\right) \cup(A \cap B) \cup\left(A^{\prime} \cap B\right)$. All three of these are mutually exclusive events. Hence,
+
+:::{.proof}
+We can write $A \cup B=\left(A \cap B^{\prime}\right) \cup(A \cap B) \cup\left(A^{\prime} \cap B\right)$. All three of these are mutually exclusive events. Hence,
 $$
 \begin{aligned}
 P\{A \cup B\} &=P\left\{A \cap B^{\prime}\right\}+P\{A \cap B\}+P\left\{A^{\prime} \cap B\right\} \\
 &=P\{A\}-P\{A \cap B\}+P\{A \cap B\}+P\{B\}-P\{A \cap B\} \\
-&=P\{A\}+P\{B\}-P\{A \cap B\} .
+&=P\{A\}+P\{B\}-P\{A \cap B\}.
 \end{aligned}
 $$
+
+:::
 (6) The sum of the probabilities of all the outcomes in the sample space $S$ is 1 .
 
 ### Application to an experiment with equally likely outcomes

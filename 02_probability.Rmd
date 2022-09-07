@@ -493,7 +493,7 @@ are mutually exclusive events. Hence the Axiom A3 of probability gives
 P \{A\} &= P \{A \cap B_1 \} + P \{A \cap B_2 \} + . . . + P \{A \cap B_k \} \\
 &= P \{B_1 \}P \{A|B_1 \} + P \{B_2 \}P \{A|B_2 \} + . . . + P \{B_k \}P \{A|B_k \}.
 \end{align*}
-This last expression is called the **total probability formula** for $P \{A\}$.
+This last expression is called the *total probability formula* for $P \{A\}$.
 
 :::{.example name="Phones continued"}
  We can now find the probability of the event, say $A$, that
@@ -567,11 +567,8 @@ probability that the other event occurs.
 This is equivalent to saying that
 $P \{B|A\} = P \{B\}$, where $P \{A\} > 0$, and $P \{A|B\} = P \{A\}$, where $P \{B\} > 0$.
 
-These give the following formal definition.
-
-:::{.definition}
-$A$ and $B$ are independent events if $P \{A \cap B\} = P \{A\}P \{B\}.$
-:::
+These give the following formal definition: 
+$A$ and $B$ are *independent* events if $P \{A \cap B\} = P \{A\}P \{B\}.$
 
 :::{.example name="Die throw"}
 Throw a fair die. Let $A$ be the event that "the result is even" and $B$ be the event that "the
@@ -627,8 +624,6 @@ P \{A^\prime \cap B^\prime \} &= 1 - P \{A \cup B\} \\
 
 The ideas of conditional probability and independence can be extended to more than two events.
 
-
-:::{.definition}
 Three events $A$, $B$ and $C$ are defined to be independent if
 \begin{equation}
 P \{A \cap B\} = P \{A\}P \{B\}, \; P \{A \cap C\} = P \{A\}P \{C\}, \; P \{B \cap C\} = P \{B\}P \{C\},
@@ -638,7 +633,6 @@ P \{A \cap B\} = P \{A\}P \{B\}, \; P \{A \cap C\} = P \{A\}P \{C\}, \; P \{B \c
 P \{A \cap B \cap C\} = P \{A\}P \{B\}P \{C\}.
 (\#eq:threewise-indep)
 \end{equation}
-:::
 
 Note that \@ref(eq:pairwise-indep) does NOT imply \@ref(eq:threewise-indep)
 as shown by the next example. Hence, to show the

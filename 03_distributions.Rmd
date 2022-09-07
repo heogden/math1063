@@ -171,7 +171,7 @@ random variable up to its argument.
 
 For a discrete random variable $X$, the cdf is the cumulative sum
 of the pmf $f(u)$ up to (and including) $u = x$. That is,
-\[P (X \leq x) ≡ F (x) = \sum_{u \leq x} f (u).\]
+\[P (X \leq x) \equiv F (x) = \sum_{u \leq x} f (u).\]
 
 :::{.example}
 Let $X$ be the number of heads in the experiment of tossing two fair coins. Then
@@ -189,7 +189,7 @@ the random variable taking that value. It is clear that the probability mass fun
 determined by the cdf.
 
 For a continuous random variable $X$, the cdf is defined as
-\[P (X \leq x) ≡ F (x) = \int_{-\infty}^x f (u)du.\]
+\[P (X \leq x) \equiv F (x) = \int_{-\infty}^x f (u)du.\]
 
 The fundamental theorem of calculus then tells us that
 \[f (x) = \frac{dF (x)}{dx},\]

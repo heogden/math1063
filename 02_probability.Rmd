@@ -385,7 +385,7 @@ plus matching the bonus ball. The probability of this is given by
 \[P \{\text{$5$ matches + bonus}\} = \frac{6}{\binom{49}{6}} = 4.29 \times 10-7 .\]
 
 Adding all these probabilities of winning some kind of prize together gives
-\[P \{\text{winning}\} ≈ 0.0186 ≈ 1/53.7.\]
+\[P \{\text{winning}\} \approx 0.0186 \approx 1/53.7.\]
 So a player buying one ticket each week would expect to win a prize, (most likely a £10 prize for
 matching three numbers) about once a year.
 

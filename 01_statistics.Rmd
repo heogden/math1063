@@ -185,12 +185,7 @@ The variables in the data are:
 The first 10 rows of the data are:
 
 ```{r, echo = FALSE, message = FALSE}
-billionaires <- read_table("billionaires.txt") %>%
-    mutate(region = recode(region, "M" = "Middle East",
-                           "U" = "United States",
-                           "A" = "Asia",
-                           "E" = "Europe",
-                           "O" = "Other"))
+billionaires <- read_csv("billionaires.csv")
 center_tab(head(billionaires, n = 10))
 ```
 We will investigate differences in wealth of billionaires by age and

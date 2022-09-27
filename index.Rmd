@@ -1,6 +1,6 @@
 ---
 title: "MATH1024: Introduction to Probability and Statistics"
-author: "Helen Ogden, based on original notes by Sujit Sahu"
+author: "Dr Helen Ogden, based on original notes by Prof. Sujit Sahu"
 output:
   bookdown::pdf_book:
     toc: false

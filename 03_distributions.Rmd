@@ -214,7 +214,7 @@ The random variables
 with either a pmf $f (x)$ or a pdf $f (x)$ also have their own mean (which can be called
 the expectation of $X$) and variance. The mean is called an expectation since it is a value we
 can 'expect'! The expectation is defined as
-\[E(X)= \begin{cases}\sum_{2 \ln x} x f(x) & \text { if } X \text { is discrete } \\ \int_{-\infty}^{\infty} x f(x) d x & \text { if } X \text { is continuous }\end{cases}\]
+\[E(X)= \begin{cases}\sum_{x} x f(x) & \text { if } X \text { is discrete } \\ \int_{-\infty}^{\infty} x f(x) d x & \text { if } X \text { is continuous }\end{cases}\]
 Thus, roughly spenking:
 the expected value is either sum or integral of value times probability.
 We use the $E(\cdot)$ notation to denote expectation. The argument is in upper case since it is the expected value of the random variable which is denoted by an upper case letter. We often use the Greek letter $\mu$ to denote $E(X)$.

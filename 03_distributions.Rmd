@@ -1,20 +1,20 @@
-# Random Variables and Their Probability Distributions {#distributions}
+# Random variables and their probability distributions {#distributions}
 
-## Chapter mission
+## Introduction
 
 Last chapter's combinatorial probabilities are difficult to find and very problem-specific. Instead,
 in this chapter we shall find easier ways to calculate probability in structured cases. The outcomes
 of random experiments will be represented as values of a variable which will be random since the
-outcomes are random (or un-predictable with certainty). In so doing, we will make our life a lot
+outcomes are random. In so doing, we will make our life a lot
 easier in calculating probabilities in many stylised situations which represent reality. 
 
-## Definition of a random variable
+## Random variables
+
+### Introduction
 
 In this section we will learn about the probability distribution of a random variable defined by
 its probability function. The probability function will be called the probability mass function for
 discrete random variables and the probability density function for continuous random variables.
-
-### Introduction
 
 A random variable defines a one-to-one mapping of the sample space consisting of all possible
 outcomes of a random experiment to the set of real numbers. For example, I toss a coin. Assuming
@@ -45,7 +45,7 @@ probability that $X$
 belongs to $A$, instead of the previous $P \{A\}$ for any event $A$.
 
 
-### Discrete or continuous random variable
+### Discrete and continuous random variable
 
 If a random variable has a finite or countably infinite set of values it is called discrete. For example,
 the number of Apple computer users among 20 randomly selected students, or the number of credit
@@ -129,7 +129,7 @@ This is demonstrated in Figure \@ref(fig:interval-probs-from-pdf).
 Recall
 that we do not use $f (x) = P (X = x)$ for any $x$ as by convention we set $P(X = x) = 0$.
 
-```{r interval-probs-from-pdf, echo = FALSE, fig.cap = "The shaded area is $P (a < X < b)$ if the pdf of $X$ is the drawn curve."}
+```{r interval-probs-from-pdf, echo = FALSE, fig.cap = "The shaded area is $P (a < X < b)$ if the pdf of $X$ is the drawn curve.", fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
 library(ggplot2)
 f <- function(x) {
     dgamma(x, shape = 3, rate = 0.5)
@@ -182,7 +182,6 @@ From the definition, the CDF is given by
 \[F(x)= \begin{cases}0 & \text { if } x<0 \\ 1 / 4 & \text { if } 0 \leq x<1 \\ 3 / 4 & \text { if } 1 \leq x<2 \\ 1 & \text { if } x \geq 2\end{cases}\]
 :::
 
-<!-- TODO: check use of r.v. as abbreviation -->
 The cdf for a discrete random variable is a step function. The jump-points are the
 possible values of the random variable, and the height of a jump gives the probability of
 the random variable taking that value. It is clear that the probability mass function is uniquely
@@ -245,11 +244,12 @@ For example, if $X$ is continuous, then $E(X^2) = \int_{-\infty}{\infty} x^2 f(x
 We prove one important property
 of expectation, namely expectation is a linear operator.
 
-<!-- TODO: put in theorem environment -->
+::: {.theorem}
 Suppose $Y = g(X) = aX +b$; then $E(Y ) = aE(X)+b$.
+:::
 
-The proof of this is simple and
-given below for the continuous case. In the discrete case replace
+::: {.proof}
+The proof is given for the continuous case. In the discrete case replace
 integral ($\int$) by summation ($\sum$).
 \begin{align*}
 E(Y ) &= \int_{-\infty}^\infty (ax + b) f(x)dx \\
@@ -258,6 +258,8 @@ E(Y ) &= \int_{-\infty}^\infty (ax + b) f(x)dx \\
 \end{align*}
 using the total probability is 1 property
 ($-\infty f (x)dx = 1$) in the last integral.
+:::
+
  This is very convenient, e.g. suppose $E(X) = 5$ and
 $Y = -2X + 549$ then $E(Y) = 539$.
 
@@ -274,9 +276,13 @@ They can't always be assumed to exist!
 When the variance exists, 
 it is the expectation of $(X-\mu)^{2}$ where $\mu$ is the mean of $X$.
 We now derive an easy formula to calculate the variance:
-<!-- TODO: put into theorem environment -->
+
+::: {.theorem}
 \[\operatorname{Var}(X)=E(X-\mu)^{2}=E\left(X^{2}\right)-\mu^{2}.\]
-**Proof**:
+:::
+
+::: {.proof}
+We have
 \begin{align*}
 \operatorname{Var}(X) &=E(X-\mu)^{2} \\
 &=E\left(X^{2}-2 X \mu+\mu^{2}\right) \\
@@ -284,9 +290,9 @@ We now derive an easy formula to calculate the variance:
 &=E\left(X^{2}\right)-2 \mu \mu+\mu^{2} \\
 &=E\left(X^{2}\right)-\mu^{2}.
 \end{align*}
-Thus:
-<!-- TODO: highlight as key point -->
-the variance of a random variable is the expected value of its square
+:::
+
+Thus the variance of a random variable is the expected value of its square
 minus the square of its expected value.
 
 We usually denote the variance by $\sigma^2$. 
@@ -297,8 +303,7 @@ at all in the random variable, i.e. it takes only a single value µ with probabi
 Hence, there is
 nothing random about the random variable --- we can predict its outcome with certainty.
 
-<!-- TODO: highlight as key point/definition -->
-The square root of the variance is called the standard deviation of the
+The square root of the variance is called the *standard deviation* of the
 random variable.
 
 <!-- TODO: fix this to not refer to uniform distribution until defined -->
@@ -316,10 +321,12 @@ after simplification.
 
 We prove one important property of the variance.
 
-<!-- TODO: put in theorem environment -->
+::: {.theorem}
 Suppose $Y=a X+b$ then $\operatorname{Var}(Y)=a^{2} \operatorname{Var}(X)$
+:::
 
-The proof of this is simple and is given below for the continuous case. In the discrete case replace integral $\left(\int\right)$ by summation $\left(\sum\right)$.
+::: {.proof}
+The proof is give for the continuous case. In the discrete case replace integral $\left(\int\right)$ by summation $\left(\sum\right)$.
 \begin{align*}
 \operatorname{Var}(Y) &=E(Y-E(Y))^{2} \\
 &=\int_{-\infty}^{\infty}(a x+b-a \mu-b)^{2} f(x) d x \\
@@ -327,6 +334,7 @@ The proof of this is simple and is given below for the continuous case. In the d
 &=a^{2} \operatorname{Var}(X).
 \end{align*}
 <!-- TODO: redo proof just using linearity of expectation? -->
+:::
 
 This is a very useful result, e.g. suppose $\operatorname{Var}(X)=25$ and $Y=-X+5,000,000$; then $\operatorname{Var}(Y)=$ $\operatorname{Var}(X)=25$ and the standard deviation, $\sigma=5$. In words a location shift, $b$, does not change variance but a multiplicative constant, $a$ say, gets squared in variance, $a^{2}$.
 
@@ -459,7 +467,7 @@ It is illuminating to see these direct proofs. Later on we shall apply statistic
 ### Geometric distribution
 
 #### Introduction and definition
-Suppose that we have the same situation as for the binomial distribution but we consider a different r.v. $X$, which is defined as the number of trials that lead to the first success. The outcomes for this experiment are:
+Suppose that we have the same situation as for the binomial distribution but we consider a different random variable $X$, which is defined as the number of trials that lead to the first success. The outcomes for this experiment are:
 \[\begin{array}{rll}
 S & X=1, & P(X=1)=p \\
 F S & X=2, & P(X=2)=(1-p) p \\
@@ -650,14 +658,12 @@ The distribution only resides in the positive half of the real line, and the tai
 down to zero exponentially as $x \rightarrow \infty$. The rate at which that happens
 is the parameter $\theta$. Hence $\theta$ is known as the rate parameter.
 
-It is easy to prove that $\int_{0}^{\infty} f(x) d x=1$. This is left as an exercise. To find the mean and variance of the distribution we need the gamma function as discussed in Section ??.
-<!-- TODO: add reference -->
+It is easy to prove that $\int_{0}^{\infty} f(x) d x=1$. This is left as an exercise. To find the mean and variance of the distribution we need to introduce the *gamma function*:
 
-<!-- TODO: put into definition environment -->
-**Definition**: Gamma function:
-For any positive number $a$,
+The gamma function $\Gamma(.)$ is defined for any positive number $a$ as
 \[\Gamma(a)=\int_{0}^{\infty} x^{a-1} e^{-x} d x\]
-is defined to be the gamma function and it has a finite real value. Moreover, we have the following facts
+
+We have the following facts:
 \[\Gamma\left(\frac{1}{2}\right)=\sqrt{\pi} ; \quad \Gamma(1)=1 ; \quad \Gamma(a)=(a-1) \Gamma(a-1) \text { if $a>1$}\]
 These last two facts imply that $\Gamma(k)=(k-1)!$ when $k$ is a positive integer. 
 Find $\Gamma\left(\frac{3}{2}\right)$.
@@ -717,7 +723,7 @@ Alternatively, we can do the calculation in R:
 ```
 :::
 
-For the second problem we are given the probabilities of failure $($0.25$, $0.50$, etc.). We will have to invert the probabilities to find the value of the random variable. In other words, we
+For the second problem we are given the probabilities of failure ($0.25$, $0.50$, etc.). We will have to invert the probabilities to find the value of the random variable. In other words, we
 will have to find a $q$ such that $F(q)=p$, where $p$ is the given probability. For example,
 what value of $q$ will give us $F(q)=0.25$, so that $25 \%$ of the phones will have failed by
 time $q$?
@@ -726,7 +732,7 @@ time $q$?
 <!-- TODO: put into definition environment -->
 For a given $0<p<1$, the $p$ th quantile (or $100 p$ percentile) of the random variable $X$ with $c d f(x)$ is defined to be the value $q$ for which $F(q)=p$.
 
-The 50th percentile is called the median. The 25th and 75 th percentiles are called the quartiles.
+The 50th percentile is called the median. The 25th and 75th percentiles are called the quartiles.
 
 
 <!-- TODO: check for earlier definition of pdf -->
@@ -743,10 +749,8 @@ p &=1-e^{-\theta q} \\
 \Rightarrow e^{-\theta q} &=1-p \\
 \Rightarrow-\theta q &=\log (1-p) \\
 \Rightarrow q &=\frac{-\log (1-p)}{\theta} \\
-\Rightarrow q &=-550 \times \log (1-p) .
+\Rightarrow q &=-550 \times \log (1-p).
 \end{align*}
-Review the rules of $\log$ in Section ???.
-<!-- TODO: add reference or delete -->
 Now we have
 \[q=-550 \times \log (1-p) = \begin{cases}
 \hline 158.2 & \text{for $p = 0.25$} \\
@@ -777,7 +781,7 @@ $T$ may be assumed to model the number of days a cancer patient survives after c
 In such a situation, the function $S(t) = 1 - F (t) = e^{-\theta t}$ is called the survival function.
 See Figure \@ref(fig:survival-probs) for an example plot.
 
-```{r, survival-probs, echo = FALSE, fig.cap = "$S(t)$ for $\\theta = 0.2, 0.5, 1$."}
+```{r, survival-probs, echo = FALSE, fig.cap = "$S(t)$ for $\\theta = 0.2, 0.5, 1$.", fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
 plot_data <- crossing(t = seq(0, 20, length.out = 100),
                       theta = c(1, 0.5, 0.2)) %>%
     mutate(survival_prob = pexp(t, rate = theta, lower.tail = FALSE))
@@ -823,16 +827,12 @@ P(X>s+t \mid X>t) &=\frac{P(X>s+t, X>t)}{P(X>t)} \\
 Note that the event $X>s+t$ and $X>t$ implies and is implied by $X>s+t$ since $s>0$.
 
 
-<!-- TODO: note example just an application of the above? -->
 
 :::{.example}
-The time $T$ between any two successive arrivals in a hospital emergency department has probability density function:
-\[f(t)= \begin{cases}
-  \lambda e^{-\lambda t} & \text { if $t \geq 0$} \\
-  0 & \text { otherwise.}\end{cases}
-\]
-Historically, on average the mean of these inter-arrival times is 5 minutes. 
-Calculate 
+Suppose the time $T$ between any two successive arrivals in a hospital emergency department 
+has exponential distribution, $T \sim \operatorname{Exponential}(\lambda)$.
+Historically, the mean of these inter-arrival times is 5 minutes. 
+Estimate $\lambda$, and hence estimate
 
 (i) $P(0<T< 5)$, 
 (ii) $P(T<10 \mid T>5)$.
@@ -869,12 +869,9 @@ It is easy to see that $f(x)>0$ for all $x$. We will now prove that
 - **R3**: $\operatorname{Var}(X)=\sigma^2$, i.e. the variance is $\sigma^2$.
 
 We denote the normal distribution by the notation $N\left(\mu, \sigma^2\right)$.
-Suppose all of these hold (since they are proved below). Then we may remember 
-the pdf of the normal distribution as:
-<!-- TODO: remove "variable" notation? -->
-\[f(\text{variable})=\frac{1}{\sqrt{2 \pi \, \text{variance}}} \exp \left\{-\frac{(\text {variable}-\text {mean})^2}{2 \, \text{variance}}\right\}\]
-where variable denotes the random variable. The density (pdf) is much easier to remember and work with when the mean $\mu=0$ and variance $\sigma^2=1$. In this case, we simply write:
-\[f(x)=\frac{1}{\sqrt{2 \pi}} \exp \left\{-\frac{x^2}{2}\right\} \quad \text { or } \quad f(\text{variable})=\frac{1}{\sqrt{2 \pi}} \exp \left\{-\frac{\text{variable}^2}{2}\right\}.\]
+
+The density (pdf) is much easier to remember and work with when the mean $\mu=0$ and variance $\sigma^2=1$. In this case, we simply write:
+\[f(x)=\frac{1}{\sqrt{2 \pi}} \exp \left\{-\frac{x^2}{2}\right\}.\]
 Now let us prove the 3 assertions, **R1**, **R2** and **R3**. **R1** is proved as follows:
 \begin{align*}
 \int_{-\infty}^{\infty} f(x) d x &=\int_{-\infty}^{\infty} \frac{1}{\sqrt{2 \pi \sigma^2}} \exp \left\{-\frac{(x-\mu)^2}{2 \sigma^2}\right\} d x \\
@@ -938,13 +935,15 @@ as we hoped for! This proves **R3**.
 
 #### Linear transformation of a Normal random variable
 
-<!-- TODO: put in thoerem environment? -->
-
+::: {.theorem}
 Suppose $X \sim N\left(\mu, \sigma^2\right)$ and $a$ and $b$ are constants. Then the distribution of $Y=a X+b$ is $N\left(a \mu+b, a^2 \sigma^2\right)$
+:::
 
-Proof: The result that $Y$ has mean $a \mu+b$ and variance $a^2 \sigma^2$ can already be claimed from the linearity of the expectations and the variance result for linear functions. What remains to be proved is that the normality of $Y$, i.e. how can we claim that $Y$ will follow the normal distribution too? For this, we note that
+::: {.proof}
+The result that $Y$ has mean $a \mu+b$ and variance $a^2 \sigma^2$ can already be claimed from the linearity of the expectations and the variance result for linear functions. What remains to be proved is that the normality of $Y$, i.e. how can we claim that $Y$ will follow the normal distribution too? For this, we note that
 \[Y=a X+b=a(\mu+\sigma Z)+b=(a \mu+b)+a \sigma Z\]
 since $X=\mu+\sigma Z$. Now we use \@ref(eq:standardise-normal) to claim the normality of $Y$.
+:::
 
 #### Standard normal distribution
 
@@ -952,11 +951,12 @@ Now we can claim that the normal pdf \@ref(eq:normal-pdf)
 is symmetric about the mean $\mu$. The spread of the
 pdf is determined by $\sigma$, the standard deviation of the distribution. When $\mu = 0$ and 
 $\sigma = 1$,
-the normal distribution $N(0, 1)$ is called is called the standard normal distribution. The standard
-normal distribution, often denoted by $Z$, 
-<!-- TODO: fix distribution noted as Z (vs random variable) -->
+the normal distribution $N(0, 1)$ is called is called the standard normal distribution. 
+We often use $Z$ to denote a random variable with standard normal distribution.
+Next, we will show that the standard normal distribution can 
 is used to calculate probabilities of interest for any normal 
-distribution because of the following reasons. 
+distribution. 
+
 Suppose $X \sim N\left(\mu, \sigma^2\right)$ and we are interested in finding $P(a \leq X \leq b)$ for two constants $a$ and $b$.
 \begin{align*}
 P(a \leq X \leq b) &=\int_a^b f(x) d x \\
@@ -967,8 +967,9 @@ P(a \leq X \leq b) &=\int_a^b f(x) d x \\
 &=\text { cdf of } Z \text { at } \frac{b-\mu}{\sigma}-\text { cdf of } Z \text { at } \frac{a-\mu}{\sigma} \\
 &=\Phi\left(\frac{b-\mu}{\sigma}\right)-\Phi\left(\frac{a-\mu}{\sigma}\right)
 \end{align*}
-where we use the notation $\Phi(\cdot)$ to denote the cdf of $Z$, i.e.
-\[P(Z \leq z)=\Phi(z)=\int_{-\infty}^z \frac{1}{\sqrt{2 \pi}} \exp \left\{-\frac{u^2}{2}\right\} d u.\]
+where we use the notation $\Phi(\cdot)$ to denote the cdf of the standard normal
+distribution, i.e.
+\[\Phi(z)= P(Z \leq z)=\int_{-\infty}^z \frac{1}{\sqrt{2 \pi}} \exp \left\{-\frac{u^2}{2}\right\} d u.\]
 This result allows us to find the probabilities about a normal random variable $X$ of any mean $\mu$ and variance $\sigma^2$ through the probabilities of the standard normal random variable $Z$. For this reason, only $\Phi(z)$ is tabulated. Further more, due to the symmetry of the pdf of $Z, \Phi(z)$ is tabulated only for positive $z$ values. Suppose $a>0$, then
 \begin{align*}
 \Phi(-a)=P(Z \leq-a) &=P(Z>a) \\
@@ -1010,14 +1011,15 @@ This means that the 95th percentile of the standard normal distribution is 1.645
 Suppose the marks in MATH1024 follow the normal distribution with mean
 58 and standard deviation 32.25.
 
-1. What percentage of students will fail (i.e. score less than 40) in MATH1024? Answer:
-$\texttt{pnorm(40, mean=58, sd=32.25)} = 28.84\%$.
-2. What percentage of students will get an A result (score greater than 70)? Answer: $\texttt{1 - pnorm(70, mean=58, sd=32.25)} = 35.49\%$.
-3. What is the probability that a randomly selected student will score more than 90? Answer:
-$\texttt{1 - pnorm(90, mean=58, sd=32.25)} = 0.1605$.
-4. What is the probability that a randomly selected student will score less than 25? Answer:
-$\texttt{pnorm(25, mean=58, sd=32.25) = 0.1531}$. Ouch!
-5. What is the probability that a randomly selected student scores a 2:1, (i.e. a mark between
+1. What percentage of students will fail (i.e. score less than 40) in MATH1024?   
+Answer: $\texttt{pnorm(40, mean=58, sd=32.25)} = 28.84\%$.
+2. What percentage of students will get an A result (score greater than 70)?    
+Answer: $\texttt{1 - pnorm(70, mean=58, sd=32.25)} = 35.49\%$.
+3. What is the probability that a randomly selected student will score more than 90?   
+Answer: $\texttt{1 - pnorm(90, mean=58, sd=32.25)} = 0.1605$.
+4. What is the probability that a randomly selected student will score less than 25?   
+Answer: $\texttt{pnorm(25, mean=58, sd=32.25) = 0.1531}$. Ouch!
+5. What is the probability that a randomly selected student scores a 2:1 (i.e. a mark between
 60 and 70)? Left as an exercise.
 :::
 
@@ -1054,7 +1056,7 @@ E(Y) &=E[\exp (X)] \\
 &=\int_{-\infty}^{\infty} \exp (x) \frac{1}{\sigma \sqrt{2 \pi}} \exp \left\{-\frac{(x-\mu)^2}{2 \sigma^2}\right\} d x \\
 &=\exp \left\{-\frac{\mu^2-\left(\mu+\sigma^2\right)^2}{2 \sigma^2}\right\} \int_{-\infty}^{\infty} \frac{1}{\sigma \sqrt{2 \pi}} \exp \left\{-\frac{x^2-2\left(\mu+\sigma^2\right) x+\left(\mu+\sigma^2\right)^2}{2 \sigma^2}\right\} d x \\
 &=\exp \left\{-\frac{\mu^2-\left(\mu+\sigma^2\right)^2}{2 \sigma^2}\right\} \quad \text{(integrating a 
-$N(\mu+\sigma^2, \sigma^2)$ r.v. over its domain) }\\
+$N(\mu+\sigma^2, \sigma^2)$ random variable over its domain) }\\
 &=\exp \left\{\mu+\sigma^2 / 2\right\}.
 \end{align*}
 Similarly, one can show that
@@ -1119,7 +1121,7 @@ x_y <- matrix(paste("(", x, ", ", y, ")", sep = ""), nrow = 6)
 rownames(x_y) <- 1:6
 colnames(x_y) <- 1:6
 
-kable(x_y, row.names = TRUE)
+center_tab(x_y, row.names = TRUE, linesep = "")
 ```
 
 ```{r, include = FALSE}
@@ -1181,11 +1183,12 @@ How can we show that the above is a pdf? It is non-negative for all $x$ and $y$ 
 But does it integrate to 1? We are going to use the following rule.
 :::
 
-**Result**: Suppose that a real-valued function $f(x, y)$ is continuous in a region $A$ 
-where $a<x<b$ and $c<y<d$, then
+**Result**: Suppose that a real-valued function $f(x, y)$ is continuous in a region $A$,
+where $A = \{(x, y) \text{ such that } a<x<b \text{ and } c<y<d\
+$. Then
 \[\int_A f(x, y) d x d y=\int_c^d \int_a^b f(x, y) d x \, dy.\]
-<!-- TODO: add more detail about how we use this when A is domain -->
-Here $a$ and $b$ may depend upon $y$ but $c$ and $d$ should be free of $x$ and $y$. 
+The same result holds if $a$ and $b$ depend upon $y$,
+but $c$ and $d$ should be free of $x$ and $y$. 
 When we evaluate the inner integral $\int_a^b f(x, y) d x$, we treat $y$ as constant.
 
 **Notes**: To evaluate a bivariate integral over a region $A$ we:
@@ -1194,7 +1197,6 @@ When we evaluate the inner integral $\int_a^b f(x, y) d x$, we treat $y$ as cons
 - Rewrite the region $A$ as an intersection of two one-dimensional intervals. The first interval is obtained by treating one variable as constant.
 - Perform two one-dimensional integrals.
 
-<!-- TODO: can we label as #joint-pdf-cts continued? -->
 :::{.example}
 Continuing Example \@ref(exm:joint-pdf-cts),
 \begin{align*}
@@ -1208,10 +1210,10 @@ Now we can find the marginal pdfs as well.
 :::
 
 The probability of any event in the two-dimensional space can be found by integration 
-and again more details will be provided in a second-year module. You will come across 
-multivariate integrals in a second semester module. You will not be asked to do bivariate
-integration in this module.
-<!-- TODO: which modules? Rephrase to clarify what is needed for MATH1024 -->
+and again more details will be provided in the second-year module
+MATH2011, Statistical Distribution Theory. You will come across 
+multivariate integrals in the second semester module MATH1060,
+Multivariable Calculus. 
 
 ### Covariance and correlation
 
@@ -1265,7 +1267,6 @@ Suppose $X$ and $Y$ have joint pdf given by the probability table:
 |  | Total | $\frac{1}{2}$ | $\frac{1}{4}$ | $\frac{1}{4}$ | 1 |
 
 
-<!-- TODO: check formatting of the table in pdf? -->
 Verify that in the following example $X$ and $Y$ are independent. 
 We need to check all 9 cells.
 :::
@@ -1328,9 +1329,7 @@ P(Z=z) &= \sum_{x+y=z} P(X=x, Y=y) \\
 \end{align*}
 using a result stated in Section ???. 
 <!-- TODO: check reference to result -->
-Thus, we have proved that the sum of independent binomial random variables with common probability is binomial as well. This is called the reproductive property of random variables. You are asked to prove this for the Poisson distribution in an exercise sheet.
-<!-- TODO: check exercise sheet contains this question, or remove comment -->
-:::
+Thus, we have proved that the sum of independent binomial random variables with common probability is binomial as well. This is called the reproductive property of random variables. 
 
 Now we will state two main results without proof. The proofs will presented in the second-year distribution theory module MATH2011. Suppose that $X_1, \ldots, X_n$ is a random sample from a population distribution with finite variance, and suppose that $E\left(X_i\right)=\mu_i$ and $\operatorname{Var}\left(X_i\right)=\sigma_i^2$. Define a new random variable
 \[Y=a_1 X_1+a_2 X_2+\cdots+a_n X_n\]
@@ -1412,7 +1411,7 @@ So for "large samples", we can use $N(0,1)$ as an approximation to the sampling 
 
 How large does $n$ have to be before this approximation becomes usable? There is no definitive answer to this, as it depends on how "close to normal" the distribution of $X$ is. However, it is often a pretty good approximation for sample sizes as small as 20, or even smaller. It also depends on the skewness of the distribution of $X$; if the $X$-variables are highly skewed, then $n$ will usually need to be larger than for corresponding symmetric $X$-variables for the approximation to be good. We will investigate this numerically using R.
 
-```{r, fig.cap = "Distribution of normalised sample means for samples of different sizes. Initially very skew (original distribution, $n=1$ ) becoming rapidly closer to standard normal (dashed line) with increasing $n$."}
+```{r, fig.cap = "Distribution of normalised sample means for samples of different sizes. Initially very skew (original distribution, $n=1$ ) becoming rapidly closer to standard normal (dashed line) with increasing $n$.", fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
 f <- function(z, n) {
     dgamma(z + sqrt(n), shape = n, scale = 1 / sqrt(n))
 }

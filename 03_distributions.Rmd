@@ -1182,8 +1182,6 @@ probability pmf for $X$ and $Y$.
 There are 36 possible outcomes for the results of the dice rolls,
 and each gives a pair of values $(x, y)$ for $X$ and $Y$.
 
-<!-- TODO: write joint probability in table form for this example? -->
-
 ```{r, echo = FALSE}
 x <- outer(1:6, 1:6, FUN = function(r1, r2){sign(r2 - r1)})
 y <- outer(1:6, 1:6, FUN = function(r1, r2){abs(r2 - r1)})
@@ -1347,8 +1345,6 @@ Verify that in the following example $X$ and $Y$ are independent.
 We need to check all 9 cells.
 :::
 
-<!-- TODO: remove or add details to these examples? -->
-
 :::{.example}
 Let $f(x, y)=6 x y^2, 0<x<1,0<y<1$. Check that $X$ and $Y$ are independent.
 :::
@@ -1376,7 +1372,7 @@ As a special case, let $g(x)=x$ and $h(y)=y$. Then we have
 \[E(X Y)=E(X) \times E(Y).\]
 Consequently, for independent random variables $X$ and $Y, \operatorname{Cov}(X, Y)=0$ and $\operatorname{Corr}(X, Y)=$ 0. But the converse is not true in general. That is, merely having $\operatorname{Corr}(X, Y)=0$ does not imply that $X$ and $Y$ are independent random variables.
 
-<!-- TODO: give an example of this, or set as an exercise? -->
+<!-- IDEA: give an example of this, or set as an exercise? -->
 
 ## Sums of random variables {#sec:sum-rvs}
 
@@ -1393,7 +1389,16 @@ Suppose $X_1, \ldots, X_n$ is a random sample from a population with distributio
 for any set of events, $A_1, A_2, \ldots A_n$. That is, the joint probability can be obtained as the product of individual probabilities. An example of this for $n=2$ was given in Section \@ref(sec:indep).
 
 ::: {.example name="Distribution of the sum of independent binomial random variables"}
-Suppose $X \sim \operatorname{Bin}(m, p)$ and $Y \sim \operatorname{Bin}(n, p)$ independently. Note that $p$ is the same in both distributions. Using the above fact that joint probability is the multiplication of individual probabilities, we can conclude that $Z=X+Y$ has the binomial distribution. It is intuitively clear that this should happen since $X$ comes from $m$ Bernoulli trials and $Y$ comes from $n$ Bernoulli trials independently, so $Z$ comes from $m+n$ Bernoulli trials with common success probability $p$. We can prove the result mathematically as well, by finding the probability mass function of $Z=X+Y$ directly and observing that it is of the appropriate form. First, note that
+Suppose $X \sim \operatorname{Bin}(m, p)$ and $Y \sim \operatorname{Bin}(n, p)$ independently. Note that $p$ is the same in both distributions. Using the above fact that joint probability is the multiplication of individual probabilities, we can conclude that $Z=X+Y$ has the binomial distribution. It is intuitively clear that this should happen since $X$ comes from $m$ Bernoulli trials and $Y$ comes from $n$ Bernoulli trials independently, so $Z$ comes from $m+n$ Bernoulli trials with common success probability $p$. 
+
+
+Next we will prove the result mathematically, by finding the probability mass function of $Z=X+Y$ directly and observing that it is of the appropriate form. 
+In our proof, we will need to use the fact that
+\[\sum_{x+y=z} \binom{m}{x}\binom{n}{y} = \binom{m+n}{z}\]
+  where the above sum is also over all possible integer values of $x$ and $y$ such that $0 \leq x \leq m$ and $0 \leq y \leq n$. This fact may be proved by using the binomial theorem,
+  but we state it here without proof.
+
+Note that
 \[P(Z=z)=P(X=x, Y=y)\]
 subject to the constraint that $x+y=z$, $0 \leq x \leq m$, $0 \leq y \leq n$. Thus,
 \begin{align*}
@@ -1401,10 +1406,8 @@ P(Z=z) &= \sum_{x+y=z} P(X=x, Y=y) \\
 &= \sum_{x+y=z} \binom{m}{x} p^x(1-p)^{m-x}\binom{n}{y} p^y(1-p)^{n-y} \\
 &= \sum_{x+y=z} \binom{m}{x}\binom{n}{y} p^z(1-p)^{m+n-z} \\
 &= p^z(1-p)^{m+n-z} \sum_{x+y=z} \binom{m}{x}\binom{n}{y} \\
-&= \binom{m+n}{z} p^z(1-p)^{m+n-z},
+&= \binom{m+n}{z} p^z(1-p)^{m+n-z}, \; \; \text{using the fact above.}
 \end{align*}
-using a result stated in Section ???. 
-<!-- TODO: check reference to result -->
 Thus, we have proved that the sum of independent binomial random variables with common probability is binomial as well. This is called the reproductive property of random variables. 
 :::
 
@@ -1512,7 +1515,7 @@ We know that a binomial random variable $Y$ with parameters $n$ and $p$ is the n
 \[Y=X_{1}+X_{2}+\cdots+X_{n},\]
 where $X_{1}, \ldots, X_{n}$ are independent Bernoulli random variables with success probability $p$. It follows from the CLT that, for a sufficiently large $n, Y$ is approximately normally distributed with expectation $E(Y)=n p$ and variance $\operatorname{Var}(Y)=n p(1-p)$.
 
-<!-- TODO: generate plot? Really histograms? But then what bin width? -->
+<!-- IDEA: generate plot? Really histograms? But then what bin width? -->
 <!-- Maybe replace with CDF plots? -->
 <!-- "Histograms of normalised sample means for Bernoulli $(p=0.8)$ samples of different sizes, converging to standard normal." -->
 

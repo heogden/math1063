@@ -399,11 +399,17 @@ In fact there are $\binom{n}{x}$ such sequences. Hence
 This is the pmf of the binomial Distribution with parameters $n$ and $p$
 
 How can we guarantee that $\sum_{x=0}^{n} P(X=x)=1$? This guarantee is provided by the binomial theorem:
+
+::: {.theorem}
+For any positive integer $n$ and
+ real numbers $a$ and $b$,
 \[(a+b)^{n}=b^{n}+ \binom{n}{1} a b^{n-1}+\cdots+\binom{n}{x} a^x b^{n-x}+\cdots +a^{n}.\]
+
+:::
+
 To prove $\sum_{x=0}^{n} P(X=x)=1$, i.e. $\sum_{x=0}^{n}\binom{n}{x} p^{x}(1-p)^{n-x}=1$, 
 choose $a=p$ and $b=1-p$ in the binomial theorem.
 
-<!-- TODO: check if binomial theorem introduced somewhere? -->
 
 :::{.example #widgets}
 Suppose that widgets are manufactured in a mass production process with $1\%$

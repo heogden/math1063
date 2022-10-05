@@ -363,10 +363,6 @@ and the quartiles are $\frac{b + 3a}{4}$ and $\frac{3b + a}{4}$.
 
 ## Standard discrete distributions
 
-In this section we will learn about the Bernoulli, binomial, hypergeometric, geometric,
-negative binomial and Poisson
-distributions and their properties.
-
 ### Bernoulli distribution
 
 Suppose that we conduct a Bernoulli trial (defined in Section \@ref(bernoulli-trials),

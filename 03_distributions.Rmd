@@ -400,7 +400,7 @@ This is the pmf of the binomial Distribution with parameters $n$ and $p$
 
 How can we guarantee that $\sum_{x=0}^{n} P(X=x)=1$? This guarantee is provided by the binomial theorem:
 
-::: {.theorem name="Binomial theorem"}
+::: {.theorem name="Binomial theorem" #bin-thm}
 For any positive integer $n$ and
  real numbers $a$ and $b$,
 \[(a+b)^{n}=b^{n}+ \binom{n}{1} a b^{n-1}+\cdots+\binom{n}{x} a^x b^{n-x}+\cdots +a^{n}.\]
@@ -556,18 +556,20 @@ which does not depend on $k$. Note that the event $X>s+k$ and $X>k$ implies and 
 
 
 #### Expectation and variance
-Let $X \sim \operatorname{Geo}(p)$. We can show that $E(X)=p$ using the negative binomial series, 
-see Section ???, as follows:
-<!-- TODO: insert reference to negative binomial series (or avoid use) -->
+Let $X \sim \operatorname{Geo}(p)$. We can show that $E(X)=p$ using the negative binomial series:
+
+::: {.theorem name="Negative binomial series"}
+For any positive integer $n$ and real number $x$ such that $|x|<1$
+\[(1-x)^{-n}=1+n x+\frac{1}{2} n(n+1) x^{2}+\frac{1}{6} n(n+1)(n+2) x^{3}+\cdots+\frac{n(n+1)(n+2) \cdots(n+k-1)}{k !} x^{k}+\cdots\]
+:::
+
+We have
 \begin{align*}
 E(X) &=\sum_{x=1}^{\infty} x P(X=x) \\
 &=\sum_{x=1}^{\infty} x p(1-p)^{x-1} \\
 &=p\left[1+2(1-p)+3(1-p)^{2}+4(1-p)^{3}+\ldots\right]
 \end{align*}
-For $n>0$ and $|x|<1$, the negative binomial series is given by:
-\[(1-x)^{-n}=1+n x+\frac{1}{2} n(n+1) x^{2}+\frac{1}{6} n(n+1)(n+2) x^{3}+\cdots+\frac{n(n+1)(n+2) \cdots(n+k-1)}{k !} x^{k}+\cdots\]
-With $n=2$ and $x=1-p$ the general term is given by:
-\[\frac{n(n+1)(n+2)(n+k-1)}{k !}=\frac{2 \times 3 \times 4 \times \cdots \times(2+k-1)}{k !}=k+1.\]
+The series in the square brackets is the negative binomial series with $n=2$ and $x=1-p$.
 Thus $E(X)=p(1-1+p)^{-2}=1 / p$. It can be shown that $\operatorname{Var}(X)=(1-p) / p^{2}$ using negative binomial series. But this is more complicated and is not required here. 
 The second-year module MATH2011 will provide an alternative proof.
 

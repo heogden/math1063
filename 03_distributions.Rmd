@@ -1051,12 +1051,11 @@ This result allows us to find the probabilities about a normal random variable $
 &=1-\Phi(a).
 \end{align*}
 
-In R, we use the function `pnorm` to calculate the probabilities. 
-The general function is
-```{r, eval = FALSE}
-pnorm(q, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)
-```
-<!-- TODO: describe role of defaults before here -->
+In R, we use the function `pnorm` to calculate the probabilities.
+`pnorm` which
+has arguments `mean` (to specify $\mu$) and `sd` (to specify $\sigma$,
+the standard deviation). By default `mean = 0` and `sd = 1`,
+so by default `pnorm` calculates the standard normal cdf.
 So, we use the command 
 ```{r}
 pnorm(1)

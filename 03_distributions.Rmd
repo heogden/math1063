@@ -344,6 +344,23 @@ The proof is give for the continuous case. In the discrete case replace integral
 
 This is a very useful result, e.g. suppose $\operatorname{Var}(X)=25$ and $Y=-X+5,000,000$; then $\operatorname{Var}(Y)=$ $\operatorname{Var}(X)=25$ and the standard deviation, $\sigma=5$. In words a location shift, $b$, does not change variance but a multiplicative constant, $a$ say, gets squared in variance, $a^{2}$.
 
+### Quantiles
+
+For a given $0<p<1$, a $p$th *quantile* (or $100 p$ *percentile*) of the random variable $X$ with 
+cdf $F(x)$
+is defined to be a value $q$ for which $F(q)=p$. If the cdf is invertible, we have
+$q = F^{-1}(p)$.
+
+The 50th percentile is called the *median*. The 25th and 75th percentiles are called the *quartiles*.
+
+:::{.example name="Uniform distribution" #uniform-quantiles}
+Suppose $X \sim U(a, b)$, with pdf $f(x)=\frac{1}{b-a}, \, a<x<b.$
+We have shown in Example \@ref(exm:uniform-cdf) that the cdf is \[F(x)=\frac{x-a}{b-a}, \; a<x<b.\]
+So for a given $p$, $F(q)=p$ implies \[q=a+p(b-a).\]
+The median of $X$ is $\frac{b+a}{2}$
+and the quartiles are $\frac{b + 3a}{4}$ and $\frac{3b + a}{4}$.
+:::
+
 ## Standard discrete distributions
 
 In this section we will learn about the Bernoulli, binomial, hypergeometric, geometric,
@@ -366,7 +383,8 @@ Hence $\operatorname{Var}(X)<E(X)$.
 
 #### Introduction and definition
 Suppose that we have a sequence of $n$ Bernoulli trials (defined in Section \@ref(bernoulli-trials),
-e.g. coin tosses) such that we get a success $(S)$ or failure $(F)$ with probabilities $P\{S\}=p$ and $P\{F\}=1-p$ respectively. Let $X$ be the number of successes in the $n$ trials. Then $X$ is called a binomial random variable with parameters $n$ and $p$.
+e.g. coin tosses) such that we get a success $(S)$ or failure $(F)$ with probabilities $P\{S\}=p$ and $P\{F\}=1-p$ respectively. Let $X$ be the number of successes in the $n$ trials. Then $X$ is called a binomial random variable with parameters $n$ and $p$, written as
+$X \sim \operatorname{Bin}(n, p)$.
 
 An outcome of the experiment (of carrying out $n$ such independent trials) is represented by a sequence of $S$'s and $F$'s (such as $S S \ldots F S \ldots S F)$ 
 that comprises $x$ $S$ 's, and $(n-x)$ $F$ 's.
@@ -375,13 +393,14 @@ The probability associated with this outcome is
 For this sequence, $X=x$, but there are many other sequences which will also give $X=x$. 
 In fact there are $\binom{n}{x}$ such sequences. Hence
 \[P(X=x)= \binom{n}{x} p^{x}(1-p)^{n-x}, x=0,1, \ldots, n .\]
-This is the pmf of the binomial Distribution with parameters $n$ and $p$, often written as $\operatorname{Bin}(n, p)$.
-<!-- TODO: describe $\sim$ notation -->
+This is the pmf of the binomial Distribution with parameters $n$ and $p$
 
 How can we guarantee that $\sum_{x=0}^{n} P(X=x)=1$? This guarantee is provided by the binomial theorem:
 \[(a+b)^{n}=b^{n}+ \binom{n}{1} a b^{n-1}+\cdots+\binom{n}{x} a^x b^{n-x}+\cdots +a^{n}.\]
 To prove $\sum_{x=0}^{n} P(X=x)=1$, i.e. $\sum_{x=0}^{n}\binom{n}{x} p^{x}(1-p)^{n-x}=1$, 
 choose $a=p$ and $b=1-p$ in the binomial theorem.
+
+<!-- TODO: check if binomial theorem introduced somewhere? -->
 
 :::{.example #widgets}
 Suppose that widgets are manufactured in a mass production process with $1\%$
@@ -587,7 +606,6 @@ of the geometric distribution.
 
 The Poisson distribution can be obtained as the limit of the binomial distribution with parameters $n$ and $p$ when $n \rightarrow \infty$ and $p \rightarrow 0$ simultaneously, but the product $\lambda=n p$ remains finite. In practice this means that the Poisson distribution counts rare events (since $p \rightarrow 0$ ) in an infinite population (since $n \rightarrow \infty$ ). Theoretically, a random variable following the Poisson distribution can take any integer value from 0 to $\infty$. Examples of the Poisson distribution include: the number of breast cancer patients in Southampton; the number of text messages sent (or received) per day by a randomly selected first-year student; the number of credit cards a randomly selected person has in their wallet.
 
-<!-- TODO: check whether this limiting part needed? -->
 Let us find the pmf of the Poisson distribution as the limit of the pmf of the binomial distribution. Recall that if $X \sim \operatorname{Bin}(n, p)$ then $P(X=x)=\left(\begin{array}{l}n \\ x\end{array}\right) p^{x}(1-p)^{n-x}$. Now:
 \begin{align*}
 P(X=x) &=\binom{n}{x} p^{x}(1-p)^{n-x} \\
@@ -663,12 +681,14 @@ where $a < b$ are parameters. We write $X \sim U(a, b)$.
 
 We have already derived various properties the uniform distribution:
 
-- **cumulative distribution function**
+- **cumulative distribution function**:
 \[F(x) =\frac{x-a}{b-a}, \; a<x<b\] from Example \@ref(exm:uniform-cdf).
-- **expectation**
+- **expectation**:
 \[E(X) = \frac{b+a}{2} \] from Example \@ref(exm:uniform-mean).
-- **variance**
+- **variance**:
 \[\operatorname{Var}(x) = \frac{(b-a)^{2}}{12}\] from Example \@ref(exm:uniform-variance).
+- **quantiles**: The $p$th quantile is $a+p(b-a)$ from Example \@ref(exm:uniform-quantiles).
+The median is $\frac{b+a}{2}$.
 
 #### Using R to calculate probabilities
 
@@ -685,6 +705,11 @@ punif(q = 0.5, min = -1, max = 1)
 ```
 will return the value of $P(X \leq 0.5)$.
 
+The command `qunif` can be used to calculate quantiles. Thus
+```{r, eval = FALSE}
+qunif(p = 0.5, min = -1, max = 1)
+```
+finds the median (the $0.5$ quantile).
 
 ### Exponential distribution
 
@@ -743,16 +768,16 @@ pexp(q = 3, rate = 1/2)
 ```
 will return the value of $P(X \leq 3)$.
 
-#### Cumulative distribution function
+#### Cumulative distribution function and quantiles
 
 It is easy to find the cdf of the exponential distribution. For $x>0$,
 \[F(x)=P(X \leq x)=\int_{0}^{x} \theta e^{-\theta u} d u=1-e^{-\theta x}.\]
 We have $F(0)=0$ and $F(x) \rightarrow 1$ when $x \rightarrow \infty$ and $F(x)$ is non-decreasing in $x$. The cdf can be used to solve many problems. A few examples follow.
 
-:::{.example name="Mobile phone"}
+:::{.example name="Mobile phone" #mobile-phone}
 Suppose that the lifetime of a phone (e.g. the time until the phone does not function even after repairs), denoted by $X$, manufactured by the company A Pale, is exponentially distributed with mean 550 days.
 1. Find the probability that a randomly selected phone will still function after two years, i.e. $X>730$ ? (Assume there is no leap year in the two years.)
-2. What are the times by which $25 \%, 50 \%, 75 \%$ and $90 \%$ of the manufactured phones will have failed?
+2. What are the times by which we expect $25 \%, 50 \%, 75 \%$ and $90 \%$ of the manufactured phones to have failed?
 
 Here the mean $1 / \theta=550$. Hence $\theta=1 / 550$ is the rate parameter. The solution to the first problem is
 \[P(X>730)=1-P(X \leq 730)=1-\left(1-e^{-730 / 550}\right)=e^{-730 / 550}=0.2652.\]
@@ -763,41 +788,26 @@ Alternatively, we can do the calculation in R:
 :::
 
 For the second problem we are given the probabilities of failure ($0.25$, $0.50$, etc.). We will have to invert the probabilities to find the value of the random variable. In other words, we
-will have to find a $q$ such that $F(q)=p$, where $p$ is the given probability. For example,
-what value of $q$ will give us $F(q)=0.25$, so that $25 \%$ of the phones will have failed by
-time $q$?
+will have to find a $q$ such that $F(q)=p$, where $p$ is the given probability:
+the $p$th quantile of $X$.
 
-<!-- TODO: consider moving definition of quantiles outside of this specfic case -->
-<!-- TODO: put into definition environment -->
-For a given $0<p<1$, the $p$ th quantile (or $100 p$ percentile) of the random variable $X$ with $c d f(x)$ is defined to be the value $q$ for which $F(q)=p$.
-
-The 50th percentile is called the median. The 25th and 75th percentiles are called the quartiles.
-
-
-<!-- TODO: check for earlier definition of pdf -->
-:::{.example name="Uniform distribution"}
-Consider the uniform distribution $U(a, b)$ in the interval $(a, b)$. Here $F(x)=\frac{x-a}{b-a}$. So for a given $p, F(q)=p$ implies $q=a+p(b-a)$.
-
-For the uniform $U(a, b)$ distribution the median is $\frac{b+a}{2}$
-and the quartiles are $\frac{b + 3a}{4}$ and $\frac{3b + a}{4}$.
-:::
-
-Returning to the exponential distribution example, we have $p=F(q)=1-e^{-\theta q}$. Find $q$ when $p$ is given.
+The cdf of the exponential distribution is $F(q)=1-e^{-\theta q}$, 
+so to find the pth quantile we must solve $p = 1-e^{-\theta q}$ for $q$.
 \begin{align*}
 p &=1-e^{-\theta q} \\
 \Rightarrow e^{-\theta q} &=1-p \\
 \Rightarrow-\theta q &=\log (1-p) \\
-\Rightarrow q &=\frac{-\log (1-p)}{\theta} \\
-\Rightarrow q &=-550 \times \log (1-p).
+\Rightarrow q &=\frac{-\log (1-p)}{\theta}.
 \end{align*}
-Now we have
+In Example \@ref(exm:mobile-phone), $\theta=1 / 550$, so we have
 \[q=-550 \times \log (1-p) = \begin{cases}
-\hline 158.2 & \text{for $p = 0.25$} \\
-381.23 & \text{for $p = 0.50$} \\
-762.46 & \text{for $p = 0.75$} \\
-1266.422 & \text{for $p = 0.90$.}
-  \end{cases}\]
-  
+\hline 158 & \text{for $p = 0.25$} \\
+381 & \text{for $p = 0.50$} \\
+762 & \text{for $p = 0.75$} \\
+1266 & \text{for $p = 0.90$.}
+  \end{cases}
+  \]
+which gives the time in days until we expect $25 \%, 50 \%, 75 \%$ and $90 \%$ of the manufactured phones to have failed.
 
 In R you can find these values by
 ```{r, eval = FALSE}
@@ -809,9 +819,8 @@ The function
 ```{r, eval = FALSE}
 qexp(p, rate)
 ```
-calculates the $100 p$ percentile of the exponential
+calculates the $p$th quantile of the exponential
 distribution with parameter `rate`.
-
 
 :::{.example name="Survival function"}
 The exponential distribution is sometimes used to model
@@ -853,8 +862,7 @@ time when it is thinking of its future remaining life time.
 
 The proof is exactly as in the case of the geometric distribution, reproduced below. 
 Recall the definition of conditional probability:
-\[P\{A \mid B\}=\frac{P\{A \cap B\}}{P\{B\}}\]
-$$
+\[P\{A \mid B\}=\frac{P\{A \cap B\}}{P\{B\}}.\]
 Now the proof,
 \begin{align*}
 P(X>s+t \mid X>t) &=\frac{P(X>s+t, X>t)}{P(X>t)} \\

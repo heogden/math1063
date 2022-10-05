@@ -400,7 +400,7 @@ This is the pmf of the binomial Distribution with parameters $n$ and $p$
 
 How can we guarantee that $\sum_{x=0}^{n} P(X=x)=1$? This guarantee is provided by the binomial theorem:
 
-::: {.theorem}
+::: {.theorem name="Binomial theorem"}
 For any positive integer $n$ and
  real numbers $a$ and $b$,
 \[(a+b)^{n}=b^{n}+ \binom{n}{1} a b^{n-1}+\cdots+\binom{n}{x} a^x b^{n-x}+\cdots +a^{n}.\]

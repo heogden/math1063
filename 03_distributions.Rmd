@@ -516,6 +516,13 @@ In general we have
 \[P(X=x)=(1-p)^{x-1} p, x=1,2, \ldots\]
 This is called the **geometric** distribution, and it has a (countably) infinite domain starting at $1$ rather than $0$. We write $X \sim \operatorname{Geo}(p)$.
 
+:::{.example}
+In a board game that uses a single fair die, a player cannot start until they have
+rolled a six. Let $X$ be the number of rolls needed until they get a six. Then $X$ is a Geometric
+random variable with success probability $p = 1/6$.
+:::
+
+
 In order to check the probability function sums to one, we will need
 to use the general result on the geometric series:
 
@@ -537,6 +544,8 @@ We can also find the probability that $X>k$ for some given natural number $k$ :
 &=p(1-p)^{k} \sum_{y=0}^{\infty}(1-p)^{y} \\
 &=(1-p)^{k}
 \end{align*}
+
+
 
 #### Memoryless property 
 
@@ -590,7 +599,7 @@ until the $r$th success occurs, where $r$ is a given natural number. This is kno
 binomial distribution with parameters $p$ and $r$.
 [Note: if $r = 1$, the negative binomial distribution is just the geometric distribution.]
 Firstly we need to identify the possible values of $X$. Possible values for $X$ are $x = r, r + 1, r +
-2, \ldots$. Secondly, the probability mass function is
+2, \ldots$. The probability mass function is
 \begin{align*}
 P (X = x) &= \binom{x-1}{r-1}
 p^{r-1} (1 - p)^{(x-1)-(r-1)} \times p \\
@@ -598,20 +607,17 @@ p^{r-1} (1 - p)^{(x-1)-(r-1)} \times p \\
 p^r (1 - p)^{x-r}, \quad x = r, r + 1, \ldots
 \end{align*}
 
-:::{.example}
-In a board game that uses a single fair die, a player cannot start until they have
-rolled a six. Let $X$ be the number of rolls needed until they get a six. Then $X$ is a Geometric
-random variable with success probability $p = 1/6$.
-:::
 
 :::{.example} 
 A man plays roulette, betting on red each time. He decides to keep playing until
 he achieves his second win. The success probability for each game is $18/37$ and the results of games
 are independent. Let $X$ be the number of games played until he gets his second win. Then $X$ is
-a Negative Binomial random variable with $r = 2$ and p = $18/37$. What is the probability he plays
-more than $3$ games? i.e. find $P (X > 3)$.
+a negative binomial random variable with $r = 2$ and p = $18/37$.
+
+What is the probability he plays
+more than $3$ games? We have
+\[P (X > 3) = 1 - P(X = 2) - P(X = 3)  =  1 - p^2 - 2 p^2 (1-p) = 0.520.\]
 :::
-<!-- TODO: add solution here? -->
 
 Derivation of the mean and variance of the negative binomial distribution involves complicated negative binomial series and will be skipped for now, but will be proved in Section \ref{sec:sum-rvs}.
 For

@@ -538,7 +538,7 @@ For any real numbers $a$ and $r$ such that $|r| < 1$,
 &=1
 \end{align*}
 We can also find the probability that $X>k$ for some given positive integer $k$ :
-\nabegin{align*}
+\begin{align*}
 \sum_{x=k+1}^{\infty} P(X=x) &=\sum_{x=k+1}^{\infty}(1-p)^{x-1} p \\
 &=p\left[(1-p)^{k+1-1}+(1-p)^{k+2-1}+(1-p)^{k+3-1}+\ldots\right]\\
 &=p(1-p)^{k} \sum_{y=0}^{\infty}(1-p)^{y} \\
@@ -923,10 +923,7 @@ P(T<10 \mid T>5) &=\frac{P(5<T<10)}{P(T>5)} \\
 
 ### Normal distribution
 
-#### Definition, mean and variance 
-
-<!-- TODO: motivate why normal distn important -->
-<!-- TODO: split up into more subsections -->
+#### Definition
 
 A random variable $X$ is said to have the normal distribution with parameters $\mu$ and $\sigma^2$ if it has pdf of the form
 \begin{equation}
@@ -934,17 +931,17 @@ f(x)=\frac{1}{\sqrt{2 \pi \sigma^2}} \exp \left\{-\frac{(x-\mu)^2}{2 \sigma^2}\r
 (\#eq:normal-pdf)
 \end{equation}
 where $-\infty<\mu<\infty$ and $\sigma>0$ are two given constants. 
-It is easy to see that $f(x)>0$ for all $x$. We will now prove that
+We write $X \sim N\left(\mu, \sigma^2\right)$.
 
-- **R1**: $\int_{-\infty}^{\infty} f(x) d x=1$ or total probability equals 1, so that $f(x)$ defines a valid pdf.
-- **R2**: $E(X)=\mu$, i.e. the mean is $\mu$.
-- **R3**: $\operatorname{Var}(X)=\sigma^2$, i.e. the variance is $\sigma^2$.
+We will show later that $E(X)=\mu$ and $\operatorname{Var}(X)=\sigma^2$.
 
-We denote the normal distribution by the notation $N\left(\mu, \sigma^2\right)$.
-
-The density (pdf) is much easier to remember and work with when the mean $\mu=0$ and variance $\sigma^2=1$. In this case, we simply write:
+The density (pdf) is much easier to remember and work with when the mean $\mu=0$ and variance $\sigma^2=1$. This special case is called the *standard* normal distribution. In this case, we simply write:
 \[f(x)=\frac{1}{\sqrt{2 \pi}} \exp \left\{-\frac{x^2}{2}\right\}.\]
-Now let us prove the 3 assertions, **R1**, **R2** and **R3**. **R1** is proved as follows:
+
+
+It is easy to see that $f(x)>0$ for all $x$. 
+Next, we show $\int_{-\infty}^{\infty} f(x) d x=1$ or total probability equals 1, 
+so that $f(x)$ defines a valid pdf:
 \begin{align*}
 \int_{-\infty}^{\infty} f(x) d x &=\int_{-\infty}^{\infty} \frac{1}{\sqrt{2 \pi \sigma^2}} \exp \left\{-\frac{(x-\mu)^2}{2 \sigma^2}\right\} d x \\
 &=\frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} \exp \left\{-\frac{z^2}{2}\right\} d z \quad \text { (substitute } z=\frac{x-\mu}{\sigma} \text { so that } d x=\sigma d z) \\
@@ -955,7 +952,12 @@ Now let us prove the 3 assertions, **R1**, **R2** and **R3**. **R1** is proved a
 &=\frac{1}{\sqrt{\pi}} \sqrt{\pi}=1 \quad \text { as } \Gamma\left(\frac{1}{2}\right)=\sqrt{\pi}.
 \end{align*}
 
-To prove **R2**, i.e. $E(X)=\mu$, we prove the following two results:
+#### Expectation and variance
+
+We claimed that $E(X)=\mu$ and $\operatorname{Var}(X)=\sigma^2$, 
+and now will prove these results.
+
+To prove that  $E(X)=\mu$, we prove the following two results:
 
 \begin{equation}
 X \sim N\left(\mu, \sigma^2\right) \longleftrightarrow Z \equiv \frac{X-\mu}{\sigma} \sim N(0,1)
@@ -984,9 +986,9 @@ E(Z) &=\int_{-\infty}^{\infty} z f(z) d z \\
 &=\frac{1}{\sqrt{2 \pi}} \times 0=0,
 \end{align*}
 since the integrand $g(z)=z \exp \left\{-\frac{z^2}{2}\right\}$ is an odd function, i.e. $g(z)=-g(-z)$; for an odd function $g(z), \int_{-a}^a g(z) d z=0$ for any $a$. Therefore we have also proved 
-\@ref(eq:std-normal-mean-zero) and hence **R2**.
+\@ref(eq:std-normal-mean-zero) and hence $E(X) = \mu$.
 
-To prove **R3**, i.e. $\operatorname{Var}(X)=\sigma^2$, we show that $\operatorname{Var}(Z)=1$ 
+To prove $\operatorname{Var}(X)=\sigma^2$, we show that $\operatorname{Var}(Z)=1$ 
 where $Z=\frac{X-\mu}{\sigma}$ and then claim that
 $\operatorname{Var}(X)=\sigma^2 \operatorname{Var}(Z)=\sigma^2$ from our earlier result. 
 Since $E(Z)=0, \operatorname{Var}(Z)=E\left(Z^2\right)$, which is
@@ -1003,7 +1005,7 @@ E\left(Z^2\right) &=\int_{-\infty}^{\infty} z^2 f(z) d z \\
 &=\frac{2}{\sqrt{\pi}} \frac{1}{2} \sqrt{\pi} \quad\text { (since } \Gamma\left(\frac{1}{2}\right) =\sqrt{\pi}) \\
 &=1,
 \end{align*}
-as we hoped for! This proves **R3**.
+as we hoped for! This proves $\operatorname{Var}(X)=\sigma^2$.
 
 #### Linear transformation of a Normal random variable
 

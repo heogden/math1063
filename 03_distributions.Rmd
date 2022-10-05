@@ -332,14 +332,14 @@ Suppose $Y=a X+b$ then $\operatorname{Var}(Y)=a^{2} \operatorname{Var}(X)$
 :::
 
 ::: {.proof}
-The proof is give for the continuous case. In the discrete case replace integral $\left(\int\right)$ by summation $\left(\sum\right)$.
+Write $\mu = E(X)$. Then $E(Y) = a\mu + b$ and
 \begin{align*}
-\operatorname{Var}(Y) &=E(Y-E(Y))^{2} \\
-&=\int_{-\infty}^{\infty}(a x+b-a \mu-b)^{2} f(x) d x \\
-&=a^{2} \int_{-\infty}^{\infty}(x-\mu)^{2} f(x) d x \\
-&=a^{2} \operatorname{Var}(X).
+\operatorname{Var}(Y) &=E\left[(Y-E(Y))^{2}\right] \\
+&=E\left[(aX + b - a\mu - b)^2\right] \\
+&=E\left[a^2(X -\mu)^2\right] \\
+&=a^2 E\left[(X -\mu)^2\right] \\
+&=a^{2} \operatorname{Var}(X)
 \end{align*}
-<!-- TODO: redo proof just using linearity of expectation? -->
 :::
 
 This is a very useful result, e.g. suppose $\operatorname{Var}(X)=25$ and $Y=-X+5,000,000$; then $\operatorname{Var}(Y)=$ $\operatorname{Var}(X)=25$ and the standard deviation, $\sigma=5$. In words a location shift, $b$, does not change variance but a multiplicative constant, $a$ say, gets squared in variance, $a^{2}$.

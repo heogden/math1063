@@ -613,8 +613,7 @@ more than $3$ games? i.e. find $P (X > 3)$.
 :::
 <!-- TODO: add solution here? -->
 
-Derivation of the mean and variance of the negative binomial distribution involves complicated negative binomial series and will be skipped for now, but will be proved in Lecture ???. 
-<!-- TODO: add reference -->
+Derivation of the mean and variance of the negative binomial distribution involves complicated negative binomial series and will be skipped for now, but will be proved in Section \ref{sec:sum-rvs}.
 For
 completeness we note down the mean and variance:
 \[E(X) = \frac{r}{p}, \quad \operatorname{Var}(X) = r \, \frac{1-p}{p^2}.\]
@@ -1370,7 +1369,7 @@ Consequently, for independent random variables $X$ and $Y, \operatorname{Cov}(X,
 
 <!-- TODO: give an example of this, or set as an exercise? -->
 
-## Sums of random variables
+## Sums of random variables {#sec:sum-rvs}
 
 In this section we consider sums of random variables, which arise frequently in both practice and
 theoretical results. For example, the mark achieved in an exam is the sum of the marks for each

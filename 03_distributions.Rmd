@@ -1375,10 +1375,10 @@ Suppose $X_1, \ldots, X_n$ is a random sample from a population with distributio
 \[P\left(X_1 \in A_1, X_2 \in A_2, \ldots, X_n \in A_n\right)=P\left(X_1 \in A_1\right) \times P\left(X_2 \in A_2\right) \times \cdots P\left(X_n \in A_n\right)\]
 for any set of events, $A_1, A_2, \ldots A_n$. That is, the joint probability can be obtained as the product of individual probabilities. An example of this for $n=2$ was given in Section \@ref(sec:indep).
 
-:::{.example name="Distribution of the sum of independent binomial random variables"}
+::: {.example name="Distribution of the sum of independent binomial random variables"}
 Suppose $X \sim \operatorname{Bin}(m, p)$ and $Y \sim \operatorname{Bin}(n, p)$ independently. Note that $p$ is the same in both distributions. Using the above fact that joint probability is the multiplication of individual probabilities, we can conclude that $Z=X+Y$ has the binomial distribution. It is intuitively clear that this should happen since $X$ comes from $m$ Bernoulli trials and $Y$ comes from $n$ Bernoulli trials independently, so $Z$ comes from $m+n$ Bernoulli trials with common success probability $p$. We can prove the result mathematically as well, by finding the probability mass function of $Z=X+Y$ directly and observing that it is of the appropriate form. First, note that
 \[P(Z=z)=P(X=x, Y=y)\]
-subject to the constraint that $x+y=z, 0 \leq x \leq m, 0 \leq y \leq n$. Thus,
+subject to the constraint that $x+y=z$, $0 \leq x \leq m$, $0 \leq y \leq n$. Thus,
 \begin{align*}
 P(Z=z) &= \sum_{x+y=z} P(X=x, Y=y) \\
 &= \sum_{x+y=z} \binom{m}{x} p^x(1-p)^{m-x}\binom{n}{y} p^y(1-p)^{n-y} \\
@@ -1389,6 +1389,7 @@ P(Z=z) &= \sum_{x+y=z} P(X=x, Y=y) \\
 using a result stated in Section ???. 
 <!-- TODO: check reference to result -->
 Thus, we have proved that the sum of independent binomial random variables with common probability is binomial as well. This is called the reproductive property of random variables. 
+:::
 
 Now we will state two main results without proof. The proofs will presented in the second-year distribution theory module MATH2011. Suppose that $X_1, \ldots, X_n$ is a random sample from a population distribution with finite variance, and suppose that $E\left(X_i\right)=\mu_i$ and $\operatorname{Var}\left(X_i\right)=\sigma_i^2$. Define a new random variable
 \[Y=a_1 X_1+a_2 X_2+\cdots+a_n X_n\]
@@ -1398,6 +1399,7 @@ where $a_1, a_2, \ldots, a_n$ are constants. Then:
 2. $\operatorname{Var}(Y)=a_1^2 \sigma_1^2+a_2^2 \sigma_2^2+\cdots+a_n^2 \sigma_n^2$.
 
 For example, if $a_i=1$ for all $i=1, \ldots, n$, the two results above imply that:
+
 - The expectation of the sum of independent random variables is the sum of the expectations of the individual random variables
 - the variance of the sum of independent random variables is the sum of the variances of the individual random variables.
 

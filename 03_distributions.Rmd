@@ -367,23 +367,26 @@ In this section we will learn about the Bernoulli, binomial, hypergeometric, geo
 negative binomial and Poisson
 distributions and their properties.
 
-
 ### Bernoulli distribution
 
-<!-- TODO: refer back to Bernoulli trials, S/F as below? -->
-<!-- TODO: describe parameter $p$ -->
+Suppose that we conduct a Bernoulli trial (defined in Section \@ref(bernoulli-trials),
+e.g. coin tosses), where we get a success $(S)$ or failure $(F)$ with probabilities $P\{S\}=p$ and $P\{F\}=1-p$ respectively. 
+Let $X$ be an indicator of success:
+\[X = \begin{cases} 1 & \text{if $S$} \\
+0 & \text{if $F$.}
+\end{cases}\]
+Then $X$ has Bernoulli distribution with parameter $p$, written as
+$X \sim \operatorname{Bernoulli}(p)$.
 
 The Bernoulli distribution has pmf \[f(x)=p^{x}(1-p)^{1-x}, x=0,1.\]
 Hence \[E(X)=0 \cdot(1-p)+1 \cdot p=p,\]
 \[E\left(X^{2}\right)=0^{2} \cdot(1-p)+1^{2} \cdot p=p\] and
 \[\operatorname{Var}(X)=E\left(X^{2}\right)-(E(X))^{2}=p-p^{2}=p(1-p).\]
-Hence $\operatorname{Var}(X)<E(X)$.
 
 ### Binomial distribution
 
 #### Introduction and definition
-Suppose that we have a sequence of $n$ Bernoulli trials (defined in Section \@ref(bernoulli-trials),
-e.g. coin tosses) such that we get a success $(S)$ or failure $(F)$ with probabilities $P\{S\}=p$ and $P\{F\}=1-p$ respectively. Let $X$ be the number of successes in the $n$ trials. Then $X$ is called a binomial random variable with parameters $n$ and $p$, written as
+Suppose that we have a sequence of $n$ Bernoulli trials such that we get a success with probability $p$. Let $X$ be the number of successes in the $n$ trials. Then $X$ has binomial distribution with parameters $n$ and $p$, written as
 $X \sim \operatorname{Bin}(n, p)$.
 
 An outcome of the experiment (of carrying out $n$ such independent trials) is represented by a sequence of $S$'s and $F$'s (such as $S S \ldots F S \ldots S F)$ 

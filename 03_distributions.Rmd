@@ -515,14 +515,21 @@ F F F S & X=4, & P(X=4)=(1-p)^{3} p \\
 In general we have
 \[P(X=x)=(1-p)^{x-1} p, x=1,2, \ldots\]
 This is called the **geometric** distribution, and it has a (countably) infinite domain starting at $1$ rather than $0$. We write $X \sim \operatorname{Geo}(p)$.
-Let us check that the probability function has the required property:
+
+In order to check the probability function sums to one, we will need
+to use the general result on the geometric series:
+
+::: {.theorem name="Geometric series"}
+For any real numbers $a$ and $r$ such that $|r| < 1$,
+\[\sum_{k=0}^\infty a r^k = \frac{a}{1-r}.\]
+:::
+
 \begin{align*}
 \sum_{x=1}^{\infty} P(X=x) &=\sum_{x=1}^{\infty}(1-p)^{x-1} p \\
-&=p \sum_{y=0}^{\infty}(1-p)^{y} \quad \text{[substitute  $y=x-1$]} \\
-&=p \frac{1}{1-(1-p)} \quad \text {[see Section ??] } \\
+&=\sum_{y=0}^{\infty}(1-p)^{y} p \quad \text{(substitute  $y=x-1$)} \\
+&= \frac{p}{1-(1-p)} \quad \text{(geometric series, $a=p$, $r=1-p$)} \\
 &=1
 \end{align*}
-<!-- TODO: add reference or change to avoid using -->
 We can also find the probability that $X>k$ for some given natural number $k$ :
 \begin{align*}
 \sum_{x=k+1}^{\infty} P(X=x) &=\sum_{x=k+1}^{\infty}(1-p)^{x-1} p \\

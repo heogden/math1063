@@ -1264,6 +1264,8 @@ The same result holds if $a$ and $b$ depend upon $y$,
 but $c$ and $d$ should be free of $x$ and $y$. 
 When we evaluate the inner integral $\int_a^b f(x, y) d x$, we treat $y$ as constant.
 
+\newpage
+
 **Notes**: To evaluate a bivariate integral over a region $A$ we:
 
 - Draw a picture of $A$ whenever possible.
@@ -1372,6 +1374,7 @@ As a special case, let $g(x)=x$ and $h(y)=y$. Then we have
 Consequently, for independent random variables $X$ and $Y, \operatorname{Cov}(X, Y)=0$ and $\operatorname{Corr}(X, Y)=$ 0. But the converse is not true in general. That is, merely having $\operatorname{Corr}(X, Y)=0$ does not imply that $X$ and $Y$ are independent random variables.
 
 <!-- IDEA: give an example of this, or set as an exercise? -->
+\newpage
 
 ## Sums of random variables {#sec:sum-rvs}
 
@@ -1489,9 +1492,11 @@ as $n \rightarrow \infty$. The notion of convergence is explained by the converg
 \[\lim _{n \rightarrow \infty} P\left(\sqrt{n} \frac{(\bar{X}-\mu)}{\sigma} \leq z\right)=\Phi(z), \quad-\infty<z<\infty.\]
 So for "large samples", we can use $N(0,1)$ as an approximation to the sampling distribution of $\sqrt{n}(\bar{X}-\mu) / \sigma$. This result is 'exact', i.e. no approximation is required, if the distribution of the $X_{i}$ 's are normal in the first place --- this was discussed in the previous lecture.
 
-How large does $n$ have to be before this approximation becomes usable? There is no definitive answer to this, as it depends on how "close to normal" the distribution of $X$ is. However, it is often a pretty good approximation for sample sizes as small as 20, or even smaller. It also depends on the skewness of the distribution of $X$; if the $X$-variables are highly skewed, then $n$ will usually need to be larger than for corresponding symmetric $X$-variables for the approximation to be good. We will investigate this numerically using R.
+How large does $n$ have to be before this approximation becomes usable? There is no definitive answer to this, as it depends on how "close to normal" the distribution of $X$ is. However, it is often a pretty good approximation for sample sizes as small as 20, or even smaller. It also depends on the skewness of the distribution of $X$; if the $X$-variables are highly skewed, then $n$ will usually need to be larger than for corresponding symmetric $X$-variables for the approximation to be good. 
+We investigate in one example in Figure \@ref(fig:clt-demo).
 
-```{r, fig.cap = "Distribution of normalised sample means for samples of different sizes. Initially very skew (original distribution, $n=1$ ) becoming rapidly closer to standard normal (dashed line) with increasing $n$.", fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
+
+```{r clt-demo, echo = FALSE, fig.cap = "Distribution of normalised sample means for samples of different sizes. Initially very skew (original distribution, $n=1$) becoming rapidly closer to standard normal (dashed line) with increasing $n$.", fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
 f <- function(z, n) {
     dgamma(z + sqrt(n), shape = n, scale = 1 / sqrt(n))
 }
@@ -1502,7 +1507,7 @@ plot_data <- crossing(x = seq(-5, 5, length.out = 1000),
            n = as.factor(n))
 
 plot_data %>%
-    ggplot(aes(x = x, y = pdf, colour= n)) +
+    ggplot(aes(x = x, y = pdf, colour = n)) +
     geom_line() +
     geom_function(fun = dnorm, linetype = "dashed", colour = "black")
         
@@ -1562,3 +1567,5 @@ In this case the normal approximation was good enough to correctly conclude that
 probability is very small (of the order of $0.1\%$), which was all we needed to answer 
 the question of interest here.
 :::
+
+\clearpage

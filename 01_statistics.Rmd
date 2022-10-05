@@ -290,7 +290,7 @@ By convention, we often use the mean of these values
 (63.5 for the the AM service time data).
 
 ::: {.theorem}
-The sample median minimises the SSE.
+The sample median minimises the SAE.
 :::
 
 ::: {.proof}

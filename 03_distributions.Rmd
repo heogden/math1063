@@ -45,7 +45,7 @@ probability that $X$
 belongs to $A$, instead of the previous $P \{A\}$ for any event $A$.
 
 
-### Discrete and continuous random variable
+### Discrete and continuous random variables
 
 If a random variable has a finite or countably infinite set of values it is called discrete. For example,
 the number of Apple computer users among 20 randomly selected students, or the number of credit
@@ -104,7 +104,7 @@ In Example \@ref(exm:two-coins), we may rewrite the probability function in the 
 \[f(x) = \binom{2}{x} p^x (1 - p)^{2-x}, \text{for $x = 0, 1, 2$},\]
 where $f (x) = 0$ for any other value of $x$.
 
-### Continuous random variable
+### Continuous random variables
 
 In many situations (both theoretical and practical) we often encounter random variables that are
 inherently continuous because they are measured on a continuum (such as time, length, weight)
@@ -195,9 +195,11 @@ The fundamental theorem of calculus then tells us that
 so for a continuous random variable the pdf is the derivative of the cdf. Also for any random
 variable $X$, $P (c < X < d) = F (d) - F (c)$. Let us consider an example.
 
-:::{.example name="Uniform distribution"}
+:::{.example name="Uniform distribution" #uniform-cdf}
 Suppose
 \[f(x)= \begin{cases}\frac{1}{b-a} & \text { if } a<x<b \\ 0 & \text { otherwise.}\end{cases}\]
+In this case we say X has *uniform distribution* on the interval $(a, b)$,
+which we will write as $X \sim U(a, b)$.
 We now have the cdf 
 \[F(x)=\int_{a}^{x} \frac{1}{b-a} du =\frac{x-a}{b-a}, \; \; a<x<b.\]
 A quick check confirms that $F^{\prime}(x)=f(x)$. If $a=0, b=1$ 
@@ -205,27 +207,34 @@ then
 \[P(0.5<X<0.75)=F(0.75)-F(0.5)=0.25.\] We shall see many more examples later.
 :::
 
-## Expectation and variance of a random variable
+## Summaries of a random variable
+
+### Introduction
+
+In Section \@ref(summaries), we defined various summaries of sample data $x_1 , \ldots , x_n$,
+such as the mean and variance.
+A random variable $X$
+with either a pmf $f (x)$ or a pdf $f (x)$ may be summarised using similar measures.
 
 ### Mean or expectation
 
-In Chapter \@ref(intro-stats), we defined the mean and variance of sample data $x_1 , \ldots , x_n$. 
-The random variables
-with either a pmf $f (x)$ or a pdf $f (x)$ also have their own mean (which can be called
-the expectation of $X$) and variance. The mean is called an expectation since it is a value we
+ The mean of $X$ is called an expectation since it is a value we
 can 'expect'! The expectation is defined as
-\[E(X)= \begin{cases}\sum_{x} x f(x) & \text { if } X \text { is discrete } \\ \int_{-\infty}^{\infty} x f(x) d x & \text { if } X \text { is continuous }\end{cases}\]
-Thus, roughly spenking:
+\[E(X)= \begin{cases}\sum_{\text{all $x$}} x f(x) & \text { if } X \text { is discrete } \\ \int_{-\infty}^{\infty} x f(x) d x & \text { if } X \text { is continuous }\end{cases}\]
+ when the sum or integral exists. 
+They can't always be assumed to exist! 
+
+Thus, roughly speaking:
 the expected value is either sum or integral of value times probability.
 We use the $E(\cdot)$ notation to denote expectation. The argument is in upper case since it is the expected value of the random variable which is denoted by an upper case letter. We often use the Greek letter $\mu$ to denote $E(X)$.
 
-:::{.example text="Discrete"}
+:::{.example text="Die throwing"}
 Consider the fair-die tossing experiment, with each of the six sides having a probability of $1 / 6$ of landing face up. Let $X$ be the number on the up-face of the die. Then
 \[E(X)=\sum_{x=1}^{6} x P(X=x)=\sum_{x=1}^{6} x / 6=3.5.\]
 :::
 
-:::{.example text="Continuous"}
-Consider the uniform distribution which has the pdf $f(x)=\frac{1}{b-a}, \, a<x<b.$
+:::{.example text="Uniform distribution" #uniform-mean}
+Suppose $X \sim U(a, b)$, with pdf $f(x)=\frac{1}{b-a}, \, a<x<b.$ Then
 \begin{align*}
 E(X) &=\int_{-\infty}^{\infty} x f(x) d x \\
 &=\int_{a}^{b} \frac{x}{b-a} d x \\
@@ -271,8 +280,6 @@ The variance measures the variability of a random variable and is defined by
 \int_{-\infty}^{\infty}(x-\mu)^{2} f(x) dx & \text { if $X$ is continuous,}
 \end{cases}\]
 where $\mu=E(X)$, and when the sum or integral exists. 
-They can't always be assumed to exist! 
-<!-- TODO: check for similar note about expectation sometimes not existing? -->
 When the variance exists, 
 it is the expectation of $(X-\mu)^{2}$ where $\mu$ is the mean of $X$.
 We now derive an easy formula to calculate the variance:
@@ -306,9 +313,8 @@ nothing random about the random variable --- we can predict its outcome with cer
 The square root of the variance is called the *standard deviation* of the
 random variable.
 
-<!-- TODO: fix this to not refer to uniform distribution until defined -->
-:::{.example name="Uniform"}
-Consider the uniform distribution which has the pdf $f(x)=\frac{1}{b-a}, \, a<x<b$.
+:::{.example name="Uniform distribution" #uniform-variance}
+Suppose $X \sim U(a, b)$, with pdf $f(x)=\frac{1}{b-a}, \, a<x<b.$  Then
 \begin{align*}
 E\left(X^{2}\right) &=\int_{a}^{b} \frac{x^{2}}{b-a} d x \\
 &=\frac{b^{3}-a^{3}}{3(b-a)} \\
@@ -646,6 +652,39 @@ ppois(q=3, lambda=5)
 will return the value of $P (X \leq 3)$ when $X \sim \operatorname{Poisson}(\lambda = 5)$.
 
 ## Standard continuous distributions
+
+### Uniform distribution
+
+#### Definition and properties
+
+A continuous random variable $X$ is said to follow the uniform distribution if its pdf is of the form:
+\[f(x)= \begin{cases} \frac{1}{b-a} & \text {if $a < x < b$} \\ 0 & \text {otherwise}\end{cases}\]
+where $a < b$ are parameters. We write $X \sim U(a, b)$.
+
+We have already derived various properties the uniform distribution:
+
+- **cumulative distribution function**
+\[F(x) =\frac{x-a}{b-a}, \; a<x<b\] from Example \@ref(exm:uniform-cdf).
+- **expectation**
+\[E(X) = \frac{b+a}{2} \] from Example \@ref(exm:uniform-mean).
+- **variance**
+\[\operatorname{Var}(x) = \frac{(b-a)^{2}}{12}\] from Example \@ref(exm:uniform-variance).
+
+#### Using R to calculate probabilities
+
+For $X \sim U(a = -1, b = 1)$, the command 
+```{r, eval = FALSE}
+dunif(x = 0.5, min = -1, max = 1)
+```
+calculates the pdf at $x=0.5$. We specify $a$ with the `min` argument
+and $b$ with `max` argument.
+The command `punif` returns the cdf or the probability up to and including the argument. 
+Thus 
+```{r, eval = FALSE}
+punif(q = 0.5, min = -1, max = 1)
+```
+will return the value of $P(X \leq 0.5)$.
+
 
 ### Exponential distribution
 

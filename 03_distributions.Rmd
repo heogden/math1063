@@ -216,7 +216,7 @@ such as the mean and variance.
 A random variable $X$
 with either a pmf $f (x)$ or a pdf $f (x)$ may be summarised using similar measures.
 
-### Mean or expectation
+### Expectation
 
  The mean of $X$ is called an expectation since it is a value we
 can 'expect'! The expectation is defined as

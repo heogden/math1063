@@ -437,7 +437,6 @@ parameters $n$ and $p$.
 :::
 
 #### Using R to calculate probabilities
-<!-- TODO:consider whether or not this should go into section structure -->
 
 Probabilities under all the standard distributions have been calculated in R and will be used
 throughout MATH1024. You will not be required to use any tables. 
@@ -473,12 +472,14 @@ E(X) &=\sum_{x=0}^{n} x \binom{n}{x} p^{x}(1-p)^{n-x} \\
 &=\sum_{x=1}^{n} x \frac{(n ! x) !}{x !(n-x)} p^{x}(1-p)^{n-x} \\
 &=\sum_{x=1}^{n} \frac{n !}{(x-1) !(n-x) !} p^{x}(1-p)^{n-x} \\
 &=n p \sum_{x=1}^{n} \frac{(n-1) !}{(x-1) !(n-1-x+1) !} p^{x-1}(1-p)^{n-1-x+1} \\
-&=n p \sum_{y=0}^{n-1} \frac{(n-1) !}{(n) !(n-1) !-y) !} p^{y}(1-p)^{n-1-y} \\
-&=n p(p+1-p)^{n-1}=n p
+&=n p \sum_{y=0}^{n-1} \frac{(n-1) !}{y!(n-1-y)!} p^{y}(1-p)^{n-1-y} \\
+&=n p \sum_{y=0}^{n-1} \binom{n-1}{y} p^{y}(1-p)^{n-1-y} \\
+&=n p
 \end{align*}
-where we used the substitution $y=x-1$ and then the binomial theorem to conclude that the last sum is equal to $1 .$
+where we used the substitution $y=x-1$ and then
+conclude the last sum equals one as it is the sum of all
+probabilities in the $\operatorname{Bin}(n-1, p)$ distribution.
 
-<!-- TODO: use pf trick rather than binomial theorem? -->
 
 #### Variance {#sec:bin-var}
 
@@ -491,12 +492,14 @@ E[(X(X-1)]&=\sum_{x=0}^{n} x(x-1) \binom{n}{x} p^{x}(1-p)^{n-x} \\
 &=\sum_{x=2}^{n} \frac{n !}{(x-2) !(n-x) !} p^{x}(1-p)^{n-x} \\
 &=n(n-1) p^{2} \sum_{x=2}^{n} \frac{(n-2) !}{(x-2) !(n-2-x+2) !} p^{x-2}(1-p)^{n-2-x+2} \\
 &=n(n-1) p^{2} \sum_{y=0}^{n-2} \frac{(n-2) !}{(y) !(n-2-y) !} p^{y}(1-p)^{n-2-y} \\
-&=n(n-1) p^{2}(p+1-p)^{n-2} .
+&=n(n-1) p^2
 \end{align*}
-<!-- TODO: use pf trick rather than binomial theorem? -->
+where we used the substitution $y=x-2$ and then
+conclude the last sum equals one as it is the sum of all
+probabilities in the $\operatorname{Bin}(n-2, p)$ distribution.
 Now, $E\left(X^{2}\right)=E[X(X-1)]+E(X)=n(n-1) p^{2}+n p$. Hence,
 \[\operatorname{Var}(X)=E\left(X^{2}\right)-(E(X))^{2}=n(n-1) p^{2}+n p-(n p)^{2}=n p(1-p).\]
-It is illuminating to see these direct proofs. Later on we shall apply statistical theory to directly prove these! Notice that the binomial theorem is used repeatedly to prove the results.
+It is illuminating to see these direct proofs. Later on we shall apply statistical theory to directly prove these.
 
 ### Geometric distribution
 

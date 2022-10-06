@@ -301,7 +301,7 @@ If $a<x_{(1)}$, then
 \end{equation}
 As $a$ increases, each term of \@ref(eq:SAE-lower) 
 decreases until $a$ reaches $x_{(1)}$, so $\text{SAE} (x_{(1)})< \text{SAE}(a)$ for all $a<x_{(1)}$.
-We conclude the minimise of the SAE is at least $x_{(1)}$.
+We conclude the minimiser of the SAE is at least $x_{(1)}$.
 
 Now suppose $x_{(k)} \leq a < x_{(k+1)}$ and let $\epsilon > 0$ be a small
 number such that 

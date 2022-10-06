@@ -11,4 +11,9 @@ fontsize: 12pt
 
 ### Chapter 1
 
-- Theorem 1.2: should say "The sample median minimises the SAE" (not the SSE)
+- Theorem 1.2: should say "The sample median minimises the SAE" (not the SSE).
+
+### Chapter 2
+
+- In Section 2.3, consequence (2) of the axioms of probability should
+say $P\{\emptyset\}=0$ not $P\{0\} = 0$.

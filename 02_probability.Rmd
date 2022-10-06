@@ -9,7 +9,7 @@ it is highly likely that Manchester City will retain the premiership title this 
 or to be more specific, I think there is more than an 80% chance that Manchester City
 will keep the title;
 (ii) the probability of a tossed fair coin landing heads is 0.5. 
-As we have seen in the Chapter \@ref(intro-stats), there is uncertainty
+As we have seen in Chapter \@ref(intro-stats), there is uncertainty
 everywhere, and probability is the language we use to quantify this uncertainty.
 
 The two examples above, football and tossing a coin, convey two different interpretations of
@@ -124,7 +124,7 @@ Here are the three axioms of probability:
 Here are some of the consequences of the axioms of probability:
 
 (1) For any event $A, P\{A\}=1-P\left\{A^{\prime}\right\}$.
-(2) From (1) and Axiom A1, $P\{0\}=1-P\{S\}=0$. Hence if $A$ and $B$ are mutually exclusive events, then $P\{A \cap B\}=0$.
+(2) From (1) and Axiom A1, $P\{\emptyset\}=1-P\{S\}=0$. Hence if $A$ and $B$ are mutually exclusive events, then $P\{A \cap B\}=0$.
 (3) If $D$ is a subset of $E, D \subset E$, then $P\left\{E \cap D^{\prime}\right\}=P\{E\}-P\{D\}$ which implies for arbitrary events $A$ and $B, P\left\{A \cap B^{\prime}\right\}=P\{A\}-P\{A \cap B\}$.
 (4) It can be shown by mathematical induction that Axiom A3 holds for more than two mutually exclusive events:
 $$

@@ -264,7 +264,7 @@ so
 ::: {.example name="Football"}
 How many possible ways are there to choose 3 teams for the bottom
 positions of the premier league table at the end of a season? This number is given by 
-$\binom{20, 3} = 20 \times 19 \times 18/3!$, which does not take into consideration the rankings of the three bottom teams.
+$\binom{20}{3} = 20 \times 19 \times 18/3!$, which does not take into consideration the rankings of the three bottom teams.
 :::
 
 :::{.example name="Microchips" #microchip}
@@ -324,7 +324,7 @@ is a man' is equal to the number of ways of selecting 3 students from 10 with ex
 given by $\binom{4}{1} \binom{6}{2}$
 Hence
 \begin{align*}
-P {\text{exactly one man}} &= \frac{\text{number of ways of selecting one man and two women}}
+P \{\text{exactly one man}\} &= \frac{\text{number of ways of selecting one man and two women}}
  {\text{number of ways of selecting 3 students}} \\
 &= \frac{\binom{4}{1} \binom{6}{2}}{\binom{10}{3}} = \frac{4 \times 15}{120} = \frac{1}{2}
 \end{align*}
@@ -390,7 +390,7 @@ equally likely outcomes.
 
 Given the partial knowledge that event $A$ has occurred, only the $n_A = 3$ outcomes in 
 $A = \{4, 5, 6\}$ could have occurred. However, only some of the outcomes in $B$ among these 
-$nA$ outcomes in $A$ will make event $B$ occur; the number of such outcomes is given by the 
+$n_A$ outcomes in $A$ will make event $B$ occur; the number of such outcomes is given by the 
 number of outcomes
 $n_{A\cap B}$ in both $A$ and $B$, i.e., $A \cap B$, and equal to $2$. 
 Hence the probability of $B$, given the partial
@@ -411,8 +411,7 @@ This simple example leads to the following general definition of conditional pro
 For events $A$ and $B$ with $P \{A\} > 0$, the conditional probability of event 
 $B$, given that event $A$ has
 occurred, is
-$
-\[P {B|A} = \frac{P \{A \cap B\}}{P \{A\}}.\]
+\[P \{B|A\} = \frac{P \{A \cap B\}}{P \{A\}}.\]
 
 
 :::{.example}
@@ -421,7 +420,7 @@ purchase, 40\% include a 16 MP camera and 30\% include both. If a randomly selec
 includes a 16 MP camera, what is the probability that a 64GB hard disk is also included?
 The conditional probability is given by
 \[P \{\text{$64$ GB}|\text{$16$ MP}\} =
-  P \{\text{$64$ GB} \cap \text{$16$ MP}\}
+  \frac{P \{\text{$64$ GB} \cap \text{$16$ MP}\}}{P\{\text{$16$ MP}\}}
   = \frac{0.3}{0.4} = 0.75.\]
 
 :::
@@ -475,7 +474,7 @@ developed a fault in the first year --- what is the probability that it was made
 ```{r, echo = FALSE}
 library(tidyverse)
 phones_data <- tibble(Company = c("A Pale", "B Sung", "C Windows"),
-                      "Market share" = c("30%", "40%", "50%"),
+                      "Market share" = c("30%", "40%", "30%"),
                       "Percent defective" = c("5%", "8%", "10%"))
 center_tab(phones_data)
 ```
@@ -504,7 +503,7 @@ This last expression is called the *total probability formula* for $P \{A\}$.
 a randomly selected phone develops a fault within one year. Let $B_1, B_2, B_3$ be the events that the
 phone is manufactured respectively by companies A Pale, B Sung and C Windows. Then we have:
 \begin{align*}
-P \{A\} &= P \{B1 \}P \{A|B1 \} + P \{B2 \}P \{A|B2 \} + P \{B3 \}P \{A|B3 \} \\
+P \{A\} &= P \{B_1 \}P \{A|B_1 \} + P \{B_2 \}P \{A|B_2 \} + P \{B_3 \}P \{A|B_3 \} \\
 &= 0.30 \times 0.05 + 0.40 \times 0.08 + 0.30 \times 0.10 \\
 &= 0.077.
 \end{align*}

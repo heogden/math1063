@@ -249,7 +249,7 @@ If $Y=g(X)$ for any function $g(\cdot)$, then $Y$ is a random variable as well. 
 \int_{-\infty}^{\infty} g(x) f(x) d x & \text { if $X$ is continuous.}
  \end{cases}\]
  
-For example, if $X$ is continuous, then $E(X^2) = \int_{-\infty}{\infty} x^2 f(x) dx$.
+For example, if $X$ is continuous, then $E(X^2) = \int_{-\infty}^{\infty} x^2 f(x) dx$.
 We prove one important property
 of expectation, namely expectation is a linear operator.
 
@@ -266,7 +266,7 @@ E(Y ) &= \int_{-\infty}^\infty (ax + b) f(x)dx \\
 &= aE(X) + b,
 \end{align*}
 using the total probability is 1 property
-($-\infty f (x)dx = 1$) in the last integral.
+($\int_{-\infty}^\infty f (x)dx = 1$) in the last integral.
 :::
 
  This is very convenient, e.g. suppose $E(X) = 5$ and
@@ -418,7 +418,7 @@ widget. Let $X$ be the number of defective widgets in a bag, then
 $X \sim \operatorname{Bin}(n = 10, p = 0.01).$
 So this
 probability is equal to
-\[P (X = 0) + P (X = 1) = (0.99)10 + 10(0.01)1 (0.99)9 = 0.9957.\]
+\[P (X = 0) + P (X = 1) = (0.99)^{10} + 10(0.01)^1 (0.99)^9 = 0.9957.\]
 Hence the probability that a refund is required is $1 - 0.9957 = 0.0043$, 
 i.e. only just over 4 in 1000
 bags will incur the refund on average.

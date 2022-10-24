@@ -562,7 +562,7 @@ which does not depend on $k$. Note that the event $X>s+k$ and $X>k$ implies and 
 
 
 #### Expectation and variance
-Let $X \sim \operatorname{Geo}(p)$. We can show that $E(X)=p$ using the negative binomial series:
+Let $X \sim \operatorname{Geo}(p)$. We can show that $E(X)=1/p$ using the negative binomial series:
 
 ::: {.theorem name="Negative binomial series"}
 For any positive integer $n$ and real number $x$ such that $|x|<1$

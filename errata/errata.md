@@ -40,3 +40,5 @@ $\int_{-\infty}^\infty f (x)dx = 1$ not $-\infty f (x)dx = 1$.
 \[(0.99)^{10} + 10(0.01)^1 (0.99)^9\]
 not
 \[(0.99)10 + 10(0.01)1 (0.99)9.\]
+- In Section 3.4.3.3, on the first line, it should state
+$E(X) = 1/p$, not $E(X) = p$.

@@ -40,5 +40,10 @@ $\int_{-\infty}^\infty f (x)dx = 1$ not $-\infty f (x)dx = 1$.
 \[(0.99)^{10} + 10(0.01)^1 (0.99)^9\]
 not
 \[(0.99)10 + 10(0.01)1 (0.99)9.\]
+- In Section 3.4.2.3, in the proof that $E(X) = np$, the second line of the display should include the term $\frac{n!}{x!(n-x)!}$ not $\frac{(n ! x) !}{x !(n-x)}$.
 - In Section 3.4.3.3, on the first line, it should state
 $E(X) = 1/p$, not $E(X) = p$.
+- In Section 3.4.6.2, in the second line of the derivation
+of $E(X)$, the final fraction should be $\frac{\lambda^{x}}{x!}$
+not $\frac{\lambda^{x}}{x^! !}$. In the fifth line, the sum
+should not be in the exponent.

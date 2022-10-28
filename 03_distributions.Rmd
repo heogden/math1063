@@ -465,7 +465,7 @@ Let $X \sim \operatorname{Bin}(n, p)$. We have
 Below we prove that $E(X)=n p$. Recall that $k !=k(k-1) !$ for any $k>0$.
 \begin{align*}
 E(X) &=\sum_{x=0}^{n} x \binom{n}{x} p^{x}(1-p)^{n-x} \\
-&=\sum_{x=1}^{n} x \frac{(n ! x) !}{x !(n-x)} p^{x}(1-p)^{n-x} \\
+&=\sum_{x=1}^{n} x \frac{n!}{x !(n-x)!} p^{x}(1-p)^{n-x} \\
 &=\sum_{x=1}^{n} \frac{n !}{(x-1) !(n-x) !} p^{x}(1-p)^{n-x} \\
 &=n p \sum_{x=1}^{n} \frac{(n-1) !}{(x-1) !(n-1-x+1) !} p^{x-1}(1-p)^{n-1-x+1} \\
 &=n p \sum_{y=0}^{n-1} \frac{(n-1) !}{y!(n-1-y)!} p^{y}(1-p)^{n-1-y} \\
@@ -656,12 +656,12 @@ We write $X \sim \operatorname{Poisson}(\lambda)$. It is easy to show $\sum_{x=0
 Let $X \sim \operatorname{Poisson}(\lambda)$. Then
 \begin{align*}
 E(X) &=\sum_{x=0}^{\infty} x P(X=x) \\
-&=\sum_{x=0}^{\infty} x e^{-\lambda} \frac{\lambda^{x}}{x^{!} !} \\
+&=\sum_{x=0}^{\infty} x e^{-\lambda} \frac{\lambda^{x}}{x!} \\
 &=e^{-\lambda} \sum_{x=1}^{\infty} x \frac{\lambda^{x}}{x !} \\
 &=e^{-\lambda} \sum_{x=1}^{\infty} \frac{\lambda \cdot \lambda^{(x-1)}}{(x-1) !} \\
-&=\lambda e^{-\lambda \sum_{x=1}^{\infty} \frac{\lambda^{(x-1)}}{(x-1) !}} \\
-&=\lambda e^{-\lambda} \sum_{y=0}^{\infty} \frac{\lambda^{y}}{y !}[y=x-1] \\
-&=\lambda e^{-\lambda} e^{\lambda} \quad [\text {using the expansion of $e^{\lambda}$}  \\
+&=\lambda e^{-\lambda} \sum_{x=1}^{\infty} \frac{\lambda^{(x-1)}}{(x-1) !} \\
+&=\lambda e^{-\lambda} \sum_{y=0}^{\infty} \frac{\lambda^{y}}{y !} \quad (y=x-1) \\
+&=\lambda e^{-\lambda} e^{\lambda} \quad \text {using the expansion of $e^{\lambda}$}  \\
 &=\lambda .
 \end{align*}
 
@@ -672,7 +672,7 @@ E[X(X-1)] &=\sum_{x=0}^{\infty} x(x-1) P(X=x) \\
 &=\sum_{x=0}^{\infty} x(x-1) e^{-\lambda} \frac{\lambda^{x}}{x^{\prime}} \\
 &=e^{-\lambda} \sum_{x=2}^{\infty} x(x-1) \frac{\lambda^{\lambda^{x}}}{x !} \\
 &=e^{-\lambda} \sum_{x=2}^{\infty} \lambda^{2} \frac{\lambda^{x-2}}{(x-2) !} \\
-&=\lambda^{2} e^{-\lambda} \sum_{y=0}^{\infty} \frac{\lambda^{y}}{y !}[y=x-2] \\
+&=\lambda^{2} e^{-\lambda} \sum_{y=0}^{\infty} \frac{\lambda^{y}}{y !} \quad (y=x-2) \\
 &=\lambda^{2} e^{-\lambda} e^{\lambda}=\lambda^{2} \quad \text {using the expansion of $e^{\lambda}$.} 
 \end{align*}
 Now, $E\left(X^{2}\right)=E[X(X-1)]+E(X)=\lambda^{2}+\lambda$. Hence,

@@ -47,3 +47,18 @@ $E(X) = 1/p$, not $E(X) = p$.
 of $E(X)$, the final fraction should be $\frac{\lambda^{x}}{x!}$
 not $\frac{\lambda^{x}}{x^! !}$. In the fifth line, the sum
 should not be in the exponent.
+- In Section 3.4.6.3, in the second line of the derivation
+of $\operatorname{Var}(X)$, $x'$ should be $x!$. In
+the third line, $\lambda^{\lambda^x}$ should be $\lambda^x$.
+- In Section 3.5.2.2, in the display for $E(X^2)$ on the third
+line $\frac{d y}{\theta}$ should appear outside of the exponent.
+- In Section 3.5.2.5, in the second line of the proof
+of the memoryless property, the numerator should be 
+$P(X>s+t)$ not $P(X > s > t)$.
+- In Section 3.5.3.4, on the third line of the display for
+$P(a \leq X \leq b)$,
+the upper limit of the integral should be $\frac{b - \mu}{\sigma}$
+not $\sigma$.
+- In Example 3.17, the variance of the raw marks should be $14^2$
+not $142$, and the variance of the scaled marks to be $15^2$
+not $152$.

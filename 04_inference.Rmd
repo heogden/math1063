@@ -649,10 +649,10 @@ The probability density function of the $t_{k}$ distribution is similar to a sta
 plot_data <- crossing(x = seq(-10, 10, length.out = 1000),
                       k = c(1, 2, 5, 20)) %>%
     mutate(pdf = dt(x, df = k),
-           n = as.factor(k))
+           k = as.factor(k))
 
 plot_data %>%
-    ggplot(aes(x = x, y = pdf, colour = n)) +
+    ggplot(aes(x = x, y = pdf, colour = k)) +
     geom_line() +
     geom_function(fun = dnorm, linetype = "dashed", colour = "black")
         
@@ -679,7 +679,7 @@ can use the $t$-distribution-based confidence interval.
 
 
 :::{.example name="Fast food waiting time revisited"}
-We would like to find a confidence interval for the true mean waiting time. If $X$ denotes the waiting time in seconds, we have $n=20, \bar{x}=67.85$, $s=18.36$. Hence, recalling that the critical value $h=2.093$, from the command qt $0.975$, df $=19$ ), a $95 \%$ confidence interval for $\mu$ is
+We would like to find a confidence interval for the true mean waiting time. If $X$ denotes the waiting time in seconds, we have $n=20, \bar{x}=67.85$, $s=18.36$. Hence, recalling that the critical value $h=2.093$, from the command \texttt{qt(0.975, df = 19)}, a $95 \%$ confidence interval for $\mu$ is
 \begin{align*}
 67.85-2.093 \times 18.36 / \sqrt{20} \leq \mu & \leq 67.85+2.093 \times 18.36 / \sqrt{20} \\
 \Rightarrow 59.26 & \leq \mu \leq 76.44 .
@@ -725,3 +725,165 @@ qt(0.975, df = 67)
 
 Note that the interval here does not include the value 0, so it is very likely that the weight gain is significantly positive, which we will justify using what is called hypothesis testing.
 :::
+
+## Hypothesis testing
+
+### Introduction
+
+The manager of a new fast food chain claims that the average waiting time to be served in their restaurant is less than a minute. The marketing department of a mobile phone company claims that their phones never break down in the first three years of their lifetime. A professor of nutrition claims that students gain significant weight in the first year of their life in college away form home. How can we verify these claims? We will learn the procedures of hypothesis testing for such problems.
+
+
+In statistical inference, we use observations $x_{1}, \ldots, x_{n}$ of univariate random variables $X_{1}, \ldots, X_{n}$ in order to draw inferences about the probability distribution $f(x)$ of the underlying random variable $X$. So far, we have mainly been concerned with estimating features (usually unknown parameters) of $f(x)$. It is often of interest to compare alternative specifications for $f(x)$. If we have a set of competing probability models which might have generated the observed data, we may want to determine which of the models is most appropriate. A proposed (hypothesised) model for $X_{1}, \ldots, X_{n}$ is then referred to as a hypothesis, and pairs of models are compared using hypothesis tests.
+
+For example, we may have two competing alternatives, $f^{(0)}(x)$ (model $H_{0}$) and $f^{(1)}(x)$ (model $H_{1}$) for $f(x)$, both of which completely specify the joint distribution of the sample $X_{1}, \ldots, X_{n}$. Completely specified statistical models are called simple hypotheses. Usually, $H_{0}$ and $H_{1}$ both take the same parametric form $f(x, \theta)$, but with different values $\theta^{(0)}$ and $\theta^{(1)}$ of $\theta$. Thus the joint distribution of the sample given by $f(\mathbf{X})$ is completely specified apart from the values of the unknown parameter $\theta$ and $\theta^{(0)} \neq \theta^{(1)}$ are specified alternative values.
+
+More generally, competing hypotheses often do not completely specify the joint distribution of $X_{1}, \ldots, X_{n}$. For example, a hypothesis may state that $X_{1}, \ldots, X_{n}$ is a random sample from the probability distribution $f(x ; \theta)$ where $\theta<0$. This is not a completely specified hypothesis, since it is not possible to calculate probabilities such as $P\left(X_{1}<2\right)$ when the hypothesis is true, as we do not know the exact value of $\theta$. Such an hypothesis is called a composite hypothesis.
+
+Examples of hypotheses:
+
+- $X_{1}, \ldots, X_{n} \sim N\left(\mu, \sigma^{2}\right)$ with $\mu=0, \sigma^{2}=2$.
+- $X_{1}, \ldots, X_{n} \sim N\left(\mu, \sigma^{2}\right)$ with $\mu=0, \sigma^{2} \in \mathcal{R}_{+}$.
+- $X_{1}, \ldots, X_{n} \sim N\left(\mu, \sigma^{2}\right)$ with $\mu \neq 0, \sigma^{2} \in \mathcal{R}_{+}$.
+- $X_{1}, \ldots, X_{n} \sim \operatorname{Bernoulli}(p)$ with $p=\frac{1}{2}$.
+- $X_{1}, \ldots, X_{n} \sim \operatorname{Bernoulli}(p)$ with $p \neq \frac{1}{2}$.
+- $X_{1}, \ldots, X_{n} \sim \operatorname{Bernoulli}(p)$ with $p>\frac{1}{2}$.
+- $X_{1}, \ldots, X_{n} \sim \operatorname{Poisson}(\lambda)$ with $\lambda=1$.
+- $X_{1}, \ldots, X_{n} \sim \operatorname{Poisson}(\theta)$ with $\theta>1$
+
+### Hypothesis testing procedure
+
+A hypothesis test provides a mechanism for comparing two competing statistical models, $H_{0}$ and $H_{1}$. A hypothesis test does not treat the two hypotheses (models) symmetrically. One hypothesis, $H_{0}$, is given special status, and referred to as the null hypothesis. The null hypothesis is the reference model, and is assumed to be appropriate unless the observed data strongly indicate that $H_{0}$ is inappropriate, and that $H_{1}$ (the alternative hypothesis) should be preferred. Hence, the fact that a hypothesis test does not reject $H_{0}$ should not be taken as evidence that $H_{0}$ is true and $H_{1}$ is not, or that $H_{0}$ is better-supported by the data than $H_{1}$, merely that the data does not provide significant evidence to reject $H_{0}$ in favour of $H_{1}$.
+
+A hypothesis test is defined by its critical region or rejection region, which we shall denote by $C$. $C$ is a subset of $\mathcal{R}^{n}$ and is the set of possible observed values of $\mathbf{X}$ which, if observed, would lead to rejection of $H_{0}$ in favour of $H_{1}$, i.e.
+
+$$
+\begin{array}{ll}
+\text { If } \mathbf{x} \in C & H_{0} \text { is rejected in favour of } H_{1} \\
+\text { If } \mathbf{x} \notin C & H_{0} \text { is not rejected }
+\end{array}
+$$
+
+As $\mathbf{X}$ is a random variable, there remains the possibility that a hypothesis test will give an erroneous result. We define two types of error:
+
+\begin{tabular}{|l|}
+\hline Type I error: $H_{0}$ is rejected when it is true \\
+Type II error: $H_{0}$ is not rejected when it is false \\
+\hline
+\end{tabular}
+
+The following table helps to understand further:
+
+\begin{tabular}{|l|l|l|}
+\hline & $H_{0}$ true & $H_{0}$ false \\
+\hline Reject $H_{0}$ & Type I error & Correct decision \\
+\hline Do not reject $H_{0}$ & Correct decision & Type II error \\
+\hline
+\end{tabular}
+
+When $H_{0}$ and $H_{1}$ are simple hypotheses, we can define
+\begin{align*}
+& \alpha=P(\text { Type I error })=P(\mathbf{X} \in C) \quad \text { if $H_{0}$ is true } \\
+& \beta=P(\text { Type II error })=P(\mathbf{X} \notin C) \quad \text { if $H_{1}$ is true }
+\end{align*}
+
+:::{.example name="Uniform"}
+Suppose that we have one observation from the uniform distribution on the range $(0, \theta)$. In this case, $f(x)=1 / \theta$ if $0<x<\theta$ and $P(X \leq x)=\frac{x}{\theta}$ for $0<x<\theta$. We want to test $H_{0}: \theta=1$ against the alternative $H_{1}: \theta=2$. Suppose we decide arbitrarily that we will reject $H_{0}$ if $X>0.75$. Then
+\begin{align*}
+& \alpha=P \text { (Type I error) }=P(X>0.75) \text { if } H_{0} \text { is true } \\
+& \beta=P(\text { Type II error })=P(X<0.75) \text { if } H_{1} \text { is true }
+\end{align*}
+which will imply:
+\[\begin{array}{r}
+\alpha=P(X>0.75 \mid \theta=1)=1-0.75=\frac{1}{4}, \\
+\beta=P(X<0.75 \mid \theta=2)=0.75 / 2=\frac{3}{8} .
+\end{array}\]
+
+:::{.example name="Poisson"}
+The daily demand for a product has a Poisson distribution with mean $\lambda$, the demands on different days being statistically independent. It is desired to test the hypotheses $H_{0}: \lambda=0.7, H_{1}: \lambda=0.3$. The null hypothesis is to be accepted if in 20 days the number of days with no demand is less than 15. Calculate the Type I and Type II error probabilities.
+
+Let $p$ denote the probability that the demand on a given day is zero. Then
+\[p=e^{-\lambda}= \begin{cases}e^{-0.7} & \text { under } H_{0} \\ e^{-0.3} & \text { under } H_{1}\end{cases}\]
+
+If $X$ denotes the number of days out of 20 with zero demand, it follows that
+\begin{align*}
+&X \sim \operatorname{Binomial}\left(20, e^{-0.7}\right) \text { under } H_{0}, \\
+&X \sim \operatorname{Binomial}\left(20, e^{-0.3}\right) \text { under } H_{1}.
+\end{align*}
+Thus
+\begin{align*}
+\alpha &=P\left(\text { Reject } H_{0} \mid H_{0} \text { true }\right) \\
+&=P\left(X \geq 15 \mid X \sim \operatorname{Binomial}\left(20, e^{-0.7}\right)\right) \\
+&=1-P(X \leq 14 \mid X \sim \operatorname{Binomial}(20,0.4966)) \\
+&=1-0.98028 \\
+&=0.01923 \, (\texttt{1-pbinom (14, size=20, prob=0.4966)})
+\end{align*}
+
+Furthermore
+\begin{align*}
+\beta &=P\left(\text { Accept } H_{0} \mid H_{1} \text { true }\right) \\
+&=P\left(X \leq 14 \mid X \sim \operatorname{Binomial}\left(20, e^{-0.3}\right)\right) \\
+&=P(X \leq 14 \mid X \sim \operatorname{Binomial}(20,0.7408)) \\
+&=0.42023  \, (\texttt{1-pbinom (14, size=20, prob=0.7408)})
+\end{align*}
+
+Sometimes $\alpha$ is called the size (or significance level) of the test and $\omega \equiv 1-\beta$ is called the power of the test. Ideally, we would like to avoid error so we would like to make both $\alpha$ and $\beta$ as small as possible. In other words, a good test will have small size, but large power. However, it is not possible to make $\alpha$ and $\beta$ both arbitrarily small. For example if $C=\emptyset$ then $\alpha=0$, but $\beta=1$. On the other hand if $C=\mathbf{S}=\mathcal{R}^{n}$ then $\beta=0$, but $\alpha=1$.
+
+The general hypothesis testing procedure is to fix $\alpha$ to be some small value (often 0.05), so that the probability of a Type I error is limited. In doing this, we are giving $H_{0}$ precedence over $H_{1}$, and acknowledging that Type I error is potentially more serious than Type II error. (Note that for discrete random variables, it may be difficult to find $C$ so that the test has exactly the required size). Given our specified $\alpha$, we try to choose a test, defined by its rejection region $C$, to make $\beta$ as small as possible, i.e. we try to find the most powerful test of a specified size. Where $H_{0}$ and $H_{1}$ are simple hypotheses this can be achieved easily.
+
+Note that tests are usually based on a one-dimensional test statistic $T(\mathbf{X})$ whose sample space is some subset of $\mathcal{R}$. The rejection region is then a set of possible values for $T(\mathbf{X})$, so we also think of $C$ as a subset of $\mathcal{R}$. In order to be able to ensure the test has size $\alpha$, the distribution of the test statistic under $H_{0}$ should be known.
+
+### The test statistic
+
+We perform a hypothesis test by computing a test statistic, $T(\boldsymbol{X})$. A test statistic must (obviously) be a statistic (i.e. a function of $\boldsymbol{X}$ and other known quantities only). Furthermore, the random variable $T(\boldsymbol{X})$ must have a distribution which is known under the null hypothesis. The easiest way to construct a test statistic is to obtain a pivot for $\theta$. If $T(\boldsymbol{X}, \theta)$ is a pivot for $\theta$ then its sampling distribution is known and, therefore, under the null hypothesis $\left(\theta=\theta_{0}\right)$ the sampling distribution of $T\left(\boldsymbol{X}, \theta_{0}\right)$ is known. Hence $T\left(\boldsymbol{x}, \theta_{0}\right)$ is a test statistic, as it depends on observed data $\boldsymbol{x}$ and the hypothesised value $\theta_{0}$ only. We then assess the plausibility of $H_{0}$ by evaluating whether $T\left(\boldsymbol{x}, \theta_{0}\right)$ seems like a reasonable observation from its (known) distribution. This is all rather abstract. How does it work in a concrete example?
+
+### Testing a normal mean $\mu$
+
+Suppose that we observe data $x_{1}, \ldots, x_{n}$ which are modelled as observations of i.i.d. $N\left(\mu, \sigma^{2}\right)$ random variables $X_{1}, \ldots, X_{n}$, and we want to test the null hypothesis
+
+\[H_{0}: \mu=\mu_{0}\]
+against the alternative hypothesis
+\[H_{1}: \mu \neq \mu_{0}.\]
+We recall that
+\[\sqrt{n} \frac{(\bar{X}-\mu)}{S} \sim t_{n-1}\]
+and therefore, when $H_{0}$ is true, often written as under $H_{0}$,
+\[\sqrt{n} \frac{\left(\bar{X}-\mu_{0}\right)}{S} \sim t_{n-1}\]
+so $\sqrt{n}\left(\bar{X}-\mu_{0}\right) / s$ is a test statistic for this test. The sampling distribution of the test statistic when the null hypothesis is true is called the null distribution of the test statistic. In this example, the null distribution is the t-distribution with $n-1$ degrees of freedom.
+
+This test is called a $t$-test. We reject the null hypothesis $H_{0}$ in favour of the alternative $H_{1}$ if the observed test statistic seems unlikely to have been generated by the null distribution.
+
+::: {.example name="Weight gain"}
+For the weight gain data, if $x$ denotes the differences in weight gain, we have $\bar{x}=0.8672$, $s=0.9653$ and $n=68$. Hence our test statistic for the null hypothesis $H_{0}: \mu=\mu_{0}=0$ is
+\[\sqrt{n} \frac{\left(\bar{x}-\mu_{0}\right)}{s}=7.41.\]
+
+The observed value of $7.41$ does not seem reasonable from Figure \@ref(fig:t-pdf-wtgain), which shows the density of the $t$-distribution with 67 degrees of freedom, and a vertical line at the observed value of $7.41$. So there may be evidence here to reject $H_{0}: \mu=0$.
+
+```{r t-pdf-wtgain, echo = FALSE, fig.cap = "The density of the $t_{67}$ distribution. The dashed line shows the observed value of the test statistic for the weight gain data.", fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
+plot_data <- tibble(x = seq(-10, 10, length.out = 1000)) %>%
+    mutate(pdf = dt(x, df = 67))
+
+plot_data %>%
+    ggplot(aes(x = x, y = pdf)) +
+    geom_line() +
+    geom_vline(xintercept = 7.41, linetype = "dashed")
+        
+```
+:::
+
+::: {.example name="Fast food waiting time revisited"}
+Suppose the manager of the fast food outlet claims that the average waiting time is only 60 seconds. So, we want to test $H_{0}: \mu=60$. We have $n=20, \bar{x}=67.85, s=18.36$. Hence our test statistic for the null hypothesis $H_{0}: \mu=\mu_{0}=60$ is
+\[\sqrt{n} \frac{\left(\bar{x}-\mu_{0}\right)}{s}=\sqrt{20} \frac{(67.85-60)}{18.36}=1.91.\]
+
+The observed value of $1.91$ may or may not be reasonable from Figure \@ref(fig:t-pdf-fastfood), which shows the density of the $t$-distribution with 19 degrees of freedom, and a vertical line at the observed value of $1.91$. This value is a bit out in the tail but we are not sure, unlike in the previous weight gain example. So how can we decide whether to reject the null hypothesis?
+
+```{r t-pdf-fastfood, echo = FALSE, fig.cap = "The density of the $t_{19}$ distribution. The dashed line shows the observed value of the test statistic for the fast food data.", fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
+plot_data <- tibble(x = seq(-7, 7, length.out = 1000)) %>%
+    mutate(pdf = dt(x, df = 19))
+
+plot_data %>%
+    ggplot(aes(x = x, y = pdf)) +
+    geom_line() +
+    geom_vline(xintercept = 1.91, linetype = "dashed")
+        
+```
+:::
+

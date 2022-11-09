@@ -5,21 +5,19 @@
 ### Introduction 
 
 Statistical analysis (or inference) involves drawing conclusions, and making predictions and decisions, using the evidence provided to us by observed data. To do this we use probability distributions, often called statistical models, to describe the process by which the observed data were
-generated. For example, we may suppose that the true proportion of Indian origin students is $p$,
+generated. For example, we may suppose that the true proportion of
+mature students is $p$,
 $0 < p < 1$, and if we have selected $n$ students at random, 
 that each of those students gives rise to a
-Bernoulli distribution which takes the value $1$ if the student is of Indian origin and $0$
+Bernoulli distribution which takes the value $1$ if the student is a
+mature student and $0$
 otherwise. The
 success probability of the Bernoulli distribution will be the unknown $p$. The underlying statistical
 model is then the Bernoulli distribution.
-<!-- TODO: change example here? -->
 
 To illustrate with another example, suppose we have observed fast food waiting times in the
-morning and afternoon. If we assume time (number of whole seconds) to be discrete, then a
-suitable model for the random variable $X =$ "the number of seconds waited" would be the Poisson
-distribution. However, if we treat time as continuous then the random variable $X =$ "the waiting
-time" could be modelled as a normal random variable. 
-<!-- TODO: add reference to exponential distribution? -->
+morning and afternoon. If we treat time as continuous then the random variable $X =$ "the waiting
+-time" could potentially be modelled as a normal random variable. 
 
 In general:
 
@@ -37,7 +35,6 @@ For the fast food waiting
 time example, we have $n = 20$, $x_1 = 38, x_2 = 100, \ldots, x_{20} = 70$, and 
 $X_i$ is the waiting time for the $i$th person in the sample.
  
-<!-- TODO refer back to data -->
  
 ### Statistical models
 
@@ -55,11 +52,9 @@ as
 
 Assumption 1 depends on the sampling mechanism and is very common in practice. If we are
 to make this assumption for the Southampton student sampling experiment, we need to select
-randomly among all possible students. We should not get the sample from an event in the Indian
-or Chinese Student Association as that will give us a biased result. The assumption will be violated when samples are correlated either in time or in space, e.g. the daily air pollution level in
+randomly among all possible students. The assumption will be violated when samples are correlated either in time or in space, e.g. the daily air pollution level in
 Southampton for the last year or the air pollution levels in two nearby locations in Southampton.
 In this module we will only consider data sets where Assumption 1 is reasonable.
-<!-- TODO: update to new example -->
 
 Assumption 2 is not
 always appropriate, but is often reasonable when we are modelling a single variable. In the fast

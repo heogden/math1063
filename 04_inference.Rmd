@@ -1057,3 +1057,88 @@ Example \@ref(exm:wtgain-ci).
 This interval does not include the hypothesised value 0 of $\mu$. Hence we can conclude that the hypothesis test at the $5 \%$ level of significance will reject the null hypothesis $H_{0}: \mu=0$. 
 
 This is because \[\left|T_\text{obs}=\frac{\sqrt{n}\left(\bar{x}-\mu_{0}\right)}{s}\right|>h\] implies and is implied by $\mu_{0}$ being outside the interval \[(\bar{x}-h s / \sqrt{n}, \bar{x}+h s / \sqrt{n}).\] Notice that $h$ is the same in both. For this reason we often just calculate the confidence interval and take the reject/do not reject decision merely by inspection.
+
+### Two sample t-tests
+
+
+Suppose that we observe two samples of data, $x_{1}, \ldots, x_{n}$ and $y_{1}, \ldots, y_{m}$, and that we propose to model them as observations of
+\[X_{1}, \ldots, X_{n} \stackrel{i.i.d.}{\sim} N\left(\mu_{X}, \sigma_{X}^{2}\right)\]
+and
+\[Y_{1}, \ldots, Y_{m} \stackrel{\text { i.i.d. }}{\sim} N\left(\mu_{Y}, \sigma_{Y}^{2}\right)\]
+respectively, where it is also assumed that the $X$ and $Y$ variables are independent of each other. Suppose that we want to test the hypothesis that the distributions of $X$ and $Y$ are identical, that is
+\[H_{0}: \mu_{X}=\mu_{Y}, \quad \sigma_{X}=\sigma_{Y}=\sigma\]
+against the alternative hypothesis
+\[H_{1}: \mu_{X} \neq \mu_{Y}.\]
+
+<!-- TODO: change to remove $\sigma_X$, $\sigma_Y$ from setup? -->
+
+<!-- TODO more specific ref? -->
+In the Chapter 3 we proved that
+\[\bar{X} \sim N\left(\mu_{X}, \sigma_{X}^{2} / n\right) \text { and } \bar{Y} \sim N\left(\mu_{Y}, \sigma_{Y}^{2} / m\right)\]
+and therefore
+\[\bar{X}-\bar{Y} \sim N\left(\mu_{X}-\mu_{Y}, \frac{\sigma_{X}^{2}}{n}+\frac{\sigma_{Y}^{2}}{m}\right).\]
+
+Hence, under $H_{0}$,
+\[\bar{X}-\bar{Y} \sim N\left(0, \sigma^{2}\left[\frac{1}{n}+\frac{1}{m}\right]\right) \Rightarrow \sqrt{\frac{n m}{n+m}} \frac{(\bar{X}-\bar{Y})}{\sigma} \sim N(0,1).\]
+
+The involvement of the (unknown) $\sigma$ above means that this is not a pivotal test statistic. It will be proved in MATH2011 that if $\sigma$ is replaced by its unbiased estimator $S$, which here is the two-sample estimator of the common standard deviation, given by
+\[S^{2}=\frac{\sum_{i=1}^{n}\left(X_{i}-\bar{X}\right)^{2}+\sum_{i=1}^{m}\left(Y_{i}-\bar{Y}\right)^{2}}{n+m-2},\]
+then
+\[\sqrt{\frac{n m}{n+m}} \frac{(\bar{X}-\bar{Y})}{S} \sim t_{n+m-2}.\]
+Hence
+\[t=\sqrt{\frac{n m}{n+m}} \frac{(\bar{x}-\bar{y})}{s}\]
+is a test statistic for this test. The rejection region is $|t|>h$ where $-h$ is the $\alpha / 2$ (usually $0.025$ ) percentile of $t_{n+m-2}$.
+
+From the hypothesis testing, a $100(1-\alpha) \%$ confidence interval
+for $\mu_{X}-\mu_{Y}$
+is given by
+\[\bar{x}-\bar{y} \pm h \sqrt{\frac{n+m}{n m}} s,\]
+where $-h$ is the $\alpha / 2$ (usually $0.025$ ) percentile of $t_{n+m-2}$.
+
+:::{ .example name="Fast food waiting time"}
+In this example, we would like to know if there are significant differences between the AM and PM waiting times. Here $n=m=10$, $\bar{x}=68.9$, $\bar{y}=66.8$, $s_{x}^{2}=538.22$ and $s_{y}^{2}=171.29$. From this we calculate,
+\[s^{2}=\frac{(n-1) s_{x}^{2}+(m-1) s_{y}^{2}}{n+m-2}=354.8,\]
+and
+\[t_{\text{obs}}=\sqrt{\frac{n m}{n+m}} \frac{(\bar{x}-\bar{y})}{s}=0.25.\]
+This is not significant as the critical value $h = \texttt{qt(0.975, df = 18)}=2.10$ is larger in absolute value than $0.25$.
+We can conduct the test easily in R:
+```{r}
+fastfood_am <- c(38, 100, 64, 43, 63, 59, 107, 52, 86, 77)
+fastfood_pm <- c(45, 62, 52, 72, 81, 88, 64, 75, 59, 70)
+t.test(fastfood_am, fastfood_pm)
+```
+It automatically calculates the test statistic as $0.249$ and a p-value of $0.8067$. It also obtains the $95 \%$ CI given by $(-15.94,20.14)$.
+:::
+
+### Paired t-test
+
+Sometimes the assumption that the $X$ and $Y$ variables are independent of each other is unlikely to be valid, due to the design of the study. The most common example of this is where $n=m$ and data are paired. For example, a measurement has been made on patients before treatment $(X)$ and then again on the same set of patients after treatment $(Y)$. Recall the weight gain example is exactly of this type. In such examples, we proceed by computing data on the differences
+\[z_{i}=x_{i}-y_{i}, \quad i=1, \ldots, n\]
+and modelling these differences as observations of i.i.d. $N\left(\mu_{z}, \sigma_{Z}^{2}\right)$ variables $Z_{1}, \ldots, Z_{n}$. Then, a test of the hypothesis $\mu_{X}=\mu_{Y}$ is achieved by testing $\mu_{Z}=0$, which is just a standard (one sample) t-test, as described previously.
+
+::: {.example}
+Water-quality researchers wish to measure the biomass to chlorophyll ratio for phytoplankton (in milligrams per litre of water). There are two possible tests, one less expensive than the other. To see whether the two tests give the same results, ten water samples were taken and each was measured both ways. The results are as follows:
+
+\begin{tabular}{l|llllllllll} 
+Test 1 $(x)$ & $45.9$ & $57.6$ & $54.9$ & $38.7$ & $35.7$ & $39.2$ & $45.9$ & $43.2$ & $45.4$ & $54.8$ \\
+Test 2 (y) & $48.2$ & $64.2$ & $56.8$ & $47.2$ & $43.7$ & $45.7$ & $53.0$ & $52.0$ & $45.1$ & $57.5$
+\end{tabular}
+:::
+
+To test the null-hypothesis
+\[H_{0}: \mu_{Z}=0 \text { against } H_{1}: \mu_{Z} \neq 0\]
+we use the test statistic $t=\sqrt{n} \frac{\bar{z}}{s_{z}}$, where $s_{z}^{2}=\frac{1}{n-1} \sum_{i=1}^{n}\left(z_{i}-\bar{z}\right)^{2}$.
+
+From the hypothesis testing, a $100(1-\alpha) \%$ confidence interval
+for $\mu_Z$ is given by $\bar{z} \pm h \frac{s_{z}}{\sqrt{n}}$, where $h$ is the critical value of the $t$ distribution with $n-1$ degrees of freedom. In R we perform the test as follows:
+
+```{r}
+x <- c(45.9, 57.6, 54.9, 38.7, 35.7, 39.2, 45.9, 43.2, 45.4, 54.8)
+y <- c(48.2, 64.2, 56.8, 47.2, 43.7, 45.7, 53.0, 52.0, 45.1, 57.5)
+
+t.test(x, y, paired = TRUE)
+```
+
+This gives the test statistic $t_{\text{obs}}=-5.0778$ with a df of 9 and a p-value $=0.0006649$. Thus we reject the null hypothesis. The associated $95 \%$ CI is $(-7.53,-2.89)$.
+
+The values of the second test are significantly higher than the ones of the first test, and so the second test cannot be considered as a replacement for the first.

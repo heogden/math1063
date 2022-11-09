@@ -292,4 +292,107 @@ Now
 &=\frac{\theta^{2}}{(n+1)^{2}}\left(\frac{n}{n+2}+1\right) \\
 &=\frac{\theta^{2}}{(n+1)^{2}} \frac{2 n+2}{n+2} .
 \end{align*}
-The MSE of $\hat{\theta}_{2}$ is an order of magnitude (of order $n^{2}$ rather than $n$ ) smaller than the MSE of $\hat{\theta}_{1}$, providing justification for the preference of $\hat{\theta}_{2}=\max \left\{X_{1}, X_{2}, \ldots, X_{n}\right\}$ as an estimator of $\theta$.
+The MSE of $\hat{\theta}_{2}$ is an order of magnitude smaller than the MSE of $\hat{\theta}_{1}$
+(of order $1/n^{2}$ rather than $1/n$), providing justification for the preference of $\hat{\theta}_{2}=\max \left\{X_{1}, X_{2}, \ldots, X_{n}\right\}$ as an estimator of $\theta$.
+
+## Estimating the population mean
+
+### Introduction
+
+Often, one of the main tasks of a statistician is to estimate a population average or mean. However the estimates, using whatever procedure, will not be usable or scientifically meaningful if we do not know their associated uncertainties. For example, a statement such as: "the Arctic ocean will be completely ice-free in the summer in the next few decades" provides little information as it does not communicate the extent or the nature of the uncertainty in it. Perhaps a more precise statement could be: "the Arctic ocean will be completely ice-free in the summer some time in the next 20-30 years". This last statement not only gives a numerical value for the number of years for complete ice-melt in the summer, but also acknowledges the uncertainty of $\pm 5$ years in the estimate. A statistician's main job is to estimate such uncertainties. In this lecture, we will get started with estimating uncertainties when we estimate a population mean. We will introduce the standard error of an estimator.
+
+### Estimation of a population mean
+
+Suppose that $X_{1}, \ldots, X_{n}$ is a random sample from any probability distribution $f(x)$, which may be discrete or continuous. Suppose that we want to estimate the unknown population mean $E(X)=\mu$ and variance, $\operatorname{Var}(X)=\sigma^{2}$. In order to do this, it is not necessary to make any assumptions about $f(x)$, so this may be thought of as nonparametric inference.
+
+We have the following results: 
+
+::: {.theorem #sample-mean-unbiased}
+Suppose $X_1, \ldots, X_n$ is a random sample, 
+with $E(X)=\mu$. The sample mean
+\[\bar{X}=\frac{1}{n} \sum_{i=1}^{n} X_{i}\]
+is an unbiased estimator of $\mu=E(X)$, i.e. $E(\bar{X})=\mu$.
+:::
+
+In other words, the sample mean is an unbiased estimator of the population mean.
+
+::: {.proof}
+We have
+\[E[\bar{X}]=\frac{1}{n} \sum_{i=1}^{n} E\left(X_{i}\right)=\frac{1}{n} \sum_{i=1}^{n} E(X)=E(X)\]
+so $\bar{X}$ is an unbiased estimator of $E(X)$.
+:::
+
+::: {.theorem #var-sample-mean}
+Suppose $X_1, \ldots, X_n$ is a random sample, with $\operatorname{Var}(X)=\sigma^{2}$.
+Then
+\[\operatorname{Var}(\bar{X})=\frac{\sigma^{2}}{n}.\]
+:::
+
+::: {.proof}
+We use the result that for independent random variables the variance of the sum is the sum of the variances from Section \@ref(sec:sum-rvs) . Thus,
+\[\operatorname{Var}[\bar{X}]=\frac{1}{n^{2}} \sum_{i=1}^{n} \operatorname{Var}\left(X_{i}\right)=\frac{1}{n^{2}} \sum_{i=1}^{n} \operatorname{Var}(X)=\frac{n}{n^{2}} \operatorname{Var}(X)=\frac{\sigma^{2}}{n},\]
+:::
+
+Together, Theorems \@ref(thm:sample-mean-unbiased) and \@ref(thm:var-sample-mean)
+imply that the MSE of $\bar{X}$ is $\operatorname{Var}(X) / n$.
+
+::: {.theorem}
+Suppose $X_1, \ldots, X_n$ is a random sample, 
+with $\operatorname{Var}(X)=\sigma^{2}$. The sample variance with divisor $n-1$
+\[S^{2}=\frac{1}{n-1} \sum_{i=1}^{n}\left(X_{i}-\bar{X}\right)^{2}\]
+is an unbiased estimator of $\sigma^{2}$, i.e. $E\left(S^{2}\right)=\sigma^{2}$.
+:::
+
+In other words, the sample variance is an unbiased estimator of the population variance.
+
+::: {.proof}
+We need to show
+$E\left(S^{2}\right)=\sigma^{2}$. We have
+\[S^{2}=\frac{1}{n-1} \sum_{i=1}^{n}\left(X_{i}-\bar{X}\right)^{2}=\frac{1}{n-1}\left[\sum_{i=1}^{n} X_{i}^{2}-n \bar{X}^{2}\right].\]
+To evaluate the expectation of the above, we need $E\left(X_{i}^{2}\right)$ and $E\left(\bar{X}^{2}\right)$. In general, we know for any random variable,
+\[\operatorname{Var}(Y)=E\left(Y^{2}\right)-(E(Y))^{2} \quad \Rightarrow E\left(Y^{2}\right)=\operatorname{Var}(Y)+(E(Y))^{2}.\]
+Thus, we have
+\[E\left(X_{i}^{2}\right)=\operatorname{Var}\left(X_{i}\right)+\left(E\left(X_{i}\right)\right)^{2}=\sigma^{2}+\mu^{2},\]
+and
+\[E\left(\bar{X}^{2}\right)=\operatorname{Var}(\bar{X})+(E(\bar{X}))^{2}=\sigma^{2} / n+\mu^{2},\]
+from Theorems \@ref(thm:sample-mean-unbiased) and \@ref(thm:var-sample-mean).
+So
+\begin{align*}
+E\left(S^{2}\right) &=E\left\{\frac{1}{n-1}\left[\sum_{i=1}^{n} X_{i}^{2}-n \bar{X}^{2}\right]\right\} \\
+&=\frac{1}{n-1}\left[\sum_{i=1}^{n} E\left(X_{i}^{2}\right)-n E\left(\bar{X}^{2}\right)\right] \\
+&=\frac{1}{n-1}\left[\sum_{i=1}^{n}\left(\sigma^{2}+\mu^{2}\right)-n\left(\sigma^{2} / n+\mu^{2}\right)\right] \\
+&=\frac{1}{n-1}\left[n \sigma^{2}+n \mu^{2}-\sigma^{2}-n \mu^{2}\right] \\
+&=\sigma^{2} \equiv \operatorname{Var}(X) .
+\end{align*}
+:::
+
+
+### Standard deviation and standard error
+
+For an unbiased  estimator $\tilde{\theta}$,
+\[\operatorname{MSE}(\tilde{\theta})=\operatorname{Var}(\tilde{\theta})\]
+and therefore the sampling variance of the estimator is an important summary of its quality.
+
+We usually prefer to focus on the standard deviation of the sampling distribution of $\tilde{\theta}$,
+\[\text {s.d.}(\tilde{\theta})=\sqrt{\operatorname{Var}(\tilde{\theta})}.\]
+
+In practice we will not know s.d.$(\tilde{\theta})$, as it will typically depend on unknown features of the distribution of $X_{1}, \ldots, X_{n}$. However, we may be able to estimate s.d.$(\tilde{\theta})$ using the observed sample $x_{1}, \ldots, x_{n}$. We define the standard error, s.e.$(\tilde{\theta})$, of an estimator $\tilde{\theta}$ to be an estimate of the standard deviation of its sampling distribution, s.d.$(\tilde{\theta})$.
+
+Standard error of an estimator is an estimate of the standard deviation of its sampling distribution
+
+We proved that
+\[\operatorname{Var}[\bar{X}]=\frac{\sigma^{2}}{n} \Rightarrow \text { s.d. }(\bar{X})=\frac{\sigma}{\sqrt{n}}.\]
+
+As $\sigma$ is unknown, we cannot calculate this standard deviation. However, we know that $E\left(S^{2}\right)=\sigma^{2}$, i.e. that the sample variance is an unbiased estimator of the population variance. Hence $S^{2} / n$ is an unbiased estimator for $\operatorname{Var}(\bar{X})$. Therefore we obtain the standard error of the mean, s.e. $(\bar{X})$, by plugging in the estimate
+\[s=\left(\frac{1}{n-1} \sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}\right)^{1 / 2}\]
+   of $\sigma$ into s.d.$(\bar{X})$ to obtain
+   \[\text {s.e.}(\bar{X})=\frac{s}{\sqrt{n}}.\]
+
+<!-- TODO: refer back to computer failure data in C1 -->
+Therefore, for the computer failure data, our estimate, $\bar{x}=3.75$, for the population mean is associated with a standard error
+\[\text{s.e.}(\bar{X})=\frac{3.381}{\sqrt{104}}=0.332.\]
+
+Note that this is "a" standard error, so other standard errors may be available. Indeed, for parametric inference, where we make assumptions about $f(x)$, alternative standard errors are available. 
+For example, if $X_{1}, \ldots, X_{n}$ are i.i.d. $\operatorname{Poisson}(\lambda)$ random variables,
+$E(X)=\lambda$, so $\bar{X}$ is an unbiased estimator of $\lambda$. $\operatorname{Var}(X)=\lambda$, so another $\text{s.e.}(\bar{X})=\sqrt{\hat{\lambda} / n}=\sqrt{\bar{x} / n}$.
+   In the computer failure data example, this is $\sqrt{\frac{3.75}{104}}=0.19$.

@@ -396,3 +396,98 @@ Note that this is "a" standard error, so other standard errors may be available.
 For example, if $X_{1}, \ldots, X_{n}$ are i.i.d. $\operatorname{Poisson}(\lambda)$ random variables,
 $E(X)=\lambda$, so $\bar{X}$ is an unbiased estimator of $\lambda$. $\operatorname{Var}(X)=\lambda$, so another $\text{s.e.}(\bar{X})=\sqrt{\hat{\lambda} / n}=\sqrt{\bar{x} / n}$.
    In the computer failure data example, this is $\sqrt{\frac{3.75}{104}}=0.19$.
+
+## Interval estimation
+
+### Introduction
+
+An estimate $\tilde{\theta}$ of a parameter $\theta$ is sometimes referred to as a point estimate. The usefulness of a point estimate is enhanced if some kind of measure of its precision can also be provided. Usually, for an unbiased estimator, this will be a standard error, an estimate of the standard deviation of the associated estimator, as we have discussed previously. An alternative summary of the information provided by the observed data about the location of a parameter $\theta$ and the associated precision is an interval estimate or confidence interval.
+
+Suppose that $x_{1}, \ldots, x_{n}$ are observations of random variables $X_{1}, \ldots, X_{n}$ whose joint pdf is specified apart from a single parameter $\theta$. To construct a confidence interval for $\theta$, we need to find a random variable $T(\mathbf{X}, \theta)$ whose distribution does not depend on $\theta$ and is therefore known. This random variable $T(\mathbf{X}, \theta)$ is called a *pivot* for $\theta$. Hence we can find numbers $h_{1}$ and $h_{2}$ such that
+\begin{equation}
+P\left(h_{1} \leq T(\mathbf{X}, \theta) \leq h_{2}\right)=1-\alpha
+(\#eq:pivot)
+\end{equation}
+where $1-\alpha$ is any specified probability. If \@ref(eq:pivot)  can be 'inverted',we can write it as
+\[P\left(g_{1}(\mathbf{X}) \leq \theta \leq g_{2}(\mathbf{X})\right)=1-\alpha.\]
+
+Hence with probability $1-\alpha$, the parameter $\theta$ will lie between the random variables $g_{1}(\mathbf{X})$ and $g_{2}(\mathbf{X})$. Alternatively, the random interval $\left(g_{1}(\mathbf{X}), g_{2}(\mathbf{X})\right)$ includes $\theta$ with probability $1-\alpha$. Now, when we observe $x_{1}, \ldots, x_{n}$, we observe a single observation of the random interval $\left(g_{1}(\mathbf{X}), g_{2}(\mathbf{X})\right)$, which can be evaluated as $\left(g_{1}(\mathbf{x}), g_{2}(\mathbf{x})\right)$. We do not know if $\theta$ lies inside or outside this interval, but we do know that if we observed repeated samples, then $100(1-\alpha) \%$ of the resulting intervals would contain $\theta$. Hence, if $1-\alpha$ is high, we can be reasonably confident that our observed interval contains $\theta$. We call the observed interval $\left(g_{1}(\mathbf{x}), g_{2}(\mathbf{x})\right)$ a $100(1-\alpha) \%$ confidence interval for $\theta$. It is common to present intervals with high confidence levels, usually $90 \%, 95 \%$ or $99 \%$, so that $\alpha=0.1,0.05$ or $0.01$ respectively.
+
+### Confidence interval for a normal mean
+
+Let $X_{1}, \ldots, X_{n}$ be i.i.d. $N\left(\mu, \sigma^{2}\right)$ random variables. 
+From the Central Limit Theorem (Section \@ref(sec:clt)), we know that for large $n$,
+\[\bar{X} \sim N\left(\mu, \sigma^{2} / n\right) \quad \Rightarrow \quad \sqrt{n} \frac{(\bar{X}-\mu)}{\sigma} \sim N(0,1).\]
+
+Suppose we know that $\sigma=10$, so $\sqrt{n}(\bar{X}-\mu) / \sigma$ is a pivot for $\mu$. Then we can use the distribution function of the standard normal distribution to find values $h_{1}$ and $h_{2}$ such that
+\[P\left(h_{1} \leq \sqrt{n} \frac{(\bar{X}-\mu)}{\sigma} \leq h_{2}\right)=1-\alpha\]
+for a chosen value of $1-\alpha$ which is called the confidence level. So $h_{1}$ and $h_{2}$ are chosen so that the shaded area in Figure \@ref(fig:normal-quantiles) is equal to the confidence level $1-\alpha$.
+
+```{r normal-quantiles, echo = FALSE, fig.cap = "$h_1$ and $h_2$ are chosen to make the shaded area equal to the confidence level $1-\\alpha$", fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
+library(ggplot2)
+
+lim <- 4
+h <- qnorm(0.975)
+plot_data <- tibble(x = seq(-h, h, length.out = 100),
+                    ymax = dnorm(x),
+                    ymin = 0)
+
+plot_data %>%
+    ggplot(mapping = aes(x = x, ymin = ymin, ymax = ymax)) + 
+    geom_function(fun = dnorm) +
+    geom_ribbon(alpha = 0.3) +
+    xlab("x") +
+    ylab("f(x)") +
+    scale_x_continuous(breaks = c(0, -h, h),
+                       labels = c(0, "h1", "h2"),
+                       limits = c(-lim, lim)) +
+    geom_hline(aes(yintercept = 0)) +
+    theme(panel.grid.minor = element_blank(),
+          panel.grid = element_blank())
+```
+
+It is common practice to make the interval symmetric, so that the two unshaded areas are equal
+(to $\alpha / 2$ ), in which case
+\[-h_{1}=h_{2} \equiv h \quad \text { and } \quad \Phi(h)=1-\frac{\alpha}{2}.\]
+
+The most common choice of confidence level is $1-\alpha=0.95$, in which case $h=1.96=\texttt{qnorm(0.975)}$. You may also occasionally see $90\%$ ($h=1.645=\texttt{qnorm(0.95)}$) or 
+$99\%$ ($h=2.58=\texttt{qnorm(0.995)}$) intervals. 
+
+Therefore we have
+\begin{align*}
+& P\left(-1.96 \leq \sqrt{n} \frac{(\bar{X}-\mu)}{\sigma} \leq 1.96\right)=0.95 \\
+\Rightarrow & P\left(\bar{X}-1.96 \frac{\sigma}{\sqrt{n}} \leq \mu \leq \bar{X}+1.96 \frac{\sigma}{\sqrt{n}}\right)=0.95 .
+\end{align*}
+
+Hence, $\bar{X}-1.96 \frac{\sigma}{\sqrt{n}}$ and $\bar{X}+1.96 \frac{\sigma}{\sqrt{n}}$ are the endpoints of a random interval which includes $\mu$ with probability $0.95$. The observed value of this interval, $\left(\bar{x} \pm 1.96 \frac{\sigma}{\sqrt{n}}\right)$, is called a 95\% confidence interval for $\mu$.
+
+:::{.example text="Fast food"} 
+For the fast food waiting time data, we have $n=20$ data points combined from the morning and afternoon data sets. We have $\bar{x}=67.85$ and $n=20$. Hence, under the normal model assuming (just for the sake of illustration) $\sigma=18$, a 95\% confidence interval for $\mu$ is
+
+\[\begin{gathered}
+67.85-1.96(18 / \sqrt{20}) \leq \mu \leq 67.85+1.96(18 / \sqrt{20}) \\
+\Rightarrow 59.96 \leq \mu \leq 75.74
+\end{gathered}\]
+
+The R command is 
+```{r, eval = FALSE}
+mean(fastfood) + c(-1, 1) * qnorm(0.975) * 18 / sqrt (20)
+```
+assuming `fastfood` is the vector containing 20 waiting times.
+
+In reality, it is more likely that $\sigma$ is unknown in this example,
+and we need to seek alternative methods for finding the confidence intervals.
+:::
+
+
+### Some remarks about confidence intervals
+
+1. Notice that $\bar{x}$ is an unbiased estimate of $\mu, \sigma / \sqrt{n}$ is the standard error of the estimate and $1.96$ (in general $h$ in the above discussion) is a critical value from the associated known sampling distribution. The formula $(\bar{x} \pm 1.96 \sigma / \sqrt{n})$ for the confidence interval is then generalised as:
+\[\text { Estimate } \pm \text { Critical value } \times \text { Standard error }\]
+where the estimate is $\bar{x}$, the critical value is $1.96$ and the standard error is $\sigma / \sqrt{n}$. This is so much easier to remember. We will see that this formula holds in many of the following examples, but not all.
+
+2. Confidence intervals are frequently used, but also frequently misinterpreted. A $100(1-\alpha) \%$ confidence interval for $\theta$ is a single observation of a random interval which, under repeated sampling, would include $\theta$ $100(1-\alpha) \%$ of the time.
+
+3. A confidence interval is not a probability interval. You should avoid making statements like $P(1.3<\theta<2.2)=0.95$. In the classical approach to statistics you can only make probability statements about random variables, and $\theta$ is assumed to be a constant.
+
+4. If a confidence interval is interpreted as a probability interval, this may lead to problems. For example, suppose that $X_{1}$ and $X_{2}$ are i.i.d. $U\left(\theta-\frac{1}{2}, \theta+\frac{1}{2}\right)$ random variables. Then $P\left(\min \left(X_{1}, X_{2}\right)<\theta<\max \left(X_{1}, X_{2}\right)\right)=\frac{1}{2}$ so $\left(\min \left(x_{1}, x_{2}\right), \max \left(x_{1}, x_{2}\right)\right)$ is a $50 \%$ confidence interval for $\theta$, where $x_{1}$ and $x_{2}$ are the observed values of $X_{1}$ and $X_{2}$. Now suppose that $x_{1}=0.3$ and $x_{2}=0.9$. What is $P(0.3<\theta<0.9)$ ?

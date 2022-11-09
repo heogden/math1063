@@ -294,6 +294,7 @@ Now
 \end{align*}
 The MSE of $\hat{\theta}_{2}$ is an order of magnitude smaller than the MSE of $\hat{\theta}_{1}$
 (of order $1/n^{2}$ rather than $1/n$), providing justification for the preference of $\hat{\theta}_{2}=\max \left\{X_{1}, X_{2}, \ldots, X_{n}\right\}$ as an estimator of $\theta$.
+:::
 
 ## Estimating the population mean
 
@@ -620,3 +621,112 @@ The result is (3.40, 4.14), which is quite close to the earlier interval (3.38, 
 from Example \@ref(exm:poisson-ci-simple).
 :::
 
+
+###  Exact confidence interval for the normal mean
+
+
+For normal models we do not have to rely on large sample approximations, because it turns out that the distribution of
+\[T=\frac{\sqrt{n}(\bar{X}-\mu)}{S},\]
+where $S^{2}$ is the sample variance with divisor $n-1$, is standard (easily calculated) and thus the statistic $T=T(\mathbf{X}, \mu)$ can be an exact pivot for any sample size $n>1$.
+
+The point about easy calculation is that for any given $1-\alpha$, e.g. $1-\alpha=0.95$, we can calculate the critical value $h$ such that $P(-h<T<h)=1-\alpha$. Note also that the pivot $T$ does not involve the other unknown parameter of the normal model, namely the variance $\sigma^{2}$. If indeed, we can find $h$ for any given $1-\alpha$, then proceed as follows to find the exact CI for $\mu$ :
+\begin{align*}
+& P(-h \leq T \leq h)=1-\alpha \\
+\text { i.e. } & P\left(-h \leq \sqrt{n} \frac{(\bar{X}-\mu)}{S} \leq h\right)=0.95 \\
+\Rightarrow & P\left(\bar{X}-h \frac{S}{\sqrt{n}} \leq \mu \leq \bar{X}+h \frac{S}{\sqrt{n}}\right)=0.95
+\end{align*}
+
+The observed value of this interval, $\left(\bar{x} \pm h \frac{s}{\sqrt{n}}\right)$, is the $95 \%$ confidence interval for $\mu$. Remarkably, this also of the general form, 
+\[\text { Estimate } \pm \text { Critical value } \times \text { Standard error },\]
+where the critical value is $h$ and the standard error of the sample mean is $\frac{s}{\sqrt{n}}$.
+Now, how do we find the critical value $h$ for a given $1-\alpha$ ? We need to introduce the $t$-distribution.
+
+Let $X_{1}, \ldots, X_{n}$ be i.i.d $N\left(\mu, \sigma^{2}\right)$ random variables. Define $\bar{X}=\frac{1}{n} \sum_{i=1}^{n} X_{i}$ and
+\[S^{2}=\frac{1}{n-1}\left(\sum_{i=1}^{n} X_{i}^{2}-n \bar{X}^{2}\right).\]
+Then, it can be shown (and will be in MATH2011) that
+\[\sqrt{n} \frac{(\bar{X}-\mu)}{S} \sim t_{n-1},\]
+where $t_{n-1}$ denotes the standard $t$ distribution with $n-1$ degrees of freedom. The standard $t$ distribution is a family of distributions which depend on one parameter called the degrees-of-freedom (df) which is $n-1$ here. The concept of degrees of freedom is that it is usually the number of independent random samples, $n$ here, minus the number of linear parameters estimated, 1 here for $\mu$. Hence the df is $n-1$.
+
+
+The probability density function of the $t_{k}$ distribution is similar to a standard normal, in that it is symmetric around zero and 'bell-shaped', but the t-distribution is more heavy-tailed, giving greater probability to observations further away from zero. Figure \@ref(fig:t-pdf) illustrates the $t_{k}$ density function for various values of $k$.
+
+```{r t-pdf, echo = FALSE, fig.cap = "The pdf of the $t_k$ distribution for various values of $k$. The dashed line is the standard normal pdf.", fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
+plot_data <- crossing(x = seq(-10, 10, length.out = 1000),
+                      k = c(1, 2, 5, 20)) %>%
+    mutate(pdf = dt(x, df = k),
+           n = as.factor(k))
+
+plot_data %>%
+    ggplot(aes(x = x, y = pdf, colour = n)) +
+    geom_line() +
+    geom_function(fun = dnorm, linetype = "dashed", colour = "black")
+        
+```
+
+
+The values of $h$ for a given $1-\alpha$ can be obtained using the R command \texttt{qt} (abbreviation for quantile of $t$ ). For example, we can find $h$ for $1-\alpha=0.95$ and $n=20$ 
+```{r}
+qt(0.975, df = 19)
+```
+Note that it should be $0.975$ so that we are splitting $0.05$ probability between the two tails equally and the df should be $n-1=19$. Indeed, modifying the above command, we obtain the following critical values for the $95 \%$ interval for different values of the sample size $n$.
+
+\begin{center}
+\begin{tabular}{c|ccccccccc}
+$n$ & 2 & 5 & 10 & 15 & 20 & 30 & 50 & 100 & 1000 \\
+\hline$h$ & $12.71$ & $2.78$ & $2.26$ & $2.14$ & $2.09$ & $2.05$ & $2.01$ & $1.98$ & $1.96$
+\end{tabular}
+\end{center}
+
+Note that the critical value approaches $1.96$ (which is the critical value for the normal distribution) as $n \rightarrow \infty$, since the $t$-distribution itself approaches the normal distribution for large values of its df parameter.
+
+If you can justify that the underlying distribution is normal then you
+can use the $t$-distribution-based confidence interval.
+
+
+:::{.example name="Fast food waiting time revisited"}
+We would like to find a confidence interval for the true mean waiting time. If $X$ denotes the waiting time in seconds, we have $n=20, \bar{x}=67.85$, $s=18.36$. Hence, recalling that the critical value $h=2.093$, from the command qt $0.975$, df $=19$ ), a $95 \%$ confidence interval for $\mu$ is
+\begin{align*}
+67.85-2.093 \times 18.36 / \sqrt{20} \leq \mu & \leq 67.85+2.093 \times 18.36 / \sqrt{20} \\
+\Rightarrow 59.26 & \leq \mu \leq 76.44 .
+\end{align*}
+
+In R, if the vector `fastfood` contains all the service times,
+we can find a $95 \%$ confidence interval with
+
+```{r, echo = FALSE}
+fastfood <- fastfood$service
+```
+
+```{r}
+mean(fastfood) + c(-1, 1) * qt(0.975, df = 19) * sd(fastfood) / sqrt(20)
+```
+
+or a $90 \%$ confidence interval with
+
+```{r}
+mean(fastfood) + c(-1, 1) * qt(0.95, df = 19) * sd(fastfood) / sqrt(20)
+```
+
+or a $90 \%$ confidence interval with
+```{r}
+mean(fastfood) + c(-1, 1) * qt(0.995, df = 19) * sd(fastfood) / sqrt(20)
+```
+
+We can see clearly that the interval gets wider as the level of confidence is gets higher.
+:::
+
+
+:::{.example name="Weight gain revisited"}
+We would like to find a confidence interval for the true average weight gain (final weight - initial weight). Here $n=68, \bar{x}=0.8672$ and $s=0.9653$. Hence, a $95 \%$ confidence interval for $\mu$ is
+\begin{align*}
+0.8672-1.996 \times 0.9653 / \sqrt{68} \leq \mu & \leq 0.8672+1.996 \times 0.9653 / \sqrt{68} \\
+\Rightarrow 0.6335 & \leq \mu \leq 1.1008
+\end{align*}
+
+In R, we obtain the critical value $1.996$ by
+```{r}
+qt(0.975, df = 67)
+```
+
+Note that the interval here does not include the value 0, so it is very likely that the weight gain is significantly positive, which we will justify using what is called hypothesis testing.
+:::

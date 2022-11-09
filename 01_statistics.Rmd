@@ -254,7 +254,7 @@ The *sample mean* is
 data from Example \@ref(exm:fastfood), 
 the AM mean time is 68.9 seconds and the PM mean time is 66.8 seconds.
   
-::: {.theorem}
+::: {.theorem #sse}
 The sample mean $\bar x$ minimises the SSE.
 :::
 

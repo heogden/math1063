@@ -1,22 +1,8 @@
 # Statistical Inference {#inference}
 
-## Chapter mission
+## Statistical modelling
 
-In the last chapter we learned the probability distributions of common random variables that we use
-in practice. We learned how to calculate the probabilities based on our assumption of a probability
-distribution with known parameter values. Statistical inference is the process by which we try to
-learn about those probability distributions using only random observations. Hence, if our aim is
-to learn about some typical characteristics of the population of Southampton students, we simply
-randomly select few students, observe their characteristics and then try to generalise, as discussed
-in Lecture 1. For example, suppose we are interested in learning what proportion of Southampton
-students are of Indian origin. We may then select a number of students at random and observe
-the sample proportion of Indian origin students. We will then claim that the sample proportion is
-really our guess for the population proportion. But obviously we may be making grave errors since
-we are inferring about some unknown based on only a tiny fraction of total information. Statistical
-inference methods formalise these aspects. We will learn some of these methods here.
-
-## Foundations of statistical inference
-
+### Introduction 
 
 Statistical analysis (or inference) involves drawing conclusions, and making predictions and decisions, using the evidence provided to us by observed data. To do this we use probability distributions, often called statistical models, to describe the process by which the observed data were
 generated. For example, we may suppose that the true proportion of Indian origin students is $p$,
@@ -35,7 +21,7 @@ distribution. However, if we treat time as continuous then the random variable $
 time" could be modelled as a normal random variable. 
 <!-- TODO: add reference to exponential distribution? -->
 
-Now, in general, it is clear that:
+In general:
 
 - The form of the assumed model helps us to understand the real-world process by which the
 data were generated.
@@ -55,10 +41,10 @@ $X_i$ is the waiting time for the $i$th person in the sample.
  
 ### Statistical models
 
-Suppose we denote the complete data by the vector $x = (x_1 , x_2 , \ldots , x_n)$ and use 
-$X = (X_1 , X_2 , \ldots , X_n)$
+Suppose we denote the complete data by the vector $\boldsymbol{x} = (x_1 , x_2 , \ldots , x_n)$ and use 
+$\boldsymbol{X} = (X_1 , X_2 , \ldots , X_n)$
 for the corresponding random variables. A statistical model specifies a probability distribution for
-the random variables $X$ corresponding to the data observations $x$. Providing a specification for
+the random variables $\boldsymbol{X}$ corresponding to the data observations $\boldsymbol{x}$. Providing a specification for
 the distribution of $n$ jointly varying random variables can be a daunting task, particularly if $n$ is
 large. However, this task is made much easier if we can make some simplifying assumptions, such
 as
@@ -72,10 +58,15 @@ to make this assumption for the Southampton student sampling experiment, we need
 randomly among all possible students. We should not get the sample from an event in the Indian
 or Chinese Student Association as that will give us a biased result. The assumption will be violated when samples are correlated either in time or in space, e.g. the daily air pollution level in
 Southampton for the last year or the air pollution levels in two nearby locations in Southampton.
-In this module we will only consider data sets where Assumption 1 is reasonable. Assumption 2 is not
+In this module we will only consider data sets where Assumption 1 is reasonable.
+<!-- TODO: update to new example -->
+
+Assumption 2 is not
 always appropriate, but is often reasonable when we are modelling a single variable. In the fast
 food waiting time example, we must assume that there are no differences between the AM and PM
 waiting times for Assumption 2 to hold.
+
+
 If Assumption 1 and 2 both hold, we say that $X_1 , \ldots , X_{n}$ are 
 independent and identically distributed (or i.i.d. for short).
 
@@ -158,6 +149,147 @@ and we can find estimates of uncertainty in such analysis based on the structure
 shall see this later.
 
 The nonparametric approach should be preferred if the model cannot be justified for the data,
-as in this case the parametric approach will provide incorrect answers.
+as in that case the parametric approach will provide incorrect answers.
 
 <!-- TODO: actually do this with the data? -->
+
+
+## Estimation
+
+### Introduction 
+
+Once we have collected data and proposed a statistical model for our data, the initial statistical
+analysis usually involves estimation.
+
+- For a parametric model, we need to estimate the unknown (unspecified) parameter $\lambda$. For
+example, if our model for the computer failure data is that they are i.i.d. Poisson, we need to
+estimate the mean ($\lambda$) of the Poisson distribution.
+- For a nonparametric model, we may want to estimate the properties of the data-generating
+distribution. For example, if our model for the computer failure data is that they are i.i.d.,
+following the distribution of an unspecified common random variable $X$, then we may want
+to estimate $\mu = E(X)$ or $\sigma^2 = \operatorname{Var}(X)$.
+
+In the following, we use the generic notation $\theta$ to denote the *estimand*
+(what we want to estimate
+or the parameter). For example, $\theta$ is the parameter $\lambda$ in the first example, and 
+$\theta$ may be either $\mu$
+or $\sigma^2$ or both in the second example.
+
+
+
+### Population and sample
+
+
+Recall that a statistical model specifies a probability distribution for the random variables $\boldsymbol{X}$ corresponding to the data observations $\boldsymbol{x}$.
+
+- The observations $\boldsymbol{x} = (x_1 , \ldots , x_n )$ are called the sample, and quantities derived from the
+sample are sample quantities. For example, as in Chapter 1, we call
+\[\bar x = \frac{1}{n} \sum_{i=1}^n x_i\]
+the sample mean.
+- The probability distribution for $X$ specified in our model represents all possible observations
+which might have been observed in our sample, and is therefore sometimes referred to as the
+population. Quantities derived from this distribution are population quantities.
+For example, if our model is that $X_1 , \ldots , X_n$ are i.i.d., following 
+the common distribution of
+a random variable $X$, then we call $E(X)$ the *population mean*.
+
+### Statistic and estimator
+
+A statistic $T(\boldsymbol{x})$ is any function of the observed data $x_{1}, \ldots, x_{n}$ alone (and therefore does not depend on any parameters or other unknowns).
+
+An estimate of $\theta$ is any statistic which is used to estimate $\theta$ under a particular statistical model. We will use $\tilde{\theta}(\boldsymbol{x})$ (sometimes shortened to $\tilde{\theta}$ ) to denote an estimate of $\theta$.
+
+An estimate $\tilde{\theta}(\boldsymbol{x})$ is an observation of a corresponding random variable $\tilde{\theta}(\boldsymbol{X})$ which is called an estimator. Thus an estimate is a particular observed value, e.g. 1.2, but an estimator is a random variable which can take values which are called estimates.
+
+An estimate is a particular numerical value, e.g. $\bar{x}$; an estimator is a random variable, e.g. $\bar{X}$.
+
+The probability distribution of any estimator $\tilde{\theta}(\boldsymbol{X})$ is called its sampling distribution. The estimate $\tilde{\theta}(\boldsymbol{x})$ is an observed value (a number), and is a single observation from the sampling distribution of $\tilde{\theta}(\boldsymbol{X})$.
+
+:::{.example}
+Suppose that we have a random sample $X_{1}, \ldots, X_{n}$ from the uniform distribution on the interval $(0, \theta)$ where $\theta>0$ is unknown. Suppose that $n=5$ and we have the sample observations $x_{1}=2.3, x_{2}=3.6, x_{3}=20.2, x_{4}=0.9, x_{5}=17.2$. Our objective is to estimate $\theta$. How can we proceed?
+
+Here the pdf $f(x)=\frac{1}{\theta}$ for $0 \leq x \leq \theta$ and 0 otherwise. Hence $E(X)=\int_{0}^{\theta} \frac{1}{\theta} x d x=\frac{\theta}{2}$. There are many possible estimators for $\theta$, e.g. $\hat{\theta}_{1}(\boldsymbol{X})=2 \bar{X}$, which is motivated by the method of moments because $\theta=2 E(X)$. A second estimator is $\hat{\theta}_{2}(\boldsymbol{X})=\max \left\{X_{1}, X_{2}, \ldots, X_{n}\right\}$, which is intuitive since $\theta$ must be greater than or equal to all observed values and thus the maximum of the sample value will be closest to $\theta$. 
+
+How could we choose between the two estimators $\hat{\theta}_{1}$ and $\hat{\theta}_{2}$ ? This is where we need to learn the sampling distribution of an estimator to determine which estimator will be unbiased, i.e. correct on average, and which will have minimum variability. We will formally define these in a minute, but first let us derive the sampling distribution, i.e. the pdf, of $\hat{\theta}_{2}$. Note that $\hat{\theta}_{2}$ is a random variable since the sample $X_{1}, \ldots, X_{n}$ is random. We will first find its cdf and then differentiate the cdf to get the pdf. For ease of notation, suppose $Y=\hat{\theta}_{2}(\boldsymbol{X})=\max \left\{X_{1}, X_{2}, \ldots, X_{n}\right\}$. For any $0<y<\theta$, the cdf of $Y, F(y)$ is given by
+\begin{align*}
+P(Y \leq y) &=P\left(\max \left\{X_{1}, X_{2}, \ldots, X_{n}\right\} \leq y\right) \\
+&\left.=P\left(X_{1} \leq y, X_{2} \leq y, \ldots, X_{n} \leq y\right)\right) \quad \text{since max $\leq y$ if and only if each $\leq y$}] \\
+&=P\left(X_{1} \leq y\right) P\left(X_{2} \leq y\right) \cdots P\left(X_{n} \leq y\right) \quad \text {since the $X_i$ are independent}\\
+&=\frac{y}{\theta} \times \frac{y}{\theta} \times \cdots \times \frac{y}{\theta} \\
+&=\left(\frac{y}{\theta}\right)^{n} .
+\end{align*}
+
+
+Now the pdf of $Y$ is 
+\[f(y)=\frac{d F(y)}{d y}=n \frac{y^{n-1}}{\theta^{n}}, \quad 0 \leq y \leq \theta.\]
+Using this pdf, it can be shown that $E\left(\hat{\theta}_{2}\right)=E(Y)=\frac{n}{n+1} \theta,$ and 
+\[\operatorname{Var}\left(\hat{\theta}_{2}\right)=\frac{n \theta^{2}}{(n+2)(n+1)^{2}}.\] 
+:::
+
+
+### Bias and mean square error
+
+In the uniform distribution example we saw that the estimator 
+$\hat{\theta}_{2}=Y=\max \left\{X_{1}, X_{2}, \ldots, X_{n}\right\}$ is a random variable and its 
+pdf is given by $f(y)=n \frac{y^{n-1}}{\theta^{n}}$ for $0 \leq y \leq \theta$. 
+This probability distribution is called the sampling distribution of $\hat{\theta}_{2}$.
+From this we have seen that $E\left(\hat{\theta}_{2}\right)=\frac{n}{n+1} \theta$.
+
+In general, we define the bias of an estimator $\tilde{\theta}(\boldsymbol{X})$ of $\theta$ to be
+\[\operatorname{bias}(\tilde{\theta})=E(\tilde{\theta})-\theta.\]
+
+An estimator $\tilde{\theta}(\boldsymbol{X})$ is said to be unbiased if
+\[\operatorname{bias}(\tilde{\theta})=0 \text {, i.e. if } E(\tilde{\theta})=\theta.\]
+
+So an estimator is unbiased if the expectation of its sampling distribution is equal to the quantity we are trying to estimate. Unbiased means "getting it right on average", i.e. under repeated sampling (relative frequency interpretation of probability).
+
+Thus for the uniform distribution example, $\hat{\theta}_{2}$ is a biased estimator of $\theta$ and
+\[\operatorname{bias}\left(\hat{\theta}_{2}\right)=E\left(\hat{\theta}_{2}\right)-\theta=\frac{n}{n+1} \theta-\theta=-\frac{1}{n+1} \theta,\]
+which goes to zero as $n \rightarrow \infty$. However, $\hat{\theta}_{1}=2 \bar{X}$ is unbiased since $E\left(\hat{\theta}_{1}\right)=2 E(\bar{X})=2 \frac{\theta}{2}=\theta$. 
+
+Unbiased estimators are "correct on average", but that does not mean that they are guaranteed to provide estimates which are close to the estimand $\theta$. A better measure of the quality of an estimator than bias is the mean squared error (or MSE), defined as
+\[\operatorname{MSE}(\tilde{\theta})=E\left[(\tilde{\theta}-\theta)^{2}\right]\]
+
+ Therefore, if $\tilde{\theta}$ is unbiased for $\theta$, i.e. if $E(\tilde{\theta})=\theta$,
+  then MSE $(\tilde{\theta})=\operatorname{Var}(\tilde{\theta})$. In general, we have the following result:
+
+::: {.theorem}
+\[\operatorname{MSE}(\tilde{\theta})=\operatorname{Var}(\tilde{\theta})+\operatorname{bias}(\tilde{\theta})^{2}\]
+:::
+  
+The proof is similar to the proof of Theorem \@ref(thm:sse).
+
+::: {.proof}
+\begin{align*}
+\operatorname{MSE}(\tilde{\theta}) &=E\left[(\tilde{\theta}-\theta)^{2}\right] \\
+&=E\left[(\tilde{\theta}-E(\tilde{\theta})+E(\tilde{\theta})-\theta)^{2}\right] \\
+&=E\left[(\tilde{\theta}-E(\tilde{\theta}))^{2}+(E(\tilde{\theta})-\theta)^{2}+2(\tilde{\theta}-E(\tilde{\theta}))(E(\tilde{\theta})-\theta)\right] \\
+&=E[\tilde{\theta}-E(\tilde{\theta})]^{2}+E[E(\tilde{\theta})-\theta]^{2}+2 E[(\tilde{\theta}-E(\tilde{\theta}))(E(\tilde{\theta})-\theta)] \\
+&=\operatorname{Var}(\tilde{\theta})+[E(\tilde{\theta})-\theta]^{2}+2(E(\tilde{\theta})-\theta) E[(\tilde{\theta}-E(\tilde{\theta}))] \\
+&=\operatorname{Var}(\tilde{\theta})+\operatorname{bias}(\tilde{\theta})^{2}+2(E(\tilde{\theta})-\theta)[E(\tilde{\theta})-E(\tilde{\theta})] \\
+&=\operatorname{Var}(\tilde{\theta})+\operatorname{bias}(\tilde{\theta})^{2} .
+\end{align*}
+:::
+
+:::{ .example}
+Continuing with the uniform distribution $U(0, \theta)$ example, we have seen that $\hat{\theta}_{1}=2 \bar{X}$ is unbiased for $\theta$ but $\operatorname{bias}\left(\hat{\theta}_{2}\right)=-\frac{1}{n+1} \theta$. How do these estimators compare with respect to the MSE? Since $\hat{\theta}_{1}$ is unbiased, its MSE is its variance. Later, we will prove that for random sampling from any population
+\[\operatorname{Var}(\bar{X})=\frac{\operatorname{Var}(X)}{n},\]
+where $\operatorname{Var}(X)$ is the variance of the population sampled from. 
+Returning to our example, we know that if $X \sim U(0, \theta)$ then $\operatorname{Var}(X)=\frac{\theta^{2}}{12}$. Therefore we have
+\[
+\operatorname{MSE}\left(\hat{\theta}_{1}\right)=\operatorname{Var}\left(\hat{\theta}_{1}\right)=\operatorname{Var}(2 \bar{X})=4 \operatorname{Var}(\bar{X})=4 \frac{\theta^{2}}{12 n}=\frac{\theta^{2}}{3 n} .
+\]
+
+Now, for $\hat{\theta}_{2}$ we know that:
+
+1. $\operatorname{Var}\left(\hat{\theta}_{2}\right)=\frac{n \theta^{2}}{(n+2)(n+1)^{2}}$
+2. $\operatorname{bias}\left(\hat{\theta}_{2}\right)=-\frac{1}{n+1} \theta$.
+
+Now
+\begin{align*}
+\operatorname{MSE}\left(\hat{\theta}_{2}\right) &=\operatorname{Var}\left(\hat{\theta}_{2}\right)+\operatorname{bias}\left(\hat{\theta}_{2}\right)^{2} \\
+&=\frac{n \theta^{2}}{(n+2)(n+1)^{2}}+\frac{\theta^{2}}{(n+1)^{2}} \\
+&=\frac{\theta^{2}}{(n+1)^{2}}\left(\frac{n}{n+2}+1\right) \\
+&=\frac{\theta^{2}}{(n+1)^{2}} \frac{2 n+2}{n+2} .
+\end{align*}
+The MSE of $\hat{\theta}_{2}$ is an order of magnitude (of order $n^{2}$ rather than $n$ ) smaller than the MSE of $\hat{\theta}_{1}$, providing justification for the preference of $\hat{\theta}_{2}=\max \left\{X_{1}, X_{2}, \ldots, X_{n}\right\}$ as an estimator of $\theta$.

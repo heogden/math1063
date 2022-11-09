@@ -604,7 +604,7 @@ Hence, the endpoints of the $95 \%$ confidence interval for $\lambda$ are:
 \[\frac{\left(2 \bar{x}+\frac{h^{2}}{n}\right) \pm\left[\left(2 \bar{x}+\frac{h^{2}}{n}\right)^{2}-4 \bar{x}^{2}\right]^{1 / 2}}{2}=\bar{x}+\frac{h^{2}}{2 n} \pm \frac{h}{n^{1 / 2}}\left[\frac{h^{2}}{4 n}+\bar{x}\right]^{1 / 2}.\]
 
 :::{.example name="Computer failures"}
-For the computer failure data, $\bar{x}=3.75$ and $n=104$. For a $95 \%$ confidence interval (CI), $h=1.96$. Hence, we calculate the above CI using the $\mathrm{R}$ commands:
+For the computer failure data, $\bar{x}=3.75$ and $n=104$. For a $95 \%$ confidence interval (CI), $h=1.96$. Hence, we calculate the above CI using the R commands:
 
 ```{r}
 n <- length(compfail)

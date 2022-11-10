@@ -718,7 +718,8 @@ We can see clearly that the interval gets wider as the level of confidence is ge
 
 
 :::{.example name="Weight gain" #wtgain-ci}
-We would like to find a confidence interval for the true average weight gain (final weight - initial weight). Here $n=68, \bar{x}=0.8672$ and $s=0.9653$. Hence, a $95 \%$ confidence interval for $\mu$ is
+Returning to the weight gain data from Example \@ref(exm:wtgain),
+we would like to find a confidence interval for the true average weight gain (final weight - initial weight). Here $n=68, \bar{x}=0.8672$ and $s=0.9653$. Hence, a $95 \%$ confidence interval for $\mu$ is
 \begin{align*}
 0.8672-1.996 \times 0.9653 / \sqrt{68} \leq \mu & \leq 0.8672+1.996 \times 0.9653 / \sqrt{68} \\
 \Rightarrow 0.6335 & \leq \mu \leq 1.1008
@@ -882,6 +883,7 @@ plot_data %>%
     geom_vline(xintercept = 7.41, linetype = "dashed")
         
 ```
+
 :::
 
 ::: {.example name="Fast food waiting times"}
@@ -994,6 +996,7 @@ t.test(wtgain$diff)
 ```
 This gives the results $\mathrm{t}=7.4074$, and $\mathrm{df}=67$. 
 
+:::
 
 #### p-values
 

@@ -108,9 +108,16 @@ are i.i.d. random variables, but from a nonparametric statistical model which ca
 down, having a probability function which only depends on a finite number of parameters. Such
 analysis approaches are also called distribution-free methods.
 
-<!-- TODO: add reference to previous example -->
-:::{.example name="Return to the computer failure example"}
-Let X denote the count of computer failures per week. We want to estimate how often will the
+:::{.example name="Computer failures"}
+Let X denote the count of computer failures per week
+from Example \@ref(exm:compfail), summarised in the following
+table:
+
+```{r, echo = FALSE}
+center_tab(t(table(compfail)))
+```
+
+We want to estimate how often will the
 computer system fail at least once per week in the next year? The answer is $52 \times (1 - P (X = 0))$.
 But how would you estimate $P (X = 0)$? Consider two approaches.
 

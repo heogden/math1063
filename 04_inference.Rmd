@@ -146,8 +146,6 @@ shall see this later.
 The nonparametric approach should be preferred if the model cannot be justified for the data,
 as in that case the parametric approach will provide incorrect answers.
 
-<!-- TODO: actually do this with the data? -->
-
 
 ## Estimation
 
@@ -457,7 +455,7 @@ Therefore we have
 
 Hence, $\bar{X}-1.96 \frac{\sigma}{\sqrt{n}}$ and $\bar{X}+1.96 \frac{\sigma}{\sqrt{n}}$ are the endpoints of a random interval which includes $\mu$ with probability $0.95$. The observed value of this interval, $\left(\bar{x} \pm 1.96 \frac{\sigma}{\sqrt{n}}\right)$, is called a 95\% confidence interval for $\mu$.
 
-:::{.example name="Fast food"} 
+:::{.example name="Fast food waiting times"} 
 For the fast food waiting time data, we have $n=20$ data points combined from the morning and afternoon data sets. We have $\bar{x}=67.85$ and $n=20$. Hence, under the normal model assuming (just for the sake of illustration) $\sigma=18$, a 95\% confidence interval for $\mu$ is
 
 \[\begin{gathered}
@@ -678,7 +676,7 @@ If you can justify that the underlying distribution is normal then you
 can use the $t$-distribution-based confidence interval.
 
 
-:::{.example name="Fast food waiting time revisited"}
+:::{.example name="Fast food waiting times"}
 We would like to find a confidence interval for the true mean waiting time. If $X$ denotes the waiting time in seconds, we have $n=20, \bar{x}=67.85$, $s=18.36$. Hence, recalling that the critical value $h=2.093$, from the command \texttt{qt(0.975, df = 19)}, a $95 \%$ confidence interval for $\mu$ is
 \begin{align*}
 67.85-2.093 \times 18.36 / \sqrt{20} \leq \mu & \leq 67.85+2.093 \times 18.36 / \sqrt{20} \\
@@ -711,7 +709,7 @@ We can see clearly that the interval gets wider as the level of confidence is ge
 :::
 
 
-:::{.example name="Weight gain revisited" #wtgain-ci}
+:::{.example name="Weight gain" #wtgain-ci}
 We would like to find a confidence interval for the true average weight gain (final weight - initial weight). Here $n=68, \bar{x}=0.8672$ and $s=0.9653$. Hence, a $95 \%$ confidence interval for $\mu$ is
 \begin{align*}
 0.8672-1.996 \times 0.9653 / \sqrt{68} \leq \mu & \leq 0.8672+1.996 \times 0.9653 / \sqrt{68} \\
@@ -844,7 +842,7 @@ Note that tests are usually based on a one-dimensional test statistic $T(\mathbf
 
 We perform a hypothesis test by computing a test statistic, $T(\boldsymbol{X})$. A test statistic must (obviously) be a statistic (i.e. a function of $\boldsymbol{X}$ and other known quantities only). Furthermore, the random variable $T(\boldsymbol{X})$ must have a distribution which is known under the null hypothesis. The easiest way to construct a test statistic is to obtain a pivot for $\theta$. If $T(\boldsymbol{X}, \theta)$ is a pivot for $\theta$ then its sampling distribution is known and, therefore, under the null hypothesis $\left(\theta=\theta_{0}\right)$ the sampling distribution of $T\left(\boldsymbol{X}, \theta_{0}\right)$ is known. Hence $T\left(\boldsymbol{x}, \theta_{0}\right)$ is a test statistic, as it depends on observed data $\boldsymbol{x}$ and the hypothesised value $\theta_{0}$ only. We then assess the plausibility of $H_{0}$ by evaluating whether $T\left(\boldsymbol{x}, \theta_{0}\right)$ seems like a reasonable observation from its (known) distribution. This is all rather abstract. How does it work in a concrete example?
 
-### Testing a normal mean (t test)
+### Testing a normal mean (t-test)
 
 #### Introduction
 
@@ -878,7 +876,7 @@ plot_data %>%
 ```
 :::
 
-::: {.example name="Fast food waiting time revisited"}
+::: {.example name="Fast food waiting times"}
 Suppose the manager of the fast food outlet claims that the average waiting time is only 60 seconds. So, we want to test $H_{0}: \mu=60$. We have $n=20, \bar{x}=67.85, s=18.36$. Hence our test statistic for the null hypothesis $H_{0}: \mu=\mu_{0}=60$ is
 \[\sqrt{n} \frac{\left(\bar{x}-\mu_{0}\right)}{s}=\sqrt{20} \frac{(67.85-60)}{18.36}=1.91.\]
 
@@ -969,7 +967,7 @@ Suppose that we observe data $x_{1}, \ldots, x_{n}$ which are modelled as observ
 
 #### Examples
 
-::: {.example name="Fast food waiting time"}
+::: {.example name="Fast food waiting times"}
 We would like to test $H_{0}: \mu=60$ against the alternative $H_{1}: \mu>60$, as this alternative will refute the claim of the store manager that customers only wait for a maximum of one minute. We calculated the observed value to be $1.91$. This is a one-sided test and for a $5 \%$ level of significance, the critical value $h$ will come from $\texttt{qt(0.95, df = 19)}=1.73$. Thus the observed value is higher than the critical value so we will reject the null hypothesis, disputing the manager's claim regarding a minute wait.
 :::
 
@@ -1095,7 +1093,7 @@ is given by
 \[\bar{x}-\bar{y} \pm h \sqrt{\frac{n+m}{n m}} s,\]
 where $-h$ is the $\alpha / 2$ (usually $0.025$ ) percentile of $t_{n+m-2}$.
 
-:::{ .example name="Fast food waiting time"}
+:::{ .example name="Fast food waiting times"}
 In this example, we would like to know if there are significant differences between the AM and PM waiting times. Here $n=m=10$, $\bar{x}=68.9$, $\bar{y}=66.8$, $s_{x}^{2}=538.22$ and $s_{y}^{2}=171.29$. From this we calculate,
 \[s^{2}=\frac{(n-1) s_{x}^{2}+(m-1) s_{y}^{2}}{n+m-2}=354.8,\]
 and

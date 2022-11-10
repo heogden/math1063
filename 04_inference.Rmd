@@ -16,8 +16,8 @@ success probability of the Bernoulli distribution will be the unknown $p$. The u
 model is then the Bernoulli distribution.
 
 To illustrate with another example, suppose we have observed fast food waiting times in the
-morning and afternoon. If we treat time as continuous then the random variable $X =$ "the waiting
--time" could potentially be modelled as a normal random variable. 
+morning and afternoon. If we treat time as continuous then 
+the waiting time for each customer could potentially be modelled as a normal random variable. 
 
 In general:
 

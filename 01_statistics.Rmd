@@ -21,47 +21,24 @@ proportions in a whole from those in a representative sample.
 Note that the word ‘state’ has gone from its definition. Instead, statistical methods are now
 essential for **everyone** wanting to answer questions using data.
 
-For example, will it rain tomorrow? Does eating red meat make us live longer? Is smoking
-harmful during pregnancy? Is the new shampoo better than the old? Will the UK economy get
-better after Brexit? At a more personal level: What degree classification will I get at graduation?
-How long will I live for? What prospects do I have in the career I have chosen? How do I invest
-my money to maximise the return? Will the stock market crash tomorrow?
-
-
-### Uncertainty: the main obstacle to decision making
-
-The main obstacle to answering the types of questions above is *uncertainty*, which means **lack of
-one-to-one correspondence between cause and effect**. For example, having a diet of (well-cooked) red meat for a period of time is not going to kill me immediately. The effect of smoking
-during pregnancy is difficult to judge because of the presence of other factors, e.g. diet and lifestyle;
-such effects will not be known for a long time, e.g. at least until the birth. Thus it seems:
-
-> **Uncertainty is the only certainty!**
+For example, will it rain tomorrow? Is smoking
+harmful during pregnancy? What degree classification will I get at graduation? 
+Will the stock market crash tomorrow?
 
 
 
 ### Statistics tames uncertainty
 
-It is clear that we may never be able to get to the bottom of every case to learn the full truth
-and so will have to make a decision under uncertainty; thus mistakes cannot be avoided!
-If mistakes cannot be avoided, it is better to know how often we make mistakes (which
-provides knowledge of the amount of uncertainty) by following a particular rule of decision
-making.
-Such knowledge could be put to use in finding a rule of decision making which does not betray
-us too often, or which minimises the frequency of wrong decisions, or which minimises the
-loss due to wrong decisions.
+
+We often have to make decisions under uncertainty.
+It is useful for us to know the extent of uncertainty, which allows us
+to minimise the frequency of wrong decisions, or which minimises
+the loss due to wrong decisions.
 
 Thus we have the equation 
 \[\text{Uncertain knowledge} +
   \text{Knowledge of the extent of uncertainty in it} =
   \text{Usable knowledge.}\]
-
-Researchers often make guesses about scientific quantities. For example, try to guess my age.
-These predictions are meaningless without the associated uncertainties. Instead, appropriate
-data collection and correct application of statistical methods may enable us to make statements
-like: I am 90% certain that the correct age is between 29 and 39 years. Remember, 
-
-> to guess is cheap, to guess incorrectly is expensive  
--- <cite>old Chinese proverb.</cite>
 
 
 ### Why should I study statistics as part of my degree?
@@ -88,13 +65,7 @@ pandemic when every day we have been showered with a deluge of numbers.
 Statistics can be very much
 mis-used and mis-interpreted, and as statisticians it is our duty to
 correctly apply statistical techniques to develop scientifically robust and strong arguments.
-As discussed before statistical methods are the only viable tool whenever there is uncertainty in
-decision making. In scientific investigations, statistics is an inevitable instrument in search of truth
-when uncertainty cannot be totally removed from decision making. Of course, a statistical method
-may not yield the best predictions in a very particular situation, but a systematic and robust
-application of statistical methods will eventually win over pure guesses. For example, statistical
-methods prove that cigarette smoking is bad for human health.
-
+In particular, we need to be careful about what assumptions we make.
 
 ### What's in this module?
 
@@ -103,10 +74,10 @@ mode, standard deviation, etc. Statistical analysis and report writing will be d
 will also learn how to explore data using graphical methods. We will introduce the R
 programming language to help us with these tasks. 
 - **Chapter 2: Introduction to Probability**. We will define and interpret probability as a
-measure of uncertainty. We will learn the rules of probability and then explore fun examples
-of probability, e.g. the probability of winning the National Lottery.
-- **Chapter 3: Random variables**. We will learn that the results of different random experiments lead to different random variables following distributions such as the binomial, and
-normal. etc. We will learn their basic properties, e.g. mean and variance.
+measure of uncertainty. We will learn the rules of probability and then explore examples.
+- **Chapter 3: Probability Distributions**. We will learn about
+lots of probability distributions, which can be used to model
+the outcomes of different types of events.
 - **Chapter 4: Statistical Inference**. We will discuss basic ideas of statistical inference,
 including techniques of point and interval estimation and hypothesis testing.
 

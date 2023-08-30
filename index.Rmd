@@ -2,7 +2,7 @@
 title: "MATH1024: Introduction to Probability and Statistics"
 author: "Dr Helen Ogden, based on original notes by Prof. Sujit Sahu"
 documentclass: book
-geometry: margin=3cm, bindingoffset=5mm
+geometry: margin=2.8cm, bindingoffset=5mm
 output:
 bookdown::pdf_book:
     extra_dependencies: ["float"]

@@ -652,8 +652,6 @@ A random variable $X$ has the Poisson distribution with parameter $\lambda$ if i
 \[P(X=x)=e^{-\lambda} \frac{\lambda^{x}}{x !}, \quad x=0,1,2, \ldots\]
 We write $X \sim \operatorname{Poisson}(\lambda)$. It is easy to show $\sum_{x=0}^{\infty} P(X=x)=1$, i.e. $\sum_{x=0}^{\infty} e^{-\lambda} \frac{\lambda^{x}}{x !}=1$. The identity you need is simply the expansion of $e^{\lambda}$.
 
-\newpage
-
 #### Expectation
 
 Let $X \sim \operatorname{Poisson}(\lambda)$. Then
@@ -1267,8 +1265,6 @@ The same result holds if $a$ and $b$ depend upon $y$,
 but $c$ and $d$ should be free of $x$ and $y$. 
 When we evaluate the inner integral $\int_a^b f(x, y) d x$, we treat $y$ as constant.
 
-\newpage
-
 **Notes**: To evaluate a bivariate integral over a region $A$ we:
 
 - Draw a picture of $A$ whenever possible.
@@ -1377,7 +1373,6 @@ As a special case, let $g(x)=x$ and $h(y)=y$. Then we have
 Consequently, for independent random variables $X$ and $Y, \operatorname{Cov}(X, Y)=0$ and $\operatorname{Corr}(X, Y)=$ 0. But the converse is not true in general. That is, merely having $\operatorname{Corr}(X, Y)=0$ does not imply that $X$ and $Y$ are independent random variables.
 
 <!-- IDEA: give an example of this, or set as an exercise? -->
-\newpage
 
 ## Sums of random variables {#sec:sum-rvs}
 

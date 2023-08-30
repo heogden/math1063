@@ -395,7 +395,7 @@ The probability associated with this outcome is
 For this sequence, $X=x$, but there are many other sequences which will also give $X=x$. 
 In fact there are $\binom{n}{x}$ such sequences. Hence
 \[P(X=x)= \binom{n}{x} p^{x}(1-p)^{n-x}, x=0,1, \ldots, n .\]
-This is the pmf of the binomial Distribution with parameters $n$ and $p$
+This is the pmf of the binomial distribution with parameters $n$ and $p$
 
 How can we guarantee that $\sum_{x=0}^{n} P(X=x)=1$? This guarantee is provided by the binomial theorem:
 

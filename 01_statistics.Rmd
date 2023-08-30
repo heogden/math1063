@@ -524,8 +524,6 @@ ggplot(data = fastfood) +
     facet_wrap(~time)
 ```
 
-\pagebreak
-
 We could also plot the densities
 for the different groups on a single plot,
 using line type to distinguish between the groups:
@@ -595,4 +593,3 @@ in the world at this time was age 50 and from the Middle East,
 and the richest few people in the world had wealth
 many times higher than most people on the list.
 
-\pagebreak

@@ -516,27 +516,25 @@ it was manufactured by A Pale? To answer this we need to introduce Bayes' Theore
 ### Bayes' theorem
 
 ::: {.theorem name="Bayes' Theorem"}
-Let $A$ be an event, and let $B_1 , B_2 , \ldots , B_k$ be a set of mutually exclusive and exhaustive events.
-Then, for $i = 1, \ldots , k$,
-\[P \{B_i |A\} = \frac{P \{B_i \}P \{A|B_i \}}{\sum_{j=1}^k P \{B_j \}P \{A|B_j \}}.\]
+Let $A$ and $B$ be events. Then
+\[P \{B |A\} = \frac{P \{B \}P \{A|B \}}{P \{B \}P \{A|B \}}.\]
 :::
 
 ::: {.proof}
-Use the multiplication rule of conditional probability twice to give
-\[P \{B_i |A\} =
-  \frac{P \{B_i \cap A\}}{P \{A\}} =
-  \frac{P \{B_i \}P \{A|B_i \}}{P \{A\}}.\]
-Bayes' theorem follows directly by substituting $P \{A\}$ by the total probability formula.
+From the definition of conditional probability, we have
+\[P \{B |A\} =
+  \frac{P \{B \cap A\}}{P \{A\}} =
+  \frac{P \{B \}P \{A|B \}}{P \{A\}}.\]
 :::
 
-The probability $P \{B_i |A\}$ is called the posterior probability of 
-$B_i$ given $A$ and $P \{B_i \}$ is called the prior
+
+The probability $P \{B |A\}$ is called the posterior probability of 
+$B$ given $A$ and $P \{B \}$ is called the prior
 probability.
 Bayes' theorem is the rule that converts the prior probability into the 
 posterior probability by using the additional information that some other event,
 $A$ above, has already
-occurred. Note that
-$\sum_{i=1}^k P \{B_i |A\} = 1$. 
+occurred. 
 
 :::{.example name="Phones continued"}
 The probability that my faulty phone was manufactured
@@ -548,6 +546,8 @@ Similarly, the probability that the faulty phone was manufactured by B Sung is $
 probability that it was manufactured by C Windows is $1-0.1948-0.4156 = 0.3896$.
 :::
 
+As in this example, we usually need to use the total probability formula
+to calculate the denominator $P(A)$ in Bayes' theorem.
 
 
 ## Independent events

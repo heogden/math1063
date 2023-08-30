@@ -174,7 +174,7 @@ You will get practice of using R yourself during the computer practical sessions
 R is freely available to download:  search
 "download R" or go to: https://cran.r-project.org/. 
 We will access R via the RStudio integrated development environment,
-which you can download from https://www.rstudio.com/products/rstudio/
+which you can download from https://posit.co/download/rstudio-desktop/
 which provides a nice editor for R code alongside a console.
 Details about using R and RStudio are given in the
 the practical sessions.

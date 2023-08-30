@@ -365,8 +365,11 @@ and the quartiles are $\frac{b + 3a}{4}$ and $\frac{3b + a}{4}$.
 
 ### Bernoulli distribution
 
-Suppose that we conduct a Bernoulli trial (defined in Section \@ref(bernoulli-trials),
-e.g. coin tosses), where we get a success $(S)$ or failure $(F)$ with probabilities $P\{S\}=p$ and $P\{F\}=1-p$ respectively. 
+A set of independent trials, where each trial
+has only two possible outcomes, conveniently called success (S) and failure (F), and the probability
+of success is the same in each trial are called a set of *Bernoulli trials*. 
+
+Suppose that we conduct one Bernoulli trial, where we get a success $(S)$ or failure $(F)$ with probabilities $P\{S\}=p$ and $P\{F\}=1-p$ respectively. 
 Let $X$ be an indicator of success:
 \[X = \begin{cases} 1 & \text{if $S$} \\
 0 & \text{if $F$.}

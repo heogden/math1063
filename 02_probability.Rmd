@@ -659,53 +659,5 @@ So \@ref(eq:threewise-indep) does not hold and $A$, $B$ and $C$ are not
 independent.
 :::
 
-### Bernoulli trials {#bernoulli-trials}
-
-The notion of independent events naturally leads to a set of independent trials
-(or random experiments, e.g. repeated coin tossing). A set of independent trials, where each trial
-has only two possible outcomes, conveniently called success (S) and failure (F), and the probability
-of success is the same in each trial are called a set of *Bernoulli trials*. 
-There are lots of fun examples
-involving Bernoulli trials.
-
-:::{.example name="Feller's road crossing example"}
-The flow of traffic at a certain street crossing
-is such that the probability of a car passing during any given second is $p$ and cars arrive randomly,
-i.e. there is no interaction between the passing of cars at different seconds. Treating seconds as
-indivisible time units, and supposing that a pedestrian can cross the street only if no car is to
-pass during the next three seconds, find the probability that the pedestrian has to wait for exactly
-$k = 0, 1, 2, 3, 4$ seconds.
-
-Let $C_i$ denote the event that a car comes in the $i$th second and let $N_i$ denote the event that no
-car arrives in the $i$th second.
-<!-- TODO: note change in notation, $AB = A \cap B$? -->
-                    
-1. Consider $k = 0$. The pedestrian does not have to wait if and only if there are no cars in the
-next three seconds, i.e. the event $N_1 N_2 N_3$. Now the arrival of the cars in successive seconds
-are independent and the probability of no car coming in any second is $q = 1 - p$. Hence the
-answer is $P \{N_1 N_2 N_3 \} = q \cdot q \cdot q = q^3$.
-2. Consider $k = 1$. The person has to wait for one second if there is a car in the first second
-and none in the next three, i.e. the event $C_1 N_2 N_3 N_4$. Hence the probability of that is $pq^3$.
-3. Consider $k = 2$. The person has to wait two seconds if and only if there is a car in the 2nd
-second but none in the next three. It does not matter if there is a car or none in the first
-second. Hence
-\[P \{\text{wait 2 seconds}\} = P \{C_1 C_2 N_3 N_4 N_5 \} + P \{N_1 C_2 N_3 N_4 N_5 \} = p \cdot p \cdot q^3 + q \cdot p \cdot q^3 = pq^3.\]
-4. Consider k = 3. The person has to wait for three seconds if and only if a car passes in the
-3rd second but none in the next three, $C_3 N_4 N_5 N_6$. Anything can happen in the first two
-seconds, i.e. $C_1 C_2$, $C_1 N_2$, $N_1 C_2$, $N_1 N_2$ --- all these four cases are mutually
-exclusive. Hence
-\begin{align*}
-P \{\text{wait 3 seconds}\} &= P \{C_1 C_2 C_3 N_4 N_5 N_6 \} + P \{N_1 C_2 C_3 N_4 N_5 N_6 \} \\
-& \; \; +P \{C_1 N_2 C_3 N_4 N_5 N_6 \} + P \{N_1 N_2 C_3 N_4 N_5 N_6 \} \\
-&= p \cdot p \cdot p \cdot q^3 + p \cdot q \cdot p \cdot q^3 + q \cdot p \cdot p \cdot q^3 + q \cdot q \cdot p \cdot q^3 \\
-&= pq^3.
-\end{align*}
-5. Consider $k = 4$. The person has to wait exactly $4$ seconds
-if and only if a car passes in at least one of the first 3 seconds, one passes at the 4th but none
-pass in the next 3 seconds. The probability that at least one passes in the first three seconds
-is $1$ minus the probability that there is none in the first 3 seconds. This probability is $1 - q^3$.
-Hence the answer is $(1 - q^3 )pq^3$.
-:::
-
 
 \pagebreak

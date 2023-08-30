@@ -813,7 +813,10 @@ which will imply:
 :::
 
 :::{.example name="Poisson"}
-The daily demand for a product has a Poisson distribution with mean $\lambda$, the demands on different days being statistically independent. It is desired to test the hypotheses $H_{0}: \lambda=0.7, H_{1}: \lambda=0.3$. The null hypothesis is to be accepted if in 20 days the number of days with no demand is less than 15. Calculate the Type I and Type II error probabilities.
+The daily demand for a product has a Poisson distribution with mean $\lambda$, the demands on different days being statistically independent. It is desired to test the hypotheses $H_{0}: \lambda=0.7$ against the alternative $H_{1}: \lambda=0.3$. 
+The daily demand will be measured for 20 days, and 
+the null hypothesis will be rejected if there is no demand on at least 15 of these 20 days. 
+Calculate the Type I and Type II error probabilities.
 
 Let $p$ denote the probability that the demand on a given day is zero. Then
 \[p=e^{-\lambda}= \begin{cases}e^{-0.7} & \text { under } H_{0} \\ e^{-0.3} & \text { under } H_{1}\end{cases}\]
@@ -825,7 +828,7 @@ If $X$ denotes the number of days out of 20 with zero demand, it follows that
 \end{align*}
 Thus
 \begin{align*}
-\alpha &=P\left(\text { Reject } H_{0} \mid H_{0} \text { true }\right) \\
+\alpha &=P\left(\text {Reject } H_{0} \mid H_{0} \text { true }\right) \\
 &=P\left(X \geq 15 \mid X \sim \operatorname{Binomial}\left(20, e^{-0.7}\right)\right) \\
 &=1-P(X \leq 14 \mid X \sim \operatorname{Binomial}(20,0.4966)) \\
 &=1-0.98028 \\
@@ -834,7 +837,7 @@ Thus
 
 Furthermore
 \begin{align*}
-\beta &=P\left(\text { Accept } H_{0} \mid H_{1} \text { true }\right) \\
+\beta &=P\left(\text {Do not reject } H_{0} \mid H_{1} \text { true }\right) \\
 &=P\left(X \leq 14 \mid X \sim \operatorname{Binomial}\left(20, e^{-0.3}\right)\right) \\
 &=P(X \leq 14 \mid X \sim \operatorname{Binomial}(20,0.7408)) \\
 &=0.42023  \, (\texttt{1 - pbinom(14, size = 20, prob = 0.7408)})

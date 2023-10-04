@@ -1,4 +1,4 @@
-# Random variables and their probability distributions {#distributions}
+# Probability Distributions {#distributions}
 
 ## Introduction
 

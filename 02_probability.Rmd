@@ -345,7 +345,7 @@ which is roughly 1 in 45 million.
 There is one other way of win a very large prize, of £1 million,
 by using the bonus ball --- matching 5 of the selected 6 balls
 plus matching the bonus ball. The probability of this is given by
-\[P \{\text{$5$ matches + bonus}\} = \frac{6}{\binom{59}{6}} = 1.33 \times 10-7 .\]
+\[P \{\text{$5$ matches + bonus}\} = \frac{6}{\binom{59}{6}} = 1.33 \times 10^{-7} .\]
 
 Other smaller prizes are given for fewer matches.
 The corresponding probabilities are:

@@ -9,56 +9,5 @@ fontsize: 12pt
 
 (all have been corrected on online version on blackboard)
 
-### Chapter 1
-
-- Theorem 1.2: should say "The sample median minimises the SAE" (not the SSE).
 
 ### Chapter 2
-
-- In Section 2.3, consequence (2) of the axioms of probability should
-say $P\{\emptyset\}=0$ not $P\{0\} = 0$.
-- In Example 2.5, $\binom{20, 3} =$ should be $\binom{20}{3} = .$
-- In Section 2.5, in paragraph before display $\frac{2}{3} = \ldots$, $nA$
-should be $n_A$.
-- In Section 2.5.1, in the definition of conditional probability,
-$P{B|A}$ is missing brackets: it should read $P\{B|A\}$.
-- In Example 2.11, the denominator is missing in the expresssion following the first equals sign.
-It should read \[P \{\text{$64$ GB}|\text{$16$ MP}\} =
-  \frac{P \{\text{$64$ GB} \cap \text{$16$ MP}\}}{P\{\text{$16$ MP}\}}.\]
-- In Example 2.13, the market share for C Windows in the table is
-30%, not 50%.
-- In Example 2.14, in the displayed equation, $B1$, $B2$ and $B3$ should
-be $B_1$, $B_2$ and $B_3$.
-
-### Chapter 3
-
-- In the example just before Theorem 3.1, $E(X^2) = \int_{-\infty}^{\infty} x^2 f(x) dx$, not $\int_{-\infty}{\infty} x^2 f(x) dx$.
-- In the proof of Theorem 3.1, the equation for the total probability
-is 1 property should be 
-$\int_{-\infty}^\infty f (x)dx = 1$ not $-\infty f (x)dx = 1$.
-- In Example 3.9, the probability $P(X = 0) + P(X = 1)$ should be
-\[(0.99)^{10} + 10(0.01)^1 (0.99)^9\]
-not
-\[(0.99)10 + 10(0.01)1 (0.99)9.\]
-- In Section 3.4.2.3, in the proof that $E(X) = np$, the second line of the display should include the term $\frac{n!}{x!(n-x)!}$ not $\frac{(n ! x) !}{x !(n-x)}$.
-- In Section 3.4.3.3, on the first line, it should state
-$E(X) = 1/p$, not $E(X) = p$.
-- In Section 3.4.6.2, in the second line of the derivation
-of $E(X)$, the final fraction should be $\frac{\lambda^{x}}{x!}$
-not $\frac{\lambda^{x}}{x^! !}$. In the fifth line, the sum
-should not be in the exponent.
-- In Section 3.4.6.3, in the second line of the derivation
-of $\operatorname{Var}(X)$, $x'$ should be $x!$. In
-the third line, $\lambda^{\lambda^x}$ should be $\lambda^x$.
-- In Section 3.5.2.2, in the display for $E(X^2)$ on the third
-line $\frac{d y}{\theta}$ should appear outside of the exponent.
-- In Section 3.5.2.5, in the second line of the proof
-of the memoryless property, the numerator should be 
-$P(X>s+t)$ not $P(X > s > t)$.
-- In Section 3.5.3.4, on the third line of the display for
-$P(a \leq X \leq b)$,
-the upper limit of the integral should be $\frac{b - \mu}{\sigma}$
-not $\sigma$.
-- In Example 3.17, the variance of the raw marks should be $14^2$
-not $142$, and the variance of the scaled marks to be $15^2$
-not $152$.

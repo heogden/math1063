@@ -193,7 +193,7 @@ For a continuous random variable $X$, the cdf is defined as
 The fundamental theorem of calculus then tells us that
 \[f (x) = \frac{dF (x)}{dx},\]
 so for a continuous random variable the pdf is the derivative of the cdf. Also for any random
-variable $X$, $P (c < X < d) = F (d) - F (c)$. Let us consider an example.
+variable $X$, $P (c < X \leq d) = F (d) - F (c)$. Let us consider an example.
 
 :::{.example name="Uniform distribution" #uniform-cdf}
 Suppose
@@ -589,7 +589,7 @@ with pmf
 \[P(X=x)=\frac{\binom{Np}{x} \binom{N(1-p)}{n-x}}{\binom{N}{n}}, \quad x=0,1, \ldots, n,\]
 assuming that $x \leq N p$ and $n-x \leq N(1-p)$ so that the above combinations are well defined. 
 The mean and variance of the hypergeometric distribution are given by
-\[E(X)=n p, \quad \operatorname{Var}(X)=n p q \frac{N-n}{N-1}.\]
+\[E(X)=n p, \quad \operatorname{Var}(X)=n p (1-p) \frac{N-n}{N-1}.\]
 
 ### Negative binomial distribution
 

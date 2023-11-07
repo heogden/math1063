@@ -517,7 +517,7 @@ it was manufactured by A Pale? To answer this we need to introduce Bayes' Theore
 
 ::: {.theorem name="Bayes' Theorem"}
 Let $A$ and $B$ be events. Then
-\[P \{B |A\} = \frac{P \{B \}P \{A|B \}}{P \{B \}P \{A|B \}}.\]
+\[P \{B |A\} = \frac{P \{B \}P \{A|B \}}{P \{A\}}.\]
 :::
 
 ::: {.proof}

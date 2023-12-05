@@ -708,7 +708,7 @@ or a $90 \%$ confidence interval with
 mean(fastfood) + c(-1, 1) * qt(0.95, df = 19) * sd(fastfood) / sqrt(20)
 ```
 
-or a $90 \%$ confidence interval with
+or a $99 \%$ confidence interval with
 ```{r}
 mean(fastfood) + c(-1, 1) * qt(0.995, df = 19) * sd(fastfood) / sqrt(20)
 ```

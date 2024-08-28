@@ -399,11 +399,11 @@ For example, if $X_{1}, \ldots, X_{n}$ are i.i.d. $\operatorname{Poisson}(\lambd
 $E(X)=\lambda$, so $\bar{X}$ is an unbiased estimator of $\lambda$. $\operatorname{Var}(X)=\lambda$, so another $\text{s.e.}(\bar{X})=\sqrt{\hat{\lambda} / n}=\sqrt{\bar{x} / n}$.
    In the computer failure data example, this is $\sqrt{\frac{3.75}{104}}=0.19$.
 
-## Interval estimation
+## Confidence intervals
 
 ### Introduction
 
-An estimate $\tilde{\theta}$ of a parameter $\theta$ is sometimes referred to as a point estimate. The usefulness of a point estimate is enhanced if some kind of measure of its precision can also be provided. Usually, for an unbiased estimator, this will be a standard error, an estimate of the standard deviation of the associated estimator, as we have discussed previously. An alternative summary of the information provided by the observed data about the location of a parameter $\theta$ and the associated precision is an interval estimate or confidence interval.
+An estimate $\tilde{\theta}$ of a parameter $\theta$ is sometimes referred to as a point estimate. The usefulness of a point estimate is enhanced if some kind of measure of its precision can also be provided. Usually, for an unbiased estimator, this will be a standard error, an estimate of the standard deviation of the associated estimator, as we have discussed previously. An alternative summary of the information provided by the observed data about the location of a parameter $\theta$ and the associated precision is a confidence interval.
 
 Suppose that $x_{1}, \ldots, x_{n}$ are observations of random variables $X_{1}, \ldots, X_{n}$ whose joint pdf is specified apart from a single parameter $\theta$. To construct a confidence interval for $\theta$, we need to find a random variable $T(\mathbf{X}, \theta)$ whose distribution does not depend on $\theta$ and is therefore known. This random variable $T(\mathbf{X}, \theta)$ is called a *pivot* for $\theta$. Hence we can find numbers $h_{1}$ and $h_{2}$ such that
 \begin{equation}

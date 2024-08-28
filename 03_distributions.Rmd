@@ -977,7 +977,7 @@ We will show later that $E(X)=\mu$ and $\operatorname{Var}(X)=\sigma^2$.
 
 The density (pdf) is much easier to remember and work with when the mean $\mu=0$ and variance $\sigma^2=1$. This special case is called the *standard* normal distribution. In this case, we simply write:
 \[f(x)=\frac{1}{\sqrt{2 \pi}} \exp \left\{-\frac{x^2}{2}\right\}.\]
-
+We often use $Z$ to denote a random variable with standard normal distribution.
 
 It is easy to see that $f(x)>0$ for all $x$. 
 Next, we show $\int_{-\infty}^{\infty} f(x) d x=1$ or total probability equals 1, 
@@ -993,45 +993,48 @@ so that $f(x)$ defines a valid pdf:
 &=\frac{1}{\sqrt{\pi}} \sqrt{\pi}=1 \quad \text { as } \Gamma\left(\frac{1}{2}\right)=\sqrt{\pi}.
 \end{align*}
 
+#### Linear transformations
+
+::: {.theorem}
+Suppose $X \sim N\left(\mu, \sigma^2\right)$ and $a$ and $b$ are constants. Then the distribution of $Y=a X+b$ is $N\left(a \mu+b, a^2 \sigma^2\right)$.
+:::
+
+::: {.proof}
+The cumulative distribution function of $Y$ is
+\begin{align*}
+F_Y(y) &= P(Y \leq y) = P(aX + b \leq y) = P\left(X \leq \frac{y-b}{a}\right) \\
+&= \int_{-\infty}^{\frac{y-b}{a}} f_X(x) dx, \text{ where $f_X(x)$ is the pdf of $X$} \\
+&= \int_{-\infty}^y \frac{1}{a} f_X\left(\frac{u-b}{a}\right) du, \text{ substituting $u = ax + b$.}
+\end{align*}
+
+So $Y$ has probability density function
+\begin{align*}
+f_Y(y) &= \frac{1}{a} f_X\left(\frac{y-b}{a}\right) \\
+&= \frac{1}{a} \frac{1}{\sqrt{2 \pi \sigma^2}} \exp\left\{-\frac{\left(\frac{y-b}{a} - \mu\right)^2}{2 \sigma^2}\right\} \\
+&=  \frac{1}{\sqrt{2 \pi a^2 \sigma^2}} \exp\left\{-\frac{\left(y-b - a\mu\right)^2}{2 a^2 \sigma^2}\right\},
+\end{align*}
+which is the $N(a \mu + b, a^2 \sigma^2)$ probability density function.
+So $Y \sim N(a \mu + b, a^2 \sigma^2)$.
+:::
+
+
+
+An important consequence is that if $X \sim N(\mu, \sigma^2)$, then $Z
+= (X-\mu)/\sigma \sim N(0, 1)$. We can "standardise" any normal random
+variable by subtracting the mean $\mu$ then dividing by the standard
+deviation $\sigma$.
+
 #### Expectation and variance
 
 We claimed that $E(X)=\mu$ and $\operatorname{Var}(X)=\sigma^2$, 
 and now will prove these results.
 
-To prove that  $E(X)=\mu$, we prove the following two results:
-
-\begin{equation}
-X \sim N\left(\mu, \sigma^2\right) \longleftrightarrow Z \equiv \frac{X-\mu}{\sigma} \sim N(0,1)
-(\#eq:standardise-normal)
-\end{equation}
-\begin{equation}
-E(Z)=0
-(\#eq:std-normal-mean-zero)
-\end{equation}
-
-Then by the linearity of expectations, i.e. if $X=\mu+\sigma Z$ for constants $\mu$ and $\sigma$ then $E(X)=\mu+\sigma E(Z)=\mu$, the result follows. To prove \@ref(eq:standardise-normal),
-we first calculate the cdf of $Z$, given by:
-\begin{align*}
-\Phi(z) &=P(Z \leq z) \\
-&=P\left(\frac{X-\mu}{\sigma} \leq z\right) \\
-&=P(X \leq \mu+z \sigma) \\
-&=\int_{-\infty}^{\mu+z \sigma} \frac{1}{\sqrt{2 \pi \sigma^2}} \exp \left\{-\frac{(x-\mu)^2}{2 \sigma^2}\right\} d x \\
-&=\int_{-\infty}^z \frac{1}{\sqrt{2 \pi}} \exp \left\{-\frac{u^2}{2}\right\} d u, \quad[u=(x-\mu) / \sigma]
-\end{align*}
-and so the pdf of $Z$ is
-\[\frac{d \Phi(z)}{d z}=\frac{1}{\sqrt{2 \pi}} \exp \left\{-\frac{z^2}{2}\right\} \text { for }-\infty<z<\infty,\]
-by the fundamental theorem of calculus. This proves that $Z \sim N(0,1)$. The converse is proved just by reversing the steps. Thus we have proved \@ref(eq:standardise-normal) above. We use the $\Phi(\cdot)$ notation to denote the cdf of the standard normal distribution. Now:
-\begin{align*}
-E(Z) &=\int_{-\infty}^{\infty} z f(z) d z \\
-&=\int_{-\infty}^{\infty} z \frac{1}{\sqrt{2 \pi}} \exp \left\{-\frac{z^2}{2}\right\} d z \\
-&=\frac{1}{\sqrt{2 \pi}} \times 0=0,
-\end{align*}
-since the integrand $g(z)=z \exp \left\{-\frac{z^2}{2}\right\}$ is an odd function, i.e. $g(z)=-g(-z)$; for an odd function $g(z), \int_{-a}^a g(z) d z=0$ for any $a$. Therefore we have also proved 
-\@ref(eq:std-normal-mean-zero) and hence $E(X) = \mu$.
+$E(X)=\mu$ because $f(x)$ is symmetric about $\mu$.
 
 To prove $\operatorname{Var}(X)=\sigma^2$, we show that $\operatorname{Var}(Z)=1$ 
-where $Z=\frac{X-\mu}{\sigma}$ and then claim that
-$\operatorname{Var}(X)=\sigma^2 \operatorname{Var}(Z)=\sigma^2$ from our earlier result. 
+where $Z=\frac{X-\mu}{\sigma}$. Once we have shown that, we will have
+$\operatorname{Var}(X)=\sigma^2 \operatorname{Var}(Z)=\sigma^2$. 
+
 Since $E(Z)=0, \operatorname{Var}(Z)=E\left(Z^2\right)$, which is
 calculated below:
 \begin{align*}
@@ -1048,29 +1051,8 @@ E\left(Z^2\right) &=\int_{-\infty}^{\infty} z^2 f(z) d z \\
 \end{align*}
 as we hoped for! This proves $\operatorname{Var}(X)=\sigma^2$.
 
-#### Linear transformation of a Normal random variable
 
-::: {.theorem}
-Suppose $X \sim N\left(\mu, \sigma^2\right)$ and $a$ and $b$ are constants. Then the distribution of $Y=a X+b$ is $N\left(a \mu+b, a^2 \sigma^2\right)$
-:::
-
-::: {.proof}
-The result that $Y$ has mean $a \mu+b$ and variance $a^2 \sigma^2$ can already be claimed from the linearity of the expectations and the variance result for linear functions. What remains to be proved is that the normality of $Y$, i.e. how can we claim that $Y$ will follow the normal distribution too? For this, we note that
-\[Y=a X+b=a(\mu+\sigma Z)+b=(a \mu+b)+a \sigma Z\]
-since $X=\mu+\sigma Z$. Now we use \@ref(eq:standardise-normal) to claim the normality of $Y$.
-:::
-
-#### Standard normal distribution
-
-Now we can claim that the normal pdf \@ref(eq:normal-pdf) 
-is symmetric about the mean $\mu$. The spread of the
-pdf is determined by $\sigma$, the standard deviation of the distribution. When $\mu = 0$ and 
-$\sigma = 1$,
-the normal distribution $N(0, 1)$ is called is called the standard normal distribution. 
-We often use $Z$ to denote a random variable with standard normal distribution.
-Next, we will show that the standard normal distribution can 
-is used to calculate probabilities of interest for any normal 
-distribution. 
+#### Calculating probabilities
 
 Suppose $X \sim N\left(\mu, \sigma^2\right)$ and we are interested in finding $P(a \leq X \leq b)$ for two constants $a$ and $b$.
 \begin{align*}

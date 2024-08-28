@@ -1054,15 +1054,11 @@ as we hoped for! This proves $\operatorname{Var}(X)=\sigma^2$.
 
 #### Calculating probabilities
 
-Suppose $X \sim N\left(\mu, \sigma^2\right)$ and we are interested in finding $P(a \leq X \leq b)$ for two constants $a$ and $b$.
+Suppose $X \sim N\left(\mu, \sigma^2\right)$ and we are interested in finding $P(a \leq X \leq b)$ for two constants $a$ and $b$. To do this, we can use the fact that $Z = \frac{X - \mu}{\sigma} \sim N(0, 1)$ and rewrite the probability of interest in terms of standard normal probabilities:
 \begin{align*}
-P(a \leq X \leq b) &=\int_a^b f(x) d x \\
-&=\int_a^b \frac{1}{\sqrt{2 \pi \sigma^2}} \exp \left\{-\frac{(x-\mu)^2}{2 \sigma^2}\right\} d x \\
-&\left.=\frac{1}{\sqrt{2 \pi}} \int_{\frac{a-\mu}{\sigma}}^\frac{b-\mu}{\sigma} \exp \left\{-\frac{z^2}{2}\right\} d z \quad \text { [substituted } z=\frac{x-\mu}{\sigma} \text { so that } d x=\sigma d z\right] \\
-&=\int_{-\infty}^{\frac{b-\mu}{\sigma}} \frac{1}{\sqrt{2 \pi}} \exp \left\{-\frac{z^2}{2}\right\} d z-\int_{-\infty}^{\frac{a-\mu}{\sigma}} \frac{1}{\sqrt{2 \pi}} \exp \left\{-\frac{z^2}{2}\right\} d z \\
-&=P\left(Z \leq \frac{b-\mu}{\sigma}\right)-P\left(Z \leq \frac{a-\mu}{\sigma}\right) \\
-&=\text { cdf of } Z \text { at } \frac{b-\mu}{\sigma}-\text { cdf of } Z \text { at } \frac{a-\mu}{\sigma} \\
-&=\Phi\left(\frac{b-\mu}{\sigma}\right)-\Phi\left(\frac{a-\mu}{\sigma}\right)
+P(a \leq X \leq b) &= P\left(\frac{a-\mu}{\sigma} \leq Z \leq \frac{b-\mu}{\sigma}\right) \\
+&=P\left(Z \leq \frac{b-\mu}{\sigma}\right)- P\left(Z \leq \frac{a-\mu}{\sigma}\right) \\
+&=\Phi\left(\frac{b-\mu}{\sigma}\right)-\Phi\left(\frac{a-\mu}{\sigma}\right),
 \end{align*}
 where we use the notation $\Phi(\cdot)$ to denote the cdf of the standard normal
 distribution, i.e.

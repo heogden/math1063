@@ -250,10 +250,10 @@ If $Y=g(X)$ for any function $g(\cdot)$, then $Y$ is a random variable as well. 
  \end{cases}\]
  
 For example, if $X$ is continuous, then $E(X^2) = \int_{-\infty}^{\infty} x^2 f(x) dx$.
-We prove one important property
+We prove an important property
 of expectation, namely expectation is a linear operator.
 
-::: {.theorem}
+::: {.theorem name="Linearity of expectation"}
 Suppose $Y = g(X) = aX +b$; then $E(Y ) = aE(X)+b$.
 :::
 
@@ -271,6 +271,38 @@ using the total probability is 1 property
 
  This is very convenient, e.g. suppose $E(X) = 5$ and
 $Y = -2X + 549$ then $E(Y) = 539$.
+
+We will also prove an important property of expectation for symmetric
+random variables.
+
+::: {.theorem} 
+Suppose $X$ is a random variable with a probability
+function or probability density function which is symmetric about some
+value $c$, so \[f(c + x) = f(c - x) \text{ for all $x >0$.}\] Then
+$E(X) = c$. 
+:::
+
+::: {.proof}
+The proof is given for the continuous case. In the discrete case replace
+integral ($\int$) by summation ($\sum$).
+
+First, let $Y = X - c$. Then $Y$ is symmetric about $0$, with
+probability density function $f(y) = f(-y)$ for all $y >0$.
+Then
+\begin{align*}
+E(Y) &= \int_{-\infty}^\infty y f(y) dy \\
+&= \int_{-\infty}^0 y f(y) dy + \int_0^\infty y f(y) dy \\
+&= \int_{0}^\infty -z f(-z) dz + \int_0^\infty y f(y) dy, \text{ substituting $z = -y$}  \\
+&= - \int_{0}^\infty z f(z) dz + \int_0^\infty y f(y) dy, \text{ since $f(-z) = f(z)$} \\
+&= 0.
+\end{align*}
+So, by the linearity of expectation, $E(X) = E(Y + c) = E(Y) + c = 0 + c = c.$
+:::
+
+This result makes it very easy to find the expectation of any
+symmetric random variable. The two examples we saw before, of a fair
+die and of a uniform random variable, were both symmetric, and they
+have expectation equal to the point of symmetry.
 
 ### Variance
 
@@ -359,6 +391,14 @@ We have shown in Example \@ref(exm:uniform-cdf) that the cdf is \[F(x)=\frac{x-a
 So for a given $p$, $F(q)=p$ implies \[q=a+p(b-a).\]
 The median of $X$ is $\frac{b+a}{2}$
 and the quartiles are $\frac{b + 3a}{4}$ and $\frac{3b + a}{4}$.
+:::
+
+The median of a symmetric random variable is the point of symmetry:
+::: {.theorem} 
+Suppose $X$ is a random variable with a probability
+function or probability density function which is symmetric about some
+value $c$, so \[f(c + x) = f(c - x) \text{ for all $x >0$.}\] Then
+the median of $X$ is $c$.
 :::
 
 ## Standard discrete distributions

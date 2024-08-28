@@ -306,7 +306,7 @@ We usually denote the variance by $\sigma^2$.
 The square is there to emphasise that the variance of any
 random variable is always non-negative. When can the variance be zero? 
 When there is no variation
-at all in the random variable, i.e. it takes only a single value µ with probability 1.
+at all in the random variable, i.e. it takes only a single value $\mu$ with probability 1.
 Hence, there is
 nothing random about the random variable --- we can predict its outcome with certainty.
 

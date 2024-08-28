@@ -635,7 +635,7 @@ The mean and variance of the hypergeometric distribution are given by
 
 Still in the Bernoulli trials set-up, we define the random variable $X$ to be the total number
 of trials
-until the $r$th success occurs, where $r$ is a given postive integer. This is known as the negative
+until the $r$th success occurs, where $r$ is a given positive integer. This is known as the negative
 binomial distribution with parameters $p$ and $r$.
 [Note: if $r = 1$, the negative binomial distribution is just the geometric distribution.]
 Firstly we need to identify the possible values of $X$. Possible values for $X$ are $x = r, r + 1, r +
@@ -857,7 +857,7 @@ will have to find a $q$ such that $F(q)=p$, where $p$ is the given probability:
 the $p$th quantile of $X$.
 
 The cdf of the exponential distribution is $F(q)=1-e^{-\theta q}$, 
-so to find the pth quantile we must solve $p = 1-e^{-\theta q}$ for $q$.
+so to find the $p$th quantile we must solve $p = 1-e^{-\theta q}$ for $q$.
 \begin{align*}
 p &=1-e^{-\theta q} \\
 \Rightarrow e^{-\theta q} &=1-p \\

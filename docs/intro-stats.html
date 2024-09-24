@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>MATH1024: Introduction to Probability and Statistics</title>
+  <meta name="description" content="The course notes for MATH1024: Introduction to Probability and Statistics" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="MATH1024: Introduction to Probability and Statistics" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="The course notes for MATH1024: Introduction to Probability and Statistics" />
+  <meta name="github-repo" content="heogden/math1024" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="MATH1024: Introduction to Probability and Statistics" />
+  
+  <meta name="twitter:description" content="The course notes for MATH1024: Introduction to Probability and Statistics" />
+  
+
+<meta name="author" content="Dr Helen Ogden, based on original notes by Prof. Sujit Sahu" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="intro-prob.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="intro-stats.html"><a href="intro-stats.html"><i class="fa fa-check"></i><b>1</b> Introduction to Statistics</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro-stats.html"><a href="intro-stats.html#what-is-statistics"><i class="fa fa-check"></i><b>1.1</b> What is statistics?</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="intro-stats.html"><a href="intro-stats.html#early-and-modern-definitions"><i class="fa fa-check"></i><b>1.1.1</b> Early and modern definitions</a></li>
+<li class="chapter" data-level="1.1.2" data-path="intro-stats.html"><a href="intro-stats.html#statistics-tames-uncertainty"><i class="fa fa-check"></i><b>1.1.2</b> Statistics tames uncertainty</a></li>
+<li class="chapter" data-level="1.1.3" data-path="intro-stats.html"><a href="intro-stats.html#why-should-i-study-statistics-as-part-of-my-degree"><i class="fa fa-check"></i><b>1.1.3</b> Why should I study statistics as part of my degree?</a></li>
+<li class="chapter" data-level="1.1.4" data-path="intro-stats.html"><a href="intro-stats.html#lies-damn-lies-and-statistics"><i class="fa fa-check"></i><b>1.1.4</b> Lies, Damn Lies and Statistics?</a></li>
+<li class="chapter" data-level="1.1.5" data-path="intro-stats.html"><a href="intro-stats.html#whats-in-this-module"><i class="fa fa-check"></i><b>1.1.5</b> What’s in this module?</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="intro-stats.html"><a href="intro-stats.html#example-data-sets"><i class="fa fa-check"></i><b>1.2</b> Example data sets</a></li>
+<li class="chapter" data-level="1.3" data-path="intro-stats.html"><a href="intro-stats.html#introduction-to-r"><i class="fa fa-check"></i><b>1.3</b> Introduction to R</a></li>
+<li class="chapter" data-level="1.4" data-path="intro-stats.html"><a href="intro-stats.html#summaries"><i class="fa fa-check"></i><b>1.4</b> Summarising data sets</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="intro-stats.html"><a href="intro-stats.html#summarising-categorical-data"><i class="fa fa-check"></i><b>1.4.1</b> Summarising categorical data</a></li>
+<li class="chapter" data-level="1.4.2" data-path="intro-stats.html"><a href="intro-stats.html#measures-of-location"><i class="fa fa-check"></i><b>1.4.2</b> Measures of location</a></li>
+<li class="chapter" data-level="1.4.3" data-path="intro-stats.html"><a href="intro-stats.html#measures-of-spread"><i class="fa fa-check"></i><b>1.4.3</b> Measures of spread</a></li>
+<li class="chapter" data-level="1.4.4" data-path="intro-stats.html"><a href="intro-stats.html#summarising-data-in-r"><i class="fa fa-check"></i><b>1.4.4</b> Summarising data in R</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="intro-stats.html"><a href="intro-stats.html#exploratory-data-plots"><i class="fa fa-check"></i><b>1.5</b> Exploratory data plots</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="intro-stats.html"><a href="intro-stats.html#introduction"><i class="fa fa-check"></i><b>1.5.1</b> Introduction</a></li>
+<li class="chapter" data-level="1.5.2" data-path="intro-stats.html"><a href="intro-stats.html#distribution-of-a-single-discrete-variable"><i class="fa fa-check"></i><b>1.5.2</b> Distribution of a single discrete variable</a></li>
+<li class="chapter" data-level="1.5.3" data-path="intro-stats.html"><a href="intro-stats.html#distribution-of-a-single-continuous-variable"><i class="fa fa-check"></i><b>1.5.3</b> Distribution of a single continuous variable</a></li>
+<li class="chapter" data-level="1.5.4" data-path="intro-stats.html"><a href="intro-stats.html#relationship-between-continuous-and-discrete-variables"><i class="fa fa-check"></i><b>1.5.4</b> Relationship between continuous and discrete variables</a></li>
+<li class="chapter" data-level="1.5.5" data-path="intro-stats.html"><a href="intro-stats.html#relationship-between-two-continuous-variables"><i class="fa fa-check"></i><b>1.5.5</b> Relationship between two continuous variables</a></li>
+<li class="chapter" data-level="1.5.6" data-path="intro-stats.html"><a href="intro-stats.html#relationships-between-more-than-two-variables"><i class="fa fa-check"></i><b>1.5.6</b> Relationships between more than two variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro-prob.html"><a href="intro-prob.html"><i class="fa fa-check"></i><b>2</b> Introduction to Probability</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="intro-prob.html"><a href="intro-prob.html#definitions-of-probability"><i class="fa fa-check"></i><b>2.1</b> Definitions of probability</a></li>
+<li class="chapter" data-level="2.2" data-path="intro-prob.html"><a href="intro-prob.html#some-definitions"><i class="fa fa-check"></i><b>2.2</b> Some definitions</a></li>
+<li class="chapter" data-level="2.3" data-path="intro-prob.html"><a href="intro-prob.html#axioms-of-probability"><i class="fa fa-check"></i><b>2.3</b> Axioms of probability</a></li>
+<li class="chapter" data-level="2.4" data-path="intro-prob.html"><a href="intro-prob.html#using-combinatorics-to-find-probabilities"><i class="fa fa-check"></i><b>2.4</b> Using combinatorics to find probabilities</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="intro-prob.html"><a href="intro-prob.html#experiments-with-equally-likely-outcomes"><i class="fa fa-check"></i><b>2.4.1</b> Experiments with equally likely outcomes</a></li>
+<li class="chapter" data-level="2.4.2" data-path="intro-prob.html"><a href="intro-prob.html#sec-multiplication-rule"><i class="fa fa-check"></i><b>2.4.2</b> Multiplication rule of counting</a></li>
+<li class="chapter" data-level="2.4.3" data-path="intro-prob.html"><a href="intro-prob.html#the-number-of-permutations-of-k-from-n-pn-k"><i class="fa fa-check"></i><b>2.4.3</b> The number of permutations of <span class="math inline">\(k\)</span> from <span class="math inline">\(n\)</span>: <span class="math inline">\(P(n, k)\)</span></a></li>
+<li class="chapter" data-level="2.4.4" data-path="intro-prob.html"><a href="intro-prob.html#calculation-of-probabilities-of-events-under-sampling-at-random"><i class="fa fa-check"></i><b>2.4.4</b> Calculation of probabilities of events under sampling ‘at random’</a></li>
+<li class="chapter" data-level="2.4.5" data-path="intro-prob.html"><a href="intro-prob.html#a-general-urn-problem"><i class="fa fa-check"></i><b>2.4.5</b> A general ‘urn problem’</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="intro-prob.html"><a href="intro-prob.html#conditional-probability-and-bayes-theorem"><i class="fa fa-check"></i><b>2.5</b> Conditional probability and Bayes’ Theorem</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="intro-prob.html"><a href="intro-prob.html#definition-of-conditional-probability"><i class="fa fa-check"></i><b>2.5.1</b> Definition of conditional probability</a></li>
+<li class="chapter" data-level="2.5.2" data-path="intro-prob.html"><a href="intro-prob.html#multiplication-rule-of-conditional-probability"><i class="fa fa-check"></i><b>2.5.2</b> Multiplication rule of conditional probability</a></li>
+<li class="chapter" data-level="2.5.3" data-path="intro-prob.html"><a href="intro-prob.html#total-probability-formula"><i class="fa fa-check"></i><b>2.5.3</b> Total probability formula</a></li>
+<li class="chapter" data-level="2.5.4" data-path="intro-prob.html"><a href="intro-prob.html#bayes-theorem"><i class="fa fa-check"></i><b>2.5.4</b> Bayes’ theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="intro-prob.html"><a href="intro-prob.html#independent-events"><i class="fa fa-check"></i><b>2.6</b> Independent events</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="intro-prob.html"><a href="intro-prob.html#introduction-and-definition-of-independence"><i class="fa fa-check"></i><b>2.6.1</b> Introduction and definition of independence</a></li>
+<li class="chapter" data-level="2.6.2" data-path="intro-prob.html"><a href="intro-prob.html#independence-with-three-events"><i class="fa fa-check"></i><b>2.6.2</b> Independence with three events</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="distributions.html"><a href="distributions.html"><i class="fa fa-check"></i><b>3</b> Probability Distributions</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="distributions.html"><a href="distributions.html#introduction-1"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="distributions.html"><a href="distributions.html#random-variables"><i class="fa fa-check"></i><b>3.2</b> Random variables</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="distributions.html"><a href="distributions.html#introduction-2"><i class="fa fa-check"></i><b>3.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2.2" data-path="distributions.html"><a href="distributions.html#discrete-and-continuous-random-variables"><i class="fa fa-check"></i><b>3.2.2</b> Discrete and continuous random variables</a></li>
+<li class="chapter" data-level="3.2.3" data-path="distributions.html"><a href="distributions.html#probability-distribution-of-a-random-variable"><i class="fa fa-check"></i><b>3.2.3</b> Probability distribution of a random variable</a></li>
+<li class="chapter" data-level="3.2.4" data-path="distributions.html"><a href="distributions.html#continuous-random-variables"><i class="fa fa-check"></i><b>3.2.4</b> Continuous random variables</a></li>
+<li class="chapter" data-level="3.2.5" data-path="distributions.html"><a href="distributions.html#cumulative-distribution-function-cdf"><i class="fa fa-check"></i><b>3.2.5</b> Cumulative distribution function (cdf)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="distributions.html"><a href="distributions.html#summaries-of-a-random-variable"><i class="fa fa-check"></i><b>3.3</b> Summaries of a random variable</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="distributions.html"><a href="distributions.html#introduction-3"><i class="fa fa-check"></i><b>3.3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.3.2" data-path="distributions.html"><a href="distributions.html#expectation"><i class="fa fa-check"></i><b>3.3.2</b> Expectation</a></li>
+<li class="chapter" data-level="3.3.3" data-path="distributions.html"><a href="distributions.html#variance"><i class="fa fa-check"></i><b>3.3.3</b> Variance</a></li>
+<li class="chapter" data-level="3.3.4" data-path="distributions.html"><a href="distributions.html#quantiles"><i class="fa fa-check"></i><b>3.3.4</b> Quantiles</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="distributions.html"><a href="distributions.html#standard-discrete-distributions"><i class="fa fa-check"></i><b>3.4</b> Standard discrete distributions</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="distributions.html"><a href="distributions.html#bernoulli-distribution"><i class="fa fa-check"></i><b>3.4.1</b> Bernoulli distribution</a></li>
+<li class="chapter" data-level="3.4.2" data-path="distributions.html"><a href="distributions.html#binomial-distribution"><i class="fa fa-check"></i><b>3.4.2</b> Binomial distribution</a></li>
+<li class="chapter" data-level="3.4.3" data-path="distributions.html"><a href="distributions.html#geometric-distribution"><i class="fa fa-check"></i><b>3.4.3</b> Geometric distribution</a></li>
+<li class="chapter" data-level="3.4.4" data-path="distributions.html"><a href="distributions.html#hypergeometric-distribution"><i class="fa fa-check"></i><b>3.4.4</b> Hypergeometric distribution</a></li>
+<li class="chapter" data-level="3.4.5" data-path="distributions.html"><a href="distributions.html#negative-binomial-distribution"><i class="fa fa-check"></i><b>3.4.5</b> Negative binomial distribution</a></li>
+<li class="chapter" data-level="3.4.6" data-path="distributions.html"><a href="distributions.html#poisson-distribution"><i class="fa fa-check"></i><b>3.4.6</b> Poisson distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="distributions.html"><a href="distributions.html#standard-continuous-distributions"><i class="fa fa-check"></i><b>3.5</b> Standard continuous distributions</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="distributions.html"><a href="distributions.html#uniform-distribution"><i class="fa fa-check"></i><b>3.5.1</b> Uniform distribution</a></li>
+<li class="chapter" data-level="3.5.2" data-path="distributions.html"><a href="distributions.html#exponential-distribution"><i class="fa fa-check"></i><b>3.5.2</b> Exponential distribution</a></li>
+<li class="chapter" data-level="3.5.3" data-path="distributions.html"><a href="distributions.html#normal-distribution"><i class="fa fa-check"></i><b>3.5.3</b> Normal distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="distributions.html"><a href="distributions.html#joint-distributions"><i class="fa fa-check"></i><b>3.6</b> Joint distributions</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="distributions.html"><a href="distributions.html#introduction-4"><i class="fa fa-check"></i><b>3.6.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.6.2" data-path="distributions.html"><a href="distributions.html#joint-distribution-of-discrete-random-variables"><i class="fa fa-check"></i><b>3.6.2</b> Joint distribution of discrete random variables</a></li>
+<li class="chapter" data-level="3.6.3" data-path="distributions.html"><a href="distributions.html#joint-distribution-of-continuous-random-variables"><i class="fa fa-check"></i><b>3.6.3</b> Joint distribution of continuous random variables</a></li>
+<li class="chapter" data-level="3.6.4" data-path="distributions.html"><a href="distributions.html#covariance-and-correlation"><i class="fa fa-check"></i><b>3.6.4</b> Covariance and correlation</a></li>
+<li class="chapter" data-level="3.6.5" data-path="distributions.html"><a href="distributions.html#sec:indep"><i class="fa fa-check"></i><b>3.6.5</b> Independence</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="distributions.html"><a href="distributions.html#sec:sum-rvs"><i class="fa fa-check"></i><b>3.7</b> Sums of random variables</a></li>
+<li class="chapter" data-level="3.8" data-path="distributions.html"><a href="distributions.html#sec:clt"><i class="fa fa-check"></i><b>3.8</b> The Central Limit Theorem</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="distributions.html"><a href="distributions.html#introduction-5"><i class="fa fa-check"></i><b>3.8.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.8.2" data-path="distributions.html"><a href="distributions.html#statement-of-the-central-limit-theorem-clt"><i class="fa fa-check"></i><b>3.8.2</b> Statement of the Central Limit Theorem (CLT)</a></li>
+<li class="chapter" data-level="3.8.3" data-path="distributions.html"><a href="distributions.html#application-of-clt-to-binomial-distribution"><i class="fa fa-check"></i><b>3.8.3</b> Application of CLT to binomial distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>4</b> Statistical Inference</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="inference.html"><a href="inference.html#statistical-modelling"><i class="fa fa-check"></i><b>4.1</b> Statistical modelling</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="inference.html"><a href="inference.html#introduction-6"><i class="fa fa-check"></i><b>4.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.1.2" data-path="inference.html"><a href="inference.html#statistical-models"><i class="fa fa-check"></i><b>4.1.2</b> Statistical models</a></li>
+<li class="chapter" data-level="4.1.3" data-path="inference.html"><a href="inference.html#a-fully-specified-model"><i class="fa fa-check"></i><b>4.1.3</b> A fully specified model</a></li>
+<li class="chapter" data-level="4.1.4" data-path="inference.html"><a href="inference.html#a-parametric-statistical-model"><i class="fa fa-check"></i><b>4.1.4</b> A parametric statistical model</a></li>
+<li class="chapter" data-level="4.1.5" data-path="inference.html"><a href="inference.html#a-nonparametric-statistical-model"><i class="fa fa-check"></i><b>4.1.5</b> A nonparametric statistical model</a></li>
+<li class="chapter" data-level="4.1.6" data-path="inference.html"><a href="inference.html#should-we-prefer-parametric-or-nonparametric-and-why"><i class="fa fa-check"></i><b>4.1.6</b> Should we prefer parametric or nonparametric and why?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="inference.html"><a href="inference.html#estimation"><i class="fa fa-check"></i><b>4.2</b> Estimation</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="inference.html"><a href="inference.html#introduction-7"><i class="fa fa-check"></i><b>4.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2.2" data-path="inference.html"><a href="inference.html#population-and-sample"><i class="fa fa-check"></i><b>4.2.2</b> Population and sample</a></li>
+<li class="chapter" data-level="4.2.3" data-path="inference.html"><a href="inference.html#statistic-and-estimator"><i class="fa fa-check"></i><b>4.2.3</b> Statistic and estimator</a></li>
+<li class="chapter" data-level="4.2.4" data-path="inference.html"><a href="inference.html#bias-and-mean-square-error"><i class="fa fa-check"></i><b>4.2.4</b> Bias and mean square error</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="inference.html"><a href="inference.html#estimating-the-population-mean"><i class="fa fa-check"></i><b>4.3</b> Estimating the population mean</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="inference.html"><a href="inference.html#introduction-8"><i class="fa fa-check"></i><b>4.3.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.3.2" data-path="inference.html"><a href="inference.html#estimation-of-a-population-mean"><i class="fa fa-check"></i><b>4.3.2</b> Estimation of a population mean</a></li>
+<li class="chapter" data-level="4.3.3" data-path="inference.html"><a href="inference.html#standard-deviation-and-standard-error"><i class="fa fa-check"></i><b>4.3.3</b> Standard deviation and standard error</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="inference.html"><a href="inference.html#confidence-intervals"><i class="fa fa-check"></i><b>4.4</b> Confidence intervals</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="inference.html"><a href="inference.html#introduction-9"><i class="fa fa-check"></i><b>4.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.4.2" data-path="inference.html"><a href="inference.html#confidence-interval-for-a-normal-mean"><i class="fa fa-check"></i><b>4.4.2</b> Confidence interval for a normal mean</a></li>
+<li class="chapter" data-level="4.4.3" data-path="inference.html"><a href="inference.html#some-remarks-about-confidence-intervals"><i class="fa fa-check"></i><b>4.4.3</b> Some remarks about confidence intervals</a></li>
+<li class="chapter" data-level="4.4.4" data-path="inference.html"><a href="inference.html#confidence-intervals-using-the-clt"><i class="fa fa-check"></i><b>4.4.4</b> Confidence intervals using the CLT</a></li>
+<li class="chapter" data-level="4.4.5" data-path="inference.html"><a href="inference.html#exact-confidence-interval-for-the-normal-mean"><i class="fa fa-check"></i><b>4.4.5</b> Exact confidence interval for the normal mean</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="inference.html"><a href="inference.html#hypothesis-testing"><i class="fa fa-check"></i><b>4.5</b> Hypothesis testing</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="inference.html"><a href="inference.html#hypothesis-testing-in-general"><i class="fa fa-check"></i><b>4.5.1</b> Hypothesis testing in general</a></li>
+<li class="chapter" data-level="4.5.2" data-path="inference.html"><a href="inference.html#testing-a-normal-mean-t-test"><i class="fa fa-check"></i><b>4.5.2</b> Testing a normal mean (t-test)</a></li>
+<li class="chapter" data-level="4.5.3" data-path="inference.html"><a href="inference.html#two-sample-t-tests"><i class="fa fa-check"></i><b>4.5.3</b> Two sample t-tests</a></li>
+<li class="chapter" data-level="4.5.4" data-path="inference.html"><a href="inference.html#paired-t-test"><i class="fa fa-check"></i><b>4.5.4</b> Paired t-test</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MATH1024: Introduction to Probability and Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">MATH1024: Introduction to Probability and Statistics</h1>
+<p class="author"><em>Dr Helen Ogden, based on original notes by Prof. Sujit Sahu</em></p>
+</div>
+<div id="intro-stats" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Introduction to Statistics<a href="intro-stats.html#intro-stats" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="what-is-statistics" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> What is statistics?<a href="intro-stats.html#what-is-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="early-and-modern-definitions" class="section level3 hasAnchor" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Early and modern definitions<a href="intro-stats.html#early-and-modern-definitions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The word <em>statistics</em> has its roots in the Latin word <em>status</em> which means the state, and in the
+middle of the 18th century was intended to mean
+<em>collection, processing and use of data by the state</em>.
+With the rapid industrialisation of Europe in the first half of the 19th century, statistics
+became established as a discipline. This led to the formation of the Royal Statistical Society,
+the premier professional association of statisticians in the UK and also world-wide, in 1834.
+During this 19th century growth period, statistics acquired a new meaning as the <em>interpretation of data or methods of extracting information from data for decision making</em>. Thus
+statistics has its modern meaning as the methods for
+<em>collection, analysis and interpretation of data</em>.
+Indeed, the Oxford English Dictionary defines <em>statistics</em> as</p>
+<blockquote>
+<p>The practice or science of collecting and analysing numerical data in large quantities, especially for the purpose of inferring
+proportions in a whole from those in a representative sample.</p>
+</blockquote>
+<p>Note that the word ‘state’ has gone from its definition. Instead, statistical methods are now
+essential for <strong>everyone</strong> wanting to answer questions using data.</p>
+<p>For example, will it rain tomorrow? Is smoking
+harmful during pregnancy? What degree classification will I get at graduation?
+Will the stock market crash tomorrow?</p>
+</div>
+<div id="statistics-tames-uncertainty" class="section level3 hasAnchor" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Statistics tames uncertainty<a href="intro-stats.html#statistics-tames-uncertainty" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We often have to make decisions under uncertainty.
+It is useful for us to know the extent of uncertainty, which allows us
+to minimise the frequency of wrong decisions, or which minimises
+the loss due to wrong decisions.</p>
+<p>Thus we have the equation
+<span class="math display">\[\text{Uncertain knowledge} +
+  \text{Knowledge of the extent of uncertainty in it} =
+  \text{Usable knowledge.}\]</span></p>
+</div>
+<div id="why-should-i-study-statistics-as-part-of-my-degree" class="section level3 hasAnchor" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> Why should I study statistics as part of my degree?<a href="intro-stats.html#why-should-i-study-statistics-as-part-of-my-degree" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Studying statistics will equip you with the basic skills in data analysis and doing science with
+data.
+A decent level of statistical knowledge is required no matter what branch of mathematics,
+engineering, science and social science you will be studying.
+Learning statistical theories gives you the opportunity to practice your deductive mathematical skills on real life problems. In this way, you will improve at mathematical methods while
+studying statistical methods.</p>
+<blockquote>
+<p>All knowledge is, in final analysis, history.<br />
+All sciences are, in the abstract, mathematics.<br />
+All judgements are, in their rationale, statistics.<br />
+– <cite>Prof. C. R. Rao </cite></p>
+</blockquote>
+</div>
+<div id="lies-damn-lies-and-statistics" class="section level3 hasAnchor" number="1.1.4">
+<h3><span class="header-section-number">1.1.4</span> Lies, Damn Lies and Statistics?<a href="intro-stats.html#lies-damn-lies-and-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sometimes people say, “you can prove anything in statistics!” and many such jokes. Such remarks
+bear testimony to the fact that often statistics and statistical methods are mis-quoted without
+proper verification and robust justification. This is even more important in recent years of the global
+pandemic when every day we have been showered with a deluge of numbers.</p>
+<p>Statistics can be very much
+mis-used and mis-interpreted, and as statisticians it is our duty to
+correctly apply statistical techniques to develop scientifically robust and strong arguments.
+In particular, we need to be careful about what assumptions we make.</p>
+</div>
+<div id="whats-in-this-module" class="section level3 hasAnchor" number="1.1.5">
+<h3><span class="header-section-number">1.1.5</span> What’s in this module?<a href="intro-stats.html#whats-in-this-module" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Chapter 1</strong>: We will start with the basic statistics used in everyday life, e.g. mean, median,
+mode, standard deviation, etc. Statistical analysis and report writing will be discussed. We
+will also learn how to explore data using graphical methods. We will introduce the R
+programming language to help us with these tasks.</li>
+<li><strong>Chapter 2: Introduction to Probability</strong>. We will define and interpret probability as a
+measure of uncertainty. We will learn the rules of probability and then explore examples.</li>
+<li><strong>Chapter 3: Probability Distributions</strong>. We will learn about
+lots of probability distributions, which can be used to model
+the outcomes of different types of events.</li>
+<li><strong>Chapter 4: Statistical Inference</strong>. We will discuss basic ideas of statistical inference,
+including techniques of point and interval estimation and hypothesis testing.</li>
+</ul>
+</div>
+</div>
+<div id="example-data-sets" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Example data sets<a href="intro-stats.html#example-data-sets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this module, we will assume that we have data from <span class="math inline">\(n\)</span> randomly selected sampling units,
+which we will conveniently denote by <span class="math inline">\(x_1, x_2, \dots, x_n\)</span>.
+We will assume that these values are numeric, either discrete like
+counts, e.g. number of road accidents, or continuous, e.g. heights of 4-year-olds, marks obtained
+in an examination.</p>
+<p>We will use the following examples to demonstrate ideas throughout the module:</p>
+<div class="example">
+<p><span id="exm:fastfood" class="example"><strong>Example 1.1  (Fast food service time) </strong></span>This dataset contains the service times (in seconds) of customers at a fast-food
+restaurant. The first row is for customers who were served from 9–10am and the second row is for
+customers who who were served from 2–3pm on the same day.</p>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td style="text-align:left;">
+AM
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:right;">
+64
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:right;">
+63
+</td>
+<td style="text-align:right;">
+59
+</td>
+<td style="text-align:right;">
+107
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:right;">
+86
+</td>
+<td style="text-align:right;">
+77
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PM
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+62
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:right;">
+72
+</td>
+<td style="text-align:right;">
+81
+</td>
+<td style="text-align:right;">
+88
+</td>
+<td style="text-align:right;">
+64
+</td>
+<td style="text-align:right;">
+75
+</td>
+<td style="text-align:right;">
+59
+</td>
+<td style="text-align:right;">
+70
+</td>
+</tr>
+</tbody>
+</table>
+<p>We would like to compare these AM and PM service times.</p>
+</div>
+<div class="example">
+<p><span id="exm:compfail" class="example"><strong>Example 1.2  (Computer failures) </strong></span>This dataset contains
+weekly failures of a university computer system over a period of two years.</p>
+<pre><code>4 0 0 0 3 2 0 0 6 7 6 2 1 11 6 1 2 1 1 2 0 2 2 1 0 12 8 4 5 0 5 4 1 0 8 2 5 2 1 
+12 8 9 10 17 2 3 4 8 1 2 5 1 2 2 3 1 2 0 2 1 6 3 3 6 11 10 4 3 0 2 4 2 1 5 3 3 
+2 5 3 4 1 3 6 4 4 5 2 10 4 1 5 6 9 7 3 1 3 0 2 2 1 4 2 13</code></pre>
+<p>We would like to summarise this data and make predictions about future failures.</p>
+</div>
+<div class="example">
+<p><span id="exm:wtgain" class="example"><strong>Example 1.3  (Weight gain) </strong></span>Is it true that students tend to gain weight during their first year in college? Cornell Professor
+of Nutrition, David Levitsky, recruited students from two large sections of an introductory health
+course. Although they were volunteers, they appeared to match the rest of the class in
+terms of demographic variables such as sex and ethnicity. 68 students were weighed during the first
+week of the semester, then again 12 weeks later. The first 10 rows of the data are:</p>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+Student number
+</th>
+<th style="text-align:right;">
+Initial weight (kg)
+</th>
+<th style="text-align:right;">
+Final weight (kg)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+77.56423
+</td>
+<td style="text-align:right;">
+76.20346
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+49.89512
+</td>
+<td style="text-align:right;">
+50.34871
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+60.78133
+</td>
+<td style="text-align:right;">
+61.68851
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+52.16308
+</td>
+<td style="text-align:right;">
+53.97745
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+68.03880
+</td>
+<td style="text-align:right;">
+70.30676
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+47.17357
+</td>
+<td style="text-align:right;">
+48.08075
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+64.41006
+</td>
+<td style="text-align:right;">
+67.13162
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+54.43104
+</td>
+<td style="text-align:right;">
+56.24541
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+65.31725
+</td>
+<td style="text-align:right;">
+67.13162
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+70.76035
+</td>
+<td style="text-align:right;">
+69.85317
+</td>
+</tr>
+</tbody>
+</table>
+<p>We would like to explore the data graphically and to
+test whether the data support the hypothesis that students gain
+weight during their first year in college.</p>
+</div>
+<div class="example">
+<p><span id="exm:billionaires" class="example"><strong>Example 1.4  (Billionaires) </strong></span>Fortune magazine publishes a list of the world’s billionaires each year. The 1992 list includes
+225 individuals. Their wealth, age, and geographic location (Asia, Europe, Middle East, United
+States, and Other) are reported.</p>
+<p>The variables in the data are:</p>
+<ul>
+<li><code>wealth</code>: Wealth of family or individual in billions of dollars</li>
+<li><code>age</code>: Age in years (for families it is the maximum age of family members)</li>
+<li><code>region</code>: Region of the World (Asia, Europe, Middle East, United States and Other).</li>
+</ul>
+<p>The first 10 rows of the data are:</p>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+wealth
+</th>
+<th style="text-align:right;">
+age
+</th>
+<th style="text-align:left;">
+region
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+37.0
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:left;">
+Middle East
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+24.0
+</td>
+<td style="text-align:right;">
+88
+</td>
+<td style="text-align:left;">
+United States
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+14.0
+</td>
+<td style="text-align:right;">
+64
+</td>
+<td style="text-align:left;">
+Asia
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+13.0
+</td>
+<td style="text-align:right;">
+63
+</td>
+<td style="text-align:left;">
+United States
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+13.0
+</td>
+<td style="text-align:right;">
+66
+</td>
+<td style="text-align:left;">
+United States
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11.7
+</td>
+<td style="text-align:right;">
+72
+</td>
+<td style="text-align:left;">
+Europe
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10.0
+</td>
+<td style="text-align:right;">
+71
+</td>
+<td style="text-align:left;">
+Middle East
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8.2
+</td>
+<td style="text-align:right;">
+77
+</td>
+<td style="text-align:left;">
+United States
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8.1
+</td>
+<td style="text-align:right;">
+68
+</td>
+<td style="text-align:left;">
+United States
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7.2
+</td>
+<td style="text-align:right;">
+66
+</td>
+<td style="text-align:left;">
+Europe
+</td>
+</tr>
+</tbody>
+</table>
+<p>We will investigate differences in wealth of billionaires by age and
+region using many exploratory graphical tools and statistical methods.</p>
+</div>
+</div>
+<div id="introduction-to-r" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Introduction to R<a href="intro-stats.html#introduction-to-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R is a programming language for statistics. We will use R as a calculator,
+to summarise data, make exploratory plots,
+perform statistical analysis, illustrate
+theorems and calculate probabilities.
+You will get practice of using R yourself during the computer practical sessions.</p>
+<p>R is freely available to download: search
+“download R” or go to: <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>.
+We will access R via the RStudio integrated development environment,
+which you can download from <a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a>
+which provides a nice editor for R code alongside a console.
+Details about using R and RStudio are given in the
+the practical sessions.
+If you want to complete the practical sessions on your own computer,
+please try to install R and RStudio before attending the practical sessions.</p>
+<p>We will not give details of using R in these notes: this will
+all be covered by the practical sessions. In the
+notes, we provide simple commands used to calculate useful
+quantities in R, and show some of the graphical outputs
+we can get from R.</p>
+</div>
+<div id="summaries" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Summarising data sets<a href="intro-stats.html#summaries" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="summarising-categorical-data" class="section level3 hasAnchor" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> Summarising categorical data<a href="intro-stats.html#summarising-categorical-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We can
+summarise categorical (not numeric) data by tables. For example,
+we could summarise the results of 20 coin tosses as: 12 heads, 8 tails.</p>
+For the computer failure data (Example <a href="intro-stats.html#exm:compfail">1.2</a>) we may
+summarise the count of failures per week:
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+0
+</th>
+<th style="text-align:right;">
+1
+</th>
+<th style="text-align:right;">
+2
+</th>
+<th style="text-align:right;">
+3
+</th>
+<th style="text-align:right;">
+4
+</th>
+<th style="text-align:right;">
+5
+</th>
+<th style="text-align:right;">
+6
+</th>
+<th style="text-align:right;">
+7
+</th>
+<th style="text-align:right;">
+8
+</th>
+<th style="text-align:right;">
+9
+</th>
+<th style="text-align:right;">
+10
+</th>
+<th style="text-align:right;">
+11
+</th>
+<th style="text-align:right;">
+12
+</th>
+<th style="text-align:right;">
+13
+</th>
+<th style="text-align:right;">
+17
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="measures-of-location" class="section level3 hasAnchor" number="1.4.2">
+<h3><span class="header-section-number">1.4.2</span> Measures of location<a href="intro-stats.html#measures-of-location" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="choosing-a-representative-value-for-the-data" class="section level4 hasAnchor" number="1.4.2.1">
+<h4><span class="header-section-number">1.4.2.1</span> Choosing a representative value for the data<a href="intro-stats.html#choosing-a-representative-value-for-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We are seeking a representative value for the data
+<span class="math inline">\(x_1, x_2, \dots, x_n\)</span> which should be a function
+of the data. If <span class="math inline">\(a\)</span> is that representative value then how much error is associated with it?
+The total error could be the sum of squares of the errors,
+<span class="math display">\[\text{SSE}(a) = \sum_{i=1}^n (x_i - a)^2\]</span>
+or the sum of the absolute errors
+<span class="math display">\[\text{SAE}(a) = \sum_{i=1}^n |x_i - a|.\]</span>
+What value of <span class="math inline">\(a\)</span> will minimise the SSE or the SAE? For SSE the answer is the sample mean
+and for SAE the answer is the sample median.</p>
+</div>
+<div id="the-sample-mean" class="section level4 hasAnchor" number="1.4.2.2">
+<h4><span class="header-section-number">1.4.2.2</span> The sample mean<a href="intro-stats.html#the-sample-mean" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The <em>sample mean</em> is
+<span class="math display">\[\bar x = \frac{1}{n} (x_1 + x_2 + \dots + x_n)
+  = \frac{1}{n} \sum_{i=1}^n x_i.\]</span>
+For the service time
+data from Example <a href="intro-stats.html#exm:fastfood">1.1</a>,
+the AM mean time is 68.9 seconds and the PM mean time is 66.8 seconds.</p>
+<div class="theorem">
+<p><span id="thm:sse" class="theorem"><strong>Theorem 1.1  </strong></span>The sample mean <span class="math inline">\(\bar x\)</span> minimises the SSE.</p>
+</div>
+<div class="proof">
+<p><span id="unlabeled-div-1" class="proof"><em>Proof</em>. </span>We have
+<span class="math display">\[\begin{align*}
+\text{SSE}(a) &amp;= \sum_{i=1}^{n}\left(x_{i}-a\right)^{2} \\
+&amp;=\sum_{i=1}^{n}\left(x_{i}-\bar{x}+\bar{x}-a\right)^{2} \quad \text{(Add and subtract $\bar{x}$)} \\
+&amp;=\sum_{i=1}^{n}\left\{\left(x_{i}-\bar{x}\right)^{2}+2\left(x_{i}-\bar{x}\right)(\bar{x}-a)+(\bar{x}-a)^{2}\right\} \\
+&amp;=\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}+2(\bar{x}-a) \sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)+\sum_{i=1}^{n}(\bar{x}-a)^{2} \\
+&amp;=\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}+n(\bar{x}-a)^{2},
+\end{align*}\]</span>
+since <span class="math inline">\(\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)=n \bar{x}-n \bar{x}=0\)</span>.</p>
+<p>The first term is free of <span class="math inline">\(a\)</span> and the second term is non-negative for any value
+of <span class="math inline">\(a\)</span>. Hence the minimum occurs when the second term is zero, i.e. when <span class="math inline">\(a = \bar x\)</span>.</p>
+</div>
+<p>We have established the fact that
+the sum of (or mean) squares of the deviations from any number <span class="math inline">\(a\)</span> is minimised when <span class="math inline">\(a\)</span> is the mean.
+This justifies why we often use the mean as a representative value.</p>
+</div>
+<div id="the-sample-median" class="section level4 hasAnchor" number="1.4.2.3">
+<h4><span class="header-section-number">1.4.2.3</span> The sample median<a href="intro-stats.html#the-sample-median" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The <em>sample median</em> is the middle value in the ordered list of observations
+<span class="math inline">\(x_{(1)} \leq x_{(2)} \leq \dots \leq x_{(n)}\)</span>.
+For the AM service time data <span class="math display">\[38 &lt; 43 &lt; 52 &lt; 59 &lt; 63 &lt; 64 &lt; 77 &lt; 86 &lt; 100 &lt; 107.\]</span>
+If <span class="math inline">\(n\)</span> is odd, there is a unique middle value.
+If <span class="math inline">\(n\)</span> is even, there are two middle values (63 and 64 for the AM service time data).
+Any value between those two middle values is a sample median.
+By convention, we often use the mean of these values
+(63.5 for the the AM service time data).</p>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-2" class="theorem"><strong>Theorem 1.2  </strong></span>The sample median minimises the SAE.</p>
+</div>
+<div class="proof">
+<p><span id="unlabeled-div-3" class="proof"><em>Proof</em>. </span>If <span class="math inline">\(a&lt;x_{(1)}\)</span>, then
+<span class="math display" id="eq:SAE-lower">\[\begin{equation}
+\text{SAE}(a) = \sum_{i=1}^n (x_i - a).
+\tag{1.1}
+\end{equation}\]</span>
+As <span class="math inline">\(a\)</span> increases, each term of <a href="intro-stats.html#eq:SAE-lower">(1.1)</a>
+decreases until <span class="math inline">\(a\)</span> reaches <span class="math inline">\(x_{(1)}\)</span>, so <span class="math inline">\(\text{SAE} (x_{(1)})&lt; \text{SAE}(a)\)</span> for all <span class="math inline">\(a&lt;x_{(1)}\)</span>.
+We conclude the minimiser of the SAE is at least <span class="math inline">\(x_{(1)}\)</span>.</p>
+<p>Now suppose <span class="math inline">\(x_{(k)} \leq a &lt; x_{(k+1)}\)</span>. Then
+<span class="math display">\[\begin{align*}
+\text{SAE}(a) &amp;= \sum_{i=1}^k (a - x_{(i)}) + \sum_{i={k+1}}^n (x_{(i)} - a) \\
+&amp;= (2k - n) a - \sum_{i=1}^k x_{(i)} + \sum_{i={k+1}}^n x_{(i)}.
+\end{align*}\]</span></p>
+<p>The term <span class="math inline">\(- \sum_{i=1}^k x_{(i)} + \sum_{i={k+1}}^n x_{(i)}\)</span> is constant for each
+any <span class="math inline">\(a\)</span> in the interval <span class="math inline">\([x_{(k)}, x_{(k+1)})\)</span>. So the SAE in this interval
+is a straight line, with slope <span class="math inline">\(2k - n\)</span>. This slope is negative if <span class="math inline">\(k &lt; \frac{n}{2}\)</span>,
+zero if <span class="math inline">\(k = \frac{n}{2}\)</span>, and positive if <span class="math inline">\(k&gt;\frac{n}{2}\)</span>.</p>
+<p>For each <span class="math inline">\(k &lt; \frac{n}{2}\)</span>,
+the SAE is decreasing
+in the interval <span class="math inline">\([x_{(k)}, x_{(k+1)})\)</span>, and we conclude the minimiser of the SAE is at least <span class="math inline">\(x_{(k+1)}\)</span>.
+Starting at <span class="math inline">\(k = 1\)</span>, we continue increasing <span class="math inline">\(k\)</span> by one and concluding the the minimiser of the SAE is at least <span class="math inline">\(x_{(k+1)}\)</span>,
+until we reach a <span class="math inline">\(k\)</span> such that <span class="math inline">\(k \geq \frac{n}{2}\)</span>:</p>
+<ul>
+<li>If <span class="math inline">\(n\)</span> is odd, this happens at <span class="math inline">\(k = \frac{n+1}{2}\)</span>. In that case, since <span class="math inline">\(k &gt; \frac{n}{2}\)</span>,
+the SAE is increasing in the interval <span class="math inline">\([x_{(k)}, x_{(k+1)})\)</span>, so we conclude the SAE is minimised
+at <span class="math inline">\(x_{(k)} = x_{\left(\frac{n+1}{2}\right)}\)</span>, the median point.</li>
+<li>If <span class="math inline">\(n\)</span> is even, this happens at <span class="math inline">\(k = \frac{n}{2}\)</span>. In that case the SAE is constant
+in the interval <span class="math inline">\([x_{(k)}, x_{(k+1)})\)</span>, so we conclude that the SAE is minimised at any <span class="math inline">\(a\)</span> between
+the two middle points
+<span class="math inline">\(x_{\left(\frac{n}{2}\right)}\)</span> and <span class="math inline">\(x_{\left(\frac{n}{2}+1\right)}\)</span>, i.e. any median point.</li>
+</ul>
+</div>
+<p>We have
+established the fact that
+the sum of (or mean) of the absolute deviations from any number <span class="math inline">\(a\)</span> is
+minimised when <span class="math inline">\(a\)</span> is the median. This justifies why
+median is also often used as a representative value.</p>
+<p>The mean gets more affected by extreme observations than the median. For example for
+the AM service times, suppose the next observation is 190. The median will be 64 instead of 63.5
+but the mean will shoot up to 79.9.</p>
+</div>
+<div id="the-sample-mode" class="section level4 hasAnchor" number="1.4.2.4">
+<h4><span class="header-section-number">1.4.2.4</span> The sample mode<a href="intro-stats.html#the-sample-mode" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The mode or the most frequent (or the most likely) value in the data is taken as the most representative value if we consider a 0-1 error function instead of the SAE or SSE above. Here, one assumes
+that the error is 0 if our guess <span class="math inline">\(a\)</span> is the correct answer and 1 if it is not. It can then be proved that the best guess <span class="math inline">\(a\)</span> will be the mode of the data.</p>
+</div>
+</div>
+<div id="measures-of-spread" class="section level3 hasAnchor" number="1.4.3">
+<h3><span class="header-section-number">1.4.3</span> Measures of spread<a href="intro-stats.html#measures-of-spread" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A quick measure of the spread is the <em>range</em>, which is defined as the difference between the
+maximum and minimum observations. For the AM service times the range is <span class="math inline">\(69\)</span> (<span class="math inline">\(107 - 38\)</span>)
+seconds.</p>
+<p>The <em>variance</em> is
+<span class="math display">\[\frac{1}{n-1} \sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}.\]</span>
+We have
+<span class="math display">\[\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}=\sum_{i=1}^{n}\left(x_{i}^{2}-2 x_{i} \bar{x}+\bar{x}^{2}\right)=\sum_{i=1}^{n} x_{i}^{2}-2 \bar{x}(n \bar{x})+n \bar{x}^{2}=\sum_{i=1}^{n} x_{i}^{2}-n \bar{x}^{2},\]</span>
+so we calculate variance as
+<span class="math display">\[
+\operatorname{Var}(x)=\frac{1}{n-1}\left(\sum_{i=1}^{n} x_{i}^{2}-n \bar{x}^{2}\right).
+\]</span>
+Sometimes the variance is defined with the divisor <span class="math inline">\(n\)</span> instead of <span class="math inline">\(n - 1\)</span>. We have chosen <span class="math inline">\(n - 1\)</span>
+since this is the default in R. We will return to this in Chapter <a href="inference.html#inference">4</a>.</p>
+<p>The <em>standard deviation</em> (sd) is the square root of variance
+<span class="math display">\[s = \operatorname{sd}(x) = \sqrt{\operatorname{Var}(x)}.\]</span>
+The standard deviation for the AM service times is 23.2 seconds. Note that it has the
+same unit as the observations.</p>
+<p>The <em>interquartile range</em> (IQR) is the difference between the third, <span class="math inline">\(Q_3\)</span> and first, <span class="math inline">\(Q_1\)</span> quartiles,
+which are respectively the observations ranked <span class="math inline">\(\frac{1}{4}(3n + 1)\)</span> and <span class="math inline">\(\frac{1}{4}(n + 3)\)</span>
+in the ordered list.
+Note that the median is the second quartile, <span class="math inline">\(Q_2\)</span>. When <span class="math inline">\(n\)</span> is even, definitions of <span class="math inline">\(Q_3\)</span> and <span class="math inline">\(Q_1\)</span>
+are similar to that of the median, <span class="math inline">\(Q_2\)</span>. The IQR for the AM service times is <span class="math inline">\(83.75 - 53.75 = 30\)</span>
+seconds.</p>
+</div>
+<div id="summarising-data-in-r" class="section level3 hasAnchor" number="1.4.4">
+<h3><span class="header-section-number">1.4.4</span> Summarising data in R<a href="intro-stats.html#summarising-data-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We can calculate the mean, median, variance and standard deviation
+very easily in R.</p>
+<p>As an example, suppose we have stored the
+weekly counts of computer failures from Example <a href="intro-stats.html#exm:compfail">1.2</a>
+in an object called <code>compfail</code> in R. You will
+find out how to read the data into R in the practical sessions.</p>
+<p>Then we can calculate these quantities with:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="intro-stats.html#cb2-1" aria-hidden="true"></a><span class="kw">mean</span>(compfail)</span></code></pre></div>
+<pre><code>## [1] 3.75</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="intro-stats.html#cb4-1" aria-hidden="true"></a><span class="kw">median</span>(compfail)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="intro-stats.html#cb6-1" aria-hidden="true"></a><span class="kw">var</span>(compfail)</span></code></pre></div>
+<pre><code>## [1] 11.43204</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="intro-stats.html#cb8-1" aria-hidden="true"></a><span class="kw">sd</span>(compfail)</span></code></pre></div>
+<pre><code>## [1] 3.38113</code></pre>
+<p>R saves us a lot of effort here relative to computing
+these quantities by hand.</p>
+<p>The <code>summary</code> command provides several using summary statistics:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="intro-stats.html#cb10-1" aria-hidden="true"></a><span class="kw">summary</span>(compfail)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    0.00    1.00    3.00    3.75    5.00   17.00</code></pre>
+<p>We can find a table summarising the counts by typing</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="intro-stats.html#cb12-1" aria-hidden="true"></a><span class="kw">table</span>(compfail)</span></code></pre></div>
+<pre><code>## compfail
+##  0  1  2  3  4  5  6  7  8  9 10 11 12 13 17 
+## 12 16 21 12 11  8  7  2  4  2  3  2  2  1  1</code></pre>
+</div>
+</div>
+<div id="exploratory-data-plots" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Exploratory data plots<a href="intro-stats.html#exploratory-data-plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="introduction" class="section level3 hasAnchor" number="1.5.1">
+<h3><span class="header-section-number">1.5.1</span> Introduction<a href="intro-stats.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Often the clearest way to generate
+insight is to plot the data.
+Plots may be used to check the shape of the distribution
+of a variable, and to investigate
+the relationship between different variables
+in a dataset.</p>
+<p>The type of plot which is most appropriate
+depends on whether we are looking at the distribution of
+a single variables or the
+relationship between two or more variables, and on whether
+the variables of interest are discrete or continuous.</p>
+<p>Here, we will show some plots produced by R. You will find
+out how to make these plots in R in the practical sessions.</p>
+</div>
+<div id="distribution-of-a-single-discrete-variable" class="section level3 hasAnchor" number="1.5.2">
+<h3><span class="header-section-number">1.5.2</span> Distribution of a single discrete variable<a href="intro-stats.html#distribution-of-a-single-discrete-variable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To explore the distribution of a single discrete variable,
+we may use a bar plot. For instance, we may
+plot the weekly counts of
+computer failures from Example <a href="intro-stats.html#exm:compfail">1.2</a>:</p>
+<p><img src="MATH1024_files/figure-html/unnamed-chunk-10-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>This plot shows the same information as in the summary
+table of counts, but it is easier to process the information
+visually.</p>
+</div>
+<div id="distribution-of-a-single-continuous-variable" class="section level3 hasAnchor" number="1.5.3">
+<h3><span class="header-section-number">1.5.3</span> Distribution of a single continuous variable<a href="intro-stats.html#distribution-of-a-single-continuous-variable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There are several different types of plots which may be
+used to summarise the shape of the
+distribution of a single continuous variables.
+For instance, suppose we are interested in the gain in weight
+in Example <a href="intro-stats.html#exm:wtgain">1.3</a>.</p>
+<p>We can use a box-and-whiskers
+plot to summarise the distribution of the weight difference:</p>
+<p><img src="MATH1024_files/figure-html/unnamed-chunk-11-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>The line
+in the middle of the box is the median service weight difference,
+and the box runs from the first quartile
+to the third quartile.
+The lines (or whiskers) extend from the smallest value no further
+further than <span class="math inline">\(1.5 \times \text{IQR}\)</span> from the first quartile
+to the largest value no
+further than <span class="math inline">\(1.5 \times \text{IQR}\)</span> from the third quartile.</p>
+<p>Any outliers, which are outside the range of the whiskers,
+are shown as separate points.</p>
+<p>We can see the the majority of students in the sample do gain weight
+over the course of the study.</p>
+<p>To get more information about the shape of the distribution,
+we could plot
+a histogram of the weight difference:</p>
+<p><img src="MATH1024_files/figure-html/unnamed-chunk-12-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>The histogram splits the <span class="math inline">\(x\)</span>-axis into small intervals
+or “bins”
+(here each of width 0.5), and counts how many times
+the variable (here difference in weight) is
+in each bin. Histograms often look very different
+for different bin widths.</p>
+<p>Alternatively, we could draw a density plot:</p>
+<p><img src="MATH1024_files/figure-html/unnamed-chunk-13-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>This plots an estimate of the probability density function,
+which we will learn about in Chapter <a href="distributions.html#distributions">3</a>.</p>
+</div>
+<div id="relationship-between-continuous-and-discrete-variables" class="section level3 hasAnchor" number="1.5.4">
+<h3><span class="header-section-number">1.5.4</span> Relationship between continuous and discrete variables<a href="intro-stats.html#relationship-between-continuous-and-discrete-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We can also use a box-and-whiskers plot to show how a continuous
+variable changes with a discrete
+one. For instance, for the service time data from Example <a href="intro-stats.html#exm:fastfood">1.1</a>,
+we are interested in how AM and PM service times compare:</p>
+<p><img src="MATH1024_files/figure-html/unnamed-chunk-14-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Since no outlying points are shown
+in this case, the whiskers show the range of the data.</p>
+<p>We see that the AM service times are on average shorter,
+but also more spread out than the PM service times.</p>
+<p>We can also use any of the other methods for plotting
+a single continuous variable, and draw separate
+plots for each group in the discrete variable.</p>
+<p>We can use histograms:</p>
+<p><img src="MATH1024_files/figure-html/unnamed-chunk-15-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Or density plots:</p>
+<p><img src="MATH1024_files/figure-html/unnamed-chunk-16-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>We could also plot the densities
+for the different groups on a single plot,
+using line type to distinguish between the groups:</p>
+<p><img src="MATH1024_files/figure-html/unnamed-chunk-17-1.png" width="60%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="relationship-between-two-continuous-variables" class="section level3 hasAnchor" number="1.5.5">
+<h3><span class="header-section-number">1.5.5</span> Relationship between two continuous variables<a href="intro-stats.html#relationship-between-two-continuous-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A scatter-plot is a good way to look at the relationship
+between two continuous variables.
+For instance, for the weight data from Example <a href="intro-stats.html#exm:wtgain">1.3</a>,
+we can plot the final weights against the initial weights:</p>
+<p><img src="MATH1024_files/figure-html/unnamed-chunk-18-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>We can add the straight line <span class="math inline">\(y = x\)</span> to the plot:</p>
+<p><img src="MATH1024_files/figure-html/unnamed-chunk-19-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>We can see that the majority of the points lie above this <span class="math inline">\(y = x\)</span>
+line, so the majority of students in the sample gain weight
+over the course of the study, as we have seen before.
+This appears to be the case irrespective
+of the initial weight of the student.</p>
+</div>
+<div id="relationships-between-more-than-two-variables" class="section level3 hasAnchor" number="1.5.6">
+<h3><span class="header-section-number">1.5.6</span> Relationships between more than two variables<a href="intro-stats.html#relationships-between-more-than-two-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We can combine the methods we have already seen
+to plot relationships between more than two variables.</p>
+<p>For instance, in the billionaires data in Example
+<a href="intro-stats.html#exm:billionaires">1.4</a>, we can plot wealth against
+age as a scatter-plot, using the shape of the
+points to distinguish between different regions:</p>
+<p><img src="MATH1024_files/figure-html/unnamed-chunk-20-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>The plot lets us immediately read off some interesting
+aspects of the data. For instance, there were a few very young
+billionaires, the richest person
+in the world at this time was age 50 and from the Middle East,
+and the richest few people in the world had wealth
+many times higher than most people on the list.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="intro-prob.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["MATH1024.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,5 +1,5 @@
 ---
-title: "Errors in printed version of MATH1024 notes"
+title: "Errors in printed version of MATH1063 notes"
 author: ""
 date: ""
 output:

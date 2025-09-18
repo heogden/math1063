@@ -478,7 +478,7 @@ parameters $n$ and $p$.
 #### Using R to calculate probabilities
 
 Probabilities under all the standard distributions have been calculated in R and will be used
-throughout MATH1024. You will not be required to use any tables. 
+throughout MATH1063. You will not be required to use any tables. 
 For the binomial distribution
 the command 
 ```{r, eval = FALSE}
@@ -1098,10 +1098,10 @@ This means that the 95th percentile of the standard normal distribution is 1.645
 \Phi(-1.96) = 0.95$.
 
 :::{.example}
-Suppose the marks in MATH1024 follow the normal distribution with mean
+Suppose the marks in MATH1063 follow the normal distribution with mean
 58 and standard deviation 32.25.
 
-1. What percentage of students will fail (i.e. score less than 40) in MATH1024?   
+1. What percentage of students will fail (i.e. score less than 40) in MATH1063?   
 Answer: $\texttt{pnorm(40, mean=58, sd=32.25)} = 28.84\%$.
 2. What percentage of students will get an A result (score greater than 70)?    
 Answer: $\texttt{1 - pnorm(70, mean=58, sd=32.25)} = 35.49\%$.

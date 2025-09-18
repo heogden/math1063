@@ -1,9 +1,9 @@
 ---
-title: "MATH1024: Introduction to Probability and Statistics"
+title: "MATH1063: Introduction to Statistics"
 author: "Dr Helen Ogden, based on original notes by Prof. Sujit Sahu"
 documentclass: book
 github-repo: heogden/math1024
-description: "The course notes for MATH1024: Introduction to Probability and Statistics"
+description: "The course notes for MATH1063: Introduction to Statistics"
 geometry: margin=2.8cm, bindingoffset=5mm
 output:
 bookdown::pdf_book:

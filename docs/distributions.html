@@ -4,20 +4,20 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Probability Distributions | MATH1024: Introduction to Probability and Statistics</title>
-  <meta name="description" content="The course notes for MATH1024: Introduction to Probability and Statistics" />
+  <title>Chapter 3 Probability Distributions | MATH1063: Introduction to Statistics</title>
+  <meta name="description" content="The course notes for MATH1063: Introduction to Statistics" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Probability Distributions | MATH1024: Introduction to Probability and Statistics" />
+  <meta property="og:title" content="Chapter 3 Probability Distributions | MATH1063: Introduction to Statistics" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="The course notes for MATH1024: Introduction to Probability and Statistics" />
-  <meta name="github-repo" content="heogden/math1024" />
+  <meta property="og:description" content="The course notes for MATH1063: Introduction to Statistics" />
+  <meta name="github-repo" content="heogden/math1063" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Probability Distributions | MATH1024: Introduction to Probability and Statistics" />
+  <meta name="twitter:title" content="Chapter 3 Probability Distributions | MATH1063: Introduction to Statistics" />
   
-  <meta name="twitter:description" content="The course notes for MATH1024: Introduction to Probability and Statistics" />
+  <meta name="twitter:description" content="The course notes for MATH1063: Introduction to Statistics" />
   
 
 <meta name="author" content="Dr Helen Ogden, based on original notes by Prof. Sujit Sahu" />
@@ -31,7 +31,7 @@
   
 <link rel="prev" href="intro-prob.html"/>
 <link rel="next" href="inference.html"/>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="libs/jquery-3.6.1/jquery-3.6.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -48,7 +48,6 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
@@ -58,8 +57,9 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -93,7 +93,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -106,7 +106,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -290,7 +290,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MATH1024: Introduction to Probability and Statistics</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MATH1063: Introduction to Statistics</a>
           </h1>
         </div>
 
@@ -418,7 +418,7 @@ This is demonstrated in Figure <a href="distributions.html#fig:interval-probs-fr
 Recall
 that we do not use <span class="math inline">\(f (x) = P (X = x)\)</span> for any <span class="math inline">\(x\)</span> as by convention we set <span class="math inline">\(P(X = x) = 0\)</span>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:interval-probs-from-pdf"></span>
-<img src="MATH1024_files/figure-html/interval-probs-from-pdf-1.png" alt="The shaded area is $P (a &lt; X &lt; b)$ if the pdf of $X$ is the drawn curve." width="60%" />
+<img src="MATH1063_files/figure-html/interval-probs-from-pdf-1.png" alt="The shaded area is $P (a &lt; X &lt; b)$ if the pdf of $X$ is the drawn curve." width="60%" />
 <p class="caption">
 Figure 3.1: The shaded area is <span class="math inline">\(P (a &lt; X &lt; b)\)</span> if the pdf of <span class="math inline">\(X\)</span> is the drawn curve.
 </p>
@@ -505,7 +505,7 @@ the mid-point of the interval <span class="math inline">\((a, b)\)</span>.</p>
 <span class="math display">\[E(Y)=E(g(X))=\begin{cases}
 \sum_{\text{all $x$}} g(x) f(x) &amp; \text { if $X$  is discrete, } \\
 \int_{-\infty}^{\infty} g(x) f(x) d x &amp; \text { if $X$ is continuous.}
- \end{cases}\]</span></p>
+\end{cases}\]</span></p>
 <p>For example, if <span class="math inline">\(X\)</span> is continuous, then <span class="math inline">\(E(X^2) = \int_{-\infty}^{\infty} x^2 f(x) dx\)</span>.
 We prove an important property
 of expectation, namely expectation is a linear operator.</p>
@@ -705,21 +705,21 @@ parameters <span class="math inline">\(n\)</span> and <span class="math inline">
 <div id="using-r-to-calculate-probabilities" class="section level4 hasAnchor" number="3.4.2.2">
 <h4><span class="header-section-number">3.4.2.2</span> Using R to calculate probabilities<a href="distributions.html#using-r-to-calculate-probabilities" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Probabilities under all the standard distributions have been calculated in R and will be used
-throughout MATH1024. You will not be required to use any tables.
+throughout MATH1063. You will not be required to use any tables.
 For the binomial distribution
 the command</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="distributions.html#cb14-1" aria-hidden="true"></a><span class="kw">dbinom</span>(<span class="dt">x=</span><span class="dv">3</span>, <span class="dt">size=</span><span class="dv">5</span>, <span class="dt">prob=</span><span class="fl">0.34</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="distributions.html#cb14-1" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="at">x=</span><span class="dv">3</span>, <span class="at">size=</span><span class="dv">5</span>, <span class="at">prob=</span><span class="fl">0.34</span>)</span></code></pre></div>
 <p>calculates the pmf of <span class="math inline">\(\operatorname{Bin}(n = 5, p = 0.34)\)</span> at <span class="math inline">\(x=3\)</span>,
 with value <span class="math inline">\(P (X = 3) = \binom{5}{3} (0.34)^3 (1 - 0.34)^{5-3}\)</span>.
 The command <code>pbinom</code> returns the cdf or the probability up to
 and including the argument. Thus</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="distributions.html#cb15-1" aria-hidden="true"></a><span class="kw">pbinom</span>(<span class="dt">q=</span><span class="dv">3</span>, <span class="dt">size=</span><span class="dv">5</span>, <span class="dt">prob=</span><span class="fl">0.34</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="distributions.html#cb15-1" tabindex="-1"></a><span class="fu">pbinom</span>(<span class="at">q=</span><span class="dv">3</span>, <span class="at">size=</span><span class="dv">5</span>, <span class="at">prob=</span><span class="fl">0.34</span>)</span></code></pre></div>
 <p>will return the value of
 <span class="math inline">\(P (X \leq 3)\)</span> when <span class="math inline">\(X \sim \operatorname{Bin}(n = 5, p = 0.34)\)</span>.
 As a check, in Example <a href="distributions.html#exm:widgets">3.9</a>, we may compute the probability
 that a randomly selected bag has at most 1 defective
 widget with the command</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="distributions.html#cb16-1" aria-hidden="true"></a><span class="kw">pbinom</span>(<span class="dt">q=</span><span class="dv">1</span>, <span class="dt">size=</span><span class="dv">10</span>, <span class="dt">prob=</span><span class="fl">0.01</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="distributions.html#cb16-1" tabindex="-1"></a><span class="fu">pbinom</span>(<span class="at">q=</span><span class="dv">1</span>, <span class="at">size=</span><span class="dv">10</span>, <span class="at">prob=</span><span class="fl">0.01</span>)</span></code></pre></div>
 <pre><code>## [1] 0.9957338</code></pre>
 <p>which matches our earlier calculations.</p>
 </div>
@@ -868,7 +868,7 @@ a negative binomial random variable with <span class="math inline">\(r = 2\)</sp
 more than <span class="math inline">\(3\)</span> games? We have
 <span class="math display">\[P (X &gt; 3) = 1 - P(X = 2) - P(X = 3)  =  1 - p^2 - 2 p^2 (1-p) = 0.520.\]</span></p>
 </div>
-<p>Derivation of the mean and variance of the negative binomial distribution involves complicated negative binomial series and will be skipped for now, but will be proved in Section .
+<p>Derivation of the mean and variance of the negative binomial distribution involves complicated negative binomial series and will be skipped for now, but will be proved in Section <span class="math inline">\(\ref{sec:sum-rvs}\)</span>.
 For
 completeness we note down the mean and variance:
 <span class="math display">\[E(X) = \frac{r}{p}, \quad \operatorname{Var}(X) = r \, \frac{1-p}{p^2}.\]</span>
@@ -923,7 +923,7 @@ E[X(X-1)] &amp;=\sum_{x=0}^{\infty} x(x-1) P(X=x) \\
 &amp;=e^{-\lambda} \sum_{x=2}^{\infty} x(x-1) \frac{\lambda^{x}}{x !} \\
 &amp;=e^{-\lambda} \sum_{x=2}^{\infty} \lambda^{2} \frac{\lambda^{x-2}}{(x-2) !} \\
 &amp;=\lambda^{2} e^{-\lambda} \sum_{y=0}^{\infty} \frac{\lambda^{y}}{y !} \quad (y=x-2) \\
-&amp;=\lambda^{2} e^{-\lambda} e^{\lambda}=\lambda^{2} \quad \text {using the expansion of $e^{\lambda}$.} 
+&amp;=\lambda^{2} e^{-\lambda} e^{\lambda}=\lambda^{2} \quad \text {using the expansion of $e^{\lambda}$.}
 \end{align*}\]</span>
 Now, <span class="math inline">\(E\left(X^{2}\right)=E[X(X-1)]+E(X)=\lambda^{2}+\lambda\)</span>. Hence,
 <span class="math display">\[\operatorname{Var}(X)=E\left(X^{2}\right)-(E(X))^{2}=\lambda^{2}+\lambda-\lambda^{2}=\lambda.\]</span>
@@ -932,11 +932,11 @@ Hence, the mean and variance are the same for the Poisson distribution.</p>
 <div id="using-r-to-calculate-probabilities-1" class="section level4 hasAnchor" number="3.4.6.4">
 <h4><span class="header-section-number">3.4.6.4</span> Using R to calculate probabilities<a href="distributions.html#using-r-to-calculate-probabilities-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>For the Poisson distribution the command</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="distributions.html#cb18-1" aria-hidden="true"></a><span class="kw">dpois</span>(<span class="dt">x=</span><span class="dv">3</span>, <span class="dt">lambda=</span><span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="distributions.html#cb18-1" tabindex="-1"></a><span class="fu">dpois</span>(<span class="at">x=</span><span class="dv">3</span>, <span class="at">lambda=</span><span class="dv">5</span>)</span></code></pre></div>
 <p>calculates the pmf of <span class="math inline">\(\operatorname{Poisson}(\lambda = 5)\)</span> at <span class="math inline">\(x = 3\)</span>.
 That is, the command will return the value <span class="math inline">\(P (X = 3) = e^{-5} \frac{5^3}{3!}\)</span>. The command <code>ppois</code>
 returns the cdf or the probability up to and including the argument. Thus</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="distributions.html#cb19-1" aria-hidden="true"></a><span class="kw">ppois</span>(<span class="dt">q=</span><span class="dv">3</span>, <span class="dt">lambda=</span><span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="distributions.html#cb19-1" tabindex="-1"></a><span class="fu">ppois</span>(<span class="at">q=</span><span class="dv">3</span>, <span class="at">lambda=</span><span class="dv">5</span>)</span></code></pre></div>
 <p>will return the value of <span class="math inline">\(P (X \leq 3)\)</span> when <span class="math inline">\(X \sim \operatorname{Poisson}(\lambda = 5)\)</span>.</p>
 </div>
 </div>
@@ -965,15 +965,15 @@ The median is <span class="math inline">\(\frac{b+a}{2}\)</span>.</li>
 <div id="using-r-to-calculate-probabilities-2" class="section level4 hasAnchor" number="3.5.1.2">
 <h4><span class="header-section-number">3.5.1.2</span> Using R to calculate probabilities<a href="distributions.html#using-r-to-calculate-probabilities-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>For <span class="math inline">\(X \sim U(a = -1, b = 1)\)</span>, the command</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="distributions.html#cb20-1" aria-hidden="true"></a><span class="kw">dunif</span>(<span class="dt">x =</span> <span class="fl">0.5</span>, <span class="dt">min =</span> <span class="dv">-1</span>, <span class="dt">max =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="distributions.html#cb20-1" tabindex="-1"></a><span class="fu">dunif</span>(<span class="at">x =</span> <span class="fl">0.5</span>, <span class="at">min =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">max =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p>calculates the pdf at <span class="math inline">\(x=0.5\)</span>. We specify <span class="math inline">\(a\)</span> with the <code>min</code> argument
 and <span class="math inline">\(b\)</span> with <code>max</code> argument.
 The command <code>punif</code> returns the cdf or the probability up to and including the argument.
 Thus</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="distributions.html#cb21-1" aria-hidden="true"></a><span class="kw">punif</span>(<span class="dt">q =</span> <span class="fl">0.5</span>, <span class="dt">min =</span> <span class="dv">-1</span>, <span class="dt">max =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="distributions.html#cb21-1" tabindex="-1"></a><span class="fu">punif</span>(<span class="at">q =</span> <span class="fl">0.5</span>, <span class="at">min =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">max =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p>will return the value of <span class="math inline">\(P(X \leq 0.5)\)</span>.</p>
 <p>The command <code>qunif</code> can be used to calculate quantiles. Thus</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="distributions.html#cb22-1" aria-hidden="true"></a><span class="kw">qunif</span>(<span class="dt">p =</span> <span class="fl">0.5</span>, <span class="dt">min =</span> <span class="dv">-1</span>, <span class="dt">max =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="distributions.html#cb22-1" tabindex="-1"></a><span class="fu">qunif</span>(<span class="at">p =</span> <span class="fl">0.5</span>, <span class="at">min =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">max =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p>finds the median (the <span class="math inline">\(0.5\)</span> quantile).</p>
 </div>
 </div>
@@ -1022,11 +1022,11 @@ For this random variable the mean is equal to the standard deviation.</p>
 <div id="using-r-to-calculate-probabilities-3" class="section level4 hasAnchor" number="3.5.2.3">
 <h4><span class="header-section-number">3.5.2.3</span> Using R to calculate probabilities<a href="distributions.html#using-r-to-calculate-probabilities-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>For <span class="math inline">\(X \sim \operatorname{Exponential}(\theta=0.5)\)</span>, the command</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="distributions.html#cb23-1" aria-hidden="true"></a><span class="kw">dexp</span>(<span class="dt">x =</span> <span class="dv">3</span>, <span class="dt">rate =</span> <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="distributions.html#cb23-1" tabindex="-1"></a><span class="fu">dexp</span>(<span class="at">x =</span> <span class="dv">3</span>, <span class="at">rate =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>)</span></code></pre></div>
 <p>calculates the pdf at <span class="math inline">\(x=3\)</span>. The rate parameter to be supplied is the <span class="math inline">\(\theta\)</span> parameter here.
 The command <code>pexp</code> returns the cdf or the probability up to and including the argument.
 Thus</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="distributions.html#cb24-1" aria-hidden="true"></a><span class="kw">pexp</span>(<span class="dt">q =</span> <span class="dv">3</span>, <span class="dt">rate =</span> <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="distributions.html#cb24-1" tabindex="-1"></a><span class="fu">pexp</span>(<span class="at">q =</span> <span class="dv">3</span>, <span class="at">rate =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>)</span></code></pre></div>
 <p>will return the value of <span class="math inline">\(P(X \leq 3)\)</span>.</p>
 </div>
 <div id="cumulative-distribution-function-and-quantiles" class="section level4 hasAnchor" number="3.5.2.4">
@@ -1041,7 +1041,7 @@ We have <span class="math inline">\(F(0)=0\)</span> and <span class="math inline
 <p>Here the mean <span class="math inline">\(1 / \theta=550\)</span>. Hence <span class="math inline">\(\theta=1 / 550\)</span> is the rate parameter. The solution to the first problem is
 <span class="math display">\[P(X&gt;730)=1-P(X \leq 730)=1-\left(1-e^{-730 / 550}\right)=e^{-730 / 550}=0.2652.\]</span>
 Alternatively, we can do the calculation in R:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="distributions.html#cb25-1" aria-hidden="true"></a><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pexp</span>(<span class="dt">q =</span> <span class="dv">730</span>, <span class="dt">rate =</span> <span class="dv">1</span> <span class="op">/</span><span class="st"> </span><span class="dv">550</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="distributions.html#cb25-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pexp</span>(<span class="at">q =</span> <span class="dv">730</span>, <span class="at">rate =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">550</span>)</span></code></pre></div>
 <pre><code>## [1] 0.2651995</code></pre>
 </div>
 <p>For the second problem we are given the probabilities of failure (<span class="math inline">\(0.25\)</span>, <span class="math inline">\(0.50\)</span>, etc.). We will have to invert the probabilities to find the value of the random variable. In other words, we
@@ -1065,11 +1065,11 @@ In Example <a href="distributions.html#exm:mobile-phone">3.13</a>, <span class="
   \]</span>
 which gives the time in days until we expect <span class="math inline">\(25 \%, 50 \%, 75 \%\)</span> and <span class="math inline">\(90 \%\)</span> of the manufactured phones to have failed.</p>
 <p>In R you can find these values by</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="distributions.html#cb27-1" aria-hidden="true"></a><span class="kw">qexp</span>(<span class="dt">p =</span> <span class="fl">0.25</span>, <span class="dt">rate =</span> <span class="dv">1</span><span class="op">/</span><span class="dv">550</span>)</span>
-<span id="cb27-2"><a href="distributions.html#cb27-2" aria-hidden="true"></a><span class="kw">qexp</span>(<span class="dt">p =</span> <span class="fl">0.50</span>, <span class="dt">rate =</span> <span class="dv">1</span><span class="op">/</span><span class="dv">550</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="distributions.html#cb27-1" tabindex="-1"></a><span class="fu">qexp</span>(<span class="at">p =</span> <span class="fl">0.25</span>, <span class="at">rate =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">550</span>)</span>
+<span id="cb27-2"><a href="distributions.html#cb27-2" tabindex="-1"></a><span class="fu">qexp</span>(<span class="at">p =</span> <span class="fl">0.50</span>, <span class="at">rate =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">550</span>)</span></code></pre></div>
 <p>and so on.
 The function</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="distributions.html#cb28-1" aria-hidden="true"></a><span class="kw">qexp</span>(p, rate)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="distributions.html#cb28-1" tabindex="-1"></a><span class="fu">qexp</span>(p, rate)</span></code></pre></div>
 <p>calculates the <span class="math inline">\(p\)</span>th quantile of the exponential
 distribution with parameter <code>rate</code>.</p>
 <div class="example">
@@ -1079,14 +1079,14 @@ the survival times in different experiments. For example, an exponential random 
 In such a situation, the function <span class="math inline">\(S(t) = 1 - F (t) = e^{-\theta t}\)</span> is called the survival function.
 See Figure <a href="distributions.html#fig:survival-probs">3.2</a> for an example plot.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:survival-probs"></span>
-<img src="MATH1024_files/figure-html/survival-probs-1.png" alt="$S(t)$ for $\theta = 0.2, 0.5, 1$." width="60%" />
+<img src="MATH1063_files/figure-html/survival-probs-1.png" alt="$S(t)$ for $\theta = 0.2, 0.5, 1$." width="60%" />
 <p class="caption">
 Figure 3.2: <span class="math inline">\(S(t)\)</span> for <span class="math inline">\(\theta = 0.2, 0.5, 1\)</span>.
 </p>
 </div>
 <p>Assuming the mean survival time to be <span class="math inline">\(100\)</span> days for a fatal late detected cancer, we can expect
 that half of the patients survive <span class="math inline">\(69.3\)</span> days after chemo since</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="distributions.html#cb29-1" aria-hidden="true"></a><span class="kw">qexp</span>(<span class="fl">0.50</span>, <span class="dt">rate=</span><span class="dv">1</span><span class="op">/</span><span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="distributions.html#cb29-1" tabindex="-1"></a><span class="fu">qexp</span>(<span class="fl">0.50</span>, <span class="at">rate=</span><span class="dv">1</span><span class="sc">/</span><span class="dv">100</span>)</span></code></pre></div>
 <pre><code>## [1] 69.31472</code></pre>
 <p>You will learn more about this in a third-year module, MATH3085: Survival Models,
 which is important in the actuarial profession.</p>
@@ -1233,11 +1233,11 @@ has arguments <code>mean</code> (to specify <span class="math inline">\(\mu\)</s
 the standard deviation). By default <code>mean = 0</code> and <code>sd = 1</code>,
 so by default <code>pnorm</code> calculates the standard normal cdf.
 So, we use the command</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="distributions.html#cb31-1" aria-hidden="true"></a><span class="kw">pnorm</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="distributions.html#cb31-1" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] 0.8413447</code></pre>
 <p>to calculate <span class="math inline">\(\Phi(1)=P(Z \leq 1)\)</span>.
 We can also use the command</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="distributions.html#cb33-1" aria-hidden="true"></a><span class="kw">pnorm</span>(<span class="dv">15</span>, <span class="dt">mean=</span><span class="dv">10</span>, <span class="dt">sd=</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="distributions.html#cb33-1" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">15</span>, <span class="at">mean=</span><span class="dv">10</span>, <span class="at">sd=</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 0.9937903</code></pre>
 <p>to calculate <span class="math inline">\(P(X \leq 15)\)</span> when <span class="math inline">\(X \sim N\left(\mu=10, \sigma^2=4\right)\)</span> directly.</p>
 <ol style="list-style-type: decimal">
@@ -1252,10 +1252,10 @@ This means that the 95th percentile of the standard normal distribution is 1.645
 <li><span class="math inline">\(\texttt{qnorm(0.975)} = \Phi^{-1}(0.975) = 1.96\)</span>. This means that the 97.5th percentile of the standard normal distribution is 1.96. This also means that <span class="math inline">\(P (-1.96 &lt; Z &lt; 1.96) = \Phi(1.96) - \Phi(-1.96) = 0.95\)</span>.</li>
 </ol>
 <div class="example">
-<p><span id="exm:unlabeled-div-44" class="example"><strong>Example 3.16  </strong></span>Suppose the marks in MATH1024 follow the normal distribution with mean
+<p><span id="exm:unlabeled-div-44" class="example"><strong>Example 3.16  </strong></span>Suppose the marks in MATH1063 follow the normal distribution with mean
 58 and standard deviation 32.25.</p>
 <ol style="list-style-type: decimal">
-<li>What percentage of students will fail (i.e. score less than 40) in MATH1024?<br />
+<li>What percentage of students will fail (i.e. score less than 40) in MATH1063?<br />
 Answer: <span class="math inline">\(\texttt{pnorm(40, mean=58, sd=32.25)} = 28.84\%\)</span>.</li>
 <li>What percentage of students will get an A result (score greater than 70)?<br />
 Answer: <span class="math inline">\(\texttt{1 - pnorm(70, mean=58, sd=32.25)} = 35.49\%\)</span>.</li>
@@ -1294,7 +1294,7 @@ and its distribution is called a log-normal distribution with parameters <span c
 E(Y) &amp;=E[\exp (X)] \\
 &amp;=\int_{-\infty}^{\infty} \exp (x) \frac{1}{\sigma \sqrt{2 \pi}} \exp \left\{-\frac{(x-\mu)^2}{2 \sigma^2}\right\} d x \\
 &amp;=\exp \left\{-\frac{\mu^2-\left(\mu+\sigma^2\right)^2}{2 \sigma^2}\right\} \int_{-\infty}^{\infty} \frac{1}{\sigma \sqrt{2 \pi}} \exp \left\{-\frac{x^2-2\left(\mu+\sigma^2\right) x+\left(\mu+\sigma^2\right)^2}{2 \sigma^2}\right\} d x \\
-&amp;=\exp \left\{-\frac{\mu^2-\left(\mu+\sigma^2\right)^2}{2 \sigma^2}\right\} \quad \text{(integrating a 
+&amp;=\exp \left\{-\frac{\mu^2-\left(\mu+\sigma^2\right)^2}{2 \sigma^2}\right\} \quad \text{(integrating a
 $N(\mu+\sigma^2, \sigma^2)$ random variable over its domain) }\\
 &amp;=\exp \left\{\mu+\sigma^2 / 2\right\}.
 \end{align*}\]</span>
@@ -1515,7 +1515,7 @@ and each gives a pair of values <span class="math inline">\((x, y)\)</span> for 
 </tbody>
 </table>
 <p>The joint pmf is given in Table <a href="#tab:joint"><strong>??</strong></a>.</p>
-<table class="huxtable" data-quarto-disable-processing="true" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-39">
+<table class="huxtable" data-quarto-disable-processing="true" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  ">
 <caption style="caption-side: bottom; text-align: center;">\label{tab:joint} The joint probabilities for $X$ and $Y$</caption><col><col><col><col><col><col><col><tr>
 <td style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></td><td colspan="5" style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">$y$</td><td style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></td></tr>
 <tr>
@@ -1530,10 +1530,10 @@ and each gives a pair of values <span class="math inline">\((x, y)\)</span> for 
 
 <p>The marginal pmf for <span class="math inline">\(X\)</span> is
 <span class="math display">\[f_X(x) = \begin {cases}
-  \frac{15}{36} &amp; \text{if $x = -1$} \\ 
- \frac{6}{36} &amp; \text{if $x = 0$} \\ 
- \frac{15}{36} &amp; \text{if $x = 1$.} 
- \end{cases}\]</span></p>
+  \frac{15}{36} &amp; \text{if $x = -1$} \\
+\frac{6}{36} &amp; \text{if $x = 0$} \\
+\frac{15}{36} &amp; \text{if $x = 1$.}
+\end{cases}\]</span></p>
 <p><strong>Exercise</strong>: Write down the marginal distribution of <span class="math inline">\(Y\)</span> and hence find the mean and variance of
 <span class="math inline">\(Y\)</span>.</p>
 </div>
@@ -1617,7 +1617,15 @@ in the ratio.</p>
 <!-- & 2 & $\frac{1}{12}$ & $\frac{1}{24}$ & $\frac{1}{24}$ & $\frac{1}{6}$ \\ -->
 <!-- \hline & Total & $\frac{1}{2}$ & $\frac{1}{4}$ & $\frac{1}{4}$ & 1 -->
 <!-- \end{tabular} -->
-<table>
+<table style="width:100%;">
+<colgroup>
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="center"></th>
@@ -1805,7 +1813,7 @@ So for “large samples”, we can use <span class="math inline">\(N(0,1)\)</spa
 <p>How large does <span class="math inline">\(n\)</span> have to be before this approximation becomes usable? There is no definitive answer to this, as it depends on how “close to normal” the distribution of <span class="math inline">\(X\)</span> is. However, it is often a pretty good approximation for sample sizes as small as 20, or even smaller. It also depends on the skewness of the distribution of <span class="math inline">\(X\)</span>; if the <span class="math inline">\(X\)</span>-variables are highly skewed, then <span class="math inline">\(n\)</span> will usually need to be larger than for corresponding symmetric <span class="math inline">\(X\)</span>-variables for the approximation to be good.
 We investigate in one example in Figure <a href="distributions.html#fig:clt-demo">3.3</a>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:clt-demo"></span>
-<img src="MATH1024_files/figure-html/clt-demo-1.png" alt="Distribution of normalised sample means for samples of different sizes. Initially very skew (original distribution, $n=1$) becoming rapidly closer to standard normal (dashed line) with increasing $n$." width="60%" />
+<img src="MATH1063_files/figure-html/clt-demo-1.png" alt="Distribution of normalised sample means for samples of different sizes. Initially very skew (original distribution, $n=1$) becoming rapidly closer to standard normal (dashed line) with increasing $n$." width="60%" />
 <p class="caption">
 Figure 3.3: Distribution of normalised sample means for samples of different sizes. Initially very skew (original distribution, <span class="math inline">\(n=1\)</span>) becoming rapidly closer to standard normal (dashed line) with increasing <span class="math inline">\(n\)</span>.
 </p>
@@ -1852,7 +1860,7 @@ This probability is so small that it casts doubt on the validity of the assumpti
 <p>Although the exact binomial probabilities are difficult to compute by hand,
 in this case we may compute them in R. Recall <span class="math inline">\(Y \sim \operatorname{Bin}(n = 2500, p = 0.1)\)</span>,
 so <span class="math inline">\(P(Y \leq 205)\)</span> is</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="distributions.html#cb35-1" aria-hidden="true"></a><span class="kw">pbinom</span>(<span class="dv">205</span>, <span class="dt">size =</span> <span class="dv">2500</span>, <span class="dt">prob =</span> <span class="fl">0.1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="distributions.html#cb35-1" tabindex="-1"></a><span class="fu">pbinom</span>(<span class="dv">205</span>, <span class="at">size =</span> <span class="dv">2500</span>, <span class="at">prob =</span> <span class="fl">0.1</span>)</span></code></pre></div>
 <pre><code>## [1] 0.001173725</code></pre>
 <p>In this case the normal approximation was good enough to correctly conclude that this
 probability is very small (of the order of <span class="math inline">\(0.1\%\)</span>), which was all we needed to answer
@@ -1910,7 +1918,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["MATH1024.pdf"],
+"download": null,
 "search": {
 "engine": "fuse",
 "options": null

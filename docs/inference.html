@@ -4,20 +4,20 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Statistical Inference | MATH1024: Introduction to Probability and Statistics</title>
-  <meta name="description" content="The course notes for MATH1024: Introduction to Probability and Statistics" />
+  <title>Chapter 4 Statistical Inference | MATH1063: Introduction to Statistics</title>
+  <meta name="description" content="The course notes for MATH1063: Introduction to Statistics" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Statistical Inference | MATH1024: Introduction to Probability and Statistics" />
+  <meta property="og:title" content="Chapter 4 Statistical Inference | MATH1063: Introduction to Statistics" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="The course notes for MATH1024: Introduction to Probability and Statistics" />
-  <meta name="github-repo" content="heogden/math1024" />
+  <meta property="og:description" content="The course notes for MATH1063: Introduction to Statistics" />
+  <meta name="github-repo" content="heogden/math1063" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Statistical Inference | MATH1024: Introduction to Probability and Statistics" />
+  <meta name="twitter:title" content="Chapter 4 Statistical Inference | MATH1063: Introduction to Statistics" />
   
-  <meta name="twitter:description" content="The course notes for MATH1024: Introduction to Probability and Statistics" />
+  <meta name="twitter:description" content="The course notes for MATH1063: Introduction to Statistics" />
   
 
 <meta name="author" content="Dr Helen Ogden, based on original notes by Prof. Sujit Sahu" />
@@ -31,7 +31,7 @@
   
 <link rel="prev" href="distributions.html"/>
 
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="libs/jquery-3.6.1/jquery-3.6.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -48,7 +48,6 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
@@ -58,8 +57,9 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -93,7 +93,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -106,7 +106,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -290,7 +290,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MATH1024: Introduction to Probability and Statistics</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MATH1063: Introduction to Statistics</a>
           </h1>
         </div>
 
@@ -768,7 +768,7 @@ From the Central Limit Theorem (Section <a href="distributions.html#sec:clt">3.8
 <span class="math display">\[P\left(h_{1} \leq \sqrt{n} \frac{(\bar{X}-\mu)}{\sigma} \leq h_{2}\right)=1-\alpha\]</span>
 for a chosen value of <span class="math inline">\(1-\alpha\)</span> which is called the confidence level. So <span class="math inline">\(h_{1}\)</span> and <span class="math inline">\(h_{2}\)</span> are chosen so that the shaded area in Figure <a href="inference.html#fig:normal-quantiles">4.1</a> is equal to the confidence level <span class="math inline">\(1-\alpha\)</span>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:normal-quantiles"></span>
-<img src="MATH1024_files/figure-html/normal-quantiles-1.png" alt="$h_1$ and $h_2$ are chosen to make the shaded area equal to the confidence level $1-\alpha$" width="60%" />
+<img src="MATH1063_files/figure-html/normal-quantiles-1.png" alt="$h_1$ and $h_2$ are chosen to make the shaded area equal to the confidence level $1-\alpha$" width="60%" />
 <p class="caption">
 Figure 4.1: <span class="math inline">\(h_1\)</span> and <span class="math inline">\(h_2\)</span> are chosen to make the shaded area equal to the confidence level <span class="math inline">\(1-\alpha\)</span>
 </p>
@@ -791,7 +791,7 @@ Figure 4.1: <span class="math inline">\(h_1\)</span> and <span class="math inlin
 \Rightarrow 59.96 \leq \mu \leq 75.74
 \end{gathered}\]</span></p>
 <p>The R command is</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="inference.html#cb37-1" aria-hidden="true"></a><span class="kw">mean</span>(fastfood) <span class="op">+</span><span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>) <span class="op">*</span><span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>) <span class="op">*</span><span class="st"> </span><span class="dv">18</span> <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span> (<span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="inference.html#cb37-1" tabindex="-1"></a><span class="fu">mean</span>(fastfood) <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">qnorm</span>(<span class="fl">0.975</span>) <span class="sc">*</span> <span class="dv">18</span> <span class="sc">/</span> <span class="fu">sqrt</span> (<span class="dv">20</span>)</span></code></pre></div>
 <p>assuming <code>fastfood</code> is the vector containing 20 waiting times.</p>
 <p>In reality, it is more likely that <span class="math inline">\(\sigma\)</span> is unknown in this example,
 and we need to seek alternative methods for finding the confidence intervals.</p>
@@ -867,13 +867,13 @@ Then, it can be shown (and will be in MATH2011) that
 where <span class="math inline">\(t_{n-1}\)</span> denotes the standard <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n-1\)</span> degrees of freedom. The standard <span class="math inline">\(t\)</span> distribution is a family of distributions which depend on one parameter called the degrees-of-freedom (df) which is <span class="math inline">\(n-1\)</span> here. The concept of degrees of freedom is that it is usually the number of independent random samples, <span class="math inline">\(n\)</span> here, minus the number of linear parameters estimated, 1 here for <span class="math inline">\(\mu\)</span>. Hence the df is <span class="math inline">\(n-1\)</span>.</p>
 <p>The probability density function of the <span class="math inline">\(t_{k}\)</span> distribution is similar to a standard normal, in that it is symmetric around zero and ‘bell-shaped’, but the t-distribution is more heavy-tailed, giving greater probability to observations further away from zero. Figure <a href="inference.html#fig:t-pdf">4.2</a> illustrates the <span class="math inline">\(t_{k}\)</span> density function for various values of <span class="math inline">\(k\)</span>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:t-pdf"></span>
-<img src="MATH1024_files/figure-html/t-pdf-1.png" alt="The pdf of the $t_k$ distribution for various values of $k$. The dashed line is the standard normal pdf." width="60%" />
+<img src="MATH1063_files/figure-html/t-pdf-1.png" alt="The pdf of the $t_k$ distribution for various values of $k$. The dashed line is the standard normal pdf." width="60%" />
 <p class="caption">
 Figure 4.2: The pdf of the <span class="math inline">\(t_k\)</span> distribution for various values of <span class="math inline">\(k\)</span>. The dashed line is the standard normal pdf.
 </p>
 </div>
-<p>The values of <span class="math inline">\(h\)</span> for a given <span class="math inline">\(1-\alpha\)</span> can be obtained using the R command  (abbreviation for quantile of <span class="math inline">\(t\)</span> ). For example, we can find <span class="math inline">\(h\)</span> for <span class="math inline">\(1-\alpha=0.95\)</span> and <span class="math inline">\(n=20\)</span></p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="inference.html#cb38-1" aria-hidden="true"></a><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dt">df =</span> <span class="dv">19</span>)</span></code></pre></div>
+<p>The values of <span class="math inline">\(h\)</span> for a given <span class="math inline">\(1-\alpha\)</span> can be obtained using the R command (abbreviation for quantile of <span class="math inline">\(t\)</span> ). For example, we can find <span class="math inline">\(h\)</span> for <span class="math inline">\(1-\alpha=0.95\)</span> and <span class="math inline">\(n=20\)</span></p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="inference.html#cb38-1" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="dv">19</span>)</span></code></pre></div>
 <pre><code>## [1] 2.093024</code></pre>
 <p>Note that it should be <span class="math inline">\(0.975\)</span> so that we are splitting <span class="math inline">\(0.05\)</span> probability between the two tails equally and the df should be <span class="math inline">\(n-1=19\)</span>. Indeed, modifying the above command, we obtain the following critical values for the <span class="math inline">\(95 \%\)</span> interval for different values of the sample size <span class="math inline">\(n\)</span>.</p>
 <p>Note that the critical value approaches <span class="math inline">\(1.96\)</span> (which is the critical value for the normal distribution) as <span class="math inline">\(n \rightarrow \infty\)</span>, since the <span class="math inline">\(t\)</span>-distribution itself approaches the normal distribution for large values of its df parameter.</p>
@@ -887,13 +887,13 @@ can use the <span class="math inline">\(t\)</span>-distribution-based confidence
 \end{align*}\]</span></p>
 <p>In R, if the vector <code>fastfood</code> contains all the service times,
 we can find a <span class="math inline">\(95 \%\)</span> confidence interval with</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="inference.html#cb40-1" aria-hidden="true"></a><span class="kw">mean</span>(fastfood) <span class="op">+</span><span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>) <span class="op">*</span><span class="st"> </span><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dt">df =</span> <span class="dv">19</span>) <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(fastfood) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="inference.html#cb40-1" tabindex="-1"></a><span class="fu">mean</span>(fastfood) <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="dv">19</span>) <span class="sc">*</span> <span class="fu">sd</span>(fastfood) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">20</span>)</span></code></pre></div>
 <pre><code>## [1] 59.25467 76.44533</code></pre>
 <p>or a <span class="math inline">\(90 \%\)</span> confidence interval with</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="inference.html#cb42-1" aria-hidden="true"></a><span class="kw">mean</span>(fastfood) <span class="op">+</span><span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>) <span class="op">*</span><span class="st"> </span><span class="kw">qt</span>(<span class="fl">0.95</span>, <span class="dt">df =</span> <span class="dv">19</span>) <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(fastfood) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="inference.html#cb42-1" tabindex="-1"></a><span class="fu">mean</span>(fastfood) <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">qt</span>(<span class="fl">0.95</span>, <span class="at">df =</span> <span class="dv">19</span>) <span class="sc">*</span> <span class="fu">sd</span>(fastfood) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">20</span>)</span></code></pre></div>
 <pre><code>## [1] 60.74905 74.95095</code></pre>
 <p>or a <span class="math inline">\(99 \%\)</span> confidence interval with</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="inference.html#cb44-1" aria-hidden="true"></a><span class="kw">mean</span>(fastfood) <span class="op">+</span><span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>) <span class="op">*</span><span class="st"> </span><span class="kw">qt</span>(<span class="fl">0.995</span>, <span class="dt">df =</span> <span class="dv">19</span>) <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(fastfood) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="inference.html#cb44-1" tabindex="-1"></a><span class="fu">mean</span>(fastfood) <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">qt</span>(<span class="fl">0.995</span>, <span class="at">df =</span> <span class="dv">19</span>) <span class="sc">*</span> <span class="fu">sd</span>(fastfood) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">20</span>)</span></code></pre></div>
 <pre><code>## [1] 56.10113 79.59887</code></pre>
 <p>We can see clearly that the interval gets wider as the level of confidence is gets higher.</p>
 </div>
@@ -905,7 +905,7 @@ we would like to find a confidence interval for the true average weight gain (fi
 \Rightarrow 0.6335 &amp; \leq \mu \leq 1.1008
 \end{align*}\]</span></p>
 <p>In R, we obtain the critical value <span class="math inline">\(1.996\)</span> by</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="inference.html#cb46-1" aria-hidden="true"></a><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dt">df =</span> <span class="dv">67</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="inference.html#cb46-1" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="dv">67</span>)</span></code></pre></div>
 <pre><code>## [1] 1.996008</code></pre>
 <p>Note that the interval here does not include the value 0, so it is very likely that the weight gain is significantly positive, which we will justify using what is called hypothesis testing.</p>
 </div>
@@ -1021,7 +1021,7 @@ a <span class="math inline">\(t\)</span> distribution with <span class="math inl
 <span class="math display">\[\sqrt{n} \frac{\left(\bar{x}-\mu_{0}\right)}{s}=7.41.\]</span></p>
 <p>The observed value of <span class="math inline">\(7.41\)</span> does not seem reasonable from Figure <a href="inference.html#fig:t-pdf-wtgain">4.3</a>, which shows the density of the <span class="math inline">\(t\)</span>-distribution with 67 degrees of freedom, and a vertical line at the observed value of <span class="math inline">\(7.41\)</span>. So there may be evidence here to reject <span class="math inline">\(H_{0}: \mu=0\)</span>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:t-pdf-wtgain"></span>
-<img src="MATH1024_files/figure-html/t-pdf-wtgain-1.png" alt="The density of the $t_{67}$ distribution. The dashed line shows the observed value of the test statistic for the weight gain data." width="60%" />
+<img src="MATH1063_files/figure-html/t-pdf-wtgain-1.png" alt="The density of the $t_{67}$ distribution. The dashed line shows the observed value of the test statistic for the weight gain data." width="60%" />
 <p class="caption">
 Figure 4.3: The density of the <span class="math inline">\(t_{67}\)</span> distribution. The dashed line shows the observed value of the test statistic for the weight gain data.
 </p>
@@ -1032,7 +1032,7 @@ Figure 4.3: The density of the <span class="math inline">\(t_{67}\)</span> distr
 <span class="math display">\[\sqrt{n} \frac{\left(\bar{x}-\mu_{0}\right)}{s}=\sqrt{20} \frac{(67.85-60)}{18.36}=1.91.\]</span></p>
 <p>The observed value of <span class="math inline">\(1.91\)</span> may or may not be reasonable from Figure <a href="inference.html#fig:t-pdf-fastfood">4.4</a>, which shows the density of the <span class="math inline">\(t\)</span>-distribution with 19 degrees of freedom, and a vertical line at the observed value of <span class="math inline">\(1.91\)</span>. This value is a bit out in the tail but we are not sure, unlike in the previous weight gain example. So how can we decide whether to reject the null hypothesis?</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:t-pdf-fastfood"></span>
-<img src="MATH1024_files/figure-html/t-pdf-fastfood-1.png" alt="The density of the $t_{19}$ distribution. The dashed line shows the observed value of the test statistic for the fast food data." width="60%" />
+<img src="MATH1063_files/figure-html/t-pdf-fastfood-1.png" alt="The density of the $t_{19}$ distribution. The dashed line shows the observed value of the test statistic for the fast food data." width="60%" />
 <p class="caption">
 Figure 4.4: The density of the <span class="math inline">\(t_{19}\)</span> distribution. The dashed line shows the observed value of the test statistic for the fast food data.
 </p>
@@ -1047,7 +1047,7 @@ Figure 4.4: The density of the <span class="math inline">\(t_{19}\)</span> distr
 <h4><span class="header-section-number">4.5.2.3</span> Rejection region<a href="inference.html#rejection-region" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>For the t-test, the null distribution is <span class="math inline">\(t_{n-1}\)</span> where <span class="math inline">\(n\)</span> is the sample size, so the rejection region for the test corresponds to a region of total probability <span class="math inline">\(\alpha=0.05\)</span> comprising the ‘most extreme’ values in the direction of the alternative hypothesis. If the alternative hypothesis is two-sided, e.g. <span class="math inline">\(H_{1}: \mu \neq \mu_{0}\)</span>, then this is obtained as below, where the two shaded regions both have area (probability) <span class="math inline">\(\alpha / 2=0.025\)</span>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:t-rejection"></span>
-<img src="MATH1024_files/figure-html/t-rejection-1.png" alt="The shaded area shows the rejection region for a t-test. $h$ is chosen to make the shaded area equal to the significance level $1-\alpha$" width="60%" />
+<img src="MATH1063_files/figure-html/t-rejection-1.png" alt="The shaded area shows the rejection region for a t-test. $h$ is chosen to make the shaded area equal to the significance level $1-\alpha$" width="60%" />
 <p class="caption">
 Figure 4.5: The shaded area shows the rejection region for a t-test. <span class="math inline">\(h\)</span> is chosen to make the shaded area equal to the significance level <span class="math inline">\(1-\alpha\)</span>
 </p>
@@ -1055,7 +1055,7 @@ Figure 4.5: The shaded area shows the rejection region for a t-test. <span class
 <p>The value of <span class="math inline">\(h\)</span> depends on the sample size <span class="math inline">\(n\)</span> and can be found in R with the <code>qt</code> command.
 Note that we need to put <span class="math inline">\(n-1\)</span> in the <code>df</code> argument of <code>qt</code>.
 So for <span class="math inline">\(n = 100\)</span>, we can find <span class="math inline">\(h\)</span> with</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="inference.html#cb48-1" aria-hidden="true"></a><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dt">df =</span> <span class="dv">99</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="inference.html#cb48-1" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="dv">99</span>)</span></code></pre></div>
 <pre><code>## [1] 1.984217</code></pre>
 For some other values of <span class="math inline">\(n\)</span>, we have
 <p>where the last value for <span class="math inline">\(n=\infty\)</span> is obtained from the normal distribution.</p>
@@ -1065,7 +1065,7 @@ In this case, we choose <span class="math inline">\(h\)</span> such that the are
 (under the <span class="math inline">\(t_{n-1}\)</span> pdf)
 is <span class="math inline">\(\alpha\)</span>.
 So for <span class="math inline">\(n = 100\)</span> and <span class="math inline">\(\alpha = 0.05\)</span>, we can find this <span class="math inline">\(h\)</span> with</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="inference.html#cb50-1" aria-hidden="true"></a><span class="kw">qt</span>(<span class="fl">0.95</span>, <span class="dt">df =</span> <span class="dv">99</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="inference.html#cb50-1" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.95</span>, <span class="at">df =</span> <span class="dv">99</span>)</span></code></pre></div>
 <pre><code>## [1] 1.660391</code></pre>
 For some other values of <span class="math inline">\(n\)</span>, we have
 </div>
@@ -1093,8 +1093,8 @@ For some other values of <span class="math inline">\(n\)</span>, we have
 <li>Our computed test statistic lies in the rejection region, i.e. <span class="math inline">\(|t|&gt;1.996\)</span>, so <span class="math inline">\(H_{0}\)</span> is rejected in favour of <span class="math inline">\(H_{1}\)</span> at the <span class="math inline">\(5 \%\)</span> level of significance.</li>
 </ul>
 <p>In R we can perform the test as follows:</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="inference.html#cb52-1" aria-hidden="true"></a>wtgain<span class="op">$</span>diff &lt;-<span class="st"> </span>wtgain<span class="op">$</span>final <span class="op">-</span><span class="st"> </span>wtgain<span class="op">$</span>initial</span>
-<span id="cb52-2"><a href="inference.html#cb52-2" aria-hidden="true"></a><span class="kw">t.test</span>(wtgain<span class="op">$</span>diff)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="inference.html#cb52-1" tabindex="-1"></a>wtgain<span class="sc">$</span>diff <span class="ot">&lt;-</span> wtgain<span class="sc">$</span>final <span class="sc">-</span> wtgain<span class="sc">$</span>initial</span>
+<span id="cb52-2"><a href="inference.html#cb52-2" tabindex="-1"></a><span class="fu">t.test</span>(wtgain<span class="sc">$</span>diff)</span></code></pre></div>
 <pre><code>## 
 ##  One Sample t-test
 ## 
@@ -1125,11 +1125,11 @@ where <span class="math inline">\(T\)</span> has a <span class="math inline">\(t
 <span class="math display">\[p=P(T&gt;1.91)=0.036 \text {, when } T \sim t_{19}.\]</span></p>
 <p>This is the area of the shaded region in Figure <a href="inference.html#fig:p-value-fastfood">4.6</a>.
 In R it is</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="inference.html#cb54-1" aria-hidden="true"></a><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pt</span>(<span class="fl">1.91</span>, <span class="dt">df =</span> <span class="dv">19</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="inference.html#cb54-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pt</span>(<span class="fl">1.91</span>, <span class="at">df =</span> <span class="dv">19</span>) </span></code></pre></div>
 <pre><code>## [1] 0.03567359</code></pre>
 <p>The p-value <span class="math inline">\(0.036\)</span> indicates some evidence against the manager’s claim at the <span class="math inline">\(5 \%\)</span> level of significance but not the <span class="math inline">\(1 \%\)</span> level of significance.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:p-value-fastfood"></span>
-<img src="MATH1024_files/figure-html/p-value-fastfood-1.png" alt="The area of the shaded region (under the $t_{19}$ pdf) is the p-value for the one-sided hypothesis test in the fast food example" width="60%" />
+<img src="MATH1063_files/figure-html/p-value-fastfood-1.png" alt="The area of the shaded region (under the $t_{19}$ pdf) is the p-value for the one-sided hypothesis test in the fast food example" width="60%" />
 <p class="caption">
 Figure 4.6: The area of the shaded region (under the <span class="math inline">\(t_{19}\)</span> pdf) is the p-value for the one-sided hypothesis test in the fast food example
 </p>
@@ -1187,9 +1187,9 @@ and
 <span class="math display">\[t_{\text{obs}}=\sqrt{\frac{n m}{n+m}} \frac{(\bar{x}-\bar{y})}{s}=0.25.\]</span>
 This is not significant as the critical value <span class="math inline">\(h = \texttt{qt(0.975, df = 18)}=2.10\)</span> is larger in absolute value than <span class="math inline">\(0.25\)</span>.
 We can conduct the test easily in R:</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="inference.html#cb56-1" aria-hidden="true"></a>fastfood_am &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">38</span>, <span class="dv">100</span>, <span class="dv">64</span>, <span class="dv">43</span>, <span class="dv">63</span>, <span class="dv">59</span>, <span class="dv">107</span>, <span class="dv">52</span>, <span class="dv">86</span>, <span class="dv">77</span>)</span>
-<span id="cb56-2"><a href="inference.html#cb56-2" aria-hidden="true"></a>fastfood_pm &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">45</span>, <span class="dv">62</span>, <span class="dv">52</span>, <span class="dv">72</span>, <span class="dv">81</span>, <span class="dv">88</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">59</span>, <span class="dv">70</span>)</span>
-<span id="cb56-3"><a href="inference.html#cb56-3" aria-hidden="true"></a><span class="kw">t.test</span>(fastfood_am, fastfood_pm)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="inference.html#cb56-1" tabindex="-1"></a>fastfood_am <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">38</span>, <span class="dv">100</span>, <span class="dv">64</span>, <span class="dv">43</span>, <span class="dv">63</span>, <span class="dv">59</span>, <span class="dv">107</span>, <span class="dv">52</span>, <span class="dv">86</span>, <span class="dv">77</span>)</span>
+<span id="cb56-2"><a href="inference.html#cb56-2" tabindex="-1"></a>fastfood_pm <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">62</span>, <span class="dv">52</span>, <span class="dv">72</span>, <span class="dv">81</span>, <span class="dv">88</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">59</span>, <span class="dv">70</span>)</span>
+<span id="cb56-3"><a href="inference.html#cb56-3" tabindex="-1"></a><span class="fu">t.test</span>(fastfood_am, fastfood_pm)</span></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
@@ -1217,10 +1217,10 @@ and modelling these differences as observations of i.i.d. <span class="math inli
 we use the test statistic <span class="math inline">\(t=\sqrt{n} \frac{\bar{z}}{s_{z}}\)</span>, where <span class="math inline">\(s_{z}^{2}=\frac{1}{n-1} \sum_{i=1}^{n}\left(z_{i}-\bar{z}\right)^{2}\)</span>.</p>
 <p>From the hypothesis testing, a <span class="math inline">\(100(1-\alpha) \%\)</span> confidence interval
 for <span class="math inline">\(\mu_Z\)</span> is given by <span class="math inline">\(\bar{z} \pm h \frac{s_{z}}{\sqrt{n}}\)</span>, where <span class="math inline">\(h\)</span> is the critical value of the <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n-1\)</span> degrees of freedom. In R we perform the test as follows:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="inference.html#cb58-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">45.9</span>, <span class="fl">57.6</span>, <span class="fl">54.9</span>, <span class="fl">38.7</span>, <span class="fl">35.7</span>, <span class="fl">39.2</span>, <span class="fl">45.9</span>, <span class="fl">43.2</span>, <span class="fl">45.4</span>, <span class="fl">54.8</span>)</span>
-<span id="cb58-2"><a href="inference.html#cb58-2" aria-hidden="true"></a>y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">48.2</span>, <span class="fl">64.2</span>, <span class="fl">56.8</span>, <span class="fl">47.2</span>, <span class="fl">43.7</span>, <span class="fl">45.7</span>, <span class="fl">53.0</span>, <span class="fl">52.0</span>, <span class="fl">45.1</span>, <span class="fl">57.5</span>)</span>
-<span id="cb58-3"><a href="inference.html#cb58-3" aria-hidden="true"></a></span>
-<span id="cb58-4"><a href="inference.html#cb58-4" aria-hidden="true"></a><span class="kw">t.test</span>(x, y, <span class="dt">paired =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="inference.html#cb58-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">45.9</span>, <span class="fl">57.6</span>, <span class="fl">54.9</span>, <span class="fl">38.7</span>, <span class="fl">35.7</span>, <span class="fl">39.2</span>, <span class="fl">45.9</span>, <span class="fl">43.2</span>, <span class="fl">45.4</span>, <span class="fl">54.8</span>)</span>
+<span id="cb58-2"><a href="inference.html#cb58-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">48.2</span>, <span class="fl">64.2</span>, <span class="fl">56.8</span>, <span class="fl">47.2</span>, <span class="fl">43.7</span>, <span class="fl">45.7</span>, <span class="fl">53.0</span>, <span class="fl">52.0</span>, <span class="fl">45.1</span>, <span class="fl">57.5</span>)</span>
+<span id="cb58-3"><a href="inference.html#cb58-3" tabindex="-1"></a></span>
+<span id="cb58-4"><a href="inference.html#cb58-4" tabindex="-1"></a><span class="fu">t.test</span>(x, y, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Paired t-test
 ## 
@@ -1286,7 +1286,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["MATH1024.pdf"],
+"download": null,
 "search": {
 "engine": "fuse",
 "options": null

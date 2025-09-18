@@ -4,20 +4,20 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>MATH1024: Introduction to Probability and Statistics</title>
-  <meta name="description" content="The course notes for MATH1024: Introduction to Probability and Statistics" />
+  <title>MATH1063: Introduction to Statistics</title>
+  <meta name="description" content="The course notes for MATH1063: Introduction to Statistics" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="MATH1024: Introduction to Probability and Statistics" />
+  <meta property="og:title" content="MATH1063: Introduction to Statistics" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="The course notes for MATH1024: Introduction to Probability and Statistics" />
-  <meta name="github-repo" content="heogden/math1024" />
+  <meta property="og:description" content="The course notes for MATH1063: Introduction to Statistics" />
+  <meta name="github-repo" content="heogden/math1063" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="MATH1024: Introduction to Probability and Statistics" />
+  <meta name="twitter:title" content="MATH1063: Introduction to Statistics" />
   
-  <meta name="twitter:description" content="The course notes for MATH1024: Introduction to Probability and Statistics" />
+  <meta name="twitter:description" content="The course notes for MATH1063: Introduction to Statistics" />
   
 
 <meta name="author" content="Dr Helen Ogden, based on original notes by Prof. Sujit Sahu" />
@@ -31,7 +31,7 @@
   
 
 <link rel="next" href="intro-prob.html"/>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="libs/jquery-3.6.1/jquery-3.6.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -48,7 +48,6 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
@@ -58,8 +57,9 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -93,7 +93,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -106,7 +106,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -290,7 +290,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MATH1024: Introduction to Probability and Statistics</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MATH1063: Introduction to Statistics</a>
           </h1>
         </div>
 
@@ -299,7 +299,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">MATH1024: Introduction to Probability and Statistics</h1>
+<h1 class="title">MATH1063: Introduction to Statistics</h1>
 <p class="author"><em>Dr Helen Ogden, based on original notes by Prof. Sujit Sahu</em></p>
 </div>
 <div id="intro-stats" class="section level1 hasAnchor" number="1">
@@ -309,13 +309,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">1.1</span> What is statistics?<a href="index.html#what-is-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="early-and-modern-definitions" class="section level3 hasAnchor" number="1.1.1">
 <h3><span class="header-section-number">1.1.1</span> Early and modern definitions<a href="index.html#early-and-modern-definitions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The word <em>statistics</em> has its roots in the Latin word <em>status</em> which means the state, and in the
+<p>The word <em>statistics</em> has its roots in the Latin word <em>status</em> which means ‘the state’, and in the
 middle of the 18th century was intended to mean
 <em>collection, processing and use of data by the state</em>.
 With the rapid industrialisation of Europe in the first half of the 19th century, statistics
 became established as a discipline. This led to the formation of the Royal Statistical Society,
-the premier professional association of statisticians in the UK and also world-wide, in 1834.
-During this 19th century growth period, statistics acquired a new meaning as the <em>interpretation of data or methods of extracting information from data for decision making</em>. Thus
+the premier professional association of statisticians in the UK and world-wide, in 1834.
+During this 19th century growth period, statistics acquired a new meaning: the <em>interpretation of data or methods of extracting information from data for decision making</em>. Thus
 statistics has its modern meaning as the methods for
 <em>collection, analysis and interpretation of data</em>.
 Indeed, the Oxford English Dictionary defines <em>statistics</em> as</p>
@@ -324,9 +324,9 @@ Indeed, the Oxford English Dictionary defines <em>statistics</em> as</p>
 proportions in a whole from those in a representative sample.</p>
 </blockquote>
 <p>Note that the word ‘state’ has gone from its definition. Instead, statistical methods are now
-essential for <strong>everyone</strong> wanting to answer questions using data.</p>
+essential for anyone wanting to answer questions using data.</p>
 <p>For example, will it rain tomorrow? Is smoking
-harmful during pregnancy? What degree classification will I get at graduation?
+harmful during pregnancy? What degree classification will I receive upon graduation?
 Will the stock market crash tomorrow?</p>
 </div>
 <div id="statistics-tames-uncertainty" class="section level3 hasAnchor" number="1.1.2">
@@ -1028,22 +1028,22 @@ weekly counts of computer failures from Example <a href="index.html#exm:compfail
 in an object called <code>compfail</code> in R. You will
 find out how to read the data into R in the practical sessions.</p>
 <p>Then we can calculate these quantities with:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="index.html#cb2-1" aria-hidden="true"></a><span class="kw">mean</span>(compfail)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="index.html#cb2-1" tabindex="-1"></a><span class="fu">mean</span>(compfail)</span></code></pre></div>
 <pre><code>## [1] 3.75</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="index.html#cb4-1" aria-hidden="true"></a><span class="kw">median</span>(compfail)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="index.html#cb4-1" tabindex="-1"></a><span class="fu">median</span>(compfail)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="index.html#cb6-1" aria-hidden="true"></a><span class="kw">var</span>(compfail)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="index.html#cb6-1" tabindex="-1"></a><span class="fu">var</span>(compfail)</span></code></pre></div>
 <pre><code>## [1] 11.43204</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="index.html#cb8-1" aria-hidden="true"></a><span class="kw">sd</span>(compfail)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="index.html#cb8-1" tabindex="-1"></a><span class="fu">sd</span>(compfail)</span></code></pre></div>
 <pre><code>## [1] 3.38113</code></pre>
 <p>R saves us a lot of effort here relative to computing
 these quantities by hand.</p>
 <p>The <code>summary</code> command provides several using summary statistics:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="index.html#cb10-1" aria-hidden="true"></a><span class="kw">summary</span>(compfail)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="index.html#cb10-1" tabindex="-1"></a><span class="fu">summary</span>(compfail)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##    0.00    1.00    3.00    3.75    5.00   17.00</code></pre>
 <p>We can find a table summarising the counts by typing</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="index.html#cb12-1" aria-hidden="true"></a><span class="kw">table</span>(compfail)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="index.html#cb12-1" tabindex="-1"></a><span class="fu">table</span>(compfail)</span></code></pre></div>
 <pre><code>## compfail
 ##  0  1  2  3  4  5  6  7  8  9 10 11 12 13 17 
 ## 12 16 21 12 11  8  7  2  4  2  3  2  2  1  1</code></pre>
@@ -1073,7 +1073,7 @@ out how to make these plots in R in the practical sessions.</p>
 we may use a bar plot. For instance, we may
 plot the weekly counts of
 computer failures from Example <a href="index.html#exm:compfail">1.2</a>:</p>
-<p><img src="MATH1024_files/figure-html/unnamed-chunk-10-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="MATH1063_files/figure-html/unnamed-chunk-10-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>This plot shows the same information as in the summary
 table of counts, but it is easier to process the information
 visually.</p>
@@ -1087,7 +1087,7 @@ For instance, suppose we are interested in the gain in weight
 in Example <a href="index.html#exm:wtgain">1.3</a>.</p>
 <p>We can use a box-and-whiskers
 plot to summarise the distribution of the weight difference:</p>
-<p><img src="MATH1024_files/figure-html/unnamed-chunk-11-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="MATH1063_files/figure-html/unnamed-chunk-11-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>The line
 in the middle of the box is the median service weight difference,
 and the box runs from the first quartile
@@ -1103,7 +1103,7 @@ over the course of the study.</p>
 <p>To get more information about the shape of the distribution,
 we could plot
 a histogram of the weight difference:</p>
-<p><img src="MATH1024_files/figure-html/unnamed-chunk-12-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="MATH1063_files/figure-html/unnamed-chunk-12-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>The histogram splits the <span class="math inline">\(x\)</span>-axis into small intervals
 or “bins”
 (here each of width 0.5), and counts how many times
@@ -1111,7 +1111,7 @@ the variable (here difference in weight) is
 in each bin. Histograms often look very different
 for different bin widths.</p>
 <p>Alternatively, we could draw a density plot:</p>
-<p><img src="MATH1024_files/figure-html/unnamed-chunk-13-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="MATH1063_files/figure-html/unnamed-chunk-13-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>This plots an estimate of the probability density function,
 which we will learn about in Chapter <a href="distributions.html#distributions">3</a>.</p>
 </div>
@@ -1121,7 +1121,7 @@ which we will learn about in Chapter <a href="distributions.html#distributions">
 variable changes with a discrete
 one. For instance, for the service time data from Example <a href="index.html#exm:fastfood">1.1</a>,
 we are interested in how AM and PM service times compare:</p>
-<p><img src="MATH1024_files/figure-html/unnamed-chunk-14-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="MATH1063_files/figure-html/unnamed-chunk-14-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Since no outlying points are shown
 in this case, the whiskers show the range of the data.</p>
 <p>We see that the AM service times are on average shorter,
@@ -1130,13 +1130,13 @@ but also more spread out than the PM service times.</p>
 a single continuous variable, and draw separate
 plots for each group in the discrete variable.</p>
 <p>We can use histograms:</p>
-<p><img src="MATH1024_files/figure-html/unnamed-chunk-15-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="MATH1063_files/figure-html/unnamed-chunk-15-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Or density plots:</p>
-<p><img src="MATH1024_files/figure-html/unnamed-chunk-16-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="MATH1063_files/figure-html/unnamed-chunk-16-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>We could also plot the densities
 for the different groups on a single plot,
 using line type to distinguish between the groups:</p>
-<p><img src="MATH1024_files/figure-html/unnamed-chunk-17-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="MATH1063_files/figure-html/unnamed-chunk-17-1.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="relationship-between-two-continuous-variables" class="section level3 hasAnchor" number="1.5.5">
 <h3><span class="header-section-number">1.5.5</span> Relationship between two continuous variables<a href="index.html#relationship-between-two-continuous-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1144,9 +1144,9 @@ using line type to distinguish between the groups:</p>
 between two continuous variables.
 For instance, for the weight data from Example <a href="index.html#exm:wtgain">1.3</a>,
 we can plot the final weights against the initial weights:</p>
-<p><img src="MATH1024_files/figure-html/unnamed-chunk-18-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="MATH1063_files/figure-html/unnamed-chunk-18-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>We can add the straight line <span class="math inline">\(y = x\)</span> to the plot:</p>
-<p><img src="MATH1024_files/figure-html/unnamed-chunk-19-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="MATH1063_files/figure-html/unnamed-chunk-19-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>We can see that the majority of the points lie above this <span class="math inline">\(y = x\)</span>
 line, so the majority of students in the sample gain weight
 over the course of the study, as we have seen before.
@@ -1161,7 +1161,7 @@ to plot relationships between more than two variables.</p>
 <a href="index.html#exm:billionaires">1.4</a>, we can plot wealth against
 age as a scatter-plot, using the shape of the
 points to distinguish between different regions:</p>
-<p><img src="MATH1024_files/figure-html/unnamed-chunk-20-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="MATH1063_files/figure-html/unnamed-chunk-20-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>The plot lets us immediately read off some interesting
 aspects of the data. For instance, there were a few very young
 billionaires, the richest person
@@ -1220,7 +1220,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["MATH1024.pdf"],
+"download": null,
 "search": {
 "engine": "fuse",
 "options": null

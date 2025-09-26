@@ -77,7 +77,7 @@ Out of all possible choices of straight line (choices of the
 regression parameters $\beta_0$ and $\beta_1$), which one should we
 choose?
 
-## Estimation
+## Estimating the regression parameters
 
 To estimate the unknown regression parameters, we attempt to make the
 associated straight line as close as possible to the data. We measure
@@ -86,13 +86,86 @@ criterion:
 
 \[\text{SS}(\beta_0, \beta_1) = \sum_{i=1}^n (y_i - \beta_0 - \beta_1 x_i)^2.\]
 
+To estimate $\beta_0$ and $\beta_1$, we find the values which
+minimise this sum of squares criterion. These estimates are called
+the **least squares estimates**.
+
+To find the least squares estimates, we take partial derivatives of
+$SS(\beta_0, \beta_1)$ with respect to $\beta_0$ and $\beta_1$, set
+them to zero, and solve for the parameters.
+
+First, differentiate with respect to $\beta_0$, to give
+\[
+\frac{\partial SS}{\partial \beta_0} = -2 \sum_{i=1}^n (y_i - \beta_0 - \beta_1 x_i).
+\]
+Setting to zero:
+\[
+\sum_{i=1}^n (y_i - \beta_0 - \beta_1 x_i) = 0,
+\]
+so
+\[
+n\beta_0 + \beta_1 \sum_{i=1}^n x_i = \sum_{i=1}^n y_i,
+\]
+which gives
+\[
+\beta_0 = \bar{y} - \beta_1 \bar{x}.
+\]
+
+Next, differentiate with respect to $\beta_1$, to give
+\[
+\frac{\partial SS}{\partial \beta_1} = -2 \sum_{i=1}^n x_i (y_i - \beta_0 - \beta_1 x_i).
+\]
+Setting to zero gives
+\[
+\sum_{i=1}^n x_i (y_i - \beta_0 - \beta_1 x_i) = 0,
+\]
+or
+\[
+\sum_{i=1}^n x_i y_i - \beta_0 \sum_{i=1}^n x_i - \beta_1 \sum_{i=1}^n x_i^2 = 0.
+\]
+
+Substituting $\beta_0 = \bar{y} - \beta_1 \bar{x}$ gives
+\[
+\sum_{i=1}^n x_i y_i - (\bar{y} - \beta_1 \bar{x}) \sum_{i=1}^n x_i - \beta_1 \sum_{i=1}^n x_i^2 = 0,
+\]
+so
+\[
+\sum_{i=1}^n x_i y_i - n\bar{y}\bar{x} = \beta_1 \left( \sum_{i=1}^n x_i^2 - n\bar{x}^2 \right).
+\]
+So
+\[
+\beta_1 = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^n (x_i - \bar{x})^2}.
+\]
+
+Thus, the least squares estimates are
+\[
+\hat{\beta}_1 = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^n (x_i - \bar{x})^2}, \qquad
+\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}.
+\]
+
 ```{r, echo = FALSE}
 SS <- function(beta0, beta1) {
     sum((y - beta0 - beta1 * x)^2)
 }
 ```
+## Estimation in R
 
-We need to find the values of $\beta = (\beta_0, \beta_1)^T$ which
-minimises $SS(\beta)$, that is
-\[\hat \beta = \arg\min_\beta SS(\beta).\]
+In practice, we do not need to apply these formulas by hand to find the
+least squares estimates. Instead, we can use the `lm` function in `R`
+to find the estimates. For instance, if the birth weight data is
+stored in a data frame called `bw`, with columns `weight` for birthweight
+(which is the response, $y$) and `ga` for gestational age (which is the covariate, $x$), 
+then we can fit the simple linear regression model with:
 
+```{r}
+mod <- lm(weight ~ ga, data = bw)
+```
+
+We can inspect the fitted model:
+
+```{r}
+mod
+```
+
+We see $\hat \beta_0 =$ `r round(coef(mod)[1], 4)` 
+and $\hat \beta_1 =$ `r round(coef(mod)[2], 4)`.

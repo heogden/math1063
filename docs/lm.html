@@ -285,7 +285,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.1" data-path="lm.html"><a href="lm.html#what-is-regression"><i class="fa fa-check"></i><b>5.1</b> What is regression?</a></li>
 <li class="chapter" data-level="5.2" data-path="lm.html"><a href="lm.html#simple-linear-regression"><i class="fa fa-check"></i><b>5.2</b> Simple linear regression</a></li>
-<li class="chapter" data-level="5.3" data-path="lm.html"><a href="lm.html#estimation-1"><i class="fa fa-check"></i><b>5.3</b> Estimation</a></li>
+<li class="chapter" data-level="5.3" data-path="lm.html"><a href="lm.html#estimating-the-regression-parameters"><i class="fa fa-check"></i><b>5.3</b> Estimating the regression parameters</a></li>
+<li class="chapter" data-level="5.4" data-path="lm.html"><a href="lm.html#estimation-in-r"><i class="fa fa-check"></i><b>5.4</b> Estimation in R</a></li>
 </ul></li>
 </ul>
 
@@ -346,16 +347,85 @@ and <span class="math inline">\(\beta_1\)</span> give a different straight line.
 regression parameters <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>), which one should we
 choose?</p>
 </div>
-<div id="estimation-1" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> Estimation<a href="lm.html#estimation-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="estimating-the-regression-parameters" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Estimating the regression parameters<a href="lm.html#estimating-the-regression-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To estimate the unknown regression parameters, we attempt to make the
 associated straight line as close as possible to the data. We measure
 the distance between the line and the data with the sum of squares
 criterion:</p>
 <p><span class="math display">\[\text{SS}(\beta_0, \beta_1) = \sum_{i=1}^n (y_i - \beta_0 - \beta_1 x_i)^2.\]</span></p>
-<p>We need to find the values of <span class="math inline">\(\beta = (\beta_0, \beta_1)^T\)</span> which
-minimises <span class="math inline">\(SS(\beta)\)</span>, that is
-<span class="math display">\[\hat \beta = \arg\min_\beta SS(\beta).\]</span></p>
+<p>To estimate <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>, we find the values which
+minimise this sum of squares criterion. These estimates are called
+the <strong>least squares estimates</strong>.</p>
+<p>To find the least squares estimates, we take partial derivatives of
+<span class="math inline">\(SS(\beta_0, \beta_1)\)</span> with respect to <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>, set
+them to zero, and solve for the parameters.</p>
+<p>First, differentiate with respect to <span class="math inline">\(\beta_0\)</span>, to give
+<span class="math display">\[
+\frac{\partial SS}{\partial \beta_0} = -2 \sum_{i=1}^n (y_i - \beta_0 - \beta_1 x_i).
+\]</span>
+Setting to zero:
+<span class="math display">\[
+\sum_{i=1}^n (y_i - \beta_0 - \beta_1 x_i) = 0,
+\]</span>
+so
+<span class="math display">\[
+n\beta_0 + \beta_1 \sum_{i=1}^n x_i = \sum_{i=1}^n y_i,
+\]</span>
+which gives
+<span class="math display">\[
+\beta_0 = \bar{y} - \beta_1 \bar{x}.
+\]</span></p>
+<p>Next, differentiate with respect to <span class="math inline">\(\beta_1\)</span>, to give
+<span class="math display">\[
+\frac{\partial SS}{\partial \beta_1} = -2 \sum_{i=1}^n x_i (y_i - \beta_0 - \beta_1 x_i).
+\]</span>
+Setting to zero gives
+<span class="math display">\[
+\sum_{i=1}^n x_i (y_i - \beta_0 - \beta_1 x_i) = 0,
+\]</span>
+or
+<span class="math display">\[
+\sum_{i=1}^n x_i y_i - \beta_0 \sum_{i=1}^n x_i - \beta_1 \sum_{i=1}^n x_i^2 = 0.
+\]</span></p>
+<p>Substituting <span class="math inline">\(\beta_0 = \bar{y} - \beta_1 \bar{x}\)</span> gives
+<span class="math display">\[
+\sum_{i=1}^n x_i y_i - (\bar{y} - \beta_1 \bar{x}) \sum_{i=1}^n x_i - \beta_1 \sum_{i=1}^n x_i^2 = 0,
+\]</span>
+so
+<span class="math display">\[
+\sum_{i=1}^n x_i y_i - n\bar{y}\bar{x} = \beta_1 \left( \sum_{i=1}^n x_i^2 - n\bar{x}^2 \right).
+\]</span>
+So
+<span class="math display">\[
+\beta_1 = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^n (x_i - \bar{x})^2}.
+\]</span></p>
+<p>Thus, the least squares estimates are
+<span class="math display">\[
+\hat{\beta}_1 = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^n (x_i - \bar{x})^2}, \qquad
+\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}.
+\]</span></p>
+</div>
+<div id="estimation-in-r" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Estimation in R<a href="lm.html#estimation-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In practice, we do not need to apply these formulas by hand to find the
+least squares estimates. Instead, we can use the <code>lm</code> function in <code>R</code>
+to find the estimates. For instance, if the birth weight data is
+stored in a data frame called <code>bw</code>, with columns <code>weight</code> for birthweight
+(which is the response, <span class="math inline">\(y\)</span>) and <code>ga</code> for gestational age (which is the covariate, <span class="math inline">\(x\)</span>),
+then we can fit the simple linear regression model with:</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="lm.html#cb60-1" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> ga, <span class="at">data =</span> bw)</span></code></pre></div>
+<p>We can inspect the fitted model:</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="lm.html#cb61-1" tabindex="-1"></a>mod</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = weight ~ ga, data = bw)
+## 
+## Coefficients:
+## (Intercept)           ga  
+##     -5.1062       0.2203</code></pre>
+<p>We see <span class="math inline">\(\hat \beta_0 =\)</span> -5.1062
+and <span class="math inline">\(\hat \beta_1 =\)</span> 0.2203.</p>
 
 </div>
 </div>

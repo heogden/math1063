@@ -1,0 +1,118 @@
+# Simple Linear Regression {#lm}
+
+## What is regression?
+
+So far, we have looked at simple statistical models, with a single
+variable of interest. We have estimated the distribution of that
+variable based on random samples from that one variable. In many
+real-world problems, we instead want to understand the relationship
+between multiple variables.
+
+Regression seeks to model how one "output" variable, called the
+**response** variable, $Y$, depends on one or more "input" variables
+$x$, which we will call **covariates**. 
+
+The response $Y$ is sometimes called the dependent variable. The
+covariates $x$ are sometimes called independent or explanatory
+variables.
+
+In MATH1063, we will study only **simple** regression models, which
+have a single covariate $x$.
+
+For instance, suppose we interested in how the birth weight of babies
+depends on gestational age (in weeks). The response, $Y$, is birth
+weight in $g$. The covariate, $x$ is gestational age (in
+weeks). Suppose we have the following data (this data is fictional,
+but based on [real data for male singleton births in Canada](
+https://www.canada.ca/en/public-health/services/injury-prevention/health-surveillance-epidemiology-division/maternal-infant-health/birth-weight-gestational.html)).
+
+```{r, echo = FALSE}
+
+x_grid <- 22:43
+
+#' give weights in kg, not g, so divide by 1000
+mu_grid <- c(501, 598, 697, 800, 909, 1026, 1159, 1312, 1487, 1682, 1896, 2123, 2361, 2607, 2855, 3091, 3306, 3489, 3638, 3745, 3800, 3793) / 1000
+
+sd_grid <- c(108, 122, 136, 149, 163, 178, 195, 214, 234, 256, 278, 301, 324, 346, 368, 388, 405, 420, 432, 441, 446, 448) / 1000
+
+mu_fun <- splinefun(x_grid, mu_grid)
+sd_fun <- splinefun(x_grid, sd_grid)
+
+set.seed(1)
+n <- 40
+x <- round(rnorm(n, mean = 38, sd = 3), digits = 1)
+y <- mu_fun(x) + rnorm(n, sd = sd_fun(x))
+
+library(tidyverse)
+bw <- tibble(ga = x,
+             weight = y) 
+
+mod <- lm(weight ~ ga, data = bw)
+
+p <- ggplot(bw, aes(x = ga, y = weight)) +
+    geom_point() +
+    xlab("Gestational age (weeks)") +
+    ylab("Birth weight (g)")
+
+p
+```
+
+## Simple linear regression
+
+In simple linear regression, we model the dependence of the response
+on the covariate as a straight line plus an error term. That is
+\[Y_i
+= \beta_0 + \beta_1 x_i + \epsilon_i, \; i = 1, \ldots, n,\]
+where $\beta_0$ is an **intercept** parameter, $\beta_1$ is a
+**slope** parameter and $\epsilon_i$ is a random error term. We
+usually model $\epsilon_i \sim N(0, \sigma^2)$, with variance
+parameter $\sigma^2$. There are three unknown parameters, $\beta_0$,
+$\beta_1$ and $\sigma^2$, which we want to estimate from the data.
+
+We have \[E(Y_i) = \beta_0 + \beta_1 x_i.\] Any choice of $\beta_0$
+and $\beta_1$ give a different straight line. We call $\beta_0$ and
+$\beta_1$ the **regression parameters**.
+
+For instance, for the birthweight data, with $\beta_0 = -4.5$ and
+$\beta_1 = 0.2$:
+
+```{r, echo = FALSE}
+p + geom_abline(intercept = -4.5, slope = 0.2)
+```
+
+With $\beta_0 = -6.5$ and $\beta_1 = 0.25$:
+
+```{r, echo = FALSE}
+p + geom_abline(intercept = -6.5, slope = 0.25)
+```
+
+Out of all possible choices of straight line (choices of the
+regression parameters $\beta_0$ and $\beta_1$), which one should we
+choose?
+
+## Estimation
+
+To estimate the unknown regression parameters, we attempt to make the
+associated straight line as close as possible to the data. We measure
+the distance between the line and the data with the sum of squares
+criterion:
+
+\[\text{SS}(\beta_0, \beta_1) = \sum_{i=1}^n (y_i - \beta_0 - \beta_1 x_i)^2.\]
+
+```{r, echo = FALSE}
+SS <- function(beta0, beta1) {
+    sum((y - beta0 - beta1 * x)^2)
+}
+```
+
+For instance, for the birthweight data, 
+$\text{SS}(-4.5, 0.2) =$ `r round(SS(-4.5, 0.2), 2)` 
+and $\text{SS}(-6.5, 0.25) =$ `r round(SS(-6.5, 0.25), 2)`,
+so we would prefer $\beta_0 = -4.5$, $\beta_1 = 0.2$ out of these choices.
+But we are not limited to those two choices. How should we choose the
+regression parameters to minimise this sum of squares criterion?
+
+We need to find the values of $\beta = (\beta_0, \beta_1)^T$ which
+minimises $SS(\beta)$, that is
+\[\hat \beta = \arg\min_\beta SS(\beta).\]
+

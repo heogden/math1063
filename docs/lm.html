@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | MATH1063: Introduction to Statistics</title>
+  <title>Chapter 5 Simple Linear Regression | MATH1063: Introduction to Statistics</title>
   <meta name="description" content="The course notes for MATH1063: Introduction to Statistics" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | MATH1063: Introduction to Statistics" />
+  <meta property="og:title" content="Chapter 5 Simple Linear Regression | MATH1063: Introduction to Statistics" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="The course notes for MATH1063: Introduction to Statistics" />
   <meta name="github-repo" content="heogden/math1063" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | MATH1063: Introduction to Statistics" />
+  <meta name="twitter:title" content="Chapter 5 Simple Linear Regression | MATH1063: Introduction to Statistics" />
   
   <meta name="twitter:description" content="The course notes for MATH1063: Introduction to Statistics" />
   
@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
+<link rel="prev" href="inference.html"/>
 
 <script src="libs/jquery-3.6.1/jquery-3.6.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -304,18 +304,78 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="lm" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Simple Linear Regression<a href="lm.html#lm" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="what-is-regression" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> What is regression?<a href="lm.html#what-is-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>So far, we have looked at simple statistical models, with a single
+variable of interest. We have estimated the distribution of that
+variable based on random samples from that one variable. In many
+real-world problems, we instead want to understand the relationship
+between multiple variables.</p>
+<p>Regression seeks to model how one “output” variable, called the
+<strong>response</strong> variable, <span class="math inline">\(Y\)</span>, depends on one or more “input” variables
+<span class="math inline">\(x\)</span>, which we will call <strong>covariates</strong>.</p>
+<p>The response <span class="math inline">\(Y\)</span> is sometimes called the dependent variable. The
+covariates <span class="math inline">\(x\)</span> are sometimes called independent or explanatory
+variables.</p>
+<p>In MATH1063, we will study only <strong>simple</strong> regression models, which
+have a single covariate <span class="math inline">\(x\)</span>.</p>
+<p>For instance, suppose we interested in how the birth weight of babies
+depends on gestational age (in weeks). The response, <span class="math inline">\(Y\)</span>, is birth
+weight in <span class="math inline">\(g\)</span>. The covariate, <span class="math inline">\(x\)</span> is gestational age (in
+weeks). Suppose we have the following data (this data is fictional,
+but based on <a href="https://www.canada.ca/en/public-health/services/injury-prevention/health-surveillance-epidemiology-division/maternal-infant-health/birth-weight-gestational.html">real data for male singleton births in Canada</a>).</p>
+<p><img src="MATH1063_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
+</div>
+<div id="simple-linear-regression" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Simple linear regression<a href="lm.html#simple-linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In simple linear regression, we model the dependence of the response
+on the covariate as a straight line plus an error term. That is
+<span class="math display">\[Y_i
+= \beta_0 + \beta_1 x_i + \epsilon_i, \; i = 1, \ldots, n,\]</span>
+where <span class="math inline">\(\beta_0\)</span> is an <strong>intercept</strong> parameter, <span class="math inline">\(\beta_1\)</span> is a
+<strong>slope</strong> parameter and <span class="math inline">\(\epsilon_i\)</span> is a random error term. We
+usually model <span class="math inline">\(\epsilon_i \sim N(0, \sigma^2)\)</span>, with variance
+parameter <span class="math inline">\(\sigma^2\)</span>. There are three unknown parameters, <span class="math inline">\(\beta_0\)</span>,
+<span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\sigma^2\)</span>, which we want to estimate from the data.</p>
+<p>We have <span class="math display">\[E(Y_i) = \beta_0 + \beta_1 x_i.\]</span> Any choice of <span class="math inline">\(\beta_0\)</span>
+and <span class="math inline">\(\beta_1\)</span> give a different straight line. We call <span class="math inline">\(\beta_0\)</span> and
+<span class="math inline">\(\beta_1\)</span> the <strong>regression parameters</strong>.</p>
+<p>For instance, for the birthweight data, with <span class="math inline">\(\beta_0 = -4.5\)</span> and
+<span class="math inline">\(\beta_1 = 0.2\)</span>:</p>
+<p><img src="MATH1063_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
+<p>With <span class="math inline">\(\beta_0 = -6.5\)</span> and <span class="math inline">\(\beta_1 = 0.25\)</span>:</p>
+<p><img src="MATH1063_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
+<p>Out of all possible choices of straight line (choices of the
+regression parameters <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>), which one should we
+choose?</p>
+</div>
+<div id="estimation-1" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Estimation<a href="lm.html#estimation-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To estimate the unknown regression parameters, we attempt to make the
+associated straight line as close as possible to the data. We measure
+the distance between the line and the data with the sum of squares
+criterion:</p>
+<p><span class="math display">\[\text{SS}(\beta_0, \beta_1) = \sum_{i=1}^n (y_i - \beta_0 - \beta_1 x_i)^2.\]</span></p>
+<p>For instance, for the birthweight data,
+<span class="math inline">\(\text{SS}(-4.5, 0.2) =\)</span> 6.59
+and <span class="math inline">\(\text{SS}(-6.5, 0.25) =\)</span> 8.2,
+so we would prefer <span class="math inline">\(\beta_0 = -4.5\)</span>, <span class="math inline">\(\beta_1 = 0.2\)</span> out of these choices.
+But we are not limited to those two choices. How should we choose the
+regression parameters to minimise this sum of squares criterion?</p>
+<p>We need to find the values of <span class="math inline">\(\beta = (\beta_0, \beta_1)^T\)</span> which
+minimises <span class="math inline">\(SS(\beta)\)</span>, that is
+<span class="math display">\[\hat \beta = \arg\min_\beta SS(\beta).\]</span></p>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
+<a href="inference.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>

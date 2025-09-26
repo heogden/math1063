@@ -2,67 +2,33 @@
 
 ## Introduction
 
-Last chapter's combinatorial probabilities are difficult to find and very problem-specific. Instead,
-in this chapter we shall find easier ways to calculate probability in structured cases. The outcomes
-of random experiments will be represented as values of a variable which will be random since the
-outcomes are random. In so doing, we will make our life a lot
-easier in calculating probabilities in many stylised situations which represent reality. 
+Combinatorial probabilities from the previous chapter are often problem-specific and tedious to compute. This chapter introduces structured approaches that make probability calculations easier. We represent outcomes of random experiments as values of a random variable, which lets us compute probabilities efficiently in many realistic, stylised settings.
 
 ## Random variables
 
 ### Introduction
 
-In this section we will learn about the probability distribution of a random variable defined by
-its probability function. The probability function will be called the probability mass function for
-discrete random variables and the probability density function for continuous random variables.
+This section introduces probability distributions of random variables via their probability functions. For discrete variables the probability function is the probability mass function (pmf); for continuous variables it is the probability density function (pdf).
 
-A random variable defines a one-to-one mapping of the sample space consisting of all possible
-outcomes of a random experiment to the set of real numbers. For example, I toss a coin. Assuming
-the coin is fair, there are two possible equally likely outcomes: head or tail. These two outcomes
-must be mapped to real numbers. For convenience, I may define the mapping which assigns the
-value 1 if head turns up and 0 otherwise. Hence, we have the mapping
+A random variable maps each outcome in the sample space to a real number. For example, consider a fair coin toss with outcomes head or tail. Define the random variable that maps head to 1 and tail to 0:
 \[\text{Head} \rightarrow 1, \text{Tail} \rightarrow 0.\]
 
 We can conveniently denote the random variable by $X$ which is the number of heads obtained by
 tossing a single coin. The possible values of $X$ are $0$ and $1$.
 
-You will say that this is a trivial example. Indeed it is. But it is very easy to generalise the
-concept of random variables. Simply define a mapping of the outcomes of a random experiment
-to the real number space. For example, I toss the coin $n$ times and count the number of heads
-and denote that to be $X$. $X$ can take any real positive integer value between $0$ and
-$n$. Among other examples, suppose I select a University of Southampton student at random and
-measure their height. The outcome in metres will probably be a number between one metre 
-and two metres. 
-But I can't exactly tell which value it will be since I do not know which student will be
-selected in the first place. However, when a student has been selected I can measure their height
-and get a value such as $1.432$ metres.
+This is a simple example, and the idea generalises directly: define a function from outcomes to real numbers. For instance, toss a coin $n$ times and let $X$ be the number of heads; then $X$ takes integer values from $0$ to $n$. As another example, select a student at random and measure their height. The resulting value, in metres, lies on a continuum (e.g., 1.432 m), and we cannot know it in advance because the selected student is random.
 
-We now introduce two notations: $X$ (or in general the capital letters $Y, Z$ etc.) to denote the
-random variable, e.g. height of a randomly selected student, and the corresponding lower case letter
-$x$ (or $y$, $z$) to denote a particular value, e.g. 1.432 metres. We will follow this convention throughout.
-For a random variable, say $X$, we will also adopt the notation $P (X \in A)$, read
-probability that $X$
-belongs to $A$, instead of the previous $P \{A\}$ for any event $A$.
+We use uppercase letters (e.g., $X$, $Y$, $Z$) for random variables and the corresponding lowercase letters (e.g., $x$, $y$, $z$) for particular values (e.g., $x=1.432$ m). We also write probabilities as $P(X \in A)$, read “the probability that $X$ lies in $A$,” instead of $P\{A\}$.
 
 
 ### Discrete and continuous random variables
 
-If a random variable has a finite or countably infinite set of values it is called discrete. For example,
-the number of Apple computer users among 20 randomly selected students, or the number of credit
-cards a randomly selected person has in their wallet.
-When the random variable can take any value on the real line it is called a continuous random
-variable. For example, the height of a randomly selected student. A random variable can also take
-a mixture of discrete and continuous values, e.g. volume of precipitation collected in a day; some
-days it could be zero, on other days it could be a continuous measurement, e.g. 1.234 mm.
+A random variable is discrete if it takes a finite or countably infinite set of values (e.g., the number of Apple users among 20 students; the number of credit cards a person carries). It is continuous if it can take any real value (e.g., a student’s height). Some variables mix discrete and continuous parts (e.g., daily rainfall: zero on some days, a positive continuous amount on others).
 
 ### Probability distribution of a random variable
 
 
-Recall the first axiom of probability ($P \{S\} = 1$), which means total probability equals 1. 
-Since a random variable is merely a mapping from the outcome space to the real line, the combined
-probability of all possible values of the random variable must be equal to 1.
-A probability distribution distributes the total probability 1 among the
-possible values of the random variable.
+By the first axiom of probability, total probability is 1. Because a random variable maps outcomes to the real line, the probabilities assigned to all its possible values must sum (or integrate) to 1. A probability distribution allocates this total probability across those values.
 
 :::{.example}
 Returning to the coin-tossing experiment, if the probability of getting a head with
@@ -92,10 +58,7 @@ This is a particular case of the Binomial distribution. We will learn about it s
 
 In general, for a discrete random variable we define a function $f(x)$ to denote $P (X = x)$
 (or $f (y)$ to denote $P (Y = y)$) and call the function $f (x)$
-the probability function (pf) or probability
-mass function (pmf) of the random variable $X$. Arbitrary functions cannot be a pmf since the
-total probability must be 1 and all probabilities are non-negative. Hence, for $f (x)$ to be the pmf
-of a random variable $X$, we require:
+the probability mass function (pmf) of $X$. Not every function qualifies: probabilities are nonnegative and sum to 1. Thus, for $f(x)$ to be a pmf of $X$, we require:
 
 1. $f (x) \geq 0$ for all possible values of $x$.
 2. $\sum_{\text{all $x$}} f (x) = 1$
@@ -111,18 +74,9 @@ inherently continuous because they are measured on a continuum (such as time, le
 or can be conveniently well-approximated by considering them as continuous (such as the annual
 income of adults in a population, closing share prices).
 
-For a continuous random variable, $P (X = x)$ is defined to be zero since we assume that the
-measurements are continuous and there is zero probability of observing a particular value, e.g. $1.2$.
-The argument goes that a finer measuring instrument will give us an even more precise 
-measurement than $1.2$ and so on. Thus for a continuous random variable we adopt the
-convention that
-$P (X = x) = 0$ for any particular value $x$ on the real line. 
-But we define probabilities for positive
-length intervals, e.g. $P (1.2 < X < 1.9)$.
+For a continuous random variable, $P(X=x)=0$ for any specific $x$ (e.g., exactly 1.2), because measurements lie on a continuum. Instead, we assign probabilities to intervals with positive length, such as $P(1.2<X<1.9)$.
 
-For a continuous random variable $X$ we define its probability by using a continuous function
-$f(x)$ which we call its probability density function, abbreviated as its pdf. With the pdf we define
-probabilities as integrals, e.g.
+For a continuous random variable $X$, probabilities derive from a nonnegative function $f(x)$, the probability density function (pdf). We compute probabilities via integrals, e.g.,
 \[P (a < X < b) = \int_a^b f (u) du,\]
 which is naturally interpreted as the area under the curve $f (x)$ inside the interval $(a, b)$. 
 This is demonstrated in Figure \@ref(fig:interval-probs-from-pdf).
@@ -165,9 +119,7 @@ case, we must have
 
 ### Cumulative distribution function (cdf)
 
-Along with the pdf we also frequently make use of another function which is called the cumulative
-distribution function, abbreviated as the cdf. The cdf simply calculates the probability of the
-random variable up to its argument.
+We also use the cumulative distribution function (cdf), which gives the probability that the random variable is less than or equal to a given value.
 
 For a discrete random variable $X$, the cdf is the cumulative sum
 of the pmf $f(u)$ up to (and including) $u = x$. That is,
@@ -202,9 +154,9 @@ In this case we say X has *uniform distribution* on the interval $(a, b)$,
 which we will write as $X \sim U(a, b)$.
 We now have the cdf 
 \[F(x)=\int_{a}^{x} \frac{1}{b-a} du =\frac{x-a}{b-a}, \; \; a<x<b.\]
-A quick check confirms that $F^{\prime}(x)=f(x)$. If $a=0, b=1$ 
-then 
-\[P(0.5<X<0.75)=F(0.75)-F(0.5)=0.25.\] We shall see many more examples later.
+A quick check confirms that $F^{\prime}(x)=f(x)$. If $a=0$ and $b=1$, then
+\[P(0.5<X<0.75)=F(0.75)-F(0.5)=0.25.\]
+We will see more examples later.
 :::
 
 ## Summaries of a random variable
@@ -218,15 +170,9 @@ with either a pmf $f (x)$ or a pdf $f (x)$ may be summarised using similar measu
 
 ### Expectation
 
- The mean of $X$ is called an expectation since it is a value we
-can 'expect'! The expectation is defined as
+The mean of $X$, or expectation, is defined as
 \[E(X)= \begin{cases}\sum_{\text{all $x$}} x f(x) & \text { if } X \text { is discrete } \\ \int_{-\infty}^{\infty} x f(x) d x & \text { if } X \text { is continuous }\end{cases}\]
- when the sum or integral exists. 
-They can't always be assumed to exist! 
-
-Thus, roughly speaking:
-the expected value is either sum or integral of value times probability.
-We use the $E(\cdot)$ notation to denote expectation. The argument is in upper case since it is the expected value of the random variable which is denoted by an upper case letter. We often use the Greek letter $\mu$ to denote $E(X)$.
+when the sum or integral exists. Informally, expectation is the sum or integral of “value × probability.” We write $E(\cdot)$ for expectation and often denote $E(X)$ by $\mu$.
 
 :::{.example text="Die throwing"}
 Consider the fair-die tossing experiment, with each of the six sides having a probability of $1 / 6$ of landing face up. Let $X$ be the number on the up-face of the die. Then
@@ -254,7 +200,7 @@ We prove an important property
 of expectation, namely expectation is a linear operator.
 
 ::: {.theorem name="Linearity of expectation"}
-Suppose $Y = g(X) = aX +b$; then $E(Y ) = aE(X)+b$.
+If $Y=aX+b$, then $E(Y)=a\,E(X)+b$.
 :::
 
 ::: {.proof}
@@ -276,10 +222,7 @@ We will also prove an important property of expectation for symmetric
 random variables.
 
 ::: {.theorem} 
-Suppose $X$ is a random variable with a probability
-function or probability density function which is symmetric about some
-value $c$, so \[f(c + x) = f(c - x) \text{ for all $x >0$.}\] Then
-$E(X) = c$. 
+If the pmf/pdf of $X$ is symmetric about $c$ (i.e., $f(c+x)=f(c-x)$ for all $x>0$), then $E(X)=c$.
 :::
 
 ::: {.proof}
@@ -306,7 +249,7 @@ have expectation equal to the point of symmetry.
 
 ### Variance
 
-The variance measures the variability of a random variable and is defined by
+Variance measures the spread of a random variable and is defined by
 \[\operatorname{Var}(X)=E(X-\mu)^{2}= \begin{cases}
 \sum_{\text {all } x}(x-\mu)^{2} f(x) & \text { if $X$ is discrete} \\
 \int_{-\infty}^{\infty}(x-\mu)^{2} f(x) dx & \text { if $X$ is continuous,}
@@ -314,7 +257,7 @@ The variance measures the variability of a random variable and is defined by
 where $\mu=E(X)$, and when the sum or integral exists. 
 When the variance exists, 
 it is the expectation of $(X-\mu)^{2}$ where $\mu$ is the mean of $X$.
-We now derive an easy formula to calculate the variance:
+A useful identity is:
 
 ::: {.theorem}
 \[\operatorname{Var}(X)=E(X-\mu)^{2}=E\left(X^{2}\right)-\mu^{2}.\]
@@ -331,19 +274,7 @@ We have
 \end{align*}
 :::
 
-Thus the variance of a random variable is the expected value of its square
-minus the square of its expected value.
-
-We usually denote the variance by $\sigma^2$. 
-The square is there to emphasise that the variance of any
-random variable is always non-negative. When can the variance be zero? 
-When there is no variation
-at all in the random variable, i.e. it takes only a single value $\mu$ with probability 1.
-Hence, there is
-nothing random about the random variable --- we can predict its outcome with certainty.
-
-The square root of the variance is called the *standard deviation* of the
-random variable.
+Thus, variance equals the expected square minus the square of the mean. We denote variance by $\sigma^2$, which is always nonnegative and equals zero only if $X=\mu$ with probability 1 (no randomness). The square root, $\sigma$, is the standard deviation.
 
 :::{.example name="Uniform distribution" #uniform-variance}
 Suppose $X \sim U(a, b)$, with pdf $f(x)=\frac{1}{b-a}, \, a<x<b.$  Then
@@ -378,10 +309,7 @@ This is a very useful result, e.g. suppose $\operatorname{Var}(X)=25$ and $Y=-X+
 
 ### Quantiles
 
-For a given $0<p<1$, a $p$th *quantile* (or $100 p$ *percentile*) of the random variable $X$ with 
-cdf $F(x)$
-is defined to be a value $q$ for which $F(q)=p$. If the cdf is invertible, we have
-$q = F^{-1}(p)$.
+For $0<p<1$, a $p$th quantile (or $100p$th percentile) of $X$ with cdf $F$ is any $q$ such that $F(q)=p$. If $F$ is invertible, $q=F^{-1}(p)$.
 
 The 50th percentile is called the *median*. The 25th and 75th percentiles are called the *quartiles*.
 
@@ -405,9 +333,7 @@ the median of $X$ is $c$.
 
 ### Bernoulli distribution
 
-A set of independent trials, where each trial
-has only two possible outcomes, conveniently called success (S) and failure (F), and the probability
-of success is the same in each trial are called a set of *Bernoulli trials*. 
+Bernoulli trials are independent trials with two outcomes (success S, failure F) and common success probability.
 
 Suppose that we conduct one Bernoulli trial, where we get a success $(S)$ or failure $(F)$ with probabilities $P\{S\}=p$ and $P\{F\}=1-p$ respectively. 
 Let $X$ be an indicator of success:
@@ -425,7 +351,7 @@ Hence \[E(X)=0 \cdot(1-p)+1 \cdot p=p,\]
 ### Binomial distribution
 
 #### Introduction and definition
-Suppose that we have a sequence of $n$ Bernoulli trials such that we get a success with probability $p$. Let $X$ be the number of successes in the $n$ trials. Then $X$ has binomial distribution with parameters $n$ and $p$, written as
+In $n$ independent Bernoulli trials with success probability $p$, let $X$ be the number of successes. Then $X \sim \operatorname{Bin}(n,p)$ with
 $X \sim \operatorname{Bin}(n, p)$.
 
 An outcome of the experiment (of carrying out $n$ such independent trials) is represented by a sequence of $S$'s and $F$'s (such as $S S \ldots F S \ldots S F)$ 
@@ -446,8 +372,7 @@ For any positive integer $n$ and
 
 :::
 
-To prove $\sum_{x=0}^{n} P(X=x)=1$, i.e. $\sum_{x=0}^{n}\binom{n}{x} p^{x}(1-p)^{n-x}=1$, 
-choose $a=p$ and $b=1-p$ in the binomial theorem.
+Setting $a=p$ and $b=1-p$ in the binomial theorem shows $\sum_{x=0}^{n}\binom{n}{x} p^{x}(1-p)^{n-x}=1$.
 
 
 :::{.example #widgets}
@@ -486,8 +411,7 @@ dbinom(x=3, size=5, prob=0.34)
 ```
 calculates the pmf of $\operatorname{Bin}(n = 5, p = 0.34)$ at $x=3$,
 with value $P (X = 3) = \binom{5}{3} (0.34)^3 (1 - 0.34)^{5-3}$. 
-The command `pbinom` returns the cdf or the probability up to
-and including the argument. Thus 
+The function `pbinom` returns the cdf (probability up to and including the argument). Thus
 ```{r, eval = FALSE}
 pbinom(q=3, size=5, prob=0.34)
 ```
@@ -551,9 +475,9 @@ F F S & X=3, & P(X=3)=(1-p)^{2} p \\
 F F F S & X=4, & P(X=4)=(1-p)^{3} p \\
 \vdots & \vdots &
 \end{array}\]
-In general we have
-\[P(X=x)=(1-p)^{x-1} p, \; x=1,2, \ldots\]
-This is called the **geometric** distribution, and it has a (countably) infinite domain starting at $1$ rather than $0$. We write $X \sim \operatorname{Geo}(p)$.
+In general,
+\[P(X=x)=(1-p)^{x-1} p, \; x=1,2,\ldots\]
+This is the geometric distribution, supported on $\{1,2,\ldots\}$, written $X \sim \operatorname{Geo}(p)$.
 
 :::{.example}
 In a board game that uses a single fair die, a player cannot start until they have
@@ -592,7 +516,7 @@ We can also find the probability that $X>k$ for some given positive integer $k$ 
 Let $X$ follow the geometric distribution and suppose that $s$ and $k$ are positive integers. We then have
 \[P(X>s+k \mid X>k)=P(X>s).\]
 
-The proof is given below. In practice this means that the random variable does not remember its age (denoted by $k$) to determine how long more (denoted by $s$) it will survive! The proof below uses the definition of conditional probability
+This means the process “forgets” how long it has already waited: the remaining wait distribution is the same as at time zero. Using the definition of conditional probability,
 \[P\{A \mid B\}=\frac{P\{A \cap B\}}{P\{B\}}.\]
 Now the proof,
 \begin{align*}
@@ -624,7 +548,7 @@ The second-year module MATH2011 will provide an alternative proof.
 
 ### Hypergeometric distribution
 
-Suppose we have an urn (population) containing $N$ individuals, a proportion $p$ of which are of type $S$ and a proportion $1-p$ of type $F$. If we select a sample of $n$ individuals at random without replacement, then the number, $X$, of type $S$ individuals in the sample has the hypergeometric distribution,
+Consider an urn with $N$ individuals, of which a proportion $p$ are type $S$ and $1-p$ are type $F$. Sampling $n$ without replacement, let $X$ be the number of type $S$; then $X$ has the hypergeometric distribution,
 with pmf
 \[P(X=x)=\frac{\binom{Np}{x} \binom{N(1-p)}{n-x}}{\binom{N}{n}}, \quad x=0,1, \ldots, n,\]
 assuming that $x \leq N p$ and $n-x \leq N(1-p)$ so that the above combinations are well defined. 
@@ -633,10 +557,7 @@ The mean and variance of the hypergeometric distribution are given by
 
 ### Negative binomial distribution
 
-Still in the Bernoulli trials set-up, we define the random variable $X$ to be the total number
-of trials
-until the $r$th success occurs, where $r$ is a given positive integer. This is known as the negative
-binomial distribution with parameters $p$ and $r$.
+In Bernoulli trials, let $X$ be the total number of trials needed to observe the $r$th success, for a fixed positive integer $r$. Then $X$ follows the negative binomial distribution with parameters $r$ and $p$.
 [Note: if $r = 1$, the negative binomial distribution is just the geometric distribution.]
 Firstly we need to identify the possible values of $X$. Possible values for $X$ are $x = r, r + 1, r +
 2, \ldots$. The probability mass function is
@@ -670,7 +591,7 @@ of the geometric distribution.
 
 #### Introduction and definition
 
-The Poisson distribution can be obtained as the limit of the binomial distribution with parameters $n$ and $p$ when $n \rightarrow \infty$ and $p \rightarrow 0$ simultaneously, but the product $\lambda=n p$ remains finite. In practice this means that the Poisson distribution counts rare events (since $p \rightarrow 0$ ) in an infinite population (since $n \rightarrow \infty$ ). Theoretically, a random variable following the Poisson distribution can take any integer value from 0 to $\infty$. Examples of the Poisson distribution include: the number of breast cancer patients in Southampton; the number of text messages sent (or received) per day by a randomly selected first-year student; the number of credit cards a randomly selected person has in their wallet.
+The Poisson distribution arises as a limit of $\operatorname{Bin}(n,p)$ when $n \to \infty$, $p \to 0$, and $\lambda = np$ stays finite. It models counts of rare events. Its support is $\{0,1,2,\ldots\}$. Examples include the number of cases in a region, the number of texts a student sends per day, or the number of credit cards a person carries.
 
 Let us find the pmf of the Poisson distribution as the limit of the pmf of the binomial distribution. Recall that if $X \sim \operatorname{Bin}(n, p)$ then $P(X=x)=\left(\begin{array}{l}n \\ x\end{array}\right) p^{x}(1-p)^{n-x}$. Now:
 \begin{align*}
@@ -783,9 +704,7 @@ finds the median (the $0.5$ quantile).
 A continuous random variable $X$ is said to follow the exponential distribution if its pdf is of the form:
 \[f(x)= \begin{cases}\theta e^{-\theta x} & \text { if $x>0$} \\ 0 & \text { if $x \leq 0$}\end{cases}\]
 where $\theta>0$ is a parameter. We write $X \sim \operatorname{Exponential}(\theta)$. 
-The distribution only resides in the positive half of the real line, and the tail goes 
-down to zero exponentially as $x \rightarrow \infty$. The rate at which that happens
-is the parameter $\theta$. Hence $\theta$ is known as the rate parameter.
+The support is $(0,\infty)$, and the tail decays exponentially as $x \to \infty$ at rate $\theta$ (the rate parameter).
 
 It is easy to prove that $\int_{0}^{\infty} f(x) d x=1$. This is left as an exercise. To find the mean and variance of the distribution we need to introduce the *gamma function*:
 
@@ -835,7 +754,7 @@ will return the value of $P(X \leq 3)$.
 
 #### Cumulative distribution function and quantiles
 
-It is easy to find the cdf of the exponential distribution. For $x>0$,
+The cdf for $x>0$ is
 \[F(x)=P(X \leq x)=\int_{0}^{x} \theta e^{-\theta u} d u=1-e^{-\theta x}.\]
 We have $F(0)=0$ and $F(x) \rightarrow 1$ when $x \rightarrow \infty$ and $F(x)$ is non-decreasing in $x$. The cdf can be used to solve many problems. A few examples follow.
 
@@ -888,10 +807,7 @@ calculates the $p$th quantile of the exponential
 distribution with parameter `rate`.
 
 :::{.example name="Survival function"}
-The exponential distribution is sometimes used to model
-the survival times in different experiments. For example, an exponential random variable 
-$T$ may be assumed to model the number of days a cancer patient survives after chemotherapy. 
-In such a situation, the function $S(t) = 1 - F (t) = e^{-\theta t}$ is called the survival function.
+The exponential distribution often models survival times. If $T$ is survival time, the survival function is $S(t)=1-F(t)=e^{-\theta t}$.
 See Figure \@ref(fig:survival-probs) for an example plot.
 
 ```{r, survival-probs, echo = FALSE, fig.cap = "$S(t)$ for $\\theta = 0.2, 0.5, 1$.", fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
@@ -919,11 +835,7 @@ which is important in the actuarial profession.
                                    
 #### Memoryless property 
 
-Like the geometric distribution, the exponential distribution also has the memoryless property. 
-In simple terms, it means that the probability that the system will survive an additional period 
-$s>0$ given that it has survived up to time $t$ is the same as the probability that the system 
-survives the period $s$ to begin with. That is, it forgets that it has survived up to a particular
-time when it is thinking of its future remaining life time.
+Like the geometric distribution, the exponential distribution is memoryless: conditional on surviving to time $t$, the distribution of the additional lifetime is the same as at time 0.
 
 The proof is exactly as in the case of the geometric distribution, reproduced below. 
 Recall the definition of conditional probability:
@@ -973,7 +885,7 @@ f(x)=\frac{1}{\sqrt{2 \pi \sigma^2}} \exp \left\{-\frac{(x-\mu)^2}{2 \sigma^2}\r
 where $-\infty<\mu<\infty$ and $\sigma>0$ are two given constants. 
 We write $X \sim N\left(\mu, \sigma^2\right)$.
 
-We will show later that $E(X)=\mu$ and $\operatorname{Var}(X)=\sigma^2$.
+Later we show $E(X)=\mu$ and $\operatorname{Var}(X)=\sigma^2$.
 
 The density (pdf) is much easier to remember and work with when the mean $\mu=0$ and variance $\sigma^2=1$. This special case is called the *standard* normal distribution. In this case, we simply write:
 \[f(x)=\frac{1}{\sqrt{2 \pi}} \exp \left\{-\frac{x^2}{2}\right\}.\]
@@ -996,7 +908,7 @@ so that $f(x)$ defines a valid pdf:
 #### Linear transformations
 
 ::: {.theorem}
-Suppose $X \sim N\left(\mu, \sigma^2\right)$ and $a$ and $b$ are constants. Then the distribution of $Y=a X+b$ is $N\left(a \mu+b, a^2 \sigma^2\right)$.
+If $X \sim N(\mu,\sigma^2)$ and $Y=aX+b$, then $Y \sim N(a\mu+b, a^2\sigma^2)$.
 :::
 
 ::: {.proof}
@@ -1070,11 +982,7 @@ This result allows us to find the probabilities about a normal random variable $
 &=1-\Phi(a).
 \end{align*}
 
-In R, we use the function `pnorm` to calculate the probabilities.
-`pnorm` which
-has arguments `mean` (to specify $\mu$) and `sd` (to specify $\sigma$,
-the standard deviation). By default `mean = 0` and `sd = 1`,
-so by default `pnorm` calculates the standard normal cdf.
+In R, `pnorm` computes normal cdf values with arguments `mean` (for $\mu$) and `sd` (for $\sigma$). Defaults are `mean = 0`, `sd = 1` (standard normal).
 So, we use the command 
 ```{r}
 pnorm(1)
@@ -1108,7 +1016,7 @@ Answer: $\texttt{1 - pnorm(70, mean=58, sd=32.25)} = 35.49\%$.
 3. What is the probability that a randomly selected student will score more than 90?   
 Answer: $\texttt{1 - pnorm(90, mean=58, sd=32.25)} = 0.1605$.
 4. What is the probability that a randomly selected student will score less than 25?   
-Answer: $\texttt{pnorm(25, mean=58, sd=32.25) = 0.1531}$. Ouch!
+Answer: $\texttt{pnorm(25, mean=58, sd=32.25) = 0.1531}$.
 5. What is the probability that a randomly selected student scores a 2:1 (i.e. a mark between
 60 and 70)? Left as an exercise.
 :::
@@ -1136,9 +1044,7 @@ Now at raw mark $X = 40$, the transformed mark would be
 
 #### Log-normal distribution
 
-If $X \sim N (\mu, \sigma^2)$ then the random variable $Y = exp(X)$ is called a 
-log-normal random variable
-and its distribution is called a log-normal distribution with parameters $\mu$ and $\sigma^2$.
+If $X \sim N(\mu,\sigma^2)$ and $Y=\exp(X)$, then $Y$ is log-normal with parameters $\mu$ and $\sigma^2$.
 
 The mean of the random variable $Y$ is given by
 \begin{align*}
@@ -1168,17 +1074,11 @@ and variance of the log-normal distribution.
 
 ### Introduction 
 
-Often we need to study more than one random variable, e.g. height and weight, simultaneously,
-so that we can exploit the relationship between them to make inferences about their properties.
-Multiple random variables are studied through their joint probability distribution. In this section
-we will study covariance and correlation and then discuss when random variables are independent.
+We often study multiple random variables together (e.g., height and weight) to exploit relationships between them. Joint probability distributions provide the framework. We introduce covariance, correlation, and independence.
 
 ### Joint distribution of discrete random variables
 
-If $X$ and $Y$ are discrete, the quantity $f(x, y) = P (X = x \cap Y = y)$ is called 
-the joint probability
-mass function (joint pmf) of $X$ and $Y$. To be a joint pmf, $f (x, y)$ needs to satisfy 
-two conditions:
+For discrete $X$ and $Y$, $f(x,y)=P(X=x, Y=y)$ is the joint probability mass function (pmf). It must satisfy:
 \[f (x, y) \geq 0 \quad \text{ for all $x$ and $y$}\] and
 \[\sum_{\text{all $x$}} \sum_{\text{all $y$}} f(x, y) = 1.\]
 The marginal probability mass functions (marginal pmfs) of $X$ and $Y$ are respectively
@@ -1261,7 +1161,7 @@ $Y$.
 
 ### Joint distribution of continuous random variables
 
-If $X$ and $Y$ are continuous, a non-negative real-valued function $f(x, y)$ is called the joint probability density function (joint pdf) of $X$ and $Y$ if
+For continuous $X$ and $Y$, a nonnegative function $f(x,y)$ is a joint pdf if
 \[\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(x, y) d x \, d y=1\]
 The marginal pdfs of $X$ and $Y$ are respectively
 \[f_X(x)=\int_{-\infty}^{\infty} f(x, y) d y, \quad f_Y(y)=\int_{-\infty}^{\infty} f(x, y) d x\]
@@ -1333,7 +1233,7 @@ in the ratio.
 
 ### Independence {#sec:indep}
 
-Independence is an important concept. Recall that we say two events $A$ and $B$ are independent if $P(A \cap B)=P(A) \times P(B)$. We use the same idea here. Two random variables $X$ and $Y$ having the joint pdf or pmf $f(x, y)$ are said to be independent if and only if $f(x, y)=f_X(x) \times f_Y(y)$ for *all* $x$ and $y$.
+Two events $A$ and $B$ are independent if $P(A\cap B)=P(A)P(B)$. Analogously, random variables $X$ and $Y$ with joint pmf/pdf $f(x,y)$ are independent iff $f(x,y)=f_X(x)f_Y(y)$ for all $x,y$.
 
 In the discrete case $X$ and $Y$ are independent if each cell probability, $f(x, y)$, is the product of the corresponding row and column totals. In Example \@ref(exm:joint-pdf-discrete) 
 $X$ and $Y$ are not independent. 
@@ -1383,7 +1283,7 @@ Here are some useful consequences of independence:
 \[P(X \in A, Y \in B)=P(X \in A) \times P(Y \in B)\]
 for any events $A$ and $B$. That is, the joint probability can be obtained as the product of the marginal probabilities. We will use this result in the next section. For example, suppose Jack and Jess are two randomly selected students. Let $X$ denote the height of Jack and $Y$ denote the height of Jess. Then
 \[P(X<182 \text { and } Y>165)=P(X<182) \times P(Y>165) .\]
-This is true for any numbers other than the example numbers 182 and 165, and for any inequalities.
+This holds for any thresholds and inequalities.
 - Let $g(x)$ be a function of $x$ only and $h(y)$ be a function of $y$ only. Then, if $X$ and $Y$ are independent,
 \[E[g(X) h(Y)]=E[g(X)] \times E[h(Y)].\]
 As a special case, let $g(x)=x$ and $h(y)=y$. Then we have
@@ -1394,9 +1294,7 @@ Consequently, for independent random variables $X$ and $Y, \operatorname{Cov}(X,
 
 ## Sums of random variables {#sec:sum-rvs}
 
-In this section we consider sums of random variables, which arise frequently in both practice and
-theoretical results. For example, the mark achieved in an exam is the sum of the marks for each
-question, and the sample mean is proportional to the sum of the sample values. 
+Sums of random variables appear frequently in practice and theory. For example, an exam mark is the sum of question scores, and the sample mean is proportional to a sum.
 
 Suppose we have obtained a random sample from a distribution with pmf or pdf $f(x)$, so that $X$ can either be a discrete or a continuous random variable. We will learn more about random sampling in the next chapter. Let $X_1, \ldots, X_n$ denote the random sample of size $n$ where $n$ is a positive integer. We use upper case letters since each member of the random sample is a random variable. For example, I toss a fair coin $n$ times and let $X_i$ take the value 1 if a head appears in the $i$ th trial and 0 otherwise. Now I have a random sample $X_1, \ldots, X_n$ from the Bernoulli distribution with probability of success equal to $0.5$ since the coin is assumed to be fair.
 
@@ -1489,7 +1387,7 @@ and consequently
 
 ### Introduction
 
-The sum (and average) of independent random variables show a remarkable behaviour in practice which is captured by the Central Limit Theorem (CLT). These random variables do not even have to be continuous, all we require is that they are independent and each of them has a finite mean and a finite variance. A version of the CLT follows.
+The Central Limit Theorem (CLT) describes the behaviour of sums (and averages) of independent random variables. It applies broadly: independence and finite means and variances suffice. A version follows.
 
 ### Statement of the Central Limit Theorem (CLT)
 
@@ -1506,7 +1404,7 @@ as $n \rightarrow \infty$. The notion of convergence is explained by the converg
 \[\lim _{n \rightarrow \infty} P\left(\sqrt{n} \frac{(\bar{X}-\mu)}{\sigma} \leq z\right)=\Phi(z), \quad-\infty<z<\infty.\]
 So for "large samples", we can use $N(0,1)$ as an approximation to the sampling distribution of $\sqrt{n}(\bar{X}-\mu) / \sigma$. This result is 'exact', i.e. no approximation is required, if the distribution of the $X_{i}$ 's are normal in the first place --- this was discussed in the previous lecture.
 
-How large does $n$ have to be before this approximation becomes usable? There is no definitive answer to this, as it depends on how "close to normal" the distribution of $X$ is. However, it is often a pretty good approximation for sample sizes as small as 20, or even smaller. It also depends on the skewness of the distribution of $X$; if the $X$-variables are highly skewed, then $n$ will usually need to be larger than for corresponding symmetric $X$-variables for the approximation to be good. 
+How large must $n$ be? It depends on how close the $X_i$ distributions are to normal. The approximation is often reasonable for $n \approx 20$ (sometimes smaller), but heavy skewness typically requires larger $n$.
 We investigate in one example in Figure \@ref(fig:clt-demo).
 
 
@@ -1544,10 +1442,7 @@ P\left(y_{1} \leq Y \leq y_{2}\right) &=P\left\{\frac{y_{1}-n p}{\sqrt{n p(1-p)}
 \end{align*}
 where $Z \sim N(0,1)$.
 
-We should take account of the fact that the binomial random variable $Y$ is integer-valued, and so 
-$P(y_{1} \leq Y \leq y_{2})=P(y_{1}-f_{1} \leq Y \leq y_{2}+f_{2})$ for any two fractions
-$0<f_{1}, f_{2}<1$. This is called
-continuity correction and we take $f_{1}=f_{2}=0.5$ in practice.
+Because $Y$ is integer-valued, apply a continuity correction: replace $[y_1,y_2]$ by $[y_1-0.5,\,y_2+0.5]$ in the normal approximation.
 \begin{align*}
 P\left(y_{1} \leq Y \leq y_{2}\right) &=P\left(y_{1}-0.5 \leq Y \leq y_{2}+0.5\right) \\
 &=P\left\{\frac{y_{1}-0.5-n p}{\sqrt{n p(1-p)}} \leq \frac{Y-n p}{\sqrt{n p(1-p)}} \leq \frac{y_{2}+0.5-n p}{\sqrt{n p(1-p)}}\right\} \\

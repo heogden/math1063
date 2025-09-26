@@ -27,4 +27,3 @@ center_tab <- function(x, ...) {
 
 ```
 
-# Introduction to Statistics {#intro-stats}

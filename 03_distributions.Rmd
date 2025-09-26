@@ -544,7 +544,7 @@ E(X) &=\sum_{x=1}^{\infty} x P(X=x) \\
 \end{align*}
 The series in the square brackets is the negative binomial series with $n=2$ and $x=1-p$.
 Thus $E(X)=p(1-1+p)^{-2}=1 / p$. It can be shown that $\operatorname{Var}(X)=(1-p) / p^{2}$ using negative binomial series. But this is more complicated and is not required here. 
-The second-year module MATH2011 will provide an alternative proof.
+The second-year module Statistical Inference will provide an alternative proof.
 
 ### Hypergeometric distribution
 
@@ -1203,9 +1203,7 @@ Now we can find the marginal pdfs as well.
 
 The probability of any event in the two-dimensional space can be found by integration 
 and again more details will be provided in the second-year module
-MATH2011, Statistical Distribution Theory. You will come across 
-multivariate integrals in the second semester module MATH1060,
-Multivariable Calculus. 
+Statistical Inference. 
 
 ### Covariance and correlation
 
@@ -1219,7 +1217,7 @@ let $g(x, y)=x y$.
 **Exercises**: Try $g(x, y)=x$. It will be the same thing as $E(X)=\sum_x x f_X(x)$.
 :::
 
-We will not consider any continuous examples as the second-year module MATH2011 will study them in detail.
+We will not consider any continuous examples as the second-year module Statistical Inference will study them in detail.
 
 Suppose that two random variables $X$ and $Y$ have joint pmf or pdf $f(x, y)$ and let $E(X)=\mu_x$ and $E(Y)=\mu_y$. The covariance between $X$ and $Y$ is defined by
 \[\operatorname{Cov}(X, Y)=E\left[\left(X-\mu_x\right)\left(Y-\mu_y\right)\right]=E(X Y)-\mu_x \mu_y.\]
@@ -1327,7 +1325,7 @@ P(Z=z) &= \sum_{x+y=z} P(X=x, Y=y) \\
 Thus, we have proved that the sum of independent binomial random variables with common probability is binomial as well. This is called the reproductive property of random variables. 
 :::
 
-Now we will state two main results without proof. The proofs will presented in the second-year distribution theory module MATH2011. Suppose that $X_1, \ldots, X_n$ is a random sample from a population distribution with finite variance, and suppose that $E\left(X_i\right)=\mu_i$ and $\operatorname{Var}\left(X_i\right)=\sigma_i^2$. Define a new random variable
+Now we will state two main results without proof. The proofs will presented in the second-year Statistical Inference. Suppose that $X_1, \ldots, X_n$ is a random sample from a population distribution with finite variance, and suppose that $E\left(X_i\right)=\mu_i$ and $\operatorname{Var}\left(X_i\right)=\sigma_i^2$. Define a new random variable
 \[Y=X_1+ X_2+\cdots+ X_n.\] Then:
 
 1. $E(Y)=\mu_1+\mu_2+\cdots+ \mu_n$.
@@ -1369,7 +1367,7 @@ are independent random variables. Suppose that
 Then we can prove that:
 \[Y \sim N\left(\sum_{i=1}^k \mu_i, \sum_{i=1}^k \sigma_i^2\right).\]
 It is clear that $E(Y)=\sum_{i=1}^k \mu_i$ and $\operatorname{Var}(Y)=\sum_{i=1}^k \sigma_i^2$. But that $Y$ has the normal distribution cannot yet be proved with the theory we know.
-This proof will be provided in the second-year distribution theory module MATH2011.
+This proof will be provided in the second-year module Statistical Inference.
 
 As a consequence of the stated result we can easily see the following. 
 Suppose $X_1$ and $X_2$ are independent $N\left(\mu, \sigma^2\right)$ random variables. 

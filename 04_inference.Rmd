@@ -482,7 +482,7 @@ Now, how do we find the critical value $h$ for a given $1-\alpha$ ? We need to i
 
 Let $X_{1}, \ldots, X_{n}$ be i.i.d $N\left(\mu, \sigma^{2}\right)$ random variables. Define $\bar{X}=\frac{1}{n} \sum_{i=1}^{n} X_{i}$ and
 \[S^{2}=\frac{1}{n-1}\left(\sum_{i=1}^{n} X_{i}^{2}-n \bar{X}^{2}\right).\]
-Then, it can be shown (and will be in MATH2011) that
+Then, it can be shown (see Statistical Inference in second year) that
 \[\sqrt{n} \frac{(\bar{X}-\mu)}{S} \sim t_{n-1},\]
 where $t_{n-1}$ denotes the standard $t$ distribution with $n-1$ degrees of freedom. The standard $t$ distribution is a family of distributions which depend on one parameter called the degrees-of-freedom (df) which is $n-1$ here. The concept of degrees of freedom is that it is usually the number of independent random samples, $n$ here, minus the number of linear parameters estimated, 1 here for $\mu$. Hence the df is $n-1$.
 
@@ -928,7 +928,7 @@ and therefore
 Hence, under $H_{0}$,
 \[\bar{X}-\bar{Y} \sim N\left(0, \sigma^{2}\left[\frac{1}{n}+\frac{1}{m}\right]\right) \Rightarrow \sqrt{\frac{n m}{n+m}} \frac{(\bar{X}-\bar{Y})}{\sigma} \sim N(0,1).\]
 
-The involvement of the (unknown) $\sigma$ above means that this is not a pivotal test statistic. It will be proved in MATH2011 that if $\sigma^2$ is replaced by its unbiased estimator $S^2$, which here is the two-sample estimator of the common variance, given by
+The involvement of the (unknown) $\sigma$ above means that this is not a pivotal test statistic. It will be proved in Statistical Inference that if $\sigma^2$ is replaced by its unbiased estimator $S^2$, which here is the two-sample estimator of the common variance, given by
 \[S^{2}=\frac{\sum_{i=1}^{n}\left(X_{i}-\bar{X}\right)^{2}+\sum_{i=1}^{m}\left(Y_{i}-\bar{Y}\right)^{2}}{n+m-2},\]
 then
 \[\sqrt{\frac{n m}{n+m}} \frac{(\bar{X}-\bar{Y})}{S} \sim t_{n+m-2}.\]

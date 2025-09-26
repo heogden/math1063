@@ -1,3 +1,5 @@
+# Introduction to Statistics {#intro-stats}
+
 ## What is statistics? {#what-is-statistics}
 
 ### Early and modern definitions

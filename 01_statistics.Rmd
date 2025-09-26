@@ -2,51 +2,33 @@
 
 ### Early and modern definitions
 
-The word *statistics* has its roots in the Latin word *status* which means 'the state', and in the
-middle of the 18th century was intended to mean
-*collection, processing and use of data by the state*.
-With the rapid industrialisation of Europe in the first half of the 19th century, statistics
-became established as a discipline. This led to the formation of the Royal Statistical Society,
-the premier professional association of statisticians in the UK and world-wide, in 1834.
-During this 19th century growth period, statistics acquired a new meaning: the *interpretation of data or methods of extracting information from data for decision making*. Thus
-statistics has its modern meaning as the methods for
-*collection, analysis and interpretation of data*.
+The word *statistics* comes from the Latin *status*, meaning 'the state'. In the mid-18th century, it referred to the *collection, processing, and use of data by governments*.
+During the rapid industrialisation of Europe in the early 19th century, statistics developed into a formal discipline. In 1834, the Royal Statistical Society was founded as the leading professional association for statisticians in the UK and globally.
+As the field grew, statistics came to mean the *interpretation of data and methods for extracting information to support decision making*. Today, statistics refers to the *collection, analysis, and interpretation of data*.
 Indeed, the Oxford English Dictionary defines *statistics* as
 
 > The practice or science of collecting and analysing numerical data in large quantities, especially for the purpose of inferring
 proportions in a whole from those in a representative sample.
 
-Note that the word ‘state’ has gone from its definition. Instead, statistical methods are now
-essential for anyone wanting to answer questions using data.
+Notice that the original connection to 'the state' is no longer present. Now, statistical methods are essential for anyone who wants to answer questions using data.
 
-For example, will it rain tomorrow? Is smoking
-harmful during pregnancy? What degree classification will I receive upon graduation? 
-Will the stock market crash tomorrow?
+For example: Will it rain tomorrow? Is smoking harmful during pregnancy? What degree classification will I receive when I graduate? Will the stock market crash tomorrow?
 
 
 
 ### Statistics tames uncertainty
 
 
-We often have to make decisions under uncertainty.
-It is useful for us to know the extent of uncertainty, which allows us
-to minimise the frequency of wrong decisions, or which minimises
-the loss due to wrong decisions.
+We often make decisions when outcomes are uncertain. Understanding the extent of this uncertainty helps us reduce the chance of making mistakes, or at least minimise the impact of those mistakes.
 
-Thus we have the equation 
-\[\text{Uncertain knowledge} +
-  \text{Knowledge of the extent of uncertainty in it} =
-  \text{Usable knowledge.}\]
+In other words:
+\[\text{Uncertain knowledge} + \text{Understanding its uncertainty} = \text{Usable knowledge}\]
 
 
 ### Why should I study statistics as part of my degree?
 
-Studying statistics will equip you with the basic skills in data analysis and doing science with
-data.
-A decent level of statistical knowledge is required no matter what branch of mathematics,
-engineering, science and social science you will be studying.
-Learning statistical theories gives you the opportunity to practice your deductive mathematical skills on real life problems. In this way, you will improve at mathematical methods while
-studying statistical methods.
+Studying statistics will give you essential skills in data analysis and scientific reasoning. No matter which branch of mathematics, engineering, science, or social science you pursue, a solid understanding of statistics is important.
+Learning statistical theory also lets you apply your mathematical reasoning to real-world problems. This helps you improve both your mathematical and statistical skills.
 
 >All knowledge is, in final analysis, history.  
 >All sciences are, in the abstract, mathematics.  
@@ -55,29 +37,16 @@ studying statistical methods.
 
 ### Lies, Damn Lies and Statistics?
 
-Sometimes people say, "you can prove anything in statistics!" and many such jokes. Such remarks
-bear testimony to the fact that often statistics and statistical methods are mis-quoted without
-proper verification and robust justification. This is even more important in recent years of the global
-pandemic when every day we have been showered with a deluge of numbers. 
+People sometimes joke, 'You can prove anything with statistics!' Such comments reflect the fact that statistics and statistical methods are often misquoted or misused without proper verification or justification. This is even more important in recent years of the global pandemic, when every day we have been showered with a deluge of numbers.
 
-Statistics can be very much
-mis-used and mis-interpreted, and as statisticians it is our duty to
-correctly apply statistical techniques to develop scientifically robust and strong arguments.
-In particular, we need to be careful about what assumptions we make.
+Statistics can easily be misused or misinterpreted. As statisticians, it is our responsibility to apply statistical techniques correctly and develop strong, scientifically sound arguments. In particular, we must be careful about the assumptions we make.
 
 ### What's in this module?
 
-- **Chapter 1**: We will start with the basic statistics used in everyday life, e.g. mean, median,
-mode, standard deviation, etc. Statistical analysis and report writing will be discussed. We
-will also learn how to explore data using graphical methods. We will introduce the R
-programming language to help us with these tasks. 
-- **Chapter 2: Introduction to Probability**. We will define and interpret probability as a
-measure of uncertainty. We will learn the rules of probability and then explore examples.
-- **Chapter 3: Probability Distributions**. We will learn about
-lots of probability distributions, which can be used to model
-the outcomes of different types of events.
-- **Chapter 4: Statistical Inference**. We will discuss basic ideas of statistical inference,
-including techniques of point and interval estimation and hypothesis testing.
+- **Chapter 1**: We begin with basic statistics used in everyday life, such as the mean, median, mode, and standard deviation. We will discuss statistical analysis, report writing, and how to explore data using graphs. The R programming language will be introduced to assist with these tasks.
+- **Chapter 2: Introduction to Probability**. We will define and interpret probability as a way to measure uncertainty, learn the rules of probability, and work through examples.
+- **Chapter 3: Probability Distributions**. We will study various probability distributions that can be used to model the outcomes of different types of events.
+- **Chapter 4: Statistical Inference**. We will cover the basics of statistical inference, including point and interval estimation and hypothesis testing.
 
 
 
@@ -90,12 +59,10 @@ counts, e.g. number of road accidents, or continuous, e.g. heights of 4-year-old
 in an examination. 
 
 
-We will use the following examples to demonstrate ideas throughout the module:
+We will use the following example datasets to illustrate concepts throughout the module:
 
 ::: {.example name="Fast food service time" #fastfood}
-This dataset contains the service times (in seconds) of customers at a fast-food
-restaurant. The first row is for customers who were served from 9–10am and the second row is for
-customers who who were served from 2–3pm on the same day.
+This dataset records the service times (in seconds) for customers at a fast-food restaurant. The first row shows customers served from 9–10am, and the second row shows those served from 2–3pm on the same day.
 
 ```{r, echo = FALSE}
 fastfood <- tibble(time = rep(c("AM", "PM"), times = 10),
@@ -114,8 +81,7 @@ We would like to compare these AM and PM service times.
 
 
 ::: {.example name="Computer failures" #compfail}
-This dataset contains 
-weekly failures of a university computer system over a period of two years.
+This dataset lists the number of weekly failures in a university computer system over two years.
 
 ```{r, echo = FALSE, comment = ""}
 compfail <- scan("compfail.txt")
@@ -125,11 +91,7 @@ We would like to summarise this data and make predictions about future failures.
 :::
 
 ::: {.example name="Weight gain" #wtgain}
-Is it true that students tend to gain weight during their first year in college? Cornell Professor
-of Nutrition, David Levitsky, recruited students from two large sections of an introductory health
-course. Although they were volunteers, they appeared to match the rest of the class in
-terms of demographic variables such as sex and ethnicity. 68 students were weighed during the first
-week of the semester, then again 12 weeks later. The first 10 rows of the data are:
+Do students tend to gain weight during their first year at college? Professor David Levitsky at Cornell recruited students from two large introductory health classes. Although participation was voluntary, the students were similar to the rest of the class in terms of demographics such as sex and ethnicity. Sixty-eight students were weighed in the first week of the semester and again 12 weeks later. The first 10 rows of the data are:
 
 ```{r, echo = FALSE, message = FALSE}
 wtgain <- read_table("wtgain.txt")
@@ -141,9 +103,7 @@ weight during their first year in college.
 :::
 
 ::: {.example name="Billionaires" #billionaires}
-Fortune magazine publishes a list of the world's billionaires each year. The 1992 list includes
-225 individuals. Their wealth, age, and geographic location (Asia, Europe, Middle East, United
-States, and Other) are reported. 
+Each year, Fortune magazine publishes a list of the world's billionaires. The 1992 list includes 225 individuals, reporting their wealth, age, and geographic region (Asia, Europe, Middle East, United States, and Other).
 
 The variables in the data are:
 
@@ -163,38 +123,19 @@ region using many exploratory graphical tools and statistical methods.
 
 ## Introduction to R
 
-R is a programming language for statistics. We will use R as a calculator,
-to summarise data, make exploratory plots,
-perform statistical analysis, illustrate
-theorems and calculate probabilities. 
-You will get practice of using R yourself during the computer practical sessions.
+R is a programming language designed for statistics. We will use R to perform calculations, summarise data, create exploratory plots, carry out statistical analyses, illustrate theorems, and calculate probabilities. You will gain hands-on experience with R during the computer practical sessions.
 
-R is freely available to download:  search
-"download R" or go to: https://cran.r-project.org/. 
-We will access R via the RStudio integrated development environment,
-which you can download from https://posit.co/download/rstudio-desktop/
-which provides a nice editor for R code alongside a console.
-Details about using R and RStudio are given in the
-the practical sessions.
-If you want to complete the practical sessions on your own computer,
-please try to install R and RStudio before attending the practical sessions.
+R is free to download—just search for 'download R' or visit https://cran.r-project.org/. We will use R through the RStudio integrated development environment, which you can download from https://posit.co/download/rstudio-desktop/. RStudio provides a user-friendly editor for R code and a console. Instructions for using R and RStudio will be provided in the practical sessions. If you plan to work on the practicals on your own computer, please install R and RStudio beforehand.
 
-We will not give details of using R in these notes: this will
-all be covered by the practical sessions. In the
-notes, we provide simple commands used to calculate useful
-quantities in R, and show some of the graphical outputs
-we can get from R.
+These notes do not cover the details of using R—that will be addressed in the practical sessions. Here, we provide simple R commands for calculating useful quantities and show some example graphical outputs.
 
 ## Summarising data sets {#summaries}
 
 ### Summarising categorical data
 
-We can
-summarise categorical (not numeric) data by tables. For example,
-we could summarise the results of 20 coin tosses as: 12 heads, 8 tails.
+Categorical (non-numeric) data can be summarised using tables. For example, the results of 20 coin tosses might be summarised as 12 heads and 8 tails.
 
-For the computer failure data (Example \@ref(exm:compfail)) we may
-summarise the count of failures per week:
+For the computer failure data (see Example \@ref(exm:compfail)), we can summarise the number of failures per week as follows:
 ```{r, echo = FALSE}
 center_tab(t(table(compfail)))
 ```
@@ -203,12 +144,10 @@ center_tab(t(table(compfail)))
 
 #### Choosing a representative value for the data
 
-We are seeking a representative value for the data 
-$x_1, x_2, \dots, x_n$ which should be a function
-of the data. If $a$ is that representative value then how much error is associated with it?
-The total error could be the sum of squares of the errors, 
+We want a representative value for the data $x_1, x_2, \dots, x_n$ that is a function of the data. If $a$ is our chosen value, how much error does it have?
+We could measure total error as the sum of squared errors,
 \[\text{SSE}(a) = \sum_{i=1}^n (x_i - a)^2\]
-or the sum of the absolute errors
+or as the sum of absolute errors,
 \[\text{SAE}(a) = \sum_{i=1}^n |x_i - a|.\]
 What value of $a$ will minimise the SSE or the SAE? For SSE the answer is the sample mean
 and for SAE the answer is the sample median.
@@ -219,9 +158,7 @@ and for SAE the answer is the sample median.
 The *sample mean* is
 \[\bar x = \frac{1}{n} (x_1 + x_2 + \dots + x_n)
   = \frac{1}{n} \sum_{i=1}^n x_i.\]
-  For the service time
-data from Example \@ref(exm:fastfood), 
-the AM mean time is 68.9 seconds and the PM mean time is 66.8 seconds.
+For the service time data from Example \@ref(exm:fastfood), the AM mean time is 68.9 seconds and the PM mean time is 66.8 seconds.
   
 ::: {.theorem #sse}
 The sample mean $\bar x$ minimises the SSE.
@@ -255,8 +192,7 @@ For the AM service time data \[38 < 43 < 52 < 59 < 63 < 64 < 77 < 86 < 100 < 107
 If $n$ is odd, there is a unique middle value.
 If $n$ is even, there are two middle values (63 and 64 for the AM service time data).
 Any value between those two middle values is a sample median. 
-By convention, we often use the mean of these values
-(63.5 for the the AM service time data).
+By convention, we often use the mean of these values (63.5 for the AM service time data).
 
 ::: {.theorem}
 The sample median minimises the SAE.
@@ -305,21 +241,16 @@ the sum of (or mean) of the absolute deviations from any number $a$ is
 minimised when $a$ is the median. This justifies why
 median is also often used as a representative value.
 
-The mean gets more affected by extreme observations than the median. For example for
-the AM service times, suppose the next observation is 190. The median will be 64 instead of 63.5
-but the mean will shoot up to 79.9.
+The mean is more affected by extreme values than the median. For example, for the AM service times, if the next observation is 190, the median will be 64 instead of 63.5, but the mean will jump to 79.9.
 
 #### The sample mode
 
-The mode or the most frequent (or the most likely) value in the data is taken as the most representative value if we consider a 0-1 error function instead of the SAE or SSE above. Here, one assumes
-that the error is 0 if our guess $a$ is the correct answer and 1 if it is not. It can then be proved that the best guess $a$ will be the mode of the data.
+The mode, or most frequent value in the data, is the best representative if we use a 0-1 error function instead of SAE or SSE. Here, the error is 0 if our guess $a$ is correct and 1 if it is not. In this case, the best guess $a$ is the mode of the data.
 
 
 ### Measures of spread
 
-A quick measure of the spread is the *range*, which is defined as the difference between the
-maximum and minimum observations. For the AM service times the range is $69$ ($107 - 38$)
-seconds.
+A quick way to measure spread is the *range*, which is the difference between the maximum and minimum values. For the AM service times, the range is $69$ ($107 - 38$) seconds.
 
 The *variance* is
 \[\frac{1}{n-1} \sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}.\]
@@ -329,47 +260,36 @@ so we calculate variance as
 $$
 \operatorname{Var}(x)=\frac{1}{n-1}\left(\sum_{i=1}^{n} x_{i}^{2}-n \bar{x}^{2}\right).
 $$
-Sometimes the variance is defined with the divisor $n$ instead of $n - 1$. We have chosen $n - 1$
-since this is the default in R. We will return to this in Chapter \@ref(inference).
+Sometimes variance is defined with $n$ instead of $n - 1$ in the denominator. We use $n - 1$ because this is the default in R. We will discuss this more in Chapter \@ref(inference).
 
-The *standard deviation* (sd) is the square root of variance
+The *standard deviation* (sd) is the square root of the variance:
 \[s = \operatorname{sd}(x) = \sqrt{\operatorname{Var}(x)}.\]
-The standard deviation for the AM service times is 23.2 seconds. Note that it has the
-same unit as the observations.
+The standard deviation for the AM service times is 23.2 seconds. It has the same unit as the data.
 
-The *interquartile range* (IQR) is the difference between the third, $Q_3$ and first, $Q_1$ quartiles,
-which are respectively the observations ranked $\frac{1}{4}(3n + 1)$ and $\frac{1}{4}(n + 3)$
-in the ordered list.
-Note that the median is the second quartile, $Q_2$. When $n$ is even, definitions of $Q_3$ and $Q_1$
-are similar to that of the median, $Q_2$. The IQR for the AM service times is $83.75 - 53.75 = 30$
-seconds.
+The *interquartile range* (IQR) is the difference between the third quartile, $Q_3$, and the first quartile, $Q_1$. These are the observations ranked $\frac{1}{4}(3n + 1)$ and $\frac{1}{4}(n + 3)$ in the ordered list.
+The median is the second quartile, $Q_2$. When $n$ is even, the definitions of $Q_3$ and $Q_1$ are similar to that of the median, $Q_2$. The IQR for the AM service times is $83.75 - 53.75 = 30$ seconds.
 
 ### Summarising data in R
 
-We can calculate the mean, median, variance and standard deviation
-very easily in R. 
+We can easily calculate the mean, median, variance, and standard deviation in R.
 
-As an example, suppose we have stored the
-weekly counts of computer failures from Example \@ref(exm:compfail)
-in an object called `compfail` in R. You will
-find out how to read the data into R in the practical sessions.
+For example, suppose the weekly counts of computer failures from Example \@ref(exm:compfail) are stored in an object called `compfail` in R. You will learn how to read the data into R during the practical sessions.
 
-Then we can calculate these quantities with:
+We can calculate these quantities with:
 ```{r}
 mean(compfail)
 median(compfail)
 var(compfail)
 sd(compfail)
 ```
-R saves us a lot of effort here relative to computing
-these quantities by hand.
+R saves us a lot of effort compared to calculating these by hand.
 
-The `summary` command provides several using summary statistics:
+The `summary` command provides several useful summary statistics:
 ```{r}
 summary(compfail)
 ```
 
-We can find a table summarising the counts by typing
+We can create a table summarising the counts by typing:
 ```{r}
 table(compfail)
 ```
@@ -378,29 +298,17 @@ table(compfail)
 
 ### Introduction 
 
-Often the clearest way to generate
-insight is to plot the data. 
-Plots may be used to check the shape of the distribution 
-of a variable, and to investigate
-the relationship between different variables
-in a dataset.
+Often, the best way to gain insight is to plot the data.
+Plots help us check the shape of a variable's distribution and explore relationships between variables in a dataset.
 
-The type of plot which is most appropriate
-depends on whether we are looking at the distribution of
-a single variables or the 
-relationship between two or more variables, and on whether
-the variables of interest are discrete or continuous.
+The best type of plot depends on whether we are looking at a single variable or relationships between variables, and whether the variables are discrete or continuous.
 
-Here, we will show some plots produced by R. You will find
-out how to make these plots in R in the practical sessions.
+Here, we show some plots produced by R. You will learn how to make these plots in the practical sessions.
 
 
 ### Distribution of a single discrete variable
 
-To explore the distribution of a single discrete variable, 
-we may use a bar plot. For instance, we may
-plot the weekly counts of
-computer failures from Example \@ref(exm:compfail):
+To explore the distribution of a single discrete variable, we can use a bar plot. For example, we can plot the weekly counts of computer failures from Example \@ref(exm:compfail):
 
 ```{r, echo = FALSE, fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
 compfail_by_week <- tibble(week = 1:length(compfail),
@@ -410,21 +318,14 @@ ggplot(compfail_by_week) +
     xlab("Number of failures in a week")
 ```
 
-This plot shows the same information as in the summary
-table of counts, but it is easier to process the information
-visually.
+This plot shows the same information as the summary table of counts, but it is easier to understand visually.
 
 
 ### Distribution of a single continuous variable
 
-There are several different types of plots which may be 
-used to summarise the shape of the
-distribution of a single continuous variables.
-For instance, suppose we are interested in the gain in weight
-in Example \@ref(exm:wtgain).
+There are several types of plots we can use to summarise the shape of a single continuous variable's distribution. For example, suppose we are interested in the weight gain in Example \@ref(exm:wtgain).
 
-We can use a box-and-whiskers 
-plot to summarise the distribution of the weight difference:
+We can use a box-and-whiskers plot to summarise the distribution of the weight difference:
 
 ```{r, echo = FALSE, fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
 wtgain_diff <- wtgain %>%
@@ -435,24 +336,14 @@ ggplot(wtgain_diff) +
     xlab("Final weight - Initial weight (kg)")
 ```
 
-The line
-in the middle of the box is the median service weight difference,
-and the box runs from the first quartile
-to the third quartile.
-The lines (or whiskers) extend from the smallest value no further 
-further than $1.5 \times \text{IQR}$ from the first quartile
-to the largest value no
-further than $1.5 \times \text{IQR}$ from the third quartile.
+The line in the middle of the box is the median weight difference, and the box runs from the first quartile to the third quartile.
+The whiskers extend from the smallest value no more than $1.5 \times \text{IQR}$ below the first quartile to the largest value no more than $1.5 \times \text{IQR}$ above the third quartile.
 
-Any outliers, which are outside the range of the whiskers,
-are shown as separate points.
+Any outliers outside the whiskers are shown as separate points.
 
-We can see the the majority of students in the sample do gain weight 
-over the course of the study.
+We see that most students in the sample gained weight during the study.
 
-To get more information about the shape of the distribution,
-we could plot 
-a histogram of the weight difference:
+To get more information about the shape of the distribution, we could plot a histogram of the weight difference:
 
 ```{r, echo = FALSE, fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
 ggplot(wtgain_diff) +
@@ -461,12 +352,7 @@ ggplot(wtgain_diff) +
     geom_vline(xintercept = 0, linetype = "dashed")
 ```
 
-The histogram splits the $x$-axis into small intervals
-or "bins"
-(here each of width 0.5), and counts how many times
-the variable (here difference in weight) is
-in each bin. Histograms often look very different
-for different bin widths.
+The histogram divides the $x$-axis into small intervals or "bins" (here, each of width 0.5) and counts how many times the variable (here, difference in weight) falls in each bin. Histograms can look very different depending on the bin width.
 
 Alternatively, we could draw a density plot:
 
@@ -477,15 +363,11 @@ ggplot(wtgain_diff) +
     geom_vline(xintercept = 0, linetype = "dashed")
 ```
 
-This plots an estimate of the probability density function,
-which we will learn about in Chapter \@ref(distributions).
+This shows an estimate of the probability density function, which we will learn about in Chapter \@ref(distributions).
 
 ### Relationship between continuous and discrete variables
 
-We can also use a box-and-whiskers plot to show how a continuous
-variable changes with a discrete
-one. For instance, for the service time data from Example \@ref(exm:fastfood),
-we are interested in how AM and PM service times compare:
+We can also use a box-and-whiskers plot to show how a continuous variable changes with a discrete one. For example, for the service time data from Example \@ref(exm:fastfood), we are interested in how AM and PM service times compare:
 
 ```{r, echo = FALSE, fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
 ggplot(data = fastfood) +
@@ -494,17 +376,13 @@ ggplot(data = fastfood) +
     ylab("Time of day")
 ```
 
-Since no outlying points are shown
-in this case, the whiskers show the range of the data.
+Since no outliers are shown in this case, the whiskers show the range of the data.
 
-We see that the AM service times are on average shorter,
-but also more spread out than the PM service times.
+We see that AM service times are, on average, shorter but also more spread out than PM service times.
 
-We can also use any of the other methods for plotting 
-a single continuous variable, and draw separate
-plots for each group in the discrete variable.
+We can also use any of the other methods for plotting a single continuous variable and draw separate plots for each group in the discrete variable.
 
-We can use histograms:
+For example, we can use histograms:
 
 ```{r, echo = FALSE, fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
 ggplot(data = fastfood) +
@@ -522,9 +400,7 @@ ggplot(data = fastfood) +
     facet_wrap(~time)
 ```
 
-We could also plot the densities
-for the different groups on a single plot,
-using line type to distinguish between the groups:
+We could also plot the densities for the different groups on a single plot, using line type to distinguish between the groups:
 
 ```{r, echo = FALSE, fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
 ggplot(data = fastfood) +
@@ -537,10 +413,7 @@ ggplot(data = fastfood) +
 
 ### Relationship between two continuous variables
 
-A scatter-plot is a good way to look at the relationship
-between two continuous variables.
-For instance, for the weight data from Example \@ref(exm:wtgain),
-we can plot the final weights against the initial weights:
+A scatter plot is a good way to look at the relationship between two continuous variables. For example, for the weight data from Example \@ref(exm:wtgain), we can plot final weights against initial weights:
 
 ```{r, echo = FALSE, fig.width = 5, fig.height = 3, out.width = "60%", fig.align = "center"}
 plot_wt <- ggplot(data = wtgain) +
@@ -560,22 +433,13 @@ plot_wt_2 <- plot_wt +
 plot_wt_2
 ```
 
-We can see that the majority of the points lie above this $y = x$
-line, so the majority of students in the sample gain weight 
-over the course of the study, as we have seen before.
-This appears to be the case irrespective
-of the initial weight of the student.
+We see that most points lie above the $y = x$ line, so most students in the sample gained weight during the study, as we saw before. This seems to be true regardless of the student's initial weight.
 
 ### Relationships between more than two variables
 
-We can combine the methods we have already seen
-to plot relationships between more than two variables.
+We can combine the methods we've seen to plot relationships between more than two variables.
 
-For instance, in the billionaires data in Example
-\@ref(exm:billionaires), we can plot wealth against
-age as a scatter-plot, using the shape of the 
-points to distinguish between different regions:
-
+For example, in the billionaires data in Example \@ref(exm:billionaires), we can plot wealth against age as a scatter plot, using the shape of the points to show different regions:
 
 ```{r, echo = FALSE, fig.width = 6, fig.height = 3, out.width = "80%", fig.align = "center"}
 ggplot(data = billionaires) +
@@ -584,10 +448,5 @@ ggplot(data = billionaires) +
     ylab("Wealth (billions of dollars)")
 ```
 
-The plot lets us immediately read off some interesting
-aspects of the data. For instance, there were a few very young
-billionaires, the richest person
-in the world at this time was age 50 and from the Middle East,
-and the richest few people in the world had wealth
-many times higher than most people on the list.
+This plot lets us quickly see some interesting features of the data. For example, there were a few very young billionaires, the richest person in the world at this time was age 50 and from the Middle East, and the richest few people had much more wealth than most others on the list.
 

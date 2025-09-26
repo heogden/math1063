@@ -2,137 +2,104 @@
 
 ## Definitions of probability
 
+We use probabilities to express how uncertain we are about whether
+certain events will happen. For example: (i) I believe there is more
+than an 60% chance that Manchester City will win the premiership title
+this season; (ii) the probability of a fair coin landing heads is 0.5.
 
-Probabilities are often used to express the uncertainty of events of interest happening. For example,
-we may say that: (i) I think 
-it is highly likely that Manchester City will retain the premiership title this season
-or to be more specific, I think there is more than an 80% chance that Manchester City
-will keep the title;
-(ii) the probability of a tossed fair coin landing heads is 0.5. 
-As we have seen in Chapter \@ref(intro-stats), there is uncertainty
-everywhere, and probability is the language we use to quantify this uncertainty.
+As discussed in Chapter \@ref(intro-stats), uncertainty is everywhere,
+and probability is the language we use to measure it.
 
-The two examples above, football and tossing a coin, convey two different interpretations of
-probability. The football probability is the commentator's own subjective belief. The
-commentator certainly has not performed a large experiment involving all the 20 teams over the
-whole (future) season under all playing conditions, players, managers and transfers. This notion
-is known as subjective probability. Subjective probability gives a measure of the plausibility of
-the proposition, to the person making it, in the light of past experience (e.g. Manchester City are the
-current champions) and other evidence (e.g. they spent the maximum amount of money buying
-players). There are plenty of other examples, e.g. I think there is a 70% chance that the FTSE
-100 will rise tomorrow, or according to the Met Office there is a 40% chance that we will have a
-white Christmas this year in Southampton. 
+The football and coin examples show two different ways to interpret
+probability. The football example is based on the commentator's
+personal belief, not on repeated experiments. This is called
+subjective probability.
 
-The second definition of probability comes from the long-term relative frequency of a result of
-a random experiment (e.g. coin tossing) which can be repeated an infinite number of times under
-essentially similar conditions.
+Subjective probability measures how plausible someone thinks an event
+is, based on their experience and available evidence (for example,
+knowing Manchester City are the current champions and have invested in
+new players).
 
-Imagine we are able to repeat a random experiment
-under identical conditions and count how many of those repetitions result in the event $A$. The
-relative frequency of $A$, i.e. the ratio
-\[\frac{\text{the number of repetitions resulting in $A$}}{\text{total number of repetitions}},\]
-approaches a fixed limit value as the number of repetitions increases. This limit value is defined as
-$P\{A\}$.
+Other examples include: "I think there is a 70% chance the FTSE 100
+will rise tomorrow," or "The Met Office says there is a 40% chance of
+a white Christmas in Southampton this year."
 
-As a simple example, in the experiment of tossing a particular coin, suppose we are interested
-in the event $A$ of getting a 'head'. We can toss the coin 1000 times (i.e. do 1000 replications of
-the experiment) and record the number of heads out of the 1000 replications. Then the relative
-frequency of $A$ out of the 1000 replications is the proportion of heads observed.
+The second way to define probability is by looking at the long-term
+relative frequency of an event in a random experiment that can be
+repeated many times under similar conditions (like tossing a coin).
 
-Sometimes, however, it is much easier to find $P\{A\}$ by using some 'common knowledge' about
-probability. For example, if the coin in the example above is fair 
-(i.e. $P\{\text{head}\} = P\{\text{tail}\})$, then
-this information and the common knowledge that $P\{\text{head}\}+P\{\text{tail}\} = 1$
-immediately imply that
-$P\{\text{head}\} = 0.5$ and $P\{\text{tail}\} = 0.5$. 
-The 'common knowledge' about probability
-will be formalised as the axioms of probability, which form the foundation of probability theory.
+Suppose we repeat a random experiment many times under the same
+conditions and count how often event $A$ happens. The relative
+frequency,
+\[\frac{\text{number of times $A$ occurs}}{\text{total number of repetitions}},\]
+approaches a fixed value as the number of repetitions increases. This
+value is defined as $P\{A\}$.
+
+For example, if we toss a coin 1000 times and count the number of
+heads, the proportion of heads is the relative frequency of event $A$
+(getting a head) in those 1000 tosses.
+
+Sometimes, we can use basic facts about probability to find $P\{A\}$
+more easily. For example, if a coin is fair, then $P\{\text{head}\} =
+P\{\text{tail}\}$ and $P\{\text{head}\} + P\{\text{tail}\} = 1$, so
+both probabilities are 0.5.
+
+These basic facts are formalised as the axioms of probability, which
+are the foundation of probability theory.
 
 ## Some definitions 
 
-Before we can state and use the axioms of probability, 
-we need introduce some terminology. 
+Before we can state and use the axioms of probability, we need to introduce some terminology.
 
-A *random experiment* is one in which we do not know exactly
-what outcome the experiment will give, even though we can write down all the possible outcomes.
-The set of all possible outcomes is 
-called the *sample space* ($S$). For example, in a coin tossing experiment, $S
-= \{\text{head}, \text{tail}\}$. If we toss two coins together, 
-$S = \{\text{HH}, \text{HT}, \text{TH}, \text{TT}\}$ where $\text{H}$ and $\text{T}$ denote
-respectively the outcome head and tail from the toss of a single coin.
+A *random experiment* is an experiment where we cannot predict the exact outcome, but we know all the possible outcomes.
 
-An *event* is a particular result of the random experiment. For example, 
-$\text{HH}$
-(two heads) is an event when we toss two coins together. Similarly, at least one head e.g. 
-$\{\text{HH}, \text{HT}, \text{TH}\}$ is an event as well. 
-Events are denoted by capital letters $A, B, C, \ldots$ or $A_1, B_1, A_2$ etc., and
-a single outcome is called an *elementary event*, e.g. $\text{HH}$. 
-An event which is a group of elementary
-events is called a *composite event*, e.g. at least one head. How to determine the probability of a
-given event $A$, $P\{A\}$, is the focus of probability theory.
+The *sample space* ($S$) is the set of all possible outcomes. For example, for a single coin toss, $S = \{\text{head}, \text{tail}\}$. For two coins, $S = \{\text{HH}, \text{HT}, \text{TH}, \text{TT}\}$, where H and T are head and tail.
+
+An *event* is a specific result or set of results from the experiment. For example, getting 'HH' (two heads) is an event, and so is getting at least one head: $\{\text{HH}, \text{HT}, \text{TH}\}$.
+
+We use capital letters like $A, B, C$ to represent events. A single outcome is called an *elementary event* (e.g., 'HH'), while a set of outcomes is a *composite event* (e.g., at least one head).
+
+Probability theory is about finding the probability $P\{A\}$ of a given event $A$.
 
 ::: {.example name="Die throw" #die-throw}
 Roll a six-faced die and observe the score on the uppermost face.
 Here $S = \{1, 2, 3, 4, 5, 6\}$, which is composed of six elementary events.
 :::
 
-The *union* of two given events $A$ and B, denoted as ($A$ or $B$) or $A \cup B$, 
-consists of the outcomes
-that are either in A or B or both. 'Event $A \cup B$ occurs' means 
-'either $A$ or $B$ occurs or both occur'.
+The *union* of two events $A$ and $B$, written as $A \cup B$, is the set of outcomes that are in $A$, $B$, or both. "$A \cup B$ occurs" means "either $A$ or $B$ or both occur".
 
-For example, in Example \@ref(exm:die-throw), 
-suppose $A$ is the event that *an even number is observed*. This
-event consists of the set of outcomes 2, 4 and 6, i.e. $A = \{\text{an even number}\} = \{2, 4, 6\}$.
-Suppose $B$ is the event that *a number larger than 3 is observed*. This event consists of the 
-outcomes 4, 5 and 6, i.e. $B = \{\text{a number larger than 3}\} = \{4, 5, 6\}$. 
-Hence the event $A \cup B =
-\{\text{an even number or a number larger than 3}\} = \{2, 4, 5, 6\}$. 
-Clearly, when a $6$ is observed, both $A$
-and $B$ have occurred.
+For example, in Example \@ref(exm:die-throw), let $A$ be the event "an even number is observed": $A = \{2, 4, 6\}$. Let $B$ be "a number larger than 3 is observed": $B = \{4, 5, 6\}$. Then $A \cup B = \{2, 4, 5, 6\}$. If a $6$ is observed, both $A$ and $B$ occur.
 
-The *intersection* of two given events $A$ and $B$, denoted as ($A$ and $B$) or $A \cap B$, 
-consists of the
-outcomes that are common to both $A$ and $B$. 'Event $A \cap B$ occurs' means 'both $A$ and $B$ occur'. For
-example, in Example \@ref(exm:die-throw), 
-$A \cap B = \{4, 6\}$. Additionally, if $C = \{\text{a number less than 6}\} = \{1, 2, 3, 4, 5\}$,
-the intersection of events $A$ and $C$ is the event $A \cap C = \{\text{an even number less than 6}\} = \{2, 4\}$.
+The *intersection* of two events $A$ and $B$, written as $A \cap B$, is the set of outcomes common to both. "$A \cap B$ occurs" means "both $A$ and $B$ occur". In Example \@ref(exm:die-throw), $A \cap B = \{4, 6\}$. If $C = \{1, 2, 3, 4, 5\}$ ("a number less than 6"), then $A \cap C = \{2, 4\}$ ("an even number less than 6").
 
-The union and intersection of two events can be generalized in an obvious way to the union and
-intersection of more than two events.
+We can generalize union and intersection to more than two events.
 
-Two events $A$ and $D$ are said to be *mutually exclusive* if $A \cap D = \emptyset$, where $\emptyset$ denotes the empty
-set, i.e. $A$ and $D$ have no outcomes in common. Intuitively, '$A$ and $D$ are mutually exclusive'
-means '$A$ and $D$ cannot occur simultaneously in the experiment'.
+Two events $A$ and $D$ are *mutually exclusive* if $A \cap D = \emptyset$, meaning they have no outcomes in common. In other words, $A$ and $D$ cannot happen at the same time.
 
-In Example \@ref(exm:die-throw), 
-if $D = \{\text{an odd number}\} = \{1, 3, 5\}$, then $A \cap D = \emptyset$ and so $A$ and $D$ are
-mutually exclusive. As expected, $A$ and $D$ cannot occur simultaneously in the experiment.
+In Example \@ref(exm:die-throw), if $D = \{1, 3, 5\}$ ("an odd number"), then $A \cap D = \emptyset$, so $A$ and $D$ are mutually exclusive.
 
-For a given event $A$, the *complement* of $A$ is the event that consists of all the outcomes not in
-$A$ and is denoted by $A^\prime$ . Note that $A \cup A^\prime = S$ and $A \cap A^\prime = \emptyset$.
+The *complement* of an event $A$, written $A^\prime$, is the set of all outcomes not in $A$. Note that $A \cup A^\prime = S$ and $A \cap A^\prime = \emptyset$.
 
 
 ## Axioms of probability
 
-Here are the three axioms of probability:
+Probability is based on three main axioms:
 
 **A1** $P\{S\}=1$.  
 **A2** $0 \leq P\{A\} \leq 1$ for any event $A$.  
-**A3** $P\{A \cup B\}=P\{A\}+P\{B\}$ provided that $A$ and $B$ are mutually exclusive events.
+**A3** $P\{A \cup B\}=P\{A\}+P\{B\}$ if $A$ and $B$ are mutually exclusive.
 
-Here are some of the consequences of the axioms of probability:
+These axioms have several important consequences:
 
-(1) For any event $A, P\{A\}=1-P\left\{A^{\prime}\right\}$.
-(2) From (1) and Axiom A1, $P\{\emptyset\}=1-P\{S\}=0$. Hence if $A$ and $B$ are mutually exclusive events, then $P\{A \cap B\}=0$.
-(3) If $D$ is a subset of $E, D \subset E$, then $P\left\{E \cap D^{\prime}\right\}=P\{E\}-P\{D\}$ which implies for arbitrary events $A$ and $B, P\left\{A \cap B^{\prime}\right\}=P\{A\}-P\{A \cap B\}$.
-(4) It can be shown by mathematical induction that Axiom A3 holds for more than two mutually exclusive events:
+1. For any event $A$, $P\{A\} = 1 - P\left\{A^{\prime}\right\}$.
+2. From (1) and Axiom A1, $P\{\emptyset\} = 1 - P\{S\} = 0$. So if $A$ and $B$ are mutually exclusive, $P\{A \cap B\} = 0$.
+3. If $D$ is a subset of $E$, $D \subset E$, then $P\left\{E \cap D^{\prime}\right\} = P\{E\} - P\{D\}$. For any events $A$ and $B$, $P\left\{A \cap B^{\prime}\right\} = P\{A\} - P\{A \cap B\}$.
+4. Axiom A3 extends to more than two mutually exclusive events:
 $$
 P\left\{A_{1} \cup A_{2} \cup \cdots \cup A_{k}\right\}=P\left\{A_{1}\right\}+P\left\{A_{2}\right\}+\ldots+P\left\{A_{k}\right\}
 $$
-provided that $A_{1}, \ldots, A_{k}$ are mutually exclusive events.
-Hence, the probability of an event A is the sum of the probabilities of the individual outcomes that make up the event.
-(5) For the union of two arbitrary events, we have the General addition rule: For any two events $A$ and $B$
+if $A_{1}, \ldots, A_{k}$ are mutually exclusive. So, the probability of an event $A$ is the sum of the probabilities of the individual outcomes in $A$.
+5. For any two events $A$ and $B$, the general addition rule is:
 $$
 P\{A \cup B\}=P\{A\}+P\{B\}-P\{A \cap B\} .
 $$
@@ -156,20 +123,15 @@ $$
 
 ### Experiments with equally likely outcomes
 
-For an experiment with $N$ equally likely possible outcomes, the axioms (and the consequences
-above) can be used to find $P\{A\}$ of any event $A$ in the following way.
+If all outcomes are equally likely, we can find the probability of an event by counting how many outcomes are in the event and dividing by the total number of possible outcomes.
 
-From consequence (4), we assign probability $1/N$ to each outcome.
+For an experiment with $N$ equally likely outcomes, each outcome has probability $1/N$.
 
-For any event $A$, we find $P\{A\}$ by adding up $1/N$ for each of the outcomes in event $A$:
+For any event $A$,
 \[P \{A\} = \frac{\text{number of outcomes in $A$}}
 {\text{total number of possible outcomes of the experiment}}.\]
 
-For experiments with equally likely outcomes, the task of calculating the probability 
-of an event therefore reduces to counting the number of outcomes in the event
-and the total number of possible outcomes. 
-In the following sections, will use ideas from combinatorics
-(the mathematics of counting) to help us complete these tasks.
+So, to calculate the probability of an event, we just count the number of outcomes in the event and the total number of possible outcomes. In the next sections, we use combinatorics (the mathematics of counting) to help with this.
 
 Return to Example \@ref(exm:die-throw)
 where a six-faced die is rolled. Suppose that one wins a bet if a 6 is
@@ -194,12 +156,7 @@ by inspection. Remember, each of the 36 outcomes has equal probability $1/36$.
 
 ### Multiplication rule of counting {#sec-multiplication-rule}
 
-To complete a specific task, suppose one has to complete $k(\geq 1)$ sub-tasks sequentially.
-If there are 
-$n_i$
-different ways to complete the $i$th sub-task ($i = 1, \ldots, k$) then there are 
-$n_1 \times n_2 \times \dots \times n_k$ different
-ways to complete the task.
+Suppose you have to complete $k$ tasks in sequence. If there are $n_i$ ways to do the $i$th task, then there are $n_1 \times n_2 \times \dots \times n_k$ ways to do all $k$ tasks.
 
 ::: {.example name="Bus routes"}
 Suppose there are 7 routes to London from Southampton and
@@ -208,28 +165,16 @@ I travel to Cambridge from Southampton via London? The answer is
 obviously 35. 
 :::
 
-
 ### The number of permutations of $k$ from $n$: $P(n, k)$
 
+Suppose we want to select $k$ people from $n$ and arrange them in $k$ different chairs. How many ways can we do this?
 
-Suppose we are asked to select $k(\geq 1)$ from the $n (n \geq k)$ available people and sit the 
-$k$ selected people in $k$
-(different) chairs. How many different ways are there to complete the task?
+Think of the $i$th task as choosing who sits in the $i$th chair. By the multiplication rule, there are $n(n-1)\ldots(n-[k-1])$ ways.
 
-By considering the $i$th sub-task as selecting a person to sit in
-the $i$th chair ($i = 1, \ldots, k$), it follows directly from the multiplication rule 
-in Section \@ref(sec-multiplication-rule)
-that there are $n(n-1) \ldots (n-[k -1])$
-ways to complete the task. 
-
-The number $n(n-1) \ldots (n-[k-1])$
-is called the number of permutations
-of $k$ from $n$ and denoted by
+This number is called the number of permutations of $k$ from $n$, written $P(n, k)$:
 \[P(n, k) = n(n - 1) \ldots (n - [k - 1]).\]
-In particular, when $k = n$ we have $P(n, n) = n(n - 1) \ldots 1$, which 
-is called '$n$ factorial' and denoted
-as $n!$. Note that $0!$ is defined to be $1$. We have
-\[P(n, k)=n(n-1) \ldots(n-[k-1])=\frac{n(n-1) \ldots(n-[k-1]) \times(n-k) !}{(n-k) !}=\frac{n !}{(n-k) !}.\]
+When $k = n$, $P(n, n) = n!$ (n factorial). By definition, $0! = 1$. We can also write
+\[P(n, k) = \frac{n!}{(n-k)!}.\]
 
 ::: {.example name="Football"}
 How many possible rankings are there for the 20 football teams in
@@ -240,26 +185,10 @@ in Europe in the next season? This number is given by $P(20, 4) = 20 \times 19 \
 
 #### The number of combinations of $k$ from $n$: $\binom{n}{k}$
 
+Now suppose we want to select $k$ people from $n$, but we do not care about the order. How many ways can we do this? This is called a combination, written $\binom{n}{k}$.
 
-Suppose we are asked to select $k(\geq 1)$ from the $n$ ($n \geq k$) available people. 
-Note that this task does NOT
-involve sitting the $k$ selected people in $k$ (different) chairs.
-We want to find the number of possible
-ways to complete this task, which is denoted as $\binom{n}{k}$.
-
-For this, let us reconsider the task of "selecting $k$ from the $n$ available people and
-sitting the $k$ selected people in $k$ (different) chairs", which we already know from the discussion
-above has $P(n, k)$ ways to complete.
-Alternatively, to complete this task, one has to complete two sub-tasks sequentially. The first
-sub-task is to select $k$ from the $n$ available people, which has $\binom{n}{k}$
-ways. The second
-sub-task is to sit the $k$ selected people in $k$ (different) chairs, which has $k!$ ways. 
-It follows directly
-from the multiplication rule that there are $\binom{n}{k} \times k!$ ways
-to complete the task. Hence we have
-\[ P(n, k)= \binom{n}{k} \times k!\]
-so
-\[\binom{n}{k} =\frac{P(n, k)}{k!}=\frac{n!}{(n-k)! k!}.\]
+To see this, recall that arranging $k$ people in $k$ chairs is $P(n, k)$ ways. But for each group of $k$ people, there are $k!$ ways to arrange them. So,
+\[\binom{n}{k} = \frac{P(n, k)}{k!} = \frac{n!}{(n-k)!k!}.\]
 
 ::: {.example name="Football"}
 How many possible ways are there to choose 3 teams for the bottom
@@ -281,10 +210,7 @@ A box contains 12 microchips of which 4 are faulty. A sample of size
 
 ### Calculation of probabilities of events under sampling 'at random'
 
-For the experiment of 'selecting a sample of size $n$ from a box of $N$ items without replacement',
-a sample is said to be selected at random if all the possible samples of size n are equally likely to
-be selected. All the possible samples are then equally likely outcomes of the experiment and so
-assigned equal probabilities.
+When we select a sample of size $n$ from a box of $N$ items without replacement, we say the sample is chosen "at random" if every possible sample of size $n$ is equally likely. In this case, each possible sample is an equally likely outcome, and we assign equal probabilities.
 
 :::{.example name="Microchips continued"}
 In Example \@ref(exm:microchip) assume that 3 microchips are selected at
@@ -359,19 +285,9 @@ P \{\text{$3$ matches}\} &=\frac{\binom{6}{3} \binom{53}{3}}{\binom{59}{6}} = 0.
 
 ## Conditional probability and Bayes' Theorem
 
+How do we update probabilities when we have new information? For example, a person may have a certain disease, whether or not they show symptoms. If we know a randomly selected person has the symptom, what is the probability they have the disease? Having the symptom does not guarantee the disease.
 
-How can we use additional information, i.e. things that have already happened, in
-the calculation of probabilities? For example, a person may have a certain disease, e.g. diabetes or
-HIV/AIDS, whether or not they show any symptoms of it. Suppose a randomly selected person is
-found to have the symptom. Given this additional information, what is the probability that they
-have the disease? Note that having the symptom does not fully guarantee that the person has the
-disease.
-
-Applications of conditional probability occur naturally in actuarial science and medical studies, where conditional probabilities such as "what is the probability that a person will survive for
-another 20 years given that they are still alive at the age of 40?" are calculated.
-In many real problems, one has to determine the probability of an event A when one already
-has some partial knowledge of the outcome of an experiment, i.e. another event B has already
-occurred. For this, one needs to find the conditional probability.
+Conditional probability is common in fields like actuarial science and medicine. For example, "What is the probability a person will survive another 20 years, given they are alive at age 40?" In many real problems, we want to find the probability of event $A$ when we already know that event $B$ has happened. For this, we use conditional probability.
 
 :::{.example name="Die throw continued"}
 Return to the rolling of a fair die (Example \@ref(exm:die-throw)). Let
@@ -555,23 +471,11 @@ to calculate the denominator $P(A)$ in Bayes' theorem.
 
 ### Introduction and definition of independence
 
-We have just seen that the probability of an event may change if we have additional
-information. However, in many situations the probabilities may not change. For example, the
-results of two coin tosses should not depend on each other.
-In this section we will learn about the probabilities of independent events. Much of statistical
-theory relies on the concept of independence.
+Sometimes, knowing that one event has happened changes the probability of another event. But in many cases, it does not. When the probability does not change, we say the events are independent.
 
-We have seen examples where prior knowledge that an event $A$ has occurred has changed
-the probability that event $B$ occurs. There are many situations where this does not happen.
-The events
-are then said to be independent.
-Intuitively, events $A$ and $B$ are independent if the occurrence of one event does not affect the
-probability that the other event occurs.
-This is equivalent to saying that
-$P \{B|A\} = P \{B\}$, where $P \{A\} > 0$, and $P \{A|B\} = P \{A\}$, where $P \{B\} > 0$.
+Intuitively, events $A$ and $B$ are independent if knowing that one occurs does not affect the probability of the other. In other words, $P \{B|A\} = P \{B\}$ (if $P \{A\} > 0$), and $P \{A|B\} = P \{A\}$ (if $P \{B\} > 0$).
 
-These give the following formal definition: 
-$A$ and $B$ are *independent* events if $P \{A \cap B\} = P \{A\}P \{B\}.$
+Formally, $A$ and $B$ are *independent* if $P \{A \cap B\} = P \{A\}P \{B\}$.
 
 :::{.example name="Die throw"}
 Throw a fair die. Let $A$ be the event that "the result is even" and $B$ be the event that "the
@@ -583,13 +487,10 @@ $P \{A\}P \{B\} = 1/4 \not = 1/3 = P \{A \cap B\}$.
 Therefore $A$ and $B$ are not independent events.
 :::
 
-
-Independence is often assumed on physical grounds, although sometimes incorrectly. There are
-serious consequences for wrongly assuming independence, e.g. the financial crisis in 2008. However,
-when the events are independent then the simpler product formula for joint probability is then used.
+Independence is often assumed for physical reasons, but sometimes incorrectly. Wrongly assuming independence can have serious consequences (for example, in the 2008 financial crisis). If events are independent, we can use the simple product formula for joint probability.
 
 :::{.example name="Dice throw"}
-Two fair dice when shaken together are assumed to behave independently. Hence
+Two fair dice when thrown together are assumed to behave independently. Hence
 the probability of two sixes is $1/6 \times 1/6 = 1/36$.
 :::
 
@@ -625,9 +526,9 @@ P \{A^\prime \cap B^\prime \} &= 1 - P \{A \cup B\} \\
 
 ### Independence with three events
 
-The ideas of conditional probability and independence can be extended to more than two events.
+We can extend the ideas of conditional probability and independence to more than two events.
 
-Three events $A$, $B$ and $C$ are defined to be independent if
+Three events $A$, $B$, and $C$ are independent if:
 \begin{equation}
 P \{A \cap B\} = P \{A\}P \{B\}, \; P \{A \cap C\} = P \{A\}P \{C\}, \; P \{B \cap C\} = P \{B\}P \{C\},
 (\#eq:pairwise-indep)
@@ -637,10 +538,7 @@ P \{A \cap B \cap C\} = P \{A\}P \{B\}P \{C\}.
 (\#eq:threewise-indep)
 \end{equation}
 
-Note that \@ref(eq:pairwise-indep) does NOT imply \@ref(eq:threewise-indep)
-as shown by the next example. Hence, to show the
-independence of $A$, $B$ and $C$, it is necessary to show that both 
-\@ref(eq:pairwise-indep) and \@ref(eq:threewise-indep) hold.
+Note: Pairwise independence (\@ref(eq:pairwise-indep)) does NOT imply three-way independence (\@ref(eq:threewise-indep)). To show $A$, $B$, and $C$ are independent, both conditions must hold.
 
 :::{.example}
 A box contains eight tickets, each labelled with a binary number. Two are

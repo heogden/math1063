@@ -17,8 +17,8 @@ subjective probability.
 
 Subjective probability measures how plausible someone thinks an event
 is, based on their experience and available evidence (for example,
-knowing Manchester City are the current champions and have invested in
-new players).
+knowing the recent record of each football club in the premiership,
+and their investments in new players).
 
 Other examples include: "I think there is a 70% chance the FTSE 100
 will rise tomorrow," or "The Met Office says there is a 40% chance of

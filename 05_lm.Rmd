@@ -2,29 +2,11 @@
 
 ## What is regression?
 
-So far, we have looked at simple statistical models, with a single
-variable of interest. We have estimated the distribution of that
-variable based on random samples from that one variable. In many
-real-world problems, we instead want to understand the relationship
-between multiple variables.
+So far we have focused on single-variable models, estimating a distribution from random samples of one variable. In many real problems, we want to understand relationships between multiple variables.
 
-Regression seeks to model how one "output" variable, called the
-**response** variable, $Y$, depends on one or more "input" variables
-$x$, which we will call **covariates**. 
+Regression models how an “output” variable, the response $Y$, depends on one or more “input” variables $x$ (covariates). The response is sometimes called the dependent variable; covariates are also called independent or explanatory variables. In MATH1063 we study simple regression models with a single covariate $x$.
 
-The response $Y$ is sometimes called the dependent variable. The
-covariates $x$ are sometimes called independent or explanatory
-variables.
-
-In MATH1063, we will study only **simple** regression models, which
-have a single covariate $x$.
-
-For instance, suppose we interested in how the birth weight of babies
-depends on gestational age (in weeks). The response, $Y$, is birth
-weight in $g$. The covariate, $x$ is gestational age (in
-weeks). Suppose we have the following data (this data is fictional,
-but based on [real data for male singleton births in Canada](
-https://www.canada.ca/en/public-health/services/injury-prevention/health-surveillance-epidemiology-division/maternal-infant-health/birth-weight-gestational.html)).
+For example, suppose we are interested in how birth weight depends on gestational age (weeks). The response, $Y$, is birth weight (g). The covariate, $x$, is gestational age (weeks). Suppose we have the following data (fictional, but based on [real data for male singleton births in Canada](https://www.canada.ca/en/public-health/services/injury-prevention/health-surveillance-epidemiology-division/maternal-infant-health/birth-weight-gestational.html)).
 
 ```{r, echo = FALSE}
 
@@ -59,23 +41,14 @@ p
 
 ## Simple linear regression
 
-In simple linear regression, we model the dependence of the response
-on the covariate as a straight line plus an error term. That is
+In simple linear regression, the response depends linearly on the covariate with an additive error:
 \[Y_i
 = \beta_0 + \beta_1 x_i + \epsilon_i, \; i = 1, \ldots, n,\]
-where $\beta_0$ is an **intercept** parameter, $\beta_1$ is a
-**slope** parameter and $\epsilon_i$ is a random error term. We
-usually model $\epsilon_i \sim N(0, \sigma^2)$, with variance
-parameter $\sigma^2$. There are three unknown parameters, $\beta_0$,
-$\beta_1$ and $\sigma^2$, which we want to estimate from the data.
+where $\beta_0$ is the intercept, $\beta_1$ the slope, and $\epsilon_i$ a random error. We assume $\epsilon_i \sim N(0,\sigma^2)$, so the unknown parameters to estimate are $\beta_0$, $\beta_1$, and $\sigma^2$.
 
-We have \[E(Y_i) = \beta_0 + \beta_1 x_i.\] Any choice of $\beta_0$
-and $\beta_1$ give a different straight line. We call $\beta_0$ and
-$\beta_1$ the **regression parameters**.
+We have \[E(Y_i) = \beta_0 + \beta_1 x_i.\] Each choice of $(\beta_0,\beta_1)$ defines a line; these are the regression parameters.
 
-Out of all possible choices of straight line (choices of the
-regression parameters $\beta_0$ and $\beta_1$), which one should we
-choose?
+Which line should we choose?
 
 ## Estimating the regression parameters
 
@@ -143,13 +116,11 @@ Thus, the least squares estimates are
 \hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}.
 \]
 
-These are unbiased estimators of the regression parameters. We do not
-derive this result here; the derivation will be covered in the
-second-year module, Statistical Modelling I).
+These estimators are unbiased. The derivation is covered in the second-year module Statistical Modelling I.
 
 ## Estimating the variance parameter
 
-In addition to estimating the regression parameters $\beta_0$ and $\beta_1$, we also need to estimate the variance parameter $\sigma^2$ of the error terms.
+We also estimate the error variance $\sigma^2$.
 
 We estimate $\sigma^2$ with
 \[
@@ -157,7 +128,7 @@ We estimate $\sigma^2$ with
 \]
 where $\hat{\beta}_0$ and $\hat{\beta}_1$ are the least squares estimates.
 
-This estimator is unbiased for $\sigma^2$. We do not derive this result here; the derivation will be covered in the second-year module, Statistical Modelling I.
+This estimator is unbiased for $\sigma^2$; a derivation appears in Statistical Modelling I.
 
 ## Model fitting in R
 
@@ -187,13 +158,9 @@ errors for the estimates, by using the `summary` function in R:
 ```{r}
 summary(mod)
 ```
-You can learn more about expressing uncertainty in simple
-linear regression the second-year module, Statistical Modelling I.
+You can learn more about uncertainty in simple linear regression in the second-year module Statistical Modelling I.
 
-The "Residual standard error" (`r round(summary(mod)$sigma, 4)`) is an
-estimate of $\sigma$. The variance estimate $\hat \sigma^2$ can be
-found by squaring this number (in this case, $\hat \sigma^2 =$ 
-`r round(summary(mod)$sigma^2, 4)`).
+The "Residual standard error" (`r round(summary(mod)$sigma, 4)`) estimates $\sigma$. Squaring it gives $\hat \sigma^2$ (here, `r round(summary(mod)$sigma^2, 4)`).
 
 We can also plot the data with our fitted line overlaid:
 
@@ -204,7 +171,7 @@ abline(mod)
 
 ## Limitations of simple linear regression
 
-While simple linear regression is a powerful and widely used tool, it has several important limitations:
+Simple linear regression is useful, but it has important limitations:
 
 - **Only one covariate:** Simple linear regression models the relationship between the response and a single covariate. In many real-world situations, multiple variables may influence the response.
 - **Linearity assumption:** The model assumes that the relationship between the response and the covariate is linear. If the true relationship is non-linear, the model may not fit well.

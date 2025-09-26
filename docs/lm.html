@@ -311,43 +311,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 5</span> Simple Linear Regression<a href="lm.html#lm" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="what-is-regression" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> What is regression?<a href="lm.html#what-is-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>So far, we have looked at simple statistical models, with a single
-variable of interest. We have estimated the distribution of that
-variable based on random samples from that one variable. In many
-real-world problems, we instead want to understand the relationship
-between multiple variables.</p>
-<p>Regression seeks to model how one “output” variable, called the
-<strong>response</strong> variable, <span class="math inline">\(Y\)</span>, depends on one or more “input” variables
-<span class="math inline">\(x\)</span>, which we will call <strong>covariates</strong>.</p>
-<p>The response <span class="math inline">\(Y\)</span> is sometimes called the dependent variable. The
-covariates <span class="math inline">\(x\)</span> are sometimes called independent or explanatory
-variables.</p>
-<p>In MATH1063, we will study only <strong>simple</strong> regression models, which
-have a single covariate <span class="math inline">\(x\)</span>.</p>
-<p>For instance, suppose we interested in how the birth weight of babies
-depends on gestational age (in weeks). The response, <span class="math inline">\(Y\)</span>, is birth
-weight in <span class="math inline">\(g\)</span>. The covariate, <span class="math inline">\(x\)</span> is gestational age (in
-weeks). Suppose we have the following data (this data is fictional,
-but based on <a href="https://www.canada.ca/en/public-health/services/injury-prevention/health-surveillance-epidemiology-division/maternal-infant-health/birth-weight-gestational.html">real data for male singleton births in Canada</a>).</p>
+<p>So far we have focused on single-variable models, estimating a distribution from random samples of one variable. In many real problems, we want to understand relationships between multiple variables.</p>
+<p>Regression models how an “output” variable, the response <span class="math inline">\(Y\)</span>, depends on one or more “input” variables <span class="math inline">\(x\)</span> (covariates). The response is sometimes called the dependent variable; covariates are also called independent or explanatory variables. In MATH1063 we study simple regression models with a single covariate <span class="math inline">\(x\)</span>.</p>
+<p>For example, suppose we are interested in how birth weight depends on gestational age (weeks). The response, <span class="math inline">\(Y\)</span>, is birth weight (g). The covariate, <span class="math inline">\(x\)</span>, is gestational age (weeks). Suppose we have the following data (fictional, but based on <a href="https://www.canada.ca/en/public-health/services/injury-prevention/health-surveillance-epidemiology-division/maternal-infant-health/birth-weight-gestational.html">real data for male singleton births in Canada</a>).</p>
 <p><img src="MATH1063_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
 </div>
 <div id="simple-linear-regression" class="section level2 hasAnchor" number="5.2">
 <h2><span class="header-section-number">5.2</span> Simple linear regression<a href="lm.html#simple-linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In simple linear regression, we model the dependence of the response
-on the covariate as a straight line plus an error term. That is
+<p>In simple linear regression, the response depends linearly on the covariate with an additive error:
 <span class="math display">\[Y_i
 = \beta_0 + \beta_1 x_i + \epsilon_i, \; i = 1, \ldots, n,\]</span>
-where <span class="math inline">\(\beta_0\)</span> is an <strong>intercept</strong> parameter, <span class="math inline">\(\beta_1\)</span> is a
-<strong>slope</strong> parameter and <span class="math inline">\(\epsilon_i\)</span> is a random error term. We
-usually model <span class="math inline">\(\epsilon_i \sim N(0, \sigma^2)\)</span>, with variance
-parameter <span class="math inline">\(\sigma^2\)</span>. There are three unknown parameters, <span class="math inline">\(\beta_0\)</span>,
-<span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\sigma^2\)</span>, which we want to estimate from the data.</p>
-<p>We have <span class="math display">\[E(Y_i) = \beta_0 + \beta_1 x_i.\]</span> Any choice of <span class="math inline">\(\beta_0\)</span>
-and <span class="math inline">\(\beta_1\)</span> give a different straight line. We call <span class="math inline">\(\beta_0\)</span> and
-<span class="math inline">\(\beta_1\)</span> the <strong>regression parameters</strong>.</p>
-<p>Out of all possible choices of straight line (choices of the
-regression parameters <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>), which one should we
-choose?</p>
+where <span class="math inline">\(\beta_0\)</span> is the intercept, <span class="math inline">\(\beta_1\)</span> the slope, and <span class="math inline">\(\epsilon_i\)</span> a random error. We assume <span class="math inline">\(\epsilon_i \sim N(0,\sigma^2)\)</span>, so the unknown parameters to estimate are <span class="math inline">\(\beta_0\)</span>, <span class="math inline">\(\beta_1\)</span>, and <span class="math inline">\(\sigma^2\)</span>.</p>
+<p>We have <span class="math display">\[E(Y_i) = \beta_0 + \beta_1 x_i.\]</span> Each choice of <span class="math inline">\((\beta_0,\beta_1)\)</span> defines a line; these are the regression parameters.</p>
+<p>Which line should we choose?</p>
 </div>
 <div id="estimating-the-regression-parameters" class="section level2 hasAnchor" number="5.3">
 <h2><span class="header-section-number">5.3</span> Estimating the regression parameters<a href="lm.html#estimating-the-regression-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -407,19 +383,17 @@ So
 \hat{\beta}_1 = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^n (x_i - \bar{x})^2}, \qquad
 \hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}.
 \]</span></p>
-<p>These are unbiased estimators of the regression parameters. We do not
-derive this result here; the derivation will be covered in the
-second-year module, Statistical Modelling I).</p>
+<p>These estimators are unbiased. The derivation is covered in the second-year module Statistical Modelling I.</p>
 </div>
 <div id="estimating-the-variance-parameter" class="section level2 hasAnchor" number="5.4">
 <h2><span class="header-section-number">5.4</span> Estimating the variance parameter<a href="lm.html#estimating-the-variance-parameter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In addition to estimating the regression parameters <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>, we also need to estimate the variance parameter <span class="math inline">\(\sigma^2\)</span> of the error terms.</p>
+<p>We also estimate the error variance <span class="math inline">\(\sigma^2\)</span>.</p>
 <p>We estimate <span class="math inline">\(\sigma^2\)</span> with
 <span class="math display">\[
 \hat{\sigma}^2 = \frac{1}{n-2} \sum_{i=1}^n (y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i)^2,
 \]</span>
 where <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span> are the least squares estimates.</p>
-<p>This estimator is unbiased for <span class="math inline">\(\sigma^2\)</span>. We do not derive this result here; the derivation will be covered in the second-year module, Statistical Modelling I.</p>
+<p>This estimator is unbiased for <span class="math inline">\(\sigma^2\)</span>; a derivation appears in Statistical Modelling I.</p>
 </div>
 <div id="model-fitting-in-r" class="section level2 hasAnchor" number="5.5">
 <h2><span class="header-section-number">5.5</span> Model fitting in R<a href="lm.html#model-fitting-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -462,12 +436,8 @@ errors for the estimates, by using the <code>summary</code> function in R:</p>
 ## Residual standard error: 0.3731 on 38 degrees of freedom
 ## Multiple R-squared:  0.7171, Adjusted R-squared:  0.7096 
 ## F-statistic: 96.32 on 1 and 38 DF,  p-value: 5.735e-12</code></pre>
-<p>You can learn more about expressing uncertainty in simple
-linear regression the second-year module, Statistical Modelling I.</p>
-<p>The “Residual standard error” (0.3731) is an
-estimate of <span class="math inline">\(\sigma\)</span>. The variance estimate <span class="math inline">\(\hat \sigma^2\)</span> can be
-found by squaring this number (in this case, <span class="math inline">\(\hat \sigma^2 =\)</span>
-0.1392).</p>
+<p>You can learn more about uncertainty in simple linear regression in the second-year module Statistical Modelling I.</p>
+<p>The “Residual standard error” (0.3731) estimates <span class="math inline">\(\sigma\)</span>. Squaring it gives <span class="math inline">\(\hat \sigma^2\)</span> (here, 0.1392).</p>
 <p>We can also plot the data with our fitted line overlaid:</p>
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="lm.html#cb65-1" tabindex="-1"></a><span class="fu">plot</span>(weight <span class="sc">~</span> ga, <span class="at">data =</span> bw)</span>
 <span id="cb65-2"><a href="lm.html#cb65-2" tabindex="-1"></a><span class="fu">abline</span>(mod)</span></code></pre></div>
@@ -475,7 +445,7 @@ found by squaring this number (in this case, <span class="math inline">\(\hat \s
 </div>
 <div id="limitations-of-simple-linear-regression" class="section level2 hasAnchor" number="5.6">
 <h2><span class="header-section-number">5.6</span> Limitations of simple linear regression<a href="lm.html#limitations-of-simple-linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>While simple linear regression is a powerful and widely used tool, it has several important limitations:</p>
+<p>Simple linear regression is useful, but it has important limitations:</p>
 <ul>
 <li><strong>Only one covariate:</strong> Simple linear regression models the relationship between the response and a single covariate. In many real-world situations, multiple variables may influence the response.</li>
 <li><strong>Linearity assumption:</strong> The model assumes that the relationship between the response and the covariate is linear. If the true relationship is non-linear, the model may not fit well.</li>

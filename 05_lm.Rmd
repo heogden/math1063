@@ -143,6 +143,10 @@ Thus, the least squares estimates are
 \hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}.
 \]
 
+These are unbiased estimators of the regression parameters. We do not
+derive this result here; the derivation will be covered in the
+second-year module, Statistical Modelling I).
+
 ## Estimating the variance parameter
 
 In addition to estimating the regression parameters $\beta_0$ and $\beta_1$, we also need to estimate the variance parameter $\sigma^2$ of the error terms.
@@ -197,3 +201,14 @@ We can also plot the data with our fitted line overlaid:
 plot(weight ~ ga, data = bw)
 abline(mod)
 ```
+
+## Limitations of simple linear regression
+
+While simple linear regression is a powerful and widely used tool, it has several important limitations:
+
+- **Only one covariate:** Simple linear regression models the relationship between the response and a single covariate. In many real-world situations, multiple variables may influence the response.
+- **Linearity assumption:** The model assumes that the relationship between the response and the covariate is linear. If the true relationship is non-linear, the model may not fit well.
+- **Constant variance (homoscedasticity):** The errors are assumed to have constant variance across all values of the covariate. If the variance of the errors changes (heteroscedasticity), the model's estimates and inferences may be unreliable.
+- **Normality of errors:** The errors are assumed to be normally distributed. If this assumption is violated, inference based on the model may not be valid.
+
+These limitations, and methods to address them, will be covered in more detail in the second-year module, Statistical Modelling I.

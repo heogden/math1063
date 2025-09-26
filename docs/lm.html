@@ -288,6 +288,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3" data-path="lm.html"><a href="lm.html#estimating-the-regression-parameters"><i class="fa fa-check"></i><b>5.3</b> Estimating the regression parameters</a></li>
 <li class="chapter" data-level="5.4" data-path="lm.html"><a href="lm.html#estimating-the-variance-parameter"><i class="fa fa-check"></i><b>5.4</b> Estimating the variance parameter</a></li>
 <li class="chapter" data-level="5.5" data-path="lm.html"><a href="lm.html#model-fitting-in-r"><i class="fa fa-check"></i><b>5.5</b> Model fitting in R</a></li>
+<li class="chapter" data-level="5.6" data-path="lm.html"><a href="lm.html#limitations-of-simple-linear-regression"><i class="fa fa-check"></i><b>5.6</b> Limitations of simple linear regression</a></li>
 </ul></li>
 </ul>
 
@@ -406,6 +407,9 @@ So
 \hat{\beta}_1 = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^n (x_i - \bar{x})^2}, \qquad
 \hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}.
 \]</span></p>
+<p>These are unbiased estimators of the regression parameters. We do not
+derive this result here; the derivation will be covered in the
+second-year module, Statistical Modelling I).</p>
 </div>
 <div id="estimating-the-variance-parameter" class="section level2 hasAnchor" number="5.4">
 <h2><span class="header-section-number">5.4</span> Estimating the variance parameter<a href="lm.html#estimating-the-variance-parameter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -468,6 +472,17 @@ found by squaring this number (in this case, <span class="math inline">\(\hat \s
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="lm.html#cb65-1" tabindex="-1"></a><span class="fu">plot</span>(weight <span class="sc">~</span> ga, <span class="at">data =</span> bw)</span>
 <span id="cb65-2"><a href="lm.html#cb65-2" tabindex="-1"></a><span class="fu">abline</span>(mod)</span></code></pre></div>
 <p><img src="MATH1063_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
+</div>
+<div id="limitations-of-simple-linear-regression" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> Limitations of simple linear regression<a href="lm.html#limitations-of-simple-linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>While simple linear regression is a powerful and widely used tool, it has several important limitations:</p>
+<ul>
+<li><strong>Only one covariate:</strong> Simple linear regression models the relationship between the response and a single covariate. In many real-world situations, multiple variables may influence the response.</li>
+<li><strong>Linearity assumption:</strong> The model assumes that the relationship between the response and the covariate is linear. If the true relationship is non-linear, the model may not fit well.</li>
+<li><strong>Constant variance (homoscedasticity):</strong> The errors are assumed to have constant variance across all values of the covariate. If the variance of the errors changes (heteroscedasticity), the model’s estimates and inferences may be unreliable.</li>
+<li><strong>Normality of errors:</strong> The errors are assumed to be normally distributed. If this assumption is violated, inference based on the model may not be valid.</li>
+</ul>
+<p>These limitations, and methods to address them, will be covered in more detail in the second-year module, Statistical Modelling I.</p>
 
 </div>
 </div>

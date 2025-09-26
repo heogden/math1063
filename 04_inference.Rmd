@@ -4,34 +4,19 @@
 
 ### Introduction 
 
-Statistical analysis (or inference) involves drawing conclusions, and making predictions and decisions, using the evidence provided to us by observed data. To do this we use probability distributions, often called statistical models, to describe the process by which the observed data were
-generated. For example, we may suppose that the true proportion of
-mature students is $p$,
-$0 < p < 1$, and if we have selected $n$ students at random, 
-that each of those students gives rise to a
-Bernoulli distribution which takes the value $1$ if the student is a
-mature student and $0$
-otherwise. The
-success probability of the Bernoulli distribution will be the unknown $p$. The underlying statistical
-model is then the Bernoulli distribution.
+Statistical inference uses observed data to draw conclusions, make predictions, and support decisions. We do this by positing probability distributions (statistical models) for how the data are generated. For example, suppose the true proportion of mature students is $p$ with $0<p<1$. For a random sample of $n$ students, each observation can be modelled as Bernoulli($p$), taking value 1 for a mature student and 0 otherwise. Here the model is Bernoulli with success probability $p$.
 
 To illustrate with another example, suppose we have observed fast food waiting times in the
 morning and afternoon, as in Example \@ref(exm:fastfood). 
-If we treat time as continuous then 
-the waiting time for each customer could potentially be modelled as a normal random variable. 
+If time is treated as continuous, each customer’s waiting time can be modelled as a normal random variable.
 
 In general:
 
-- The form of the assumed model helps us to understand the real-world process by which the
-data were generated.
-- If the model explains the observed data well, then it should also inform us about future
-(or unobserved) data, and hence help us to make predictions (and decisions contingent on
-unobserved data).
-- The use of statistical models, together with a carefully constructed methodology for their
-analysis, also allows us to quantify the uncertainty associated with any conclusions, predictions or decisions we make.
+- The model’s form helps us understand the data-generating process.
+- If a model explains the observed data well, it can inform predictions and decisions about future (unobserved) data.
+- Models, together with appropriate methodology, allow us to quantify uncertainty in conclusions, predictions, and decisions.
 
-We will use the notation $x_1 , x_2 , \ldots , x_n$ to denote $n$ observations
-of the random variables $X_1 , X_2 , \ldots , X_n$ (corresponding capital letters). 
+We use $x_1, x_2, \ldots, x_n$ for $n$ observations of random variables $X_1, $X_2, \ldots, X_n$ (uppercase for random variables, lowercase for observed values).
 For the fast food waiting
 time example, we have $n = 20$, $x_1 = 38, x_2 = 100, \ldots, x_{20} = 70$, and 
 $X_i$ is the waiting time for the $i$th person in the sample.
@@ -51,63 +36,30 @@ as
 2. $X_1 , X_2 , \ldots , X_n$ have the same probability distribution 
 (so $x_1 , x_2 , \ldots , x_n$ are observations of a single random variable $X$).
 
-Assumption 1 depends on the sampling mechanism and is very common in practice. If we are
-to make this assumption for the Southampton student sampling experiment, we need to select
-randomly among all possible students. The assumption will be violated when samples are correlated either in time or in space, e.g. the daily air pollution level in
-Southampton for the last year or the air pollution levels in two nearby locations in Southampton.
-In this module we will only consider data sets where Assumption 1 is reasonable.
+Assumption 1 depends on the sampling mechanism and is common in practice. For the Southampton student example, it requires random selection from all students. It is violated when samples are temporally or spatially correlated (e.g., daily air pollution over a year, or measurements from nearby locations). In this module we consider only data sets for which Assumption 1 is reasonable.
 
-Assumption 2 is not
-always appropriate, but is often reasonable when we are modelling a single variable. In the fast
-food waiting time example, we must assume that there are no differences between the AM and PM
-waiting times for Assumption 2 to hold.
+Assumption 2 is not always appropriate, but is often reasonable when modelling a single variable. In the fast food waiting time example, it requires no systematic AM–PM differences.
 
 
-If Assumption 1 and 2 both hold, we say that $X_1 , \ldots , X_{n}$ are 
-independent and identically distributed (or i.i.d. for short).
+If Assumptions 1 and 2 both hold, then $X_1, \ldots, X_n$ are independent and identically distributed (i.i.d.).
 
 ### A fully specified model
 
-Sometimes a model completely specifies the probability distribution of $X_1 , X_2 , \ldots , X_n$. 
-For example, if we assume that the waiting time $X \sim N (\mu, \sigma^2)$ where $\mu = 100$, and 
-$\sigma^2 = 100$, then this
-is a fully specified model. In this case, there is no need to collect any data as there is no need
-to make any inference about any unknown quantities, although we may use the data to judge the
-plausibility of the model.
-A fully specified model might be appropriate when there is some external
-(to the data) theory as to why the model (in particular the values of $\mu$ and $\sigma^2$)
-was appropriate.
-Fully specified models such as this are uncommon as we rarely have external theory which allows
-us to specify a model so precisely.
+Sometimes a model fully specifies the distribution of $X_1, \ldots, X_n$. For example, $X \sim N(\mu,\sigma^2)$ with $\mu=100$ and $\sigma^2=100$ is fully specified: there are no unknowns to estimate (though we may still use data to assess plausibility). Such cases are uncommon unless external theory justifies the parameter values.
 
 ### A parametric statistical model
 
-A parametric statistical model specifies a probability distribution for a random sample apart from
-the value of a number of parameters in that distribution. This could be confusing in the first
-instance -- a parametric model does not specify parameters! Here the word parametric signifies the
-fact that the probability distribution is completely specified by a few parameters in the first place.
+A parametric statistical model specifies a family of distributions indexed by a finite set of parameters. The model’s form is fixed; only the parameter values are unknown.
 For example, the Poisson distribution is parameterised by the parameter $\lambda$ which happens 
 to be the
 mean of the distribution; the normal distribution is parameterised by two parameters, the mean $\mu$
 and the variance $\sigma^2$.
-When a parametric statistical model is assumed with some unknown parameters, statistical
-inference methods use data to estimate the unknown parameters, e.g. $\lambda$, $\mu$, $\sigma^2$. 
-Estimation will be
-discussed in more detail in the following sections.
+When parameters are unknown (e.g., $\lambda$, $\mu$, $\sigma^2$), we estimate them from data. We discuss estimation next.
 
 
 ### A nonparametric statistical model
 
-Sometimes it is not appropriate, or we want to avoid, making a precise specification for the 
-distribution which generated $X_1 , X_2 , \ldots , X_n$. For example, when the data histogram 
-does not show
-a bell-shaped distribution, it would be wrong to assume a normal distribution for the data. In
-such a case, although we can attempt to use some other non-bell-shaped parametric model, we can
-decide altogether to abandon parametric models. We may then still assume that 
-$X_1 , X_2 , \ldots , X_n$
-are i.i.d. random variables, but from a nonparametric statistical model which cannot be written
-down, having a probability function which only depends on a finite number of parameters. Such
-analysis approaches are also called distribution-free methods.
+Sometimes we avoid specifying a precise parametric form for the distribution of $X_1, \ldots, X_n$ (e.g., when a histogram is clearly non-normal). We may still assume $X_1, \ldots, X_n$ are i.i.d., but model them nonparametrically (distribution-free methods), without committing to a finite-dimensional parametric family.
 
 :::{.example name="Computer failures"}
 Let $X$ denote the count of computer failures per week
@@ -118,8 +70,7 @@ table:
 center_tab(t(table(compfail)))
 ```
 
-We want to estimate how often will the
-computer system fail at least once per week in the next year? The answer is $52 \times (1 - P (X = 0))$.
+We want to estimate how many weeks in the next year the system will fail at least once. The answer is $52 \times (1 - P(X=0))$.
 But how would you estimate $P (X = 0)$? Consider two approaches.
 
 1. **Nonparametric**. Estimate $P (X = 0)$ by the relative frequency of number of zeros in the
@@ -142,46 +93,28 @@ answer of 46 from the nonparametric approach.
 
 ### Should we prefer parametric or nonparametric and why?
 
-The parametric approach should be preferred if the assumption of the Poisson distribution can
-be justified for the data. For example, we can look at the data histogram or compare the fitted
-probabilities of different values of $X$, i.e. 
-\[\hat P (X = x) = e^{-\hat \lambda} \frac{\hat \lambda}{x!},\]
-with the relative frequencies from the
-sample. In general, often model-based analysis is preferred because it is more precise and accurate,
-and we can find estimates of uncertainty in such analysis based on the structure of the model. We
-shall see this later.
-
-The nonparametric approach should be preferred if the model cannot be justified for the data,
-as in that case the parametric approach will provide incorrect answers.
+Prefer the parametric approach when its assumptions (e.g., Poisson for counts) are justified, assessed via plots or by comparing fitted probabilities
+\[\hat P(X=x)=e^{-\hat\lambda}\frac{\hat\lambda^x}{x!}\]
+to sample frequencies. Model-based analyses are often more precise and provide principled uncertainty quantification. Use nonparametric methods when the parametric model is not credible.
 
 
 ## Estimation
 
 ### Introduction 
 
-Once we have collected data and proposed a statistical model for our data, the initial statistical
-analysis usually involves estimation.
+After collecting data and proposing a model, the first task is typically estimation.
 
-- For a parametric model, we need to estimate the unknown (unspecified) parameter $\lambda$. For
-example, if our model for the computer failure data is that they are i.i.d. Poisson, we need to
-estimate the mean ($\lambda$) of the Poisson distribution.
-- For a nonparametric model, we may want to estimate the properties of the data-generating
-distribution. For example, if our model for the computer failure data is that they are i.i.d.,
-following the distribution of an unspecified common random variable $X$, then we may want
-to estimate $\mu = E(X)$ or $\sigma^2 = \operatorname{Var}(X)$.
+- For a parametric model, estimate the unknown parameters (e.g., for i.i.d. Poisson data, estimate $\lambda=E(X)$).
+- For a nonparametric model, estimate population features of $X$ (e.g., $\mu=E(X)$, $\sigma^2=\operatorname{Var}(X)$).
 
-In the following, we use the generic notation $\theta$ to denote the *estimand*
-(what we want to estimate
-or the parameter). For example, $\theta$ is the parameter $\lambda$ in the first example, and 
-$\theta$ may be either $\mu$
-or $\sigma^2$ or both in the second example.
+We use $\theta$ for the estimand (the quantity to be estimated). In the examples above, $\theta$ may be $\lambda$, or $\mu$, or $\sigma^2$.
 
 
 
 ### Population and sample
 
 
-Recall that a statistical model specifies a probability distribution for the random variables $\boldsymbol{X}$ corresponding to the data observations $\boldsymbol{x}$.
+Recall: a statistical model specifies a probability distribution for $\boldsymbol{X}$ corresponding to observations $\boldsymbol{x}$.
 
 - The observations $\boldsymbol{x} = (x_1 , \ldots , x_n )$ are called the sample, and quantities derived from the
 sample are sample quantities. For example, as in Chapter 1, we call
@@ -196,22 +129,16 @@ a random variable $X$, then we call $E(X)$ the *population mean*.
 
 ### Statistic and estimator
 
-A statistic $T(\boldsymbol{x})$ is any function of the observed data $x_{1}, \ldots, x_{n}$ alone (and therefore does not depend on any parameters or other unknowns).
+A statistic $T(\boldsymbol{x})$ is any function of the observed data $x_{1}, \ldots, x_{n}$ (and does not depend on unknowns). An estimate of $\theta$ is a statistic used to estimate $\theta$, denoted $\tilde{\theta}(\boldsymbol{x})$. The corresponding random variable $\tilde{\theta}(\boldsymbol{X})$ is the estimator. An estimate is a realised number (e.g., $\bar{x}$); an estimator is a random variable (e.g., $\bar{X}$).
 
-An estimate of $\theta$ is any statistic which is used to estimate $\theta$ under a particular statistical model. We will use $\tilde{\theta}(\boldsymbol{x})$ (sometimes shortened to $\tilde{\theta}$ ) to denote an estimate of $\theta$.
-
-An estimate $\tilde{\theta}(\boldsymbol{x})$ is an observation of a corresponding random variable $\tilde{\theta}(\boldsymbol{X})$ which is called an estimator. Thus an estimate is a particular observed value, e.g. 1.2, but an estimator is a random variable which can take values which are called estimates.
-
-An estimate is a particular numerical value, e.g. $\bar{x}$; an estimator is a random variable, e.g. $\bar{X}$.
-
-The probability distribution of any estimator $\tilde{\theta}(\boldsymbol{X})$ is called its sampling distribution. The estimate $\tilde{\theta}(\boldsymbol{x})$ is an observed value (a number), and is a single observation from the sampling distribution of $\tilde{\theta}(\boldsymbol{X})$.
+The probability distribution of $\tilde{\theta}(\boldsymbol{X})$ is its sampling distribution. The estimate $\tilde{\theta}(\boldsymbol{x})$ is one realisation from that distribution.
 
 :::{.example}
-Suppose that we have a random sample $X_{1}, \ldots, X_{n}$ from the uniform distribution on the interval $(0, \theta)$ where $\theta>0$ is unknown. Suppose that $n=5$ and we have the sample observations $x_{1}=2.3, x_{2}=3.6, x_{3}=20.2, x_{4}=0.9, x_{5}=17.2$. Our objective is to estimate $\theta$. How can we proceed?
+Suppose that we have a random sample $X_{1}, \ldots, X_{n}$ from the uniform distribution on the interval $(0, \theta)$ where $\theta>0$ is unknown. Suppose that $n=5$ and we have the sample observations $x_{1}=2.3, x_{2}=3.6, x_{3}=20.2, x_{4}=0.9, x_{5}=17.2$. We aim to estimate $\theta$. How can we proceed?
 
 Here the pdf $f(x)=\frac{1}{\theta}$ for $0 \leq x \leq \theta$ and 0 otherwise. Hence $E(X)=\int_{0}^{\theta} \frac{1}{\theta} x d x=\frac{\theta}{2}$. There are many possible estimators for $\theta$, e.g. $\hat{\theta}_{1}(\boldsymbol{X})=2 \bar{X}$, which is motivated by the method of moments because $\theta=2 E(X)$. A second estimator is $\hat{\theta}_{2}(\boldsymbol{X})=\max \left\{X_{1}, X_{2}, \ldots, X_{n}\right\}$, which is intuitive since $\theta$ must be greater than or equal to all observed values and thus the maximum of the sample value will be closest to $\theta$. 
 
-How could we choose between the two estimators $\hat{\theta}_{1}$ and $\hat{\theta}_{2}$ ? This is where we need to learn the sampling distribution of an estimator to determine which estimator will be unbiased, i.e. correct on average, and which will have minimum variability. We will formally define these in a minute, but first let us derive the sampling distribution, i.e. the pdf, of $\hat{\theta}_{2}$. Note that $\hat{\theta}_{2}$ is a random variable since the sample $X_{1}, \ldots, X_{n}$ is random. We will first find its cdf and then differentiate the cdf to get the pdf. For ease of notation, suppose $Y=\hat{\theta}_{2}(\boldsymbol{X})=\max \left\{X_{1}, X_{2}, \ldots, X_{n}\right\}$. For any $0<y<\theta$, the cdf of $Y, F(y)$ is given by
+How should we choose between $\hat{\theta}_{1}$ and $\hat{\theta}_{2}$? We need the sampling distributions to assess bias and variability (defined next). First, derive the distribution of $\hat{\theta}_{2}$. Let $Y=\hat{\theta}_{2}(\boldsymbol{X})=\max\{X_{1},\ldots,X_{n}\}$. For $0<y<\theta$, the cdf is
 \begin{align*}
 P(Y \leq y) &=P\left(\max \left\{X_{1}, X_{2}, \ldots, X_{n}\right\} \leq y\right) \\
 &\left.=P\left(X_{1} \leq y, X_{2} \leq y, \ldots, X_{n} \leq y\right)\right) \quad \text{since max $\leq y$ if and only if each $\leq y$}] \\
@@ -242,17 +169,16 @@ In general, we define the bias of an estimator $\tilde{\theta}(\boldsymbol{X})$ 
 An estimator $\tilde{\theta}(\boldsymbol{X})$ is said to be unbiased if
 \[\operatorname{bias}(\tilde{\theta})=0 \text {, i.e. if } E(\tilde{\theta})=\theta.\]
 
-So an estimator is unbiased if the expectation of its sampling distribution is equal to the quantity we are trying to estimate. Unbiased means "getting it right on average", i.e. under repeated sampling (relative frequency interpretation of probability).
+Thus an estimator is unbiased if its expected value equals the target: “right on average” under repeated sampling.
 
 Thus for the uniform distribution example, $\hat{\theta}_{2}$ is a biased estimator of $\theta$ and
 \[\operatorname{bias}\left(\hat{\theta}_{2}\right)=E\left(\hat{\theta}_{2}\right)-\theta=\frac{n}{n+1} \theta-\theta=-\frac{1}{n+1} \theta,\]
 which goes to zero as $n \rightarrow \infty$. However, $\hat{\theta}_{1}=2 \bar{X}$ is unbiased since $E\left(\hat{\theta}_{1}\right)=2 E(\bar{X})=2 \frac{\theta}{2}=\theta$. 
 
-Unbiased estimators are "correct on average", but that does not mean that they are guaranteed to provide estimates which are close to the estimand $\theta$. A better measure of the quality of an estimator than bias is the mean squared error (or MSE), defined as
+Unbiasedness does not guarantee estimates close to $\theta$. A more informative measure is the mean squared error (MSE), defined as
 \[\operatorname{MSE}(\tilde{\theta})=E\left[(\tilde{\theta}-\theta)^{2}\right]\]
 
- Therefore, if $\tilde{\theta}$ is unbiased for $\theta$, i.e. if $E(\tilde{\theta})=\theta$,
-  then MSE $(\tilde{\theta})=\operatorname{Var}(\tilde{\theta})$. In general, we have the following result:
+If $\tilde{\theta}$ is unbiased ($E(\tilde{\theta})=\theta$), then $\operatorname{MSE}(\tilde{\theta})=\operatorname{Var}(\tilde{\theta})$. In general:
 
 ::: {.theorem}
 \[\operatorname{MSE}(\tilde{\theta})=\operatorname{Var}(\tilde{\theta})+\operatorname{bias}(\tilde{\theta})^{2}\]
@@ -273,7 +199,7 @@ The proof is similar to the proof of Theorem \@ref(thm:sse).
 :::
 
 :::{ .example}
-Continuing with the uniform distribution $U(0, \theta)$ example, we have seen that $\hat{\theta}_{1}=2 \bar{X}$ is unbiased for $\theta$ but $\operatorname{bias}\left(\hat{\theta}_{2}\right)=-\frac{1}{n+1} \theta$. How do these estimators compare with respect to the MSE? Since $\hat{\theta}_{1}$ is unbiased, its MSE is its variance. Later, we will prove that for random sampling from any population
+Continuing the $U(0,\theta)$ example: $\hat{\theta}_{1}=2\bar{X}$ is unbiased, whereas $\operatorname{bias}(\hat{\theta}_{2})=-\frac{1}{n+1}\theta$. How do they compare via MSE? Since $\hat{\theta}_{1}$ is unbiased, its MSE equals its variance. Later we prove that for a random sample from any population
 \[\operatorname{Var}(\bar{X})=\frac{\operatorname{Var}(X)}{n},\]
 where $\operatorname{Var}(X)$ is the variance of the population sampled from. 
 Returning to our example, we know that if $X \sim U(0, \theta)$ then $\operatorname{Var}(X)=\frac{\theta^{2}}{12}$. Therefore we have
@@ -301,7 +227,7 @@ The MSE of $\hat{\theta}_{2}$ is an order of magnitude smaller than the MSE of $
 
 ### Introduction
 
-Often, one of the main tasks of a statistician is to estimate a population average or mean. However the estimates, using whatever procedure, will not be usable or scientifically meaningful if we do not know their associated uncertainties. For example, a statement such as: "the Arctic ocean will be completely ice-free in the summer in the next few decades" provides little information as it does not communicate the extent or the nature of the uncertainty in it. Perhaps a more precise statement could be: "the Arctic ocean will be completely ice-free in the summer some time in the next 20-30 years". This last statement not only gives a numerical value for the number of years for complete ice-melt in the summer, but also acknowledges the uncertainty of $\pm 5$ years in the estimate. A statistician's main job is to estimate such uncertainties. In this lecture, we will get started with estimating uncertainties when we estimate a population mean. We will introduce the standard error of an estimator.
+A common task is to estimate a population mean, together with its uncertainty. Point estimates without uncertainty are often uninformative. For example, “ice-free within 20–30 years” conveys both a central value and a range. Here we introduce the standard error of an estimator to quantify uncertainty in estimating a population mean.
 
 ### Estimation of a population mean
 
@@ -331,7 +257,7 @@ Then
 :::
 
 ::: {.proof}
-We use the result that for independent random variables the variance of the sum is the sum of the variances from Section \@ref(sec:sum-rvs) . Thus,
+Using that for independent variables the variance of a sum equals the sum of variances (Section \@ref(sec:sum-rvs)), we have
 \[\operatorname{Var}[\bar{X}]=\frac{1}{n^{2}} \sum_{i=1}^{n} \operatorname{Var}\left(X_{i}\right)=\frac{1}{n^{2}} \sum_{i=1}^{n} \operatorname{Var}(X)=\frac{n}{n^{2}} \operatorname{Var}(X)=\frac{\sigma^{2}}{n},\]
 :::
 
@@ -378,9 +304,7 @@ and therefore the sampling variance of the estimator is an important summary of 
 We usually prefer to focus on the standard deviation of the sampling distribution of $\tilde{\theta}$,
 \[\text {s.d.}(\tilde{\theta})=\sqrt{\operatorname{Var}(\tilde{\theta})}.\]
 
-In practice we will not know s.d.$(\tilde{\theta})$, as it will typically depend on unknown features of the distribution of $X_{1}, \ldots, X_{n}$. However, we may be able to estimate s.d.$(\tilde{\theta})$ using the observed sample $x_{1}, \ldots, x_{n}$. We define the standard error, s.e.$(\tilde{\theta})$, of an estimator $\tilde{\theta}$ to be an estimate of the standard deviation of its sampling distribution, s.d.$(\tilde{\theta})$.
-
-Standard error of an estimator is an estimate of the standard deviation of its sampling distribution
+In practice s.d.$(\tilde{\theta})$ is unknown, but we can estimate it from the sample. The standard error, s.e.$(\tilde{\theta})$, is an estimate of the standard deviation of the sampling distribution of $\tilde{\theta}$.
 
 We proved that
 \[\operatorname{Var}[\bar{X}]=\frac{\sigma^{2}}{n} \Rightarrow \text { s.d. }(\bar{X})=\frac{\sigma}{\sqrt{n}}.\]
@@ -391,10 +315,10 @@ As $\sigma$ is unknown, we cannot calculate this standard deviation. However, we
    \[\text {s.e.}(\bar{X})=\frac{s}{\sqrt{n}}.\]
 
 <!-- TODO: refer back to computer failure data in C1 -->
-Therefore, for the computer failure data, our estimate, $\bar{x}=3.75$, for the population mean is associated with a standard error
+For the computer failure data, the estimate $\bar{x}=3.75$ has standard error
 \[\text{s.e.}(\bar{X})=\frac{3.381}{\sqrt{104}}=0.332.\]
 
-Note that this is "a" standard error, so other standard errors may be available. Indeed, for parametric inference, where we make assumptions about $f(x)$, alternative standard errors are available. 
+This is one choice of standard error. Under parametric assumptions about $f(x)$, alternative (often smaller) standard errors may be available. 
 For example, if $X_{1}, \ldots, X_{n}$ are i.i.d. $\operatorname{Poisson}(\lambda)$ random variables,
 $E(X)=\lambda$, so $\bar{X}$ is an unbiased estimator of $\lambda$. $\operatorname{Var}(X)=\lambda$, so another $\text{s.e.}(\bar{X})=\sqrt{\hat{\lambda} / n}=\sqrt{\bar{x} / n}$.
    In the computer failure data example, this is $\sqrt{\frac{3.75}{104}}=0.19$.
@@ -413,7 +337,7 @@ P\left(h_{1} \leq T(\mathbf{X}, \theta) \leq h_{2}\right)=1-\alpha
 where $1-\alpha$ is any specified probability. If \@ref(eq:pivot)  can be 'inverted',we can write it as
 \[P\left(g_{1}(\mathbf{X}) \leq \theta \leq g_{2}(\mathbf{X})\right)=1-\alpha.\]
 
-Hence with probability $1-\alpha$, the parameter $\theta$ will lie between the random variables $g_{1}(\mathbf{X})$ and $g_{2}(\mathbf{X})$. Alternatively, the random interval $\left(g_{1}(\mathbf{X}), g_{2}(\mathbf{X})\right)$ includes $\theta$ with probability $1-\alpha$. Now, when we observe $x_{1}, \ldots, x_{n}$, we observe a single observation of the random interval $\left(g_{1}(\mathbf{X}), g_{2}(\mathbf{X})\right)$, which can be evaluated as $\left(g_{1}(\mathbf{x}), g_{2}(\mathbf{x})\right)$. We do not know if $\theta$ lies inside or outside this interval, but we do know that if we observed repeated samples, then $100(1-\alpha) \%$ of the resulting intervals would contain $\theta$. Hence, if $1-\alpha$ is high, we can be reasonably confident that our observed interval contains $\theta$. We call the observed interval $\left(g_{1}(\mathbf{x}), g_{2}(\mathbf{x})\right)$ a $100(1-\alpha) \%$ confidence interval for $\theta$. It is common to present intervals with high confidence levels, usually $90 \%, 95 \%$ or $99 \%$, so that $\alpha=0.1,0.05$ or $0.01$ respectively.
+Thus, with probability $1-\alpha$, the random interval $(g_{1}(\mathbf{X}), g_{2}(\mathbf{X}))$ contains $\theta$. After observing $x_{1}, \ldots, x_{n}$ we obtain the realised interval $(g_{1}(\mathbf{x}), g_{2}(\mathbf{x}))$, a $100(1-\alpha)\%$ confidence interval for $\theta$. Over repeated samples, $100(1-\alpha)\%$ of such intervals would contain $\theta$. Common levels are 90%, 95%, and 99%.
 
 ### Confidence interval for a normal mean
 
@@ -448,8 +372,7 @@ plot_data %>%
           panel.grid = element_blank())
 ```
 
-It is common practice to make the interval symmetric, so that the two unshaded areas are equal
-(to $\alpha / 2$ ), in which case
+It is common to choose a symmetric interval, allocating $\alpha/2$ to each tail, so
 \[-h_{1}=h_{2} \equiv h \quad \text { and } \quad \Phi(h)=1-\frac{\alpha}{2}.\]
 
 The most common choice of confidence level is $1-\alpha=0.95$, in which case $h=1.96=\texttt{qnorm(0.975)}$. You may also occasionally see $90\%$ ($h=1.645=\texttt{qnorm(0.95)}$) or 
@@ -477,8 +400,7 @@ mean(fastfood) + c(-1, 1) * qnorm(0.975) * 18 / sqrt (20)
 ```
 assuming `fastfood` is the vector containing 20 waiting times.
 
-In reality, it is more likely that $\sigma$ is unknown in this example,
-and we need to seek alternative methods for finding the confidence intervals.
+In practice $\sigma$ is usually unknown, so we use alternative methods (next sections).
 :::
 
 
@@ -486,13 +408,11 @@ and we need to seek alternative methods for finding the confidence intervals.
 
 1. Notice that $\bar{x}$ is an unbiased estimate of $\mu, \sigma / \sqrt{n}$ is the standard error of the estimate and $1.96$ (in general $h$ in the above discussion) is a critical value from the associated known sampling distribution. The formula $(\bar{x} \pm 1.96 \sigma / \sqrt{n})$ for the confidence interval is then generalised as:
 \[\text { Estimate } \pm \text { Critical value } \times \text { Standard error }\]
-where the estimate is $\bar{x}$, the critical value is $1.96$ and the standard error is $\sigma / \sqrt{n}$. This is so much easier to remember. We will see that this formula holds in many of the following examples, but not all.
+where the estimate is $\bar{x}$, the critical value is $1.96$ and the standard error is $\sigma / \sqrt{n}$. We will see that this formula holds in many examples, but not all.
 
-2. Confidence intervals are frequently used, but also frequently misinterpreted. A $100(1-\alpha) \%$ confidence interval for $\theta$ is a single observation of a random interval which, under repeated sampling, would include $\theta$ $100(1-\alpha) \%$ of the time.
-
-3. A confidence interval is not a probability interval. You should avoid making statements like $P(1.3<\theta<2.2)=0.95$. In the classical approach to statistics you can only make probability statements about random variables, and $\theta$ is assumed to be a constant.
-
-4. If a confidence interval is interpreted as a probability interval, this may lead to problems. For example, suppose that $X_{1}$ and $X_{2}$ are i.i.d. $U\left(\theta-\frac{1}{2}, \theta+\frac{1}{2}\right)$ random variables. Then $P\left(\min \left(X_{1}, X_{2}\right)<\theta<\max \left(X_{1}, X_{2}\right)\right)=\frac{1}{2}$ so $\left(\min \left(x_{1}, x_{2}\right), \max \left(x_{1}, x_{2}\right)\right)$ is a $50 \%$ confidence interval for $\theta$, where $x_{1}$ and $x_{2}$ are the observed values of $X_{1}$ and $X_{2}$. Now suppose that $x_{1}=0.3$ and $x_{2}=0.9$. What is $P(0.3<\theta<0.9)$ ?
+2. A $100(1-\alpha)\%$ confidence interval is one realisation from a procedure that contains $\theta$ in $100(1-\alpha)\%$ of repeated samples.
+3. A confidence interval is not a probability statement about $\theta$ (a fixed constant in classical inference). Avoid statements like $P(1.3<\theta<2.2)=0.95$.
+4. Misinterpreting CIs as probability intervals can mislead. For example, if $X_1,X_2 \sim U(\theta-1/2,\theta+1/2)$ i.i.d., then $(\min(x_1,x_2), \max(x_1,x_2))$ is a 50% CI for $\theta$, but after observing $(0.3,0.9)$ it is not correct to assert $P(0.3<\theta<0.9)=0.5$.
 
 ### Confidence intervals using the CLT
 
@@ -500,13 +420,14 @@ where the estimate is $\bar{x}$, the critical value is $1.96$ and the standard e
 
 Confidence intervals are generally difficult to find. The difficulty lies in finding a pivot, i.e. a statistic $T(\mathbf{X}, \theta)$ such that
 \[P\left(h_{1} \leq T(\mathbf{X}, \theta) \leq h_{2}\right)=1-\alpha\]
-for two suitable numbers $h_{1}$ and $h_{2}$, and also that the above can be inverted to put the unknown $\theta$ in the middle of the inequality inside the probability statement. One solution to this problem is to use the powerful Central Limit Theorem (CLT) to claim normality, and then basically follow the above normal example for known variance.
+for two suitable numbers $h_{1}$ and $h_{2}$, and also that the above can be inverted to put the unknown $\theta$ in the middle of the inequality inside the probability statement. One approach is to use the Central Limit Theorem (CLT) to approximate normality and follow 
+the normal-mean construction, replacing the unknown s.d. by its estimate.
 
 #### Confidence intervals for $\mu$ using the CLT
 
 The CLT allows us to assume the large sample approximation
 \[\sqrt{n} \frac{(\bar{X}-\mu)}{\sigma} \stackrel{\text { approx }}{\sim} N(0,1) \text { as } n \rightarrow \infty.\]
-Thus an (approximate) $95 \%$ confidence interval (CI) for $\mu$ is given by $\bar{x} \pm 1.96 \frac{\sigma}{\sqrt{n}}$. But note that $\sigma$ is unknown so this CI cannot be used unless we can estimate $\sigma$, i.e. replace the unknown s.d. of $\bar{X}$ by its estimated standard error. In this case, we get the CI in the familiar form:
+Thus an approximate 95% CI for $\mu$ is $\bar{x} \pm 1.96\, \sigma/\sqrt{n}$. Since $\sigma$ is unknown, we replace it with an estimate (the s.e.), giving the familiar form:
 \[\text { Estimate } \pm \text { Critical value } \times \text { Standard error }\]
 
 Suppose that we do not assume any distribution for the sampled random variable $X$ but assume only that $X_{1}, \ldots, X_{n}$ are i.i.d, following the distribution of $X$ where $E(X)=\mu$ and $\operatorname{Var}(X)=\sigma^{2}$. We know that the standard error of $\bar{X}$ is $s / \sqrt{n}$ where $s$ is the sample standard deviation with divisor $n-1$. Then the following provides an (approximate) $95 \%$ CI for $\mu$:
@@ -536,7 +457,7 @@ If $X_{1}, \ldots, X_{n}$ are modelled as i.i.d. Bernoulli $(p)$ random variable
 For the example, suppose $\bar{x}=0.2$ and $n=10$. Then we obtain the $95 \%$ CI as
 \[0.2 \pm 1.96 \sqrt{(0.2 \times 0.8) / 10}=(-0.048,0.448)\]
 
-Here $n$ is too small for the large sample approximation to be accurate. 
+Here $n$ is too small for the large-sample approximation to be accurate.
 :::
 
 
@@ -547,7 +468,7 @@ For normal models we do not have to rely on large sample approximations, because
 \[T=\frac{\sqrt{n}(\bar{X}-\mu)}{S},\]
 where $S^{2}$ is the sample variance with divisor $n-1$, is standard (easily calculated) and thus the statistic $T=T(\mathbf{X}, \mu)$ can be an exact pivot for any sample size $n>1$.
 
-The point about easy calculation is that for any given $1-\alpha$, e.g. $1-\alpha=0.95$, we can calculate the critical value $h$ such that $P(-h<T<h)=1-\alpha$. Note also that the pivot $T$ does not involve the other unknown parameter of the normal model, namely the variance $\sigma^{2}$. If indeed, we can find $h$ for any given $1-\alpha$, then proceed as follows to find the exact CI for $\mu$ :
+For any chosen $1-\alpha$ (e.g., 0.95) we can find $h$ such that $P(-h<T<h)=1-\alpha$. Note that $T$ does not involve the unknown variance $\sigma^{2}$. Proceed as follows to obtain the exact CI for $\mu$:
 \begin{align*}
 & P(-h \leq T \leq h)=1-\alpha \\
 \text { i.e. } & P\left(-h \leq \sqrt{n} \frac{(\bar{X}-\mu)}{S} \leq h\right)=0.95 \\
@@ -595,7 +516,7 @@ $n$ & 2 & 5 & 10 & 15 & 20 & 30 & 50 & 100 & 1000 \\
 \end{tabular}
 \end{center}
 
-Note that the critical value approaches $1.96$ (which is the critical value for the normal distribution) as $n \rightarrow \infty$, since the $t$-distribution itself approaches the normal distribution for large values of its df parameter.
+As $n \to \infty$, $h$ approaches 1.96 (the normal critical value), since $t_{n-1}$ converges to the standard normal.
 
 If you can justify that the underlying distribution is normal then you
 can use the $t$-distribution-based confidence interval.
@@ -630,7 +551,7 @@ or a $99 \%$ confidence interval with
 mean(fastfood) + c(-1, 1) * qt(0.995, df = 19) * sd(fastfood) / sqrt(20)
 ```
 
-We can see clearly that the interval gets wider as the level of confidence is gets higher.
+We see that the interval widens as the confidence level increases.
 :::
 
 
@@ -656,14 +577,14 @@ Note that the interval here does not include the value 0, so it is very likely t
 
 #### Introduction
 
-The manager of a new fast food chain claims that the average waiting time to be served in their restaurant is less than a minute. The marketing department of a mobile phone company claims that their phones never break down in the first three years of their lifetime. A professor of nutrition claims that students gain significant weight in the first year of their life in college away form home. How can we verify these claims? We will learn the procedures of hypothesis testing for such problems.
+Managers and researchers often make claims (e.g., average waiting time < 1 minute; phones never fail in three years; students gain weight in their first year away from home). How can we assess such claims? We use hypothesis testing.
 
 
 In statistical inference, we use observations $x_{1}, \ldots, x_{n}$ of univariate random variables $X_{1}, \ldots, X_{n}$ in order to draw inferences about the probability distribution $f(x)$ of the underlying random variable $X$. So far, we have mainly been concerned with estimating features (usually unknown parameters) of $f(x)$. It is often of interest to compare alternative specifications for $f(x)$. If we have a set of competing probability models which might have generated the observed data, we may want to determine which of the models is most appropriate. A proposed (hypothesised) model for $X_{1}, \ldots, X_{n}$ is then referred to as a hypothesis, and pairs of models are compared using hypothesis tests.
 
-For example, we may have two competing alternatives, $f^{(0)}(x)$ (model $H_{0}$) and $f^{(1)}(x)$ (model $H_{1}$) for $f(x)$, both of which completely specify the joint distribution of the sample $X_{1}, \ldots, X_{n}$. Completely specified statistical models are called simple hypotheses. Usually, $H_{0}$ and $H_{1}$ both take the same parametric form $f(x, \theta)$, but with different values $\theta^{(0)}$ and $\theta^{(1)}$ of $\theta$. Thus the joint distribution of the sample given by $f(\mathbf{X})$ is completely specified apart from the values of the unknown parameter $\theta$ and $\theta^{(0)} \neq \theta^{(1)}$ are specified alternative values.
+For example, let $H_0$ and $H_1$ specify competing distributions $f^{(0)}(x)$ and $f^{(1)}(x)$ that fully determine the joint distribution of $X_{1},\ldots,X_{n}$; these are simple hypotheses. Often both take the same parametric form $f(x;\theta)$ with different specified values $\theta^{(0)} \neq \theta^{(1)}$.
 
-More generally, competing hypotheses often do not completely specify the joint distribution of $X_{1}, \ldots, X_{n}$. For example, a hypothesis may state that $X_{1}, \ldots, X_{n}$ is a random sample from the probability distribution $f(x ; \theta)$ where $\theta<0$. This is not a completely specified hypothesis, since it is not possible to calculate probabilities such as $P\left(X_{1}<2\right)$ when the hypothesis is true, as we do not know the exact value of $\theta$. Such an hypothesis is called a composite hypothesis.
+More generally, hypotheses may leave parameters unspecified (composite hypotheses). For instance, $X_{1},\ldots,X_{n}$ i.i.d. from $f(x;\theta)$ with $\theta<0$ does not fully specify probabilities without a particular $\theta$.
 
 Examples of hypotheses:
 
@@ -678,7 +599,8 @@ Examples of hypotheses:
 
 #### Hypothesis testing procedure
 
-A hypothesis test provides a mechanism for comparing two competing statistical models, $H_{0}$ and $H_{1}$. A hypothesis test does not treat the two hypotheses (models) symmetrically. One hypothesis, $H_{0}$, is given special status, and referred to as the null hypothesis. The null hypothesis is the reference model, and is assumed to be appropriate unless the observed data strongly indicate that $H_{0}$ is inappropriate, and that $H_{1}$ (the alternative hypothesis) should be preferred. Hence, the fact that a hypothesis test does not reject $H_{0}$ should not be taken as evidence that $H_{0}$ is true and $H_{1}$ is not, or that $H_{0}$ is better-supported by the data than $H_{1}$, merely that the data does not provide significant evidence to reject $H_{0}$ in favour of $H_{1}$.
+A hypothesis test provides a mechanism for comparing two competing statistical models, $H_{0}$ and $H_{1}$. A hypothesis test does not treat the two hypotheses (models) symmetrically. One hypothesis, $H_{0}$, is given special status, and referred to as the null hypothesis. The null hypothesis is the reference model, and is assumed to be appropriate unless the observed data strongly indicate that $H_{0}$ is inappropriate, and that $H_{1}$ (the alternative hypothesis) should be preferred. Thus, failure to reject $H_{0}$ is not evidence that $H_{0}$ is true or better supported 
+than $H_{1}$—only that the data do not provide sufficient evidence against $H_{0}$.
 
 A hypothesis test is defined by its critical region or rejection region, which we shall denote by $C$. $C$ is a subset of $\mathcal{R}^{n}$ and is the set of possible observed values of $\mathbf{X}$ which, if observed, would lead to rejection of $H_{0}$ in favour of $H_{1}$, i.e.
 
@@ -689,7 +611,7 @@ $$
 \end{array}
 $$
 
-As $\mathbf{X}$ is a random variable, there remains the possibility that a hypothesis test will give an erroneous result. We define two types of error:
+Because $\mathbf{X}$ is random, tests can err. We define:
 
 \begin{center}
 \begin{tabular}{|l|}
@@ -761,15 +683,11 @@ Furthermore
 \end{align*}
 :::
 
-Sometimes $\alpha$ is called the size (or significance level) of the test and $\omega \equiv 1-\beta$ is called the power of the test. Ideally, we would like to avoid error so we would like to make both $\alpha$ and $\beta$ as small as possible. In other words, a good test will have small size, but large power. However, it is not possible to make $\alpha$ and $\beta$ both arbitrarily small. For example if $C=\emptyset$ then $\alpha=0$, but $\beta=1$. On the other hand if $C=\mathbf{S}=\mathcal{R}^{n}$ then $\beta=0$, but $\alpha=1$.
+The size (significance level) is $\alpha$; the power is $1-\beta$. We want small $\alpha$ and large power, but they trade off: e.g., $C=\emptyset$ gives $\alpha=0$ and $\beta=1$; $C=\mathbb{R}^n$ gives $\alpha=1$ and $\beta=0$.
 
 In this section we have seen how to compute the type I and II error rates given a hypothesis
 testing procedure. But how should we construct a hypothesis testing procedure in the first place?
-We typically do this by first finding a *test statistic*: a quantity which
-can be computed from the data, whose distribution is known under $H_0$. We can then check 
-the actual value of the test statistic is a plausible sample from this null 
-distribution (the distribution of the test statistic under $H_0$).
-This is all rather abstract. How does it work in a concrete example?
+We typically proceed via a test statistic: a data-derived quantity with a known distribution under $H_0$. We then assess whether the observed value is plausible under this null distribution. Next we illustrate.
 
 ### Testing a normal mean (t-test)
 
@@ -783,9 +701,7 @@ We recall that
 \[\sqrt{n} \frac{(\bar{X}-\mu)}{S} \sim t_{n-1}\]
 and therefore, when $H_{0}$ is true, often written as under $H_{0}$,
 \[\sqrt{n} \frac{\left(\bar{X}-\mu_{0}\right)}{S} \sim t_{n-1}.\]
-Here $\sqrt{n}\left(\bar{X}-\mu_{0}\right) / s$ is a test statistic:
-it can be calculated from the data, and its null distribution is known:
-a $t$ distribution with $n-1$ degrees of freedom.
+Here $t=\sqrt{n}\,(\bar{X}-\mu_{0})/S$ is a test statistic with known null distribution: $t_{n-1}$.
 
 This test is called a $t$-test. We reject the null hypothesis $H_{0}$ in favour of the alternative $H_{1}$ if the observed test statistic seems unlikely to have been generated by the null distribution.
 
@@ -829,7 +745,7 @@ plot_data %>%
 
 #### The significance level
 
-In the weight gain example, it seems that there is enough evidence to reject $H_{0}$, but how extreme (far from the mean of the null distribution) should the test statistic be in order for $H_{0}$ to be rejected? The significance level of the test, $\alpha$, is the probability that we will erroneously reject $H_{0}$ (called Type I error as discussed before). Clearly we would like $\alpha$ to be small, but making it too small risks failing to reject $H_{0}$ even when it provides a poor model for the observed data (Type II error). Conventionally, $\alpha$ is usually set to a value of $0.05$, or $5 \%$. Therefore we reject $H_{0}$ when the test statistic lies in a rejection region which has probability $\alpha=0.05$ under the null distribution.
+The significance level $\alpha$ is the Type I error rate. Smaller $\alpha$ reduces false rejections but increases the chance of failing to reject poor models (Type II error). A common choice is $\alpha=0.05$; we reject when the test statistic falls in a region of total null probability $\alpha$.
 
 #### Rejection region
 
@@ -875,11 +791,7 @@ $n$ & 2 & 5 & 10 & 15 & 20 & 30 & 50 & 100 & $\infty$ \\
 \end{tabular}
 where the last value for $n=\infty$ is obtained from the normal distribution.
 
-However, if the alternative hypothesis is one-sided, e.g. $H_{1}: \mu>\mu_{0}$, then the critical region will only be in the right tail:
-reject if the test statistic is greater than some value $h$.
-In this case, we choose $h$ such that the area to the right of $h$
-(under the $t_{n-1}$ pdf)
- is $\alpha$. 
+For a one-sided alternative (e.g., $H_{1}:\mu>\mu_{0}$), the rejection region lies in the right tail: reject if the statistic exceeds $h$, chosen so that the right-tail area under $t_{n-1}$ is $\alpha$.
 So for $n = 100$ and $\alpha = 0.05$, we can find this $h$ with
 ```{r}
 qt(0.95, df = 99)
@@ -897,7 +809,7 @@ Suppose that we observe data $x_{1}, \ldots, x_{n}$ which are modelled as observ
 1. Compute the test statistic
 \[t=\sqrt{n} \frac{\left(\bar{x}-\mu_{0}\right)}{s}.\]
 
-2. For chosen significance level $\alpha$ (usually 0.05) calculate the rejection region for $t$, which is of the form $|t|>h$ where $-h$ is the $\alpha / 2$ percentile of the null distribution, $t_{n-1}$.
+2. For a chosen $\alpha$ (usually 0.05), the two-sided rejection region is $|t|>h$, where $-h$ is the $\alpha/2$ percentile of $t_{n-1}$.
 
 3. If your computed $t$ lies in the rejection region, i.e. $|t|>h$, you report that $H_{0}$ is rejected in favour of $H_{1}$ at the chosen level of significance. If $t$ does not lie in the rejection region, you report that $H_{0}$ is not rejected. (Never refer to 'accepting' a hypothesis.)
 
@@ -920,13 +832,13 @@ In R we can perform the test as follows:
 wtgain$diff <- wtgain$final - wtgain$initial
 t.test(wtgain$diff)
 ```
-This gives the results $\mathrm{t}=7.4074$, and $\mathrm{df}=67$. 
+This yields $t=7.4074$ with $\mathrm{df}=67$.
 
 :::
 
 #### p-values
 
-The result of a test is most commonly summarised by rejection or non-rejection of $H_{0}$ at the stated level of significance. An alternative, which you may see in practice, is the computation of a p-value. This is the probability that the null distribution would have generated the actual observed value of the statistic or something more extreme. A small p-value is evidence against the null hypothesis, as it indicates that the observed data were unlikely to have been generated by the null distribution. In many examples a threshold of $0.05$ is used, below which the null hypothesis is rejected as being insufficiently well-supported by the observed data. 
+The result of a test is most commonly summarised by rejection or non-rejection of $H_{0}$ at the stated level of significance. An alternative, which you may see in practice, is the computation of a p-value. This is the probability, under $H_0$, of observing the realised test statistic or something more extreme. Small p-values indicate evidence against $H_0$. A common threshold is 0.05.
 
 For the t-test with a two-sided alternative, the p-value is given by:\[p=P\left(|T|>\left|t_{\text{obs}}\right|\right)=2 P\left(T>\left|t_{\text{obs}}\right|\right),\]
 where $T$ has a $t_{n-1}$ distribution and $t_{\text{obs }}$ is the observed sample value.
@@ -996,7 +908,7 @@ This is because \[\left|T_\text{obs}=\frac{\sqrt{n}\left(\bar{x}-\mu_{0}\right)}
 ### Two sample t-tests
 
 
-Suppose that we observe two samples of data, $x_{1}, \ldots, x_{n}$ and $y_{1}, \ldots, y_{m}$, and that we propose to model them as observations of
+Suppose we observe two samples $x_{1}, \ldots, x_{n}$ and $y_{1}, \ldots, y_{m}$, modelled as
 \[X_{1}, \ldots, X_{n} \stackrel{\text{ i.i.d. }}{\sim} N\left(\mu_{X}, \sigma_{X}^{2}\right)\]
 and
 \[Y_{1}, \ldots, Y_{m} \stackrel{\text { i.i.d. }}{\sim} N\left(\mu_{Y}, \sigma_{Y}^{2}\right)\]
@@ -1008,7 +920,7 @@ against the alternative hypothesis
 <!-- TODO: change to remove $\sigma_X$, $\sigma_Y$ from setup? -->
 
 <!-- TODO more specific ref? -->
-In the Chapter 3 we proved that
+In Chapter 3 we proved that
 \[\bar{X} \sim N\left(\mu_{X}, \sigma_{X}^{2} / n\right) \text { and } \bar{Y} \sim N\left(\mu_{Y}, \sigma_{Y}^{2} / m\right)\]
 and therefore
 \[\bar{X}-\bar{Y} \sim N\left(\mu_{X}-\mu_{Y}, \frac{\sigma_{X}^{2}}{n}+\frac{\sigma_{Y}^{2}}{m}\right).\]
@@ -1022,7 +934,7 @@ then
 \[\sqrt{\frac{n m}{n+m}} \frac{(\bar{X}-\bar{Y})}{S} \sim t_{n+m-2}.\]
 Hence
 \[t=\sqrt{\frac{n m}{n+m}} \frac{(\bar{x}-\bar{y})}{s}\]
-is a test statistic for this test. The rejection region is $|t|>h$ where $-h$ is the $\alpha / 2$ (usually $0.025$ ) percentile of $t_{n+m-2}$.
+is a test statistic. For a two-sided test, reject if $|t|>h$, where $-h$ is the $\alpha/2$ percentile of $t_{n+m-2}$.
 
 From the hypothesis testing, a $100(1-\alpha) \%$ confidence interval
 for $\mu_{X}-\mu_{Y}$
@@ -1042,12 +954,12 @@ fastfood_am <- c(38, 100, 64, 43, 63, 59, 107, 52, 86, 77)
 fastfood_pm <- c(45, 62, 52, 72, 81, 88, 64, 75, 59, 70)
 t.test(fastfood_am, fastfood_pm)
 ```
-It automatically calculates the test statistic as $0.249$ and a p-value of $0.8067$. It also obtains the $95 \%$ CI given by $(-15.94,20.14)$.
+R reports the test statistic ($0.249$), p-value ($0.8067$), and the 95% CI $(-15.94, 20.14)$.
 :::
 
 ### Paired t-test
 
-Sometimes the assumption that the $X$ and $Y$ variables are independent of each other is unlikely to be valid, due to the design of the study. The most common example of this is where $n=m$ and data are paired. For example, a measurement has been made on patients before treatment $(X)$ and then again on the same set of patients after treatment $(Y)$. Recall the weight gain example is exactly of this type. In such examples, we proceed by computing data on the differences
+Sometimes $X$ and $Y$ are not independent by design, e.g., paired measurements on the same subjects before $(X)$ and after $(Y)$ treatment (as in the weight gain example). In such cases, analyse the differences
 \[z_{i}=x_{i}-y_{i}, \quad i=1, \ldots, n\]
 and modelling these differences as observations of i.i.d. $N\left(\mu_{z}, \sigma_{Z}^{2}\right)$ variables $Z_{1}, \ldots, Z_{n}$. Then, a test of the hypothesis $\mu_{X}=\mu_{Y}$ is achieved by testing $\mu_{Z}=0$, which is just a standard (one sample) t-test, as described previously.
 
@@ -1076,4 +988,4 @@ t.test(x, y, paired = TRUE)
 
 This gives the test statistic $t_{\text{obs}}=-5.0778$ with a df of 9 and a p-value $=0.0006649$. Thus we reject the null hypothesis. The associated $95 \%$ CI is $(-7.53,-2.89)$.
 
-The values of the second test are significantly higher than the ones of the first test, and so the second test cannot be considered as a replacement for the first.
+The second test yields significantly higher values than the first, so it cannot replace the first.

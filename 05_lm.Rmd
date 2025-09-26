@@ -143,11 +143,17 @@ Thus, the least squares estimates are
 \hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}.
 \]
 
-```{r, echo = FALSE}
-SS <- function(beta0, beta1) {
-    sum((y - beta0 - beta1 * x)^2)
-}
-```
+## Estimating the variance parameter
+
+In addition to estimating the regression parameters $\beta_0$ and $\beta_1$, we also need to estimate the variance parameter $\sigma^2$ of the error terms.
+
+We estimate $\sigma^2$ with
+\[
+\hat{\sigma}^2 = \frac{1}{n-2} \sum_{i=1}^n (y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i)^2,
+\]
+where $\hat{\beta}_0$ and $\hat{\beta}_1$ are the least squares estimates.
+
+This estimator is unbiased for $\sigma^2$. We do not derive this result here; the derivation will be covered in the second-year module, Statistical Modelling I.
 
 ## Model fitting in R
 
@@ -177,6 +183,13 @@ errors for the estimates, by using the `summary` function in R:
 ```{r}
 summary(mod)
 ```
+You can learn more about expressing uncertainty in simple
+linear regression the second-year module, Statistical Modelling I.
+
+The "Residual standard error" (`r round(summary(mod)$sigma, 4)`) is an
+estimate of $\sigma$. The variance estimate $\hat \sigma^2$ can be
+found by squaring this number (in this case, $\hat \sigma^2 =$ 
+`r round(summary(mod)$sigma^2, 4)`).
 
 We can also plot the data with our fitted line overlaid:
 

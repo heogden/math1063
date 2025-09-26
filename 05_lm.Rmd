@@ -164,7 +164,7 @@ This estimator is unbiased for $\sigma^2$. We do not derive this result here; th
 In practice, we do not need to apply these formulas by hand to find the
 least squares estimates. Instead, we can use the `lm` function in `R`
 to find the estimates. For instance, if the birth weight data is
-stored in a data frame called `bw`, with columns `weight` for birthweight
+stored in a data frame called `bw`, with columns `weight` for birth weight
 (which is the response, $y$) and `ga` for gestational age (which is the covariate, $x$), 
 then we can fit the simple linear regression model with:
 

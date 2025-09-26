@@ -47,7 +47,7 @@ Statistics can easily be misused or misinterpreted. As statisticians, it is our 
 - **Chapter 2: Introduction to Probability**. We will define and interpret probability as a way to measure uncertainty, learn the rules of probability, and work through examples.
 - **Chapter 3: Probability Distributions**. We will study various probability distributions that can be used to model the outcomes of different types of events.
 - **Chapter 4: Statistical Inference**. We will cover the basics of statistical inference, including point and interval estimation and hypothesis testing.
-
+- **Chapter 5: Simple Linear Regression**. We will introduce simple linear regressions models, which are used to model the relationships between two variables.
 
 
 ## Example data sets

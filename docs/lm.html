@@ -342,11 +342,6 @@ parameter <span class="math inline">\(\sigma^2\)</span>. There are three unknown
 <p>We have <span class="math display">\[E(Y_i) = \beta_0 + \beta_1 x_i.\]</span> Any choice of <span class="math inline">\(\beta_0\)</span>
 and <span class="math inline">\(\beta_1\)</span> give a different straight line. We call <span class="math inline">\(\beta_0\)</span> and
 <span class="math inline">\(\beta_1\)</span> the <strong>regression parameters</strong>.</p>
-<p>For instance, for the birthweight data, with <span class="math inline">\(\beta_0 = -4.5\)</span> and
-<span class="math inline">\(\beta_1 = 0.2\)</span>:</p>
-<p><img src="MATH1063_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
-<p>With <span class="math inline">\(\beta_0 = -6.5\)</span> and <span class="math inline">\(\beta_1 = 0.25\)</span>:</p>
-<p><img src="MATH1063_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
 <p>Out of all possible choices of straight line (choices of the
 regression parameters <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>), which one should we
 choose?</p>
@@ -358,12 +353,6 @@ associated straight line as close as possible to the data. We measure
 the distance between the line and the data with the sum of squares
 criterion:</p>
 <p><span class="math display">\[\text{SS}(\beta_0, \beta_1) = \sum_{i=1}^n (y_i - \beta_0 - \beta_1 x_i)^2.\]</span></p>
-<p>For instance, for the birthweight data,
-<span class="math inline">\(\text{SS}(-4.5, 0.2) =\)</span> 6.59
-and <span class="math inline">\(\text{SS}(-6.5, 0.25) =\)</span> 8.2,
-so we would prefer <span class="math inline">\(\beta_0 = -4.5\)</span>, <span class="math inline">\(\beta_1 = 0.2\)</span> out of these choices.
-But we are not limited to those two choices. How should we choose the
-regression parameters to minimise this sum of squares criterion?</p>
 <p>We need to find the values of <span class="math inline">\(\beta = (\beta_0, \beta_1)^T\)</span> which
 minimises <span class="math inline">\(SS(\beta)\)</span>, that is
 <span class="math display">\[\hat \beta = \arg\min_\beta SS(\beta).\]</span></p>

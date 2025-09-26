@@ -73,19 +73,6 @@ We have \[E(Y_i) = \beta_0 + \beta_1 x_i.\] Any choice of $\beta_0$
 and $\beta_1$ give a different straight line. We call $\beta_0$ and
 $\beta_1$ the **regression parameters**.
 
-For instance, for the birthweight data, with $\beta_0 = -4.5$ and
-$\beta_1 = 0.2$:
-
-```{r, echo = FALSE}
-p + geom_abline(intercept = -4.5, slope = 0.2)
-```
-
-With $\beta_0 = -6.5$ and $\beta_1 = 0.25$:
-
-```{r, echo = FALSE}
-p + geom_abline(intercept = -6.5, slope = 0.25)
-```
-
 Out of all possible choices of straight line (choices of the
 regression parameters $\beta_0$ and $\beta_1$), which one should we
 choose?
@@ -104,13 +91,6 @@ SS <- function(beta0, beta1) {
     sum((y - beta0 - beta1 * x)^2)
 }
 ```
-
-For instance, for the birthweight data, 
-$\text{SS}(-4.5, 0.2) =$ `r round(SS(-4.5, 0.2), 2)` 
-and $\text{SS}(-6.5, 0.25) =$ `r round(SS(-6.5, 0.25), 2)`,
-so we would prefer $\beta_0 = -4.5$, $\beta_1 = 0.2$ out of these choices.
-But we are not limited to those two choices. How should we choose the
-regression parameters to minimise this sum of squares criterion?
 
 We need to find the values of $\beta = (\beta_0, \beta_1)^T$ which
 minimises $SS(\beta)$, that is

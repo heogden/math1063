@@ -148,7 +148,8 @@ SS <- function(beta0, beta1) {
     sum((y - beta0 - beta1 * x)^2)
 }
 ```
-## Estimation in R
+
+## Model fitting in R
 
 In practice, we do not need to apply these formulas by hand to find the
 least squares estimates. Instead, we can use the `lm` function in `R`
@@ -169,3 +170,17 @@ mod
 
 We see $\hat \beta_0 =$ `r round(coef(mod)[1], 4)` 
 and $\hat \beta_1 =$ `r round(coef(mod)[2], 4)`.
+
+We can get more information about the model fit, including standard
+errors for the estimates, by using the `summary` function in R:
+
+```{r}
+summary(mod)
+```
+
+We can also plot the data with our fitted line overlaid:
+
+```{r}
+plot(weight ~ ga, data = bw)
+abline(mod)
+```

@@ -6,7 +6,7 @@ So far we have focused on single-variable models, estimating a distribution from
 
 Regression models how an “output” variable, the response $Y$, depends on one or more “input” variables $x$ (covariates). The response is sometimes called the dependent variable; covariates are also called independent or explanatory variables. In MATH1063 we study simple regression models with a single covariate $x$.
 
-For example, suppose we are interested in how birth weight depends on gestational age (weeks). The response, $Y$, is birth weight (g). The covariate, $x$, is gestational age (weeks). Suppose we have the following data (fictional, but based on [real data for male singleton births in Canada](https://www.canada.ca/en/public-health/services/injury-prevention/health-surveillance-epidemiology-division/maternal-infant-health/birth-weight-gestational.html)).
+For example, suppose we are interested in how birth weight depends on gestational age (weeks). The response, $Y$, is birth weight (kg). The covariate, $x$, is gestational age (weeks). Suppose we have the following data (fictional, but based on [real data for male singleton births in Canada](https://www.canada.ca/en/public-health/services/injury-prevention/health-surveillance-epidemiology-division/maternal-infant-health/birth-weight-gestational.html)).
 
 ```{r, echo = FALSE}
 
@@ -34,7 +34,7 @@ mod <- lm(weight ~ ga, data = bw)
 p <- ggplot(bw, aes(x = ga, y = weight)) +
     geom_point() +
     xlab("Gestational age (weeks)") +
-    ylab("Birth weight (g)")
+    ylab("Birth weight (kg)")
 
 p
 ```
